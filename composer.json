@@ -1,0 +1,9 @@
+{
+    "name": "izimmbiplays/blackthorne-academy",
+    "description": "A custom PHP/MySQL virtual academy and community platform featuring courses, forums, houses, achievements, points, profiles, moderation, and academic progression.",
+    "type": "project",
+    "require": {
+        "php": ">=8.3",
+        "phpmailer/phpmailer": "^7.0"
+    }
+}
