@@ -4,8 +4,13 @@
   "description": "**A custom-built virtual academy, learning management, and community platform developed from the ground up with PHP and MySQL.**",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "format:php": "powershell -ExecutionPolicy Bypass -File ./beautify-php.ps1 all",
+    "format:php:root": "powershell -ExecutionPolicy Bypass -File ./beautify-php.ps1 root",
+    "format:php:admin": "powershell -ExecutionPolicy Bypass -File ./beautify-php.ps1 admin",
+    "format:php:includes": "powershell -ExecutionPolicy Bypass -File ./beautify-php.ps1 includes",
+    "format:assets": "prettier --write \"assets/**/*.css\" \"assets/**/*.js\"",
+    "check:assets": "prettier --check \"assets/**/*.css\" \"assets/**/*.js\""
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/iZimmbiPlays/Blackthorne-Academy.git"

@@ -21,6 +21,16 @@ Development** rather than being represented as complete.
 
 ## September 29, 2026
 
+### Portfolio Documentation & Screenshots
+
+- Added a dedicated `docs/screenshots/` directory for portfolio imagery and application demonstrations.
+- Added screenshots covering the public homepage, authenticated homepage, student dashboard, staff dashboard, course enrollment, account enrollment, forums, member profiles, notifications, the Living Ledger, and interactive forum image-map navigation.
+- Expanded the README with a visual application showcase using the new screenshots.
+- Added descriptions explaining the functionality demonstrated by each screenshot.
+- Updated the documented project architecture to include the `docs/` and `docs/screenshots/` directories.
+- Expanded the documented repository structure to include the changelog, Git ignore rules, configuration template, and other repository-level files.
+- Updated GitHub repository metadata and technology topics for improved portfolio presentation and project discoverability.
+
 ### Repository & Code Quality Preparation
 
 - Completed a final pre-publication repository audit for the Blackthorne Academy portfolio repository.

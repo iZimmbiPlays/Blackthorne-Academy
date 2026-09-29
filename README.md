@@ -348,18 +348,23 @@ Blackthorne Academy follows a custom PHP application structure with reusable con
 
 ```text
 blackthorne-academy/
-├── admin/          # Administrative interfaces
-├── assets/         # Stylesheets, JavaScript, images, and static assets
-├── config/         # Application and environment configuration
-├── includes/       # Shared application logic and services
-├── instructor/     # Instructor-facing functionality
-├── uploads/        # Runtime upload storage
-├── vendor/         # Composer dependencies (not committed)
-├── views/          # Shared presentation components
-├── composer.json
-├── composer.lock
-├── LICENSE
-└── README.md
+├── admin/                    # Administrative interfaces
+├── assets/                   # Stylesheets, JavaScript, images, and static assets
+├── config/                   # Application and environment configuration
+│   └── secrets.example.php   # Safe configuration template
+├── docs/                     # Portfolio and project documentation
+│   └── screenshots/          # Application screenshots
+├── includes/                 # Shared application logic and services
+├── instructor/               # Instructor-facing functionality
+├── uploads/                  # Runtime upload storage
+├── vendor/                   # Composer dependencies (not committed)
+├── views/                    # Shared presentation components
+├── .gitignore                # Repository exclusion rules
+├── CHANGELOG.md              # Development history
+├── composer.json             # PHP dependency definitions
+├── composer.lock             # Locked dependency versions
+├── LICENSE                   # Proprietary usage terms
+└── README.md                 # Project documentation
 ```
 
 Runtime-generated content, user uploads, third-party dependency files, and private environment credentials are excluded from source control.
@@ -501,21 +506,73 @@ Because this repository represents an active project, database structures, inter
 
 ## Screenshots
 
-Screenshots and demonstrations of Blackthorne Academy will be added as development continues.
+The screenshots below show selected areas of the current Blackthorne Academy application. The platform remains under active development, so interfaces may continue to evolve as additional systems are completed.
 
-Planned examples include:
+### Public Homepage
 
-- Academy homepage
-- Member dashboard
-- Forums
-- House areas
-- Student profiles
-- Course dashboard
-- Lesson interface
-- Staff dashboard
-- Points management
-- Achievement system
-- Administrative tools
+![Blackthorne Academy public homepage](docs/screenshots/homepage-guest.png)
+
+The public-facing homepage introduces Blackthorne Academy and provides direct access to account login and enrollment.
+
+### Member & Staff Homepage
+
+![Blackthorne Academy logged-in homepage](docs/screenshots/homepage-members-staff.png)
+
+Authenticated users receive a personalized academy homepage with announcements, forum access, House information, points, and other member-specific navigation.
+
+### Student Dashboard
+
+![Blackthorne Academy student dashboard](docs/screenshots/user-dashboard.png)
+
+The student dashboard provides access to academic information, courses, academy activity, and other student-facing systems.
+
+### Course Enrollment
+
+![Blackthorne Academy enrolled courses](docs/screenshots/courses-enrolled.png)
+
+Students can view their enrolled courses and access the academic content associated with their current enrollment.
+
+### Enrollment
+
+![Blackthorne Academy enrollment interface](docs/screenshots/enroll.png)
+
+The enrollment workflow provides the account and student onboarding interface used to join Blackthorne Academy.
+
+### Forums
+
+![Blackthorne Academy forums](docs/screenshots/forums.png)
+
+Blackthorne's custom forum system supports categories, nested forums, permissions, announcements, moderation, House areas, course forums, and community discussion.
+
+### Interactive Forum Image Map
+
+![Blackthorne Academy interactive forum image map](docs/screenshots/live-image-map.png)
+
+Blackthorne can replace traditional forum navigation with immersive visual environments. Staff can build clickable regions using the custom Image Map Generator and connect areas of an academy scene directly to corresponding forums.
+
+### Member Profile
+
+![Blackthorne Academy member profile](docs/screenshots/user-profile.png)
+
+Member profiles integrate identity, House information, achievements, community activity, social features, and other academy information.
+
+### Living Ledger
+
+![Blackthorne Academy Living Ledger](docs/screenshots/living-ledger.png)
+
+The Living Ledger provides a dedicated member-facing record system separate from Blackthorne's House and Homework Point systems.
+
+### Notifications
+
+![Blackthorne Academy notifications](docs/screenshots/notifications.png)
+
+The internal notification system keeps members informed about supported academy activity, including achievements, point changes, forum events, and account activity.
+
+### Staff Dashboard
+
+![Blackthorne Academy staff dashboard](docs/screenshots/staff-dashboard.png)
+
+Authorized staff receive dedicated administrative navigation and management tools based on their assigned roles and capabilities.
 
 ---
 
