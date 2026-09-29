@@ -242,31 +242,25 @@ if ($forumReference === '') {
 
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <h1>Forum Not Found</h1>
-                <p>
-                    The requested board could not be found.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <h1>Forum Not Found</h1>
+            <p>
+                The requested board could not be found.
+            </p>
+            <a class="button button-secondary" href="<?= e(
                         url(
                             'forums.php'
                         )
-                    ); ?>"
-                >
-                    Return to Forums
-                </a>
-            </div>
-        </section>
-    </main>
+                    ); ?>">
+                Return to Forums
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require INCLUDES_PATH . '/footer.php';
 
@@ -364,31 +358,25 @@ if (
 
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <h1>Forum Not Found</h1>
-                <p>
-                    The requested board could not be found.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <h1>Forum Not Found</h1>
+            <p>
+                The requested board could not be found.
+            </p>
+            <a class="button button-secondary" href="<?= e(
                         url(
                             'forums.php'
                         )
-                    ); ?>"
-                >
-                    Return to Forums
-                </a>
-            </div>
-        </section>
-    </main>
+                    ); ?>">
+                Return to Forums
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require INCLUDES_PATH . '/footer.php';
 
@@ -425,31 +413,25 @@ if (
 
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <h1>Access Restricted</h1>
-                <p>
-                    Your account does not have permission to enter this board.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <h1>Access Restricted</h1>
+            <p>
+                Your account does not have permission to enter this board.
+            </p>
+            <a class="button button-secondary" href="<?= e(
                         url(
                             'forums.php'
                         )
-                    ); ?>"
-                >
-                    Return to Forums
-                </a>
-            </div>
-        </section>
-    </main>
+                    ); ?>">
+                Return to Forums
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require INCLUDES_PATH . '/footer.php';
 
@@ -2001,10 +1983,7 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="forum-board-page"
->
+<main id="main-content" class="forum-board-page">
 
 
     <!-- ================================================================
@@ -2016,10 +1995,7 @@ require INCLUDES_PATH . '/header.php';
         <div class="section-inner">
 
 
-            <nav
-                class="forum-breadcrumbs"
-                aria-label="Forum breadcrumb"
-            >
+            <nav class="forum-breadcrumbs" aria-label="Forum breadcrumb">
 
                 <?php if (
                     forum_user_can_moderate(
@@ -2029,19 +2005,17 @@ require INCLUDES_PATH . '/header.php';
                     )
                 ): ?>
 
-                    <a
-                        href="<?= e(
+                <a href="<?= e(
                             url(
                                 'forums.php'
                             )
-                        ); ?>"
-                    >
-                        Forums
-                    </a>
+                        ); ?>">
+                    Forums
+                </a>
 
-                    <span aria-hidden="true">
-                        /
-                    </span>
+                <span aria-hidden="true">
+                    /
+                </span>
 
                 <?php endif; ?>
 
@@ -2059,26 +2033,24 @@ require INCLUDES_PATH . '/header.php';
                     as $ancestorForum
                 ): ?>
 
-                    <span aria-hidden="true">
-                        /
-                    </span>
+                <span aria-hidden="true">
+                    /
+                </span>
 
-                    <a
-                        href="<?= e(
+                <a href="<?= e(
                             url(
                                 'forum.php?f='
                                 . (int) $ancestorForum[
                                     'id'
                                 ]
                             )
-                        ); ?>"
-                    >
-                        <?= e(
+                        ); ?>">
+                    <?= e(
                             (string) $ancestorForum[
                                 'title'
                             ]
                         ); ?>
-                    </a>
+                </a>
 
                 <?php endforeach; ?>
 
@@ -2103,9 +2075,9 @@ require INCLUDES_PATH . '/header.php';
                                 'title'
                             ]
                         ); ?>
-                    </h1>
+                        </h1>
 
-                    <?php if (
+                        <?php if (
                         trim(
                             (string) (
                                 $forum[
@@ -2124,7 +2096,7 @@ require INCLUDES_PATH . '/header.php';
                             ); ?>
                         </p>
 
-                    <?php endif; ?>
+                        <?php endif; ?>
 
                 </div>
 
@@ -2136,9 +2108,9 @@ require INCLUDES_PATH . '/header.php';
                     ) === 1
                 ): ?>
 
-                    <span class="forum-board-locked-badge">
-                        Board Locked
-                    </span>
+                <span class="forum-board-locked-badge">
+                    Board Locked
+                </span>
 
                 <?php endif; ?>
 
@@ -2162,101 +2134,96 @@ require INCLUDES_PATH . '/header.php';
             <div class="member-home-main forum-board-main">
 
 
-            <!-- ========================================================
+                <!-- ========================================================
                  SUB-BOARDS
             ========================================================= -->
 
-            <?php if (is_array($forumImageMap)): ?>
+                <?php if (is_array($forumImageMap)): ?>
 
-                <section
-                    class="forum-board-image-map"
-                    aria-labelledby="board-map-heading"
-                >
+                <section class="forum-board-image-map" aria-labelledby="board-map-heading">
                     <header class="forum-board-section-titlebar">
-                        <h2 id="board-map-heading">Explore <span<?= $forumHouseColor !== null ? ' style="color:' . e($forumHouseColor) . ';"' : ''; ?>><?= e((string) $forum['title']); ?></span></h2>
+                        <h2 id="board-map-heading">Explore
+                            <span<?= $forumHouseColor !== null ? ' style="color:' . e($forumHouseColor) . ';"' : ''; ?>>
+                                <?= e((string) $forum['title']); ?></span>
+                        </h2>
                     </header>
 
                     <div class="forum-image-map-display">
                         <picture>
                             <?php if (!empty($forumImageMap['webp_path'])): ?>
-                                <source
-                                    srcset="<?= e(url((string) $forumImageMap['webp_path'])); ?>"
-                                    type="image/webp"
-                                >
+                            <source srcset="<?= e(url((string) $forumImageMap['webp_path'])); ?>" type="image/webp">
                             <?php endif; ?>
-                            <img
-                                src="<?= e(url((string) $forumImageMap['image_path'])); ?>"
+                            <img src="<?= e(url((string) $forumImageMap['image_path'])); ?>"
                                 alt="<?= e((string) ($forumImageMap['image_alt'] ?? $forum['title'])); ?>"
                                 width="<?= (int) $forumImageMap['original_width']; ?>"
-                                height="<?= (int) $forumImageMap['original_height']; ?>"
-                            >
+                                height="<?= (int) $forumImageMap['original_height']; ?>">
                         </picture>
 
                         <?php if ($forumImageMapAreas !== []): ?>
-                            <svg
-                                class="forum-image-map-links-layer"
-                                viewBox="0 0 <?= (int) $forumImageMap['original_width']; ?> <?= (int) $forumImageMap['original_height']; ?>"
-                                aria-hidden="true"
-                            >
-                                <?php foreach ($forumImageMapAreas as $area): ?>
-                                    <?php
+                        <svg class="forum-image-map-links-layer"
+                            viewBox="0 0 <?= (int) $forumImageMap['original_width']; ?> <?= (int) $forumImageMap['original_height']; ?>"
+                            aria-hidden="true">
+                            <?php foreach ($forumImageMapAreas as $area): ?>
+                            <?php
                                     $coords = array_map('floatval', (array) ($area['coords'] ?? []));
                                     $shape = (string) ($area['shape'] ?? '');
                                     $title = trim((string) ($area['title'] ?? $area['alt_text'] ?? 'Open destination'));
                                     $target = (string) ($area['link_target'] ?? '_self');
                                     ?>
-                                    <a
-                                        href="<?= e((string) $area['href']); ?>"
-                                        target="<?= e($target); ?>"
-                                        <?= $target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>
-                                    >
-                                        <?php if ($shape === 'rect' && count($coords) >= 4): ?>
-                                            <?php
+                            <a href="<?= e((string) $area['href']); ?>" target="<?= e($target); ?>"
+                                <?= $target === '_blank' ? 'rel="noopener noreferrer"' : ''; ?>>
+                                <?php if ($shape === 'rect' && count($coords) >= 4): ?>
+                                <?php
                                             $x = min($coords[0], $coords[2]);
                                             $y = min($coords[1], $coords[3]);
                                             $w = abs($coords[2] - $coords[0]);
                                             $h = abs($coords[3] - $coords[1]);
                                             ?>
-                                            <rect class="forum-image-map-hotspot" x="<?= $x; ?>" y="<?= $y; ?>" width="<?= $w; ?>" height="<?= $h; ?>"><title><?= e($title); ?></title></rect>
-                                        <?php elseif ($shape === 'circle' && count($coords) >= 3): ?>
-                                            <circle class="forum-image-map-hotspot" cx="<?= $coords[0]; ?>" cy="<?= $coords[1]; ?>" r="<?= abs($coords[2]); ?>"><title><?= e($title); ?></title></circle>
-                                        <?php elseif ($shape === 'poly' && count($coords) >= 6): ?>
-                                            <?php
+                                <rect class="forum-image-map-hotspot" x="<?= $x; ?>" y="<?= $y; ?>" width="<?= $w; ?>"
+                                    height="<?= $h; ?>">
+                                    <title><?= e($title); ?></title>
+                                </rect>
+                                <?php elseif ($shape === 'circle' && count($coords) >= 3): ?>
+                                <circle class="forum-image-map-hotspot" cx="<?= $coords[0]; ?>" cy="<?= $coords[1]; ?>"
+                                    r="<?= abs($coords[2]); ?>">
+                                    <title><?= e($title); ?></title>
+                                </circle>
+                                <?php elseif ($shape === 'poly' && count($coords) >= 6): ?>
+                                <?php
                                             $points = [];
                                             for ($pointIndex = 0; $pointIndex + 1 < count($coords); $pointIndex += 2) {
                                                 $points[] = $coords[$pointIndex] . ',' . $coords[$pointIndex + 1];
                                             }
                                             ?>
-                                            <polygon class="forum-image-map-hotspot" points="<?= e(implode(' ', $points)); ?>"><title><?= e($title); ?></title></polygon>
-                                        <?php endif; ?>
-                                    </a>
-                                <?php endforeach; ?>
-                            </svg>
+                                <polygon class="forum-image-map-hotspot" points="<?= e(implode(' ', $points)); ?>">
+                                    <title><?= e($title); ?></title>
+                                </polygon>
+                                <?php endif; ?>
+                            </a>
+                            <?php endforeach; ?>
+                        </svg>
 
-                            <div class="sr-only">
-                                <p>Image map destinations:</p>
-                                <ul>
-                                    <?php foreach ($forumImageMapAreas as $area): ?>
-                                        <li>
-                                            <a href="<?= e((string) $area['href']); ?>">
-                                                <?= e(trim((string) ($area['alt_text'] ?? $area['title'] ?? 'Open destination')) ?: 'Open destination'); ?>
-                                            </a>
-                                        </li>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
+                        <div class="sr-only">
+                            <p>Image map destinations:</p>
+                            <ul>
+                                <?php foreach ($forumImageMapAreas as $area): ?>
+                                <li>
+                                    <a href="<?= e((string) $area['href']); ?>">
+                                        <?= e(trim((string) ($area['alt_text'] ?? $area['title'] ?? 'Open destination')) ?: 'Open destination'); ?>
+                                    </a>
+                                </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </div>
                         <?php endif; ?>
                     </div>
                 </section>
 
-            <?php elseif (
+                <?php elseif (
                 $subforums !== []
             ): ?>
 
-                <section
-                    class="forum-board-subforums"
-                    aria-labelledby="subboards-heading"
-                >
+                <section class="forum-board-subforums" aria-labelledby="subboards-heading">
 
                     <header class="forum-board-section-titlebar">
 
@@ -2275,7 +2242,7 @@ require INCLUDES_PATH . '/header.php';
                             as $subforum
                         ): ?>
 
-                            <?php
+                        <?php
 
                             $subforumId =
                                 (int) $subforum[
@@ -2306,32 +2273,30 @@ require INCLUDES_PATH . '/header.php';
                             ?>
 
 
-                            <article class="forum-subboard-row">
+                        <article class="forum-subboard-row">
 
 
-                                <div class="forum-subboard-copy">
+                            <div class="forum-subboard-copy">
 
-                                    <h3>
+                                <h3>
 
-                                        <a
-                                            href="<?= e(
+                                    <a href="<?= e(
                                                 url(
                                                     'forum.php?f='
                                                     . $subforumId
                                                 )
-                                            ); ?>"
-                                        >
-                                            <?= e(
+                                            ); ?>">
+                                        <?= e(
                                                 (string) $subforum[
                                                     'title'
                                                 ]
                                             ); ?>
-                                        </a>
+                                    </a>
 
-                                    </h3>
+                                </h3>
 
 
-                                    <?php if (
+                                <?php if (
                                         trim(
                                             (string) (
                                                 $subforum[
@@ -2342,69 +2307,69 @@ require INCLUDES_PATH . '/header.php';
                                         ) !== ''
                                     ): ?>
 
-                                        <p>
-                                            <?= e(
+                                <p>
+                                    <?= e(
                                                 (string) $subforum[
                                                     'description'
                                                 ]
                                             ); ?>
-                                        </p>
+                                </p>
 
-                                    <?php endif; ?>
+                                <?php endif; ?>
 
-                                </div>
+                            </div>
 
 
-                                <div class="forum-subboard-stat">
+                            <div class="forum-subboard-stat">
 
-                                    <strong>
-                                        <?= number_format(
+                                <strong>
+                                    <?= number_format(
                                             (int) $subStats[
                                                 'thread_count'
                                             ]
                                         ); ?>
-                                    </strong>
+                                </strong>
 
-                                    <span>
-                                        Threads
-                                    </span>
+                                <span>
+                                    Threads
+                                </span>
 
-                                </div>
+                            </div>
 
 
-                                <div class="forum-subboard-stat">
+                            <div class="forum-subboard-stat">
 
-                                    <strong>
-                                        <?= number_format(
+                                <strong>
+                                    <?= number_format(
                                             (int) $subStats[
                                                 'post_count'
                                             ]
                                         ); ?>
-                                    </strong>
+                                </strong>
 
-                                    <span>
-                                        Posts
-                                    </span>
+                                <span>
+                                    Posts
+                                </span>
 
-                                </div>
-
-
-                                <div class="forum-subboard-last-post">
+                            </div>
 
 
-                                    <?php if (
+                            <div class="forum-subboard-last-post">
+
+
+                                <?php if (
                                         $subLastPost
                                         === null
                                     ): ?>
 
-                                        <span class="forum-no-last-post">
-                                            No posts yet.
-                                        </span>
+                                <span class="forum-no-last-post">
+                                    No posts yet.
+                                </span>
 
 
-                                    <?php else: ?>
+                                <?php else: ?>
 
-                                        <?php
+                                <?php
 
                                         $subLastName =
                                             trim(
@@ -2440,116 +2405,101 @@ require INCLUDES_PATH . '/header.php';
                                         ?>
 
 
-                                        <div class="forum-last-post-card">
+                                <div class="forum-last-post-card">
 
-                                            <a
-                                                class="forum-last-post-avatar"
-                                                href="<?= e(
+                                    <a class="forum-last-post-avatar" href="<?= e(
                                                     url(
                                                         'profile.php?u='
                                                         . (int) $subLastPost[
                                                             'user_id'
                                                         ]
                                                     )
-                                                ); ?>"
-                                            >
+                                                ); ?>">
 
-                                                <?php if (
+                                        <?php if (
                                                     $subAvatar
                                                     !== null
                                                 ): ?>
 
-                                                    <img
-                                                        src="<?= e(
+                                        <img src="<?= e(
                                                             $subAvatar
-                                                        ); ?>"
-                                                        alt=""
-                                                        loading="lazy"
-                                                    >
+                                                        ); ?>" alt="" loading="lazy">
 
-                                                <?php else: ?>
+                                        <?php else: ?>
 
-                                                    <span aria-hidden="true">
-                                                        <?= e(
+                                        <span aria-hidden="true">
+                                            <?= e(
                                                             blackthorne_forum_initials(
                                                                 $subLastName
                                                             )
                                                         ); ?>
-                                                    </span>
+                                        </span>
 
-                                                <?php endif; ?>
+                                        <?php endif; ?>
 
-                                            </a>
+                                    </a>
 
 
-                                            <div>
+                                    <div>
 
-                                                <a
-                                                    class="forum-last-post-thread"
-                                                    href="<?= e(
+                                        <a class="forum-last-post-thread" href="<?= e(
                                                         url(
                                                             'thread.php?t='
                                                             . (int) $subLastPost[
                                                                 'thread_id'
                                                             ]
                                                         )
-                                                    ); ?>"
-                                                >
-                                                    <?= e(
+                                                    ); ?>">
+                                            <?= e(
                                                         (string) $subLastPost[
                                                             'thread_title'
                                                         ]
                                                     ); ?>
-                                                </a>
+                                        </a>
 
-                                                <p>
-                                                    by
-                                                    <a
-                                                        href="<?= e(
+                                        <p>
+                                            by
+                                            <a href="<?= e(
                                                             url(
                                                                 'profile.php?u='
                                                                 . (int) $subLastPost[
                                                                     'user_id'
                                                                 ]
                                                             )
-                                                        ); ?>"
-                                                        <?= $subRoleColor !== null
+                                                        ); ?>" <?= $subRoleColor !== null
                                                             ? 'style="color: ' . e(
                                                                 $subRoleColor
                                                             ) . ';"'
-                                                            : ''; ?>
-                                                    >
-                                                        <?= e(
+                                                            : ''; ?>>
+                                                <?= e(
                                                             $subLastName
                                                         ); ?>
-                                                    </a>
-                                                </p>
+                                            </a>
+                                        </p>
 
-                                                <time
-                                                    datetime="<?= e(
+                                        <time datetime="<?= e(
                                                         (string) $subLastPost[
                                                             'post_created_at'
                                                         ]
-                                                    ); ?>"
-                                                >
-                                                    <?= e(
+                                                    ); ?>">
+                                            <?= e(
                                                         blackthorne_forum_datetime(
                                                             (string) $subLastPost[
                                                                 'post_created_at'
                                                             ]
                                                         )
                                                     ); ?>
-                                                </time>
+                                        </time>
 
-                                            </div>
-
-                                        </div>
-
-                                    <?php endif; ?>
+                                    </div>
 
                                 </div>
 
-                            </article>
+                                <?php endif; ?>
+
+                            </div>
+
+                        </article>
 
 
                         <?php endforeach; ?>
@@ -2559,74 +2509,62 @@ require INCLUDES_PATH . '/header.php';
 
                 </section>
 
-            <?php endif; ?>
+                <?php endif; ?>
 
 
-            <!-- ========================================================
+                <!-- ========================================================
                  STAFF ONLINE
             ========================================================= -->
 
-            <section
-                class="forum-board-staff-online"
-                aria-labelledby="staff-online-heading"
-            >
-                <h2 id="staff-online-heading">Staff Online</h2>
+                <section class="forum-board-staff-online" aria-labelledby="staff-online-heading">
+                    <h2 id="staff-online-heading">Staff Online</h2>
 
-                <p class="forum-board-staff-online-names">
-                    <?php if ($onlineModerators !== []): ?>
+                    <p class="forum-board-staff-online-names">
+                        <?php if ($onlineModerators !== []): ?>
                         <?php foreach ($onlineModerators as $index => $moderator): ?>
-                            <?php if ($index > 0): ?>, <?php endif; ?>
-                            <a
-                                href="<?= e(url('profile.php?u=' . (int) $moderator['id'])); ?>"
-                                <?= user_display_name_style_attr((int) $moderator['id']); ?>
-                            ><?= e(trim((string) ($moderator['display_name'] ?? $moderator['username'] ?? 'Staff Member'))); ?></a>
+                        <?php if ($index > 0): ?>, <?php endif; ?>
+                        <a href="<?= e(url('profile.php?u=' . (int) $moderator['id'])); ?>"
+                            <?= user_display_name_style_attr((int) $moderator['id']); ?>><?= e(trim((string) ($moderator['display_name'] ?? $moderator['username'] ?? 'Staff Member'))); ?></a>
                         <?php endforeach; ?>
-                    <?php else: ?>
+                        <?php else: ?>
                         <span>No assigned moderators are currently online.</span>
-                    <?php endif; ?>
-                </p>
-            </section>
+                        <?php endif; ?>
+                    </p>
+                </section>
 
 
-            <!-- ========================================================
+                <!-- ========================================================
                  THREAD TOOLBAR
             ========================================================= -->
 
-            <section
-                class="forum-thread-list-section"
-                aria-labelledby="threads-heading"
-            >
+                <section class="forum-thread-list-section" aria-labelledby="threads-heading">
 
-                <header class="forum-board-section-titlebar">
+                    <header class="forum-board-section-titlebar">
 
-                    <div>
+                        <div>
 
-                        <p class="forum-board-section-kicker">
-                            Discussion
-                        </p>
+                            <p class="forum-board-section-kicker">
+                                Discussion
+                            </p>
 
-                        <h2 id="threads-heading">
-                            Threads
-                        </h2>
+                            <h2 id="threads-heading">
+                                Threads
+                            </h2>
 
-                    </div>
+                        </div>
 
 
-                    <div class="forum-thread-titlebar-actions">
+                        <div class="forum-thread-titlebar-actions">
 
-                        <?php if ($canUseThreadQuickActions && $threads !== []): ?>
-                            <button
-                                type="button"
-                                class="forum-new-thread-placeholder forum-thread-quick-toggle"
-                                data-thread-quick-toggle
-                                aria-expanded="false"
-                                aria-controls="forum-thread-quick-actions-form"
-                            >
+                            <?php if ($canUseThreadQuickActions && $threads !== []): ?>
+                            <button type="button" class="forum-new-thread-placeholder forum-thread-quick-toggle"
+                                data-thread-quick-toggle aria-expanded="false"
+                                aria-controls="forum-thread-quick-actions-form">
                                 Quick Actions
                             </button>
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                        <?php if (
+                            <?php if (
                             $canCreateThreads
                             && (int) (
                                 $forum['is_locked']
@@ -2634,51 +2572,47 @@ require INCLUDES_PATH . '/header.php';
                             ) !== 1
                         ): ?>
 
-                            <a
-                                class="forum-new-thread-placeholder"
-                                href="/new-thread.php?f=<?php echo (int) $forumId; ?>"
-                            >
+                            <a class="forum-new-thread-placeholder"
+                                href="/new-thread.php?f=<?php echo (int) $forumId; ?>">
                                 New Thread
                             </a>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    </div>
+                        </div>
 
-                </header>
-
-
-                <div class="forum-thread-toolbar">
+                    </header>
 
 
-                    <div class="forum-thread-pagination">
+                    <div class="forum-thread-toolbar">
 
-                        <?php if (
+
+                        <div class="forum-thread-pagination">
+
+                            <?php if (
                             $page > 1
                         ): ?>
 
-                            <a
-                                href="<?= e(
+                            <a href="<?= e(
                                     blackthorne_forum_page_url(
                                         $forumId,
                                         $page - 1,
                                         $search
                                     )
-                                ); ?>"
-                            >
+                                ); ?>">
                                 Previous
                             </a>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <span class="is-disabled">
                                 Previous
                             </span>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
 
-                        <?php
+                            <?php
 
                         $startPage =
                             max(
@@ -2695,7 +2629,7 @@ require INCLUDES_PATH . '/header.php';
                         ?>
 
 
-                        <?php for (
+                            <?php for (
                             $paginationPage =
                                 $startPage;
                             $paginationPage <=
@@ -2708,107 +2642,78 @@ require INCLUDES_PATH . '/header.php';
                                 === $page
                             ): ?>
 
-                                <span
-                                    class="is-current"
-                                    aria-current="page"
-                                >
-                                    <?= $paginationPage; ?>
-                                </span>
+                            <span class="is-current" aria-current="page">
+                                <?= $paginationPage; ?>
+                            </span>
 
                             <?php else: ?>
 
-                                <a
-                                    href="<?= e(
+                            <a href="<?= e(
                                         blackthorne_forum_page_url(
                                             $forumId,
                                             $paginationPage,
                                             $search
                                         )
-                                    ); ?>"
-                                >
-                                    <?= $paginationPage; ?>
-                                </a>
+                                    ); ?>">
+                                <?= $paginationPage; ?>
+                            </a>
 
                             <?php endif; ?>
 
-                        <?php endfor; ?>
+                            <?php endfor; ?>
 
 
-                        <?php if (
+                            <?php if (
                             $page < $totalPages
                         ): ?>
 
-                            <a
-                                href="<?= e(
+                            <a href="<?= e(
                                     blackthorne_forum_page_url(
                                         $forumId,
                                         $page + 1,
                                         $search
                                     )
-                                ); ?>"
-                            >
+                                ); ?>">
                                 Next
                             </a>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <span class="is-disabled">
                                 Next
                             </span>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
+
+                        </div>
+
+
+                        <form class="forum-thread-search" action="<?= e(
+                            url(
+                                'forum.php'
+                            )
+                        ); ?>" method="get" role="search">
+
+                            <input type="hidden" name="f" value="<?= $forumId; ?>">
+
+                            <label class="sr-only" for="forum-thread-search">
+                                Search threads
+                            </label>
+
+                            <input id="forum-thread-search" type="search" name="q" value="<?= e(
+                                $search
+                            ); ?>" maxlength="120" placeholder="Search threads...">
+
+                            <button type="submit" aria-label="Search threads">
+                                Search
+                            </button>
+
+                        </form>
 
                     </div>
 
 
-                    <form
-                        class="forum-thread-search"
-                        action="<?= e(
-                            url(
-                                'forum.php'
-                            )
-                        ); ?>"
-                        method="get"
-                        role="search"
-                    >
-
-                        <input
-                            type="hidden"
-                            name="f"
-                            value="<?= $forumId; ?>"
-                        >
-
-                        <label
-                            class="sr-only"
-                            for="forum-thread-search"
-                        >
-                            Search threads
-                        </label>
-
-                        <input
-                            id="forum-thread-search"
-                            type="search"
-                            name="q"
-                            value="<?= e(
-                                $search
-                            ); ?>"
-                            maxlength="120"
-                            placeholder="Search threads..."
-                        >
-
-                        <button
-                            type="submit"
-                            aria-label="Search threads"
-                        >
-                            Search
-                        </button>
-
-                    </form>
-
-                </div>
-
-
-                <?php if (
+                    <?php if (
                     $search !== ''
                 ): ?>
 
@@ -2821,61 +2726,53 @@ require INCLUDES_PATH . '/header.php';
                             ); ?>”
                         </strong>
 
-                        <a
-                            href="<?= e(
+                        <a href="<?= e(
                                 url(
                                     'forum.php?f='
                                     . $forumId
                                 )
-                            ); ?>"
-                        >
+                            ); ?>">
                             Clear search
                         </a>
 
                     </div>
 
-                <?php endif; ?>
+                    <?php endif; ?>
 
 
-                <!-- ====================================================
+                    <!-- ====================================================
                      THREAD ROWS
                 ===================================================== -->
 
-                <?php
+                    <?php
                 $quickActionStatus = trim((string) ($_GET['quick_action'] ?? ''));
                 $quickActionUpdated = max(0, (int) ($_GET['updated'] ?? 0));
                 $quickActionSkipped = max(0, (int) ($_GET['skipped'] ?? 0));
                 ?>
 
-                <?php if ($quickActionStatus !== ''): ?>
-                    <div
-                        class="forum-thread-quick-action-notice<?= $quickActionStatus === 'success' ? ' is-success' : ' is-warning'; ?>"
-                        role="status"
-                    >
+                    <?php if ($quickActionStatus !== ''): ?>
+                    <div class="forum-thread-quick-action-notice<?= $quickActionStatus === 'success' ? ' is-success' : ' is-warning'; ?>"
+                        role="status">
                         <?php if ($quickActionStatus === 'success'): ?>
-                            Updated <?= number_format($quickActionUpdated); ?> selected
-                            <?= $quickActionUpdated === 1 ? 'thread' : 'threads'; ?>.
-                            <?php if ($quickActionSkipped > 0): ?>
-                                <?= number_format($quickActionSkipped); ?>
-                                <?= $quickActionSkipped === 1 ? 'selection was' : 'selections were'; ?>
-                                skipped because the action was already applied or permission was unavailable.
-                            <?php endif; ?>
+                        Updated <?= number_format($quickActionUpdated); ?> selected
+                        <?= $quickActionUpdated === 1 ? 'thread' : 'threads'; ?>.
+                        <?php if ($quickActionSkipped > 0): ?>
+                        <?= number_format($quickActionSkipped); ?>
+                        <?= $quickActionSkipped === 1 ? 'selection was' : 'selections were'; ?>
+                        skipped because the action was already applied or permission was unavailable.
+                        <?php endif; ?>
                         <?php elseif ($quickActionStatus === 'none_selected'): ?>
-                            Select at least one thread before using a quick action.
+                        Select at least one thread before using a quick action.
                         <?php else: ?>
-                            That quick action could not be applied. Check the selected action and required destination or label.
+                        That quick action could not be applied. Check the selected action and required destination or
+                        label.
                         <?php endif; ?>
                     </div>
-                <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php if ($canUseThreadQuickActions && $threads !== []): ?>
-                    <form
-                        id="forum-thread-quick-actions-form"
-                        class="forum-thread-quick-actions"
-                        hidden
-                        action="<?= e(url('forum.php?f=' . $forumId)); ?>"
-                        method="post"
-                    >
+                    <?php if ($canUseThreadQuickActions && $threads !== []): ?>
+                    <form id="forum-thread-quick-actions-form" class="forum-thread-quick-actions" hidden
+                        action="<?= e(url('forum.php?f=' . $forumId)); ?>" method="post">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="post_action" value="bulk_thread_action">
                         <input type="hidden" name="return_page" value="<?= (int) $page; ?>">
@@ -2896,74 +2793,69 @@ require INCLUDES_PATH . '/header.php';
                             <select name="bulk_action" required data-thread-bulk-action>
                                 <option value="">Choose action…</option>
                                 <?php if ($canQuickPinThreads): ?>
-                                    <option value="pin">Make Sticky</option>
-                                    <option value="unpin">Remove Sticky</option>
+                                <option value="pin">Make Sticky</option>
+                                <option value="unpin">Remove Sticky</option>
                                 <?php endif; ?>
                                 <?php if ($canQuickLockThreads): ?>
-                                    <option value="lock">Lock</option>
-                                    <option value="unlock">Unlock</option>
+                                <option value="lock">Lock</option>
+                                <option value="unlock">Unlock</option>
                                 <?php endif; ?>
                                 <?php if ($canQuickAnnouncements): ?>
-                                    <option value="announcement">Make Announcement</option>
-                                    <option value="remove_announcement">Remove Announcement</option>
+                                <option value="announcement">Make Announcement</option>
+                                <option value="remove_announcement">Remove Announcement</option>
                                 <?php endif; ?>
                                 <?php if ($canQuickLabels && $quickActionLabels !== []): ?>
-                                    <option value="apply_label">Apply Label</option>
-                                    <option value="remove_label">Remove Label</option>
+                                <option value="apply_label">Apply Label</option>
+                                <option value="remove_label">Remove Label</option>
                                 <?php endif; ?>
                                 <?php if ($canQuickMoveThreads && $quickActionDestinations !== []): ?>
-                                    <option value="move">Move to Another Board</option>
+                                <option value="move">Move to Another Board</option>
                                 <?php endif; ?>
                             </select>
                         </label>
 
                         <?php if ($canQuickLabels && $quickActionLabels !== []): ?>
-                            <label class="forum-thread-quick-field is-conditional" data-thread-label-field hidden>
-                                <span>Label</span>
-                                <select name="label_id">
-                                    <option value="">Choose label…</option>
-                                    <?php foreach ($quickActionLabels as $label): ?>
-                                        <option value="<?= (int) $label['id']; ?>"><?= e((string) $label['name']); ?></option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </label>
+                        <label class="forum-thread-quick-field is-conditional" data-thread-label-field hidden>
+                            <span>Label</span>
+                            <select name="label_id">
+                                <option value="">Choose label…</option>
+                                <?php foreach ($quickActionLabels as $label): ?>
+                                <option value="<?= (int) $label['id']; ?>"><?= e((string) $label['name']); ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                        </label>
                         <?php endif; ?>
 
                         <?php if ($canQuickMoveThreads && $quickActionDestinations !== []): ?>
-                            <label class="forum-thread-quick-field is-conditional" data-thread-destination-field hidden>
-                                <span>Destination</span>
-                                <select
-                                    name="destination_forum_id"
-                                    data-forum-picker
-                                >
-                                    <option value="">Choose destination…</option>
-                                    <?php foreach ($quickActionDestinations as $destinationForum): ?>
-                                        <?php
+                        <label class="forum-thread-quick-field is-conditional" data-thread-destination-field hidden>
+                            <span>Destination</span>
+                            <select name="destination_forum_id" data-forum-picker>
+                                <option value="">Choose destination…</option>
+                                <?php foreach ($quickActionDestinations as $destinationForum): ?>
+                                <?php
                                         $destinationLabel = trim((string) $destinationForum['category_title']) . ' — ';
                                         if (trim((string) ($destinationForum['parent_title'] ?? '')) !== '') {
                                             $destinationLabel .= trim((string) $destinationForum['parent_title']) . ' › ';
                                         }
                                         $destinationLabel .= trim((string) $destinationForum['title']);
                                         ?>
-                                        <option
-                                            value="<?= (int) $destinationForum['id']; ?>"
-                                            data-forum-id="<?= (int) $destinationForum['id']; ?>"
-                                            data-parent-forum-id="<?= (int) ($destinationForum['parent_forum_id'] ?? 0); ?>"
-                                            data-category-title="<?= e((string) $destinationForum['category_title']); ?>"
-                                            data-forum-title="<?= e((string) $destinationForum['title']); ?>"
-                                        >
-                                            <?= e((string) $destinationForum['title']); ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
-                            </label>
+                                <option value="<?= (int) $destinationForum['id']; ?>"
+                                    data-forum-id="<?= (int) $destinationForum['id']; ?>"
+                                    data-parent-forum-id="<?= (int) ($destinationForum['parent_forum_id'] ?? 0); ?>"
+                                    data-category-title="<?= e((string) $destinationForum['category_title']); ?>"
+                                    data-forum-title="<?= e((string) $destinationForum['title']); ?>">
+                                    <?= e((string) $destinationForum['title']); ?>
+                                </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </label>
                         <?php endif; ?>
 
                         <button type="submit" class="button button-secondary forum-thread-quick-apply">Apply</button>
                     </form>
-                <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php if (
+                    <?php if (
                     $threads === []
                 ): ?>
 
@@ -2973,18 +2865,18 @@ require INCLUDES_PATH . '/header.php';
                             $search !== ''
                         ): ?>
 
-                            No threads matched your search.
+                        No threads matched your search.
 
                         <?php else: ?>
 
-                            No threads have been created in this board yet.
+                        No threads have been created in this board yet.
 
                         <?php endif; ?>
 
                     </div>
 
 
-                <?php else: ?>
+                    <?php else: ?>
 
                     <div class="forum-thread-list">
 
@@ -2994,7 +2886,7 @@ require INCLUDES_PATH . '/header.php';
                             as $thread
                         ): ?>
 
-                            <?php
+                        <?php
 
                             $threadId =
                                 (int) $thread[
@@ -3073,108 +2965,71 @@ require INCLUDES_PATH . '/header.php';
                             ?>
 
 
-                            <article
-                                class="forum-thread-row<?= (int) $thread['is_announcement'] === 1 ? ' is-announcement' : ''; ?><?= (int) $thread['is_pinned'] === 1 ? ' is-pinned' : ''; ?><?= (int) $thread['is_locked'] === 1 ? ' is-locked' : ''; ?>"
-                            >
+                        <article
+                            class="forum-thread-row<?= (int) $thread['is_announcement'] === 1 ? ' is-announcement' : ''; ?><?= (int) $thread['is_pinned'] === 1 ? ' is-pinned' : ''; ?><?= (int) $thread['is_locked'] === 1 ? ' is-locked' : ''; ?>">
 
 
-                                <div class="forum-thread-status">
+                            <div class="forum-thread-status">
 
-                                    <?php if ($canUseThreadQuickActions): ?>
-                                        <label
-                                            class="forum-thread-bulk-checkbox"
-                                            data-thread-bulk-picker
-                                            hidden
-                                            title="Select this thread for staff quick actions"
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                name="thread_ids[]"
-                                                value="<?= $threadId; ?>"
-                                                form="forum-thread-quick-actions-form"
-                                                data-thread-select
-                                                aria-label="Select <?= e((string) $thread['title']); ?> for staff quick actions"
-                                            >
-                                            <span aria-hidden="true"></span>
-                                        </label>
-                                    <?php endif; ?>
+                                <?php if ($canUseThreadQuickActions): ?>
+                                <label class="forum-thread-bulk-checkbox" data-thread-bulk-picker hidden
+                                    title="Select this thread for staff quick actions">
+                                    <input type="checkbox" name="thread_ids[]" value="<?= $threadId; ?>"
+                                        form="forum-thread-quick-actions-form" data-thread-select
+                                        aria-label="Select <?= e((string) $thread['title']); ?> for staff quick actions">
+                                    <span aria-hidden="true"></span>
+                                </label>
+                                <?php endif; ?>
 
-                                    <?php if (
+                                <?php if (
                                         (int) $thread[
                                             'is_announcement'
                                         ] === 1
                                     ): ?>
 
-                                        <span
-                                            class="forum-thread-status-icon"
-                                            title="Announcement"
-                                            aria-label="Announcement"
-                                        >
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                aria-hidden="true"
-                                            >
-                                                <path
-                                                    d="M4 10v4h3l4 4V6L7 10H4Zm9-3v10c3-1 5-3 7-5-2-2-4-4-7-5Z"
-                                                    fill="currentColor"
-                                                />
-                                            </svg>
-                                        </span>
+                                <span class="forum-thread-status-icon" title="Announcement" aria-label="Announcement">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 10v4h3l4 4V6L7 10H4Zm9-3v10c3-1 5-3 7-5-2-2-4-4-7-5Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </span>
 
-                                    <?php endif; ?>
+                                <?php endif; ?>
 
 
-                                    <?php if (
+                                <?php if (
                                         (int) $thread[
                                             'is_pinned'
                                         ] === 1
                                     ): ?>
 
-                                        <span
-                                            class="forum-thread-status-icon"
-                                            title="Sticky"
-                                            aria-label="Sticky"
-                                        >
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                aria-hidden="true"
-                                            >
-                                                <path
-                                                    d="m14 3 7 7-2 2-2-1-4 4v4l-2 2-2-6-6-2 2-2h4l4-4-1-2 2-2Z"
-                                                    fill="currentColor"
-                                                />
-                                            </svg>
-                                        </span>
+                                <span class="forum-thread-status-icon" title="Sticky" aria-label="Sticky">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="m14 3 7 7-2 2-2-1-4 4v4l-2 2-2-6-6-2 2-2h4l4-4-1-2 2-2Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </span>
 
-                                    <?php endif; ?>
+                                <?php endif; ?>
 
 
-                                    <?php if (
+                                <?php if (
                                         (int) $thread[
                                             'is_locked'
                                         ] === 1
                                     ): ?>
 
-                                        <span
-                                            class="forum-thread-status-icon"
-                                            title="Locked"
-                                            aria-label="Locked"
-                                        >
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                aria-hidden="true"
-                                            >
-                                                <path
-                                                    d="M7 10V8a5 5 0 0 1 10 0v2h2v11H5V10h2Zm2 0h6V8a3 3 0 0 0-6 0v2Z"
-                                                    fill="currentColor"
-                                                />
-                                            </svg>
-                                        </span>
+                                <span class="forum-thread-status-icon" title="Locked" aria-label="Locked">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M7 10V8a5 5 0 0 1 10 0v2h2v11H5V10h2Zm2 0h6V8a3 3 0 0 0-6 0v2Z"
+                                            fill="currentColor" />
+                                    </svg>
+                                </span>
 
-                                    <?php endif; ?>
+                                <?php endif; ?>
 
 
-                                    <?php if (
+                                <?php if (
                                         (int) $thread[
                                             'is_announcement'
                                         ] !== 1
@@ -3186,42 +3041,32 @@ require INCLUDES_PATH . '/header.php';
                                         ] !== 1
                                     ): ?>
 
-                                        <span
-                                            class="forum-thread-status-icon is-regular"
-                                            title="Thread"
-                                            aria-label="Thread"
-                                        >
-                                            <svg
-                                                viewBox="0 0 24 24"
-                                                aria-hidden="true"
-                                            >
-                                                <path
-                                                    d="M4 4h16v12H8l-4 4V4Zm4 4v2h8V8H8Zm0 4v2h5v-2H8Z"
-                                                    fill="currentColor"
-                                                />
-                                            </svg>
-                                        </span>
+                                <span class="forum-thread-status-icon is-regular" title="Thread" aria-label="Thread">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M4 4h16v12H8l-4 4V4Zm4 4v2h8V8H8Zm0 4v2h5v-2H8Z" fill="currentColor" />
+                                    </svg>
+                                </span>
 
-                                    <?php endif; ?>
+                                <?php endif; ?>
 
-                                </div>
+                            </div>
 
 
-                                <div class="forum-thread-copy">
+                            <div class="forum-thread-copy">
 
 
-                                    <?php if (
+                                <?php if (
                                         $threadLabels !== []
                                     ): ?>
 
-                                        <div class="forum-thread-labels">
+                                <div class="forum-thread-labels">
 
-                                            <?php foreach (
+                                    <?php foreach (
                                                 $threadLabels
                                                 as $label
                                             ): ?>
 
-                                                <?php
+                                    <?php
 
                                                 $labelColor =
                                                     blackthorne_forum_safe_color(
@@ -3232,128 +3077,118 @@ require INCLUDES_PATH . '/header.php';
 
                                                 ?>
 
-                                                <span
-                                                    class="forum-thread-label"
-                                                    <?= $labelColor !== null
+                                    <span class="forum-thread-label" <?= $labelColor !== null
                                                         ? 'style="--thread-label-color: ' . e(
                                                             $labelColor
                                                         ) . ';"'
-                                                        : ''; ?>
-                                                >
-                                                    <?= e(
+                                                        : ''; ?>>
+                                        <?= e(
                                                         (string) $label[
                                                             'name'
                                                         ]
                                                     ); ?>
-                                                </span>
+                                    </span>
 
-                                            <?php endforeach; ?>
+                                    <?php endforeach; ?>
 
-                                        </div>
+                                </div>
 
-                                    <?php endif; ?>
+                                <?php endif; ?>
 
 
-                                    <h3>
+                                <h3>
 
-                                        <a
-                                            href="<?= e(
+                                    <a href="<?= e(
                                                 url(
                                                     'thread.php?t='
                                                     . $threadId
                                                 )
-                                            ); ?>"
-                                        >
-                                            <?= e(
+                                            ); ?>">
+                                        <?= e(
                                                 (string) $thread[
                                                     'title'
                                                 ]
                                             ); ?>
-                                        </a>
+                                    </a>
 
-                                    </h3>
+                                </h3>
 
 
-                                    <p class="forum-thread-byline">
+                                <p class="forum-thread-byline">
 
-                                        by
+                                    by
 
-                                        <a
-                                            href="<?= e(
+                                    <a href="<?= e(
                                                 url(
                                                     'profile.php?u='
                                                     . (int) $thread[
                                                         'user_id'
                                                     ]
                                                 )
-                                            ); ?>"
-                                            <?= $authorColor !== null
+                                            ); ?>" <?= $authorColor !== null
                                                 ? 'style="color: ' . e(
                                                     $authorColor
                                                 ) . ';"'
-                                                : ''; ?>
-                                        >
-                                            <?= e(
+                                                : ''; ?>>
+                                        <?= e(
                                                 $authorName
                                             ); ?>
-                                        </a>
+                                    </a>
 
-                                        <span aria-hidden="true">
-                                            ·
-                                        </span>
+                                    <span aria-hidden="true">
+                                        ·
+                                    </span>
 
-                                        <time
-                                            datetime="<?= e(
+                                    <time datetime="<?= e(
                                                 (string) $thread[
                                                     'created_at'
                                                 ]
-                                            ); ?>"
-                                        >
-                                            <?= e(
+                                            ); ?>">
+                                        <?= e(
                                                 blackthorne_forum_datetime(
                                                     (string) $thread[
                                                         'created_at'
                                                     ]
                                                 )
                                             ); ?>
-                                        </time>
+                                    </time>
 
-                                    </p>
+                                </p>
 
-                                </div>
+                            </div>
 
 
-                                <div class="forum-thread-counts">
+                            <div class="forum-thread-counts">
 
-                                    <span>
-                                        <strong>
-                                            <?= number_format(
+                                <span>
+                                    <strong>
+                                        <?= number_format(
                                                 $replyCount
                                             ); ?>
-                                        </strong>
-                                        <?= $replyCount === 1
+                                    </strong>
+                                    <?= $replyCount === 1
                                             ? 'reply'
                                             : 'replies'; ?>
-                                    </span>
+                                </span>
 
-                                    <span>
-                                        <strong>
-                                            <?= number_format(
+                                <span>
+                                    <strong>
+                                        <?= number_format(
                                                 (int) $thread[
                                                     'view_count'
                                                 ]
                                             ); ?>
-                                        </strong>
-                                        views
-                                    </span>
+                                    </strong>
+                                    views
+                                </span>
 
-                                </div>
-
-
-                                <div class="forum-thread-last-post">
+                            </div>
 
 
-                                    <?php if (
+                            <div class="forum-thread-last-post">
+
+
+                                <?php if (
                                         (int) (
                                             $thread[
                                                 'last_user_id'
@@ -3362,88 +3197,76 @@ require INCLUDES_PATH . '/header.php';
                                         ) <= 0
                                     ): ?>
 
-                                        <span class="forum-no-last-post">
-                                            No posts yet.
-                                        </span>
+                                <span class="forum-no-last-post">
+                                    No posts yet.
+                                </span>
 
 
-                                    <?php else: ?>
+                                <?php else: ?>
 
-                                        <div class="forum-last-post-card">
+                                <div class="forum-last-post-card">
 
-                                            <a
-                                                class="forum-last-post-avatar"
-                                                href="<?= e(
+                                    <a class="forum-last-post-avatar" href="<?= e(
                                                     url(
                                                         'profile.php?u='
                                                         . (int) $thread[
                                                             'last_user_id'
                                                         ]
                                                     )
-                                                ); ?>"
-                                            >
+                                                ); ?>">
 
-                                                <?php if (
+                                        <?php if (
                                                     $lastAvatar
                                                     !== null
                                                 ): ?>
 
-                                                    <img
-                                                        src="<?= e(
+                                        <img src="<?= e(
                                                             $lastAvatar
-                                                        ); ?>"
-                                                        alt=""
-                                                        loading="lazy"
-                                                    >
+                                                        ); ?>" alt="" loading="lazy">
 
-                                                <?php else: ?>
+                                        <?php else: ?>
 
-                                                    <span aria-hidden="true">
-                                                        <?= e(
+                                        <span aria-hidden="true">
+                                            <?= e(
                                                             blackthorne_forum_initials(
                                                                 $lastName
                                                             )
                                                         ); ?>
-                                                    </span>
+                                        </span>
 
-                                                <?php endif; ?>
+                                        <?php endif; ?>
 
-                                            </a>
+                                    </a>
 
 
-                                            <div>
+                                    <div>
 
-                                                <a
-                                                    href="<?= e(
+                                        <a href="<?= e(
                                                         url(
                                                             'profile.php?u='
                                                             . (int) $thread[
                                                                 'last_user_id'
                                                             ]
                                                         )
-                                                    ); ?>"
-                                                    <?= $lastColor !== null
+                                                    ); ?>" <?= $lastColor !== null
                                                         ? 'style="color: ' . e(
                                                             $lastColor
                                                         ) . ';"'
-                                                        : ''; ?>
-                                                >
-                                                    <?= e(
+                                                        : ''; ?>>
+                                            <?= e(
                                                         $lastName
                                                     ); ?>
-                                                </a>
+                                        </a>
 
-                                                <time
-                                                    datetime="<?= e(
+                                        <time datetime="<?= e(
                                                         (string) (
                                                             $thread[
                                                                 'last_post_created_at'
                                                             ]
                                                             ?? ''
                                                         )
-                                                    ); ?>"
-                                                >
-                                                    <?= e(
+                                                    ); ?>">
+                                            <?= e(
                                                         blackthorne_forum_datetime(
                                                             (string) (
                                                                 $thread[
@@ -3453,17 +3276,17 @@ require INCLUDES_PATH . '/header.php';
                                                             )
                                                         )
                                                     ); ?>
-                                                </time>
+                                        </time>
 
-                                            </div>
-
-                                        </div>
-
-                                    <?php endif; ?>
+                                    </div>
 
                                 </div>
 
-                            </article>
+                                <?php endif; ?>
+
+                            </div>
+
+                        </article>
 
 
                         <?php endforeach; ?>
@@ -3471,33 +3294,28 @@ require INCLUDES_PATH . '/header.php';
 
                     </div>
 
-                <?php endif; ?>
+                    <?php endif; ?>
 
 
-                <?php if (
+                    <?php if (
                     $totalPages > 1
                 ): ?>
 
-                    <nav
-                        class="forum-thread-pagination forum-thread-pagination-bottom"
-                        aria-label="Thread pages"
-                    >
+                    <nav class="forum-thread-pagination forum-thread-pagination-bottom" aria-label="Thread pages">
 
                         <?php if (
                             $page > 1
                         ): ?>
 
-                            <a
-                                href="<?= e(
+                        <a href="<?= e(
                                     blackthorne_forum_page_url(
                                         $forumId,
                                         $page - 1,
                                         $search
                                     )
-                                ); ?>"
-                            >
-                                Previous
-                            </a>
+                                ); ?>">
+                            Previous
+                        </a>
 
                         <?php endif; ?>
 
@@ -3516,33 +3334,28 @@ require INCLUDES_PATH . '/header.php';
                             $paginationPage++
                         ): ?>
 
-                            <?php if (
+                        <?php if (
                                 $paginationPage
                                 === $page
                             ): ?>
 
-                                <span
-                                    class="is-current"
-                                    aria-current="page"
-                                >
-                                    <?= $paginationPage; ?>
-                                </span>
+                        <span class="is-current" aria-current="page">
+                            <?= $paginationPage; ?>
+                        </span>
 
-                            <?php else: ?>
+                        <?php else: ?>
 
-                                <a
-                                    href="<?= e(
+                        <a href="<?= e(
                                         blackthorne_forum_page_url(
                                             $forumId,
                                             $paginationPage,
                                             $search
                                         )
-                                    ); ?>"
-                                >
-                                    <?= $paginationPage; ?>
-                                </a>
+                                    ); ?>">
+                            <?= $paginationPage; ?>
+                        </a>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
                         <?php endfor; ?>
 
@@ -3551,25 +3364,23 @@ require INCLUDES_PATH . '/header.php';
                             $page < $totalPages
                         ): ?>
 
-                            <a
-                                href="<?= e(
+                        <a href="<?= e(
                                     blackthorne_forum_page_url(
                                         $forumId,
                                         $page + 1,
                                         $search
                                     )
-                                ); ?>"
-                            >
-                                Next
-                            </a>
+                                ); ?>">
+                            Next
+                        </a>
 
                         <?php endif; ?>
 
                     </nav>
 
-                <?php endif; ?>
+                    <?php endif; ?>
 
-            </section>
+                </section>
 
             </div>
 
@@ -3580,98 +3391,99 @@ require INCLUDES_PATH . '/header.php';
 </main>
 
 <script>
-(() => {
-    const form = document.getElementById('forum-thread-quick-actions-form');
-    if (!form) return;
+    (() => {
+        const form = document.getElementById('forum-thread-quick-actions-form');
+        if (!form) return;
 
-    const toggle = document.querySelector('[data-thread-quick-toggle]');
-    const pickers = Array.from(document.querySelectorAll('[data-thread-bulk-picker]'));
-    const selectAll = form.querySelector('[data-thread-select-all]');
-    const threadChecks = Array.from(document.querySelectorAll('[data-thread-select]'));
-    const actionSelect = form.querySelector('[data-thread-bulk-action]');
-    const labelField = form.querySelector('[data-thread-label-field]');
-    const destinationField = form.querySelector('[data-thread-destination-field]');
+        const toggle = document.querySelector('[data-thread-quick-toggle]');
+        const pickers = Array.from(document.querySelectorAll('[data-thread-bulk-picker]'));
+        const selectAll = form.querySelector('[data-thread-select-all]');
+        const threadChecks = Array.from(document.querySelectorAll('[data-thread-select]'));
+        const actionSelect = form.querySelector('[data-thread-bulk-action]');
+        const labelField = form.querySelector('[data-thread-label-field]');
+        const destinationField = form.querySelector('[data-thread-destination-field]');
 
-    const setQuickActionsOpen = (open) => {
-        form.hidden = !open;
-        pickers.forEach((picker) => {
-            picker.hidden = !open;
-        });
+        const setQuickActionsOpen = (open) => {
+            form.hidden = !open;
+            pickers.forEach((picker) => {
+                picker.hidden = !open;
+            });
+
+            if (toggle) {
+                toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+                toggle.textContent = open ? 'Hide Quick Actions' : 'Quick Actions';
+            }
+
+            if (!open) {
+                threadChecks.forEach((checkbox) => {
+                    checkbox.checked = false;
+                });
+                if (selectAll) {
+                    selectAll.checked = false;
+                    selectAll.indeterminate = false;
+                }
+            }
+        };
 
         if (toggle) {
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-            toggle.textContent = open ? 'Hide Quick Actions' : 'Quick Actions';
+            toggle.addEventListener('click', () => {
+                setQuickActionsOpen(form.hidden);
+            });
         }
 
-        if (!open) {
-            threadChecks.forEach((checkbox) => {
-                checkbox.checked = false;
+        setQuickActionsOpen(false);
+
+        const syncSelectAll = () => {
+            if (!selectAll || threadChecks.length === 0) return;
+            const checkedCount = threadChecks.filter((checkbox) => checkbox.checked).length;
+            selectAll.checked = checkedCount === threadChecks.length;
+            selectAll.indeterminate = checkedCount > 0 && checkedCount < threadChecks.length;
+        };
+
+        if (selectAll) {
+            selectAll.addEventListener('change', () => {
+                threadChecks.forEach((checkbox) => {
+                    checkbox.checked = selectAll.checked;
+                });
+                syncSelectAll();
             });
-            if (selectAll) {
-                selectAll.checked = false;
-                selectAll.indeterminate = false;
+        }
+
+        threadChecks.forEach((checkbox) => {
+            checkbox.addEventListener('change', syncSelectAll);
+        });
+
+        const syncConditionalFields = () => {
+            const action = actionSelect ? actionSelect.value : '';
+            const needsLabel = action === 'apply_label' || action === 'remove_label';
+            const needsDestination = action === 'move';
+
+            if (labelField) {
+                labelField.hidden = !needsLabel;
+                const select = labelField.querySelector('select');
+                if (select) select.required = needsLabel;
             }
-        }
-    };
 
-    if (toggle) {
-        toggle.addEventListener('click', () => {
-            setQuickActionsOpen(form.hidden);
+            if (destinationField) {
+                destinationField.hidden = !needsDestination;
+                const select = destinationField.querySelector('select');
+                if (select) select.required = needsDestination;
+            }
+        };
+
+        if (actionSelect) {
+            actionSelect.addEventListener('change', syncConditionalFields);
+            syncConditionalFields();
+        }
+
+        form.addEventListener('submit', (event) => {
+            if (!threadChecks.some((checkbox) => checkbox.checked)) {
+                event.preventDefault();
+                window.alert('Select at least one thread first.');
+            }
         });
-    }
+    })();
 
-    setQuickActionsOpen(false);
-
-    const syncSelectAll = () => {
-        if (!selectAll || threadChecks.length === 0) return;
-        const checkedCount = threadChecks.filter((checkbox) => checkbox.checked).length;
-        selectAll.checked = checkedCount === threadChecks.length;
-        selectAll.indeterminate = checkedCount > 0 && checkedCount < threadChecks.length;
-    };
-
-    if (selectAll) {
-        selectAll.addEventListener('change', () => {
-            threadChecks.forEach((checkbox) => {
-                checkbox.checked = selectAll.checked;
-            });
-            syncSelectAll();
-        });
-    }
-
-    threadChecks.forEach((checkbox) => {
-        checkbox.addEventListener('change', syncSelectAll);
-    });
-
-    const syncConditionalFields = () => {
-        const action = actionSelect ? actionSelect.value : '';
-        const needsLabel = action === 'apply_label' || action === 'remove_label';
-        const needsDestination = action === 'move';
-
-        if (labelField) {
-            labelField.hidden = !needsLabel;
-            const select = labelField.querySelector('select');
-            if (select) select.required = needsLabel;
-        }
-
-        if (destinationField) {
-            destinationField.hidden = !needsDestination;
-            const select = destinationField.querySelector('select');
-            if (select) select.required = needsDestination;
-        }
-    };
-
-    if (actionSelect) {
-        actionSelect.addEventListener('change', syncConditionalFields);
-        syncConditionalFields();
-    }
-
-    form.addEventListener('submit', (event) => {
-        if (!threadChecks.some((checkbox) => checkbox.checked)) {
-            event.preventDefault();
-            window.alert('Select at least one thread first.');
-        }
-    });
-})();
 </script>
 
 <?php

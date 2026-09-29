@@ -47,38 +47,32 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to manage
-                    Grade Levels.
-                </p>
+            <p>
+                Your account does not have permission to manage
+                Grade Levels.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/courses.php')); ?>"
-                >
-                    Return to Courses
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/courses.php')); ?>">
+                Return to Courses
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1006,18 +1000,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page grade-levels-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page grade-levels-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="grade-levels-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="grade-levels-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -1071,22 +1059,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The Grade Level could not be saved.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The Grade Level could not be saved.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -1140,115 +1125,83 @@ $staffHeroUrl =
 
                 <?php if ($editYearGroup !== null): ?>
 
-                    <section class="forum-admin-panel">
+                <section class="forum-admin-panel">
 
-                        <header class="forum-admin-titlebar">
-                            <p class="forum-admin-step">
-                                Edit Grade Level
-                            </p>
+                    <header class="forum-admin-titlebar">
+                        <p class="forum-admin-step">
+                            Edit Grade Level
+                        </p>
 
-                            <h2>
-                                <?= e((string) $editYearGroup['name']); ?>
-                            </h2>
-                        </header>
+                        <h2>
+                            <?= e((string) $editYearGroup['name']); ?>
+                        </h2>
+                    </header>
 
-                        <form
-                            action="<?= e(
+                    <form action="<?= e(
                                 url(
                                     'admin/grade-levels.php?edit='
                                     . (int) $editYearGroup['id']
                                 )
-                            ); ?>"
-                            method="post"
-                            class="forum-admin-form"
-                        >
-                            <?= csrf_field(); ?>
+                            ); ?>" method="post" class="forum-admin-form">
+                        <?= csrf_field(); ?>
 
-                            <input
-                                type="hidden"
-                                name="action"
-                                value="update_grade_level"
-                            >
+                        <input type="hidden" name="action" value="update_grade_level">
 
-                            <input
-                                type="hidden"
-                                name="year_group_id"
-                                value="<?= (int) $editYearGroup['id']; ?>"
-                            >
+                        <input type="hidden" name="year_group_id" value="<?= (int) $editYearGroup['id']; ?>">
 
 
-                            <div class="forum-admin-form-grid">
+                        <div class="forum-admin-form-grid">
 
-                                <div class="form-group">
-                                    <label for="edit-grade-level-name">
-                                        Grade Level Name
-                                    </label>
+                            <div class="form-group">
+                                <label for="edit-grade-level-name">
+                                    Grade Level Name
+                                </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="edit-grade-level-name"
-                                        name="name"
-                                        maxlength="100"
-                                        value="<?= e(
+                                <input class="form-control" type="text" id="edit-grade-level-name" name="name"
+                                    maxlength="100" value="<?= e(
                                             (string) (
                                                 $_POST['action']
                                                 ?? ''
                                             ) === 'update_grade_level'
                                                 ? grade_levels_post_string('name')
                                                 : (string) $editYearGroup['name']
-                                        ); ?>"
-                                        required
-                                    >
+                                        ); ?>" required>
 
-                                    <p class="form-help">
-                                        Example: First Year.
-                                    </p>
-                                </div>
+                                <p class="form-help">
+                                    Example: First Year.
+                                </p>
+                            </div>
 
 
-                                <div class="form-group">
-                                    <label for="edit-year-number">
-                                        Year Number
-                                    </label>
+                            <div class="form-group">
+                                <label for="edit-year-number">
+                                    Year Number
+                                </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        id="edit-year-number"
-                                        name="year_number"
-                                        min="0"
-                                        step="1"
-                                        value="<?= e(
+                                <input class="form-control" type="number" id="edit-year-number" name="year_number"
+                                    min="0" step="1" value="<?= e(
                                             (string) (
                                                 $_POST['action']
                                                 ?? ''
                                             ) === 'update_grade_level'
                                                 ? grade_levels_post_string('year_number')
                                                 : (string) $editYearGroup['year_number']
-                                        ); ?>"
-                                        required
-                                    >
+                                        ); ?>" required>
 
-                                    <p class="form-help">
-                                        New/Pre-Orientation = 0, First Year = 1, Second Year = 2, etc.
-                                    </p>
-                                </div>
-
+                                <p class="form-help">
+                                    New/Pre-Orientation = 0, First Year = 1, Second Year = 2, etc.
+                                </p>
                             </div>
 
+                        </div>
 
-                            <div class="form-group">
-                                <label for="edit-description">
-                                    Description
-                                </label>
 
-                                <textarea
-                                    class="form-control"
-                                    id="edit-description"
-                                    name="description"
-                                    rows="5"
-                                ><?= e(
+                        <div class="form-group">
+                            <label for="edit-description">
+                                Description
+                            </label>
+
+                            <textarea class="form-control" id="edit-description" name="description" rows="5"><?= e(
                                     (string) (
                                         $_POST['action']
                                             ?? ''
@@ -1259,49 +1212,38 @@ $staffHeroUrl =
                                             ?? ''
                                         )
                                 ); ?></textarea>
-                            </div>
+                        </div>
 
 
-                            <div class="form-group">
-                                <label for="edit-sort-order">
-                                    Sort Order
-                                </label>
+                        <div class="form-group">
+                            <label for="edit-sort-order">
+                                Sort Order
+                            </label>
 
-                                <input
-                                    class="form-control"
-                                    type="number"
-                                    id="edit-sort-order"
-                                    name="sort_order"
-                                    min="0"
-                                    step="1"
-                                    value="<?= e(
+                            <input class="form-control" type="number" id="edit-sort-order" name="sort_order" min="0"
+                                step="1" value="<?= e(
                                         (string) (
                                             $_POST['action']
                                                 ?? ''
                                         ) === 'update_grade_level'
                                             ? grade_levels_post_string('sort_order')
                                             : (string) $editYearGroup['sort_order']
-                                    ); ?>"
-                                >
+                                    ); ?>">
 
-                                <p class="form-help">
-                                    Controls display order. Leaving it blank
-                                    uses the Year Number.
-                                </p>
-                            </div>
+                            <p class="form-help">
+                                Controls display order. Leaving it blank
+                                uses the Year Number.
+                            </p>
+                        </div>
 
 
-                            <fieldset class="forum-admin-fieldset">
-                                <legend>
-                                    Grade Level State
-                                </legend>
+                        <fieldset class="forum-admin-fieldset">
+                            <legend>
+                                Grade Level State
+                            </legend>
 
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="is_active"
-                                        value="1"
-                                        <?= (
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="is_active" value="1" <?= (
                                             (
                                                 $_POST['action']
                                                 ?? ''
@@ -1313,186 +1255,136 @@ $staffHeroUrl =
                                                 ) === 1
                                         )
                                             ? 'checked'
-                                            : ''; ?>
-                                    >
+                                            : ''; ?>>
 
-                                    <span>
-                                        Active
-                                    </span>
-                                </label>
+                                <span>
+                                    Active
+                                </span>
+                            </label>
 
-                                <p class="form-help">
-                                    Inactive Grade Levels remain in historical
-                                    records but stop appearing as choices for
-                                    new course setup.
-                                </p>
-                            </fieldset>
+                            <p class="form-help">
+                                Inactive Grade Levels remain in historical
+                                records but stop appearing as choices for
+                                new course setup.
+                            </p>
+                        </fieldset>
 
 
-                            <div class="forum-admin-actions">
+                        <div class="forum-admin-actions">
 
-                                <a
-                                    class="button button-secondary"
-                                    href="<?= e(url('admin/grade-levels.php')); ?>"
-                                >
-                                    Cancel
-                                </a>
+                            <a class="button button-secondary" href="<?= e(url('admin/grade-levels.php')); ?>">
+                                Cancel
+                            </a>
 
-                                <button
-                                    type="submit"
-                                    class="button button-primary"
-                                >
-                                    Save Grade Level
-                                </button>
+                            <button type="submit" class="button button-primary">
+                                Save Grade Level
+                            </button>
 
-                            </div>
+                        </div>
 
-                        </form>
+                    </form>
 
-                    </section>
+                </section>
 
                 <?php else: ?>
 
-                    <section class="forum-admin-panel">
+                <section class="forum-admin-panel">
 
-                        <header class="forum-admin-titlebar">
-                            <p class="forum-admin-step">
-                                New Grade Level
-                            </p>
+                    <header class="forum-admin-titlebar">
+                        <p class="forum-admin-step">
+                            New Grade Level
+                        </p>
 
-                            <h2>
-                                Create Grade Level
-                            </h2>
-                        </header>
+                        <h2>
+                            Create Grade Level
+                        </h2>
+                    </header>
 
-                        <form
-                            action="<?= e(url('admin/grade-levels.php')); ?>"
-                            method="post"
-                            class="forum-admin-form"
-                        >
-                            <?= csrf_field(); ?>
+                    <form action="<?= e(url('admin/grade-levels.php')); ?>" method="post" class="forum-admin-form">
+                        <?= csrf_field(); ?>
 
-                            <input
-                                type="hidden"
-                                name="action"
-                                value="create_grade_level"
-                            >
+                        <input type="hidden" name="action" value="create_grade_level">
 
 
-                            <div class="forum-admin-form-grid">
+                        <div class="forum-admin-form-grid">
 
-                                <div class="form-group">
-                                    <label for="grade-level-name">
-                                        Grade Level Name
-                                    </label>
+                            <div class="form-group">
+                                <label for="grade-level-name">
+                                    Grade Level Name
+                                </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="grade-level-name"
-                                        name="name"
-                                        maxlength="100"
-                                        value="<?= e($createForm['name']); ?>"
-                                        placeholder="First Year"
-                                        required
-                                    >
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="year-number">
-                                        Year Number
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        id="year-number"
-                                        name="year_number"
-                                        min="0"
-                                        step="1"
-                                        value="<?= e($createForm['year_number']); ?>"
-                                        placeholder="0"
-                                        required
-                                    >
-
-                                    <p class="form-help">
-                                        New/Pre-Orientation = 0, First Year = 1, Second Year = 2, etc.
-                                    </p>
-                                </div>
-
+                                <input class="form-control" type="text" id="grade-level-name" name="name"
+                                    maxlength="100" value="<?= e($createForm['name']); ?>" placeholder="First Year"
+                                    required>
                             </div>
 
 
                             <div class="form-group">
-                                <label for="description">
-                                    Description
+                                <label for="year-number">
+                                    Year Number
                                 </label>
 
-                                <textarea
-                                    class="form-control"
-                                    id="description"
-                                    name="description"
-                                    rows="5"
-                                ><?= e($createForm['description']); ?></textarea>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="sort-order">
-                                    Sort Order
-                                </label>
-
-                                <input
-                                    class="form-control"
-                                    type="number"
-                                    id="sort-order"
-                                    name="sort_order"
-                                    min="0"
-                                    step="1"
-                                    value="<?= e($createForm['sort_order']); ?>"
-                                >
+                                <input class="form-control" type="number" id="year-number" name="year_number" min="0"
+                                    step="1" value="<?= e($createForm['year_number']); ?>" placeholder="0" required>
 
                                 <p class="form-help">
-                                    Optional. Leave blank to use the Year Number.
+                                    New/Pre-Orientation = 0, First Year = 1, Second Year = 2, etc.
                                 </p>
                             </div>
 
+                        </div>
 
-                            <fieldset class="forum-admin-fieldset">
-                                <legend>
-                                    Grade Level State
-                                </legend>
 
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="is_active"
-                                        value="1"
-                                        <?= $createForm['is_active'] === '1'
+                        <div class="form-group">
+                            <label for="description">
+                                Description
+                            </label>
+
+                            <textarea class="form-control" id="description" name="description"
+                                rows="5"><?= e($createForm['description']); ?></textarea>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="sort-order">
+                                Sort Order
+                            </label>
+
+                            <input class="form-control" type="number" id="sort-order" name="sort_order" min="0" step="1"
+                                value="<?= e($createForm['sort_order']); ?>">
+
+                            <p class="form-help">
+                                Optional. Leave blank to use the Year Number.
+                            </p>
+                        </div>
+
+
+                        <fieldset class="forum-admin-fieldset">
+                            <legend>
+                                Grade Level State
+                            </legend>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="is_active" value="1" <?= $createForm['is_active'] === '1'
                                             ? 'checked'
-                                            : ''; ?>
-                                    >
+                                            : ''; ?>>
 
-                                    <span>
-                                        Active
-                                    </span>
-                                </label>
-                            </fieldset>
+                                <span>
+                                    Active
+                                </span>
+                            </label>
+                        </fieldset>
 
 
-                            <div class="forum-admin-actions">
-                                <button
-                                    type="submit"
-                                    class="button button-primary"
-                                >
-                                    Create Grade Level
-                                </button>
-                            </div>
+                        <div class="forum-admin-actions">
+                            <button type="submit" class="button button-primary">
+                                Create Grade Level
+                            </button>
+                        </div>
 
-                        </form>
+                    </form>
 
-                    </section>
+                </section>
 
                 <?php endif; ?>
 
@@ -1515,68 +1407,66 @@ $staffHeroUrl =
 
                         <?php if ($yearGroups === []): ?>
 
-                            <p>
-                                No Grade Levels have been created yet.
-                                The first expected record can be New/Pre-Orientation
-                                with Year Number 0, followed by First Year
-                                with Year Number 1.
-                            </p>
+                        <p>
+                            No Grade Levels have been created yet.
+                            The first expected record can be New/Pre-Orientation
+                            with Year Number 0, followed by First Year
+                            with Year Number 1.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach ($yearGroups as $yearGroupRow): ?>
+                            <?php foreach ($yearGroups as $yearGroupRow): ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            <?= e((string) $yearGroupRow['name']); ?>
-                                        </strong>
+                                <strong>
+                                    <?= e((string) $yearGroupRow['name']); ?>
+                                </strong>
 
-                                        · Year
-                                        <?= number_format(
+                                · Year
+                                <?= number_format(
                                             (int) (
                                                 $yearGroupRow['year_number']
                                                 ?? 0
                                             )
                                         ); ?>
 
-                                        · Slug:
-                                        <?= e((string) $yearGroupRow['slug']); ?>
+                                · Slug:
+                                <?= e((string) $yearGroupRow['slug']); ?>
 
-                                        · Sort:
-                                        <?= number_format(
+                                · Sort:
+                                <?= number_format(
                                             (int) (
                                                 $yearGroupRow['sort_order']
                                                 ?? 0
                                             )
                                         ); ?>
 
-                                        · <?= (int) (
+                                · <?= (int) (
                                             $yearGroupRow['is_active']
                                             ?? 0
                                         ) === 1
                                             ? 'Active'
                                             : 'Inactive'; ?>
 
-                                        ·
-                                        <a
-                                            href="<?= e(
+                                ·
+                                <a href="<?= e(
                                                 url(
                                                     'admin/grade-levels.php?edit='
                                                     . (int) $yearGroupRow['id']
                                                 )
-                                            ); ?>"
-                                        >
-                                            Edit
-                                        </a>
+                                            ); ?>">
+                                    Edit
+                                </a>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 

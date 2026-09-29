@@ -967,42 +967,43 @@ require INCLUDES_PATH . '/header.php';
                         <p class="academy-overline">Academics</p>
                         <h1>Course Registration</h1>
                         <p>
-                            Complete any required gateway course, then register for the available Academy year as a complete course group.
+                            Complete any required gateway course, then register for the available Academy year as a
+                            complete course group.
                         </p>
                     </div>
                 </header>
 
                 <?php if ($successMessage !== null): ?>
-                    <div class="form-message success-message" role="status">
-                        <?= e($successMessage); ?>
-                    </div>
+                <div class="form-message success-message" role="status">
+                    <?= e($successMessage); ?>
+                </div>
                 <?php endif; ?>
 
                 <?php if ($errorMessage !== null): ?>
-                    <div class="form-message error-message" role="alert">
-                        <?= e($errorMessage); ?>
-                    </div>
+                <div class="form-message error-message" role="alert">
+                    <?= e($errorMessage); ?>
+                </div>
                 <?php endif; ?>
 
                 <?php if ($groups === []): ?>
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">Registration</p>
-                                <h2>No Registration Groups Available</h2>
-                            </div>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">Registration</p>
+                            <h2>No Registration Groups Available</h2>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
-                            <p>
-                                There are no active Academy-year registration groups available right now.
-                            </p>
-                        </div>
-                    </section>
+                    <div class="dashboard-panel-body">
+                        <p>
+                            There are no active Academy-year registration groups available right now.
+                        </p>
+                    </div>
+                </section>
                 <?php else: ?>
 
-                    <?php foreach ($groups as $group): ?>
-                        <?php
+                <?php foreach ($groups as $group): ?>
+                <?php
                         $gateway = $group['gateway_status'];
                         $windowStatus = (string) $group['window_status'];
                         $groupEnrollmentStatus = (string) ($group['group_enrollment_status'] ?? '');
@@ -1013,146 +1014,148 @@ require INCLUDES_PATH . '/header.php';
                         );
                         ?>
 
-                        <section class="dashboard-workspace-panel">
-                            <div class="dashboard-panel-titlebar">
-                                <div>
-                                    <p class="academy-overline">
-                                        <?= e((string) ($group['school_year_name'] ?? 'School Year')); ?>
-                                    </p>
-                                    <h2><?= e((string) $group['name']); ?></h2>
-                                </div>
-                            </div>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                <?= e((string) ($group['school_year_name'] ?? 'School Year')); ?>
+                            </p>
+                            <h2><?= e((string) $group['name']); ?></h2>
+                        </div>
+                    </div>
 
-                            <div class="dashboard-panel-body">
-                                <?php if (trim((string) ($group['description'] ?? '')) !== ''): ?>
-                                    <p><?= nl2br(e((string) $group['description'])); ?></p>
+                    <div class="dashboard-panel-body">
+                        <?php if (trim((string) ($group['description'] ?? '')) !== ''): ?>
+                        <p><?= nl2br(e((string) $group['description'])); ?></p>
+                        <?php endif; ?>
+
+                        <div class="dashboard-placeholder-list">
+                            <span>
+                                <strong>Year:</strong>
+                                <?= e((string) ($group['year_group_name'] ?? '—')); ?>
+                            </span>
+                            <span>
+                                <strong>Courses:</strong>
+                                <?= number_format((int) ($group['offering_count'] ?? 0)); ?>
+                            </span>
+                            <span>
+                                <strong>Registration Opens:</strong>
+                                <?= e(course_registration_format_datetime($group['registration_opens_at'] ?? null)); ?>
+                            </span>
+                            <span>
+                                <strong>Registration Closes:</strong>
+                                <?= e(course_registration_format_datetime($group['registration_closes_at'] ?? null)); ?>
+                            </span>
+                        </div>
+
+                        <?php if ($group['offerings'] !== []): ?>
+                        <h3>Included Courses</h3>
+                        <div class="dashboard-placeholder-list">
+                            <?php foreach ($group['offerings'] as $offering): ?>
+                            <span>
+                                <strong><?= e((string) $offering['course_title']); ?></strong>
+                                <?php if (trim((string) ($offering['course_code'] ?? '')) !== ''): ?>
+                                · <?= e((string) $offering['course_code']); ?>
                                 <?php endif; ?>
+                            </span>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
 
-                                <div class="dashboard-placeholder-list">
-                                    <span>
-                                        <strong>Year:</strong>
-                                        <?= e((string) ($group['year_group_name'] ?? '—')); ?>
-                                    </span>
-                                    <span>
-                                        <strong>Courses:</strong>
-                                        <?= number_format((int) ($group['offering_count'] ?? 0)); ?>
-                                    </span>
-                                    <span>
-                                        <strong>Registration Opens:</strong>
-                                        <?= e(course_registration_format_datetime($group['registration_opens_at'] ?? null)); ?>
-                                    </span>
-                                    <span>
-                                        <strong>Registration Closes:</strong>
-                                        <?= e(course_registration_format_datetime($group['registration_closes_at'] ?? null)); ?>
-                                    </span>
-                                </div>
+                        <?php if ($gateway['required']): ?>
+                        <h3>Orientation Requirement</h3>
 
-                                <?php if ($group['offerings'] !== []): ?>
-                                    <h3>Included Courses</h3>
-                                    <div class="dashboard-placeholder-list">
-                                        <?php foreach ($group['offerings'] as $offering): ?>
-                                            <span>
-                                                <strong><?= e((string) $offering['course_title']); ?></strong>
-                                                <?php if (trim((string) ($offering['course_code'] ?? '')) !== ''): ?>
-                                                    · <?= e((string) $offering['course_code']); ?>
-                                                <?php endif; ?>
-                                            </span>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
+                        <?php if ($gateway['completed']): ?>
+                        <p>
+                            <strong>Orientation Complete.</strong>
+                            You have satisfied the gateway requirement for this registration group.
+                        </p>
+                        <?php elseif ($gateway['enrollment'] !== null): ?>
+                        <p>
+                            Orientation is required and your enrollment is already active. Complete it before
+                            registering for this Academy year.
+                        </p>
 
-                                <?php if ($gateway['required']): ?>
-                                    <h3>Orientation Requirement</h3>
+                        <a class="button button-secondary"
+                            href="<?= e(url('course.php?offering=' . (int) $gateway['enrollment']['offering_id'])); ?>">
+                            Continue Orientation
+                        </a>
+                        <?php elseif ($gateway['offering'] !== null): ?>
+                        <p>
+                            Orientation must be completed before registration. You can begin the available Orientation
+                            course now.
+                        </p>
 
-                                    <?php if ($gateway['completed']): ?>
-                                        <p>
-                                            <strong>Orientation Complete.</strong>
-                                            You have satisfied the gateway requirement for this registration group.
-                                        </p>
-                                    <?php elseif ($gateway['enrollment'] !== null): ?>
-                                        <p>
-                                            Orientation is required and your enrollment is already active. Complete it before registering for this Academy year.
-                                        </p>
+                        <form method="post" action="<?= e(url('course-registration.php')); ?>">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="action" value="enroll_gateway">
+                            <input type="hidden" name="course_id" value="<?= (int) $group['gateway_course_id']; ?>">
+                            <input type="hidden" name="offering_id"
+                                value="<?= (int) $gateway['offering']['offering_id']; ?>">
 
-                                        <a
-                                            class="button button-secondary"
-                                            href="<?= e(url('course.php?offering=' . (int) $gateway['enrollment']['offering_id'])); ?>"
-                                        >
-                                            Continue Orientation
-                                        </a>
-                                    <?php elseif ($gateway['offering'] !== null): ?>
-                                        <p>
-                                            Orientation must be completed before registration. You can begin the available Orientation course now.
-                                        </p>
+                            <button class="button button-secondary" type="submit">
+                                Begin Orientation
+                            </button>
+                        </form>
+                        <?php else: ?>
+                        <p>
+                            Orientation is required, but there is no open Orientation offering available for enrollment
+                            right now.
+                        </p>
+                        <?php endif; ?>
+                        <?php endif; ?>
 
-                                        <form method="post" action="<?= e(url('course-registration.php')); ?>">
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="action" value="enroll_gateway">
-                                            <input type="hidden" name="course_id" value="<?= (int) $group['gateway_course_id']; ?>">
-                                            <input type="hidden" name="offering_id" value="<?= (int) $gateway['offering']['offering_id']; ?>">
+                        <h3>Registration Status</h3>
 
-                                            <button class="button button-secondary" type="submit">
-                                                Begin Orientation
-                                            </button>
-                                        </form>
-                                    <?php else: ?>
-                                        <p>
-                                            Orientation is required, but there is no open Orientation offering available for enrollment right now.
-                                        </p>
-                                    <?php endif; ?>
-                                <?php endif; ?>
+                        <?php if ($alreadyRegistered): ?>
+                        <p>
+                            <strong>Already Registered.</strong>
+                            Your Academy-year registration is already on record.
+                        </p>
 
-                                <h3>Registration Status</h3>
+                        <a class="button button-primary" href="<?= e(url('courses.php')); ?>">
+                            View My Courses
+                        </a>
+                        <?php elseif ($windowStatus === 'not_open'): ?>
+                        <p>
+                            Registration has not opened yet.
+                        </p>
+                        <?php elseif ($windowStatus === 'closed'): ?>
+                        <p>
+                            Registration is closed for this Academy year.
+                        </p>
+                        <?php elseif ($windowStatus !== 'open'): ?>
+                        <p>
+                            Registration is not currently available for this Academy year.
+                        </p>
+                        <?php elseif (!$gateway['completed']): ?>
+                        <p>
+                            <strong>Orientation Required.</strong>
+                            Complete Orientation before the registration button becomes available.
+                        </p>
+                        <?php elseif ((int) ($group['offering_count'] ?? 0) <= 0): ?>
+                        <p>
+                            This registration group does not have course offerings assigned yet.
+                        </p>
+                        <?php else: ?>
+                        <p>
+                            <strong>Eligible to Register.</strong>
+                            Registering will enroll you in every course offering included in this Academy-year group.
+                        </p>
 
-                                <?php if ($alreadyRegistered): ?>
-                                    <p>
-                                        <strong>Already Registered.</strong>
-                                        Your Academy-year registration is already on record.
-                                    </p>
+                        <form method="post" action="<?= e(url('course-registration.php')); ?>">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="action" value="register_group">
+                            <input type="hidden" name="group_id" value="<?= (int) $group['id']; ?>">
 
-                                    <a class="button button-primary" href="<?= e(url('courses.php')); ?>">
-                                        View My Courses
-                                    </a>
-                                <?php elseif ($windowStatus === 'not_open'): ?>
-                                    <p>
-                                        Registration has not opened yet.
-                                    </p>
-                                <?php elseif ($windowStatus === 'closed'): ?>
-                                    <p>
-                                        Registration is closed for this Academy year.
-                                    </p>
-                                <?php elseif ($windowStatus !== 'open'): ?>
-                                    <p>
-                                        Registration is not currently available for this Academy year.
-                                    </p>
-                                <?php elseif (!$gateway['completed']): ?>
-                                    <p>
-                                        <strong>Orientation Required.</strong>
-                                        Complete Orientation before the registration button becomes available.
-                                    </p>
-                                <?php elseif ((int) ($group['offering_count'] ?? 0) <= 0): ?>
-                                    <p>
-                                        This registration group does not have course offerings assigned yet.
-                                    </p>
-                                <?php else: ?>
-                                    <p>
-                                        <strong>Eligible to Register.</strong>
-                                        Registering will enroll you in every course offering included in this Academy-year group.
-                                    </p>
-
-                                    <form method="post" action="<?= e(url('course-registration.php')); ?>">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" name="action" value="register_group">
-                                        <input type="hidden" name="group_id" value="<?= (int) $group['id']; ?>">
-
-                                        <button class="button button-primary" type="submit">
-                                            Register for <?= e((string) ($group['year_group_name'] ?? 'Academy Year')); ?>
-                                        </button>
-                                    </form>
-                                <?php endif; ?>
-                            </div>
-                        </section>
-                    <?php endforeach; ?>
+                            <button class="button button-primary" type="submit">
+                                Register for <?= e((string) ($group['year_group_name'] ?? 'Academy Year')); ?>
+                            </button>
+                        </form>
+                        <?php endif; ?>
+                    </div>
+                </section>
+                <?php endforeach; ?>
 
                 <?php endif; ?>
             </div>

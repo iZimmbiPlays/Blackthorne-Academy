@@ -55,34 +55,31 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to edit assignments.
-                </p>
+            <p>
+                Your account does not have permission to edit assignments.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/assignments.php')); ?>"
-                >
-                    Return to Assignments
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/assignments.php')); ?>">
+                Return to Assignments
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1529,18 +1526,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page assignment-edit-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page assignment-edit-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="assignment-edit-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="assignment-edit-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -1614,15 +1605,12 @@ $staffHeroUrl =
                     </div>
 
                     <div class="dashboard-workspace-heading-actions">
-                        <a
-                            class="button button-secondary"
-                            href="<?= e(
+                        <a class="button button-secondary" href="<?= e(
                                 url(
                                     'admin/assignments.php?offering='
                                     . $offeringId
                                 )
-                            ); ?>"
-                        >
+                            ); ?>">
                             Back to Assignments
                         </a>
                     </div>
@@ -1631,22 +1619,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The assignment could not be updated.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The assignment could not be updated.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -1699,14 +1684,14 @@ $staffHeroUrl =
                                     ]
                                 )
                             ): ?>
-                                <span>
-                                    <strong>School Year:</strong>
-                                    <?= e(
+                            <span>
+                                <strong>School Year:</strong>
+                                <?= e(
                                         (string) $assignment[
                                             'school_year_name'
                                         ]
                                     ); ?>
-                                </span>
+                            </span>
                             <?php endif; ?>
 
                             <?php if (
@@ -1716,14 +1701,14 @@ $staffHeroUrl =
                                     ]
                                 )
                             ): ?>
-                                <span>
-                                    <strong>Grade Level:</strong>
-                                    <?= e(
+                            <span>
+                                <strong>Grade Level:</strong>
+                                <?= e(
                                         (string) $assignment[
                                             'year_group_names'
                                         ]
                                     ); ?>
-                                </span>
+                            </span>
                             <?php endif; ?>
 
                             <span>
@@ -1765,25 +1750,17 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(
+                    <form action="<?= e(
                             url(
                                 'admin/assignment-edit.php?offering='
                                 . $offeringId
                                 . '&assignment='
                                 . $assignmentId
                             )
-                        ); ?>"
-                        method="post"
-                        class="forum-admin-form"
-                    >
+                        ); ?>" method="post" class="forum-admin-form">
                         <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="create_new_version"
-                        >
+                        <input type="hidden" name="action" value="create_new_version">
 
 
                         <div class="form-group">
@@ -1791,15 +1768,8 @@ $staffHeroUrl =
                                 Assignment Title
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="assignment-title"
-                                name="title"
-                                maxlength="200"
-                                value="<?= e($contentForm['title']); ?>"
-                                required
-                            >
+                            <input class="form-control" type="text" id="assignment-title" name="title" maxlength="200"
+                                value="<?= e($contentForm['title']); ?>" required>
                         </div>
 
 
@@ -1808,12 +1778,8 @@ $staffHeroUrl =
                                 Short Description
                             </label>
 
-                            <textarea
-                                class="form-control"
-                                id="assignment-description"
-                                name="description"
-                                rows="4"
-                            ><?= e($contentForm['description']); ?></textarea>
+                            <textarea class="form-control" id="assignment-description" name="description"
+                                rows="4"><?= e($contentForm['description']); ?></textarea>
                         </div>
 
 
@@ -1822,12 +1788,8 @@ $staffHeroUrl =
                                 Assignment Instructions
                             </label>
 
-                            <textarea
-                                class="form-control"
-                                id="assignment-instructions"
-                                name="instructions"
-                                rows="14"
-                            ><?= e($contentForm['instructions']); ?></textarea>
+                            <textarea class="form-control" id="assignment-instructions" name="instructions"
+                                rows="14"><?= e($contentForm['instructions']); ?></textarea>
 
                             <p class="form-help">
                                 Saving this section creates a new version.
@@ -1843,14 +1805,9 @@ $staffHeroUrl =
                             </legend>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="checkbox"
-                                    name="allow_text_submission"
-                                    value="1"
-                                    <?= $contentForm['allow_text_submission'] === '1'
+                                <input type="checkbox" name="allow_text_submission" value="1" <?= $contentForm['allow_text_submission'] === '1'
                                         ? 'checked'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
 
                                 <span>
                                     Allow text response
@@ -1858,14 +1815,9 @@ $staffHeroUrl =
                             </label>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="checkbox"
-                                    name="allow_file_upload"
-                                    value="1"
-                                    <?= $contentForm['allow_file_upload'] === '1'
+                                <input type="checkbox" name="allow_file_upload" value="1" <?= $contentForm['allow_file_upload'] === '1'
                                         ? 'checked'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
 
                                 <span>
                                     Allow file upload
@@ -1880,48 +1832,32 @@ $staffHeroUrl =
                                 New Version Status
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="assignment-status"
-                                name="status"
-                            >
-                                <option
-                                    value="draft"
-                                    <?= $contentForm['status'] === 'draft'
+                            <select class="form-control" id="assignment-status" name="status">
+                                <option value="draft" <?= $contentForm['status'] === 'draft'
                                         ? 'selected'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
                                     Draft
                                 </option>
 
-                                <option
-                                    value="review"
-                                    <?= $contentForm['status'] === 'review'
+                                <option value="review" <?= $contentForm['status'] === 'review'
                                         ? 'selected'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
                                     Review
                                 </option>
 
                                 <?php if ($canPublishAssignments): ?>
-                                    <option
-                                        value="published"
-                                        <?= $contentForm['status'] === 'published'
+                                <option value="published" <?= $contentForm['status'] === 'published'
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        Published
-                                    </option>
+                                            : ''; ?>>
+                                    Published
+                                </option>
                                 <?php endif; ?>
                             </select>
                         </div>
 
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Create New Version
                             </button>
                         </div>
@@ -1933,62 +1869,48 @@ $staffHeroUrl =
 
                 <?php if ($canManageAssignmentSettings): ?>
 
-                    <section class="forum-admin-panel">
+                <section class="forum-admin-panel">
 
-                        <header class="forum-admin-titlebar">
-                            <p class="forum-admin-step">
-                                Offering Settings
-                            </p>
+                    <header class="forum-admin-titlebar">
+                        <p class="forum-admin-step">
+                            Offering Settings
+                        </p>
 
-                            <h2>
-                                Points &amp; Submission Rules
-                            </h2>
-                        </header>
+                        <h2>
+                            Points &amp; Submission Rules
+                        </h2>
+                    </header>
 
-                        <form
-                            action="<?= e(
+                    <form action="<?= e(
                                 url(
                                     'admin/assignment-edit.php?offering='
                                     . $offeringId
                                     . '&assignment='
                                     . $assignmentId
                                 )
-                            ); ?>"
-                            method="post"
-                            class="forum-admin-form"
-                        >
-                            <?= csrf_field(); ?>
+                            ); ?>" method="post" class="forum-admin-form">
+                        <?= csrf_field(); ?>
 
-                            <input
-                                type="hidden"
-                                name="action"
-                                value="update_offering_settings"
-                            >
+                        <input type="hidden" name="action" value="update_offering_settings">
 
 
-                            <div class="form-group">
-                                <label for="course-offering-lesson-id">
-                                    Related Lesson
-                                </label>
+                        <div class="form-group">
+                            <label for="course-offering-lesson-id">
+                                Related Lesson
+                            </label>
 
-                                <select
-                                    class="form-control"
-                                    id="course-offering-lesson-id"
-                                    name="course_offering_lesson_id"
-                                >
-                                    <option value="">
-                                        None / Course-level assignment
-                                    </option>
+                            <select class="form-control" id="course-offering-lesson-id"
+                                name="course_offering_lesson_id">
+                                <option value="">
+                                    None / Course-level assignment
+                                </option>
 
-                                    <?php foreach ($offeringLessons as $lessonRow): ?>
-                                        <option
-                                            value="<?= (int) $lessonRow['course_offering_lesson_id']; ?>"
-                                            <?= (string) $lessonRow['course_offering_lesson_id']
+                                <?php foreach ($offeringLessons as $lessonRow): ?>
+                                <option value="<?= (int) $lessonRow['course_offering_lesson_id']; ?>" <?= (string) $lessonRow['course_offering_lesson_id']
                                                 === $settingsForm['course_offering_lesson_id']
                                                     ? 'selected'
-                                                    : ''; ?>
-                                        >
-                                            <?= number_format(
+                                                    : ''; ?>>
+                                    <?= number_format(
                                                 (int) (
                                                     $lessonRow[
                                                         'sort_order'
@@ -1996,7 +1918,7 @@ $staffHeroUrl =
                                                     ?? 0
                                                 )
                                             ); ?>.
-                                            <?= e(
+                                    <?= e(
                                                 (string) (
                                                     $lessonRow[
                                                         'title'
@@ -2004,179 +1926,129 @@ $staffHeroUrl =
                                                     ?? 'Lesson'
                                                 )
                                             ); ?>
-                                        </option>
-                                    <?php endforeach; ?>
-                                </select>
+                                </option>
+                                <?php endforeach; ?>
+                            </select>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="points-possible">
+                                Points Possible
+                            </label>
+
+                            <input class="form-control" type="number" id="points-possible" name="points_possible"
+                                min="0.01" step="0.01" value="<?= e($settingsForm['points_possible']); ?>" required>
+                        </div>
+
+
+                        <div class="forum-admin-form-grid">
+
+                            <div class="form-group">
+                                <label for="due-date">
+                                    Due Date
+                                </label>
+
+                                <input class="form-control" type="datetime-local" id="due-date" name="due_date"
+                                    value="<?= e($settingsForm['due_date']); ?>">
                             </div>
 
 
                             <div class="form-group">
-                                <label for="points-possible">
-                                    Points Possible
+                                <label for="submission-close-date">
+                                    Submission Close Date
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="number"
-                                    id="points-possible"
-                                    name="points_possible"
-                                    min="0.01"
-                                    step="0.01"
-                                    value="<?= e($settingsForm['points_possible']); ?>"
-                                    required
-                                >
-                            </div>
-
-
-                            <div class="forum-admin-form-grid">
-
-                                <div class="form-group">
-                                    <label for="due-date">
-                                        Due Date
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        type="datetime-local"
-                                        id="due-date"
-                                        name="due_date"
-                                        value="<?= e($settingsForm['due_date']); ?>"
-                                    >
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="submission-close-date">
-                                        Submission Close Date
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        type="datetime-local"
-                                        id="submission-close-date"
-                                        name="submission_close_date"
-                                        value="<?= e(
+                                <input class="form-control" type="datetime-local" id="submission-close-date"
+                                    name="submission_close_date" value="<?= e(
                                             $settingsForm[
                                                 'submission_close_date'
                                             ]
-                                        ); ?>"
-                                    >
-                                </div>
-
+                                        ); ?>">
                             </div>
 
+                        </div>
 
-                            <fieldset class="forum-admin-fieldset">
 
-                                <legend>
-                                    Submission Rules
-                                </legend>
+                        <fieldset class="forum-admin-fieldset">
 
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="allow_resubmissions"
-                                        value="1"
-                                        <?= $settingsForm['allow_resubmissions'] === '1'
+                            <legend>
+                                Submission Rules
+                            </legend>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_resubmissions" value="1" <?= $settingsForm['allow_resubmissions'] === '1'
                                             ? 'checked'
-                                            : ''; ?>
-                                    >
+                                            : ''; ?>>
 
-                                    <span>
-                                        Allow resubmissions
-                                    </span>
+                                <span>
+                                    Allow resubmissions
+                                </span>
+                            </label>
+
+                            <div class="form-group">
+                                <label for="max-submissions">
+                                    Maximum Submissions
                                 </label>
 
-                                <div class="form-group">
-                                    <label for="max-submissions">
-                                        Maximum Submissions
-                                    </label>
+                                <input class="form-control" type="number" id="max-submissions" name="max_submissions"
+                                    min="1" step="1" value="<?= e($settingsForm['max_submissions']); ?>">
+                            </div>
 
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        id="max-submissions"
-                                        name="max_submissions"
-                                        min="1"
-                                        step="1"
-                                        value="<?= e($settingsForm['max_submissions']); ?>"
-                                    >
-                                </div>
-
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="allow_late_submissions"
-                                        value="1"
-                                        <?= $settingsForm['allow_late_submissions'] === '1'
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_late_submissions" value="1" <?= $settingsForm['allow_late_submissions'] === '1'
                                             ? 'checked'
-                                            : ''; ?>
-                                    >
+                                            : ''; ?>>
 
-                                    <span>
-                                        Allow late submissions
-                                    </span>
+                                <span>
+                                    Allow late submissions
+                                </span>
+                            </label>
+
+                        </fieldset>
+
+
+                        <fieldset class="forum-admin-fieldset">
+
+                            <legend>
+                                Extra Credit
+                            </legend>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_extra_credit" value="1" <?= $settingsForm['allow_extra_credit'] === '1'
+                                            ? 'checked'
+                                            : ''; ?>>
+
+                                <span>
+                                    Allow extra credit
+                                </span>
+                            </label>
+
+                            <div class="form-group">
+                                <label for="extra-credit-max-points">
+                                    Maximum Extra-Credit Points
                                 </label>
 
-                            </fieldset>
-
-
-                            <fieldset class="forum-admin-fieldset">
-
-                                <legend>
-                                    Extra Credit
-                                </legend>
-
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="allow_extra_credit"
-                                        value="1"
-                                        <?= $settingsForm['allow_extra_credit'] === '1'
-                                            ? 'checked'
-                                            : ''; ?>
-                                    >
-
-                                    <span>
-                                        Allow extra credit
-                                    </span>
-                                </label>
-
-                                <div class="form-group">
-                                    <label for="extra-credit-max-points">
-                                        Maximum Extra-Credit Points
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        id="extra-credit-max-points"
-                                        name="extra_credit_max_points"
-                                        min="0"
-                                        step="0.01"
-                                        value="<?= e(
+                                <input class="form-control" type="number" id="extra-credit-max-points"
+                                    name="extra_credit_max_points" min="0" step="0.01" value="<?= e(
                                             $settingsForm[
                                                 'extra_credit_max_points'
                                             ]
-                                        ); ?>"
-                                    >
-                                </div>
-
-                            </fieldset>
-
-
-                            <div class="forum-admin-actions">
-                                <button
-                                    type="submit"
-                                    class="button button-primary"
-                                >
-                                    Save Offering Settings
-                                </button>
+                                        ); ?>">
                             </div>
 
-                        </form>
+                        </fieldset>
 
-                    </section>
+
+                        <div class="forum-admin-actions">
+                            <button type="submit" class="button button-primary">
+                                Save Offering Settings
+                            </button>
+                        </div>
+
+                    </form>
+
+                </section>
 
                 <?php endif; ?>
 
@@ -2186,46 +2058,43 @@ $staffHeroUrl =
                     || $canEditAssignments
                 ): ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Optional Work
-                                </p>
-
-                                <h3>
-                                    Extra Credit
-                                </h3>
-                            </div>
-                        </div>
-
-                        <div class="dashboard-panel-body">
-
-                            <p>
-                                Extra-credit tasks are stored with the exact
-                                assignment version used by this offering.
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Optional Work
                             </p>
 
-                            <div class="forum-admin-actions">
-                                <a
-                                    class="button button-secondary"
-                                    href="<?= e(
+                            <h3>
+                                Extra Credit
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-panel-body">
+
+                        <p>
+                            Extra-credit tasks are stored with the exact
+                            assignment version used by this offering.
+                        </p>
+
+                        <div class="forum-admin-actions">
+                            <a class="button button-secondary" href="<?= e(
                                         url(
                                             'admin/assignment-extra-credit.php?offering='
                                             . $offeringId
                                             . '&assignment='
                                             . $assignmentId
                                         )
-                                    ); ?>"
-                                >
-                                    Manage Extra Credit
-                                </a>
-                            </div>
-
+                                    ); ?>">
+                                Manage Extra Credit
+                            </a>
                         </div>
 
-                    </section>
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 
@@ -2248,16 +2117,16 @@ $staffHeroUrl =
 
                         <?php if ($versions === []): ?>
 
-                            <p>
-                                No version history is available.
-                            </p>
+                        <p>
+                            No version history is available.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach ($versions as $versionRow): ?>
-                                    <?php
+                            <?php foreach ($versions as $versionRow): ?>
+                            <?php
                                     $creatorName =
                                         trim(
                                             (string) (
@@ -2298,11 +2167,11 @@ $staffHeroUrl =
                                         );
                                     ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            Version
-                                            <?= number_format(
+                                <strong>
+                                    Version
+                                    <?= number_format(
                                                 (int) (
                                                     $versionRow[
                                                         'version_number'
@@ -2310,8 +2179,8 @@ $staffHeroUrl =
                                                     ?? 1
                                                 )
                                             ); ?>
-                                            —
-                                            <?= e(
+                                    —
+                                    <?= e(
                                                 (string) (
                                                     $versionRow[
                                                         'title'
@@ -2319,14 +2188,14 @@ $staffHeroUrl =
                                                     ?? 'Assignment'
                                                 )
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        <?php if ($isCurrentVersion): ?>
-                                            · Current for this offering
-                                        <?php endif; ?>
+                                <?php if ($isCurrentVersion): ?>
+                                · Current for this offering
+                                <?php endif; ?>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             ucfirst(
                                                 (string) (
                                                     $versionRow[
@@ -2337,8 +2206,8 @@ $staffHeroUrl =
                                             )
                                         ); ?>
 
-                                        ·
-                                        <?= (int) (
+                                ·
+                                <?= (int) (
                                             $versionRow[
                                                 'allow_text_submission'
                                             ]
@@ -2347,8 +2216,8 @@ $staffHeroUrl =
                                             ? 'Text'
                                             : 'No text'; ?>
 
-                                        ·
-                                        <?= (int) (
+                                ·
+                                <?= (int) (
                                             $versionRow[
                                                 'allow_file_upload'
                                             ]
@@ -2357,8 +2226,8 @@ $staffHeroUrl =
                                             ? 'File upload'
                                             : 'No file upload'; ?>
 
-                                        · Created
-                                        <?= e(
+                                · Created
+                                <?= e(
                                             assignment_edit_format_datetime(
                                                 $versionRow[
                                                     'created_at'
@@ -2367,37 +2236,37 @@ $staffHeroUrl =
                                             )
                                         ); ?>
 
-                                        <?php if ($creatorName !== ''): ?>
-                                            by <?= e($creatorName); ?>
-                                        <?php endif; ?>
+                                <?php if ($creatorName !== ''): ?>
+                                by <?= e($creatorName); ?>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             !empty(
                                                 $versionRow[
                                                     'published_at'
                                                 ]
                                             )
                                         ): ?>
-                                            · Published
-                                            <?= e(
+                                · Published
+                                <?= e(
                                                 assignment_edit_format_datetime(
                                                     $versionRow[
                                                         'published_at'
                                                     ]
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        <?php if ($approverName !== ''): ?>
-                                            · Approved by
-                                            <?= e($approverName); ?>
-                                        <?php endif; ?>
+                                <?php if ($approverName !== ''): ?>
+                                · Approved by
+                                <?= e($approverName); ?>
+                                <?php endif; ?>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 

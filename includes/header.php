@@ -19,139 +19,81 @@ $robots = $robots ?? 'index, follow';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-    <meta charset="UTF-8">
+    <head>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1"
-    >
+        <meta charset="UTF-8">
 
-    <title><?= e($pageTitle); ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <meta
-        name="description"
-        content="<?= e($pageDescription); ?>"
-    >
+        <title><?= e($pageTitle); ?></title>
 
-    <meta
-        name="robots"
-        content="<?= e($robots); ?>"
-    >
+        <meta name="description" content="<?= e($pageDescription); ?>">
 
-    <link
-        rel="canonical"
-        href="<?= e($pageCanonical); ?>"
-    >
+        <meta name="robots" content="<?= e($robots); ?>">
 
-    <meta
-        property="og:site_name"
-        content="<?= e(APP_NAME); ?>"
-    >
+        <link rel="canonical" href="<?= e($pageCanonical); ?>">
 
-    <meta
-        property="og:title"
-        content="<?= e($pageTitle); ?>"
-    >
+        <meta property="og:site_name" content="<?= e(APP_NAME); ?>">
 
-    <meta
-        property="og:description"
-        content="<?= e($pageDescription); ?>"
-    >
+        <meta property="og:title" content="<?= e($pageTitle); ?>">
 
-    <meta
-        property="og:type"
-        content="website"
-    >
+        <meta property="og:description" content="<?= e($pageDescription); ?>">
 
-    <meta
-        property="og:url"
-        content="<?= e($pageCanonical); ?>"
-    >
+        <meta property="og:type" content="website">
 
-    <meta
-        name="twitter:card"
-        content="summary_large_image"
-    >
+        <meta property="og:url" content="<?= e($pageCanonical); ?>">
 
-    <meta
-        name="theme-color"
-        content="#120b17"
-    >
+        <meta name="twitter:card" content="summary_large_image">
 
-    <meta
-        name="color-scheme"
-        content="dark"
-    >
-    <?php
+        <meta name="theme-color" content="#120b17">
+
+        <meta name="color-scheme" content="dark">
+        <?php
     $cssFile = ASSETS_PATH . '/css/style.css';
     $cssVersion = file_exists($cssFile)
         ? filemtime($cssFile)
         : time();
     ?>
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=<?= (int) $cssVersion; ?>">
+        <link rel="stylesheet" href="/assets/css/style.css?v=<?= (int) $cssVersion; ?>">
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="<?= e(asset('images/favicon.png')); ?>?v=3"
-    >
+        <link rel="icon" type="image/png" href="<?= e(asset('images/favicon.png')); ?>?v=3">
 
-    <link
-        rel="shortcut icon"
-        type="image/png"
-        href="<?= e(asset('images/favicon.png')); ?>?v=3"
-    >
+        <link rel="shortcut icon" type="image/png" href="<?= e(asset('images/favicon.png')); ?>?v=3">
 
-    <link
-        rel="apple-touch-icon"
-        href="<?= e(asset('images/favicon.png')); ?>?v=3"
-    >
+        <link rel="apple-touch-icon" href="<?= e(asset('images/favicon.png')); ?>?v=3">
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-<a class="skip-link" href="#main-content">
-    Skip to main content
-</a>
+        <a class="skip-link" href="#main-content">
+            Skip to main content
+        </a>
 
-<header class="site-header">
+        <header class="site-header">
 
-    <div class="header-inner">
+            <div class="header-inner">
 
-        <a
-            href="<?= e(HOME_URL); ?>"
-            class="site-brand"
-            aria-label="Blackthorne Academy home"
-        >
+                <a href="<?= e(HOME_URL); ?>" class="site-brand" aria-label="Blackthorne Academy home">
 
-            <!--
+                    <!--
                 Crest Logo Brand Image.
             -->
 
-            <img
-                src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                alt=""
-                class="brand-crest-image"
-                width="100"
-                height="100"
-                loading="eager"
-                decoding="sync"
-                fetchpriority="high"
-            >
+                    <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" class="brand-crest-image" width="100"
+                        height="100" loading="eager" decoding="sync" fetchpriority="high">
 
-            <span class="brand-text">
-                <span>Blackthorne</span>
-                <span>Academy</span>
-            </span>
+                    <span class="brand-text">
+                        <span>Blackthorne</span>
+                        <span>Academy</span>
+                    </span>
 
-        </a>
+                </a>
 
-        <?php require INCLUDES_PATH . '/navigation.php'; ?>
+                <?php require INCLUDES_PATH . '/navigation.php'; ?>
 
-    </div>
+            </div>
 
-</header>
+        </header>

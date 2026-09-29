@@ -15,21 +15,10 @@ declare(strict_types=1);
 
         <div class="footer-column footer-brand-column">
 
-            <a
-                href="<?= e(HOME_URL); ?>"
-                class="footer-logo"
-                aria-label="Blackthorne Academy home"
-            >
+            <a href="<?= e(HOME_URL); ?>" class="footer-logo" aria-label="Blackthorne Academy home">
 
-                <img
-                    src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                    alt=""
-                    class="footer-crest-image"
-                    width="100"
-                    height="100"
-                    loading="lazy"
-                    decoding="async"
-                >
+                <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" class="footer-crest-image" width="100"
+                    height="100" loading="lazy" decoding="async">
 
                 <span class="brand-text footer-brand-text">
 
@@ -50,10 +39,7 @@ declare(strict_types=1);
 
         <div class="footer-column footer-information-column">
 
-            <nav
-                class="footer-legal-links"
-                aria-label="Legal information"
-            >
+            <nav class="footer-legal-links" aria-label="Legal information">
 
                 <a href="<?= e(url('terms.php')); ?>">
                     Terms
@@ -106,35 +92,12 @@ declare(strict_types=1);
 </footer>
 
 
-<button
-    type="button"
-    id="back-to-top"
-    class="back-to-top"
-    aria-label="Back to top"
-    title="Back to top"
-    data-visible="false"
->
-    <svg
-        class="back-to-top-icon"
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        focusable="false"
-    >
-        <path
-            d="M6.75 10.5 12 5.25l5.25 5.25"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-        />
-        <path
-            d="M12 5.75v12.5"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.8"
-            stroke-linecap="round"
-        />
+<button type="button" id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top"
+    data-visible="false">
+    <svg class="back-to-top-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M6.75 10.5 12 5.25l5.25 5.25" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M12 5.75v12.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
     </svg>
 </button>
 
@@ -163,45 +126,47 @@ $jsVersion =
 ?>
 
 
-<script
-    src="<?= e(
+<script src="<?= e(
         asset(
             'js/main.js?v=' .
             $jsVersion
         )
-    ); ?>"
-></script>
+    ); ?>"></script>
 
 <script>
-(function () {
-    'use strict';
+    (function() {
+        'use strict';
 
-    const backToTopButton = document.getElementById('back-to-top');
+        const backToTopButton = document.getElementById('back-to-top');
 
-    if (!backToTopButton) {
-        return;
-    }
+        if (!backToTopButton) {
+            return;
+        }
 
-    const toggleBackToTop = function () {
-        const shouldShow = window.scrollY > 350;
+        const toggleBackToTop = function() {
+            const shouldShow = window.scrollY > 350;
 
-        backToTopButton.dataset.visible = shouldShow ? 'true' : 'false';
-        backToTopButton.classList.toggle('is-visible', shouldShow);
-        backToTopButton.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
-        backToTopButton.tabIndex = shouldShow ? 0 : -1;
-    };
+            backToTopButton.dataset.visible = shouldShow ? 'true' : 'false';
+            backToTopButton.classList.toggle('is-visible', shouldShow);
+            backToTopButton.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+            backToTopButton.tabIndex = shouldShow ? 0 : -1;
+        };
 
-    backToTopButton.addEventListener('click', function () {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
 
-    window.addEventListener('scroll', toggleBackToTop, { passive: true });
-    toggleBackToTop();
-})();
+        window.addEventListener('scroll', toggleBackToTop, {
+            passive: true
+        });
+        toggleBackToTop();
+    })();
+
 </script>
 
 </body>
+
 </html>

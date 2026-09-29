@@ -60,20 +60,20 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="dashboard-page">
-        <section class="section-inner">
-            <div class="dashboard-workspace-panel">
-                <div class="dashboard-panel-body">
-                    <h1>Assignment Not Found</h1>
-                    <p>
-                        The requested assignment could not be found.
-                    </p>
-                </div>
+<main id="main-content" class="dashboard-page">
+    <section class="section-inner">
+        <div class="dashboard-workspace-panel">
+            <div class="dashboard-panel-body">
+                <h1>Assignment Not Found</h1>
+                <p>
+                    The requested assignment could not be found.
+                </p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -425,20 +425,20 @@ if ($context === null) {
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="dashboard-page">
-        <section class="section-inner">
-            <div class="dashboard-workspace-panel">
-                <div class="dashboard-panel-body">
-                    <h1>Assignment Unavailable</h1>
-                    <p>
-                        This assignment is not available for your current enrollment.
-                    </p>
-                </div>
+<main id="main-content" class="dashboard-page">
+    <section class="section-inner">
+        <div class="dashboard-workspace-panel">
+            <div class="dashboard-panel-body">
+                <h1>Assignment Unavailable</h1>
+                <p>
+                    This assignment is not available for your current enrollment.
+                </p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1415,10 +1415,7 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page assignment-page"
->
+<main id="main-content" class="dashboard-page assignment-page">
 
     <section class="dashboard-workspace-section">
         <div class="section-inner dashboard-workspace-layout">
@@ -1443,12 +1440,12 @@ require INCLUDES_PATH . '/header.php';
                         </h1>
 
                         <?php if ($lessonTitle !== ''): ?>
-                            <p>
-                                Related lesson:
-                                <strong>
-                                    <?= e($lessonTitle); ?>
-                                </strong>
-                            </p>
+                        <p>
+                            Related lesson:
+                            <strong>
+                                <?= e($lessonTitle); ?>
+                            </strong>
+                        </p>
                         <?php endif; ?>
 
                     </div>
@@ -1457,22 +1454,19 @@ require INCLUDES_PATH . '/header.php';
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            Your assignment could not be saved.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        Your assignment could not be saved.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -1504,15 +1498,15 @@ require INCLUDES_PATH . '/header.php';
                             ) !== ''
                         ): ?>
 
-                            <p>
-                                <?= nl2br(
+                        <p>
+                            <?= nl2br(
                                     e(
                                         (string) $context[
                                             'description'
                                         ]
                                     )
                                 ); ?>
-                            </p>
+                        </p>
 
                         <?php endif; ?>
 
@@ -1527,21 +1521,21 @@ require INCLUDES_PATH . '/header.php';
                             ) !== ''
                         ): ?>
 
-                            <div class="forum-post-content">
-                                <?= nl2br(
+                        <div class="forum-post-content">
+                            <?= nl2br(
                                     e(
                                         (string) $context[
                                             'instructions'
                                         ]
                                     )
                                 ); ?>
-                            </div>
+                        </div>
 
                         <?php else: ?>
 
-                            <p>
-                                No additional instructions have been provided.
-                            </p>
+                        <p>
+                            No additional instructions have been provided.
+                        </p>
 
                         <?php endif; ?>
 
@@ -1684,9 +1678,9 @@ require INCLUDES_PATH . '/header.php';
                             ]
                         ): ?>
 
-                            <p class="form-help">
-                                The due date has passed. This submission will be recorded as late.
-                            </p>
+                        <p class="form-help">
+                            The due date has passed. This submission will be recorded as late.
+                        </p>
 
                         <?php elseif (
                             !(bool) $availability[
@@ -1695,11 +1689,11 @@ require INCLUDES_PATH . '/header.php';
                             && $availabilityMessage !== ''
                         ): ?>
 
-                            <div class="form-message form-message-error">
-                                <?= e(
+                        <div class="form-message form-message-error">
+                            <?= e(
                                     $availabilityMessage
                                 ); ?>
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -1717,37 +1711,32 @@ require INCLUDES_PATH . '/header.php';
                     ]
                 ): ?>
 
-                    <section class="forum-admin-panel">
+                <section class="forum-admin-panel">
 
-                        <header class="forum-admin-titlebar">
-                            <p class="forum-admin-step">
-                                Your Work
-                            </p>
+                    <header class="forum-admin-titlebar">
+                        <p class="forum-admin-step">
+                            Your Work
+                        </p>
 
-                            <h2>
-                                <?= $currentDraft !== null
+                        <h2>
+                            <?= $currentDraft !== null
                                     ? 'Current Draft'
                                     : 'Start Assignment'; ?>
-                            </h2>
-                        </header>
+                        </h2>
+                    </header>
 
-                        <form
-                            method="post"
-                            enctype="multipart/form-data"
-                            action="<?= e(
+                    <form method="post" enctype="multipart/form-data" action="<?= e(
                                 url(
                                     'assignment.php?offering='
                                     . $offeringId
                                     . '&assignment='
                                     . $assignmentId
                                 )
-                            ); ?>"
-                            class="forum-admin-form"
-                        >
-                            <?= csrf_field(); ?>
+                            ); ?>" class="forum-admin-form">
+                        <?= csrf_field(); ?>
 
 
-                            <?php if (
+                        <?php if (
                                 (int) (
                                     $context[
                                         'allow_text_submission'
@@ -1756,23 +1745,19 @@ require INCLUDES_PATH . '/header.php';
                                 ) === 1
                             ): ?>
 
-                                <div class="form-group">
-                                    <label for="submission-text">
-                                        Written Response
-                                    </label>
+                        <div class="form-group">
+                            <label for="submission-text">
+                                Written Response
+                            </label>
 
-                                    <textarea
-                                        class="form-control"
-                                        id="submission-text"
-                                        name="submission_text"
-                                        rows="14"
-                                    ><?= e($formText); ?></textarea>
-                                </div>
+                            <textarea class="form-control" id="submission-text" name="submission_text"
+                                rows="14"><?= e($formText); ?></textarea>
+                        </div>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
 
-                            <?php if (
+                        <?php if (
                                 (int) (
                                     $context[
                                         'allow_file_upload'
@@ -1781,81 +1766,68 @@ require INCLUDES_PATH . '/header.php';
                                 ) === 1
                             ): ?>
 
-                                <div class="form-group">
-                                    <label for="submission-file">
-                                        Assignment File
-                                    </label>
+                        <div class="form-group">
+                            <label for="submission-file">
+                                Assignment File
+                            </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="file"
-                                        id="submission-file"
-                                        name="submission_file"
-                                        accept=".pdf,.doc,.docx,.odt,.rtf,.txt,.jpg,.jpeg,.png,.webp"
-                                    >
+                            <input class="form-control" type="file" id="submission-file" name="submission_file"
+                                accept=".pdf,.doc,.docx,.odt,.rtf,.txt,.jpg,.jpeg,.png,.webp">
 
-                                    <p class="form-help">
-                                        Accepted: PDF, DOC, DOCX, ODT, RTF, TXT, JPG, PNG, or WebP. Maximum 20 MB.
-                                    </p>
-                                </div>
+                            <p class="form-help">
+                                Accepted: PDF, DOC, DOCX, ODT, RTF, TXT, JPG, PNG, or WebP. Maximum 20 MB.
+                            </p>
+                        </div>
 
-                                <?php if ($formFilePath !== ''): ?>
+                        <?php if ($formFilePath !== ''): ?>
 
-                                    <div class="form-group">
+                        <div class="form-group">
 
-                                        <p>
-                                            Current file:
-                                            <a
-                                                href="<?= e(
+                            <p>
+                                Current file:
+                                <a href="<?= e(
                                                     url(
                                                         $formFilePath
                                                     )
-                                                ); ?>"
-                                                target="_blank"
-                                                rel="noopener"
-                                            >
-                                                View uploaded file
-                                            </a>
-                                        </p>
+                                                ); ?>" target="_blank" rel="noopener">
+                                    View uploaded file
+                                </a>
+                            </p>
 
-                                        <label class="forum-admin-choice">
-                                            <input
-                                                type="checkbox"
-                                                name="remove_submission_file"
-                                                value="1"
-                                            >
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="remove_submission_file" value="1">
 
-                                            <span>
-                                                Remove current file
-                                            </span>
-                                        </label>
+                                <span>
+                                    Remove current file
+                                </span>
+                            </label>
 
-                                    </div>
+                        </div>
 
-                                <?php endif; ?>
+                        <?php endif; ?>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
 
-                            <?php if (
+                        <?php if (
                                 $extraCreditTasks !== []
                             ): ?>
 
-                                <fieldset class="forum-admin-fieldset">
+                        <fieldset class="forum-admin-fieldset">
 
-                                    <legend>
-                                        Optional Extra Credit
-                                    </legend>
+                            <legend>
+                                Optional Extra Credit
+                            </legend>
 
-                                    <p class="form-help">
-                                        Extra-credit work is optional and is stored with this assignment attempt.
-                                    </p>
+                            <p class="form-help">
+                                Extra-credit work is optional and is stored with this assignment attempt.
+                            </p>
 
-                                    <?php foreach (
+                            <?php foreach (
                                         $extraCreditTasks
                                         as $taskRow
                                     ): ?>
-                                        <?php
+                            <?php
                                         $taskId =
                                             (int) $taskRow['id'];
 
@@ -1903,22 +1875,22 @@ require INCLUDES_PATH . '/header.php';
                                             );
                                         ?>
 
-                                        <div class="dashboard-workspace-panel">
+                            <div class="dashboard-workspace-panel">
 
-                                            <div class="dashboard-panel-body">
+                                <div class="dashboard-panel-body">
 
-                                                <h3>
-                                                    <?= e(
+                                    <h3>
+                                        <?= e(
                                                         (string) $taskRow[
                                                             'title'
                                                         ]
                                                     ); ?>
-                                                </h3>
+                                    </h3>
 
-                                                <p>
-                                                    Worth up to
-                                                    <strong>
-                                                        <?= e(
+                                    <p>
+                                        Worth up to
+                                        <strong>
+                                            <?= e(
                                                             number_format(
                                                                 (float) (
                                                                     $taskRow[
@@ -1929,11 +1901,11 @@ require INCLUDES_PATH . '/header.php';
                                                                 2
                                                             )
                                                         ); ?>
-                                                        points
-                                                    </strong>
-                                                </p>
+                                            points
+                                        </strong>
+                                    </p>
 
-                                                <?php if (
+                                    <?php if (
                                                     trim(
                                                         (string) (
                                                             $taskRow[
@@ -1944,138 +1916,110 @@ require INCLUDES_PATH . '/header.php';
                                                     ) !== ''
                                                 ): ?>
 
-                                                    <p>
-                                                        <?= nl2br(
+                                    <p>
+                                        <?= nl2br(
                                                             e(
                                                                 (string) $taskRow[
                                                                     'instructions'
                                                                 ]
                                                             )
                                                         ); ?>
-                                                    </p>
+                                    </p>
 
-                                                <?php endif; ?>
-
-
-                                                <div class="form-group">
-                                                    <label
-                                                        for="extra-credit-text-<?= $taskId; ?>"
-                                                    >
-                                                        Extra-Credit Response
-                                                    </label>
-
-                                                    <textarea
-                                                        class="form-control"
-                                                        id="extra-credit-text-<?= $taskId; ?>"
-                                                        name="extra_credit_text[<?= $taskId; ?>]"
-                                                        rows="6"
-                                                    ><?= e($responseText); ?></textarea>
-                                                </div>
+                                    <?php endif; ?>
 
 
-                                                <div class="form-group">
-                                                    <label
-                                                        for="extra-credit-file-<?= $taskId; ?>"
-                                                    >
-                                                        Optional File
-                                                    </label>
+                                    <div class="form-group">
+                                        <label for="extra-credit-text-<?= $taskId; ?>">
+                                            Extra-Credit Response
+                                        </label>
 
-                                                    <input
-                                                        class="form-control"
-                                                        type="file"
-                                                        id="extra-credit-file-<?= $taskId; ?>"
-                                                        name="extra_credit_file[<?= $taskId; ?>]"
-                                                        accept=".pdf,.doc,.docx,.odt,.rtf,.txt,.jpg,.jpeg,.png,.webp"
-                                                    >
-                                                </div>
+                                        <textarea class="form-control" id="extra-credit-text-<?= $taskId; ?>"
+                                            name="extra_credit_text[<?= $taskId; ?>]"
+                                            rows="6"><?= e($responseText); ?></textarea>
+                                    </div>
 
 
-                                                <?php if (
+                                    <div class="form-group">
+                                        <label for="extra-credit-file-<?= $taskId; ?>">
+                                            Optional File
+                                        </label>
+
+                                        <input class="form-control" type="file" id="extra-credit-file-<?= $taskId; ?>"
+                                            name="extra_credit_file[<?= $taskId; ?>]"
+                                            accept=".pdf,.doc,.docx,.odt,.rtf,.txt,.jpg,.jpeg,.png,.webp">
+                                    </div>
+
+
+                                    <?php if (
                                                     $responseFile !== ''
                                                 ): ?>
 
-                                                    <p>
-                                                        Current file:
-                                                        <a
-                                                            href="<?= e(
+                                    <p>
+                                        Current file:
+                                        <a href="<?= e(
                                                                 url(
                                                                     $responseFile
                                                                 )
-                                                            ); ?>"
-                                                            target="_blank"
-                                                            rel="noopener"
-                                                        >
-                                                            View uploaded file
-                                                        </a>
-                                                    </p>
+                                                            ); ?>" target="_blank" rel="noopener">
+                                            View uploaded file
+                                        </a>
+                                    </p>
 
-                                                    <label class="forum-admin-choice">
-                                                        <input
-                                                            type="checkbox"
-                                                            name="remove_extra_credit_file_<?= $taskId; ?>"
-                                                            value="1"
-                                                        >
+                                    <label class="forum-admin-choice">
+                                        <input type="checkbox" name="remove_extra_credit_file_<?= $taskId; ?>"
+                                            value="1">
 
-                                                        <span>
-                                                            Remove this extra-credit file
-                                                        </span>
-                                                    </label>
+                                        <span>
+                                            Remove this extra-credit file
+                                        </span>
+                                    </label>
 
-                                                <?php endif; ?>
+                                    <?php endif; ?>
 
-                                            </div>
+                                </div>
 
-                                        </div>
+                            </div>
 
-                                    <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                                </fieldset>
+                        </fieldset>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
 
-                            <div class="forum-admin-actions">
+                        <div class="forum-admin-actions">
 
-                                <?php if (
+                            <?php if (
                                     (bool) $availability[
                                         'can_save_draft'
                                     ]
                                 ): ?>
 
-                                    <button
-                                        type="submit"
-                                        class="button button-secondary"
-                                        name="action"
-                                        value="save_draft"
-                                    >
-                                        Save Draft
-                                    </button>
+                            <button type="submit" class="button button-secondary" name="action" value="save_draft">
+                                Save Draft
+                            </button>
 
-                                <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                <?php if (
+                            <?php if (
                                     (bool) $availability[
                                         'can_submit'
                                     ]
                                 ): ?>
 
-                                    <button
-                                        type="submit"
-                                        class="button button-primary"
-                                        name="action"
-                                        value="submit_assignment"
-                                    >
-                                        Submit Assignment
-                                    </button>
+                            <button type="submit" class="button button-primary" name="action" value="submit_assignment">
+                                Submit Assignment
+                            </button>
 
-                                <?php endif; ?>
+                            <?php endif; ?>
 
-                            </div>
+                        </div>
 
-                        </form>
+                    </form>
 
-                    </section>
+                </section>
 
                 <?php endif; ?>
 
@@ -2098,26 +2042,26 @@ require INCLUDES_PATH . '/header.php';
 
                         <?php if ($attempts === []): ?>
 
-                            <p>
-                                You have not started this assignment yet.
-                            </p>
+                        <p>
+                            You have not started this assignment yet.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach (
+                            <?php foreach (
                                     array_reverse(
                                         $attempts
                                     )
                                     as $attempt
                                 ): ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            Attempt
-                                            <?= number_format(
+                                <strong>
+                                    Attempt
+                                    <?= number_format(
                                                 (int) (
                                                     $attempt[
                                                         'attempt_number'
@@ -2125,10 +2069,10 @@ require INCLUDES_PATH . '/header.php';
                                                     ?? 1
                                                 )
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             ucfirst(
                                                 (string) (
                                                     $attempt[
@@ -2139,8 +2083,8 @@ require INCLUDES_PATH . '/header.php';
                                             )
                                         ); ?>
 
-                                        · Version
-                                        <?= number_format(
+                                · Version
+                                <?= number_format(
                                             (int) (
                                                 $attempt[
                                                     'assignment_version_id'
@@ -2149,8 +2093,8 @@ require INCLUDES_PATH . '/header.php';
                                             )
                                         ); ?>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             number_format(
                                                 (float) (
                                                     $attempt[
@@ -2161,33 +2105,33 @@ require INCLUDES_PATH . '/header.php';
                                                 2
                                             )
                                         ); ?>
-                                        points possible
+                                points possible
 
-                                        <?php if (
+                                <?php if (
                                             !empty(
                                                 $attempt[
                                                     'submitted_at'
                                                 ]
                                             )
                                         ): ?>
-                                            · Submitted
-                                            <?= e(
+                                · Submitted
+                                <?= e(
                                                 student_assignment_format_datetime(
                                                     $attempt[
                                                         'submitted_at'
                                                     ]
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             $attempt[
                                                 'grade'
                                             ] !== null
                                         ): ?>
-                                            · Grade:
-                                            <strong>
-                                                <?= e(
+                                · Grade:
+                                <strong>
+                                    <?= e(
                                                     number_format(
                                                         (float) $attempt[
                                                             'grade'
@@ -2195,10 +2139,10 @@ require INCLUDES_PATH . '/header.php';
                                                         2
                                                     )
                                                 ); ?>
-                                            </strong>
-                                        <?php endif; ?>
+                                </strong>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             trim(
                                                 (string) (
                                                     $attempt[
@@ -2208,22 +2152,22 @@ require INCLUDES_PATH . '/header.php';
                                                 )
                                             ) !== ''
                                         ): ?>
-                                            <br>
-                                            <strong>Instructor Feedback:</strong>
-                                            <?= nl2br(
+                                <br>
+                                <strong>Instructor Feedback:</strong>
+                                <?= nl2br(
                                                 e(
                                                     (string) $attempt[
                                                         'instructor_feedback'
                                                     ]
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 

@@ -47,35 +47,29 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to create courses.
-                </p>
+            <p>
+                Your account does not have permission to create courses.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/courses.php')); ?>"
-                >
-                    Return to Courses
-                </a>
-            </div>
-        </section>
-    </main>
+            <a class="button button-secondary" href="<?= e(url('admin/courses.php')); ?>">
+                Return to Courses
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -2371,18 +2365,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-create-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-create-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="course-create-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="course-create-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -2436,22 +2424,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The course could not be saved.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The course could not be saved.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -2467,33 +2452,19 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(url('admin/course-create.php')); ?>"
-                        method="post"
-                        enctype="multipart/form-data"
-                        class="forum-admin-form"
-                        data-course-create-form
-                    >
+                    <form action="<?= e(url('admin/course-create.php')); ?>" method="post" enctype="multipart/form-data"
+                        class="forum-admin-form" data-course-create-form>
                         <?= csrf_field(); ?>
 
 
                         <div class="form-group">
                             <label for="course-title">
                                 Course Title
-                                <span
-                                    data-publish-required
-                                    aria-hidden="true"
-                                >*</span>
+                                <span data-publish-required aria-hidden="true">*</span>
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="course-title"
-                                name="course_title"
-                                maxlength="150"
-                                value="<?= e($form['course_title']); ?>"
-                            >
+                            <input class="form-control" type="text" id="course-title" name="course_title"
+                                maxlength="150" value="<?= e($form['course_title']); ?>">
 
                             <p class="form-help">
                                 Required before the course can be scheduled or published.
@@ -2506,13 +2477,8 @@ $staffHeroUrl =
                                 Course Thumbnail / Image
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="file"
-                                id="course-image"
-                                name="course_image"
-                                accept="image/jpeg,image/png,image/webp,image/avif"
-                            >
+                            <input class="form-control" type="file" id="course-image" name="course_image"
+                                accept="image/jpeg,image/png,image/webp,image/avif">
 
                             <p class="form-help">
                                 JPG, PNG, WebP, or AVIF. Maximum 10 MB.
@@ -2525,18 +2491,11 @@ $staffHeroUrl =
                         <div class="form-group">
                             <label for="short-description">
                                 Short Description
-                                <span
-                                    data-publish-required
-                                    aria-hidden="true"
-                                >*</span>
+                                <span data-publish-required aria-hidden="true">*</span>
                             </label>
 
-                            <textarea
-                                class="form-control"
-                                id="short-description"
-                                name="short_description"
-                                rows="4"
-                            ><?= e($form['short_description']); ?></textarea>
+                            <textarea class="form-control" id="short-description" name="short_description"
+                                rows="4"><?= e($form['short_description']); ?></textarea>
 
                             <p class="form-help">
                                 Used for course cards, listings, and compact previews.
@@ -2547,18 +2506,11 @@ $staffHeroUrl =
                         <div class="form-group">
                             <label for="long-description">
                                 Long Description
-                                <span
-                                    data-publish-required
-                                    aria-hidden="true"
-                                >*</span>
+                                <span data-publish-required aria-hidden="true">*</span>
                             </label>
 
-                            <textarea
-                                class="form-control"
-                                id="long-description"
-                                name="long_description"
-                                rows="8"
-                            ><?= e($form['long_description']); ?></textarea>
+                            <textarea class="form-control" id="long-description" name="long_description"
+                                rows="8"><?= e($form['long_description']); ?></textarea>
 
                             <p class="form-help">
                                 Full course overview shown on the course page.
@@ -2571,36 +2523,26 @@ $staffHeroUrl =
                             <div class="form-group">
                                 <label for="school-year-id">
                                     School Year
-                                    <span
-                                        data-publish-required
-                                        aria-hidden="true"
-                                    >*</span>
+                                    <span data-publish-required aria-hidden="true">*</span>
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="school-year-id"
-                                    name="school_year_id"
-                                >
+                                <select class="form-control" id="school-year-id" name="school_year_id">
                                     <option value="">
                                         Choose a school year
                                     </option>
 
                                     <?php foreach ($schoolYears as $schoolYear): ?>
-                                        <option
-                                            value="<?= (int) $schoolYear['id']; ?>"
-                                            <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
+                                    <option value="<?= (int) $schoolYear['id']; ?>" <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e((string) $schoolYear['name']); ?>
-                                            <?= (int) ($schoolYear['is_current'] ?? 0) === 1
+                                                : ''; ?>>
+                                        <?= e((string) $schoolYear['name']); ?>
+                                        <?= (int) ($schoolYear['is_current'] ?? 0) === 1
                                                 ? ' — Current'
                                                 : ''; ?>
-                                            <?= (int) ($schoolYear['is_finalized'] ?? 0) === 1
+                                        <?= (int) ($schoolYear['is_finalized'] ?? 0) === 1
                                                 ? ' — Finalized'
                                                 : ''; ?>
-                                        </option>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -2609,30 +2551,20 @@ $staffHeroUrl =
                             <div class="form-group">
                                 <label for="year-group-id">
                                     Grade Level
-                                    <span
-                                        data-publish-required
-                                        aria-hidden="true"
-                                    >*</span>
+                                    <span data-publish-required aria-hidden="true">*</span>
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="year-group-id"
-                                    name="year_group_id"
-                                >
+                                <select class="form-control" id="year-group-id" name="year_group_id">
                                     <option value="">
                                         Choose a grade level
                                     </option>
 
                                     <?php foreach ($yearGroups as $yearGroup): ?>
-                                        <option
-                                            value="<?= (int) $yearGroup['id']; ?>"
-                                            <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
+                                    <option value="<?= (int) $yearGroup['id']; ?>" <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e((string) $yearGroup['name']); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e((string) $yearGroup['name']); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -2643,10 +2575,7 @@ $staffHeroUrl =
                         <fieldset class="forum-admin-fieldset">
                             <legend>
                                 Prerequisites
-                                <span
-                                    data-publish-required
-                                    aria-hidden="true"
-                                >*</span>
+                                <span data-publish-required aria-hidden="true">*</span>
                             </legend>
 
                             <p class="form-help">
@@ -2655,68 +2584,46 @@ $staffHeroUrl =
                             </p>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="prerequisite_mode"
-                                    value="unset"
-                                    <?= $form['prerequisite_mode'] === 'unset'
+                                <input type="radio" name="prerequisite_mode" value="unset" <?= $form['prerequisite_mode'] === 'unset'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-prerequisite-mode
-                                >
+                                        : ''; ?> data-prerequisite-mode>
                                 <span>
                                     Not decided yet
                                 </span>
                             </label>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="prerequisite_mode"
-                                    value="none"
-                                    <?= $form['prerequisite_mode'] === 'none'
+                                <input type="radio" name="prerequisite_mode" value="none" <?= $form['prerequisite_mode'] === 'none'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-prerequisite-mode
-                                >
+                                        : ''; ?> data-prerequisite-mode>
                                 <span>
                                     None
                                 </span>
                             </label>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="prerequisite_mode"
-                                    value="required"
-                                    <?= $form['prerequisite_mode'] === 'required'
+                                <input type="radio" name="prerequisite_mode" value="required" <?= $form['prerequisite_mode'] === 'required'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-prerequisite-mode
-                                >
+                                        : ''; ?> data-prerequisite-mode>
                                 <span>
                                     Select prerequisite course(s)
                                 </span>
                             </label>
 
-                            <div
-                                class="forum-admin-role-box"
-                                data-prerequisite-course-box
-                                <?= $form['prerequisite_mode'] === 'required'
+                            <div class="forum-admin-role-box" data-prerequisite-course-box <?= $form['prerequisite_mode'] === 'required'
                                     ? ''
-                                    : 'hidden'; ?>
-                            >
+                                    : 'hidden'; ?>>
                                 <?php if ($prerequisiteCourses === []): ?>
 
-                                    <p class="form-help">
-                                        No existing courses are currently available
-                                        as prerequisites.
-                                    </p>
+                                <p class="form-help">
+                                    No existing courses are currently available
+                                    as prerequisites.
+                                </p>
 
                                 <?php else: ?>
 
-                                    <?php foreach ($prerequisiteCourses as $prerequisiteCourse): ?>
-                                        <?php
+                                <?php foreach ($prerequisiteCourses as $prerequisiteCourse): ?>
+                                <?php
                                         $prerequisiteTitle =
                                             trim(
                                                 (string) (
@@ -2732,26 +2639,22 @@ $staffHeroUrl =
                                         }
                                         ?>
 
-                                        <label>
-                                            <input
-                                                type="checkbox"
-                                                name="prerequisite_course_ids[]"
-                                                value="<?= (int) $prerequisiteCourse['id']; ?>"
-                                                <?= in_array(
+                                <label>
+                                    <input type="checkbox" name="prerequisite_course_ids[]"
+                                        value="<?= (int) $prerequisiteCourse['id']; ?>" <?= in_array(
                                                     (int) $prerequisiteCourse['id'],
                                                     $form['prerequisite_course_ids'],
                                                     true
                                                 )
                                                     ? 'checked'
-                                                    : ''; ?>
-                                            >
+                                                    : ''; ?>>
 
-                                            <span>
-                                                <?= e($prerequisiteTitle); ?>
-                                            </span>
-                                        </label>
+                                    <span>
+                                        <?= e($prerequisiteTitle); ?>
+                                    </span>
+                                </label>
 
-                                    <?php endforeach; ?>
+                                <?php endforeach; ?>
 
                                 <?php endif; ?>
                             </div>
@@ -2765,13 +2668,8 @@ $staffHeroUrl =
                                     Start Date
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="course-start-date"
-                                    name="course_start_date"
-                                    value="<?= e($form['course_start_date']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="course-start-date"
+                                    name="course_start_date" value="<?= e($form['course_start_date']); ?>">
                             </div>
 
 
@@ -2780,13 +2678,8 @@ $staffHeroUrl =
                                     End Date
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="course-end-date"
-                                    name="course_end_date"
-                                    value="<?= e($form['course_end_date']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="course-end-date"
+                                    name="course_end_date" value="<?= e($form['course_end_date']); ?>">
                             </div>
 
                         </div>
@@ -2795,21 +2688,13 @@ $staffHeroUrl =
                         <fieldset class="forum-admin-fieldset">
                             <legend>
                                 Course Type
-                                <span
-                                    data-publish-required
-                                    aria-hidden="true"
-                                >*</span>
+                                <span data-publish-required aria-hidden="true">*</span>
                             </legend>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="course_type"
-                                    value="self_paced"
-                                    <?= $form['course_type'] === 'self_paced'
+                                <input type="radio" name="course_type" value="self_paced" <?= $form['course_type'] === 'self_paced'
                                         ? 'checked'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
 
                                 <span>
                                     Self-paced
@@ -2817,14 +2702,9 @@ $staffHeroUrl =
                             </label>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="course_type"
-                                    value="drip"
-                                    <?= $form['course_type'] === 'drip'
+                                <input type="radio" name="course_type" value="drip" <?= $form['course_type'] === 'drip'
                                         ? 'checked'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
 
                                 <span>
                                     Drip Content
@@ -2840,24 +2720,17 @@ $staffHeroUrl =
                                     Category
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="category-id"
-                                    name="category_id"
-                                >
+                                <select class="form-control" id="category-id" name="category_id">
                                     <option value="">
                                         No category
                                     </option>
 
                                     <?php foreach ($categories as $category): ?>
-                                        <option
-                                            value="<?= (int) $category['id']; ?>"
-                                            <?= (int) $form['category_id'] === (int) $category['id']
+                                    <option value="<?= (int) $category['id']; ?>" <?= (int) $form['category_id'] === (int) $category['id']
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e((string) $category['name']); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e((string) $category['name']); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -2868,14 +2741,8 @@ $staffHeroUrl =
                                     Or Create New Category
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    id="new-category-name"
-                                    name="new_category_name"
-                                    maxlength="100"
-                                    value="<?= e($form['new_category_name']); ?>"
-                                >
+                                <input class="form-control" type="text" id="new-category-name" name="new_category_name"
+                                    maxlength="100" value="<?= e($form['new_category_name']); ?>">
 
                                 <p class="form-help">
                                     If entered, this takes priority over the
@@ -2891,30 +2758,22 @@ $staffHeroUrl =
                                 Course Forum
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="course-forum-id"
-                                name="course_forum_id"
-                                data-forum-picker
-                            >
+                            <select class="form-control" id="course-forum-id" name="course_forum_id" data-forum-picker>
                                 <option value="">
                                     No dedicated course forum
                                 </option>
 
                                 <?php foreach ($courseForumOptions as $forumOption): ?>
-                                    <option
-                                        value="<?= (int) $forumOption['id']; ?>"
-                                        data-forum-id="<?= (int) $forumOption['id']; ?>"
-                                        data-parent-forum-id="<?= (int) ($forumOption['parent_forum_id'] ?? 0); ?>"
-                                        data-depth="<?= (int) ($forumOption['hierarchy_depth'] ?? 0); ?>"
-                                        data-category-title="<?= e((string) ($forumOption['category_title'] ?? 'Forums')); ?>"
-                                        data-forum-title="<?= e((string) ($forumOption['title'] ?? 'Forum')); ?>"
-                                        data-forum-path="<?= e((string) ($forumOption['forum_path'] ?? '')); ?>"
-                                        <?= (int) $form['course_forum_id'] === (int) $forumOption['id']
+                                <option value="<?= (int) $forumOption['id']; ?>"
+                                    data-forum-id="<?= (int) $forumOption['id']; ?>"
+                                    data-parent-forum-id="<?= (int) ($forumOption['parent_forum_id'] ?? 0); ?>"
+                                    data-depth="<?= (int) ($forumOption['hierarchy_depth'] ?? 0); ?>"
+                                    data-category-title="<?= e((string) ($forumOption['category_title'] ?? 'Forums')); ?>"
+                                    data-forum-title="<?= e((string) ($forumOption['title'] ?? 'Forum')); ?>"
+                                    data-forum-path="<?= e((string) ($forumOption['forum_path'] ?? '')); ?>" <?= (int) $form['course_forum_id'] === (int) $forumOption['id']
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        <?= e(
+                                            : ''; ?>>
+                                    <?= e(
                                             str_repeat(
                                                 '    ',
                                                 (int) ($forumOption['hierarchy_depth'] ?? 0)
@@ -2926,7 +2785,7 @@ $staffHeroUrl =
                                                 ?? 'Forum'
                                             )
                                         ); ?>
-                                    </option>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
 
@@ -2943,15 +2802,8 @@ $staffHeroUrl =
                                 Tags
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="course-tags"
-                                name="tags"
-                                maxlength="1000"
-                                value="<?= e($form['tags']); ?>"
-                                placeholder="foundations, first year, practical magic"
-                            >
+                            <input class="form-control" type="text" id="course-tags" name="tags" maxlength="1000"
+                                value="<?= e($form['tags']); ?>" placeholder="foundations, first year, practical magic">
 
                             <p class="form-help">
                                 Separate tags with commas. Up to 15 tags.
@@ -2966,15 +2818,10 @@ $staffHeroUrl =
                                     Instructor(s)
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="instructor-ids"
-                                    name="instructor_ids[]"
-                                    multiple
-                                    size="8"
-                                >
+                                <select class="form-control" id="instructor-ids" name="instructor_ids[]" multiple
+                                    size="8">
                                     <?php foreach ($availableStaff as $staffMember): ?>
-                                        <?php
+                                    <?php
                                         $staffName =
                                             trim(
                                                 (string) (
@@ -2985,18 +2832,15 @@ $staffHeroUrl =
                                             );
                                         ?>
 
-                                        <option
-                                            value="<?= (int) $staffMember['id']; ?>"
-                                            <?= in_array(
+                                    <option value="<?= (int) $staffMember['id']; ?>" <?= in_array(
                                                 (int) $staffMember['id'],
                                                 $form['instructor_ids'],
                                                 true
                                             )
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e($staffName); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e($staffName); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
 
@@ -3014,15 +2858,9 @@ $staffHeroUrl =
                                     Teaching Assistant(s) / TA(s)
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="ta-ids"
-                                    name="ta_ids[]"
-                                    multiple
-                                    size="8"
-                                >
+                                <select class="form-control" id="ta-ids" name="ta_ids[]" multiple size="8">
                                     <?php foreach ($availableStaff as $staffMember): ?>
-                                        <?php
+                                    <?php
                                         $staffName =
                                             trim(
                                                 (string) (
@@ -3033,18 +2871,15 @@ $staffHeroUrl =
                                             );
                                         ?>
 
-                                        <option
-                                            value="<?= (int) $staffMember['id']; ?>"
-                                            <?= in_array(
+                                    <option value="<?= (int) $staffMember['id']; ?>" <?= in_array(
                                                 (int) $staffMember['id'],
                                                 $form['ta_ids'],
                                                 true
                                             )
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e($staffName); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e($staffName); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
 
@@ -3062,15 +2897,9 @@ $staffHeroUrl =
                             </legend>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="status"
-                                    value="draft"
-                                    <?= $form['status'] === 'draft'
+                                <input type="radio" name="status" value="draft" <?= $form['status'] === 'draft'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-course-status
-                                >
+                                        : ''; ?> data-course-status>
 
                                 <span>
                                     Draft
@@ -3078,15 +2907,9 @@ $staffHeroUrl =
                             </label>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="status"
-                                    value="scheduled"
-                                    <?= $form['status'] === 'scheduled'
+                                <input type="radio" name="status" value="scheduled" <?= $form['status'] === 'scheduled'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-course-status
-                                >
+                                        : ''; ?> data-course-status>
 
                                 <span>
                                     Scheduled
@@ -3094,15 +2917,9 @@ $staffHeroUrl =
                             </label>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="status"
-                                    value="published"
-                                    <?= $form['status'] === 'published'
+                                <input type="radio" name="status" value="published" <?= $form['status'] === 'published'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-course-status
-                                >
+                                        : ''; ?> data-course-status>
 
                                 <span>
                                     Published
@@ -3120,17 +2937,11 @@ $staffHeroUrl =
 
 
                         <div class="forum-admin-actions">
-                            <a
-                                class="button button-secondary"
-                                href="<?= e(url('admin/courses.php')); ?>"
-                            >
+                            <a class="button button-secondary" href="<?= e(url('admin/courses.php')); ?>">
                                 Cancel
                             </a>
 
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Create Course
                             </button>
                         </div>
@@ -3147,43 +2958,43 @@ $staffHeroUrl =
 
 
 <script>
-(function () {
-    'use strict';
+    (function() {
+        'use strict';
 
-    var modes =
-        document.querySelectorAll(
-            '[data-prerequisite-mode]'
-        );
-
-    var box =
-        document.querySelector(
-            '[data-prerequisite-course-box]'
-        );
-
-    if (!modes.length || !box) {
-        return;
-    }
-
-    function syncPrerequisiteBox() {
-        var selected =
-            document.querySelector(
-                '[data-prerequisite-mode]:checked'
+        var modes =
+            document.querySelectorAll(
+                '[data-prerequisite-mode]'
             );
 
-        box.hidden =
-            !selected
-            || selected.value !== 'required';
-    }
+        var box =
+            document.querySelector(
+                '[data-prerequisite-course-box]'
+            );
 
-    modes.forEach(function (mode) {
-        mode.addEventListener(
-            'change',
-            syncPrerequisiteBox
-        );
-    });
+        if (!modes.length || !box) {
+            return;
+        }
 
-    syncPrerequisiteBox();
-})();
+        function syncPrerequisiteBox() {
+            var selected =
+                document.querySelector(
+                    '[data-prerequisite-mode]:checked'
+                );
+
+            box.hidden = !selected ||
+                selected.value !== 'required';
+        }
+
+        modes.forEach(function(mode) {
+            mode.addEventListener(
+                'change',
+                syncPrerequisiteBox
+            );
+        });
+
+        syncPrerequisiteBox();
+    })();
+
 </script>
 
 <?php

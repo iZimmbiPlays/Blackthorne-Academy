@@ -29,41 +29,35 @@ if ($membership === null) {
 
     require INCLUDES_PATH . '/header.php';
     ?>
-    <main id="main-content" class="house-common-room-page">
-        <section class="house-common-room-denied">
-            <div class="section-inner">
-                <p class="academy-overline">
-                    The Common Rooms
-                </p>
+<main id="main-content" class="house-common-room-page">
+    <section class="house-common-room-denied">
+        <div class="section-inner">
+            <p class="academy-overline">
+                The Common Rooms
+            </p>
 
-                <h1>
-                    You have not been sorted yet.
-                </h1>
+            <h1>
+                You have not been sorted yet.
+            </h1>
 
-                <p>
-                    Common Rooms are private to members of their assigned House.
-                    Complete the Sorting Ceremony before entering.
-                </p>
+            <p>
+                Common Rooms are private to members of their assigned House.
+                Complete the Sorting Ceremony before entering.
+            </p>
 
-                <div class="forum-admin-edit-actions">
-                    <a
-                        href="<?= e(url('sorting-ceremony.php')); ?>"
-                        class="button button-primary"
-                    >
-                        Begin the Sorting Ceremony
-                    </a>
+            <div class="forum-admin-edit-actions">
+                <a href="<?= e(url('sorting-ceremony.php')); ?>" class="button button-primary">
+                    Begin the Sorting Ceremony
+                </a>
 
-                    <a
-                        href="<?= e(HOME_URL); ?>"
-                        class="button button-secondary"
-                    >
-                        Return Home
-                    </a>
-                </div>
+                <a href="<?= e(HOME_URL); ?>" class="button button-secondary">
+                    Return Home
+                </a>
             </div>
-        </section>
-    </main>
-    <?php
+        </div>
+    </section>
+</main>
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1033,20 +1027,24 @@ require INCLUDES_PATH . '/header.php';
 ?>
 
 <style>
-.house-common-room-page {
-    --house-primary: <?= e($primaryColor); ?>;
-    --house-secondary: <?= e($secondaryColor); ?>;
-    --house-accent: <?= e($accentColor); ?>;
-    --house-dark: <?= e($darkColor); ?>;
-    --house-highlight: <?= e($highlightColor); ?>;
-    --house-name: <?= e($displayColor); ?>;
-}
+    .house-common-room-page {
+        --house-primary: <?=e($primaryColor);
+        ?>;
+        --house-secondary: <?=e($secondaryColor);
+        ?>;
+        --house-accent: <?=e($accentColor);
+        ?>;
+        --house-dark: <?=e($darkColor);
+        ?>;
+        --house-highlight: <?=e($highlightColor);
+        ?>;
+        --house-name: <?=e($displayColor);
+        ?>;
+    }
+
 </style>
 
-<main
-    id="main-content"
-    class="house-common-room-page house-theme"
->
+<main id="main-content" class="house-common-room-page house-theme">
 
     <?php
     $houseHeroBackgroundUrl =
@@ -1054,60 +1052,42 @@ require INCLUDES_PATH . '/header.php';
         ?? $heroUrl;
     ?>
 
-    <section
-        class="house-common-room-hero<?= $houseHeroBackgroundUrl !== null ? ' has-house-hero-image' : ''; ?>"
-        aria-labelledby="house-common-room-heading"
-        <?php if ($houseHeroBackgroundUrl !== null): ?>
-            style="--house-hero-image: url('<?= e($houseHeroBackgroundUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="house-common-room-hero<?= $houseHeroBackgroundUrl !== null ? ' has-house-hero-image' : ''; ?>"
+        aria-labelledby="house-common-room-heading" <?php if ($houseHeroBackgroundUrl !== null): ?>
+        style="--house-hero-image: url('<?= e($houseHeroBackgroundUrl); ?>');" <?php endif; ?>>
         <div class="section-inner house-common-room-hero-inner">
 
             <?php if ($canAccessCommonRoomForum): ?>
-                <a
-                    href="<?= e(
+            <a href="<?= e(
                         url(
                             'forum.php?f='
                             . $commonRoomForumId
                         )
-                    ); ?>"
-                    class="house-common-room-crest-link"
-                    aria-label="<?= e(
+                    ); ?>" class="house-common-room-crest-link" aria-label="<?= e(
                         'Enter the '
                         . $houseName
                         . ' forums'
-                    ); ?>"
-                >
-            <?php else: ?>
+                    ); ?>">
+                <?php else: ?>
                 <div class="house-common-room-crest-static">
-            <?php endif; ?>
+                    <?php endif; ?>
 
-                <?php if ($crestUrl !== null): ?>
+                    <?php if ($crestUrl !== null): ?>
                     <picture>
                         <?php if (
                             $crestWebpUrl !== null
                             && $crestWebpUrl !== $crestUrl
                         ): ?>
-                            <source
-                                srcset="<?= e($crestWebpUrl); ?>"
-                                type="image/webp"
-                            >
+                        <source srcset="<?= e($crestWebpUrl); ?>" type="image/webp">
                         <?php endif; ?>
 
-                        <img
-                            src="<?= e($crestUrl); ?>"
-                            alt="<?= e(
+                        <img src="<?= e($crestUrl); ?>" alt="<?= e(
                                 $houseName
                                 . ' House crest'
-                            ); ?>"
-                            class="house-common-room-crest"
-                        >
+                            ); ?>" class="house-common-room-crest">
                     </picture>
-                <?php else: ?>
-                    <span
-                        class="house-common-room-crest-fallback"
-                        aria-hidden="true"
-                    >
+                    <?php else: ?>
+                    <span class="house-common-room-crest-fallback" aria-hidden="true">
                         <?= e(
                             function_exists('mb_substr')
                                 ? mb_strtoupper(
@@ -1128,75 +1108,66 @@ require INCLUDES_PATH . '/header.php';
                                 )
                         ); ?>
                     </span>
-                <?php endif; ?>
-
-            <?php if ($canAccessCommonRoomForum): ?>
-                </a>
-            <?php else: ?>
-                </div>
-            <?php endif; ?>
-
-
-            <div class="house-common-room-copy">
-
-                <p class="academy-overline">
-                    <?= e($houseName); ?> House
-                </p>
-
-                <h1
-                    id="house-common-room-heading"
-                    class="house-common-room-title"
-                >
-                    Common Room
-                </h1>
-
-                <p class="house-common-room-kicker">
-                    <?= e($houseName); ?>
-                </p>
-
-                <p class="house-common-room-welcome">
-                    Welcome home,
-                    <strong><?= e($currentMemberName); ?></strong>.
-                </p>
-
-                <?php if ($houseDescription !== ''): ?>
-                    <p class="house-common-room-description">
-                        <?= e($houseDescription); ?>
-                    </p>
-                <?php endif; ?>
-
-                <?php if ($houseMotto !== ''): ?>
-                    <blockquote class="house-common-room-motto">
-                        “<?= e($houseMotto); ?>”
-                    </blockquote>
-                <?php endif; ?>
-
-                <div class="house-common-room-actions">
+                    <?php endif; ?>
 
                     <?php if ($canAccessCommonRoomForum): ?>
-                        <a
-                            href="<?= e(
+            </a>
+            <?php else: ?>
+        </div>
+        <?php endif; ?>
+
+
+        <div class="house-common-room-copy">
+
+            <p class="academy-overline">
+                <?= e($houseName); ?> House
+            </p>
+
+            <h1 id="house-common-room-heading" class="house-common-room-title">
+                Common Room
+            </h1>
+
+            <p class="house-common-room-kicker">
+                <?= e($houseName); ?>
+            </p>
+
+            <p class="house-common-room-welcome">
+                Welcome home,
+                <strong><?= e($currentMemberName); ?></strong>.
+            </p>
+
+            <?php if ($houseDescription !== ''): ?>
+            <p class="house-common-room-description">
+                <?= e($houseDescription); ?>
+            </p>
+            <?php endif; ?>
+
+            <?php if ($houseMotto !== ''): ?>
+            <blockquote class="house-common-room-motto">
+                “<?= e($houseMotto); ?>”
+            </blockquote>
+            <?php endif; ?>
+
+            <div class="house-common-room-actions">
+
+                <?php if ($canAccessCommonRoomForum): ?>
+                <a href="<?= e(
                                 url(
                                     'forum.php?f='
                                     . $commonRoomForumId
                                 )
-                            ); ?>"
-                            class="button button-primary"
-                        >
-                            Enter the House Forums
-                        </a>
-                    <?php endif; ?>
+                            ); ?>" class="button button-primary">
+                    Enter the House Forums
+                </a>
+                <?php endif; ?>
 
-                    <a
-                        href="<?= e(HOME_URL); ?>"
-                        class="button button-secondary"
-                    >
-                        Academy Home
-                    </a>
-
-                </div>
+                <a href="<?= e(HOME_URL); ?>" class="button button-secondary">
+                    Academy Home
+                </a>
 
             </div>
+
+        </div>
 
         </div>
     </section>
@@ -1213,32 +1184,25 @@ require INCLUDES_PATH . '/header.php';
                     <div class="house-room-welcome-inner">
                         <div class="house-room-welcome-mark">
                             <?php if ($crestUrl !== null): ?>
-                                <picture>
-                                    <?php if (
+                            <picture>
+                                <?php if (
                                         $crestWebpUrl !== null
                                         && $crestWebpUrl !== $crestUrl
                                     ): ?>
-                                        <source
-                                            srcset="<?= e($crestWebpUrl); ?>"
-                                            type="image/webp"
-                                        >
-                                    <?php endif; ?>
+                                <source srcset="<?= e($crestWebpUrl); ?>" type="image/webp">
+                                <?php endif; ?>
 
-                                    <img
-                                        src="<?= e($crestUrl); ?>"
-                                        alt="<?= e($houseName . ' House crest'); ?>"
-                                        class="house-room-welcome-crest"
-                                        loading="lazy"
-                                    >
-                                </picture>
+                                <img src="<?= e($crestUrl); ?>" alt="<?= e($houseName . ' House crest'); ?>"
+                                    class="house-room-welcome-crest" loading="lazy">
+                            </picture>
                             <?php else: ?>
-                                <span class="house-room-welcome-crest-fallback" aria-hidden="true">
-                                    <?= e(
+                            <span class="house-room-welcome-crest-fallback" aria-hidden="true">
+                                <?= e(
                                         function_exists('mb_substr')
                                             ? mb_strtoupper(mb_substr($houseName, 0, 1, 'UTF-8'), 'UTF-8')
                                             : strtoupper(substr($houseName, 0, 1))
                                     ); ?>
-                                </span>
+                            </span>
                             <?php endif; ?>
                         </div>
 
@@ -1252,11 +1216,11 @@ require INCLUDES_PATH . '/header.php';
                             </h2>
 
                             <?php if ($houseIntroduction !== ''): ?>
-                                <div class="house-introduction-copy rich-text-content">
-                                    <?= sanitize_rich_text(
+                            <div class="house-introduction-copy rich-text-content">
+                                <?= sanitize_rich_text(
                                         $houseIntroduction
                                     ); ?>
-                                </div>
+                            </div>
                             <?php endif; ?>
 
                             <div class="house-about-meta">
@@ -1284,16 +1248,14 @@ require INCLUDES_PATH . '/header.php';
                     <div>
                         <p class="academy-overline">Inside <?= e($houseName); ?></p>
                         <h2>The Common Room</h2>
-                        <p>House news, conversations, traditions, and the people who make <?= e($houseName); ?> home.</p>
+                        <p>House news, conversations, traditions, and the people who make <?= e($houseName); ?> home.
+                        </p>
                     </div>
 
                     <?php if ($canAccessCommonRoomForum): ?>
-                        <a
-                            href="<?= e(url('forum.php?f=' . $commonRoomForumId)); ?>"
-                            class="button button-primary"
-                        >
-                            Enter House Forums
-                        </a>
+                    <a href="<?= e(url('forum.php?f=' . $commonRoomForumId)); ?>" class="button button-primary">
+                        Enter House Forums
+                    </a>
                     <?php endif; ?>
                 </div>
 
@@ -1308,13 +1270,13 @@ require INCLUDES_PATH . '/header.php';
 
                         <?php if ($latestAnnouncement === null): ?>
 
-                            <p class="house-room-empty">
-                                No House announcement has been posted yet.
-                            </p>
+                        <p class="house-room-empty">
+                            No House announcement has been posted yet.
+                        </p>
 
                         <?php else: ?>
 
-                            <?php
+                        <?php
                             $announcementAuthorName =
                                 trim(
                                     (string) (
@@ -1330,42 +1292,37 @@ require INCLUDES_PATH . '/header.php';
                                 );
                             ?>
 
-                            <article class="house-room-announcement">
+                        <article class="house-room-announcement">
 
-                                <h3>
-                                    <a
-                                        href="<?= e(
+                            <h3>
+                                <a href="<?= e(
                                             url(
                                                 'thread.php?t='
                                                 . (int) $latestAnnouncement['id']
                                             )
-                                        ); ?>"
-                                    >
-                                        <?= e(
+                                        ); ?>">
+                                    <?= e(
                                             (string) $latestAnnouncement['title']
                                         ); ?>
-                                    </a>
-                                </h3>
+                                </a>
+                            </h3>
 
-                                <p class="house-room-announcement-meta">
-                                    by
-                                    <a
-                                        href="<?= e(
+                            <p class="house-room-announcement-meta">
+                                by
+                                <a href="<?= e(
                                             url(
                                                 'profile.php?u='
                                                 . (int) $latestAnnouncement['author_id']
                                             )
-                                        ); ?>"
-                                        <?= $announcementAuthorColor !== null
+                                        ); ?>" <?= $announcementAuthorColor !== null
                                             ? 'style="color: '
                                                 . e($announcementAuthorColor)
                                                 . ';"'
-                                            : ''; ?>
-                                    >
-                                        <?= e($announcementAuthorName); ?>
-                                    </a>
-                                    ·
-                                    <?= e(
+                                            : ''; ?>>
+                                    <?= e($announcementAuthorName); ?>
+                                </a>
+                                ·
+                                <?= e(
                                         date(
                                             'F j, Y',
                                             strtotime(
@@ -1373,29 +1330,26 @@ require INCLUDES_PATH . '/header.php';
                                             )
                                         )
                                     ); ?>
-                                </p>
+                            </p>
 
-                                <div class="house-room-announcement-content rich-text-content">
-                                    <?= blackthorne_render_forum_content(
+                            <div class="house-room-announcement-content rich-text-content">
+                                <?= blackthorne_render_forum_content(
                                         (string) $latestAnnouncement['content']
                                     ); ?>
-                                </div>
+                            </div>
 
-                                <div class="house-room-announcement-actions">
-                                    <a
-                                        href="<?= e(
+                            <div class="house-room-announcement-actions">
+                                <a href="<?= e(
                                             url(
                                                 'thread.php?t='
                                                 . (int) $latestAnnouncement['id']
                                             )
-                                        ); ?>"
-                                        class="button button-secondary"
-                                    >
-                                        Open Announcement
-                                    </a>
-                                </div>
+                                        ); ?>" class="button button-secondary">
+                                    Open Announcement
+                                </a>
+                            </div>
 
-                            </article>
+                        </article>
 
                         <?php endif; ?>
 
@@ -1411,27 +1365,27 @@ require INCLUDES_PATH . '/header.php';
                 </div>
 
                 <div class="house-common-room-community-grid">
-                <section class="house-room-panel house-room-pinned-panel">
-                    <header class="house-room-panel-heading">
-                        <h2>
-                            Pinned House Resources
-                        </h2>
-                    </header>
+                    <section class="house-room-panel house-room-pinned-panel">
+                        <header class="house-room-panel-heading">
+                            <h2>
+                                Pinned House Resources
+                            </h2>
+                        </header>
 
-                    <div class="house-room-panel-body">
+                        <div class="house-room-panel-body">
 
-                        <?php if ($pinnedHouseThreads === []): ?>
+                            <?php if ($pinnedHouseThreads === []): ?>
 
                             <p class="house-room-empty">
                                 No House resources have been pinned yet.
                             </p>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <div class="house-room-pinned-list">
 
                                 <?php foreach ($pinnedHouseThreads as $pinnedThread): ?>
-                                    <?php
+                                <?php
                                     $pinnedAuthorName =
                                         trim(
                                             (string) (
@@ -1447,74 +1401,69 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <article class="house-room-pinned-item">
+                                <article class="house-room-pinned-item">
 
-                                        <a
-                                            href="<?= e(
+                                    <a href="<?= e(
                                                 url(
                                                     'thread.php?t='
                                                     . (int) $pinnedThread['id']
                                                 )
-                                            ); ?>"
-                                        >
-                                            <?= e(
+                                            ); ?>">
+                                        <?= e(
                                                 (string) $pinnedThread['title']
                                             ); ?>
-                                        </a>
+                                    </a>
 
-                                        <p class="house-room-pinned-meta">
-                                            <?= e(
+                                    <p class="house-room-pinned-meta">
+                                        <?= e(
                                                 (string) $pinnedThread['forum_title']
                                             ); ?>
-                                            · pinned by
-                                            <a
-                                                href="<?= e(
+                                        · pinned by
+                                        <a href="<?= e(
                                                     url(
                                                         'profile.php?u='
                                                         . (int) $pinnedThread['author_id']
                                                     )
-                                                ); ?>"
-                                                <?= $pinnedAuthorColor !== null
+                                                ); ?>" <?= $pinnedAuthorColor !== null
                                                     ? 'style="color: '
                                                         . e($pinnedAuthorColor)
                                                         . ';"'
-                                                    : ''; ?>
-                                            >
-                                                <?= e($pinnedAuthorName); ?>
-                                            </a>
-                                        </p>
+                                                    : ''; ?>>
+                                            <?= e($pinnedAuthorName); ?>
+                                        </a>
+                                    </p>
 
-                                    </article>
+                                </article>
 
                                 <?php endforeach; ?>
 
                             </div>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    </div>
-                </section>
-                <section class="house-room-panel house-room-discussions-panel">
-                    <header class="house-room-panel-heading">
-                        <h2>
-                            Recent House Discussions
-                        </h2>
-                    </header>
+                        </div>
+                    </section>
+                    <section class="house-room-panel house-room-discussions-panel">
+                        <header class="house-room-panel-heading">
+                            <h2>
+                                Recent House Discussions
+                            </h2>
+                        </header>
 
-                    <div class="house-room-panel-body">
+                        <div class="house-room-panel-body">
 
-                        <?php if ($recentDiscussions === []): ?>
+                            <?php if ($recentDiscussions === []): ?>
 
                             <p class="house-room-empty">
                                 No recent House discussions are available yet.
                             </p>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <div class="house-room-discussion-list">
 
                                 <?php foreach ($recentDiscussions as $discussion): ?>
-                                    <?php
+                                <?php
                                     $discussionAuthorName =
                                         trim(
                                             (string) (
@@ -1537,60 +1486,55 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <article class="house-room-discussion">
+                                <article class="house-room-discussion">
 
-                                        <h3>
-                                            <a
-                                                href="<?= e(
+                                    <h3>
+                                        <a href="<?= e(
                                                     url(
                                                         'thread.php?t='
                                                         . (int) $discussion['id']
                                                     )
-                                                ); ?>"
-                                            >
-                                                <?= e(
+                                                ); ?>">
+                                            <?= e(
                                                     (string) $discussion['title']
                                                 ); ?>
-                                            </a>
-                                        </h3>
+                                        </a>
+                                    </h3>
 
-                                        <p class="house-room-discussion-meta">
-                                            <?= e(
+                                    <p class="house-room-discussion-meta">
+                                        <?= e(
                                                 (string) $discussion['forum_title']
                                             ); ?>
-                                            · by
-                                            <a
-                                                href="<?= e(
+                                        · by
+                                        <a href="<?= e(
                                                     url(
                                                         'profile.php?u='
                                                         . (int) $discussion['author_id']
                                                     )
-                                                ); ?>"
-                                                <?= $discussionAuthorColor !== null
+                                                ); ?>" <?= $discussionAuthorColor !== null
                                                     ? 'style="color: '
                                                         . e($discussionAuthorColor)
                                                         . ';"'
-                                                    : ''; ?>
-                                            >
-                                                <?= e($discussionAuthorName); ?>
-                                            </a>
-                                            ·
-                                            <?= number_format($replyCount); ?>
-                                            <?= $replyCount === 1
+                                                    : ''; ?>>
+                                            <?= e($discussionAuthorName); ?>
+                                        </a>
+                                        ·
+                                        <?= number_format($replyCount); ?>
+                                        <?= $replyCount === 1
                                                 ? 'reply'
                                                 : 'replies'; ?>
-                                        </p>
+                                    </p>
 
-                                    </article>
+                                </article>
 
                                 <?php endforeach; ?>
 
                             </div>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    </div>
-                </section>
+                        </div>
+                    </section>
                 </div>
 
                 <div class="house-room-section-heading">
@@ -1602,16 +1546,16 @@ require INCLUDES_PATH . '/header.php';
                 </div>
 
                 <div class="house-common-room-identity-grid">
-                <section class="house-room-panel house-room-mascot-panel">
-                    <header class="house-room-panel-heading">
-                        <h2>
-                            House Mascot
-                        </h2>
-                    </header>
+                    <section class="house-room-panel house-room-mascot-panel">
+                        <header class="house-room-panel-heading">
+                            <h2>
+                                House Mascot
+                            </h2>
+                        </header>
 
-                    <div class="house-room-panel-body">
+                        <div class="house-room-panel-body">
 
-                        <?php if ($mascotUrl !== null): ?>
+                            <?php if ($mascotUrl !== null): ?>
 
                             <div class="house-room-mascot-wrap">
                                 <picture>
@@ -1620,35 +1564,28 @@ require INCLUDES_PATH . '/header.php';
                                         $mascotWebpUrl !== null
                                         && $mascotWebpUrl !== $mascotUrl
                                     ): ?>
-                                        <source
-                                            srcset="<?= e($mascotWebpUrl); ?>"
-                                            type="image/webp"
-                                        >
+                                    <source srcset="<?= e($mascotWebpUrl); ?>" type="image/webp">
                                     <?php endif; ?>
 
-                                    <img
-                                        src="<?= e($mascotUrl); ?>"
-                                        alt="<?= e(
+                                    <img src="<?= e($mascotUrl); ?>" alt="<?= e(
                                             $houseName
                                             . ' House mascot'
-                                        ); ?>"
-                                        loading="lazy"
-                                    >
+                                        ); ?>" loading="lazy">
 
                                 </picture>
                             </div>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <p class="house-room-mascot-fallback">
                                 The <?= e($houseName); ?> mascot has not been
                                 revealed yet.
                             </p>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
 
-                        <?php if (
+                            <?php if (
                             $mascotType !== ''
                             || $mascotName !== ''
                             || $mascotRepresents !== ''
@@ -1657,61 +1594,61 @@ require INCLUDES_PATH . '/header.php';
                             <dl class="house-room-mascot-details">
 
                                 <?php if ($mascotType !== ''): ?>
-                                    <div class="house-room-mascot-detail">
-                                        <dt>
-                                            Mascot:
-                                        </dt>
-                                        <dd>
-                                            <?= e($mascotType); ?>
-                                        </dd>
-                                    </div>
+                                <div class="house-room-mascot-detail">
+                                    <dt>
+                                        Mascot:
+                                    </dt>
+                                    <dd>
+                                        <?= e($mascotType); ?>
+                                    </dd>
+                                </div>
                                 <?php endif; ?>
 
                                 <?php if ($mascotName !== ''): ?>
-                                    <div class="house-room-mascot-detail">
-                                        <dt>
-                                            Name:
-                                        </dt>
-                                        <dd>
-                                            <?= e($mascotName); ?>
-                                        </dd>
-                                    </div>
+                                <div class="house-room-mascot-detail">
+                                    <dt>
+                                        Name:
+                                    </dt>
+                                    <dd>
+                                        <?= e($mascotName); ?>
+                                    </dd>
+                                </div>
                                 <?php endif; ?>
 
                                 <?php if ($mascotRepresents !== ''): ?>
-                                    <div class="house-room-mascot-detail">
-                                        <dt>
-                                            Represents:
-                                        </dt>
-                                        <dd>
-                                            <?= e($mascotRepresents); ?>
-                                        </dd>
-                                    </div>
+                                <div class="house-room-mascot-detail">
+                                    <dt>
+                                        Represents:
+                                    </dt>
+                                    <dd>
+                                        <?= e($mascotRepresents); ?>
+                                    </dd>
+                                </div>
                                 <?php endif; ?>
 
                             </dl>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    </div>
-                </section>
-                <section class="house-room-panel house-room-cup-panel">
-                    <header class="house-room-panel-heading">
-                        <h2>
-                            House Cup
-                        </h2>
-                    </header>
+                        </div>
+                    </section>
+                    <section class="house-room-panel house-room-cup-panel">
+                        <header class="house-room-panel-heading">
+                            <h2>
+                                House Cup
+                            </h2>
+                        </header>
 
-                    <div class="house-room-panel-body">
+                        <div class="house-room-panel-body">
 
-                        <?php if ($houseCup === null): ?>
+                            <?php if ($houseCup === null): ?>
 
                             <p class="house-room-empty">
                                 House Cup standings will appear here once points
                                 are recorded for the current school year.
                             </p>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <div class="house-cup-card">
 
@@ -1734,14 +1671,14 @@ require INCLUDES_PATH . '/header.php';
                                                 ?? 0
                                             ) > 0
                                         ): ?>
-                                            <strong>
-                                                #<?= number_format(
+                                        <strong>
+                                            #<?= number_format(
                                                     (int) $houseCup['display_rank']
                                                 ); ?>
-                                            </strong>
-                                            current standing
+                                        </strong>
+                                        current standing
                                         <?php else: ?>
-                                            Standing pending
+                                        Standing pending
                                         <?php endif; ?>
                                     </div>
 
@@ -1781,19 +1718,19 @@ require INCLUDES_PATH . '/header.php';
                                         )
                                     ) !== ''
                                 ): ?>
-                                    <p class="house-room-empty">
-                                        <?= e(
+                                <p class="house-room-empty">
+                                    <?= e(
                                             (string) $houseCup['school_year_name']
                                         ); ?>
-                                    </p>
+                                </p>
                                 <?php endif; ?>
 
                             </div>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    </div>
-                </section>
+                        </div>
+                    </section>
                 </div>
 
                 <div class="house-room-section-heading">
@@ -1805,16 +1742,16 @@ require INCLUDES_PATH . '/header.php';
                 </div>
 
                 <div class="house-common-room-life-grid">
-                <section class="house-room-panel house-room-birthdays-panel">
-                    <header class="house-room-panel-heading">
-                        <h2>
-                            This Week's Birthdays
-                        </h2>
-                    </header>
+                    <section class="house-room-panel house-room-birthdays-panel">
+                        <header class="house-room-panel-heading">
+                            <h2>
+                                This Week's Birthdays
+                            </h2>
+                        </header>
 
-                    <div class="house-room-panel-body">
+                        <div class="house-room-panel-body">
 
-                        <?php if ($houseBirthdays === []): ?>
+                            <?php if ($houseBirthdays === []): ?>
 
                             <p class="house-room-empty">
                                 No House birthdays fall between
@@ -1823,12 +1760,12 @@ require INCLUDES_PATH . '/header.php';
                                 <?= e($currentWeekSaturday->format('F j')); ?>.
                             </p>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <div class="house-room-birthday-list">
 
                                 <?php foreach ($houseBirthdays as $birthday): ?>
-                                    <?php
+                                <?php
                                     $birthdayName =
                                         trim(
                                             (string) (
@@ -1876,65 +1813,60 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <div class="house-room-birthday">
+                                <div class="house-room-birthday">
 
-                                        <a
-                                            href="<?= e(
+                                    <a href="<?= e(
                                                 url(
                                                     'profile.php?u='
                                                     . (int) $birthday['id']
                                                 )
-                                            ); ?>"
-                                            <?= $birthdayColor !== null
+                                            ); ?>" <?= $birthdayColor !== null
                                                 ? 'style="color: '
                                                     . e($birthdayColor)
                                                     . ';"'
-                                                : ''; ?>
-                                        >
-                                            <?= e($birthdayName); ?>
-                                        </a>
+                                                : ''; ?>>
+                                        <?= e($birthdayName); ?>
+                                    </a>
 
-                                        <span
-                                            class="house-room-birthday-date<?= $isToday
+                                    <span class="house-room-birthday-date<?= $isToday
                                                 ? ' house-room-birthday-today'
-                                                : ''; ?>"
-                                        >
-                                            <?= $isToday
+                                                : ''; ?>">
+                                        <?= $isToday
                                                 ? 'Today'
                                                 : e($birthdayLabel); ?>
-                                        </span>
+                                    </span>
 
-                                    </div>
+                                </div>
 
                                 <?php endforeach; ?>
 
                             </div>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    </div>
-                </section>
-                <section class="house-room-panel house-room-housemates-panel">
-                    <header class="house-room-panel-heading">
-                        <h2>
-                            Housemates in the Halls
-                        </h2>
-                    </header>
+                        </div>
+                    </section>
+                    <section class="house-room-panel house-room-housemates-panel">
+                        <header class="house-room-panel-heading">
+                            <h2>
+                                Housemates in the Halls
+                            </h2>
+                        </header>
 
-                    <div class="house-room-panel-body">
+                        <div class="house-room-panel-body">
 
-                        <?php if ($activeHousemates === []): ?>
+                            <?php if ($activeHousemates === []): ?>
 
                             <p class="house-room-empty">
                                 No other House members are currently active.
                             </p>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
                             <div class="house-room-member-list">
 
                                 <?php foreach ($activeHousemates as $housemate): ?>
-                                    <?php
+                                <?php
                                     $housemateName =
                                         trim(
                                             (string) (
@@ -1950,39 +1882,35 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <div class="house-room-member">
+                                <div class="house-room-member">
 
-                                        <a
-                                            class="house-room-member-name"
-                                            href="<?= e(
+                                    <a class="house-room-member-name" href="<?= e(
                                                 url(
                                                     'profile.php?u='
                                                     . (int) $housemate['id']
                                                 )
-                                            ); ?>"
-                                            <?= $housemateColor !== null
+                                            ); ?>" <?= $housemateColor !== null
                                                 ? 'style="color: '
                                                     . e($housemateColor)
                                                     . ';"'
-                                                : ''; ?>
-                                        >
-                                            <?= e($housemateName); ?>
-                                        </a>
+                                                : ''; ?>>
+                                        <?= e($housemateName); ?>
+                                    </a>
 
-                                        <span class="house-room-member-status">
-                                            Online
-                                        </span>
+                                    <span class="house-room-member-status">
+                                        Online
+                                    </span>
 
-                                    </div>
+                                </div>
 
                                 <?php endforeach; ?>
 
                             </div>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    </div>
-                </section>
+                        </div>
+                    </section>
                 </div>
 
             </div>

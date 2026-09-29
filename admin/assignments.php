@@ -65,34 +65,31 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to manage assignments.
-                </p>
+            <p>
+                Your account does not have permission to manage assignments.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/courses.php')); ?>"
-                >
-                    Return to Courses
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/courses.php')); ?>">
+                Return to Courses
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1203,18 +1200,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page assignments-admin-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page assignments-admin-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="assignments-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="assignments-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -1268,22 +1259,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The assignment could not be saved.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The assignment could not be saved.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -1300,28 +1288,19 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(url('admin/assignments.php')); ?>"
-                        method="get"
-                        class="forum-admin-form"
-                    >
+                    <form action="<?= e(url('admin/assignments.php')); ?>" method="get" class="forum-admin-form">
                         <div class="form-group">
                             <label for="offering">
                                 Course Offering
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="offering"
-                                name="offering"
-                                required
-                            >
+                            <select class="form-control" id="offering" name="offering" required>
                                 <option value="">
                                     Select an offering
                                 </option>
 
                                 <?php foreach ($offerings as $offeringRow): ?>
-                                    <?php
+                                <?php
                                     $context = [];
 
                                     if (
@@ -1385,23 +1364,17 @@ $staffHeroUrl =
                                         );
                                     ?>
 
-                                    <option
-                                        value="<?= (int) $offeringRow['id']; ?>"
-                                        <?= (int) $offeringRow['id'] === $selectedOfferingId
+                                <option value="<?= (int) $offeringRow['id']; ?>" <?= (int) $offeringRow['id'] === $selectedOfferingId
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        <?= e($label); ?>
-                                    </option>
+                                            : ''; ?>>
+                                    <?= e($label); ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Load Assignments
                             </button>
                         </div>
@@ -1412,38 +1385,38 @@ $staffHeroUrl =
 
                 <?php if ($selectedOffering !== null): ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Existing Content
-                                </p>
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Existing Content
+                            </p>
 
-                                <h3>
-                                    Assignments
-                                </h3>
-                            </div>
+                            <h3>
+                                Assignments
+                            </h3>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
+                    <div class="dashboard-panel-body">
 
-                            <?php if ($assignments === []): ?>
+                        <?php if ($assignments === []): ?>
 
-                                <p>
-                                    No assignments have been created for this offering yet.
-                                </p>
+                        <p>
+                            No assignments have been created for this offering yet.
+                        </p>
 
-                            <?php else: ?>
+                        <?php else: ?>
 
-                                <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                    <?php foreach ($assignments as $assignmentRow): ?>
+                            <?php foreach ($assignments as $assignmentRow): ?>
 
-                                        <span>
+                            <span>
 
-                                            <strong>
-                                                <?= e(
+                                <strong>
+                                    <?= e(
                                                     (string) (
                                                         $assignmentRow[
                                                             'title'
@@ -1454,10 +1427,10 @@ $staffHeroUrl =
                                                         ?? 'Assignment'
                                                     )
                                                 ); ?>
-                                            </strong>
+                                </strong>
 
-                                            · Version
-                                            <?= number_format(
+                                · Version
+                                <?= number_format(
                                                 (int) (
                                                     $assignmentRow[
                                                         'version_number'
@@ -1466,8 +1439,8 @@ $staffHeroUrl =
                                                 )
                                             ); ?>
 
-                                            ·
-                                            <?= e(
+                                ·
+                                <?= e(
                                                 ucfirst(
                                                     (string) (
                                                         $assignmentRow[
@@ -1478,8 +1451,8 @@ $staffHeroUrl =
                                                 )
                                             ); ?>
 
-                                            ·
-                                            <?= e(
+                                ·
+                                <?= e(
                                                 number_format(
                                                     (float) (
                                                         $assignmentRow[
@@ -1490,42 +1463,42 @@ $staffHeroUrl =
                                                     2
                                                 )
                                             ); ?>
-                                            points
+                                points
 
-                                            <?php if (
+                                <?php if (
                                                 !empty(
                                                     $assignmentRow[
                                                         'lesson_title'
                                                     ]
                                                 )
                                             ): ?>
-                                                · Lesson:
-                                                <?= e(
+                                · Lesson:
+                                <?= e(
                                                     (string) $assignmentRow[
                                                         'lesson_title'
                                                     ]
                                                 ); ?>
-                                            <?php endif; ?>
+                                <?php endif; ?>
 
-                                            <?php if (
+                                <?php if (
                                                 !empty(
                                                     $assignmentRow[
                                                         'due_date'
                                                     ]
                                                 )
                                             ): ?>
-                                                · Due:
-                                                <?= e(
+                                · Due:
+                                <?= e(
                                                     assignments_format_datetime(
                                                         $assignmentRow[
                                                             'due_date'
                                                         ]
                                                     )
                                                 ); ?>
-                                            <?php endif; ?>
+                                <?php endif; ?>
 
-                                            ·
-                                            <?= number_format(
+                                ·
+                                <?= number_format(
                                                 (int) (
                                                     $assignmentRow[
                                                         'submission_count'
@@ -1533,12 +1506,11 @@ $staffHeroUrl =
                                                     ?? 0
                                                 )
                                             ); ?>
-                                            submission(s)
+                                submission(s)
 
-                                            <?php if ($canEditAssignments): ?>
-                                                ·
-                                                <a
-                                                    href="<?= e(
+                                <?php if ($canEditAssignments): ?>
+                                ·
+                                <a href="<?= e(
                                                         url(
                                                             'admin/assignment-edit.php?offering='
                                                             . $selectedOfferingId
@@ -1550,132 +1522,98 @@ $staffHeroUrl =
                                                                 ?? 0
                                                             )
                                                         )
-                                                    ); ?>"
-                                                >
-                                                    Edit
-                                                </a>
-                                            <?php endif; ?>
+                                                    ); ?>">
+                                    Edit
+                                </a>
+                                <?php endif; ?>
 
-                                        </span>
+                            </span>
 
-                                    <?php endforeach; ?>
-
-                                </div>
-
-                            <?php endif; ?>
+                            <?php endforeach; ?>
 
                         </div>
 
-                    </section>
+                        <?php endif; ?>
+
+                    </div>
+
+                </section>
 
 
-                    <?php if ($canCreateAssignments): ?>
+                <?php if ($canCreateAssignments): ?>
 
-                        <section class="forum-admin-panel">
+                <section class="forum-admin-panel">
 
-                            <header class="forum-admin-titlebar">
-                                <p class="forum-admin-step">
-                                    Step 2
-                                </p>
+                    <header class="forum-admin-titlebar">
+                        <p class="forum-admin-step">
+                            Step 2
+                        </p>
 
-                                <h2>
-                                    Create Assignment
-                                </h2>
-                            </header>
+                        <h2>
+                            Create Assignment
+                        </h2>
+                    </header>
 
-                            <form
-                                action="<?= e(
+                    <form action="<?= e(
                                     url(
                                         'admin/assignments.php?offering='
                                         . $selectedOfferingId
                                     )
-                                ); ?>"
-                                method="post"
-                                class="forum-admin-form"
-                            >
-                                <?= csrf_field(); ?>
+                                ); ?>" method="post" class="forum-admin-form">
+                        <?= csrf_field(); ?>
 
-                                <input
-                                    type="hidden"
-                                    name="action"
-                                    value="create_assignment"
-                                >
+                        <input type="hidden" name="action" value="create_assignment">
 
-                                <input
-                                    type="hidden"
-                                    name="offering_id"
-                                    value="<?= $selectedOfferingId; ?>"
-                                >
+                        <input type="hidden" name="offering_id" value="<?= $selectedOfferingId; ?>">
 
 
-                                <div class="form-group">
-                                    <label for="assignment-title">
-                                        Assignment Title
-                                    </label>
+                        <div class="form-group">
+                            <label for="assignment-title">
+                                Assignment Title
+                            </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="assignment-title"
-                                        name="title"
-                                        maxlength="200"
-                                        value="<?= e($form['title']); ?>"
-                                        required
-                                    >
-                                </div>
+                            <input class="form-control" type="text" id="assignment-title" name="title" maxlength="200"
+                                value="<?= e($form['title']); ?>" required>
+                        </div>
 
 
-                                <div class="form-group">
-                                    <label for="assignment-description">
-                                        Short Description
-                                    </label>
+                        <div class="form-group">
+                            <label for="assignment-description">
+                                Short Description
+                            </label>
 
-                                    <textarea
-                                        class="form-control"
-                                        id="assignment-description"
-                                        name="description"
-                                        rows="4"
-                                    ><?= e($form['description']); ?></textarea>
-                                </div>
+                            <textarea class="form-control" id="assignment-description" name="description"
+                                rows="4"><?= e($form['description']); ?></textarea>
+                        </div>
 
 
-                                <div class="form-group">
-                                    <label for="assignment-instructions">
-                                        Assignment Instructions
-                                    </label>
+                        <div class="form-group">
+                            <label for="assignment-instructions">
+                                Assignment Instructions
+                            </label>
 
-                                    <textarea
-                                        class="form-control"
-                                        id="assignment-instructions"
-                                        name="instructions"
-                                        rows="12"
-                                    ><?= e($form['instructions']); ?></textarea>
-                                </div>
+                            <textarea class="form-control" id="assignment-instructions" name="instructions"
+                                rows="12"><?= e($form['instructions']); ?></textarea>
+                        </div>
 
 
-                                <div class="form-group">
-                                    <label for="course-offering-lesson-id">
-                                        Related Lesson
-                                    </label>
+                        <div class="form-group">
+                            <label for="course-offering-lesson-id">
+                                Related Lesson
+                            </label>
 
-                                    <select
-                                        class="form-control"
-                                        id="course-offering-lesson-id"
-                                        name="course_offering_lesson_id"
-                                    >
-                                        <option value="">
-                                            None / Course-level assignment
-                                        </option>
+                            <select class="form-control" id="course-offering-lesson-id"
+                                name="course_offering_lesson_id">
+                                <option value="">
+                                    None / Course-level assignment
+                                </option>
 
-                                        <?php foreach ($offeringLessons as $lessonRow): ?>
-                                            <option
-                                                value="<?= (int) $lessonRow['course_offering_lesson_id']; ?>"
-                                                <?= (string) $lessonRow['course_offering_lesson_id']
+                                <?php foreach ($offeringLessons as $lessonRow): ?>
+                                <option value="<?= (int) $lessonRow['course_offering_lesson_id']; ?>" <?= (string) $lessonRow['course_offering_lesson_id']
                                                     === $form['course_offering_lesson_id']
                                                         ? 'selected'
-                                                        : ''; ?>
-                                            >
-                                                <?= number_format(
+                                                        : ''; ?>>
+                                    <?= number_format(
                                                     (int) (
                                                         $lessonRow[
                                                             'sort_order'
@@ -1683,7 +1621,7 @@ $staffHeroUrl =
                                                         ?? 0
                                                     )
                                                 ); ?>.
-                                                <?= e(
+                                    <?= e(
                                                     (string) (
                                                         $lessonRow[
                                                             'title'
@@ -1691,302 +1629,229 @@ $staffHeroUrl =
                                                         ?? 'Lesson'
                                                     )
                                                 ); ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                </option>
+                                <?php endforeach; ?>
+                            </select>
 
-                                    <p class="form-help">
-                                        Leave blank for an assignment that belongs
-                                        to the course rather than a specific lesson.
-                                    </p>
-                                </div>
-
-
-                                <fieldset class="forum-admin-fieldset">
-
-                                    <legend>
-                                        Submission Methods
-                                    </legend>
-
-                                    <label class="forum-admin-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="allow_text_submission"
-                                            value="1"
-                                            <?= $form['allow_text_submission'] === '1'
-                                                ? 'checked'
-                                                : ''; ?>
-                                        >
-
-                                        <span>
-                                            Allow text response
-                                        </span>
-                                    </label>
-
-                                    <label class="forum-admin-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="allow_file_upload"
-                                            value="1"
-                                            <?= $form['allow_file_upload'] === '1'
-                                                ? 'checked'
-                                                : ''; ?>
-                                        >
-
-                                        <span>
-                                            Allow file upload
-                                        </span>
-                                    </label>
-
-                                </fieldset>
-
-
-                                <div class="forum-admin-form-grid">
-
-                                    <div class="form-group">
-                                        <label for="points-possible">
-                                            Points Possible
-                                        </label>
-
-                                        <input
-                                            class="form-control"
-                                            type="number"
-                                            id="points-possible"
-                                            name="points_possible"
-                                            min="0.01"
-                                            step="0.01"
-                                            value="<?= e($form['points_possible']); ?>"
-                                            required
-                                        >
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label for="assignment-status">
-                                            Status
-                                        </label>
-
-                                        <select
-                                            class="form-control"
-                                            id="assignment-status"
-                                            name="status"
-                                        >
-                                            <option
-                                                value="draft"
-                                                <?= $form['status'] === 'draft'
-                                                    ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                Draft
-                                            </option>
-
-                                            <option
-                                                value="review"
-                                                <?= $form['status'] === 'review'
-                                                    ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                Review
-                                            </option>
-
-                                            <?php if ($canPublishAssignments): ?>
-                                                <option
-                                                    value="published"
-                                                    <?= $form['status'] === 'published'
-                                                        ? 'selected'
-                                                        : ''; ?>
-                                                >
-                                                    Published
-                                                </option>
-                                            <?php endif; ?>
-                                        </select>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="forum-admin-form-grid">
-
-                                    <div class="form-group">
-                                        <label for="due-date">
-                                            Due Date
-                                        </label>
-
-                                        <input
-                                            class="form-control"
-                                            type="datetime-local"
-                                            id="due-date"
-                                            name="due_date"
-                                            value="<?= e($form['due_date']); ?>"
-                                        >
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label for="submission-close-date">
-                                            Submission Close Date
-                                        </label>
-
-                                        <input
-                                            class="form-control"
-                                            type="datetime-local"
-                                            id="submission-close-date"
-                                            name="submission_close_date"
-                                            value="<?= e(
-                                                $form[
-                                                    'submission_close_date'
-                                                ]
-                                            ); ?>"
-                                        >
-                                    </div>
-
-                                </div>
-
-
-                                <fieldset class="forum-admin-fieldset">
-
-                                    <legend>
-                                        Submission Rules
-                                    </legend>
-
-                                    <label class="forum-admin-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="allow_resubmissions"
-                                            value="1"
-                                            <?= $form['allow_resubmissions'] === '1'
-                                                ? 'checked'
-                                                : ''; ?>
-                                        >
-
-                                        <span>
-                                            Allow resubmissions
-                                        </span>
-                                    </label>
-
-                                    <div class="form-group">
-                                        <label for="max-submissions">
-                                            Maximum Submissions
-                                        </label>
-
-                                        <input
-                                            class="form-control"
-                                            type="number"
-                                            id="max-submissions"
-                                            name="max_submissions"
-                                            min="1"
-                                            step="1"
-                                            value="<?= e($form['max_submissions']); ?>"
-                                        >
-                                    </div>
-
-                                    <label class="forum-admin-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="allow_late_submissions"
-                                            value="1"
-                                            <?= $form['allow_late_submissions'] === '1'
-                                                ? 'checked'
-                                                : ''; ?>
-                                        >
-
-                                        <span>
-                                            Allow late submissions
-                                        </span>
-                                    </label>
-
-                                </fieldset>
-
-
-                                <fieldset class="forum-admin-fieldset">
-
-                                    <legend>
-                                        Extra Credit
-                                    </legend>
-
-                                    <label class="forum-admin-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="allow_extra_credit"
-                                            value="1"
-                                            <?= $form['allow_extra_credit'] === '1'
-                                                ? 'checked'
-                                                : ''; ?>
-                                        >
-
-                                        <span>
-                                            Allow extra credit
-                                        </span>
-                                    </label>
-
-                                    <div class="form-group">
-                                        <label for="extra-credit-max-points">
-                                            Maximum Extra-Credit Points
-                                        </label>
-
-                                        <input
-                                            class="form-control"
-                                            type="number"
-                                            id="extra-credit-max-points"
-                                            name="extra_credit_max_points"
-                                            min="0"
-                                            step="0.01"
-                                            value="<?= e(
-                                                $form[
-                                                    'extra_credit_max_points'
-                                                ]
-                                            ); ?>"
-                                        >
-                                    </div>
-
-                                    <p class="form-help">
-                                        This enables extra credit for the offering.
-                                        Individual extra-credit tasks will be managed
-                                        separately after the assignment exists.
-                                    </p>
-
-                                </fieldset>
-
-
-                                <div class="forum-admin-actions">
-                                    <button
-                                        type="submit"
-                                        class="button button-primary"
-                                    >
-                                        Create Assignment
-                                    </button>
-                                </div>
-
-                            </form>
-
-                        </section>
-
-                    <?php endif; ?>
-
-                <?php else: ?>
-
-                    <section class="dashboard-workspace-panel">
-
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Start Here
-                                </p>
-
-                                <h3>
-                                    Select an Offering
-                                </h3>
-                            </div>
-                        </div>
-
-                        <div class="dashboard-panel-body">
-                            <p>
-                                Choose a course offering above to view or create
-                                assignments for that exact course run.
+                            <p class="form-help">
+                                Leave blank for an assignment that belongs
+                                to the course rather than a specific lesson.
                             </p>
                         </div>
 
-                    </section>
+
+                        <fieldset class="forum-admin-fieldset">
+
+                            <legend>
+                                Submission Methods
+                            </legend>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_text_submission" value="1" <?= $form['allow_text_submission'] === '1'
+                                                ? 'checked'
+                                                : ''; ?>>
+
+                                <span>
+                                    Allow text response
+                                </span>
+                            </label>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_file_upload" value="1" <?= $form['allow_file_upload'] === '1'
+                                                ? 'checked'
+                                                : ''; ?>>
+
+                                <span>
+                                    Allow file upload
+                                </span>
+                            </label>
+
+                        </fieldset>
+
+
+                        <div class="forum-admin-form-grid">
+
+                            <div class="form-group">
+                                <label for="points-possible">
+                                    Points Possible
+                                </label>
+
+                                <input class="form-control" type="number" id="points-possible" name="points_possible"
+                                    min="0.01" step="0.01" value="<?= e($form['points_possible']); ?>" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="assignment-status">
+                                    Status
+                                </label>
+
+                                <select class="form-control" id="assignment-status" name="status">
+                                    <option value="draft" <?= $form['status'] === 'draft'
+                                                    ? 'selected'
+                                                    : ''; ?>>
+                                        Draft
+                                    </option>
+
+                                    <option value="review" <?= $form['status'] === 'review'
+                                                    ? 'selected'
+                                                    : ''; ?>>
+                                        Review
+                                    </option>
+
+                                    <?php if ($canPublishAssignments): ?>
+                                    <option value="published" <?= $form['status'] === 'published'
+                                                        ? 'selected'
+                                                        : ''; ?>>
+                                        Published
+                                    </option>
+                                    <?php endif; ?>
+                                </select>
+                            </div>
+
+                        </div>
+
+
+                        <div class="forum-admin-form-grid">
+
+                            <div class="form-group">
+                                <label for="due-date">
+                                    Due Date
+                                </label>
+
+                                <input class="form-control" type="datetime-local" id="due-date" name="due_date"
+                                    value="<?= e($form['due_date']); ?>">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="submission-close-date">
+                                    Submission Close Date
+                                </label>
+
+                                <input class="form-control" type="datetime-local" id="submission-close-date"
+                                    name="submission_close_date" value="<?= e(
+                                                $form[
+                                                    'submission_close_date'
+                                                ]
+                                            ); ?>">
+                            </div>
+
+                        </div>
+
+
+                        <fieldset class="forum-admin-fieldset">
+
+                            <legend>
+                                Submission Rules
+                            </legend>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_resubmissions" value="1" <?= $form['allow_resubmissions'] === '1'
+                                                ? 'checked'
+                                                : ''; ?>>
+
+                                <span>
+                                    Allow resubmissions
+                                </span>
+                            </label>
+
+                            <div class="form-group">
+                                <label for="max-submissions">
+                                    Maximum Submissions
+                                </label>
+
+                                <input class="form-control" type="number" id="max-submissions" name="max_submissions"
+                                    min="1" step="1" value="<?= e($form['max_submissions']); ?>">
+                            </div>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_late_submissions" value="1" <?= $form['allow_late_submissions'] === '1'
+                                                ? 'checked'
+                                                : ''; ?>>
+
+                                <span>
+                                    Allow late submissions
+                                </span>
+                            </label>
+
+                        </fieldset>
+
+
+                        <fieldset class="forum-admin-fieldset">
+
+                            <legend>
+                                Extra Credit
+                            </legend>
+
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="allow_extra_credit" value="1" <?= $form['allow_extra_credit'] === '1'
+                                                ? 'checked'
+                                                : ''; ?>>
+
+                                <span>
+                                    Allow extra credit
+                                </span>
+                            </label>
+
+                            <div class="form-group">
+                                <label for="extra-credit-max-points">
+                                    Maximum Extra-Credit Points
+                                </label>
+
+                                <input class="form-control" type="number" id="extra-credit-max-points"
+                                    name="extra_credit_max_points" min="0" step="0.01" value="<?= e(
+                                                $form[
+                                                    'extra_credit_max_points'
+                                                ]
+                                            ); ?>">
+                            </div>
+
+                            <p class="form-help">
+                                This enables extra credit for the offering.
+                                Individual extra-credit tasks will be managed
+                                separately after the assignment exists.
+                            </p>
+
+                        </fieldset>
+
+
+                        <div class="forum-admin-actions">
+                            <button type="submit" class="button button-primary">
+                                Create Assignment
+                            </button>
+                        </div>
+
+                    </form>
+
+                </section>
+
+                <?php endif; ?>
+
+                <?php else: ?>
+
+                <section class="dashboard-workspace-panel">
+
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Start Here
+                            </p>
+
+                            <h3>
+                                Select an Offering
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-panel-body">
+                        <p>
+                            Choose a course offering above to view or create
+                            assignments for that exact course run.
+                        </p>
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 

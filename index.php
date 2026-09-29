@@ -696,7 +696,7 @@ require INCLUDES_PATH . '/header.php';
 
 <?php if ($registeredHomepage): ?>
 
-    <?php require __DIR__ . '/views/homepages/registered.php'; ?>
+<?php require __DIR__ . '/views/homepages/registered.php'; ?>
 
 <?php else: ?>
 
@@ -707,22 +707,13 @@ require INCLUDES_PATH . '/header.php';
          HERO
     ================================================================= -->
 
-    <section
-        class="home-hero"
-        aria-labelledby="home-hero-heading"
-    >
+    <section class="home-hero" aria-labelledby="home-hero-heading">
 
         <!-- Decorative elements -->
 
-        <div
-            class="hero-ornament hero-ornament-left"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-left" aria-hidden="true"></div>
 
-        <div
-            class="hero-ornament hero-ornament-right"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-right" aria-hidden="true"></div>
 
 
         <div class="section-inner home-hero-grid">
@@ -760,38 +751,23 @@ require INCLUDES_PATH . '/header.php';
                 </p>
 
 
-                <div
-                    class="hero-actions"
-                    aria-label="Academy introduction actions"
-                >
+                <div class="hero-actions" aria-label="Academy introduction actions">
 
-                    <a
-                        href="<?= e(REGISTER_URL); ?>"
-                        class="button button-primary"
-                    >
+                    <a href="<?= e(REGISTER_URL); ?>" class="button button-primary">
                         Begin Enrollment
                     </a>
 
 
-                    <a
-                        href="<?= e(url('about.php')); ?>"
-                        class="button button-secondary"
-                    >
+                    <a href="<?= e(url('about.php')); ?>" class="button button-secondary">
                         Discover the Academy
                     </a>
 
                 </div>
 
 
-                <div
-                    class="hero-motto"
-                    aria-label="Blackthorne Academy values"
-                >
+                <div class="hero-motto" aria-label="Blackthorne Academy values">
 
-                    <span
-                        class="ornament-line"
-                        aria-hidden="true"
-                    ></span>
+                    <span class="ornament-line" aria-hidden="true"></span>
 
 
                     <p>
@@ -827,22 +803,12 @@ require INCLUDES_PATH . '/header.php';
                  Login Panel
             ========================================================= -->
 
-            <aside
-                class="academy-login-panel"
-                aria-labelledby="login-heading"
-            >
+            <aside class="academy-login-panel" aria-labelledby="login-heading">
 
                 <div class="login-panel-top">
 
-                    <img
-                        src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                        alt=""
-                        class="login-crest-image"
-                        width="100"
-                        height="100"
-                        loading="eager"
-                        decoding="async"
-                    >
+                    <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" class="login-crest-image" width="100"
+                        height="100" loading="eager" decoding="async">
 
 
                     <div>
@@ -860,30 +826,20 @@ require INCLUDES_PATH . '/header.php';
                 </div>
 
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>
                 </div>
 
 
-                <p
-                    class="sr-only"
-                    id="login-description"
-                >
+                <p class="sr-only" id="login-description">
                     Log in to your Blackthorne Academy account using your
                     username or email address and password.
                 </p>
 
 
-                <form
-                    action="<?= e(LOGIN_URL); ?>"
-                    method="post"
-                    aria-describedby="login-description"
-                >
+                <form action="<?= e(LOGIN_URL); ?>" method="post" aria-describedby="login-description">
 
                     <?= csrf_field(); ?>
 
@@ -894,16 +850,8 @@ require INCLUDES_PATH . '/header.php';
                             Username or Email
                         </label>
 
-                        <input
-                            class="form-control"
-                            type="text"
-                            id="login-identifier"
-                            name="identifier"
-                            autocomplete="username"
-                            autocapitalize="none"
-                            spellcheck="false"
-                            required
-                        >
+                        <input class="form-control" type="text" id="login-identifier" name="identifier"
+                            autocomplete="username" autocapitalize="none" spellcheck="false" required>
 
                     </div>
 
@@ -914,14 +862,8 @@ require INCLUDES_PATH . '/header.php';
                             Password
                         </label>
 
-                        <input
-                            class="form-control"
-                            type="password"
-                            id="login-password"
-                            name="password"
-                            autocomplete="current-password"
-                            required
-                        >
+                        <input class="form-control" type="password" id="login-password" name="password"
+                            autocomplete="current-password" required>
 
                     </div>
 
@@ -930,11 +872,7 @@ require INCLUDES_PATH . '/header.php';
 
                         <label class="remember-me">
 
-                            <input
-                                type="checkbox"
-                                name="remember_me"
-                                value="1"
-                            >
+                            <input type="checkbox" name="remember_me" value="1">
 
                             <span>
                                 Remember me
@@ -950,10 +888,7 @@ require INCLUDES_PATH . '/header.php';
                     </div>
 
 
-                    <button
-                        type="submit"
-                        class="button button-primary login-submit"
-                    >
+                    <button type="submit" class="button button-primary login-submit">
                         Enter the Academy
                     </button>
 
@@ -981,10 +916,7 @@ require INCLUDES_PATH . '/header.php';
          BLACKTHORNE EXPERIENCE
     ================================================================= -->
 
-    <section
-        class="academy-experience"
-        aria-labelledby="experience-heading"
-    >
+    <section class="academy-experience" aria-labelledby="experience-heading">
 
         <div class="section-inner">
 
@@ -1017,10 +949,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="experience-entry">
 
-                    <div
-                        class="experience-symbol"
-                        aria-hidden="true"
-                    >
+                    <div class="experience-symbol" aria-hidden="true">
                         ✦
                     </div>
 
@@ -1051,10 +980,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="experience-entry">
 
-                    <div
-                        class="experience-symbol"
-                        aria-hidden="true"
-                    >
+                    <div class="experience-symbol" aria-hidden="true">
                         ◇
                     </div>
 
@@ -1086,10 +1012,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="experience-entry">
 
-                    <div
-                        class="experience-symbol"
-                        aria-hidden="true"
-                    >
+                    <div class="experience-symbol" aria-hidden="true">
                         ✧
                     </div>
 
@@ -1120,10 +1043,7 @@ require INCLUDES_PATH . '/header.php';
 
             <div class="academy-section-link">
 
-                <a
-                    href="<?= e(url('features.php')); ?>"
-                    class="text-link"
-                >
+                <a href="<?= e(url('features.php')); ?>" class="text-link">
                     Explore everything Blackthorne offers
 
                     <span aria-hidden="true">
@@ -1142,10 +1062,7 @@ require INCLUDES_PATH . '/header.php';
          ABOUT BLACKTHORNE
     ================================================================= -->
 
-    <section
-        class="academy-about-preview"
-        aria-labelledby="about-preview-heading"
-    >
+    <section class="academy-about-preview" aria-labelledby="about-preview-heading">
 
         <div class="section-inner academy-about-grid">
 
@@ -1166,10 +1083,7 @@ require INCLUDES_PATH . '/header.php';
                 </h2>
 
 
-                <div
-                    class="ornamental-rule ornamental-rule-left"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule ornamental-rule-left" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>
@@ -1194,10 +1108,7 @@ require INCLUDES_PATH . '/header.php';
                 </p>
 
 
-                <a
-                    href="<?= e(url('about.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('about.php')); ?>" class="button button-secondary">
                     Read About Blackthorne
                 </a>
 
@@ -1212,43 +1123,22 @@ require INCLUDES_PATH . '/header.php';
 
                 <picture>
 
-                    <source
-                        srcset="<?= e(asset('images/about_image.webp')); ?>"
-                        type="image/webp"
-                    >
+                    <source srcset="<?= e(asset('images/about_image.webp')); ?>" type="image/webp">
 
-                    <img
-                        src="<?= e(asset('images/about_image.png')); ?>"
+                    <img src="<?= e(asset('images/about_image.png')); ?>"
                         alt="Blackthorne Academy overlooking a misty mountain valley beneath a moonlit purple sky"
-                        class="academy-about-image"
-                        width="1024"
-                        height="1024"
-                        loading="lazy"
-                        decoding="async"
-                    >
+                        class="academy-about-image" width="1024" height="1024" loading="lazy" decoding="async">
 
                 </picture>
 
 
-                <div
-                    class="frame-corner frame-corner-tl"
-                    aria-hidden="true"
-                ></div>
+                <div class="frame-corner frame-corner-tl" aria-hidden="true"></div>
 
-                <div
-                    class="frame-corner frame-corner-tr"
-                    aria-hidden="true"
-                ></div>
+                <div class="frame-corner frame-corner-tr" aria-hidden="true"></div>
 
-                <div
-                    class="frame-corner frame-corner-bl"
-                    aria-hidden="true"
-                ></div>
+                <div class="frame-corner frame-corner-bl" aria-hidden="true"></div>
 
-                <div
-                    class="frame-corner frame-corner-br"
-                    aria-hidden="true"
-                ></div>
+                <div class="frame-corner frame-corner-br" aria-hidden="true"></div>
 
             </div>
 
@@ -1261,20 +1151,14 @@ require INCLUDES_PATH . '/header.php';
          ADMISSIONS
     ================================================================= -->
 
-    <section
-        class="admissions-notice"
-        aria-labelledby="admissions-heading"
-    >
+    <section class="admissions-notice" aria-labelledby="admissions-heading">
 
         <div class="section-inner">
 
             <div class="admissions-frame">
 
 
-                <div
-                    class="admissions-seal"
-                    aria-hidden="true"
-                >
+                <div class="admissions-seal" aria-hidden="true">
                     B
                 </div>
 
@@ -1302,10 +1186,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <div class="admissions-action">
 
-                    <a
-                        href="<?= e(REGISTER_URL); ?>"
-                        class="button button-primary button-large"
-                    >
+                    <a href="<?= e(REGISTER_URL); ?>" class="button button-primary button-large">
                         Enroll at Blackthorne
                     </a>
 

@@ -813,24 +813,25 @@ $dashboardSidebarFooter = [
 ?>
 
 <main id="main-content" class="dashboard-page staff-dashboard-page dashboard-workspace-page">
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="staff-dashboard-heading"
-        <?php if ($staffHeroUrl !== ''): ?>style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"<?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="staff-dashboard-heading"
+        <?php if ($staffHeroUrl !== ''): ?>style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
                 <p class="academy-overline">Academy Staff</p>
                 <h1 id="staff-dashboard-heading">Welcome back, <?= e($displayName); ?>.</h1>
                 <p class="dashboard-hero-copy">
-                    Your staff dashboard is built from the permissions attached to your active roles and individual account. When your access changes, the tools shown here change automatically.
+                    Your staff dashboard is built from the permissions attached to your active roles and individual
+                    account. When your access changes, the tools shown here change automatically.
                 </p>
                 <div class="dashboard-status-line">
                     <span class="dashboard-status-label">Staff</span>
                     <span aria-hidden="true">✦</span>
-                    <span><?= number_format(count($staffRoles)); ?> Staff <?= count($staffRoles) === 1 ? 'Role' : 'Roles'; ?></span>
+                    <span><?= number_format(count($staffRoles)); ?> Staff
+                        <?= count($staffRoles) === 1 ? 'Role' : 'Roles'; ?></span>
                     <span aria-hidden="true">✦</span>
-                    <span><?= number_format($effectivePermissionCount); ?> Active <?= $effectivePermissionCount === 1 ? 'Permission' : 'Permissions'; ?></span>
+                    <span><?= number_format($effectivePermissionCount); ?> Active
+                        <?= $effectivePermissionCount === 1 ? 'Permission' : 'Permissions'; ?></span>
                     <span aria-hidden="true">✦</span>
                     <span>Account Active</span>
                 </div>
@@ -847,7 +848,8 @@ $dashboardSidebarFooter = [
                     <div>
                         <p class="academy-overline">Staff Overview</p>
                         <h2 id="staff-workspace-heading">Your Academy workspace.</h2>
-                        <p>Use the grouped navigation at left for staff tools. This overview is reserved for your access, queues, and Academy activity.</p>
+                        <p>Use the grouped navigation at left for staff tools. This overview is reserved for your
+                            access, queues, and Academy activity.</p>
                     </div>
                 </header>
 
@@ -875,17 +877,17 @@ $dashboardSidebarFooter = [
                 </div>
 
                 <?php if (!empty($staffRoles)): ?>
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">Staff Access</p>
-                                <h3>Your active staff roles</h3>
-                            </div>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">Staff Access</p>
+                            <h3>Your active staff roles</h3>
                         </div>
-                        <div class="dashboard-panel-body">
-                            <div class="dashboard-role-chips" aria-label="Active staff roles">
-                                <?php foreach ($staffRoles as $role): ?>
-                                    <?php
+                    </div>
+                    <div class="dashboard-panel-body">
+                        <div class="dashboard-role-chips" aria-label="Active staff roles">
+                            <?php foreach ($staffRoles as $role): ?>
+                            <?php
                                     $roleName = trim((string) ($role['name'] ?? 'Staff'));
                                     if ($roleName === '') {
                                         $roleName = 'Staff';
@@ -893,11 +895,12 @@ $dashboardSidebarFooter = [
                                     $roleColor = trim((string) ($role['display_color'] ?? ''));
                                     $validRoleColor = preg_match('/^#[0-9A-Fa-f]{6}$/', $roleColor) === 1;
                                     ?>
-                                    <span class="dashboard-role-chip"<?= $validRoleColor ? ' style="--dashboard-role-color:' . e($roleColor) . ';"' : ''; ?>><?= e($roleName); ?></span>
-                                <?php endforeach; ?>
-                            </div>
+                            <span class="dashboard-role-chip"
+                                <?= $validRoleColor ? ' style="--dashboard-role-color:' . e($roleColor) . ';"' : ''; ?>><?= e($roleName); ?></span>
+                            <?php endforeach; ?>
                         </div>
-                    </section>
+                    </div>
+                </section>
                 <?php endif; ?>
 
                 <div class="dashboard-workspace-two-column">
@@ -909,7 +912,9 @@ $dashboardSidebarFooter = [
                             </div>
                         </div>
                         <div class="dashboard-panel-body">
-                            <p>Open reports, pending account actions, grading queues, staff invitations, and other permission-aware tasks will collect here as those systems are connected to the dashboard.</p>
+                            <p>Open reports, pending account actions, grading queues, staff invitations, and other
+                                permission-aware tasks will collect here as those systems are connected to the
+                                dashboard.</p>
                             <div class="dashboard-placeholder-list">
                                 <span>Moderation queue</span>
                                 <span>Pending member actions</span>
@@ -926,7 +931,9 @@ $dashboardSidebarFooter = [
                             </div>
                         </div>
                         <div class="dashboard-panel-body">
-                            <p>Recent audit entries and staff activity summaries will appear here later. This panel is reserved for live staff activity once the remaining management systems are connected.</p>
+                            <p>Recent audit entries and staff activity summaries will appear here later. This panel is
+                                reserved for live staff activity once the remaining management systems are connected.
+                            </p>
                         </div>
                     </section>
                 </div>

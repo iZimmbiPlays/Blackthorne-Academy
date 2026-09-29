@@ -498,10 +498,7 @@ require
 ?>
 
 
-<main
-    id="main-content"
-    class="notifications-page"
->
+<main id="main-content" class="notifications-page">
 
     <section class="notifications-page-header">
 
@@ -529,26 +526,15 @@ require
 
                 <?php if ($unreadNotificationCount > 0): ?>
 
-                    <form
-                        method="post"
-                        action="<?= e(url('notifications.php')); ?>"
-                        class="notifications-mark-all-form"
-                    >
-                        <?= csrf_field(); ?>
+                <form method="post" action="<?= e(url('notifications.php')); ?>" class="notifications-mark-all-form">
+                    <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="mark_all_read"
-                        >
+                    <input type="hidden" name="action" value="mark_all_read">
 
-                        <button
-                            type="submit"
-                            class="button button-secondary"
-                        >
-                            Mark All Read
-                        </button>
-                    </form>
+                    <button type="submit" class="button button-secondary">
+                        Mark All Read
+                    </button>
+                </form>
 
                 <?php endif; ?>
 
@@ -591,66 +577,48 @@ require
 
             <?php if ($successMessage !== null): ?>
 
-                <div
-                    class="notifications-page-message is-success"
-                    role="status"
-                >
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="notifications-page-message is-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
 
             <?php endif; ?>
 
 
             <?php if ($errorMessage !== null): ?>
 
-                <div
-                    class="notifications-page-message is-error"
-                    role="alert"
-                >
-                    <?= e($errorMessage); ?>
-                </div>
+            <div class="notifications-page-message is-error" role="alert">
+                <?= e($errorMessage); ?>
+            </div>
 
             <?php endif; ?>
 
 
-            <nav
-                class="notifications-filter-nav"
-                aria-label="Notification filters"
-            >
+            <nav class="notifications-filter-nav" aria-label="Notification filters">
 
-                <a
-                    href="<?= e(url('notifications.php?filter=all')); ?>"
-                    class="notifications-filter-link<?= $filter === 'all' ? ' is-active' : ''; ?>"
-                    <?= $filter === 'all'
+                <a href="<?= e(url('notifications.php?filter=all')); ?>"
+                    class="notifications-filter-link<?= $filter === 'all' ? ' is-active' : ''; ?>" <?= $filter === 'all'
                         ? 'aria-current="page"'
-                        : ''; ?>
-                >
+                        : ''; ?>>
                     All
                     <span>
                         <?= number_format($totalNotificationCount); ?>
                     </span>
                 </a>
 
-                <a
-                    href="<?= e(url('notifications.php?filter=unread')); ?>"
-                    class="notifications-filter-link<?= $filter === 'unread' ? ' is-active' : ''; ?>"
-                    <?= $filter === 'unread'
+                <a href="<?= e(url('notifications.php?filter=unread')); ?>"
+                    class="notifications-filter-link<?= $filter === 'unread' ? ' is-active' : ''; ?>" <?= $filter === 'unread'
                         ? 'aria-current="page"'
-                        : ''; ?>
-                >
+                        : ''; ?>>
                     Unread
                     <span>
                         <?= number_format($unreadNotificationCount); ?>
                     </span>
                 </a>
 
-                <a
-                    href="<?= e(url('notifications.php?filter=read')); ?>"
-                    class="notifications-filter-link<?= $filter === 'read' ? ' is-active' : ''; ?>"
-                    <?= $filter === 'read'
+                <a href="<?= e(url('notifications.php?filter=read')); ?>"
+                    class="notifications-filter-link<?= $filter === 'read' ? ' is-active' : ''; ?>" <?= $filter === 'read'
                         ? 'aria-current="page"'
-                        : ''; ?>
-                >
+                        : ''; ?>>
                     Read
                     <span>
                         <?= number_format($readNotificationCount); ?>
@@ -662,11 +630,11 @@ require
 
             <?php if ($notifications !== []): ?>
 
-                <div class="notifications-history-list">
+            <div class="notifications-history-list">
 
-                    <?php foreach ($notifications as $notification): ?>
+                <?php foreach ($notifications as $notification): ?>
 
-                        <?php
+                <?php
                         $notificationId =
                             (int) (
                                 $notification['id']
@@ -726,98 +694,82 @@ require
                             );
                         ?>
 
-                        <a
-                            href="<?= e($notificationHref); ?>"
-                            class="notifications-history-item<?= $isUnread ? ' is-unread' : ' is-read'; ?>"
-                        >
+                <a href="<?= e($notificationHref); ?>"
+                    class="notifications-history-item<?= $isUnread ? ' is-unread' : ' is-read'; ?>">
 
-                            <span class="notifications-history-indicator">
+                    <span class="notifications-history-indicator">
 
-                                <?php if ($isUnread): ?>
+                        <?php if ($isUnread): ?>
 
-                                    <span
-                                        class="notifications-unread-dot"
-                                        aria-label="Unread notification"
-                                    ></span>
+                        <span class="notifications-unread-dot" aria-label="Unread notification"></span>
 
-                                <?php endif; ?>
+                        <?php endif; ?>
 
-                            </span>
+                    </span>
 
 
-                            <span class="notifications-history-main">
+                    <span class="notifications-history-main">
 
-                                <span class="notifications-history-topline">
+                        <span class="notifications-history-topline">
 
-                                    <span class="notifications-history-type">
-                                        <?= e(
+                            <span class="notifications-history-type">
+                                <?= e(
                                             blackthorne_notification_type_label(
                                                 $notificationType
                                             )
                                         ); ?>
-                                    </span>
+                            </span>
 
-                                    <?php if ($notificationTime !== ''): ?>
+                            <?php if ($notificationTime !== ''): ?>
 
-                                        <time
-                                            class="notifications-history-time"
-                                            datetime="<?= e(
+                            <time class="notifications-history-time" datetime="<?= e(
                                                 (string) (
                                                     $notification['created_at']
                                                     ?? ''
                                                 )
-                                            ); ?>"
-                                        >
-                                            <?= e($notificationTime); ?>
-                                        </time>
+                                            ); ?>">
+                                <?= e($notificationTime); ?>
+                            </time>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </span>
-
-
-                                <strong class="notifications-history-title">
-                                    <?= e($notificationTitle); ?>
-                                </strong>
+                        </span>
 
 
-                                <?php if ($notificationMessage !== ''): ?>
-
-                                    <span class="notifications-history-message">
-                                        <?= e($notificationMessage); ?>
-                                    </span>
-
-                                <?php endif; ?>
-
-                            </span>
+                        <strong class="notifications-history-title">
+                            <?= e($notificationTitle); ?>
+                        </strong>
 
 
-                            <span
-                                class="notifications-history-arrow"
-                                aria-hidden="true"
-                            >
-                                ›
-                            </span>
+                        <?php if ($notificationMessage !== ''): ?>
 
-                        </a>
+                        <span class="notifications-history-message">
+                            <?= e($notificationMessage); ?>
+                        </span>
 
-                    <?php endforeach; ?>
+                        <?php endif; ?>
 
-                </div>
+                    </span>
 
 
-                <?php if ($totalPages > 1): ?>
+                    <span class="notifications-history-arrow" aria-hidden="true">
+                        ›
+                    </span>
 
-                    <nav
-                        class="notifications-pagination"
-                        aria-label="Notification history pages"
-                    >
+                </a>
 
-                        <?php if ($currentPage > 1): ?>
+                <?php endforeach; ?>
 
-                            <a
-                                class="button button-secondary"
-                                href="<?= e(
+            </div>
+
+
+            <?php if ($totalPages > 1): ?>
+
+            <nav class="notifications-pagination" aria-label="Notification history pages">
+
+                <?php if ($currentPage > 1): ?>
+
+                <a class="button button-secondary" href="<?= e(
                                     url(
                                         'notifications.php?filter='
                                         . rawurlencode(
@@ -826,27 +778,24 @@ require
                                         . '&page='
                                         . ($currentPage - 1)
                                     )
-                                ); ?>"
-                            >
-                                Previous
-                            </a>
+                                ); ?>">
+                    Previous
+                </a>
 
-                        <?php endif; ?>
-
-
-                        <span class="notifications-pagination-status">
-                            Page
-                            <?= number_format($currentPage); ?>
-                            of
-                            <?= number_format($totalPages); ?>
-                        </span>
+                <?php endif; ?>
 
 
-                        <?php if ($currentPage < $totalPages): ?>
+                <span class="notifications-pagination-status">
+                    Page
+                    <?= number_format($currentPage); ?>
+                    of
+                    <?= number_format($totalPages); ?>
+                </span>
 
-                            <a
-                                class="button button-secondary"
-                                href="<?= e(
+
+                <?php if ($currentPage < $totalPages): ?>
+
+                <a class="button button-secondary" href="<?= e(
                                     url(
                                         'notifications.php?filter='
                                         . rawurlencode(
@@ -855,56 +804,52 @@ require
                                         . '&page='
                                         . ($currentPage + 1)
                                     )
-                                ); ?>"
-                            >
-                                Next
-                            </a>
-
-                        <?php endif; ?>
-
-                    </nav>
+                                ); ?>">
+                    Next
+                </a>
 
                 <?php endif; ?>
 
+            </nav>
+
+            <?php endif; ?>
+
             <?php else: ?>
 
-                <div class="notifications-empty-state">
+            <div class="notifications-empty-state">
 
-                    <p class="academy-overline">
-                        All Quiet
-                    </p>
+                <p class="academy-overline">
+                    All Quiet
+                </p>
 
-                    <h2>
-                        <?php if ($filter === 'unread'): ?>
-                            No Unread Notifications
-                        <?php elseif ($filter === 'read'): ?>
-                            No Read Notifications
-                        <?php else: ?>
-                            No Notifications Yet
-                        <?php endif; ?>
-                    </h2>
-
-                    <p>
-                        <?php if ($filter === 'all'): ?>
-                            Your Academy activity will appear here when
-                            there is something new to see.
-                        <?php else: ?>
-                            There are no notifications in this view.
-                        <?php endif; ?>
-                    </p>
-
-                    <?php if ($filter !== 'all'): ?>
-
-                        <a
-                            class="button button-secondary"
-                            href="<?= e(url('notifications.php')); ?>"
-                        >
-                            View All Notifications
-                        </a>
-
+                <h2>
+                    <?php if ($filter === 'unread'): ?>
+                    No Unread Notifications
+                    <?php elseif ($filter === 'read'): ?>
+                    No Read Notifications
+                    <?php else: ?>
+                    No Notifications Yet
                     <?php endif; ?>
+                </h2>
 
-                </div>
+                <p>
+                    <?php if ($filter === 'all'): ?>
+                    Your Academy activity will appear here when
+                    there is something new to see.
+                    <?php else: ?>
+                    There are no notifications in this view.
+                    <?php endif; ?>
+                </p>
+
+                <?php if ($filter !== 'all'): ?>
+
+                <a class="button button-secondary" href="<?= e(url('notifications.php')); ?>">
+                    View All Notifications
+                </a>
+
+                <?php endif; ?>
+
+            </div>
 
             <?php endif; ?>
 
@@ -920,4 +865,3 @@ require
 require
     INCLUDES_PATH
     . '/footer.php';
-

@@ -271,20 +271,20 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="dashboard-page">
-        <section class="section-inner">
-            <div class="dashboard-workspace-panel">
-                <div class="dashboard-panel-body">
-                    <h1>Lesson Not Found</h1>
-                    <p>
-                        The requested lesson could not be found.
-                    </p>
-                </div>
+<main id="main-content" class="dashboard-page">
+    <section class="section-inner">
+        <div class="dashboard-workspace-panel">
+            <div class="dashboard-panel-body">
+                <h1>Lesson Not Found</h1>
+                <p>
+                    The requested lesson could not be found.
+                </p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -332,20 +332,20 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="dashboard-page">
-        <section class="section-inner">
-            <div class="dashboard-workspace-panel">
-                <div class="dashboard-panel-body">
-                    <h1>Lesson Not Found</h1>
-                    <p>
-                        The requested lesson could not be found in this course.
-                    </p>
-                </div>
+<main id="main-content" class="dashboard-page">
+    <section class="section-inner">
+        <div class="dashboard-workspace-panel">
+            <div class="dashboard-panel-body">
+                <h1>Lesson Not Found</h1>
+                <p>
+                    The requested lesson could not be found in this course.
+                </p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -479,25 +479,22 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main
-        id="main-content"
-        class="dashboard-page lesson-page"
-    >
-        <section class="dashboard-workspace-section">
-            <div class="section-inner dashboard-workspace-layout">
+<main id="main-content" class="dashboard-page lesson-page">
+    <section class="dashboard-workspace-section">
+        <div class="section-inner dashboard-workspace-layout">
 
-                <?php
+            <?php
                 require
                     INCLUDES_PATH
                     . '/member-sidebar.php';
                 ?>
 
-                <div class="dashboard-workspace-main">
+            <div class="dashboard-workspace-main">
 
-                    <header class="dashboard-workspace-heading">
-                        <div>
-                            <p class="academy-overline">
-                                <?= e(
+                <header class="dashboard-workspace-heading">
+                    <div>
+                        <p class="academy-overline">
+                            <?= e(
                                     (string) (
                                         $course[
                                             'title'
@@ -505,22 +502,19 @@ if (
                                         ?? 'Course'
                                     )
                                 ); ?>
-                            </p>
+                        </p>
 
-                            <h1>
-                                <?= e($lessonTitle); ?>
-                            </h1>
-                        </div>
-                    </header>
+                        <h1>
+                            <?= e($lessonTitle); ?>
+                        </h1>
+                    </div>
+                </header>
 
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-body">
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-body">
 
-                            <div
-                                class="form-message form-message-error"
-                                role="alert"
-                            >
-                                <?= e(
+                        <div class="form-message form-message-error" role="alert">
+                            <?= e(
                                     student_lesson_unavailable_message(
                                         (string) (
                                             $availability[
@@ -530,51 +524,48 @@ if (
                                         )
                                     )
                                 ); ?>
-                            </div>
+                        </div>
 
-                            <?php if (
+                        <?php if (
                                 !empty(
                                     $availability[
                                         'unlocks_at'
                                     ]
                                 )
                             ): ?>
-                                <p>
-                                    Scheduled availability:
-                                    <strong>
-                                        <?= e(
+                        <p>
+                            Scheduled availability:
+                            <strong>
+                                <?= e(
                                             student_lesson_format_datetime(
                                                 $availability[
                                                     'unlocks_at'
                                                 ]
                                             )
                                         ); ?>
-                                    </strong>
-                                </p>
-                            <?php endif; ?>
+                            </strong>
+                        </p>
+                        <?php endif; ?>
 
-                            <a
-                                class="button button-secondary"
-                                href="<?= e(
+                        <a class="button button-secondary" href="<?= e(
                                     url(
                                         'course.php?offering='
                                         . $offeringId
                                     )
-                                ); ?>"
-                            >
-                                Back to Course
-                            </a>
+                                ); ?>">
+                            Back to Course
+                        </a>
 
-                        </div>
-                    </section>
-
-                </div>
+                    </div>
+                </section>
 
             </div>
-        </section>
-    </main>
 
-    <?php
+        </div>
+    </section>
+</main>
+
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1009,10 +1000,7 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page lesson-page"
->
+<main id="main-content" class="dashboard-page lesson-page">
 
     <section class="dashboard-workspace-section">
         <div class="section-inner dashboard-workspace-layout">
@@ -1063,50 +1051,39 @@ require INCLUDES_PATH . '/header.php';
                     && trim($successMessage) !== ''
                 ): ?>
 
-                    <div
-                        class="form-message form-message-success"
-                        role="status"
-                    >
-                        <?= e($successMessage); ?>
-                    </div>
+                <div class="form-message form-message-success" role="status">
+                    <?= e($successMessage); ?>
+                </div>
 
                 <?php endif; ?>
 
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The lesson could not be updated.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The lesson could not be updated.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
 
-                <nav
-                    class="forum-breadcrumbs"
-                    aria-label="Course navigation"
-                >
-                    <a
-                        href="<?= e(
+                <nav class="forum-breadcrumbs" aria-label="Course navigation">
+                    <a href="<?= e(
                             url(
                                 'course.php?offering='
                                 . $offeringId
                             )
-                        ); ?>"
-                    >
+                        ); ?>">
                         <?= e($courseTitle); ?>
                     </a>
 
@@ -1126,37 +1103,30 @@ require INCLUDES_PATH . '/header.php';
                     ] !== ''
                 ): ?>
 
-                    <figure class="lesson-feature-image">
-                        <picture>
-                            <?php if (
+                <figure class="lesson-feature-image">
+                    <picture>
+                        <?php if (
                                 $lessonImageUrls[
                                     'webp'
                                 ] !== ''
                             ): ?>
-                                <source
-                                    srcset="<?= e(
+                        <source srcset="<?= e(
                                         $lessonImageUrls[
                                             'webp'
                                         ]
-                                    ); ?>"
-                                    type="image/webp"
-                                >
-                            <?php endif; ?>
+                                    ); ?>" type="image/webp">
+                        <?php endif; ?>
 
-                            <img
-                                src="<?= e(
+                        <img src="<?= e(
                                     $lessonImageUrls[
                                         'original'
                                     ]
-                                ); ?>"
-                                alt="<?= e(
+                                ); ?>" alt="<?= e(
                                     $lessonTitle
                                     . ' lesson image'
-                                ); ?>"
-                                loading="eager"
-                            >
-                        </picture>
-                    </figure>
+                                ); ?>" loading="eager">
+                    </picture>
+                </figure>
 
                 <?php endif; ?>
 
@@ -1172,33 +1142,33 @@ require INCLUDES_PATH . '/header.php';
                     ) !== ''
                 ): ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Lesson Overview
-                                </p>
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Lesson Overview
+                            </p>
 
-                                <h2>
-                                    What You’ll Learn
-                                </h2>
-                            </div>
+                            <h2>
+                                What You’ll Learn
+                            </h2>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
-                            <p>
-                                <?= nl2br(
+                    <div class="dashboard-panel-body">
+                        <p>
+                            <?= nl2br(
                                     e(
                                         (string) $lesson[
                                             'description'
                                         ]
                                     )
                                 ); ?>
-                            </p>
-                        </div>
+                        </p>
+                    </div>
 
-                    </section>
+                </section>
 
                 <?php endif; ?>
 
@@ -1230,19 +1200,19 @@ require INCLUDES_PATH . '/header.php';
                             ) !== ''
                         ): ?>
 
-                            <div class="forum-post-content lesson-content">
-                                <?= student_lesson_render_content(
+                        <div class="forum-post-content lesson-content">
+                            <?= student_lesson_render_content(
                                     (string) $lesson[
                                         'content'
                                     ]
                                 ); ?>
-                            </div>
+                        </div>
 
                         <?php else: ?>
 
-                            <p>
-                                This lesson does not have content yet.
-                            </p>
+                        <p>
+                            This lesson does not have content yet.
+                        </p>
 
                         <?php endif; ?>
 
@@ -1253,29 +1223,29 @@ require INCLUDES_PATH . '/header.php';
 
                 <?php if ($linkedAssignments !== []): ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Coursework
-                                </p>
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Coursework
+                            </p>
 
-                                <h2>
-                                    Assignments for This Lesson
-                                </h2>
-                            </div>
+                            <h2>
+                                Assignments for This Lesson
+                            </h2>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
+                    <div class="dashboard-panel-body">
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach (
+                            <?php foreach (
                                     $linkedAssignments
                                     as $assignmentRow
                                 ): ?>
-                                    <?php
+                            <?php
                                     $assignmentSummary =
                                         $assignmentRow[
                                             'summary'
@@ -1309,18 +1279,18 @@ require INCLUDES_PATH . '/header.php';
                                             : 'Not Started';
                                     ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            <?= e(
+                                <strong>
+                                    <?= e(
                                                 (string) $assignmentRow[
                                                     'title'
                                                 ]
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             number_format(
                                                 (float) (
                                                     $assignmentRow[
@@ -1331,33 +1301,32 @@ require INCLUDES_PATH . '/header.php';
                                                 2
                                             )
                                         ); ?>
-                                        points
+                                points
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             $assignmentStatus
                                         ); ?>
 
-                                        <?php if (
+                                <?php if (
                                             !empty(
                                                 $assignmentRow[
                                                     'due_date'
                                                 ]
                                             )
                                         ): ?>
-                                            · Due
-                                            <?= e(
+                                · Due
+                                <?= e(
                                                 student_lesson_format_datetime(
                                                     $assignmentRow[
                                                         'due_date'
                                                     ]
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        ·
-                                        <a
-                                            href="<?= e(
+                                ·
+                                <a href="<?= e(
                                                 url(
                                                     'assignment.php?offering='
                                                     . $offeringId
@@ -1366,16 +1335,15 @@ require INCLUDES_PATH . '/header.php';
                                                         'assignment_id'
                                                     ]
                                                 )
-                                            ); ?>"
-                                        >
-                                            <?= is_array(
+                                            ); ?>">
+                                    <?= is_array(
                                                 $latestAttempt
                                             )
                                                 ? 'View Assignment'
                                                 : 'Open Assignment'; ?>
-                                        </a>
+                                </a>
 
-                                        <?php if (
+                                <?php if (
                                             trim(
                                                 (string) (
                                                     $assignmentRow[
@@ -1385,23 +1353,23 @@ require INCLUDES_PATH . '/header.php';
                                                 )
                                             ) !== ''
                                         ): ?>
-                                            <br>
-                                            <?= e(
+                                <br>
+                                <?= e(
                                                 (string) $assignmentRow[
                                                     'description'
                                                 ]
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
-
-                            </div>
+                            <?php endforeach; ?>
 
                         </div>
 
-                    </section>
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 
@@ -1426,58 +1394,50 @@ require INCLUDES_PATH . '/header.php';
 
                         <?php if ($lessonCompleted): ?>
 
-                            <p>
-                                You completed this lesson
-                                <?php if (
+                        <p>
+                            You completed this lesson
+                            <?php if (
                                     !empty(
                                         $progress[
                                             'completed_at'
                                         ]
                                     )
                                 ): ?>
-                                    on
-                                    <strong>
-                                        <?= e(
+                            on
+                            <strong>
+                                <?= e(
                                             student_lesson_format_datetime(
                                                 $progress[
                                                     'completed_at'
                                                 ]
                                             )
                                         ); ?>
-                                    </strong>
-                                <?php endif; ?>.
-                            </p>
+                            </strong>
+                            <?php endif; ?>.
+                        </p>
 
                         <?php else: ?>
 
-                            <p>
-                                When you have finished the lesson, mark it complete
-                                to record your progress and unlock any content that
-                                depends on this lesson.
-                            </p>
+                        <p>
+                            When you have finished the lesson, mark it complete
+                            to record your progress and unlock any content that
+                            depends on this lesson.
+                        </p>
 
-                            <form
-                                method="post"
-                                action="<?= e(
+                        <form method="post" action="<?= e(
                                     url(
                                         'lesson.php?offering='
                                         . $offeringId
                                         . '&lesson='
                                         . $lessonId
                                     )
-                                ); ?>"
-                            >
-                                <?= csrf_field(); ?>
+                                ); ?>">
+                            <?= csrf_field(); ?>
 
-                                <button
-                                    type="submit"
-                                    class="button button-primary"
-                                    name="action"
-                                    value="complete_lesson"
-                                >
-                                    Mark Lesson Complete
-                                </button>
-                            </form>
+                            <button type="submit" class="button button-primary" name="action" value="complete_lesson">
+                                Mark Lesson Complete
+                            </button>
+                        </form>
 
                         <?php endif; ?>
 
@@ -1486,10 +1446,7 @@ require INCLUDES_PATH . '/header.php';
                 </section>
 
 
-                <nav
-                    class="dashboard-workspace-panel"
-                    aria-label="Lesson navigation"
-                >
+                <nav class="dashboard-workspace-panel" aria-label="Lesson navigation">
                     <div class="dashboard-panel-body">
 
                         <div class="forum-admin-actions">
@@ -1498,9 +1455,7 @@ require INCLUDES_PATH . '/header.php';
                                 $previousLesson !== null
                             ): ?>
 
-                                <a
-                                    class="button button-secondary"
-                                    href="<?= e(
+                            <a class="button button-secondary" href="<?= e(
                                         url(
                                             'lesson.php?offering='
                                             . $offeringId
@@ -1509,10 +1464,9 @@ require INCLUDES_PATH . '/header.php';
                                                 'lesson_id'
                                             ]
                                         )
-                                    ); ?>"
-                                >
-                                    ←
-                                    <?= e(
+                                    ); ?>">
+                                ←
+                                <?= e(
                                         (string) (
                                             $previousLesson[
                                                 'title'
@@ -1520,21 +1474,18 @@ require INCLUDES_PATH . '/header.php';
                                             ?? 'Previous Lesson'
                                         )
                                     ); ?>
-                                </a>
+                            </a>
 
                             <?php else: ?>
 
-                                <a
-                                    class="button button-secondary"
-                                    href="<?= e(
+                            <a class="button button-secondary" href="<?= e(
                                         url(
                                             'course.php?offering='
                                             . $offeringId
                                         )
-                                    ); ?>"
-                                >
-                                    ← Back to Course
-                                </a>
+                                    ); ?>">
+                                ← Back to Course
+                            </a>
 
                             <?php endif; ?>
 
@@ -1543,9 +1494,7 @@ require INCLUDES_PATH . '/header.php';
                                 $nextLesson !== null
                             ): ?>
 
-                                <a
-                                    class="button button-primary"
-                                    href="<?= e(
+                            <a class="button button-primary" href="<?= e(
                                         url(
                                             'lesson.php?offering='
                                             . $offeringId
@@ -1554,9 +1503,8 @@ require INCLUDES_PATH . '/header.php';
                                                 'lesson_id'
                                             ]
                                         )
-                                    ); ?>"
-                                >
-                                    <?= e(
+                                    ); ?>">
+                                <?= e(
                                         (string) (
                                             $nextLesson[
                                                 'title'
@@ -1564,8 +1512,8 @@ require INCLUDES_PATH . '/header.php';
                                             ?? 'Next Lesson'
                                         )
                                     ); ?>
-                                    →
-                                </a>
+                                →
+                            </a>
 
                             <?php endif; ?>
 
@@ -1583,94 +1531,93 @@ require INCLUDES_PATH . '/header.php';
 
 
 <style>
-.lesson-feature-image {
-    margin: 0 0 1.5rem;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid rgba(199, 164, 91, 0.45);
-    border-radius: 14px;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(31, 18, 33, 0.94),
-            rgba(15, 10, 17, 0.98)
-        );
-}
+    .lesson-feature-image {
+        margin: 0 0 1.5rem;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid rgba(199, 164, 91, 0.45);
+        border-radius: 14px;
+        background:
+            linear-gradient(180deg,
+                rgba(31, 18, 33, 0.94),
+                rgba(15, 10, 17, 0.98));
+    }
 
-.lesson-feature-image picture {
-    display: block;
-}
+    .lesson-feature-image picture {
+        display: block;
+    }
 
-.lesson-feature-image img {
-    display: block;
-    width: 100%;
-    max-height: 460px;
-    margin: 0 auto;
-    object-fit: contain;
-    background: rgba(10, 7, 12, 0.72);
-}
-
-.lesson-content {
-    line-height: 1.75;
-}
-
-.lesson-content > :first-child {
-    margin-top: 0;
-}
-
-.lesson-content > :last-child {
-    margin-bottom: 0;
-}
-
-.lesson-content h2,
-.lesson-content h3,
-.lesson-content h4 {
-    margin-top: 1.6em;
-    margin-bottom: 0.65em;
-    color: var(--gold, #c7a45b);
-    line-height: 1.25;
-}
-
-.lesson-content p,
-.lesson-content ul,
-.lesson-content ol,
-.lesson-content blockquote {
-    margin-top: 0;
-    margin-bottom: 1rem;
-}
-
-.lesson-content ul,
-.lesson-content ol {
-    padding-left: 1.6rem;
-}
-
-.lesson-content blockquote {
-    padding: 0.85rem 1rem;
-    border-left: 3px solid var(--gold, #c7a45b);
-    background: rgba(199, 164, 91, 0.08);
-}
-
-.lesson-content img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 1.35rem auto;
-    border-radius: 10px;
-}
-
-.lesson-content a {
-    overflow-wrap: anywhere;
-}
-
-@media (max-width: 720px) {
     .lesson-feature-image img {
-        max-height: 340px;
+        display: block;
+        width: 100%;
+        max-height: 460px;
+        margin: 0 auto;
+        object-fit: contain;
+        background: rgba(10, 7, 12, 0.72);
     }
 
     .lesson-content {
-        line-height: 1.68;
+        line-height: 1.75;
     }
-}
+
+    .lesson-content> :first-child {
+        margin-top: 0;
+    }
+
+    .lesson-content> :last-child {
+        margin-bottom: 0;
+    }
+
+    .lesson-content h2,
+    .lesson-content h3,
+    .lesson-content h4 {
+        margin-top: 1.6em;
+        margin-bottom: 0.65em;
+        color: var(--gold, #c7a45b);
+        line-height: 1.25;
+    }
+
+    .lesson-content p,
+    .lesson-content ul,
+    .lesson-content ol,
+    .lesson-content blockquote {
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+
+    .lesson-content ul,
+    .lesson-content ol {
+        padding-left: 1.6rem;
+    }
+
+    .lesson-content blockquote {
+        padding: 0.85rem 1rem;
+        border-left: 3px solid var(--gold, #c7a45b);
+        background: rgba(199, 164, 91, 0.08);
+    }
+
+    .lesson-content img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        margin: 1.35rem auto;
+        border-radius: 10px;
+    }
+
+    .lesson-content a {
+        overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 720px) {
+        .lesson-feature-image img {
+            max-height: 340px;
+        }
+
+        .lesson-content {
+            line-height: 1.68;
+        }
+    }
+
 </style>
 
 <?php

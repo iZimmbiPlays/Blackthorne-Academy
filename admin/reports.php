@@ -843,295 +843,290 @@ require
 ?>
 
 <style>
-.reports-admin-page .reports-toolbar {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem 1.5rem;
-    align-items: end;
-    margin-bottom: 1.5rem;
-}
-
-.reports-admin-page .reports-filter-form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.85rem;
-    align-items: end;
-}
-
-.reports-admin-page .reports-filter-form .form-group {
-    margin: 0;
-    min-width: 170px;
-}
-
-
-/* Blackthorne form controls for the moderation workspace */
-.reports-admin-page select.form-control,
-.reports-admin-page textarea.form-control,
-.reports-admin-page input.form-control {
-    color: #eee7ef;
-    background: #160d19;
-    border: 1px solid rgba(150, 113, 147, 0.55);
-    border-radius: 5px;
-    box-shadow: none;
-}
-
-.reports-admin-page select.form-control:hover,
-.reports-admin-page textarea.form-control:hover,
-.reports-admin-page input.form-control:hover {
-    border-color: rgba(212, 178, 91, 0.55);
-}
-
-.reports-admin-page select.form-control:focus,
-.reports-admin-page textarea.form-control:focus,
-.reports-admin-page input.form-control:focus {
-    color: #fff8ef;
-    background: #1c1020;
-    border-color: #d4b25b;
-    outline: 2px solid rgba(212, 178, 91, 0.18);
-    outline-offset: 2px;
-    box-shadow: none;
-}
-
-.reports-admin-page select.form-control {
-    color-scheme: dark;
-}
-
-.reports-admin-page select.form-control option {
-    color: #eee7ef;
-    background: #160d19;
-}
-
-.reports-admin-page textarea.form-control::placeholder,
-.reports-admin-page input.form-control::placeholder {
-    color: rgba(238, 231, 239, 0.5);
-}
-
-.reports-admin-page .reports-filter-form label,
-.reports-admin-page .report-action-form label {
-    color: #eee7ef;
-}
-
-.reports-admin-page .report-action-form {
-    border-color: rgba(150, 113, 147, 0.26);
-    background: rgba(30, 16, 34, 0.42);
-}
-
-.reports-admin-page .report-reviewer {
-    border-color: rgba(150, 113, 147, 0.26);
-    background: rgba(30, 16, 34, 0.32);
-}
-
-.reports-admin-page .report-snapshot {
-    background: rgba(40, 23, 43, 0.36);
-}
-
-.reports-admin-page .reports-count-pill {
-    background: rgba(31, 17, 35, 0.6);
-}
-
-.reports-admin-page .reports-counts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    justify-content: flex-end;
-}
-
-.reports-admin-page .reports-count-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    min-height: 2.15rem;
-    padding: 0.4rem 0.7rem;
-    border: 1px solid rgba(212, 178, 91, 0.3);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.025);
-    font-size: 0.8rem;
-}
-
-.reports-admin-page .reports-count-pill strong {
-    color: var(--color-gold, #d4b25b);
-}
-
-.reports-admin-page .reports-list {
-    display: grid;
-    gap: 1rem;
-}
-
-.reports-admin-page .report-card {
-    border: 1px solid rgba(212, 178, 91, 0.22);
-    background: rgba(10, 8, 13, 0.62);
-}
-
-.reports-admin-page .report-card-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem;
-    align-items: start;
-    padding: 1rem 1.15rem;
-    border-bottom: 1px solid rgba(212, 178, 91, 0.16);
-}
-
-.reports-admin-page .report-card-header h2 {
-    margin: 0 0 0.35rem;
-    font-size: 1.08rem;
-    font-weight: 500;
-}
-
-.reports-admin-page .report-card-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 0.75rem;
-    margin: 0;
-    font-size: 0.82rem;
-    opacity: 0.82;
-}
-
-.reports-admin-page .report-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    justify-content: flex-end;
-}
-
-.reports-admin-page .report-badge {
-    display: inline-flex;
-    align-items: center;
-    min-height: 1.8rem;
-    padding: 0.25rem 0.55rem;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-}
-
-.reports-admin-page .report-badge.priority-urgent {
-    border-color: rgba(255, 90, 90, 0.65);
-}
-
-.reports-admin-page .report-badge.priority-high {
-    border-color: rgba(232, 145, 77, 0.62);
-}
-
-.reports-admin-page .report-badge.status-reviewing {
-    border-color: rgba(166, 129, 183, 0.7);
-}
-
-.reports-admin-page .report-badge.status-resolved {
-    border-color: rgba(112, 175, 127, 0.58);
-}
-
-.reports-admin-page .report-card-body {
-    display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
-    gap: 1.2rem;
-    padding: 1.15rem;
-}
-
-.reports-admin-page .report-section {
-    min-width: 0;
-}
-
-.reports-admin-page .report-section h3 {
-    margin: 0 0 0.45rem;
-    font-size: 0.88rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--color-gold, #d4b25b);
-}
-
-.reports-admin-page .report-section p {
-    margin: 0 0 0.8rem;
-}
-
-.reports-admin-page .report-snapshot {
-    max-height: 190px;
-    overflow: auto;
-    padding: 0.8rem;
-    border-left: 2px solid rgba(212, 178, 91, 0.55);
-    background: rgba(255, 255, 255, 0.025);
-    line-height: 1.55;
-    white-space: pre-wrap;
-}
-
-.reports-admin-page .report-actions {
-    display: grid;
-    gap: 0.75rem;
-}
-
-.reports-admin-page .report-action-form {
-    padding: 0.85rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.018);
-}
-
-.reports-admin-page .report-action-form .form-group {
-    margin-bottom: 0.7rem;
-}
-
-.reports-admin-page .report-action-form textarea {
-    min-height: 88px;
-}
-
-.reports-admin-page .report-action-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-}
-
-.reports-admin-page .report-reviewer {
-    padding: 0.75rem 0.85rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 0.82rem;
-}
-
-.reports-admin-page .report-empty {
-    padding: 2rem 1.2rem;
-    text-align: center;
-    border: 1px solid rgba(212, 178, 91, 0.2);
-    background: rgba(255, 255, 255, 0.018);
-}
-
-@media (max-width: 900px) {
-    .reports-admin-page .reports-toolbar,
-    .reports-admin-page .report-card-body {
-        grid-template-columns: 1fr;
-    }
-
-    .reports-admin-page .reports-counts {
-        justify-content: flex-start;
-    }
-}
-
-@media (max-width: 640px) {
-    .reports-admin-page .report-card-header {
-        grid-template-columns: 1fr;
-    }
-
-    .reports-admin-page .report-badges {
-        justify-content: flex-start;
+    .reports-admin-page .reports-toolbar {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1rem 1.5rem;
+        align-items: end;
+        margin-bottom: 1.5rem;
     }
 
     .reports-admin-page .reports-filter-form {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.85rem;
+        align-items: end;
     }
 
     .reports-admin-page .reports-filter-form .form-group {
+        margin: 0;
+        min-width: 170px;
+    }
+
+    /* Blackthorne form controls for the moderation workspace */
+    .reports-admin-page select.form-control,
+    .reports-admin-page textarea.form-control,
+    .reports-admin-page input.form-control {
+        color: #eee7ef;
+        background: #160d19;
+        border: 1px solid rgba(150, 113, 147, 0.55);
+        border-radius: 5px;
+        box-shadow: none;
+    }
+
+    .reports-admin-page select.form-control:hover,
+    .reports-admin-page textarea.form-control:hover,
+    .reports-admin-page input.form-control:hover {
+        border-color: rgba(212, 178, 91, 0.55);
+    }
+
+    .reports-admin-page select.form-control:focus,
+    .reports-admin-page textarea.form-control:focus,
+    .reports-admin-page input.form-control:focus {
+        color: #fff8ef;
+        background: #1c1020;
+        border-color: #d4b25b;
+        outline: 2px solid rgba(212, 178, 91, 0.18);
+        outline-offset: 2px;
+        box-shadow: none;
+    }
+
+    .reports-admin-page select.form-control {
+        color-scheme: dark;
+    }
+
+    .reports-admin-page select.form-control option {
+        color: #eee7ef;
+        background: #160d19;
+    }
+
+    .reports-admin-page textarea.form-control::placeholder,
+    .reports-admin-page input.form-control::placeholder {
+        color: rgba(238, 231, 239, 0.5);
+    }
+
+    .reports-admin-page .reports-filter-form label,
+    .reports-admin-page .report-action-form label {
+        color: #eee7ef;
+    }
+
+    .reports-admin-page .report-action-form {
+        border-color: rgba(150, 113, 147, 0.26);
+        background: rgba(30, 16, 34, 0.42);
+    }
+
+    .reports-admin-page .report-reviewer {
+        border-color: rgba(150, 113, 147, 0.26);
+        background: rgba(30, 16, 34, 0.32);
+    }
+
+    .reports-admin-page .report-snapshot {
+        background: rgba(40, 23, 43, 0.36);
+    }
+
+    .reports-admin-page .reports-count-pill {
+        background: rgba(31, 17, 35, 0.6);
+    }
+
+    .reports-admin-page .reports-counts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        justify-content: flex-end;
+    }
+
+    .reports-admin-page .reports-count-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        min-height: 2.15rem;
+        padding: 0.4rem 0.7rem;
+        border: 1px solid rgba(212, 178, 91, 0.3);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.025);
+        font-size: 0.8rem;
+    }
+
+    .reports-admin-page .reports-count-pill strong {
+        color: var(--color-gold, #d4b25b);
+    }
+
+    .reports-admin-page .reports-list {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .reports-admin-page .report-card {
+        border: 1px solid rgba(212, 178, 91, 0.22);
+        background: rgba(10, 8, 13, 0.62);
+    }
+
+    .reports-admin-page .report-card-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: start;
+        padding: 1rem 1.15rem;
+        border-bottom: 1px solid rgba(212, 178, 91, 0.16);
+    }
+
+    .reports-admin-page .report-card-header h2 {
+        margin: 0 0 0.35rem;
+        font-size: 1.08rem;
+        font-weight: 500;
+    }
+
+    .reports-admin-page .report-card-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.75rem;
+        margin: 0;
+        font-size: 0.82rem;
+        opacity: 0.82;
+    }
+
+    .reports-admin-page .report-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        justify-content: flex-end;
+    }
+
+    .reports-admin-page .report-badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 1.8rem;
+        padding: 0.25rem 0.55rem;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+    }
+
+    .reports-admin-page .report-badge.priority-urgent {
+        border-color: rgba(255, 90, 90, 0.65);
+    }
+
+    .reports-admin-page .report-badge.priority-high {
+        border-color: rgba(232, 145, 77, 0.62);
+    }
+
+    .reports-admin-page .report-badge.status-reviewing {
+        border-color: rgba(166, 129, 183, 0.7);
+    }
+
+    .reports-admin-page .report-badge.status-resolved {
+        border-color: rgba(112, 175, 127, 0.58);
+    }
+
+    .reports-admin-page .report-card-body {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(260px, 0.8fr);
+        gap: 1.2rem;
+        padding: 1.15rem;
+    }
+
+    .reports-admin-page .report-section {
         min-width: 0;
     }
-}
+
+    .reports-admin-page .report-section h3 {
+        margin: 0 0 0.45rem;
+        font-size: 0.88rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--color-gold, #d4b25b);
+    }
+
+    .reports-admin-page .report-section p {
+        margin: 0 0 0.8rem;
+    }
+
+    .reports-admin-page .report-snapshot {
+        max-height: 190px;
+        overflow: auto;
+        padding: 0.8rem;
+        border-left: 2px solid rgba(212, 178, 91, 0.55);
+        background: rgba(255, 255, 255, 0.025);
+        line-height: 1.55;
+        white-space: pre-wrap;
+    }
+
+    .reports-admin-page .report-actions {
+        display: grid;
+        gap: 0.75rem;
+    }
+
+    .reports-admin-page .report-action-form {
+        padding: 0.85rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.018);
+    }
+
+    .reports-admin-page .report-action-form .form-group {
+        margin-bottom: 0.7rem;
+    }
+
+    .reports-admin-page .report-action-form textarea {
+        min-height: 88px;
+    }
+
+    .reports-admin-page .report-action-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+    }
+
+    .reports-admin-page .report-reviewer {
+        padding: 0.75rem 0.85rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 0.82rem;
+    }
+
+    .reports-admin-page .report-empty {
+        padding: 2rem 1.2rem;
+        text-align: center;
+        border: 1px solid rgba(212, 178, 91, 0.2);
+        background: rgba(255, 255, 255, 0.018);
+    }
+
+    @media (max-width: 900px) {
+
+        .reports-admin-page .reports-toolbar,
+        .reports-admin-page .report-card-body {
+            grid-template-columns: 1fr;
+        }
+
+        .reports-admin-page .reports-counts {
+            justify-content: flex-start;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .reports-admin-page .report-card-header {
+            grid-template-columns: 1fr;
+        }
+
+        .reports-admin-page .report-badges {
+            justify-content: flex-start;
+        }
+
+        .reports-admin-page .reports-filter-form {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .reports-admin-page .reports-filter-form .form-group {
+            min-width: 0;
+        }
+    }
+
 </style>
 
-<main
-    id="main-content"
-    class="forum-admin-page reports-admin-page"
->
+<main id="main-content" class="forum-admin-page reports-admin-page">
 
-    <section
-        class="forum-admin-hero"
-        aria-labelledby="reports-heading"
-    >
+    <section class="forum-admin-hero" aria-labelledby="reports-heading">
 
         <div class="section-inner">
 
@@ -1152,26 +1147,17 @@ require
 
                 <?php if (user_can('moderation.history.view')): ?>
 
-                    <a
-                        href="<?= e(url('admin/moderation-history.php')); ?>"
-                        class="button button-secondary"
-                    >
-                        Moderation History
-                    </a>
+                <a href="<?= e(url('admin/moderation-history.php')); ?>" class="button button-secondary">
+                    Moderation History
+                </a>
 
                 <?php endif; ?>
 
-                <a
-                    href="<?= e(url('staff-dashboard.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">
                     Staff Dashboard
                 </a>
 
-                <a
-                    href="<?= e(url('forums.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('forums.php')); ?>" class="button button-secondary">
                     Forums
                 </a>
 
@@ -1188,47 +1174,37 @@ require
 
             <?php if ($successMessage !== null): ?>
 
-                <div
-                    class="form-message form-message-success"
-                    role="status"
-                >
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="form-message form-message-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
 
             <?php endif; ?>
 
 
             <?php if ($errors !== []): ?>
 
-                <div
-                    class="form-message form-message-error"
-                    role="alert"
-                >
+            <div class="form-message form-message-error" role="alert">
 
-                    <ul>
+                <ul>
 
-                        <?php foreach ($errors as $error): ?>
+                    <?php foreach ($errors as $error): ?>
 
-                            <li>
-                                <?= e($error); ?>
-                            </li>
+                    <li>
+                        <?= e($error); ?>
+                    </li>
 
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                    </ul>
+                </ul>
 
-                </div>
+            </div>
 
             <?php endif; ?>
 
 
             <div class="reports-toolbar">
 
-                <form
-                    action="<?= e(url('admin/reports.php')); ?>"
-                    method="get"
-                    class="reports-filter-form"
-                >
+                <form action="<?= e(url('admin/reports.php')); ?>" method="get" class="reports-filter-form">
 
                     <div class="form-group">
 
@@ -1236,11 +1212,7 @@ require
                             Status
                         </label>
 
-                        <select
-                            id="report-status-filter"
-                            name="status"
-                            class="form-control"
-                        >
+                        <select id="report-status-filter" name="status" class="form-control">
                             <option value="all" <?= $statusFilter === 'all' ? 'selected' : ''; ?>>
                                 All Statuses
                             </option>
@@ -1267,11 +1239,7 @@ require
                             Priority
                         </label>
 
-                        <select
-                            id="report-priority-filter"
-                            name="priority"
-                            class="form-control"
-                        >
+                        <select id="report-priority-filter" name="priority" class="form-control">
                             <option value="all" <?= $priorityFilter === 'all' ? 'selected' : ''; ?>>
                                 All Priorities
                             </option>
@@ -1292,20 +1260,14 @@ require
                     </div>
 
 
-                    <button
-                        type="submit"
-                        class="button button-primary"
-                    >
+                    <button type="submit" class="button button-primary">
                         Apply Filters
                     </button>
 
                 </form>
 
 
-                <div
-                    class="reports-counts"
-                    aria-label="Report status counts"
-                >
+                <div class="reports-counts" aria-label="Report status counts">
 
                     <span class="reports-count-pill">
                         Open
@@ -1342,25 +1304,25 @@ require
 
             <?php if ($reports === []): ?>
 
-                <div class="report-empty">
+            <div class="report-empty">
 
-                    <h2>
-                        No reports found.
-                    </h2>
+                <h2>
+                    No reports found.
+                </h2>
 
-                    <p>
-                        There are no reports matching the selected filters.
-                    </p>
+                <p>
+                    There are no reports matching the selected filters.
+                </p>
 
-                </div>
+            </div>
 
             <?php else: ?>
 
-                <div class="reports-list">
+            <div class="reports-list">
 
-                    <?php foreach ($reports as $report): ?>
+                <?php foreach ($reports as $report): ?>
 
-                        <?php
+                <?php
 
                         $reportId =
                             (int) $report['id'];
@@ -1450,69 +1412,62 @@ require
 
                         ?>
 
-                        <article
-                            class="report-card"
-                            id="report-<?= $reportId; ?>"
-                        >
+                <article class="report-card" id="report-<?= $reportId; ?>">
 
-                            <header class="report-card-header">
+                    <header class="report-card-header">
 
-                                <div>
+                        <div>
 
-                                    <h2>
-                                        Report #<?= $reportId; ?>:
-                                        <?= e($threadTitle); ?>
-                                    </h2>
+                            <h2>
+                                Report #<?= $reportId; ?>:
+                                <?= e($threadTitle); ?>
+                            </h2>
 
-                                    <p class="report-card-meta">
+                            <p class="report-card-meta">
 
-                                        <span>
-                                            Reported by
-                                            <?= e($reporterName); ?>
-                                        </span>
+                                <span>
+                                    Reported by
+                                    <?= e($reporterName); ?>
+                                </span>
 
-                                        <span>
-                                            <?= e(
+                                <span>
+                                    <?= e(
                                                 admin_reports_datetime(
                                                     (string) $report['created_at']
                                                 )
                                             ); ?>
-                                        </span>
+                                </span>
 
-                                        <span>
-                                            Reason:
-                                            <?= e((string) $report['reason']); ?>
-                                        </span>
+                                <span>
+                                    Reason:
+                                    <?= e((string) $report['reason']); ?>
+                                </span>
 
-                                    </p>
+                            </p>
 
-                                </div>
-
-
-                                <div class="report-badges">
-
-                                    <span
-                                        class="report-badge status-<?= e($reportStatus); ?>"
-                                    >
-                                        <?= e(ucfirst($reportStatus)); ?>
-                                    </span>
-
-                                    <span
-                                        class="report-badge priority-<?= e($reportPriority); ?>"
-                                    >
-                                        <?= e(ucfirst($reportPriority)); ?>
-                                    </span>
-
-                                </div>
-
-                            </header>
+                        </div>
 
 
-                            <div class="report-card-body">
+                        <div class="report-badges">
 
-                                <div class="report-section">
+                            <span class="report-badge status-<?= e($reportStatus); ?>">
+                                <?= e(ucfirst($reportStatus)); ?>
+                            </span>
 
-                                    <?php if (
+                            <span class="report-badge priority-<?= e($reportPriority); ?>">
+                                <?= e(ucfirst($reportPriority)); ?>
+                            </span>
+
+                        </div>
+
+                    </header>
+
+
+                    <div class="report-card-body">
+
+                        <div class="report-section">
+
+                            <?php if (
                                         trim(
                                             (string) (
                                                 $report['details']
@@ -1521,27 +1476,27 @@ require
                                         ) !== ''
                                     ): ?>
 
-                                        <h3>
-                                            Reporter Details
-                                        </h3>
+                            <h3>
+                                Reporter Details
+                            </h3>
 
-                                        <p>
-                                            <?= nl2br(
+                            <p>
+                                <?= nl2br(
                                                 e(
                                                     (string) $report['details']
                                                 )
                                             ); ?>
-                                        </p>
+                            </p>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                    <h3>
-                                        Reported Post Snapshot
-                                    </h3>
+                            <h3>
+                                Reported Post Snapshot
+                            </h3>
 
-                                    <div class="report-snapshot">
-                                        <?= e(
+                            <div class="report-snapshot">
+                                <?= e(
                                             admin_reports_excerpt(
                                                 (string) (
                                                     $report['post_content_snapshot']
@@ -1550,36 +1505,30 @@ require
                                                 1200
                                             )
                                         ); ?>
-                                    </div>
+                            </div>
 
 
-                                    <?php if ($postLink !== null): ?>
+                            <?php if ($postLink !== null): ?>
 
-                                        <div
-                                            class="forum-admin-edit-actions"
-                                            style="margin-top: 0.85rem;"
-                                        >
+                            <div class="forum-admin-edit-actions" style="margin-top: 0.85rem;">
 
-                                            <a
-                                                href="<?= e($postLink); ?>"
-                                                class="button button-secondary"
-                                            >
-                                                View Reported Post
-                                            </a>
+                                <a href="<?= e($postLink); ?>" class="button button-secondary">
+                                    View Reported Post
+                                </a>
 
-                                        </div>
+                            </div>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <p style="margin-top: 0.85rem;">
-                                            The original post or thread is no longer available,
-                                            so this report is using its stored snapshot.
-                                        </p>
+                            <p style="margin-top: 0.85rem;">
+                                The original post or thread is no longer available,
+                                so this report is using its stored snapshot.
+                            </p>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                    <?php if (
+                            <?php if (
                                         trim(
                                             (string) (
                                                 $report['resolution_notes']
@@ -1588,42 +1537,42 @@ require
                                         ) !== ''
                                     ): ?>
 
-                                        <h3 style="margin-top: 1rem;">
-                                            Resolution Notes
-                                        </h3>
+                            <h3 style="margin-top: 1rem;">
+                                Resolution Notes
+                            </h3>
 
-                                        <p>
-                                            <?= nl2br(
+                            <p>
+                                <?= nl2br(
                                                 e(
                                                     (string) $report['resolution_notes']
                                                 )
                                             ); ?>
-                                        </p>
+                            </p>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </div>
+                        </div>
 
 
-                                <aside class="report-actions">
+                        <aside class="report-actions">
 
-                                    <div class="report-reviewer">
+                            <div class="report-reviewer">
 
-                                        <strong>
-                                            Reviewer:
-                                        </strong>
+                                <strong>
+                                    Reviewer:
+                                </strong>
 
-                                        <?= $reviewerName !== ''
+                                <?= $reviewerName !== ''
                                             ? e($reviewerName)
                                             : 'Not assigned'; ?>
 
-                                        <br>
+                                <br>
 
-                                        <strong>
-                                            Reviewed:
-                                        </strong>
+                                <strong>
+                                    Reviewed:
+                                </strong>
 
-                                        <?= e(
+                                <?= e(
                                             admin_reports_datetime(
                                                 $report['reviewed_at'] !== null
                                                     ? (string) $report['reviewed_at']
@@ -1631,130 +1580,80 @@ require
                                             )
                                         ); ?>
 
-                                    </div>
+                            </div>
 
 
-                                    <?php if (
+                            <?php if (
                                         !$isClosed
                                         && $canReviewReports
                                     ): ?>
 
-                                        <form
-                                            action="<?= e(url('admin/reports.php')); ?>"
-                                            method="post"
-                                            class="report-action-form"
-                                        >
+                            <form action="<?= e(url('admin/reports.php')); ?>" method="post" class="report-action-form">
 
-                                            <?= csrf_field(); ?>
+                                <?= csrf_field(); ?>
 
-                                            <input
-                                                type="hidden"
-                                                name="form_action"
-                                                value="start_review"
-                                            >
+                                <input type="hidden" name="form_action" value="start_review">
 
-                                            <input
-                                                type="hidden"
-                                                name="report_id"
-                                                value="<?= $reportId; ?>"
-                                            >
+                                <input type="hidden" name="report_id" value="<?= $reportId; ?>">
 
-                                            <input
-                                                type="hidden"
-                                                name="return_status"
-                                                value="<?= e($statusFilter); ?>"
-                                            >
+                                <input type="hidden" name="return_status" value="<?= e($statusFilter); ?>">
 
-                                            <input
-                                                type="hidden"
-                                                name="return_priority"
-                                                value="<?= e($priorityFilter); ?>"
-                                            >
+                                <input type="hidden" name="return_priority" value="<?= e($priorityFilter); ?>">
 
-                                            <button
-                                                type="submit"
-                                                class="button button-secondary"
-                                            >
-                                                <?= $reportStatus === 'reviewing'
+                                <button type="submit" class="button button-secondary">
+                                    <?= $reportStatus === 'reviewing'
                                                     ? 'Take Over Review'
                                                     : 'Start Review'; ?>
-                                            </button>
+                                </button>
 
-                                        </form>
-
-
-                                        <form
-                                            action="<?= e(url('admin/reports.php')); ?>"
-                                            method="post"
-                                            class="report-action-form"
-                                        >
-
-                                            <?= csrf_field(); ?>
-
-                                            <input
-                                                type="hidden"
-                                                name="form_action"
-                                                value="update_priority"
-                                            >
-
-                                            <input
-                                                type="hidden"
-                                                name="report_id"
-                                                value="<?= $reportId; ?>"
-                                            >
-
-                                            <input
-                                                type="hidden"
-                                                name="return_status"
-                                                value="<?= e($statusFilter); ?>"
-                                            >
-
-                                            <input
-                                                type="hidden"
-                                                name="return_priority"
-                                                value="<?= e($priorityFilter); ?>"
-                                            >
-
-                                            <div class="form-group">
-
-                                                <label for="priority-<?= $reportId; ?>">
-                                                    Priority
-                                                </label>
-
-                                                <select
-                                                    id="priority-<?= $reportId; ?>"
-                                                    name="priority"
-                                                    class="form-control"
-                                                >
-                                                    <option value="low" <?= $reportPriority === 'low' ? 'selected' : ''; ?>>
-                                                        Low
-                                                    </option>
-                                                    <option value="normal" <?= $reportPriority === 'normal' ? 'selected' : ''; ?>>
-                                                        Normal
-                                                    </option>
-                                                    <option value="high" <?= $reportPriority === 'high' ? 'selected' : ''; ?>>
-                                                        High
-                                                    </option>
-                                                    <option value="urgent" <?= $reportPriority === 'urgent' ? 'selected' : ''; ?>>
-                                                        Urgent
-                                                    </option>
-                                                </select>
-
-                                            </div>
-
-                                            <button
-                                                type="submit"
-                                                class="button button-secondary"
-                                            >
-                                                Update Priority
-                                            </button>
-
-                                        </form>
-
-                                    <?php endif; ?>
+                            </form>
 
 
-                                    <?php if (
+                            <form action="<?= e(url('admin/reports.php')); ?>" method="post" class="report-action-form">
+
+                                <?= csrf_field(); ?>
+
+                                <input type="hidden" name="form_action" value="update_priority">
+
+                                <input type="hidden" name="report_id" value="<?= $reportId; ?>">
+
+                                <input type="hidden" name="return_status" value="<?= e($statusFilter); ?>">
+
+                                <input type="hidden" name="return_priority" value="<?= e($priorityFilter); ?>">
+
+                                <div class="form-group">
+
+                                    <label for="priority-<?= $reportId; ?>">
+                                        Priority
+                                    </label>
+
+                                    <select id="priority-<?= $reportId; ?>" name="priority" class="form-control">
+                                        <option value="low" <?= $reportPriority === 'low' ? 'selected' : ''; ?>>
+                                            Low
+                                        </option>
+                                        <option value="normal" <?= $reportPriority === 'normal' ? 'selected' : ''; ?>>
+                                            Normal
+                                        </option>
+                                        <option value="high" <?= $reportPriority === 'high' ? 'selected' : ''; ?>>
+                                            High
+                                        </option>
+                                        <option value="urgent" <?= $reportPriority === 'urgent' ? 'selected' : ''; ?>>
+                                            Urgent
+                                        </option>
+                                    </select>
+
+                                </div>
+
+                                <button type="submit" class="button button-secondary">
+                                    Update Priority
+                                </button>
+
+                            </form>
+
+                            <?php endif; ?>
+
+
+                            <?php if (
                                         !$isClosed
                                         && (
                                             $canResolveReports
@@ -1762,110 +1661,82 @@ require
                                         )
                                     ): ?>
 
-                                        <form
-                                            action="<?= e(url('admin/reports.php')); ?>"
-                                            method="post"
-                                            class="report-action-form"
-                                        >
+                            <form action="<?= e(url('admin/reports.php')); ?>" method="post" class="report-action-form">
 
-                                            <?= csrf_field(); ?>
+                                <?= csrf_field(); ?>
 
-                                            <input
-                                                type="hidden"
-                                                name="report_id"
-                                                value="<?= $reportId; ?>"
-                                            >
+                                <input type="hidden" name="report_id" value="<?= $reportId; ?>">
 
-                                            <input
-                                                type="hidden"
-                                                name="return_status"
-                                                value="<?= e($statusFilter); ?>"
-                                            >
+                                <input type="hidden" name="return_status" value="<?= e($statusFilter); ?>">
 
-                                            <input
-                                                type="hidden"
-                                                name="return_priority"
-                                                value="<?= e($priorityFilter); ?>"
-                                            >
+                                <input type="hidden" name="return_priority" value="<?= e($priorityFilter); ?>">
 
-                                            <div class="form-group">
+                                <div class="form-group">
 
-                                                <label for="resolution-notes-<?= $reportId; ?>">
-                                                    Resolution Notes
-                                                </label>
+                                    <label for="resolution-notes-<?= $reportId; ?>">
+                                        Resolution Notes
+                                    </label>
 
-                                                <textarea
-                                                    id="resolution-notes-<?= $reportId; ?>"
-                                                    name="resolution_notes"
-                                                    class="form-control"
-                                                    maxlength="10000"
-                                                    placeholder="Optional internal notes about the outcome"
-                                                ></textarea>
+                                    <textarea id="resolution-notes-<?= $reportId; ?>" name="resolution_notes"
+                                        class="form-control" maxlength="10000"
+                                        placeholder="Optional internal notes about the outcome"></textarea>
 
-                                            </div>
+                                </div>
 
 
-                                            <div class="report-action-buttons">
+                                <div class="report-action-buttons">
 
-                                                <?php if ($canResolveReports): ?>
+                                    <?php if ($canResolveReports): ?>
 
-                                                    <button
-                                                        type="submit"
-                                                        name="form_action"
-                                                        value="resolve_report"
-                                                        class="button button-primary"
-                                                    >
-                                                        Resolve
-                                                    </button>
-
-                                                <?php endif; ?>
-
-
-                                                <?php if ($canDismissReports): ?>
-
-                                                    <button
-                                                        type="submit"
-                                                        name="form_action"
-                                                        value="dismiss_report"
-                                                        class="button button-secondary"
-                                                    >
-                                                        Dismiss
-                                                    </button>
-
-                                                <?php endif; ?>
-
-                                            </div>
-
-                                        </form>
+                                    <button type="submit" name="form_action" value="resolve_report"
+                                        class="button button-primary">
+                                        Resolve
+                                    </button>
 
                                     <?php endif; ?>
 
 
-                                    <?php if ($isClosed): ?>
+                                    <?php if ($canDismissReports): ?>
 
-                                        <div class="report-reviewer">
-
-                                            This report is closed.
-
-                                            <?php if ($reportStatus === 'resolved'): ?>
-                                                The report was resolved.
-                                            <?php else: ?>
-                                                The report was dismissed.
-                                            <?php endif; ?>
-
-                                        </div>
+                                    <button type="submit" name="form_action" value="dismiss_report"
+                                        class="button button-secondary">
+                                        Dismiss
+                                    </button>
 
                                     <?php endif; ?>
 
-                                </aside>
+                                </div>
+
+                            </form>
+
+                            <?php endif; ?>
+
+
+                            <?php if ($isClosed): ?>
+
+                            <div class="report-reviewer">
+
+                                This report is closed.
+
+                                <?php if ($reportStatus === 'resolved'): ?>
+                                The report was resolved.
+                                <?php else: ?>
+                                The report was dismissed.
+                                <?php endif; ?>
 
                             </div>
 
-                        </article>
+                            <?php endif; ?>
 
-                    <?php endforeach; ?>
+                        </aside>
 
-                </div>
+                    </div>
+
+                </article>
+
+                <?php endforeach; ?>
+
+            </div>
 
             <?php endif; ?>
 

@@ -75,15 +75,8 @@ $colorFields = [
             House Name
         </label>
 
-        <input
-            class="form-control"
-            type="text"
-            id="house-name"
-            name="house_name"
-            maxlength="100"
-            required
-            value="<?= e((string) ($houseForm['name'] ?? '')); ?>"
-        >
+        <input class="form-control" type="text" id="house-name" name="house_name" maxlength="100" required
+            value="<?= e((string) ($houseForm['name'] ?? '')); ?>">
 
         <p class="form-help">
             Internal House name. Its URL slug is generated automatically.
@@ -96,15 +89,8 @@ $colorFields = [
             House Display Name
         </label>
 
-        <input
-            class="form-control"
-            type="text"
-            id="house-display-name"
-            name="display_name"
-            maxlength="150"
-            required
-            value="<?= e((string) ($houseForm['display_name'] ?? '')); ?>"
-        >
+        <input class="form-control" type="text" id="house-display-name" name="display_name" maxlength="150" required
+            value="<?= e((string) ($houseForm['display_name'] ?? '')); ?>">
 
         <p class="form-help">
             The full name members will see throughout the Academy.
@@ -119,13 +105,8 @@ $colorFields = [
         Description
     </label>
 
-    <textarea
-        class="form-control"
-        id="house-description"
-        name="description"
-        rows="4"
-        maxlength="5000"
-    ><?= e((string) ($houseForm['description'] ?? '')); ?></textarea>
+    <textarea class="form-control" id="house-description" name="description" rows="4"
+        maxlength="5000"><?= e((string) ($houseForm['description'] ?? '')); ?></textarea>
 
     <p class="form-help">
         A short administrative/reference description of the House.
@@ -138,15 +119,8 @@ $colorFields = [
         House Motto
     </label>
 
-    <input
-        class="form-control"
-        type="text"
-        id="house-motto"
-        name="motto"
-        maxlength="255"
-        value="<?= e((string) ($houseForm['motto'] ?? '')); ?>"
-        placeholder="Enter the House motto"
-    >
+    <input class="form-control" type="text" id="house-motto" name="motto" maxlength="255"
+        value="<?= e((string) ($houseForm['motto'] ?? '')); ?>" placeholder="Enter the House motto">
 
     <p class="form-help">
         Displayed in italics as a quotation in the Common Room hero.
@@ -159,12 +133,8 @@ $colorFields = [
         House Introduction
     </label>
 
-    <textarea
-        class="form-control"
-        id="house-introduction"
-        name="house_introduction"
-        rows="10"
-    ><?= e((string) ($houseForm['house_introduction'] ?? '')); ?></textarea>
+    <textarea class="form-control" id="house-introduction" name="house_introduction"
+        rows="10"><?= e((string) ($houseForm['house_introduction'] ?? '')); ?></textarea>
 
     <p class="form-help">
         The longer welcome text shown in the House Common Room hero.
@@ -188,7 +158,7 @@ $colorFields = [
     <div class="house-theme-grid">
 
         <?php foreach ($colorFields as $fieldName => $config): ?>
-            <?php
+        <?php
             $value =
                 trim(
                     (string) (
@@ -215,57 +185,41 @@ $colorFields = [
                 );
             ?>
 
-            <div class="form-group">
+        <div class="form-group">
 
-                <label for="<?= e($inputId); ?>">
-                    <?= e((string) $config['label']); ?>
-                </label>
+            <label for="<?= e($inputId); ?>">
+                <?= e((string) $config['label']); ?>
+            </label>
 
-                <div class="house-theme-control">
+            <div class="house-theme-control">
 
-                    <input
-                        type="color"
-                        id="<?= e($pickerId); ?>"
-                        value="<?= e($value); ?>"
-                        data-color-picker="<?= e($fieldName); ?>"
-                        aria-label="<?= e((string) $config['label']); ?> color picker"
-                    >
+                <input type="color" id="<?= e($pickerId); ?>" value="<?= e($value); ?>"
+                    data-color-picker="<?= e($fieldName); ?>"
+                    aria-label="<?= e((string) $config['label']); ?> color picker">
 
-                    <input
-                        class="form-control"
-                        type="text"
-                        id="<?= e($inputId); ?>"
-                        name="<?= e($fieldName); ?>"
-                        maxlength="7"
-                        pattern="^#[0-9A-Fa-f]{6}$"
-                        value="<?= e($value); ?>"
-                        placeholder="#6B3D73"
-                    >
-
-                </div>
-
-                <p class="form-help">
-                    <?= e((string) $config['help']); ?>
-                </p>
+                <input class="form-control" type="text" id="<?= e($inputId); ?>" name="<?= e($fieldName); ?>"
+                    maxlength="7" pattern="^#[0-9A-Fa-f]{6}$" value="<?= e($value); ?>" placeholder="#6B3D73">
 
             </div>
+
+            <p class="form-help">
+                <?= e((string) $config['help']); ?>
+            </p>
+
+        </div>
 
         <?php endforeach; ?>
 
     </div>
 
 
-    <div
-        class="house-theme-preview"
-        data-house-theme-preview
-        style="
+    <div class="house-theme-preview" data-house-theme-preview style="
             --preview-primary: <?= e((string) ($houseForm['primary_color'] ?: '#6B3D73')); ?>;
             --preview-secondary: <?= e((string) ($houseForm['secondary_color'] ?: '#43264D')); ?>;
             --preview-accent: <?= e((string) ($houseForm['accent_color'] ?: '#C9A85B')); ?>;
             --preview-dark: <?= e((string) ($houseForm['dark_neutral_color'] ?: '#1D1421')); ?>;
             --preview-highlight: <?= e((string) ($houseForm['highlight_color'] ?: '#E8DCB9')); ?>;
-        "
-    >
+        ">
         <h3>
             House Theme Preview
         </h3>
@@ -279,10 +233,7 @@ $colorFields = [
             Example House Link
         </a>
 
-        <button
-            type="button"
-            class="button"
-        >
+        <button type="button" class="button">
             Example Button
         </button>
     </div>
@@ -297,36 +248,27 @@ $colorFields = [
             Common Room Forum
         </label>
 
-        <select
-            class="form-control"
-            id="common-room-forum"
-            name="common_room_forum_id"
-            data-forum-picker
-        >
+        <select class="form-control" id="common-room-forum" name="common_room_forum_id" data-forum-picker>
             <option value="">
                 Not selected yet
             </option>
 
             <?php foreach ($availableForums as $forum): ?>
-                <option
-                    value="<?= (int) $forum['id']; ?>"
-                    data-forum-id="<?= (int) $forum['id']; ?>"
-                    data-parent-forum-id="<?= (int) ($forum['parent_forum_id'] ?? 0); ?>"
-                    data-depth="<?= (int) ($forum['hierarchy_depth'] ?? 0); ?>"
-                    data-category-title="<?= e((string) $forum['category_title']); ?>"
-                    data-forum-title="<?= e((string) $forum['title']); ?>"
-                    <?= (int) ($houseForm['common_room_forum_id'] ?? 0) === (int) $forum['id']
+            <option value="<?= (int) $forum['id']; ?>" data-forum-id="<?= (int) $forum['id']; ?>"
+                data-parent-forum-id="<?= (int) ($forum['parent_forum_id'] ?? 0); ?>"
+                data-depth="<?= (int) ($forum['hierarchy_depth'] ?? 0); ?>"
+                data-category-title="<?= e((string) $forum['category_title']); ?>"
+                data-forum-title="<?= e((string) $forum['title']); ?>" <?= (int) ($houseForm['common_room_forum_id'] ?? 0) === (int) $forum['id']
                         ? 'selected'
-                        : ''; ?>
-                >
-                    <?= e(
+                        : ''; ?>>
+                <?= e(
                         str_repeat(
                             '    ',
                             (int) ($forum['hierarchy_depth'] ?? 0)
                         )
                         . (string) $forum['title']
                     ); ?>
-                </option>
+            </option>
             <?php endforeach; ?>
         </select>
 
@@ -341,29 +283,20 @@ $colorFields = [
             Common Room Announcement Forum
         </label>
 
-        <select
-            class="form-control"
-            id="announcement-forum"
-            name="announcement_forum_id"
-            data-forum-picker
-        >
+        <select class="form-control" id="announcement-forum" name="announcement_forum_id" data-forum-picker>
             <option value="">
                 Not selected yet
             </option>
 
             <?php foreach ($availableForums as $forum): ?>
-                <option
-                    value="<?= (int) $forum['id']; ?>"
-                    data-forum-id="<?= (int) $forum['id']; ?>"
-                    data-parent-forum-id="<?= (int) ($forum['parent_forum_id'] ?? 0); ?>"
-                    data-depth="<?= (int) ($forum['hierarchy_depth'] ?? 0); ?>"
-                    data-category-title="<?= e((string) $forum['category_title']); ?>"
-                    data-forum-title="<?= e((string) $forum['title']); ?>"
-                    <?= (int) ($houseForm['announcement_forum_id'] ?? 0) === (int) $forum['id']
+            <option value="<?= (int) $forum['id']; ?>" data-forum-id="<?= (int) $forum['id']; ?>"
+                data-parent-forum-id="<?= (int) ($forum['parent_forum_id'] ?? 0); ?>"
+                data-depth="<?= (int) ($forum['hierarchy_depth'] ?? 0); ?>"
+                data-category-title="<?= e((string) $forum['category_title']); ?>"
+                data-forum-title="<?= e((string) $forum['title']); ?>" <?= (int) ($houseForm['announcement_forum_id'] ?? 0) === (int) $forum['id']
                         ? 'selected'
-                        : ''; ?>
-                >
-                    <?= e(
+                        : ''; ?>>
+                <?= e(
                         str_repeat(
                             '    ',
                             (int) ($forum['hierarchy_depth'] ?? 0)
@@ -375,7 +308,7 @@ $colorFields = [
                                 : ''
                         )
                     ); ?>
-                </option>
+            </option>
             <?php endforeach; ?>
         </select>
 
@@ -404,28 +337,22 @@ $colorFields = [
 
     <?php if ($crestReference !== null): ?>
 
-        <div class="house-crest-preview">
+    <div class="house-crest-preview">
 
-            <picture>
+        <picture>
 
-                <?php if (
+            <?php if (
                     $crestWebp !== null
                     && $crestWebp !== $crestReference
                 ): ?>
-                    <source
-                        srcset="<?= e(url(ltrim($crestWebp, '/'))); ?>"
-                        type="image/webp"
-                    >
-                <?php endif; ?>
+            <source srcset="<?= e(url(ltrim($crestWebp, '/'))); ?>" type="image/webp">
+            <?php endif; ?>
 
-                <img
-                    src="<?= e(url(ltrim($crestReference, '/'))); ?>"
-                    alt="Current House crest"
-                >
+            <img src="<?= e(url(ltrim($crestReference, '/'))); ?>" alt="Current House crest">
 
-            </picture>
+        </picture>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -438,32 +365,23 @@ $colorFields = [
                 : 'Upload Crest'; ?>
         </label>
 
-        <input
-            class="form-control"
-            type="file"
-            id="crest-upload"
-            name="crest_upload"
-            accept="image/jpeg,image/png,image/webp,image/avif"
-        >
+        <input class="form-control" type="file" id="crest-upload" name="crest_upload"
+            accept="image/jpeg,image/png,image/webp,image/avif">
 
     </div>
 
 
     <?php if ($crestReference !== null): ?>
 
-        <label class="forum-admin-choice">
+    <label class="forum-admin-choice">
 
-            <input
-                type="checkbox"
-                name="remove_crest"
-                value="1"
-            >
+        <input type="checkbox" name="remove_crest" value="1">
 
-            <span>
-                Remove current crest
-            </span>
+        <span>
+            Remove current crest
+        </span>
 
-        </label>
+    </label>
 
     <?php endif; ?>
 
@@ -488,28 +406,22 @@ $colorFields = [
 
     <?php if ($heroReference !== null): ?>
 
-        <div class="house-hero-preview">
+    <div class="house-hero-preview">
 
-            <picture>
+        <picture>
 
-                <?php if (
+            <?php if (
                     $heroWebp !== null
                     && $heroWebp !== $heroReference
                 ): ?>
-                    <source
-                        srcset="<?= e(url(ltrim($heroWebp, '/'))); ?>"
-                        type="image/webp"
-                    >
-                <?php endif; ?>
+            <source srcset="<?= e(url(ltrim($heroWebp, '/'))); ?>" type="image/webp">
+            <?php endif; ?>
 
-                <img
-                    src="<?= e(url(ltrim($heroReference, '/'))); ?>"
-                    alt="Current House Common Room hero"
-                >
+            <img src="<?= e(url(ltrim($heroReference, '/'))); ?>" alt="Current House Common Room hero">
 
-            </picture>
+        </picture>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -522,13 +434,8 @@ $colorFields = [
                 : 'Upload Hero / Cover Image'; ?>
         </label>
 
-        <input
-            class="form-control"
-            type="file"
-            id="hero-upload"
-            name="hero_upload"
-            accept="image/jpeg,image/png,image/webp,image/avif"
-        >
+        <input class="form-control" type="file" id="hero-upload" name="hero_upload"
+            accept="image/jpeg,image/png,image/webp,image/avif">
 
         <p class="form-help">
             A wide landscape image works best. It will be displayed with a
@@ -540,19 +447,15 @@ $colorFields = [
 
     <?php if ($heroReference !== null): ?>
 
-        <label class="forum-admin-choice">
+    <label class="forum-admin-choice">
 
-            <input
-                type="checkbox"
-                name="remove_hero"
-                value="1"
-            >
+        <input type="checkbox" name="remove_hero" value="1">
 
-            <span>
-                Remove current hero / cover image
-            </span>
+        <span>
+            Remove current hero / cover image
+        </span>
 
-        </label>
+    </label>
 
     <?php endif; ?>
 
@@ -575,28 +478,22 @@ $colorFields = [
 
     <?php if ($mascotReference !== null): ?>
 
-        <div class="house-mascot-preview">
+    <div class="house-mascot-preview">
 
-            <picture>
+        <picture>
 
-                <?php if (
+            <?php if (
                     $mascotWebp !== null
                     && $mascotWebp !== $mascotReference
                 ): ?>
-                    <source
-                        srcset="<?= e(url(ltrim($mascotWebp, '/'))); ?>"
-                        type="image/webp"
-                    >
-                <?php endif; ?>
+            <source srcset="<?= e(url(ltrim($mascotWebp, '/'))); ?>" type="image/webp">
+            <?php endif; ?>
 
-                <img
-                    src="<?= e(url(ltrim($mascotReference, '/'))); ?>"
-                    alt="Current House mascot"
-                >
+            <img src="<?= e(url(ltrim($mascotReference, '/'))); ?>" alt="Current House mascot">
 
-            </picture>
+        </picture>
 
-        </div>
+    </div>
 
     <?php endif; ?>
 
@@ -609,13 +506,8 @@ $colorFields = [
                 : 'Upload Mascot'; ?>
         </label>
 
-        <input
-            class="form-control"
-            type="file"
-            id="mascot-upload"
-            name="mascot_upload"
-            accept="image/jpeg,image/png,image/webp,image/avif"
-        >
+        <input class="form-control" type="file" id="mascot-upload" name="mascot_upload"
+            accept="image/jpeg,image/png,image/webp,image/avif">
 
         <p class="form-help">
             JPG, PNG, WebP, or AVIF. Maximum 5 MB.
@@ -626,19 +518,15 @@ $colorFields = [
 
     <?php if ($mascotReference !== null): ?>
 
-        <label class="forum-admin-choice">
+    <label class="forum-admin-choice">
 
-            <input
-                type="checkbox"
-                name="remove_mascot"
-                value="1"
-            >
+        <input type="checkbox" name="remove_mascot" value="1">
 
-            <span>
-                Remove current mascot
-            </span>
+        <span>
+            Remove current mascot
+        </span>
 
-        </label>
+    </label>
 
     <?php endif; ?>
 
@@ -648,15 +536,8 @@ $colorFields = [
             Mascot
         </label>
 
-        <input
-            class="form-control"
-            type="text"
-            id="house-mascot-type"
-            name="mascot_type"
-            maxlength="100"
-            value="<?= e((string) ($houseForm['mascot_type'] ?? '')); ?>"
-            placeholder="Example: Raven"
-        >
+        <input class="form-control" type="text" id="house-mascot-type" name="mascot_type" maxlength="100"
+            value="<?= e((string) ($houseForm['mascot_type'] ?? '')); ?>" placeholder="Example: Raven">
 
         <p class="form-help">
             The creature or symbol used as this House's mascot.
@@ -669,15 +550,8 @@ $colorFields = [
             Name
         </label>
 
-        <input
-            class="form-control"
-            type="text"
-            id="house-mascot-name"
-            name="mascot_name"
-            maxlength="100"
-            value="<?= e((string) ($houseForm['mascot_name'] ?? '')); ?>"
-            placeholder="Mascot name"
-        >
+        <input class="form-control" type="text" id="house-mascot-name" name="mascot_name" maxlength="100"
+            value="<?= e((string) ($houseForm['mascot_name'] ?? '')); ?>" placeholder="Mascot name">
     </div>
 
 
@@ -686,15 +560,9 @@ $colorFields = [
             Represents
         </label>
 
-        <input
-            class="form-control"
-            type="text"
-            id="house-mascot-represents"
-            name="mascot_represents"
-            maxlength="255"
+        <input class="form-control" type="text" id="house-mascot-represents" name="mascot_represents" maxlength="255"
             value="<?= e((string) ($houseForm['mascot_represents'] ?? '')); ?>"
-            placeholder="What the mascot represents"
-        >
+            placeholder="What the mascot represents">
     </div>
 
 </section>
@@ -702,14 +570,9 @@ $colorFields = [
 
 <label class="forum-admin-choice">
 
-    <input
-        type="checkbox"
-        name="is_active"
-        value="1"
-        <?= (int) ($houseForm['is_active'] ?? 1) === 1
+    <input type="checkbox" name="is_active" value="1" <?= (int) ($houseForm['is_active'] ?? 1) === 1
             ? 'checked'
-            : ''; ?>
-    >
+            : ''; ?>>
 
     <span>
         House is active

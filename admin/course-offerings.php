@@ -47,38 +47,32 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to manage
-                    course offerings.
-                </p>
+            <p>
+                Your account does not have permission to manage
+                course offerings.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/courses.php')); ?>"
-                >
-                    Return to Courses
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/courses.php')); ?>">
+                Return to Courses
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require INCLUDES_PATH . '/footer.php';
     exit;
@@ -1979,18 +1973,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-offerings-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-offerings-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="course-offerings-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="course-offerings-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -2050,34 +2038,28 @@ $staffHeroUrl =
                     && trim($successMessage) !== ''
                 ): ?>
 
-                    <div
-                        class="form-message form-message-success"
-                        role="status"
-                    >
-                        <?= e($successMessage); ?>
-                    </div>
+                <div class="form-message form-message-success" role="status">
+                    <?= e($successMessage); ?>
+                </div>
 
                 <?php endif; ?>
 
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The offering could not be created.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The offering could not be created.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -2155,19 +2137,11 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(url('admin/course-offerings.php')); ?>"
-                        method="post"
-                        class="forum-admin-form"
-                        data-offering-form
-                    >
+                    <form action="<?= e(url('admin/course-offerings.php')); ?>" method="post" class="forum-admin-form"
+                        data-offering-form>
                         <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="create_offering"
-                        >
+                        <input type="hidden" name="action" value="create_offering">
 
 
                         <div class="form-group">
@@ -2175,18 +2149,13 @@ $staffHeroUrl =
                                 Course
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="course-id"
-                                name="course_id"
-                                required
-                            >
+                            <select class="form-control" id="course-id" name="course_id" required>
                                 <option value="">
                                     Choose a course
                                 </option>
 
                                 <?php foreach ($courses as $courseRow): ?>
-                                    <?php
+                                <?php
                                     $courseTitle =
                                         trim(
                                             (string) (
@@ -2202,14 +2171,11 @@ $staffHeroUrl =
                                     }
                                     ?>
 
-                                    <option
-                                        value="<?= (int) $courseRow['id']; ?>"
-                                        <?= (int) $form['course_id'] === (int) $courseRow['id']
+                                <option value="<?= (int) $courseRow['id']; ?>" <?= (int) $form['course_id'] === (int) $courseRow['id']
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        <?= e($courseTitle); ?>
-                                    </option>
+                                            : ''; ?>>
+                                    <?= e($courseTitle); ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -2221,15 +2187,9 @@ $staffHeroUrl =
                             </legend>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="offering_scope"
-                                    value="school_year"
-                                    <?= $form['offering_scope'] === 'school_year'
+                                <input type="radio" name="offering_scope" value="school_year" <?= $form['offering_scope'] === 'school_year'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-offering-scope
-                                >
+                                        : ''; ?> data-offering-scope>
 
                                 <span>
                                     School-Year Offering
@@ -2242,15 +2202,9 @@ $staffHeroUrl =
                             </p>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="offering_scope"
-                                    value="perpetual"
-                                    <?= $form['offering_scope'] === 'perpetual'
+                                <input type="radio" name="offering_scope" value="perpetual" <?= $form['offering_scope'] === 'perpetual'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-offering-scope
-                                >
+                                        : ''; ?> data-offering-scope>
 
                                 <span>
                                     Perpetual Offering
@@ -2265,12 +2219,9 @@ $staffHeroUrl =
                         </fieldset>
 
 
-                        <div
-                            data-school-year-offering-fields
-                            <?= $form['offering_scope'] === 'school_year'
+                        <div data-school-year-offering-fields <?= $form['offering_scope'] === 'school_year'
                                 ? ''
-                                : 'hidden'; ?>
-                        >
+                                : 'hidden'; ?>>
 
                             <div class="forum-admin-form-grid">
 
@@ -2279,27 +2230,20 @@ $staffHeroUrl =
                                         School Year
                                     </label>
 
-                                    <select
-                                        class="form-control"
-                                        id="school-year-id"
-                                        name="school_year_id"
-                                    >
+                                    <select class="form-control" id="school-year-id" name="school_year_id">
                                         <option value="">
                                             Choose a school year
                                         </option>
 
                                         <?php foreach ($schoolYears as $schoolYear): ?>
-                                            <option
-                                                value="<?= (int) $schoolYear['id']; ?>"
-                                                <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
+                                        <option value="<?= (int) $schoolYear['id']; ?>" <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
                                                     ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                <?= e((string) $schoolYear['name']); ?>
-                                                <?= (int) ($schoolYear['is_current'] ?? 0) === 1
+                                                    : ''; ?>>
+                                            <?= e((string) $schoolYear['name']); ?>
+                                            <?= (int) ($schoolYear['is_current'] ?? 0) === 1
                                                     ? ' — Current'
                                                     : ''; ?>
-                                            </option>
+                                        </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -2310,24 +2254,17 @@ $staffHeroUrl =
                                         Grade Level
                                     </label>
 
-                                    <select
-                                        class="form-control"
-                                        id="year-group-id"
-                                        name="year_group_id"
-                                    >
+                                    <select class="form-control" id="year-group-id" name="year_group_id">
                                         <option value="">
                                             Choose a grade level
                                         </option>
 
                                         <?php foreach ($yearGroups as $yearGroup): ?>
-                                            <option
-                                                value="<?= (int) $yearGroup['id']; ?>"
-                                                <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
+                                        <option value="<?= (int) $yearGroup['id']; ?>" <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
                                                     ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                <?= e((string) $yearGroup['name']); ?>
-                                            </option>
+                                                    : ''; ?>>
+                                            <?= e((string) $yearGroup['name']); ?>
+                                        </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -2343,15 +2280,9 @@ $staffHeroUrl =
                             </legend>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="pacing_mode"
-                                    value="self_paced"
-                                    <?= $form['pacing_mode'] === 'self_paced'
+                                <input type="radio" name="pacing_mode" value="self_paced" <?= $form['pacing_mode'] === 'self_paced'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-pacing-mode
-                                >
+                                        : ''; ?> data-pacing-mode>
 
                                 <span>
                                     Self-paced
@@ -2359,15 +2290,9 @@ $staffHeroUrl =
                             </label>
 
                             <label class="forum-admin-choice">
-                                <input
-                                    type="radio"
-                                    name="pacing_mode"
-                                    value="drip"
-                                    <?= $form['pacing_mode'] === 'drip'
+                                <input type="radio" name="pacing_mode" value="drip" <?= $form['pacing_mode'] === 'drip'
                                         ? 'checked'
-                                        : ''; ?>
-                                    data-pacing-mode
-                                >
+                                        : ''; ?> data-pacing-mode>
 
                                 <span>
                                     Drip Content
@@ -2391,33 +2316,19 @@ $staffHeroUrl =
                                     Course Start Date
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="course-start-date"
-                                    name="course_start_date"
-                                    value="<?= e($form['course_start_date']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="course-start-date"
+                                    name="course_start_date" value="<?= e($form['course_start_date']); ?>">
                             </div>
 
-                            <div
-                                class="form-group"
-                                data-school-year-end-field
-                                <?= $form['offering_scope'] === 'school_year'
+                            <div class="form-group" data-school-year-end-field <?= $form['offering_scope'] === 'school_year'
                                     ? ''
-                                    : 'hidden'; ?>
-                            >
+                                    : 'hidden'; ?>>
                                 <label for="course-end-date">
                                     Course End Date
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="course-end-date"
-                                    name="course_end_date"
-                                    value="<?= e($form['course_end_date']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="course-end-date"
+                                    name="course_end_date" value="<?= e($form['course_end_date']); ?>">
                             </div>
 
                         </div>
@@ -2430,13 +2341,8 @@ $staffHeroUrl =
                                     Enrollment Opens
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="enrollment-open-date"
-                                    name="enrollment_open_date"
-                                    value="<?= e($form['enrollment_open_date']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="enrollment-open-date"
+                                    name="enrollment_open_date" value="<?= e($form['enrollment_open_date']); ?>">
 
                                 <p class="form-help">
                                     Optional. Leave blank to avoid a separate
@@ -2449,13 +2355,8 @@ $staffHeroUrl =
                                     Enrollment Closes
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="enrollment-close-date"
-                                    name="enrollment_close_date"
-                                    value="<?= e($form['enrollment_close_date']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="enrollment-close-date"
+                                    name="enrollment_close_date" value="<?= e($form['enrollment_close_date']); ?>">
 
                                 <p class="form-help">
                                     Optional. For Orientation, leave this blank
@@ -2473,15 +2374,10 @@ $staffHeroUrl =
                                     Instructor(s)
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="instructor-ids"
-                                    name="instructor_ids[]"
-                                    multiple
-                                    size="8"
-                                >
+                                <select class="form-control" id="instructor-ids" name="instructor_ids[]" multiple
+                                    size="8">
                                     <?php foreach ($availableStaff as $staffMember): ?>
-                                        <?php
+                                    <?php
                                         $staffName =
                                             trim(
                                                 (string) (
@@ -2492,18 +2388,15 @@ $staffHeroUrl =
                                             );
                                         ?>
 
-                                        <option
-                                            value="<?= (int) $staffMember['id']; ?>"
-                                            <?= in_array(
+                                    <option value="<?= (int) $staffMember['id']; ?>" <?= in_array(
                                                 (int) $staffMember['id'],
                                                 $form['instructor_ids'],
                                                 true
                                             )
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e($staffName); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e($staffName); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
 
@@ -2519,15 +2412,9 @@ $staffHeroUrl =
                                     Teaching Assistant(s) / TA(s)
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="ta-ids"
-                                    name="ta_ids[]"
-                                    multiple
-                                    size="8"
-                                >
+                                <select class="form-control" id="ta-ids" name="ta_ids[]" multiple size="8">
                                     <?php foreach ($availableStaff as $staffMember): ?>
-                                        <?php
+                                    <?php
                                         $staffName =
                                             trim(
                                                 (string) (
@@ -2538,18 +2425,15 @@ $staffHeroUrl =
                                             );
                                         ?>
 
-                                        <option
-                                            value="<?= (int) $staffMember['id']; ?>"
-                                            <?= in_array(
+                                    <option value="<?= (int) $staffMember['id']; ?>" <?= in_array(
                                                 (int) $staffMember['id'],
                                                 $form['ta_ids'],
                                                 true
                                             )
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e($staffName); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e($staffName); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -2562,11 +2446,7 @@ $staffHeroUrl =
                                 Offering Status
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="offering-status"
-                                name="status"
-                            >
+                            <select class="form-control" id="offering-status" name="status">
                                 <?php
                                 $offeringStatuses = [
                                     'draft' => 'Draft',
@@ -2578,24 +2458,18 @@ $staffHeroUrl =
                                 ?>
 
                                 <?php foreach ($offeringStatuses as $statusValue => $statusLabel): ?>
-                                    <option
-                                        value="<?= e($statusValue); ?>"
-                                        <?= $form['status'] === $statusValue
+                                <option value="<?= e($statusValue); ?>" <?= $form['status'] === $statusValue
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        <?= e($statusLabel); ?>
-                                    </option>
+                                            : ''; ?>>
+                                    <?= e($statusLabel); ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
 
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Create Offering
                             </button>
                         </div>
@@ -2623,19 +2497,19 @@ $staffHeroUrl =
 
                         <?php if ($offerings === []): ?>
 
-                            <p>
-                                No course offerings have been created yet.
-                                Orientation should use a Perpetual Offering.
-                                Standard Academy courses should use
-                                School-Year Offerings.
-                            </p>
+                        <p>
+                            No course offerings have been created yet.
+                            Orientation should use a Perpetual Offering.
+                            Standard Academy courses should use
+                            School-Year Offerings.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach ($offerings as $offeringRow): ?>
-                                    <?php
+                            <?php foreach ($offerings as $offeringRow): ?>
+                            <?php
                                     $rowOfferingId =
                                         (int) (
                                             $offeringRow['id']
@@ -2725,21 +2599,21 @@ $staffHeroUrl =
                                     }
                                     ?>
 
-                                    <span>
-                                        <strong>
-                                            <?= e($rowCourseTitle); ?>
-                                        </strong>
+                            <span>
+                                <strong>
+                                    <?= e($rowCourseTitle); ?>
+                                </strong>
 
-                                        · <?= e($scopeLabel); ?>
+                                · <?= e($scopeLabel); ?>
 
-                                        <?php if (
+                                <?php if (
                                             !$isPerpetual
                                             && $yearGroupName !== ''
                                         ): ?>
-                                            · <?= e($yearGroupName); ?>
-                                        <?php endif; ?>
+                                · <?= e($yearGroupName); ?>
+                                <?php endif; ?>
 
-                                        · <?= e(
+                                · <?= e(
                                             ucfirst(
                                                 (string) (
                                                     $offeringRow['status']
@@ -2748,13 +2622,13 @@ $staffHeroUrl =
                                             )
                                         ); ?>
 
-                                        · <?= $isPerpetual
+                                · <?= $isPerpetual
                                             ? 'Self-paced'
                                             : 'Drip Content'; ?>
 
-                                        <?php if (!$isPerpetual): ?>
-                                            · Ends
-                                            <?= e(
+                                <?php if (!$isPerpetual): ?>
+                                · Ends
+                                <?= e(
                                                 course_offerings_format_date(
                                                     $offeringRow[
                                                         'course_end_date'
@@ -2762,9 +2636,9 @@ $staffHeroUrl =
                                                     ?? null
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        · <?= number_format(
+                                · <?= number_format(
                                             (int) (
                                                 $offeringRow[
                                                     'lesson_count'
@@ -2772,9 +2646,9 @@ $staffHeroUrl =
                                                 ?? 0
                                             )
                                         ); ?>
-                                        lessons
+                                lessons
 
-                                        · <?= number_format(
+                                · <?= number_format(
                                             (int) (
                                                 $offeringRow[
                                                     'active_enrollment_count'
@@ -2782,66 +2656,49 @@ $staffHeroUrl =
                                                 ?? 0
                                             )
                                         ); ?>
-                                        enrolled
+                                enrolled
 
-                                        <?php if ($staffLabels !== []): ?>
-                                            · <?= e(
+                                <?php if ($staffLabels !== []): ?>
+                                · <?= e(
                                                 implode(
                                                     ', ',
                                                     $staffLabels
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        ·
-                                        <a
-                                            href="<?= e(
+                                ·
+                                <a href="<?= e(
                                                 url(
                                                     'admin/course-offering-edit.php?offering='
                                                     . $rowOfferingId
                                                 )
-                                            ); ?>"
-                                        >
-                                            Edit
-                                        </a>
+                                            ); ?>">
+                                    Edit
+                                </a>
 
-                                        ·
-                                        <form
-                                            action="<?= e(
+                                ·
+                                <form action="<?= e(
                                                 url(
                                                     'admin/course-offerings.php'
                                                 )
-                                            ); ?>"
-                                            method="post"
-                                            class="offering-inline-action"
-                                            onsubmit="return confirm('Permanently delete this course offering? This is only allowed for unused offerings and cannot be undone.');"
-                                        >
-                                            <?= csrf_field(); ?>
+                                            ); ?>" method="post" class="offering-inline-action"
+                                    onsubmit="return confirm('Permanently delete this course offering? This is only allowed for unused offerings and cannot be undone.');">
+                                    <?= csrf_field(); ?>
 
-                                            <input
-                                                type="hidden"
-                                                name="action"
-                                                value="delete_offering"
-                                            >
+                                    <input type="hidden" name="action" value="delete_offering">
 
-                                            <input
-                                                type="hidden"
-                                                name="offering_id"
-                                                value="<?= $rowOfferingId; ?>"
-                                            >
+                                    <input type="hidden" name="offering_id" value="<?= $rowOfferingId; ?>">
 
-                                            <button
-                                                type="submit"
-                                                class="offering-delete-link"
-                                            >
-                                                Delete
-                                            </button>
-                                        </form>
-                                    </span>
+                                    <button type="submit" class="offering-delete-link">
+                                        Delete
+                                    </button>
+                                </form>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -2858,108 +2715,108 @@ $staffHeroUrl =
 
 
 <script>
-(function () {
-    'use strict';
+    (function() {
+        'use strict';
 
-    var scopeInputs =
-        document.querySelectorAll(
-            '[data-offering-scope]'
-        );
-
-    var schoolYearFields =
-        document.querySelector(
-            '[data-school-year-offering-fields]'
-        );
-
-    var endField =
-        document.querySelector(
-            '[data-school-year-end-field]'
-        );
-
-    var pacingInputs =
-        document.querySelectorAll(
-            '[data-pacing-mode]'
-        );
-
-    if (!scopeInputs.length) {
-        return;
-    }
-
-    function setPacing(value) {
-        pacingInputs.forEach(function (input) {
-            input.checked =
-                input.value === value;
-
-            input.disabled = true;
-        });
-    }
-
-    function syncOfferingScope() {
-        var selected =
-            document.querySelector(
-                '[data-offering-scope]:checked'
+        var scopeInputs =
+            document.querySelectorAll(
+                '[data-offering-scope]'
             );
 
-        var scope =
-            selected
-                ? selected.value
-                : 'school_year';
+        var schoolYearFields =
+            document.querySelector(
+                '[data-school-year-offering-fields]'
+            );
 
-        var isSchoolYear =
-            scope === 'school_year';
+        var endField =
+            document.querySelector(
+                '[data-school-year-end-field]'
+            );
 
-        if (schoolYearFields) {
-            schoolYearFields.hidden =
-                !isSchoolYear;
+        var pacingInputs =
+            document.querySelectorAll(
+                '[data-pacing-mode]'
+            );
+
+        if (!scopeInputs.length) {
+            return;
         }
 
-        if (endField) {
-            endField.hidden =
-                !isSchoolYear;
+        function setPacing(value) {
+            pacingInputs.forEach(function(input) {
+                input.checked =
+                    input.value === value;
+
+                input.disabled = true;
+            });
         }
 
-        setPacing(
-            isSchoolYear
-                ? 'drip'
-                : 'self_paced'
-        );
-    }
+        function syncOfferingScope() {
+            var selected =
+                document.querySelector(
+                    '[data-offering-scope]:checked'
+                );
 
-    scopeInputs.forEach(function (input) {
-        input.addEventListener(
-            'change',
-            syncOfferingScope
-        );
-    });
+            var scope =
+                selected ?
+                selected.value :
+                'school_year';
 
-    syncOfferingScope();
-})();
+            var isSchoolYear =
+                scope === 'school_year';
+
+            if (schoolYearFields) {
+                schoolYearFields.hidden = !isSchoolYear;
+            }
+
+            if (endField) {
+                endField.hidden = !isSchoolYear;
+            }
+
+            setPacing(
+                isSchoolYear ?
+                'drip' :
+                'self_paced'
+            );
+        }
+
+        scopeInputs.forEach(function(input) {
+            input.addEventListener(
+                'change',
+                syncOfferingScope
+            );
+        });
+
+        syncOfferingScope();
+    })();
+
 </script>
 
 
 <style>
-.offering-inline-action {
-    display: inline;
-    margin: 0;
-    padding: 0;
-}
+    .offering-inline-action {
+        display: inline;
+        margin: 0;
+        padding: 0;
+    }
 
-.offering-delete-link {
-    appearance: none;
-    border: 0;
-    padding: 0;
-    background: transparent;
-    color: #d96a72;
-    font: inherit;
-    text-decoration: none;
-    cursor: pointer;
-}
+    .offering-delete-link {
+        appearance: none;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        color: #d96a72;
+        font: inherit;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-.offering-delete-link:hover,
-.offering-delete-link:focus-visible {
-    color: #f08a91;
-    text-decoration: underline;
-}
+    .offering-delete-link:hover,
+    .offering-delete-link:focus-visible {
+        color: #f08a91;
+        text-decoration: underline;
+    }
+
 </style>
 
 <?php

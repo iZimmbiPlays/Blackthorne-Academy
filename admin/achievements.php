@@ -39,23 +39,23 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <p class="academy-overline">Restricted Staff Area</p>
-                <h1>Access Denied</h1>
-                <p>
-                    Your account does not have permission to manage
-                    Academy achievements.
-                </p>
-                <a class="button button-secondary" href="<?= e(url('staff-dashboard.php')); ?>">
-                    Return to Staff Dashboard
-                </a>
-            </div>
-        </section>
-    </main>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <p class="academy-overline">Restricted Staff Area</p>
+            <h1>Access Denied</h1>
+            <p>
+                Your account does not have permission to manage
+                Academy achievements.
+            </p>
+            <a class="button button-secondary" href="<?= e(url('staff-dashboard.php')); ?>">
+                Return to Staff Dashboard
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1212,18 +1212,11 @@ $triggerSuggestions = [
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page achievements-admin-page"
->
+<main id="main-content" class="dashboard-page staff-dashboard-page dashboard-workspace-page achievements-admin-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="achievements-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="achievements-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
                 <p class="academy-overline">Points &amp; Recognition</p>
@@ -1262,14 +1255,14 @@ $triggerSuggestions = [
 
 
                 <?php if ($errors !== []): ?>
-                    <div class="form-message form-message-error" role="alert">
-                        <strong>The achievement could not be saved.</strong>
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li><?= e((string) $error); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>The achievement could not be saved.</strong>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li><?= e((string) $error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
                 <?php endif; ?>
 
 
@@ -1285,8 +1278,10 @@ $triggerSuggestions = [
                         <div class="dashboard-placeholder-list">
                             <span><strong><?= number_format($summary['total']); ?></strong> total definitions</span>
                             <span><strong><?= number_format($summary['active']); ?></strong> active</span>
-                            <span><strong><?= number_format($summary['automatic']); ?></strong> automatic trigger definitions</span>
-                            <span><strong><?= number_format($summary['rewarding']); ?></strong> award House Points</span>
+                            <span><strong><?= number_format($summary['automatic']); ?></strong> automatic trigger
+                                definitions</span>
+                            <span><strong><?= number_format($summary['rewarding']); ?></strong> award House
+                                Points</span>
                             <span><strong><?= number_format($summary['earned']); ?></strong> earned occurrences</span>
                         </div>
                     </div>
@@ -1327,382 +1322,278 @@ $triggerSuggestions = [
                     );
                     ?>
 
-                    <form
-                        id="achievement-form"
-                        method="post"
-                        action="<?= e(url('admin/achievements.php#achievement-form')); ?>"
-                        enctype="multipart/form-data"
-                        novalidate
-                    >
-                        <?= csrf_field(); ?>
+                <form id="achievement-form" method="post"
+                    action="<?= e(url('admin/achievements.php#achievement-form')); ?>" enctype="multipart/form-data"
+                    novalidate>
+                    <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="<?= $editing ? 'update_achievement' : 'create_achievement'; ?>"
-                        >
+                    <input type="hidden" name="action"
+                        value="<?= $editing ? 'update_achievement' : 'create_achievement'; ?>">
 
-                        <?php if ($editing): ?>
-                            <input
-                                type="hidden"
-                                name="achievement_id"
-                                value="<?= (int) $achievementId; ?>"
-                            >
+                    <?php if ($editing): ?>
+                    <input type="hidden" name="achievement_id" value="<?= (int) $achievementId; ?>">
+                    <?php endif; ?>
+
+                    <div class="forum-admin-form-grid">
+                        <div class="form-group">
+                            <label for="<?= $editing ? 'edit-' : 'create-'; ?>achievement-name">
+                                Achievement Name
+                            </label>
+                            <input class="form-control" type="text"
+                                id="<?= $editing ? 'edit-' : 'create-'; ?>achievement-name" name="name" maxlength="150"
+                                value="<?= e((string) $form['name']); ?>" placeholder="Getting Sorted" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="<?= $editing ? 'edit-' : 'create-'; ?>achievement-slug">
+                                Slug
+                            </label>
+                            <input class="form-control" type="text"
+                                id="<?= $editing ? 'edit-' : 'create-'; ?>achievement-slug" name="slug" maxlength="160"
+                                value="<?= e((string) $form['slug']); ?>" placeholder="getting-sorted">
+                            <p class="form-help">
+                                Optional. Leave blank and a unique slug will
+                                be generated from the name.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="<?= $editing ? 'edit-' : 'create-'; ?>achievement-description">
+                            Description
+                        </label>
+                        <textarea class="form-control"
+                            id="<?= $editing ? 'edit-' : 'create-'; ?>achievement-description" name="description"
+                            rows="4"
+                            placeholder="Awarded when a member completes the Sorting Ceremony and joins a House."><?= e((string) $form['description']); ?></textarea>
+                    </div>
+
+                    <fieldset class="forum-admin-fieldset">
+                        <legend>Badge Image</legend>
+
+                        <?php if ($badgeUrl !== ''): ?>
+                        <p>
+                            <img src="<?= e($badgeUrl); ?>" alt="Current achievement badge" width="96" height="96"
+                                loading="lazy" style="object-fit: contain; max-width: 96px; max-height: 96px;">
+                        </p>
                         <?php endif; ?>
 
                         <div class="forum-admin-form-grid">
                             <div class="form-group">
-                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>achievement-name">
-                                    Achievement Name
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>badge-image">
+                                    Existing Image Path or URL
                                 </label>
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    id="<?= $editing ? 'edit-' : 'create-'; ?>achievement-name"
-                                    name="name"
-                                    maxlength="150"
-                                    value="<?= e((string) $form['name']); ?>"
-                                    placeholder="Getting Sorted"
-                                    required
-                                >
+                                <input class="form-control" type="text"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>badge-image" name="badge_image"
+                                    maxlength="255" value="<?= e((string) $form['badge_image']); ?>"
+                                    placeholder="uploads/achievements/getting-sorted.webp">
                             </div>
 
                             <div class="form-group">
-                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>achievement-slug">
-                                    Slug
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>badge-upload">
+                                    Upload Badge Image
                                 </label>
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    id="<?= $editing ? 'edit-' : 'create-'; ?>achievement-slug"
-                                    name="slug"
-                                    maxlength="160"
-                                    value="<?= e((string) $form['slug']); ?>"
-                                    placeholder="getting-sorted"
-                                >
+                                <input class="form-control" type="file"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>badge-upload" name="badge_upload"
+                                    accept="image/png,image/jpeg,image/webp,image/gif">
                                 <p class="form-help">
-                                    Optional. Leave blank and a unique slug will
-                                    be generated from the name.
+                                    PNG, JPG, WebP, or GIF. Maximum 5 MB.
+                                    A new upload replaces the path above.
+                                </p>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="forum-admin-fieldset">
+                        <legend>Trigger Configuration</legend>
+
+                        <div class="forum-admin-form-grid">
+                            <div class="form-group">
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>requirement-type">
+                                    Trigger Type
+                                </label>
+                                <input class="form-control" type="text"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>requirement-type" name="requirement_type"
+                                    maxlength="100" list="achievement-trigger-types"
+                                    value="<?= e((string) $form['requirement_type']); ?>" required>
+                                <p class="form-help">
+                                    Trigger names are open-ended. Automatic
+                                    achievements only fire when the site emits
+                                    the matching event name.
+                                </p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>repeat-mode">
+                                    Repeat Mode
+                                </label>
+                                <select class="form-control" id="<?= $editing ? 'edit-' : 'create-'; ?>repeat-mode"
+                                    name="repeat_mode" required>
+                                    <?php foreach ($repeatModeLabels as $value => $label): ?>
+                                    <option value="<?= e($value); ?>" <?= (string) $form['repeat_mode'] === $value
+                                                    ? 'selected'
+                                                    : ''; ?>>
+                                        <?= e($label); ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <datalist id="achievement-trigger-types">
+                            <?php foreach ($triggerSuggestions as $triggerSuggestion): ?>
+                            <option value="<?= e($triggerSuggestion); ?>"></option>
+                            <?php endforeach; ?>
+                        </datalist>
+
+                        <div class="forum-admin-form-grid">
+                            <div class="form-group">
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>threshold-value">
+                                    Threshold
+                                </label>
+                                <input class="form-control" type="number" step="0.01"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>threshold-value" name="threshold_value"
+                                    value="<?= e((string) $form['threshold_value']); ?>" placeholder="1">
+                                <p class="form-help">
+                                    Optional numeric milestone. For example,
+                                    a post-count achievement might use 10.
+                                </p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>requirement-value">
+                                    Requirement Value
+                                </label>
+                                <input class="form-control" type="text"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>requirement-value"
+                                    name="requirement_value" maxlength="255"
+                                    value="<?= e((string) $form['requirement_value']); ?>">
+                                <p class="form-help">
+                                    Optional text value retained for flexible
+                                    trigger-specific configuration.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="forum-admin-form-grid">
+                            <div class="form-group">
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>target-type">
+                                    Target Type
+                                </label>
+                                <input class="form-control" type="text"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>target-type" name="target_type"
+                                    maxlength="50" value="<?= e((string) $form['target_type']); ?>" placeholder="house">
+                                <p class="form-help">
+                                    Optional. Use when an achievement applies
+                                    to a particular kind of entity, such as
+                                    a House or course.
+                                </p>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>target-id">
+                                    Target ID
+                                </label>
+                                <input class="form-control" type="number" min="1" step="1"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>target-id" name="target_id"
+                                    value="<?= e((string) $form['target_id']); ?>">
+                                <p class="form-help">
+                                    Optional. Leave blank to match every
+                                    target of the selected type.
                                 </p>
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label for="<?= $editing ? 'edit-' : 'create-'; ?>achievement-description">
-                                Description
+                            <label for="<?= $editing ? 'edit-' : 'create-'; ?>trigger-config">
+                                Advanced Trigger Configuration (JSON)
                             </label>
-                            <textarea
-                                class="form-control"
-                                id="<?= $editing ? 'edit-' : 'create-'; ?>achievement-description"
-                                name="description"
-                                rows="4"
-                                placeholder="Awarded when a member completes the Sorting Ceremony and joins a House."
-                            ><?= e((string) $form['description']); ?></textarea>
+                            <textarea class="form-control" id="<?= $editing ? 'edit-' : 'create-'; ?>trigger-config"
+                                name="trigger_config" rows="7" spellcheck="false"
+                                placeholder='{"comparison":"gte","conditions":{"course_type":"orientation"}}'><?= e((string) $form['trigger_config']); ?></textarea>
+                            <p class="form-help">
+                                Optional. The Achievement service currently
+                                understands a threshold comparison and exact
+                                event-context conditions. Leave blank unless
+                                the trigger needs advanced matching.
+                            </p>
                         </div>
+                    </fieldset>
 
-                        <fieldset class="forum-admin-fieldset">
-                            <legend>Badge Image</legend>
+                    <fieldset class="forum-admin-fieldset">
+                        <legend>Reward &amp; Display</legend>
 
-                            <?php if ($badgeUrl !== ''): ?>
-                                <p>
-                                    <img
-                                        src="<?= e($badgeUrl); ?>"
-                                        alt="Current achievement badge"
-                                        width="96"
-                                        height="96"
-                                        loading="lazy"
-                                        style="object-fit: contain; max-width: 96px; max-height: 96px;"
-                                    >
+                        <div class="forum-admin-form-grid">
+                            <div class="form-group">
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>points-awarded">
+                                    House Points Awarded
+                                </label>
+                                <input class="form-control" type="number" min="0" step="1"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>points-awarded" name="points_awarded"
+                                    value="<?= e((string) $form['points_awarded']); ?>" required>
+                                <p class="form-help">
+                                    Use 0 for a badge-only achievement.
+                                    Achievement rewards are House-only points
+                                    and do not count toward academic progression.
                                 </p>
-                            <?php endif; ?>
-
-                            <div class="forum-admin-form-grid">
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>badge-image">
-                                        Existing Image Path or URL
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>badge-image"
-                                        name="badge_image"
-                                        maxlength="255"
-                                        value="<?= e((string) $form['badge_image']); ?>"
-                                        placeholder="uploads/achievements/getting-sorted.webp"
-                                    >
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>badge-upload">
-                                        Upload Badge Image
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="file"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>badge-upload"
-                                        name="badge_upload"
-                                        accept="image/png,image/jpeg,image/webp,image/gif"
-                                    >
-                                    <p class="form-help">
-                                        PNG, JPG, WebP, or GIF. Maximum 5 MB.
-                                        A new upload replaces the path above.
-                                    </p>
-                                </div>
-                            </div>
-                        </fieldset>
-
-                        <fieldset class="forum-admin-fieldset">
-                            <legend>Trigger Configuration</legend>
-
-                            <div class="forum-admin-form-grid">
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>requirement-type">
-                                        Trigger Type
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>requirement-type"
-                                        name="requirement_type"
-                                        maxlength="100"
-                                        list="achievement-trigger-types"
-                                        value="<?= e((string) $form['requirement_type']); ?>"
-                                        required
-                                    >
-                                    <p class="form-help">
-                                        Trigger names are open-ended. Automatic
-                                        achievements only fire when the site emits
-                                        the matching event name.
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>repeat-mode">
-                                        Repeat Mode
-                                    </label>
-                                    <select
-                                        class="form-control"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>repeat-mode"
-                                        name="repeat_mode"
-                                        required
-                                    >
-                                        <?php foreach ($repeatModeLabels as $value => $label): ?>
-                                            <option
-                                                value="<?= e($value); ?>"
-                                                <?= (string) $form['repeat_mode'] === $value
-                                                    ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                <?= e($label); ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <datalist id="achievement-trigger-types">
-                                <?php foreach ($triggerSuggestions as $triggerSuggestion): ?>
-                                    <option value="<?= e($triggerSuggestion); ?>"></option>
-                                <?php endforeach; ?>
-                            </datalist>
-
-                            <div class="forum-admin-form-grid">
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>threshold-value">
-                                        Threshold
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        step="0.01"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>threshold-value"
-                                        name="threshold_value"
-                                        value="<?= e((string) $form['threshold_value']); ?>"
-                                        placeholder="1"
-                                    >
-                                    <p class="form-help">
-                                        Optional numeric milestone. For example,
-                                        a post-count achievement might use 10.
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>requirement-value">
-                                        Requirement Value
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>requirement-value"
-                                        name="requirement_value"
-                                        maxlength="255"
-                                        value="<?= e((string) $form['requirement_value']); ?>"
-                                    >
-                                    <p class="form-help">
-                                        Optional text value retained for flexible
-                                        trigger-specific configuration.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="forum-admin-form-grid">
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>target-type">
-                                        Target Type
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>target-type"
-                                        name="target_type"
-                                        maxlength="50"
-                                        value="<?= e((string) $form['target_type']); ?>"
-                                        placeholder="house"
-                                    >
-                                    <p class="form-help">
-                                        Optional. Use when an achievement applies
-                                        to a particular kind of entity, such as
-                                        a House or course.
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>target-id">
-                                        Target ID
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        min="1"
-                                        step="1"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>target-id"
-                                        name="target_id"
-                                        value="<?= e((string) $form['target_id']); ?>"
-                                    >
-                                    <p class="form-help">
-                                        Optional. Leave blank to match every
-                                        target of the selected type.
-                                    </p>
-                                </div>
                             </div>
 
                             <div class="form-group">
-                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>trigger-config">
-                                    Advanced Trigger Configuration (JSON)
+                                <label for="<?= $editing ? 'edit-' : 'create-'; ?>sort-order">
+                                    Sort Order
                                 </label>
-                                <textarea
-                                    class="form-control"
-                                    id="<?= $editing ? 'edit-' : 'create-'; ?>trigger-config"
-                                    name="trigger_config"
-                                    rows="7"
-                                    spellcheck="false"
-                                    placeholder='{"comparison":"gte","conditions":{"course_type":"orientation"}}'
-                                ><?= e((string) $form['trigger_config']); ?></textarea>
-                                <p class="form-help">
-                                    Optional. The Achievement service currently
-                                    understands a threshold comparison and exact
-                                    event-context conditions. Leave blank unless
-                                    the trigger needs advanced matching.
-                                </p>
+                                <input class="form-control" type="number" min="0" step="1"
+                                    id="<?= $editing ? 'edit-' : 'create-'; ?>sort-order" name="sort_order"
+                                    value="<?= e((string) $form['sort_order']); ?>" required>
                             </div>
-                        </fieldset>
-
-                        <fieldset class="forum-admin-fieldset">
-                            <legend>Reward &amp; Display</legend>
-
-                            <div class="forum-admin-form-grid">
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>points-awarded">
-                                        House Points Awarded
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        min="0"
-                                        step="1"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>points-awarded"
-                                        name="points_awarded"
-                                        value="<?= e((string) $form['points_awarded']); ?>"
-                                        required
-                                    >
-                                    <p class="form-help">
-                                        Use 0 for a badge-only achievement.
-                                        Achievement rewards are House-only points
-                                        and do not count toward academic progression.
-                                    </p>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="<?= $editing ? 'edit-' : 'create-'; ?>sort-order">
-                                        Sort Order
-                                    </label>
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        min="0"
-                                        step="1"
-                                        id="<?= $editing ? 'edit-' : 'create-'; ?>sort-order"
-                                        name="sort_order"
-                                        value="<?= e((string) $form['sort_order']); ?>"
-                                        required
-                                    >
-                                </div>
-                            </div>
-
-                            <label class="forum-admin-choice">
-                                <input
-                                    type="checkbox"
-                                    name="is_active"
-                                    value="1"
-                                    <?= (string) $form['is_active'] === '1'
-                                        ? 'checked'
-                                        : ''; ?>
-                                >
-                                <span>Active</span>
-                            </label>
-                        </fieldset>
-
-                        <?php if ($editing && is_array($achievementRow)): ?>
-                            <p class="form-help">
-                                Earned occurrences:
-                                <strong><?= number_format((int) ($achievementRow['earned_count'] ?? 0)); ?></strong>.
-                                Historical earned records are preserved even if
-                                this definition is deactivated.
-                            </p>
-                        <?php endif; ?>
-
-                        <div class="forum-admin-actions">
-                            <button type="submit" class="button button-primary">
-                                <?= $editing ? 'Save Achievement' : 'Create Achievement'; ?>
-                            </button>
-
-                            <?php if ($editing): ?>
-                                <a
-                                    class="button button-secondary"
-                                    href="<?= e(url('admin/achievements.php')); ?>"
-                                >
-                                    Cancel Edit
-                                </a>
-                            <?php endif; ?>
                         </div>
-                    </form>
 
-                    <?php
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="is_active" value="1" <?= (string) $form['is_active'] === '1'
+                                        ? 'checked'
+                                        : ''; ?>>
+                            <span>Active</span>
+                        </label>
+                    </fieldset>
+
+                    <?php if ($editing && is_array($achievementRow)): ?>
+                    <p class="form-help">
+                        Earned occurrences:
+                        <strong><?= number_format((int) ($achievementRow['earned_count'] ?? 0)); ?></strong>.
+                        Historical earned records are preserved even if
+                        this definition is deactivated.
+                    </p>
+                    <?php endif; ?>
+
+                    <div class="forum-admin-actions">
+                        <button type="submit" class="button button-primary">
+                            <?= $editing ? 'Save Achievement' : 'Create Achievement'; ?>
+                        </button>
+
+                        <?php if ($editing): ?>
+                        <a class="button button-secondary" href="<?= e(url('admin/achievements.php')); ?>">
+                            Cancel Edit
+                        </a>
+                        <?php endif; ?>
+                    </div>
+                </form>
+
+                <?php
                 };
                 ?>
 
 
                 <?php if ($editAchievement !== null): ?>
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">Edit Definition</p>
-                                <h3><?= e((string) $editAchievement['name']); ?></h3>
-                            </div>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">Edit Definition</p>
+                            <h3><?= e((string) $editAchievement['name']); ?></h3>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
-                            <?php
+                    <div class="dashboard-panel-body">
+                        <?php
                             $renderForm(
                                 $editForm,
                                 true,
@@ -1710,26 +1601,26 @@ $triggerSuggestions = [
                                 $editAchievement
                             );
                             ?>
-                        </div>
-                    </section>
+                    </div>
+                </section>
                 <?php else: ?>
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">New Definition</p>
-                                <h3>Create Achievement</h3>
-                            </div>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">New Definition</p>
+                            <h3>Create Achievement</h3>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
-                            <?php
+                    <div class="dashboard-panel-body">
+                        <?php
                             $renderForm(
                                 $createForm,
                                 false
                             );
                             ?>
-                        </div>
-                    </section>
+                    </div>
+                </section>
                 <?php endif; ?>
 
 
@@ -1743,66 +1634,55 @@ $triggerSuggestions = [
 
                     <div class="dashboard-panel-body">
                         <?php if ($achievements === []): ?>
-                            <p>
-                                No achievements have been created yet. A useful
-                                first definition is <strong>Getting Sorted</strong>
-                                with the <code>house_sorting</code> trigger.
-                            </p>
+                        <p>
+                            No achievements have been created yet. A useful
+                            first definition is <strong>Getting Sorted</strong>
+                            with the <code>house_sorting</code> trigger.
+                        </p>
                         <?php else: ?>
-                            <div class="dashboard-placeholder-list">
-                                <?php foreach ($achievements as $achievementRow): ?>
-                                    <?php
+                        <div class="dashboard-placeholder-list">
+                            <?php foreach ($achievements as $achievementRow): ?>
+                            <?php
                                     $rowBadgeUrl = admin_achievements_image_url(
                                         (string) ($achievementRow['badge_image'] ?? '')
                                     );
                                     $rowActive = (int) ($achievementRow['is_active'] ?? 0) === 1;
                                     ?>
 
-                                    <span>
-                                        <?php if ($rowBadgeUrl !== ''): ?>
-                                            <img
-                                                src="<?= e($rowBadgeUrl); ?>"
-                                                alt=""
-                                                width="36"
-                                                height="36"
-                                                loading="lazy"
-                                                style="object-fit: contain; vertical-align: middle; margin-right: .5rem;"
-                                            >
-                                        <?php endif; ?>
+                            <span>
+                                <?php if ($rowBadgeUrl !== ''): ?>
+                                <img src="<?= e($rowBadgeUrl); ?>" alt="" width="36" height="36" loading="lazy"
+                                    style="object-fit: contain; vertical-align: middle; margin-right: .5rem;">
+                                <?php endif; ?>
 
-                                        <strong><?= e((string) $achievementRow['name']); ?></strong>
-                                        · <?= $rowActive ? 'Active' : 'Inactive'; ?>
-                                        · Trigger: <code><?= e((string) $achievementRow['requirement_type']); ?></code>
-                                        · Repeat: <?= e($repeatModeLabels[(string) $achievementRow['repeat_mode']] ?? (string) $achievementRow['repeat_mode']); ?>
-                                        · Reward: <?= number_format((int) ($achievementRow['points_awarded'] ?? 0)); ?> House Points
-                                        · Earned: <?= number_format((int) ($achievementRow['earned_count'] ?? 0)); ?>
-                                        ·
-                                        <a
-                                            href="<?= e(url('admin/achievements.php?edit=' . (int) $achievementRow['id'])); ?>"
-                                        >
-                                            Edit
-                                        </a>
+                                <strong><?= e((string) $achievementRow['name']); ?></strong>
+                                · <?= $rowActive ? 'Active' : 'Inactive'; ?>
+                                · Trigger: <code><?= e((string) $achievementRow['requirement_type']); ?></code>
+                                · Repeat:
+                                <?= e($repeatModeLabels[(string) $achievementRow['repeat_mode']] ?? (string) $achievementRow['repeat_mode']); ?>
+                                · Reward: <?= number_format((int) ($achievementRow['points_awarded'] ?? 0)); ?> House
+                                Points
+                                · Earned: <?= number_format((int) ($achievementRow['earned_count'] ?? 0)); ?>
+                                ·
+                                <a href="<?= e(url('admin/achievements.php?edit=' . (int) $achievementRow['id'])); ?>">
+                                    Edit
+                                </a>
 
-                                        ·
-                                        <form
-                                            method="post"
-                                            style="display: inline;"
-                                        >
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="action" value="toggle_achievement">
-                                            <input type="hidden" name="achievement_id" value="<?= (int) $achievementRow['id']; ?>">
-                                            <input type="hidden" name="desired_state" value="<?= $rowActive ? '0' : '1'; ?>">
-                                            <button
-                                                type="submit"
-                                                class="button button-secondary"
-                                                style="padding: .25rem .6rem; min-height: auto;"
-                                            >
-                                                <?= $rowActive ? 'Deactivate' : 'Activate'; ?>
-                                            </button>
-                                        </form>
-                                    </span>
-                                <?php endforeach; ?>
-                            </div>
+                                ·
+                                <form method="post" style="display: inline;">
+                                    <?= csrf_field(); ?>
+                                    <input type="hidden" name="action" value="toggle_achievement">
+                                    <input type="hidden" name="achievement_id"
+                                        value="<?= (int) $achievementRow['id']; ?>">
+                                    <input type="hidden" name="desired_state" value="<?= $rowActive ? '0' : '1'; ?>">
+                                    <button type="submit" class="button button-secondary"
+                                        style="padding: .25rem .6rem; min-height: auto;">
+                                        <?= $rowActive ? 'Deactivate' : 'Activate'; ?>
+                                    </button>
+                                </form>
+                            </span>
+                            <?php endforeach; ?>
+                        </div>
                         <?php endif; ?>
                     </div>
                 </section>

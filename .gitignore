@@ -103,3 +103,14 @@ phpunit.xml.dist
 #
 
 /vendor/
+
+
+# --------------------------------------------------------------------------
+# Node / npm
+# --------------------------------------------------------------------------
+#
+# node_modules/ is generated from package.json/package-lock.json and should
+# not be stored in source control.
+#
+
+/node_modules/

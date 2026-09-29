@@ -505,104 +505,80 @@ require_once INCLUDES_PATH . '/header.php';
 
                 <?php if ($requestComplete): ?>
 
-                    <div
-                        class="login-page-notice"
-                        role="status"
-                    >
-                        If an eligible Blackthorne Academy account is connected to that email address, a password reset link has been sent. Check your inbox and spam folder.
-                    </div>
+                <div class="login-page-notice" role="status">
+                    If an eligible Blackthorne Academy account is connected to that email address, a password reset link
+                    has been sent. Check your inbox and spam folder.
+                </div>
 
 
-                    <div class="login-page-enrollment">
+                <div class="login-page-enrollment">
 
-                        <p>
-                            The reset link expires in 60 minutes.
-                        </p>
+                    <p>
+                        The reset link expires in 60 minutes.
+                    </p>
 
-                        <a
-                            href="<?= e(LOGIN_URL); ?>"
-                        >
-                            Return to Login
-                        </a>
+                    <a href="<?= e(LOGIN_URL); ?>">
+                        Return to Login
+                    </a>
 
-                    </div>
+                </div>
 
 
                 <?php else: ?>
 
-                    <?php if ($formErrors !== []): ?>
+                <?php if ($formErrors !== []): ?>
 
-                        <div
-                            class="login-page-notice"
-                            role="alert"
-                        >
+                <div class="login-page-notice" role="alert">
 
-                            <?php foreach ($formErrors as $error): ?>
+                    <?php foreach ($formErrors as $error): ?>
 
-                                <p>
-                                    <?= e($error); ?>
-                                </p>
+                    <p>
+                        <?= e($error); ?>
+                    </p>
 
-                            <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                        </div>
+                </div>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
 
-                    <form
-                        class="login-page-form"
-                        action="<?= e(url('forgot-password.php')); ?>"
-                        method="post"
-                        aria-describedby="forgot-password-description"
-                    >
+                <form class="login-page-form" action="<?= e(url('forgot-password.php')); ?>" method="post"
+                    aria-describedby="forgot-password-description">
 
-                        <?= csrf_field(); ?>
+                    <?= csrf_field(); ?>
 
 
-                        <div class="form-group">
+                    <div class="form-group">
 
-                            <label for="forgot-email">
-                                Email Address
-                            </label>
+                        <label for="forgot-email">
+                            Email Address
+                        </label>
 
-                            <input
-                                class="form-control"
-                                type="email"
-                                id="forgot-email"
-                                name="email"
-                                value="<?= e($formValues['email']); ?>"
-                                maxlength="255"
-                                autocomplete="email"
-                                required
-                            >
-
-                        </div>
-
-
-                        <button
-                            type="submit"
-                            class="button button-primary login-page-submit"
-                        >
-                            Send Reset Link
-                        </button>
-
-                    </form>
-
-
-                    <div class="login-page-enrollment">
-
-                        <p>
-                            Remembered your password?
-                        </p>
-
-                        <a
-                            href="<?= e(LOGIN_URL); ?>"
-                        >
-                            Return to Login
-                        </a>
+                        <input class="form-control" type="email" id="forgot-email" name="email"
+                            value="<?= e($formValues['email']); ?>" maxlength="255" autocomplete="email" required>
 
                     </div>
+
+
+                    <button type="submit" class="button button-primary login-page-submit">
+                        Send Reset Link
+                    </button>
+
+                </form>
+
+
+                <div class="login-page-enrollment">
+
+                    <p>
+                        Remembered your password?
+                    </p>
+
+                    <a href="<?= e(LOGIN_URL); ?>">
+                        Return to Login
+                    </a>
+
+                </div>
 
                 <?php endif; ?>
 

@@ -542,200 +542,148 @@ require_once INCLUDES_PATH . '/header.php';
 
                 <?php if ($passwordWasReset): ?>
 
-                    <div
-                        class="login-page-notice"
-                        role="status"
-                    >
-                        Your password has been changed successfully.
-                    </div>
+                <div class="login-page-notice" role="status">
+                    Your password has been changed successfully.
+                </div>
 
-                    <div class="login-page-enrollment">
+                <div class="login-page-enrollment">
 
-                        <a
-                            class="button button-primary login-page-submit"
-                            href="<?= e(LOGIN_URL); ?>"
-                        >
-                            Return to Login
-                        </a>
+                    <a class="button button-primary login-page-submit" href="<?= e(LOGIN_URL); ?>">
+                        Return to Login
+                    </a>
 
-                    </div>
+                </div>
 
 
                 <?php elseif (!$tokenIsValid): ?>
 
-                    <?php if ($formErrors !== []): ?>
+                <?php if ($formErrors !== []): ?>
 
-                        <div
-                            class="login-page-notice"
-                            role="alert"
-                        >
+                <div class="login-page-notice" role="alert">
 
-                            <?php foreach ($formErrors as $error): ?>
+                    <?php foreach ($formErrors as $error): ?>
 
-                                <p>
-                                    <?= e($error); ?>
-                                </p>
+                    <p>
+                        <?= e($error); ?>
+                    </p>
 
-                            <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                        </div>
+                </div>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
 
-                    <div
-                        class="login-page-notice"
-                        role="alert"
-                    >
-                        This password reset link is invalid, expired, or has already been used.
-                    </div>
+                <div class="login-page-notice" role="alert">
+                    This password reset link is invalid, expired, or has already been used.
+                </div>
 
 
-                    <div class="login-page-enrollment">
+                <div class="login-page-enrollment">
 
-                        <p>
-                            Request a new password reset link to continue.
-                        </p>
+                    <p>
+                        Request a new password reset link to continue.
+                    </p>
 
-                        <a
-                            href="<?= e(url('forgot-password.php')); ?>"
-                        >
-                            Request a New Reset Link
-                        </a>
+                    <a href="<?= e(url('forgot-password.php')); ?>">
+                        Request a New Reset Link
+                    </a>
 
-                    </div>
+                </div>
 
 
                 <?php else: ?>
 
-                    <?php if ($formErrors !== []): ?>
+                <?php if ($formErrors !== []): ?>
 
-                        <div
-                            class="login-page-notice"
-                            role="alert"
-                        >
+                <div class="login-page-notice" role="alert">
 
-                            <?php foreach ($formErrors as $error): ?>
+                    <?php foreach ($formErrors as $error): ?>
 
-                                <p>
-                                    <?= e($error); ?>
-                                </p>
+                    <p>
+                        <?= e($error); ?>
+                    </p>
 
-                            <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                        </div>
+                </div>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
 
-                    <form
-                        class="login-page-form"
-                        action="<?= e(url('reset-password.php')); ?>"
-                        method="post"
-                        aria-describedby="reset-form-description"
-                    >
+                <form class="login-page-form" action="<?= e(url('reset-password.php')); ?>" method="post"
+                    aria-describedby="reset-form-description">
 
-                        <?= csrf_field(); ?>
+                    <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="token"
-                            value="<?= e($resetToken); ?>"
-                        >
+                    <input type="hidden" name="token" value="<?= e($resetToken); ?>">
 
 
-                        <div class="form-group">
+                    <div class="form-group">
 
-                            <label for="reset-password">
-                                New Password
-                            </label>
+                        <label for="reset-password">
+                            New Password
+                        </label>
 
-                            <div class="login-password-field">
+                        <div class="login-password-field">
 
-                                <input
-                                    class="form-control"
-                                    type="password"
-                                    id="reset-password"
-                                    name="password"
-                                    minlength="12"
-                                    maxlength="255"
-                                    autocomplete="new-password"
-                                    required
-                                >
+                            <input class="form-control" type="password" id="reset-password" name="password"
+                                minlength="12" maxlength="255" autocomplete="new-password" required>
 
-                                <button
-                                    type="button"
-                                    class="login-password-toggle"
-                                    data-password-toggle="reset-password"
-                                    aria-controls="reset-password"
-                                    aria-pressed="false"
-                                >
-                                    <span class="password-show-text">
-                                        Show
-                                    </span>
+                            <button type="button" class="login-password-toggle" data-password-toggle="reset-password"
+                                aria-controls="reset-password" aria-pressed="false">
+                                <span class="password-show-text">
+                                    Show
+                                </span>
 
-                                    <span class="password-hide-text">
-                                        Hide
-                                    </span>
-                                </button>
-
-                            </div>
-
-                            <small class="form-help">
-                                Use at least 12 characters.
-                            </small>
+                                <span class="password-hide-text">
+                                    Hide
+                                </span>
+                            </button>
 
                         </div>
 
+                        <small class="form-help">
+                            Use at least 12 characters.
+                        </small>
 
-                        <div class="form-group">
+                    </div>
 
-                            <label for="reset-password-confirmation">
-                                Confirm New Password
-                            </label>
 
-                            <div class="login-password-field">
+                    <div class="form-group">
 
-                                <input
-                                    class="form-control"
-                                    type="password"
-                                    id="reset-password-confirmation"
-                                    name="password_confirmation"
-                                    minlength="12"
-                                    maxlength="255"
-                                    autocomplete="new-password"
-                                    required
-                                >
+                        <label for="reset-password-confirmation">
+                            Confirm New Password
+                        </label>
 
-                                <button
-                                    type="button"
-                                    class="login-password-toggle"
-                                    data-password-toggle="reset-password-confirmation"
-                                    aria-controls="reset-password-confirmation"
-                                    aria-pressed="false"
-                                >
-                                    <span class="password-show-text">
-                                        Show
-                                    </span>
+                        <div class="login-password-field">
 
-                                    <span class="password-hide-text">
-                                        Hide
-                                    </span>
-                                </button>
+                            <input class="form-control" type="password" id="reset-password-confirmation"
+                                name="password_confirmation" minlength="12" maxlength="255" autocomplete="new-password"
+                                required>
 
-                            </div>
+                            <button type="button" class="login-password-toggle"
+                                data-password-toggle="reset-password-confirmation"
+                                aria-controls="reset-password-confirmation" aria-pressed="false">
+                                <span class="password-show-text">
+                                    Show
+                                </span>
+
+                                <span class="password-hide-text">
+                                    Hide
+                                </span>
+                            </button>
 
                         </div>
 
+                    </div>
 
-                        <button
-                            type="submit"
-                            class="button button-primary login-page-submit"
-                        >
-                            Change Password
-                        </button>
 
-                    </form>
+                    <button type="submit" class="button button-primary login-page-submit">
+                        Change Password
+                    </button>
+
+                </form>
 
                 <?php endif; ?>
 
@@ -762,54 +710,53 @@ require_once INCLUDES_PATH . '/header.php';
 
 
 <script>
+    document.addEventListener(
+        'DOMContentLoaded',
+        () => {
 
-document.addEventListener(
-    'DOMContentLoaded',
-    () => {
+            document.querySelectorAll(
+                '[data-password-toggle]'
+            ).forEach(
+                (toggle) => {
 
-        document.querySelectorAll(
-            '[data-password-toggle]'
-        ).forEach(
-            (toggle) => {
-
-                const inputId =
-                    toggle.getAttribute(
-                        'data-password-toggle'
-                    );
-
-                const password =
-                    document.getElementById(
-                        inputId
-                    );
-
-                if (!password) {
-                    return;
-                }
-
-                toggle.addEventListener(
-                    'click',
-                    () => {
-
-                        const showing =
-                            password.type === 'text';
-
-                        password.type =
-                            showing
-                                ? 'password'
-                                : 'text';
-
-                        toggle.setAttribute(
-                            'aria-pressed',
-                            showing
-                                ? 'false'
-                                : 'true'
+                    const inputId =
+                        toggle.getAttribute(
+                            'data-password-toggle'
                         );
+
+                    const password =
+                        document.getElementById(
+                            inputId
+                        );
+
+                    if (!password) {
+                        return;
                     }
-                );
-            }
-        );
-    }
-);
+
+                    toggle.addEventListener(
+                        'click',
+                        () => {
+
+                            const showing =
+                                password.type === 'text';
+
+                            password.type =
+                                showing ?
+                                'password' :
+                                'text';
+
+                            toggle.setAttribute(
+                                'aria-pressed',
+                                showing ?
+                                'false' :
+                                'true'
+                            );
+                        }
+                    );
+                }
+            );
+        }
+    );
 
 </script>
 

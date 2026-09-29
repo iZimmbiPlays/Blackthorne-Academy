@@ -1222,18 +1222,18 @@ require INCLUDES_PATH . '/header.php';
     <section class="forum-admin-content">
         <div class="section-inner">
             <?php if ($successMessage !== null): ?>
-                <div class="form-message form-message-success" role="status"><?= e($successMessage); ?></div>
+            <div class="form-message form-message-success" role="status"><?= e($successMessage); ?></div>
             <?php endif; ?>
 
             <?php if ($errors !== []): ?>
-                <div class="form-message form-message-error" role="alert">
-                    <h2>Please correct the following:</h2>
-                    <ul>
-                        <?php foreach ($errors as $error): ?>
-                            <li><?= e($error); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+            <div class="form-message form-message-error" role="alert">
+                <h2>Please correct the following:</h2>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                    <li><?= e($error); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
             <?php endif; ?>
 
             <div class="sorting-version-grid">
@@ -1241,35 +1241,37 @@ require INCLUDES_PATH . '/header.php';
                     <header class="forum-admin-titlebar">
                         <p class="forum-admin-step">Ceremony Library</p>
                         <h2 id="versions-heading">Ceremony Versions</h2>
-                        <p>Only one version is published at a time. Publishing a draft automatically retires the old live version.</p>
+                        <p>Only one version is published at a time. Publishing a draft automatically retires the old
+                            live version.</p>
                     </header>
                     <div class="sorting-card-body sorting-version-list">
                         <?php if ($versions === []): ?>
-                            <p class="forum-admin-empty">No ceremony versions exist yet.</p>
+                        <p class="forum-admin-empty">No ceremony versions exist yet.</p>
                         <?php else: ?>
-                            <?php foreach ($versions as $version): ?>
-                                <?php
+                        <?php foreach ($versions as $version): ?>
+                        <?php
                                 $versionId = (int) $version['id'];
                                 $status = (string) $version['status'];
                                 $locked = (int) $version['attempt_count'] > 0;
                                 ?>
-                                <a
-                                    class="sorting-version-item <?= $versionId === $selectedVersionId ? 'is-selected' : ''; ?>"
-                                    href="<?= e(url('admin/sorting-ceremony.php?version=' . $versionId)); ?>"
-                                >
-                                    <div class="sorting-status-row">
-                                        <span class="sorting-status sorting-status-<?= e($status); ?>"><?= e(ucfirst($status)); ?></span>
-                                        <?php if ($locked): ?><span class="sorting-lock">Locked by student history</span><?php endif; ?>
-                                    </div>
-                                    <h3 class="sorting-item-title">Version <?= (int) $version['version_number']; ?> · <?= e((string) $version['name']); ?></h3>
-                                    <p class="sorting-item-meta">
-                                        <?= number_format((int) $version['primary_count']); ?> primary ·
-                                        <?= number_format((int) $version['choosing_count']); ?> Choosing ·
-                                        <?= number_format((int) $version['interlude_count']); ?> interludes ·
-                                        <?= number_format((int) $version['attempt_count']); ?> attempts
-                                    </p>
-                                </a>
-                            <?php endforeach; ?>
+                        <a class="sorting-version-item <?= $versionId === $selectedVersionId ? 'is-selected' : ''; ?>"
+                            href="<?= e(url('admin/sorting-ceremony.php?version=' . $versionId)); ?>">
+                            <div class="sorting-status-row">
+                                <span
+                                    class="sorting-status sorting-status-<?= e($status); ?>"><?= e(ucfirst($status)); ?></span>
+                                <?php if ($locked): ?><span class="sorting-lock">Locked by student
+                                    history</span><?php endif; ?>
+                            </div>
+                            <h3 class="sorting-item-title">Version <?= (int) $version['version_number']; ?> ·
+                                <?= e((string) $version['name']); ?></h3>
+                            <p class="sorting-item-meta">
+                                <?= number_format((int) $version['primary_count']); ?> primary ·
+                                <?= number_format((int) $version['choosing_count']); ?> Choosing ·
+                                <?= number_format((int) $version['interlude_count']); ?> interludes ·
+                                <?= number_format((int) $version['attempt_count']); ?> attempts
+                            </p>
+                        </a>
+                        <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
                 </section>
@@ -1280,18 +1282,21 @@ require INCLUDES_PATH . '/header.php';
                         <h2 id="create-version-heading">Create Ceremony Version</h2>
                         <p>Start a blank editable draft. You can also duplicate an existing version from its editor.</p>
                     </header>
-                    <form method="post" action="<?= e(url('admin/sorting-ceremony.php')); ?>" class="forum-admin-form sorting-card-body">
+                    <form method="post" action="<?= e(url('admin/sorting-ceremony.php')); ?>"
+                        class="forum-admin-form sorting-card-body">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="form_action" value="create_version">
 
                         <div class="form-group">
                             <label for="new-version-name">Version Name</label>
-                            <input id="new-version-name" class="form-control" type="text" name="name" maxlength="150" required placeholder="2027 Sorting Ceremony">
+                            <input id="new-version-name" class="form-control" type="text" name="name" maxlength="150"
+                                required placeholder="2027 Sorting Ceremony">
                         </div>
 
                         <div class="form-group">
                             <label for="new-intro-title">Intro Title</label>
-                            <input id="new-intro-title" class="form-control" type="text" name="intro_title" maxlength="200" placeholder="The Hall Falls Silent">
+                            <input id="new-intro-title" class="form-control" type="text" name="intro_title"
+                                maxlength="200" placeholder="The Hall Falls Silent">
                         </div>
 
                         <div class="form-group">
@@ -1301,7 +1306,8 @@ require INCLUDES_PATH . '/header.php';
 
                         <div class="form-group">
                             <label for="new-reveal-text">Reveal Lead Text</label>
-                            <textarea id="new-reveal-text" class="form-control" name="reveal_lead_text" rows="3"></textarea>
+                            <textarea id="new-reveal-text" class="form-control" name="reveal_lead_text"
+                                rows="3"></textarea>
                         </div>
 
                         <button type="submit" class="button button-primary">Create Draft Version</button>
@@ -1310,150 +1316,170 @@ require INCLUDES_PATH . '/header.php';
             </div>
 
             <?php if ($selectedVersion !== null): ?>
-                <section class="sorting-card" aria-labelledby="selected-version-heading">
-                    <header class="forum-admin-titlebar">
-                        <p class="forum-admin-step">Selected Version</p>
-                        <h2 id="selected-version-heading">
-                            Version <?= (int) $selectedVersion['version_number']; ?> · <?= e((string) $selectedVersion['name']); ?>
-                        </h2>
-                        <div class="sorting-status-row">
-                            <span class="sorting-status sorting-status-<?= e((string) $selectedVersion['status']); ?>">
-                                <?= e(ucfirst((string) $selectedVersion['status'])); ?>
-                            </span>
-                            <?php if ($isSelectedVersionLocked): ?>
-                                <span class="sorting-lock">Locked: <?= number_format((int) $selectedVersion['attempt_count']); ?> student attempt(s)</span>
-                            <?php else: ?>
-                                <span class="sorting-count">Editable: no student attempts yet</span>
-                            <?php endif; ?>
-                        </div>
-                    </header>
-
-                    <div class="sorting-card-body">
+            <section class="sorting-card" aria-labelledby="selected-version-heading">
+                <header class="forum-admin-titlebar">
+                    <p class="forum-admin-step">Selected Version</p>
+                    <h2 id="selected-version-heading">
+                        Version <?= (int) $selectedVersion['version_number']; ?> ·
+                        <?= e((string) $selectedVersion['name']); ?>
+                    </h2>
+                    <div class="sorting-status-row">
+                        <span class="sorting-status sorting-status-<?= e((string) $selectedVersion['status']); ?>">
+                            <?= e(ucfirst((string) $selectedVersion['status'])); ?>
+                        </span>
                         <?php if ($isSelectedVersionLocked): ?>
-                            <div class="form-message">
-                                This ceremony version is historical and cannot be edited because a student attempt exists.
-                                Duplicate it to create a new editable draft.
-                            </div>
+                        <span class="sorting-lock">Locked:
+                            <?= number_format((int) $selectedVersion['attempt_count']); ?> student attempt(s)</span>
+                        <?php else: ?>
+                        <span class="sorting-count">Editable: no student attempts yet</span>
                         <?php endif; ?>
+                    </div>
+                </header>
 
-                        <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" class="forum-admin-form">
-                            <?= csrf_field(); ?>
-                            <input type="hidden" name="form_action" value="update_version">
-                            <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                <div class="sorting-card-body">
+                    <?php if ($isSelectedVersionLocked): ?>
+                    <div class="form-message">
+                        This ceremony version is historical and cannot be edited because a student attempt exists.
+                        Duplicate it to create a new editable draft.
+                    </div>
+                    <?php endif; ?>
 
-                            <div class="sorting-field-grid">
-                                <div class="form-group">
-                                    <label for="version-name">Version Name</label>
-                                    <input id="version-name" class="form-control" type="text" name="name" maxlength="150" required value="<?= e((string) $selectedVersion['name']); ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                </div>
-                                <div class="form-group">
-                                    <label for="version-intro-title">Intro Title</label>
-                                    <input id="version-intro-title" class="form-control" type="text" name="intro_title" maxlength="200" value="<?= e((string) ($selectedVersion['intro_title'] ?? '')); ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                </div>
-                                <div class="form-group is-wide">
-                                    <label for="version-intro-text">Intro Text</label>
-                                    <textarea id="version-intro-text" class="form-control" name="intro_text" rows="4" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) ($selectedVersion['intro_text'] ?? '')); ?></textarea>
-                                </div>
-                                <div class="form-group is-wide">
-                                    <label for="version-reveal-text">Reveal Lead Text</label>
-                                    <textarea id="version-reveal-text" class="form-control" name="reveal_lead_text" rows="3" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) ($selectedVersion['reveal_lead_text'] ?? '')); ?></textarea>
-                                </div>
+                    <form method="post"
+                        action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                        class="forum-admin-form">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="form_action" value="update_version">
+                        <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+
+                        <div class="sorting-field-grid">
+                            <div class="form-group">
+                                <label for="version-name">Version Name</label>
+                                <input id="version-name" class="form-control" type="text" name="name" maxlength="150"
+                                    required value="<?= e((string) $selectedVersion['name']); ?>"
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
                             </div>
+                            <div class="form-group">
+                                <label for="version-intro-title">Intro Title</label>
+                                <input id="version-intro-title" class="form-control" type="text" name="intro_title"
+                                    maxlength="200" value="<?= e((string) ($selectedVersion['intro_title'] ?? '')); ?>"
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                            </div>
+                            <div class="form-group is-wide">
+                                <label for="version-intro-text">Intro Text</label>
+                                <textarea id="version-intro-text" class="form-control" name="intro_text" rows="4"
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) ($selectedVersion['intro_text'] ?? '')); ?></textarea>
+                            </div>
+                            <div class="form-group is-wide">
+                                <label for="version-reveal-text">Reveal Lead Text</label>
+                                <textarea id="version-reveal-text" class="form-control" name="reveal_lead_text" rows="3"
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) ($selectedVersion['reveal_lead_text'] ?? '')); ?></textarea>
+                            </div>
+                        </div>
 
-                            <?php if (!$isSelectedVersionLocked): ?>
-                                <button type="submit" class="button button-primary">Save Version Details</button>
-                            <?php endif; ?>
+                        <?php if (!$isSelectedVersionLocked): ?>
+                        <button type="submit" class="button button-primary">Save Version Details</button>
+                        <?php endif; ?>
+                    </form>
+
+                    <div class="sorting-actions" style="margin-top:1rem;">
+                        <form method="post"
+                            action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="form_action" value="duplicate_version">
+                            <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                            <button type="submit" class="button button-secondary">Duplicate to New Draft</button>
                         </form>
 
-                        <div class="sorting-actions" style="margin-top:1rem;">
-                            <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>">
-                                <?= csrf_field(); ?>
-                                <input type="hidden" name="form_action" value="duplicate_version">
-                                <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                <button type="submit" class="button button-secondary">Duplicate to New Draft</button>
-                            </form>
+                        <?php if ((string) $selectedVersion['status'] === 'draft'): ?>
+                        <form method="post"
+                            action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                            onsubmit="return confirm('Publish this ceremony version? The currently published version will be retired.');">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="form_action" value="publish_version">
+                            <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                            <button type="submit" class="button button-primary">Publish This Version</button>
+                        </form>
+                        <?php endif; ?>
 
-                            <?php if ((string) $selectedVersion['status'] === 'draft'): ?>
-                                <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" onsubmit="return confirm('Publish this ceremony version? The currently published version will be retired.');">
-                                    <?= csrf_field(); ?>
-                                    <input type="hidden" name="form_action" value="publish_version">
-                                    <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                    <button type="submit" class="button button-primary">Publish This Version</button>
-                                </form>
-                            <?php endif; ?>
+                        <?php if ((string) $selectedVersion['status'] === 'draft' && !$isSelectedVersionLocked): ?>
+                        <form method="post" action="<?= e(url('admin/sorting-ceremony.php')); ?>"
+                            onsubmit="return confirm('Permanently delete this unused draft and all of its questions, answers, and interludes?');">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="form_action" value="delete_version">
+                            <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                            <button type="submit" class="button sorting-danger-button">Delete Unused Draft</button>
+                        </form>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </section>
 
-                            <?php if ((string) $selectedVersion['status'] === 'draft' && !$isSelectedVersionLocked): ?>
-                                <form method="post" action="<?= e(url('admin/sorting-ceremony.php')); ?>" onsubmit="return confirm('Permanently delete this unused draft and all of its questions, answers, and interludes?');">
-                                    <?= csrf_field(); ?>
-                                    <input type="hidden" name="form_action" value="delete_version">
-                                    <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                    <button type="submit" class="button sorting-danger-button">Delete Unused Draft</button>
-                                </form>
+            <div class="sorting-content-grid">
+                <div>
+                    <section class="sorting-card" aria-labelledby="questions-heading">
+                        <header class="forum-admin-titlebar">
+                            <p class="forum-admin-step">Primary + The Choosing</p>
+                            <h2 id="questions-heading">Questions</h2>
+                            <p>Primary questions build hidden House scores. Choosing questions resolve ties without
+                                exposing scores to students.</p>
+                        </header>
+                        <div class="sorting-card-body sorting-question-list">
+                            <?php if ($questions === []): ?>
+                            <p class="forum-admin-empty">No questions exist in this version yet.</p>
+                            <?php else: ?>
+                            <?php foreach ($questions as $question): ?>
+                            <?php $questionId = (int) $question['id']; ?>
+                            <a class="sorting-question-item <?= $selectedQuestion !== null && (int) $selectedQuestion['id'] === $questionId ? 'is-selected' : ''; ?>"
+                                href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . $questionId)); ?>">
+                                <div class="sorting-status-row">
+                                    <span
+                                        class="sorting-count"><?= e(ucfirst((string) $question['question_type'])); ?></span>
+                                    <?php if ((string) $question['question_type'] === 'choosing'): ?>
+                                    <span
+                                        class="sorting-count"><?= e(str_replace('_', ' ', (string) $question['choosing_strategy'])); ?></span>
+                                    <?php endif; ?>
+                                    <?php if ((int) $question['is_active'] !== 1): ?><span
+                                        class="sorting-lock">Inactive</span><?php endif; ?>
+                                </div>
+                                <h3 class="sorting-item-title"><?= e((string) $question['question_key']); ?></h3>
+                                <p class="sorting-item-meta">Order <?= (int) $question['sort_order']; ?> ·
+                                    <?= number_format((int) $question['answer_count']); ?> answers</p>
+                            </a>
+                            <?php endforeach; ?>
                             <?php endif; ?>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
-                <div class="sorting-content-grid">
-                    <div>
-                        <section class="sorting-card" aria-labelledby="questions-heading">
-                            <header class="forum-admin-titlebar">
-                                <p class="forum-admin-step">Primary + The Choosing</p>
-                                <h2 id="questions-heading">Questions</h2>
-                                <p>Primary questions build hidden House scores. Choosing questions resolve ties without exposing scores to students.</p>
-                            </header>
-                            <div class="sorting-card-body sorting-question-list">
-                                <?php if ($questions === []): ?>
-                                    <p class="forum-admin-empty">No questions exist in this version yet.</p>
-                                <?php else: ?>
-                                    <?php foreach ($questions as $question): ?>
-                                        <?php $questionId = (int) $question['id']; ?>
-                                        <a
-                                            class="sorting-question-item <?= $selectedQuestion !== null && (int) $selectedQuestion['id'] === $questionId ? 'is-selected' : ''; ?>"
-                                            href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . $questionId)); ?>"
-                                        >
-                                            <div class="sorting-status-row">
-                                                <span class="sorting-count"><?= e(ucfirst((string) $question['question_type'])); ?></span>
-                                                <?php if ((string) $question['question_type'] === 'choosing'): ?>
-                                                    <span class="sorting-count"><?= e(str_replace('_', ' ', (string) $question['choosing_strategy'])); ?></span>
-                                                <?php endif; ?>
-                                                <?php if ((int) $question['is_active'] !== 1): ?><span class="sorting-lock">Inactive</span><?php endif; ?>
-                                            </div>
-                                            <h3 class="sorting-item-title"><?= e((string) $question['question_key']); ?></h3>
-                                            <p class="sorting-item-meta">Order <?= (int) $question['sort_order']; ?> · <?= number_format((int) $question['answer_count']); ?> answers</p>
-                                        </a>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
-                        </section>
+                    <section class="sorting-card" aria-labelledby="interludes-heading">
+                        <header class="forum-admin-titlebar">
+                            <p class="forum-admin-step">Atmosphere</p>
+                            <h2 id="interludes-heading">Magical Interludes</h2>
+                            <p>Interludes appear after configured primary questions and can use fade, reveal, glow, or
+                                whisper animation.</p>
+                        </header>
+                        <div class="sorting-card-body sorting-interlude-list">
+                            <?php if ($interludes === []): ?>
+                            <p class="forum-admin-empty">No interludes exist in this version.</p>
+                            <?php else: ?>
+                            <?php foreach ($interludes as $interlude): ?>
+                            <?php $interludeId = (int) $interlude['id']; ?>
+                            <a class="sorting-interlude-item <?= $selectedInterlude !== null && (int) $selectedInterlude['id'] === $interludeId ? 'is-selected' : ''; ?>"
+                                href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&interlude=' . $interludeId)); ?>">
+                                <h3 class="sorting-item-title">
+                                    <?= e((string) ($interlude['title'] ?: 'Untitled Interlude')); ?></h3>
+                                <p class="sorting-item-meta">After primary question
+                                    <?= (int) $interlude['after_primary_question_number']; ?> ·
+                                    <?= e(ucfirst((string) $interlude['animation_style'])); ?><?= (int) $interlude['is_active'] === 1 ? '' : ' · Inactive'; ?>
+                                </p>
+                            </a>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
+                        </div>
+                    </section>
+                </div>
 
-                        <section class="sorting-card" aria-labelledby="interludes-heading">
-                            <header class="forum-admin-titlebar">
-                                <p class="forum-admin-step">Atmosphere</p>
-                                <h2 id="interludes-heading">Magical Interludes</h2>
-                                <p>Interludes appear after configured primary questions and can use fade, reveal, glow, or whisper animation.</p>
-                            </header>
-                            <div class="sorting-card-body sorting-interlude-list">
-                                <?php if ($interludes === []): ?>
-                                    <p class="forum-admin-empty">No interludes exist in this version.</p>
-                                <?php else: ?>
-                                    <?php foreach ($interludes as $interlude): ?>
-                                        <?php $interludeId = (int) $interlude['id']; ?>
-                                        <a
-                                            class="sorting-interlude-item <?= $selectedInterlude !== null && (int) $selectedInterlude['id'] === $interludeId ? 'is-selected' : ''; ?>"
-                                            href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&interlude=' . $interludeId)); ?>"
-                                        >
-                                            <h3 class="sorting-item-title"><?= e((string) ($interlude['title'] ?: 'Untitled Interlude')); ?></h3>
-                                            <p class="sorting-item-meta">After primary question <?= (int) $interlude['after_primary_question_number']; ?> · <?= e(ucfirst((string) $interlude['animation_style'])); ?><?= (int) $interlude['is_active'] === 1 ? '' : ' · Inactive'; ?></p>
-                                        </a>
-                                    <?php endforeach; ?>
-                                <?php endif; ?>
-                            </div>
-                        </section>
-                    </div>
-
-                    <div>
-                        <?php
+                <div>
+                    <?php
                         $questionForm = $selectedQuestion ?? [
                             'id' => 0,
                             'question_key' => '',
@@ -1467,226 +1493,296 @@ require INCLUDES_PATH . '/header.php';
                             'is_active' => 1,
                         ];
                         ?>
-                        <section class="sorting-card" aria-labelledby="question-editor-heading">
-                            <header class="forum-admin-titlebar">
-                                <p class="forum-admin-step"><?= $selectedQuestion !== null ? 'Edit Question' : 'New Question'; ?></p>
-                                <h2 id="question-editor-heading"><?= $selectedQuestion !== null ? e((string) $selectedQuestion['question_key']) : 'Add Question'; ?></h2>
-                            </header>
-                            <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" class="forum-admin-form sorting-card-body">
+                    <section class="sorting-card" aria-labelledby="question-editor-heading">
+                        <header class="forum-admin-titlebar">
+                            <p class="forum-admin-step">
+                                <?= $selectedQuestion !== null ? 'Edit Question' : 'New Question'; ?></p>
+                            <h2 id="question-editor-heading">
+                                <?= $selectedQuestion !== null ? e((string) $selectedQuestion['question_key']) : 'Add Question'; ?>
+                            </h2>
+                        </header>
+                        <form method="post"
+                            action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                            class="forum-admin-form sorting-card-body">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="form_action" value="save_question">
+                            <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                            <input type="hidden" name="question_id" value="<?= (int) $questionForm['id']; ?>">
+
+                            <div class="form-group">
+                                <label for="question-key">Question Key</label>
+                                <input id="question-key" class="form-control" type="text" name="question_key"
+                                    maxlength="100" required value="<?= e((string) $questionForm['question_key']); ?>"
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                <p class="form-help">Internal unique key for this version, such as
+                                    <code>primary_01</code> or <code>choose_nightbriar_grimwood</code>.
+                                </p>
+                            </div>
+
+                            <div class="sorting-field-grid">
+                                <div class="form-group">
+                                    <label for="question-type">Question Type</label>
+                                    <select id="question-type" class="form-control" name="question_type"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                        <option value="primary"
+                                            <?= (string) $questionForm['question_type'] === 'primary' ? 'selected' : ''; ?>>
+                                            Primary</option>
+                                        <option value="choosing"
+                                            <?= (string) $questionForm['question_type'] === 'choosing' ? 'selected' : ''; ?>>
+                                            Choosing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="choosing-strategy">Choosing Strategy</label>
+                                    <select id="choosing-strategy" class="form-control" name="choosing_strategy"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                        <option value="none"
+                                            <?= (string) $questionForm['choosing_strategy'] === 'none' ? 'selected' : ''; ?>>
+                                            None / Primary</option>
+                                        <option value="exact_set"
+                                            <?= (string) $questionForm['choosing_strategy'] === 'exact_set' ? 'selected' : ''; ?>>
+                                            Exact House Set</option>
+                                        <option value="tied_set"
+                                            <?= (string) $questionForm['choosing_strategy'] === 'tied_set' ? 'selected' : ''; ?>>
+                                            Tied House Count</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="question-prompt">Prompt</label>
+                                <textarea id="question-prompt" class="form-control" name="prompt" rows="5" required
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) $questionForm['prompt']); ?></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="question-prelude">Prelude Text</label>
+                                <textarea id="question-prelude" class="form-control" name="prelude_text" rows="3"
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) ($questionForm['prelude_text'] ?? '')); ?></textarea>
+                            </div>
+
+                            <div class="sorting-field-grid">
+                                <div class="form-group">
+                                    <label for="min-tied">Minimum Tied Houses</label>
+                                    <input id="min-tied" class="form-control" type="number" min="2" max="4"
+                                        name="min_tied_houses"
+                                        value="<?= e((string) ($questionForm['min_tied_houses'] ?? '')); ?>"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                </div>
+                                <div class="form-group">
+                                    <label for="max-tied">Maximum Tied Houses</label>
+                                    <input id="max-tied" class="form-control" type="number" min="2" max="4"
+                                        name="max_tied_houses"
+                                        value="<?= e((string) ($questionForm['max_tied_houses'] ?? '')); ?>"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                </div>
+                            </div>
+
+                            <fieldset class="forum-admin-fieldset">
+                                <legend>Exact House Set</legend>
+                                <p class="form-help">Used only for pair-specific or other exact-set Choosing questions.
+                                </p>
+                                <div class="sorting-house-options">
+                                    <?php foreach ($houses as $house): ?>
+                                    <?php $houseId = (int) $house['id']; ?>
+                                    <label class="sorting-house-choice">
+                                        <input type="checkbox" name="house_ids[]" value="<?= $houseId; ?>"
+                                            <?= in_array($houseId, $selectedQuestionHouseIds, true) ? 'checked' : ''; ?>
+                                            <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                        <span class="sorting-house-dot"
+                                            style="background:<?= e((string) ($house['display_color'] ?: '#c9ab68')); ?>;"></span>
+                                        <span><?= e((string) ($house['display_name'] ?: $house['name'])); ?></span>
+                                    </label>
+                                    <?php endforeach; ?>
+                                </div>
+                            </fieldset>
+
+                            <div class="sorting-field-grid">
+                                <div class="form-group">
+                                    <label for="question-sort-order">Sort Order</label>
+                                    <input id="question-sort-order" class="form-control" type="number" min="0"
+                                        name="sort_order" value="<?= (int) $questionForm['sort_order']; ?>"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                </div>
+                                <div class="form-group">
+                                    <label for="question-active">Status</label>
+                                    <select id="question-active" class="form-control" name="is_active"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                        <option value="1"
+                                            <?= (int) $questionForm['is_active'] === 1 ? 'selected' : ''; ?>>Active
+                                        </option>
+                                        <option value="0"
+                                            <?= (int) $questionForm['is_active'] !== 1 ? 'selected' : ''; ?>>Inactive
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <?php if (!$isSelectedVersionLocked): ?>
+                            <div class="sorting-actions">
+                                <button type="submit"
+                                    class="button button-primary"><?= $selectedQuestion !== null ? 'Save Question' : 'Create Question'; ?></button>
+                                <?php if ($selectedQuestion !== null): ?>
+                                <a href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                                    class="button button-secondary">Add Another</a>
+                                <?php endif; ?>
+                            </div>
+                            <?php endif; ?>
+                        </form>
+
+                        <?php if ($selectedQuestion !== null && !$isSelectedVersionLocked): ?>
+                        <div class="sorting-card-body" style="padding-top:0;">
+                            <form method="post"
+                                action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                                onsubmit="return confirm('Delete this question and all of its answers?');">
                                 <?= csrf_field(); ?>
-                                <input type="hidden" name="form_action" value="save_question">
+                                <input type="hidden" name="form_action" value="delete_question">
                                 <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                <input type="hidden" name="question_id" value="<?= (int) $questionForm['id']; ?>">
+                                <input type="hidden" name="question_id" value="<?= (int) $selectedQuestion['id']; ?>">
+                                <button type="submit" class="button sorting-danger-button">Delete Question</button>
+                            </form>
+                        </div>
+                        <?php endif; ?>
+                    </section>
 
-                                <div class="form-group">
-                                    <label for="question-key">Question Key</label>
-                                    <input id="question-key" class="form-control" type="text" name="question_key" maxlength="100" required value="<?= e((string) $questionForm['question_key']); ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                    <p class="form-help">Internal unique key for this version, such as <code>primary_01</code> or <code>choose_nightbriar_grimwood</code>.</p>
+                    <?php if ($selectedQuestion !== null): ?>
+                    <section class="sorting-card" aria-labelledby="answers-heading">
+                        <header class="forum-admin-titlebar">
+                            <p class="forum-admin-step">Hidden Mapping</p>
+                            <h2 id="answers-heading">Answers</h2>
+                            <p>Students see only answer text. The House assignment remains hidden and powers scoring or
+                                Choosing.</p>
+                        </header>
+                        <div class="sorting-card-body sorting-answer-list">
+                            <?php foreach ($selectedQuestionAnswers as $answer): ?>
+                            <div class="sorting-answer-item">
+                                <div class="sorting-status-row">
+                                    <span class="sorting-count">
+                                        <span class="sorting-house-dot"
+                                            style="background:<?= e((string) ($answer['house_display_color'] ?: '#c9ab68')); ?>;"></span>
+                                        <?= e((string) ($answer['house_display_name'] ?: $answer['house_name'])); ?>
+                                    </span>
+                                    <span class="sorting-count">Order <?= (int) $answer['sort_order']; ?></span>
+                                    <?php if ((int) $answer['is_active'] !== 1): ?><span
+                                        class="sorting-lock">Inactive</span><?php endif; ?>
                                 </div>
-
-                                <div class="sorting-field-grid">
-                                    <div class="form-group">
-                                        <label for="question-type">Question Type</label>
-                                        <select id="question-type" class="form-control" name="question_type" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                            <option value="primary" <?= (string) $questionForm['question_type'] === 'primary' ? 'selected' : ''; ?>>Primary</option>
-                                            <option value="choosing" <?= (string) $questionForm['question_type'] === 'choosing' ? 'selected' : ''; ?>>Choosing</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="choosing-strategy">Choosing Strategy</label>
-                                        <select id="choosing-strategy" class="form-control" name="choosing_strategy" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                            <option value="none" <?= (string) $questionForm['choosing_strategy'] === 'none' ? 'selected' : ''; ?>>None / Primary</option>
-                                            <option value="exact_set" <?= (string) $questionForm['choosing_strategy'] === 'exact_set' ? 'selected' : ''; ?>>Exact House Set</option>
-                                            <option value="tied_set" <?= (string) $questionForm['choosing_strategy'] === 'tied_set' ? 'selected' : ''; ?>>Tied House Count</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="question-prompt">Prompt</label>
-                                    <textarea id="question-prompt" class="form-control" name="prompt" rows="5" required <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) $questionForm['prompt']); ?></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="question-prelude">Prelude Text</label>
-                                    <textarea id="question-prelude" class="form-control" name="prelude_text" rows="3" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) ($questionForm['prelude_text'] ?? '')); ?></textarea>
-                                </div>
-
-                                <div class="sorting-field-grid">
-                                    <div class="form-group">
-                                        <label for="min-tied">Minimum Tied Houses</label>
-                                        <input id="min-tied" class="form-control" type="number" min="2" max="4" name="min_tied_houses" value="<?= e((string) ($questionForm['min_tied_houses'] ?? '')); ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="max-tied">Maximum Tied Houses</label>
-                                        <input id="max-tied" class="form-control" type="number" min="2" max="4" name="max_tied_houses" value="<?= e((string) ($questionForm['max_tied_houses'] ?? '')); ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                    </div>
-                                </div>
-
-                                <fieldset class="forum-admin-fieldset">
-                                    <legend>Exact House Set</legend>
-                                    <p class="form-help">Used only for pair-specific or other exact-set Choosing questions.</p>
-                                    <div class="sorting-house-options">
-                                        <?php foreach ($houses as $house): ?>
-                                            <?php $houseId = (int) $house['id']; ?>
-                                            <label class="sorting-house-choice">
-                                                <input type="checkbox" name="house_ids[]" value="<?= $houseId; ?>" <?= in_array($houseId, $selectedQuestionHouseIds, true) ? 'checked' : ''; ?> <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                                <span class="sorting-house-dot" style="background:<?= e((string) ($house['display_color'] ?: '#c9ab68')); ?>;"></span>
-                                                <span><?= e((string) ($house['display_name'] ?: $house['name'])); ?></span>
-                                            </label>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </fieldset>
-
-                                <div class="sorting-field-grid">
-                                    <div class="form-group">
-                                        <label for="question-sort-order">Sort Order</label>
-                                        <input id="question-sort-order" class="form-control" type="number" min="0" name="sort_order" value="<?= (int) $questionForm['sort_order']; ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="question-active">Status</label>
-                                        <select id="question-active" class="form-control" name="is_active" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                            <option value="1" <?= (int) $questionForm['is_active'] === 1 ? 'selected' : ''; ?>>Active</option>
-                                            <option value="0" <?= (int) $questionForm['is_active'] !== 1 ? 'selected' : ''; ?>>Inactive</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <p><?= e((string) $answer['answer_text']); ?></p>
 
                                 <?php if (!$isSelectedVersionLocked): ?>
-                                    <div class="sorting-actions">
-                                        <button type="submit" class="button button-primary"><?= $selectedQuestion !== null ? 'Save Question' : 'Create Question'; ?></button>
-                                        <?php if ($selectedQuestion !== null): ?>
-                                            <a href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" class="button button-secondary">Add Another</a>
-                                        <?php endif; ?>
-                                    </div>
-                                <?php endif; ?>
-                            </form>
-
-                            <?php if ($selectedQuestion !== null && !$isSelectedVersionLocked): ?>
-                                <div class="sorting-card-body" style="padding-top:0;">
-                                    <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" onsubmit="return confirm('Delete this question and all of its answers?');">
+                                <details class="sorting-answer-edit">
+                                    <summary>Edit answer</summary>
+                                    <form method="post"
+                                        action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . (int) $selectedQuestion['id'])); ?>"
+                                        class="forum-admin-form" style="margin-top:.8rem;">
                                         <?= csrf_field(); ?>
-                                        <input type="hidden" name="form_action" value="delete_question">
+                                        <input type="hidden" name="form_action" value="save_answer">
                                         <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                        <input type="hidden" name="question_id" value="<?= (int) $selectedQuestion['id']; ?>">
-                                        <button type="submit" class="button sorting-danger-button">Delete Question</button>
-                                    </form>
-                                </div>
-                            <?php endif; ?>
-                        </section>
-
-                        <?php if ($selectedQuestion !== null): ?>
-                            <section class="sorting-card" aria-labelledby="answers-heading">
-                                <header class="forum-admin-titlebar">
-                                    <p class="forum-admin-step">Hidden Mapping</p>
-                                    <h2 id="answers-heading">Answers</h2>
-                                    <p>Students see only answer text. The House assignment remains hidden and powers scoring or Choosing.</p>
-                                </header>
-                                <div class="sorting-card-body sorting-answer-list">
-                                    <?php foreach ($selectedQuestionAnswers as $answer): ?>
-                                        <div class="sorting-answer-item">
-                                            <div class="sorting-status-row">
-                                                <span class="sorting-count">
-                                                    <span class="sorting-house-dot" style="background:<?= e((string) ($answer['house_display_color'] ?: '#c9ab68')); ?>;"></span>
-                                                    <?= e((string) ($answer['house_display_name'] ?: $answer['house_name'])); ?>
-                                                </span>
-                                                <span class="sorting-count">Order <?= (int) $answer['sort_order']; ?></span>
-                                                <?php if ((int) $answer['is_active'] !== 1): ?><span class="sorting-lock">Inactive</span><?php endif; ?>
-                                            </div>
-                                            <p><?= e((string) $answer['answer_text']); ?></p>
-
-                                            <?php if (!$isSelectedVersionLocked): ?>
-                                                <details class="sorting-answer-edit">
-                                                    <summary>Edit answer</summary>
-                                                    <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . (int) $selectedQuestion['id'])); ?>" class="forum-admin-form" style="margin-top:.8rem;">
-                                                        <?= csrf_field(); ?>
-                                                        <input type="hidden" name="form_action" value="save_answer">
-                                                        <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                                        <input type="hidden" name="question_id" value="<?= (int) $selectedQuestion['id']; ?>">
-                                                        <input type="hidden" name="answer_id" value="<?= (int) $answer['id']; ?>">
-                                                        <div class="form-group">
-                                                            <label>Answer Text</label>
-                                                            <textarea class="form-control" name="answer_text" rows="3" required><?= e((string) $answer['answer_text']); ?></textarea>
-                                                        </div>
-                                                        <div class="sorting-field-grid">
-                                                            <div class="form-group">
-                                                                <label>House</label>
-                                                                <select class="form-control" name="house_id" required>
-                                                                    <?php foreach ($houses as $house): ?>
-                                                                        <option value="<?= (int) $house['id']; ?>" <?= (int) $house['id'] === (int) $answer['house_id'] ? 'selected' : ''; ?>><?= e((string) ($house['display_name'] ?: $house['name'])); ?></option>
-                                                                    <?php endforeach; ?>
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Sort Order</label>
-                                                                <input class="form-control" type="number" min="0" name="answer_sort_order" value="<?= (int) $answer['sort_order']; ?>">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>Status</label>
-                                                                <select class="form-control" name="answer_is_active">
-                                                                    <option value="1" <?= (int) $answer['is_active'] === 1 ? 'selected' : ''; ?>>Active</option>
-                                                                    <option value="0" <?= (int) $answer['is_active'] !== 1 ? 'selected' : ''; ?>>Inactive</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="sorting-actions">
-                                                            <button type="submit" class="button button-primary">Save Answer</button>
-                                                        </div>
-                                                    </form>
-                                                    <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . (int) $selectedQuestion['id'])); ?>" onsubmit="return confirm('Delete this answer?');" style="margin-top:.6rem;">
-                                                        <?= csrf_field(); ?>
-                                                        <input type="hidden" name="form_action" value="delete_answer">
-                                                        <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                                        <input type="hidden" name="question_id" value="<?= (int) $selectedQuestion['id']; ?>">
-                                                        <input type="hidden" name="answer_id" value="<?= (int) $answer['id']; ?>">
-                                                        <button type="submit" class="button sorting-danger-button">Delete Answer</button>
-                                                    </form>
-                                                </details>
-                                            <?php endif; ?>
+                                        <input type="hidden" name="question_id"
+                                            value="<?= (int) $selectedQuestion['id']; ?>">
+                                        <input type="hidden" name="answer_id" value="<?= (int) $answer['id']; ?>">
+                                        <div class="form-group">
+                                            <label>Answer Text</label>
+                                            <textarea class="form-control" name="answer_text" rows="3"
+                                                required><?= e((string) $answer['answer_text']); ?></textarea>
                                         </div>
-                                    <?php endforeach; ?>
-
-                                    <?php if (!$isSelectedVersionLocked): ?>
-                                        <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . (int) $selectedQuestion['id'])); ?>" class="forum-admin-form sorting-answer-item">
-                                            <?= csrf_field(); ?>
-                                            <input type="hidden" name="form_action" value="save_answer">
-                                            <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                            <input type="hidden" name="question_id" value="<?= (int) $selectedQuestion['id']; ?>">
-                                            <input type="hidden" name="answer_id" value="0">
+                                        <div class="sorting-field-grid">
                                             <div class="form-group">
-                                                <label for="new-answer-text">Add Answer</label>
-                                                <textarea id="new-answer-text" class="form-control" name="answer_text" rows="3" required></textarea>
+                                                <label>House</label>
+                                                <select class="form-control" name="house_id" required>
+                                                    <?php foreach ($houses as $house): ?>
+                                                    <option value="<?= (int) $house['id']; ?>"
+                                                        <?= (int) $house['id'] === (int) $answer['house_id'] ? 'selected' : ''; ?>>
+                                                        <?= e((string) ($house['display_name'] ?: $house['name'])); ?>
+                                                    </option>
+                                                    <?php endforeach; ?>
+                                                </select>
                                             </div>
-                                            <div class="sorting-field-grid">
-                                                <div class="form-group">
-                                                    <label for="new-answer-house">Hidden House</label>
-                                                    <select id="new-answer-house" class="form-control" name="house_id" required>
-                                                        <option value="">Choose House</option>
-                                                        <?php foreach ($houses as $house): ?>
-                                                            <option value="<?= (int) $house['id']; ?>"><?= e((string) ($house['display_name'] ?: $house['name'])); ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="new-answer-order">Sort Order</label>
-                                                    <input id="new-answer-order" class="form-control" type="number" min="0" name="answer_sort_order" value="<?= count($selectedQuestionAnswers) * 10 + 10; ?>">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="new-answer-active">Status</label>
-                                                    <select id="new-answer-active" class="form-control" name="answer_is_active">
-                                                        <option value="1">Active</option>
-                                                        <option value="0">Inactive</option>
-                                                    </select>
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Sort Order</label>
+                                                <input class="form-control" type="number" min="0"
+                                                    name="answer_sort_order"
+                                                    value="<?= (int) $answer['sort_order']; ?>">
                                             </div>
-                                            <button type="submit" class="button button-primary">Add Answer</button>
-                                        </form>
-                                    <?php endif; ?>
-                                </div>
-                            </section>
-                        <?php endif; ?>
+                                            <div class="form-group">
+                                                <label>Status</label>
+                                                <select class="form-control" name="answer_is_active">
+                                                    <option value="1"
+                                                        <?= (int) $answer['is_active'] === 1 ? 'selected' : ''; ?>>
+                                                        Active</option>
+                                                    <option value="0"
+                                                        <?= (int) $answer['is_active'] !== 1 ? 'selected' : ''; ?>>
+                                                        Inactive</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="sorting-actions">
+                                            <button type="submit" class="button button-primary">Save Answer</button>
+                                        </div>
+                                    </form>
+                                    <form method="post"
+                                        action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . (int) $selectedQuestion['id'])); ?>"
+                                        onsubmit="return confirm('Delete this answer?');" style="margin-top:.6rem;">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="form_action" value="delete_answer">
+                                        <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                                        <input type="hidden" name="question_id"
+                                            value="<?= (int) $selectedQuestion['id']; ?>">
+                                        <input type="hidden" name="answer_id" value="<?= (int) $answer['id']; ?>">
+                                        <button type="submit" class="button sorting-danger-button">Delete
+                                            Answer</button>
+                                    </form>
+                                </details>
+                                <?php endif; ?>
+                            </div>
+                            <?php endforeach; ?>
 
-                        <?php
+                            <?php if (!$isSelectedVersionLocked): ?>
+                            <form method="post"
+                                action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId . '&question=' . (int) $selectedQuestion['id'])); ?>"
+                                class="forum-admin-form sorting-answer-item">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="form_action" value="save_answer">
+                                <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                                <input type="hidden" name="question_id" value="<?= (int) $selectedQuestion['id']; ?>">
+                                <input type="hidden" name="answer_id" value="0">
+                                <div class="form-group">
+                                    <label for="new-answer-text">Add Answer</label>
+                                    <textarea id="new-answer-text" class="form-control" name="answer_text" rows="3"
+                                        required></textarea>
+                                </div>
+                                <div class="sorting-field-grid">
+                                    <div class="form-group">
+                                        <label for="new-answer-house">Hidden House</label>
+                                        <select id="new-answer-house" class="form-control" name="house_id" required>
+                                            <option value="">Choose House</option>
+                                            <?php foreach ($houses as $house): ?>
+                                            <option value="<?= (int) $house['id']; ?>">
+                                                <?= e((string) ($house['display_name'] ?: $house['name'])); ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-answer-order">Sort Order</label>
+                                        <input id="new-answer-order" class="form-control" type="number" min="0"
+                                            name="answer_sort_order"
+                                            value="<?= count($selectedQuestionAnswers) * 10 + 10; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="new-answer-active">Status</label>
+                                        <select id="new-answer-active" class="form-control" name="answer_is_active">
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="button button-primary">Add Answer</button>
+                            </form>
+                            <?php endif; ?>
+                        </div>
+                    </section>
+                    <?php endif; ?>
+
+                    <?php
                         $interludeForm = $selectedInterlude ?? [
                             'id' => 0,
                             'after_primary_question_number' => 4,
@@ -1697,168 +1793,194 @@ require INCLUDES_PATH . '/header.php';
                             'is_active' => 1,
                         ];
                         ?>
-                        <section class="sorting-card" aria-labelledby="interlude-editor-heading">
-                            <header class="forum-admin-titlebar">
-                                <p class="forum-admin-step"><?= $selectedInterlude !== null ? 'Edit Interlude' : 'New Interlude'; ?></p>
-                                <h2 id="interlude-editor-heading"><?= $selectedInterlude !== null ? e((string) ($selectedInterlude['title'] ?: 'Untitled Interlude')) : 'Add Magical Interlude'; ?></h2>
-                            </header>
-                            <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" class="forum-admin-form sorting-card-body">
-                                <?= csrf_field(); ?>
-                                <input type="hidden" name="form_action" value="save_interlude">
-                                <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                <input type="hidden" name="interlude_id" value="<?= (int) $interludeForm['id']; ?>">
+                    <section class="sorting-card" aria-labelledby="interlude-editor-heading">
+                        <header class="forum-admin-titlebar">
+                            <p class="forum-admin-step">
+                                <?= $selectedInterlude !== null ? 'Edit Interlude' : 'New Interlude'; ?></p>
+                            <h2 id="interlude-editor-heading">
+                                <?= $selectedInterlude !== null ? e((string) ($selectedInterlude['title'] ?: 'Untitled Interlude')) : 'Add Magical Interlude'; ?>
+                            </h2>
+                        </header>
+                        <form method="post"
+                            action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                            class="forum-admin-form sorting-card-body">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="form_action" value="save_interlude">
+                            <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                            <input type="hidden" name="interlude_id" value="<?= (int) $interludeForm['id']; ?>">
 
-                                <div class="sorting-field-grid">
-                                    <div class="form-group">
-                                        <label for="interlude-after">After Primary Question #</label>
-                                        <input id="interlude-after" class="form-control" type="number" min="1" name="after_primary_question_number" value="<?= (int) $interludeForm['after_primary_question_number']; ?>" required <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="interlude-animation">Animation</label>
-                                        <select id="interlude-animation" class="form-control" name="animation_style" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                            <?php foreach (['fade', 'reveal', 'glow', 'whisper'] as $animation): ?>
-                                                <option value="<?= e($animation); ?>" <?= (string) $interludeForm['animation_style'] === $animation ? 'selected' : ''; ?>><?= e(ucfirst($animation)); ?></option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
-                                </div>
-
+                            <div class="sorting-field-grid">
                                 <div class="form-group">
-                                    <label for="interlude-title">Title</label>
-                                    <input id="interlude-title" class="form-control" type="text" name="interlude_title" maxlength="200" value="<?= e((string) ($interludeForm['title'] ?? '')); ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                    <label for="interlude-after">After Primary Question #</label>
+                                    <input id="interlude-after" class="form-control" type="number" min="1"
+                                        name="after_primary_question_number"
+                                        value="<?= (int) $interludeForm['after_primary_question_number']; ?>" required
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
                                 </div>
-
                                 <div class="form-group">
-                                    <label for="interlude-body">Interlude Text</label>
-                                    <textarea id="interlude-body" class="form-control" name="body_text" rows="5" required <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) $interludeForm['body_text']); ?></textarea>
+                                    <label for="interlude-animation">Animation</label>
+                                    <select id="interlude-animation" class="form-control" name="animation_style"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                        <?php foreach (['fade', 'reveal', 'glow', 'whisper'] as $animation): ?>
+                                        <option value="<?= e($animation); ?>"
+                                            <?= (string) $interludeForm['animation_style'] === $animation ? 'selected' : ''; ?>>
+                                            <?= e(ucfirst($animation)); ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="sorting-field-grid">
-                                    <div class="form-group">
-                                        <label for="interlude-order">Sort Order</label>
-                                        <input id="interlude-order" class="form-control" type="number" min="0" name="interlude_sort_order" value="<?= (int) $interludeForm['sort_order']; ?>" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="interlude-active">Status</label>
-                                        <select id="interlude-active" class="form-control" name="interlude_is_active" <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
-                                            <option value="1" <?= (int) $interludeForm['is_active'] === 1 ? 'selected' : ''; ?>>Active</option>
-                                            <option value="0" <?= (int) $interludeForm['is_active'] !== 1 ? 'selected' : ''; ?>>Inactive</option>
-                                        </select>
-                                    </div>
+                            <div class="form-group">
+                                <label for="interlude-title">Title</label>
+                                <input id="interlude-title" class="form-control" type="text" name="interlude_title"
+                                    maxlength="200" value="<?= e((string) ($interludeForm['title'] ?? '')); ?>"
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="interlude-body">Interlude Text</label>
+                                <textarea id="interlude-body" class="form-control" name="body_text" rows="5" required
+                                    <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>><?= e((string) $interludeForm['body_text']); ?></textarea>
+                            </div>
+
+                            <div class="sorting-field-grid">
+                                <div class="form-group">
+                                    <label for="interlude-order">Sort Order</label>
+                                    <input id="interlude-order" class="form-control" type="number" min="0"
+                                        name="interlude_sort_order" value="<?= (int) $interludeForm['sort_order']; ?>"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
                                 </div>
+                                <div class="form-group">
+                                    <label for="interlude-active">Status</label>
+                                    <select id="interlude-active" class="form-control" name="interlude_is_active"
+                                        <?= $isSelectedVersionLocked ? 'disabled' : ''; ?>>
+                                        <option value="1"
+                                            <?= (int) $interludeForm['is_active'] === 1 ? 'selected' : ''; ?>>Active
+                                        </option>
+                                        <option value="0"
+                                            <?= (int) $interludeForm['is_active'] !== 1 ? 'selected' : ''; ?>>Inactive
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
 
-                                <?php if (!$isSelectedVersionLocked): ?>
-                                    <div class="sorting-actions">
-                                        <button type="submit" class="button button-primary"><?= $selectedInterlude !== null ? 'Save Interlude' : 'Create Interlude'; ?></button>
-                                        <?php if ($selectedInterlude !== null): ?>
-                                            <a href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" class="button button-secondary">Add Another</a>
-                                        <?php endif; ?>
-                                    </div>
+                            <?php if (!$isSelectedVersionLocked): ?>
+                            <div class="sorting-actions">
+                                <button type="submit"
+                                    class="button button-primary"><?= $selectedInterlude !== null ? 'Save Interlude' : 'Create Interlude'; ?></button>
+                                <?php if ($selectedInterlude !== null): ?>
+                                <a href="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                                    class="button button-secondary">Add Another</a>
                                 <?php endif; ?>
-                            </form>
-
-                            <?php if ($selectedInterlude !== null && !$isSelectedVersionLocked): ?>
-                                <div class="sorting-card-body" style="padding-top:0;">
-                                    <form method="post" action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>" onsubmit="return confirm('Delete this interlude?');">
-                                        <?= csrf_field(); ?>
-                                        <input type="hidden" name="form_action" value="delete_interlude">
-                                        <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
-                                        <input type="hidden" name="interlude_id" value="<?= (int) $selectedInterlude['id']; ?>">
-                                        <button type="submit" class="button sorting-danger-button">Delete Interlude</button>
-                                    </form>
-                                </div>
+                            </div>
                             <?php endif; ?>
-                        </section>
-                    </div>
+                        </form>
+
+                        <?php if ($selectedInterlude !== null && !$isSelectedVersionLocked): ?>
+                        <div class="sorting-card-body" style="padding-top:0;">
+                            <form method="post"
+                                action="<?= e(url('admin/sorting-ceremony.php?version=' . $selectedVersionId)); ?>"
+                                onsubmit="return confirm('Delete this interlude?');">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="form_action" value="delete_interlude">
+                                <input type="hidden" name="version_id" value="<?= $selectedVersionId; ?>">
+                                <input type="hidden" name="interlude_id" value="<?= (int) $selectedInterlude['id']; ?>">
+                                <button type="submit" class="button sorting-danger-button">Delete Interlude</button>
+                            </form>
+                        </div>
+                        <?php endif; ?>
+                    </section>
                 </div>
+            </div>
             <?php endif; ?>
         </div>
     </section>
 </main>
 
 <script>
-(() => {
-    const storageKey = 'blackthorne:sorting-admin-scroll';
-    const currentPath = window.location.pathname;
+    (() => {
+        const storageKey = 'blackthorne:sorting-admin-scroll';
+        const currentPath = window.location.pathname;
 
-    function rememberScrollPosition() {
-        try {
-            sessionStorage.setItem(storageKey, JSON.stringify({
-                path: currentPath,
-                y: window.scrollY,
-                savedAt: Date.now()
-            }));
-        } catch (error) {
-            // Scroll preservation is a convenience only; never block an admin action.
-        }
-    }
-
-    document.addEventListener('click', (event) => {
-        const link = event.target.closest('a[href]');
-
-        if (!link) {
-            return;
+        function rememberScrollPosition() {
+            try {
+                sessionStorage.setItem(storageKey, JSON.stringify({
+                    path: currentPath,
+                    y: window.scrollY,
+                    savedAt: Date.now()
+                }));
+            } catch (error) {
+                // Scroll preservation is a convenience only; never block an admin action.
+            }
         }
 
-        try {
-            const destination = new URL(link.href, window.location.href);
+        document.addEventListener('click', (event) => {
+            const link = event.target.closest('a[href]');
 
-            if (destination.origin === window.location.origin && destination.pathname === currentPath) {
+            if (!link) {
+                return;
+            }
+
+            try {
+                const destination = new URL(link.href, window.location.href);
+
+                if (destination.origin === window.location.origin && destination.pathname === currentPath) {
+                    rememberScrollPosition();
+                }
+            } catch (error) {
+                // Ignore malformed/non-standard links.
+            }
+        });
+
+        document.addEventListener('submit', (event) => {
+            const form = event.target;
+
+            if (!(form instanceof HTMLFormElement)) {
+                return;
+            }
+
+            try {
+                const destination = new URL(form.action || window.location.href, window.location.href);
+
+                if (destination.origin === window.location.origin && destination.pathname === currentPath) {
+                    rememberScrollPosition();
+                }
+            } catch (error) {
                 rememberScrollPosition();
             }
-        } catch (error) {
-            // Ignore malformed/non-standard links.
-        }
-    });
+        });
 
-    document.addEventListener('submit', (event) => {
-        const form = event.target;
+        window.addEventListener('pageshow', () => {
+            let saved = null;
 
-        if (!(form instanceof HTMLFormElement)) {
-            return;
-        }
-
-        try {
-            const destination = new URL(form.action || window.location.href, window.location.href);
-
-            if (destination.origin === window.location.origin && destination.pathname === currentPath) {
-                rememberScrollPosition();
+            try {
+                saved = JSON.parse(sessionStorage.getItem(storageKey) || 'null');
+                sessionStorage.removeItem(storageKey);
+            } catch (error) {
+                saved = null;
             }
-        } catch (error) {
-            rememberScrollPosition();
-        }
-    });
 
-    window.addEventListener('pageshow', () => {
-        let saved = null;
+            if (!saved || saved.path !== currentPath || typeof saved.y !== 'number') {
+                return;
+            }
 
-        try {
-            saved = JSON.parse(sessionStorage.getItem(storageKey) || 'null');
-            sessionStorage.removeItem(storageKey);
-        } catch (error) {
-            saved = null;
-        }
+            // Only restore a position from a recent interaction on this manager page.
+            if (typeof saved.savedAt === 'number' && Date.now() - saved.savedAt > 15000) {
+                return;
+            }
 
-        if (!saved || saved.path !== currentPath || typeof saved.y !== 'number') {
-            return;
-        }
-
-        // Only restore a position from a recent interaction on this manager page.
-        if (typeof saved.savedAt === 'number' && Date.now() - saved.savedAt > 15000) {
-            return;
-        }
-
-        requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                window.scrollTo({
-                    top: Math.max(0, saved.y),
-                    left: 0,
-                    behavior: 'instant'
+                requestAnimationFrame(() => {
+                    window.scrollTo({
+                        top: Math.max(0, saved.y),
+                        left: 0,
+                        behavior: 'instant'
+                    });
                 });
             });
         });
-    });
-})();
+    })();
+
 </script>
 
 <?php require INCLUDES_PATH . '/footer.php'; ?>

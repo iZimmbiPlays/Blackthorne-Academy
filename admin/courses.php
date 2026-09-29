@@ -141,35 +141,29 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to access the Courses workspace.
-                </p>
+            <p>
+                Your account does not have permission to access the Courses workspace.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('staff-dashboard.php')); ?>"
-                >
-                    Return to Staff Dashboard
-                </a>
-            </div>
-        </section>
-    </main>
+            <a class="button button-secondary" href="<?= e(url('staff-dashboard.php')); ?>">
+                Return to Staff Dashboard
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -741,18 +735,11 @@ if ($currentSchoolYearName === '') {
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page"
->
+<main id="main-content" class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="courses-dashboard-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="courses-dashboard-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -811,10 +798,7 @@ if ($currentSchoolYearName === '') {
     </section>
 
 
-    <section
-        class="dashboard-workspace-section"
-        aria-labelledby="courses-workspace-heading"
-    >
+    <section class="dashboard-workspace-section" aria-labelledby="courses-workspace-heading">
         <div class="section-inner dashboard-workspace-layout">
 
             <?php
@@ -846,10 +830,10 @@ if ($currentSchoolYearName === '') {
 
                 <?php if ($workspaceLoadError): ?>
 
-                    <div class="form-message form-message-error">
-                        Some course dashboard information could not be loaded.
-                        The error has been recorded for review.
-                    </div>
+                <div class="form-message form-message-error">
+                    Some course dashboard information could not be loaded.
+                    The error has been recorded for review.
+                </div>
 
                 <?php endif; ?>
 
@@ -943,26 +927,23 @@ if ($currentSchoolYearName === '') {
 
                         <?php if ($courseCapabilityLabels === []): ?>
 
-                            <p>
-                                You currently have view-only access to this
-                                workspace.
-                            </p>
+                        <p>
+                            You currently have view-only access to this
+                            workspace.
+                        </p>
 
                         <?php else: ?>
 
-                            <div
-                                class="dashboard-role-chips"
-                                aria-label="Available course capabilities"
-                            >
-                                <?php foreach (
+                        <div class="dashboard-role-chips" aria-label="Available course capabilities">
+                            <?php foreach (
                                     $courseCapabilityLabels
                                     as $capabilityLabel
                                 ): ?>
-                                    <span class="dashboard-role-chip">
-                                        <?= e($capabilityLabel); ?>
-                                    </span>
-                                <?php endforeach; ?>
-                            </div>
+                            <span class="dashboard-role-chip">
+                                <?= e($capabilityLabel); ?>
+                            </span>
+                            <?php endforeach; ?>
+                        </div>
 
                         <?php endif; ?>
 
@@ -1054,21 +1035,21 @@ if ($currentSchoolYearName === '') {
 
                             <?php if ($currentSchoolYear === null): ?>
 
-                                <p>
-                                    No active school year is currently marked
-                                    as the Academy's current school year.
-                                </p>
+                            <p>
+                                No active school year is currently marked
+                                as the Academy's current school year.
+                            </p>
 
                             <?php else: ?>
 
-                                <div class="dashboard-placeholder-list">
-                                    <span>
-                                        <?= e($currentSchoolYearName); ?>
-                                    </span>
+                            <div class="dashboard-placeholder-list">
+                                <span>
+                                    <?= e($currentSchoolYearName); ?>
+                                </span>
 
-                                    <span>
-                                        Starts
-                                        <?= e(
+                                <span>
+                                    Starts
+                                    <?= e(
                                             $formatDashboardDate(
                                                 $currentSchoolYear[
                                                     'start_date'
@@ -1076,11 +1057,11 @@ if ($currentSchoolYearName === '') {
                                                 ?? null
                                             )
                                         ); ?>
-                                    </span>
+                                </span>
 
-                                    <span>
-                                        Ends
-                                        <?= e(
+                                <span>
+                                    Ends
+                                    <?= e(
                                             $formatDashboardDate(
                                                 $currentSchoolYear[
                                                     'end_date'
@@ -1088,10 +1069,10 @@ if ($currentSchoolYearName === '') {
                                                 ?? null
                                             )
                                         ); ?>
-                                    </span>
+                                </span>
 
-                                    <span>
-                                        <?= (int) (
+                                <span>
+                                    <?= (int) (
                                             $currentSchoolYear[
                                                 'is_finalized'
                                             ]
@@ -1099,8 +1080,8 @@ if ($currentSchoolYearName === '') {
                                         ) === 1
                                             ? 'Finalized'
                                             : 'Active'; ?>
-                                    </span>
-                                </div>
+                                </span>
+                            </div>
 
                             <?php endif; ?>
 
@@ -1127,20 +1108,20 @@ if ($currentSchoolYearName === '') {
 
                         <?php if ($recentCourses === []): ?>
 
-                            <p>
-                                No courses have been created yet. Use Create Course
-                                to add the first course to the Academy catalog.
-                            </p>
+                        <p>
+                            No courses have been created yet. Use Create Course
+                            to add the first course to the Academy catalog.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach (
+                            <?php foreach (
                                     $recentCourses
                                     as $course
                                 ): ?>
-                                    <?php
+                            <?php
                                     $courseTitle =
                                         trim(
                                             (string) (
@@ -1171,43 +1152,41 @@ if ($currentSchoolYearName === '') {
                                         );
                                     ?>
 
-                                    <span>
-                                        <strong>
-                                            <?= e($courseTitle); ?>
-                                        </strong>
+                            <span>
+                                <strong>
+                                    <?= e($courseTitle); ?>
+                                </strong>
 
-                                        <?php if ($courseCode !== ''): ?>
-                                            · <?= e($courseCode); ?>
-                                        <?php endif; ?>
+                                <?php if ($courseCode !== ''): ?>
+                                · <?= e($courseCode); ?>
+                                <?php endif; ?>
 
-                                        · <?= e($courseStatus); ?>
+                                · <?= e($courseStatus); ?>
 
-                                        · Updated
-                                        <?= e(
+                                · Updated
+                                <?= e(
                                             $formatDashboardDate(
                                                 $course['updated_at']
                                                 ?? null
                                             )
                                         ); ?>
 
-                                        <?php if ($canEditCourses): ?>
-                                            ·
-                                            <a
-                                                href="<?= e(
+                                <?php if ($canEditCourses): ?>
+                                ·
+                                <a href="<?= e(
                                                     url(
                                                         'admin/course-edit.php?id='
                                                         . (int) $course['id']
                                                     )
-                                                ); ?>"
-                                            >
-                                                Edit
-                                            </a>
-                                        <?php endif; ?>
-                                    </span>
+                                                ); ?>">
+                                    Edit
+                                </a>
+                                <?php endif; ?>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 

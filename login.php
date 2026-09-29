@@ -678,34 +678,22 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="login-page"
->
+<main id="main-content" class="login-page">
 
 
     <!-- ================================================================
          LOGIN HERO
     ================================================================= -->
 
-    <section
-        class="login-hero"
-        aria-labelledby="login-page-heading"
-    >
+    <section class="login-hero" aria-labelledby="login-page-heading">
 
 
         <!-- Decorative Hero Corners -->
 
-        <div
-            class="hero-ornament hero-ornament-left"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-left" aria-hidden="true"></div>
 
 
-        <div
-            class="hero-ornament hero-ornament-right"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-right" aria-hidden="true"></div>
 
 
         <div class="section-inner login-hero-inner">
@@ -734,10 +722,7 @@ require INCLUDES_PATH . '/header.php';
                 </p>
 
 
-                <div
-                    class="login-hero-motto"
-                    aria-hidden="true"
-                >
+                <div class="login-hero-motto" aria-hidden="true">
 
                     <span></span>
 
@@ -754,25 +739,15 @@ require INCLUDES_PATH . '/header.php';
                  Login Panel
             ========================================================= -->
 
-            <div
-                class="login-page-panel"
-                aria-labelledby="login-form-heading"
-            >
+            <div class="login-page-panel" aria-labelledby="login-form-heading">
 
 
                 <!-- Crest -->
 
                 <div class="login-page-crest">
 
-                    <img
-                        src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                        alt=""
-                        width="120"
-                        height="120"
-                        loading="eager"
-                        decoding="async"
-                        fetchpriority="high"
-                    >
+                    <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" width="120" height="120"
+                        loading="eager" decoding="async" fetchpriority="high">
 
                 </div>
 
@@ -800,10 +775,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <!-- Ornament -->
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
 
                     <span></span>
 
@@ -816,10 +788,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <!-- Screen Reader Description -->
 
-                <p
-                    class="sr-only"
-                    id="login-form-description"
-                >
+                <p class="sr-only" id="login-form-description">
                     Log in to Blackthorne Academy using your username or
                     email address and password.
                 </p>
@@ -831,21 +800,18 @@ require INCLUDES_PATH . '/header.php';
 
                 <?php if ($loginNotice !== null): ?>
 
-                    <div
-                        class="login-page-notice"
-                        role="<?= e($loginNoticeRole); ?>"
-                    >
+                <div class="login-page-notice" role="<?= e($loginNoticeRole); ?>">
 
-                        <span aria-hidden="true">
-                            ✦
-                        </span>
+                    <span aria-hidden="true">
+                        ✦
+                    </span>
 
 
-                        <p>
-                            <?= e($loginNotice); ?>
-                        </p>
+                    <p>
+                        <?= e($loginNotice); ?>
+                    </p>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 
@@ -854,12 +820,8 @@ require INCLUDES_PATH . '/header.php';
                      Login Form
                 ===================================================== -->
 
-                <form
-                    class="login-page-form"
-                    action="<?= e(LOGIN_URL); ?>"
-                    method="post"
-                    aria-describedby="login-form-description"
-                >
+                <form class="login-page-form" action="<?= e(LOGIN_URL); ?>" method="post"
+                    aria-describedby="login-form-description">
 
                     <?= csrf_field(); ?>
 
@@ -873,19 +835,9 @@ require INCLUDES_PATH . '/header.php';
                         </label>
 
 
-                        <input
-                            class="form-control"
-                            type="text"
-                            id="login-identifier"
-                            name="identifier"
-                            value="<?= e($loginIdentifier); ?>"
-                            maxlength="254"
-                            autocomplete="username"
-                            autocapitalize="none"
-                            spellcheck="false"
-                            enterkeyhint="next"
-                            required
-                        >
+                        <input class="form-control" type="text" id="login-identifier" name="identifier"
+                            value="<?= e($loginIdentifier); ?>" maxlength="254" autocomplete="username"
+                            autocapitalize="none" spellcheck="false" enterkeyhint="next" required>
 
                     </div>
 
@@ -901,24 +853,12 @@ require INCLUDES_PATH . '/header.php';
 
                         <div class="login-password-field">
 
-                            <input
-                                class="form-control"
-                                type="password"
-                                id="login-password"
-                                name="password"
-                                autocomplete="current-password"
-                                enterkeyhint="go"
-                                required
-                            >
+                            <input class="form-control" type="password" id="login-password" name="password"
+                                autocomplete="current-password" enterkeyhint="go" required>
 
 
-                            <button
-                                type="button"
-                                class="login-password-toggle"
-                                data-password-toggle
-                                aria-controls="login-password"
-                                aria-pressed="false"
-                            >
+                            <button type="button" class="login-password-toggle" data-password-toggle
+                                aria-controls="login-password" aria-pressed="false">
 
                                 <span class="password-show-text">
                                     Show
@@ -941,12 +881,7 @@ require INCLUDES_PATH . '/header.php';
 
                         <label class="remember-me">
 
-                            <input
-                                type="checkbox"
-                                name="remember_me"
-                                value="1"
-                                <?= $rememberMe ? 'checked' : ''; ?>
-                            >
+                            <input type="checkbox" name="remember_me" value="1" <?= $rememberMe ? 'checked' : ''; ?>>
 
 
                             <span>
@@ -956,10 +891,7 @@ require INCLUDES_PATH . '/header.php';
                         </label>
 
 
-                        <a
-                            href="<?= e(url('forgot-password.php')); ?>"
-                            class="login-help-link"
-                        >
+                        <a href="<?= e(url('forgot-password.php')); ?>" class="login-help-link">
                             Trouble logging in?
                         </a>
 
@@ -968,10 +900,7 @@ require INCLUDES_PATH . '/header.php';
 
                     <!-- Submit -->
 
-                    <button
-                        type="submit"
-                        class="button button-primary login-page-submit"
-                    >
+                    <button type="submit" class="button button-primary login-page-submit">
                         Enter the Academy
                     </button>
 
@@ -985,9 +914,7 @@ require INCLUDES_PATH . '/header.php';
                         </p>
 
 
-                        <a
-                            href="<?= e(REGISTER_URL); ?>"
-                        >
+                        <a href="<?= e(REGISTER_URL); ?>">
                             Enroll at Blackthorne
                         </a>
 
@@ -1002,9 +929,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <div class="login-security-note">
 
-                    <span
-                        aria-hidden="true"
-                    >
+                    <span aria-hidden="true">
                         ✦
                     </span>
 
@@ -1026,73 +951,65 @@ require INCLUDES_PATH . '/header.php';
 
 
 <script>
-
-/*
+    /*
 |--------------------------------------------------------------------------
 | Login Password Visibility
 |--------------------------------------------------------------------------
 */
 
-document.addEventListener(
-    'DOMContentLoaded',
-    () => {
+    document.addEventListener(
+        'DOMContentLoaded',
+        () => {
 
-        const toggle =
-            document.querySelector(
-                '[data-password-toggle]'
-            );
-
-
-        const password =
-            document.getElementById(
-                'login-password'
-            );
-
-
-        if (
-            !toggle
-            ||
-            !password
-        ) {
-
-            return;
-
-        }
-
-
-        toggle.addEventListener(
-            'click',
-            () => {
-
-                const isVisible =
-                    password.type === 'text';
-
-
-                password.type =
-                    isVisible
-                        ? 'password'
-                        : 'text';
-
-
-                toggle.setAttribute(
-                    'aria-pressed',
-                    isVisible
-                        ? 'false'
-                        : 'true'
+            const toggle =
+                document.querySelector(
+                    '[data-password-toggle]'
                 );
 
-            }
-        );
+            const password =
+                document.getElementById(
+                    'login-password'
+                );
 
-    }
-);
+            if (
+                !toggle ||
+                !password
+            ) {
+
+                return;
+
+            }
+
+            toggle.addEventListener(
+                'click',
+                () => {
+
+                    const isVisible =
+                        password.type === 'text';
+
+                    password.type =
+                        isVisible ?
+                        'password' :
+                        'text';
+
+                    toggle.setAttribute(
+                        'aria-pressed',
+                        isVisible ?
+                        'false' :
+                        'true'
+                    );
+
+                }
+            );
+
+        }
+    );
 
 </script>
 
 
-<script
-    src="<?= e(asset('js/main.js')); ?>"
-></script>
+<script src="<?= e(asset('js/main.js')); ?>"></script>
 
 </body>
+
 </html>

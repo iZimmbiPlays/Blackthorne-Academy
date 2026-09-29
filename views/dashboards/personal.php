@@ -591,9 +591,10 @@ if ($canAccessStaffDashboard) {
                     <span aria-hidden="true">✦</span>
                     <span>Account Active</span>
                     <?php if ($houseName !== ''): ?>
-                        <span aria-hidden="true">✦</span>
-                        <span<?= $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>><?= e($houseName); ?></span>
-                    <?php endif; ?>
+                    <span aria-hidden="true">✦</span>
+                    <span<?= $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>>
+                        <?= e($houseName); ?></span>
+                        <?php endif; ?>
                 </div>
             </div>
         </div>
@@ -606,7 +607,8 @@ if ($canAccessStaffDashboard) {
             <div class="dashboard-workspace-main">
                 <header class="dashboard-workspace-heading">
                     <div>
-                        <p class="academy-overline"><?= $isStudentDashboard ? 'Student Overview' : 'Member Overview'; ?></p>
+                        <p class="academy-overline"><?= $isStudentDashboard ? 'Student Overview' : 'Member Overview'; ?>
+                        </p>
                         <h2 id="personal-dashboard-overview-heading">
                             <?= $isStudentDashboard ? 'Your Academy at a glance.' : 'Your place at Blackthorne.'; ?>
                         </h2>
@@ -616,15 +618,19 @@ if ($canAccessStaffDashboard) {
 
                 <div class="dashboard-summary-grid">
                     <article class="dashboard-summary-card">
-                        <span class="dashboard-summary-kicker"><?= $hasYearPlacement ? 'Courses' : 'Orientation'; ?></span>
+                        <span
+                            class="dashboard-summary-kicker"><?= $hasYearPlacement ? 'Courses' : 'Orientation'; ?></span>
                         <strong><?= $hasYearPlacement ? number_format($dashboardCounts['active_courses']) : ($orientationCompleted ? 'Complete' : 'Required'); ?></strong>
-                        <p><?= $hasYearPlacement ? e($yearCourseLabel) : ($orientationCompleted ? 'Awaiting automatic First Year placement' : ($orientationCourseId > 0 ? 'Complete Orientation before First Year' : 'Orientation course setup pending')); ?></p>
+                        <p><?= $hasYearPlacement ? e($yearCourseLabel) : ($orientationCompleted ? 'Awaiting automatic First Year placement' : ($orientationCourseId > 0 ? 'Complete Orientation before First Year' : 'Orientation course setup pending')); ?>
+                        </p>
                     </article>
 
                     <article class="dashboard-summary-card">
                         <span class="dashboard-summary-kicker">House</span>
-                        <strong<?= $houseName !== '' && $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>><?= e($houseName !== '' ? $houseName : 'Unsorted'); ?></strong>
-                        <p><?= $houseMembership !== null ? 'Your permanent Academy House' : 'Complete the Sorting Ceremony when ready'; ?></p>
+                        <strong<?= $houseName !== '' && $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>>
+                            <?= e($houseName !== '' ? $houseName : 'Unsorted'); ?></strong>
+                            <p><?= $houseMembership !== null ? 'Your permanent Academy House' : 'Complete the Sorting Ceremony when ready'; ?>
+                            </p>
                     </article>
 
                     <article class="dashboard-summary-card">
@@ -662,42 +668,51 @@ if ($canAccessStaffDashboard) {
                             <h3><?= $hasYearPlacement ? e($yearCourseLabel) : 'Academy Orientation'; ?></h3>
                         </div>
                         <?php if ($hasYearPlacement): ?>
-                            <a href="<?= e(url('courses.php')); ?>" class="dashboard-panel-link">View courses →</a>
+                        <a href="<?= e(url('courses.php')); ?>" class="dashboard-panel-link">View courses →</a>
                         <?php elseif ($orientationCourseHref !== ''): ?>
-                            <a href="<?= e($orientationCourseHref); ?>" class="dashboard-panel-link">Open Orientation →</a>
+                        <a href="<?= e($orientationCourseHref); ?>" class="dashboard-panel-link">Open Orientation →</a>
                         <?php endif; ?>
                     </div>
                     <div class="dashboard-panel-body">
                         <?php if ($hasYearPlacement): ?>
-                            <?php if ($dashboardCounts['active_courses'] > 0): ?>
-                                <p>You are placed in <?= e($yearCourseLabel); ?> for <?= e((string) ($currentYearGroup['school_year_name'] ?? 'your current school year')); ?>. Your active course enrollments are ready here.</p>
-                            <?php else: ?>
-                                <div class="dashboard-empty-state">
-                                    <span aria-hidden="true">◇</span>
-                                    <div>
-                                        <h4><?= e($yearCourseLabel); ?></h4>
-                                        <p>Your Year placement is active. Courses will appear here as the appropriate offerings are opened and assigned.</p>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
-                        <?php elseif ($orientationCompleted): ?>
-                            <div class="dashboard-empty-state">
-                                <span aria-hidden="true">✓</span>
-                                <div>
-                                    <h4>Orientation completed.</h4>
-                                    <p>Your Orientation course is complete. When the course-completion workflow is built, that completion will automatically create your First Year enrollment for the appropriate school year. Until that placement exists, the dashboard will not show First Year courses.</p>
-                                </div>
-                            </div>
-                        <?php elseif ($orientationCourseId > 0): ?>
-                            <p>Academy Orientation is your required first course. Complete it successfully before you can be placed into First Year and receive access to First Year courses.</p>
+                        <?php if ($dashboardCounts['active_courses'] > 0): ?>
+                        <p>You are placed in <?= e($yearCourseLabel); ?> for
+                            <?= e((string) ($currentYearGroup['school_year_name'] ?? 'your current school year')); ?>.
+                            Your active course enrollments are ready here.</p>
                         <?php else: ?>
-                            <div class="dashboard-empty-state">
-                                <span aria-hidden="true">◇</span>
-                                <div>
-                                    <h4>Orientation course setup is pending.</h4>
-                                    <p>Orientation will be offered through Blackthorne's normal course system. Once that course exists, this dashboard will link directly to it rather than to a separate Orientation page.</p>
-                                </div>
+                        <div class="dashboard-empty-state">
+                            <span aria-hidden="true">◇</span>
+                            <div>
+                                <h4><?= e($yearCourseLabel); ?></h4>
+                                <p>Your Year placement is active. Courses will appear here as the appropriate offerings
+                                    are opened and assigned.</p>
                             </div>
+                        </div>
+                        <?php endif; ?>
+                        <?php elseif ($orientationCompleted): ?>
+                        <div class="dashboard-empty-state">
+                            <span aria-hidden="true">✓</span>
+                            <div>
+                                <h4>Orientation completed.</h4>
+                                <p>Your Orientation course is complete. When the course-completion workflow is built,
+                                    that completion will automatically create your First Year enrollment for the
+                                    appropriate school year. Until that placement exists, the dashboard will not show
+                                    First Year courses.</p>
+                            </div>
+                        </div>
+                        <?php elseif ($orientationCourseId > 0): ?>
+                        <p>Academy Orientation is your required first course. Complete it successfully before you can be
+                            placed into First Year and receive access to First Year courses.</p>
+                        <?php else: ?>
+                        <div class="dashboard-empty-state">
+                            <span aria-hidden="true">◇</span>
+                            <div>
+                                <h4>Orientation course setup is pending.</h4>
+                                <p>Orientation will be offered through Blackthorne's normal course system. Once that
+                                    course exists, this dashboard will link directly to it rather than to a separate
+                                    Orientation page.</p>
+                            </div>
+                        </div>
                         <?php endif; ?>
                     </div>
                 </section>
@@ -707,7 +722,7 @@ if ($canAccessStaffDashboard) {
                     && $hasYearPlacement
                     && is_array($academicProgress)
                 ): ?>
-                    <?php
+                <?php
                     $progressStatus =
                         strtolower((string) $academicProgress['status']);
 
@@ -731,80 +746,81 @@ if ($canAccessStaffDashboard) {
                         );
                     ?>
 
-                    <section class="dashboard-workspace-panel dashboard-academic-progress-panel">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">Academic Progression</p>
-                                <h3><?= e($yearCourseLabel); ?> Progress</h3>
-                            </div>
+                <section class="dashboard-workspace-panel dashboard-academic-progress-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">Academic Progression</p>
+                            <h3><?= e($yearCourseLabel); ?> Progress</h3>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
-                            <div class="dashboard-community-stats" aria-label="Academic progression totals">
-                                <article>
-                                    <span>HW Points</span>
-                                    <strong>
-                                        <?= e(number_format((float) $academicProgress['earned'], 2)); ?>
-                                        <?php if ($academicProgress['required_points'] !== null): ?>
-                                            / <?= e(number_format((float) $academicProgress['required_points'], 2)); ?>
-                                        <?php endif; ?>
-                                    </strong>
-                                    <span>
-                                        <?= $academicProgress['required_points'] === null
+                    <div class="dashboard-panel-body">
+                        <div class="dashboard-community-stats" aria-label="Academic progression totals">
+                            <article>
+                                <span>HW Points</span>
+                                <strong>
+                                    <?= e(number_format((float) $academicProgress['earned'], 2)); ?>
+                                    <?php if ($academicProgress['required_points'] !== null): ?>
+                                    / <?= e(number_format((float) $academicProgress['required_points'], 2)); ?>
+                                    <?php endif; ?>
+                                </strong>
+                                <span>
+                                    <?= $academicProgress['required_points'] === null
                                             ? 'No minimum HW Point requirement'
                                             : ($academicProgress['points_met']
                                                 ? 'HW Point requirement met'
                                                 : 'HW Points still required'); ?>
-                                    </span>
-                                </article>
+                                </span>
+                            </article>
 
-                                <article>
-                                    <span>Academic Average</span>
-                                    <strong>
-                                        <?= (float) $academicProgress['possible'] > 0
+                            <article>
+                                <span>Academic Average</span>
+                                <strong>
+                                    <?= (float) $academicProgress['possible'] > 0
                                             ? e(number_format((float) $academicProgress['percentage'], 2)) . '%'
                                             : 'Pending'; ?>
-                                    </strong>
-                                    <span>
-                                        Required: <?= e(number_format((float) $academicProgress['required_percentage'], 2)); ?>%
-                                    </span>
-                                </article>
+                                </strong>
+                                <span>
+                                    Required:
+                                    <?= e(number_format((float) $academicProgress['required_percentage'], 2)); ?>%
+                                </span>
+                            </article>
 
-                                <article>
-                                    <span>Progression Status</span>
-                                    <strong><?= e($progressStatusLabel); ?></strong>
-                                    <span>
-                                        Promotion requires both academic requirements.
-                                    </span>
-                                </article>
-                            </div>
-
-                            <?php if ((float) $academicProgress['possible'] > 0): ?>
-                                <div
-                                    aria-label="Academic average progress"
-                                    style="margin-top:1rem;height:.65rem;border:1px solid rgba(198,163,79,.45);background:rgba(10,7,12,.72);overflow:hidden;"
-                                >
-                                    <div
-                                        style="height:100%;width:<?= e(number_format($progressBarPercent, 2, '.', '')); ?>%;background:linear-gradient(90deg,rgba(112,70,105,.9),rgba(198,163,79,.9));"
-                                    ></div>
-                                </div>
-                            <?php else: ?>
-                                <p style="margin-top:1rem;">
-                                    Your academic percentage will appear once graded coursework begins contributing possible HW Points.
-                                </p>
-                            <?php endif; ?>
-
-                            <p style="margin-top:1rem;">
-                                To become eligible for promotion, you must meet the
-                                <?= e(number_format((float) $academicProgress['required_percentage'], 2)); ?>% academic requirement
-                                <?php if ($academicProgress['required_points'] !== null): ?>
-                                    and earn at least
-                                    <?= e(number_format((float) $academicProgress['required_points'], 2)); ?> HW Points
-                                <?php endif; ?>.
-                                House-only points do not count toward academic progression.
-                            </p>
+                            <article>
+                                <span>Progression Status</span>
+                                <strong><?= e($progressStatusLabel); ?></strong>
+                                <span>
+                                    Promotion requires both academic requirements.
+                                </span>
+                            </article>
                         </div>
-                    </section>
+
+                        <?php if ((float) $academicProgress['possible'] > 0): ?>
+                        <div aria-label="Academic average progress"
+                            style="margin-top:1rem;height:.65rem;border:1px solid rgba(198,163,79,.45);background:rgba(10,7,12,.72);overflow:hidden;">
+                            <div
+                                style="height:100%;width:<?= e(number_format($progressBarPercent, 2, '.', '')); ?>%;background:linear-gradient(90deg,rgba(112,70,105,.9),rgba(198,163,79,.9));">
+                            </div>
+                        </div>
+                        <?php else: ?>
+                        <p style="margin-top:1rem;">
+                            Your academic percentage will appear once graded coursework begins contributing possible HW
+                            Points.
+                        </p>
+                        <?php endif; ?>
+
+                        <p style="margin-top:1rem;">
+                            To become eligible for promotion, you must meet the
+                            <?= e(number_format((float) $academicProgress['required_percentage'], 2)); ?>% academic
+                            requirement
+                            <?php if ($academicProgress['required_points'] !== null): ?>
+                            and earn at least
+                            <?= e(number_format((float) $academicProgress['required_points'], 2)); ?> HW Points
+                            <?php endif; ?>.
+                            House-only points do not count toward academic progression.
+                        </p>
+                    </div>
+                </section>
                 <?php endif; ?>
 
                 <section class="dashboard-workspace-panel dashboard-house-overview-panel">
@@ -816,11 +832,19 @@ if ($canAccessStaffDashboard) {
                     </div>
                     <div class="dashboard-panel-body">
                         <?php if ($houseMembership !== null): ?>
-                            <p>You belong to <strong<?= $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>><?= e($houseName !== '' ? $houseName : 'your House'); ?></strong>. Your Common Room brings together House announcements, discussions, members, resources, birthdays, and House Cup information.</p>
-                            <a href="<?= e(url('common-room.php')); ?>" class="dashboard-inline-link">Enter your Common Room →</a>
+                        <p>You belong to
+                            <strong<?= $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>>
+                                <?= e($houseName !== '' ? $houseName : 'your House'); ?></strong>. Your Common Room
+                                brings together House announcements, discussions, members, resources, birthdays, and
+                                House Cup information.
+                        </p>
+                        <a href="<?= e(url('common-room.php')); ?>" class="dashboard-inline-link">Enter your Common Room
+                            →</a>
                         <?php else: ?>
-                            <p>You have not been sorted yet. The ceremony will place you into one of Blackthorne Academy's four Houses and unlock your Common Room.</p>
-                            <a href="<?= e(url('sorting-ceremony.php')); ?>" class="dashboard-inline-link">Enter the Sorting Ceremony →</a>
+                        <p>You have not been sorted yet. The ceremony will place you into one of Blackthorne Academy's
+                            four Houses and unlock your Common Room.</p>
+                        <a href="<?= e(url('sorting-ceremony.php')); ?>" class="dashboard-inline-link">Enter the Sorting
+                            Ceremony →</a>
                         <?php endif; ?>
                     </div>
                 </section>
@@ -829,40 +853,44 @@ if ($canAccessStaffDashboard) {
                     <div class="dashboard-panel-titlebar">
                         <div>
                             <p class="academy-overline">House News</p>
-                            <h3<?= $houseName !== '' && $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>><?= $houseName !== '' ? e($houseName) . ' Noticeboard' : 'House Noticeboard'; ?></h3>
+                            <h3<?= $houseName !== '' && $houseDisplayColor !== '' ? ' style="color:' . e($houseDisplayColor) . ';"' : ''; ?>>
+                                <?= $houseName !== '' ? e($houseName) . ' Noticeboard' : 'House Noticeboard'; ?></h3>
                         </div>
                         <?php if ($houseMembership !== null): ?>
-                            <a href="<?= e(url('common-room.php')); ?>" class="dashboard-panel-link">Common Room →</a>
+                        <a href="<?= e(url('common-room.php')); ?>" class="dashboard-panel-link">Common Room →</a>
                         <?php endif; ?>
                     </div>
                     <div class="dashboard-panel-body">
                         <?php if ($houseMembership === null): ?>
-                            <div class="dashboard-empty-state">
-                                <span aria-hidden="true">✧</span>
-                                <div>
-                                    <h4>House news unlocks after Sorting.</h4>
-                                    <p>Once you have a House, its latest announcement will appear here.</p>
-                                </div>
+                        <div class="dashboard-empty-state">
+                            <span aria-hidden="true">✧</span>
+                            <div>
+                                <h4>House news unlocks after Sorting.</h4>
+                                <p>Once you have a House, its latest announcement will appear here.</p>
                             </div>
+                        </div>
                         <?php elseif (is_array($latestHouseNews)): ?>
-                            <article class="dashboard-house-news-item">
-                                <p class="dashboard-activity-label">Latest announcement</p>
-                                <h4><a href="<?= e(url('thread.php?t=' . (int) $latestHouseNews['id'])); ?>"><?= e((string) $latestHouseNews['title']); ?></a></h4>
-                                <p><?= e($dashboardExcerpt((string) ($latestHouseNews['content'] ?? ''), 220)); ?></p>
-                                <div class="dashboard-house-news-meta">
-                                    <span><?= e((string) ($latestHouseNews['display_name'] ?: $latestHouseNews['username'])); ?></span>
-                                    <?php $houseNewsDate = $dashboardDate((string) ($latestHouseNews['created_at'] ?? '')); ?>
-                                    <?php if ($houseNewsDate !== ''): ?><span><?= e($houseNewsDate); ?></span><?php endif; ?>
-                                </div>
-                            </article>
-                        <?php else: ?>
-                            <div class="dashboard-empty-state">
-                                <span aria-hidden="true">✦</span>
-                                <div>
-                                    <h4>No House announcement yet.</h4>
-                                    <p>The newest announcement from your House announcement forum will appear here automatically.</p>
-                                </div>
+                        <article class="dashboard-house-news-item">
+                            <p class="dashboard-activity-label">Latest announcement</p>
+                            <h4><a
+                                    href="<?= e(url('thread.php?t=' . (int) $latestHouseNews['id'])); ?>"><?= e((string) $latestHouseNews['title']); ?></a>
+                            </h4>
+                            <p><?= e($dashboardExcerpt((string) ($latestHouseNews['content'] ?? ''), 220)); ?></p>
+                            <div class="dashboard-house-news-meta">
+                                <span><?= e((string) ($latestHouseNews['display_name'] ?: $latestHouseNews['username'])); ?></span>
+                                <?php $houseNewsDate = $dashboardDate((string) ($latestHouseNews['created_at'] ?? '')); ?>
+                                <?php if ($houseNewsDate !== ''): ?><span><?= e($houseNewsDate); ?></span><?php endif; ?>
                             </div>
+                        </article>
+                        <?php else: ?>
+                        <div class="dashboard-empty-state">
+                            <span aria-hidden="true">✦</span>
+                            <div>
+                                <h4>No House announcement yet.</h4>
+                                <p>The newest announcement from your House announcement forum will appear here
+                                    automatically.</p>
+                            </div>
+                        </div>
                         <?php endif; ?>
                     </div>
                 </section>
@@ -873,49 +901,56 @@ if ($canAccessStaffDashboard) {
                             <p class="academy-overline">Community</p>
                             <h3>Recent Activity</h3>
                         </div>
-                        <a href="<?= e(url('notifications.php')); ?>" class="dashboard-panel-link">All notifications →</a>
+                        <a href="<?= e(url('notifications.php')); ?>" class="dashboard-panel-link">All notifications
+                            →</a>
                     </div>
                     <div class="dashboard-panel-body dashboard-activity-list">
                         <?php if ($recentActivity === []): ?>
-                            <div class="dashboard-empty-state">
-                                <span aria-hidden="true">◇</span>
-                                <div>
-                                    <h4>No recent activity yet.</h4>
-                                    <p>Notifications, forum threads, and forum replies will appear here as you use the Academy.</p>
-                                </div>
+                        <div class="dashboard-empty-state">
+                            <span aria-hidden="true">◇</span>
+                            <div>
+                                <h4>No recent activity yet.</h4>
+                                <p>Notifications, forum threads, and forum replies will appear here as you use the
+                                    Academy.</p>
                             </div>
+                        </div>
                         <?php else: ?>
-                            <?php foreach ($recentActivity as $activity): ?>
-                                <a class="dashboard-activity-item" href="<?= e((string) $activity['href']); ?>">
-                                    <span class="dashboard-activity-symbol" aria-hidden="true"><?= $activity['type'] === 'notification' ? '◌' : ($activity['type'] === 'thread' ? '◫' : '↳'); ?></span>
-                                    <span class="dashboard-activity-copy">
-                                        <span class="dashboard-activity-topline">
-                                            <span class="dashboard-activity-label"><?= e((string) $activity['label']); ?></span>
-                                            <?php $activityDate = $dashboardDate((string) $activity['created_at']); ?>
-                                            <?php if ($activityDate !== ''): ?><span class="dashboard-activity-date"><?= e($activityDate); ?></span><?php endif; ?>
-                                        </span>
-                                        <strong><?= e((string) $activity['title']); ?></strong>
-                                        <?php if ((string) $activity['summary'] !== ''): ?><span class="dashboard-activity-summary"><?= e((string) $activity['summary']); ?></span><?php endif; ?>
-                                    </span>
-                                </a>
-                            <?php endforeach; ?>
+                        <?php foreach ($recentActivity as $activity): ?>
+                        <a class="dashboard-activity-item" href="<?= e((string) $activity['href']); ?>">
+                            <span class="dashboard-activity-symbol"
+                                aria-hidden="true"><?= $activity['type'] === 'notification' ? '◌' : ($activity['type'] === 'thread' ? '◫' : '↳'); ?></span>
+                            <span class="dashboard-activity-copy">
+                                <span class="dashboard-activity-topline">
+                                    <span class="dashboard-activity-label"><?= e((string) $activity['label']); ?></span>
+                                    <?php $activityDate = $dashboardDate((string) $activity['created_at']); ?>
+                                    <?php if ($activityDate !== ''): ?><span
+                                        class="dashboard-activity-date"><?= e($activityDate); ?></span><?php endif; ?>
+                                </span>
+                                <strong><?= e((string) $activity['title']); ?></strong>
+                                <?php if ((string) $activity['summary'] !== ''): ?><span
+                                    class="dashboard-activity-summary"><?= e((string) $activity['summary']); ?></span><?php endif; ?>
+                            </span>
+                        </a>
+                        <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
                 </section>
 
                 <?php if ($canAccessStaffDashboard): ?>
-                    <section class="dashboard-workspace-panel dashboard-staff-switcher">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">Staff Access</p>
-                                <h3>Your staff workspace is separate.</h3>
-                            </div>
-                            <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">Open Staff Dashboard</a>
+                <section class="dashboard-workspace-panel dashboard-staff-switcher">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">Staff Access</p>
+                            <h3>Your staff workspace is separate.</h3>
                         </div>
-                        <div class="dashboard-panel-body">
-                            <p>This remains your personal Academy dashboard. Staff and administrative tools live in the Staff Dashboard and appear according to your effective permissions.</p>
-                        </div>
-                    </section>
+                        <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">Open Staff
+                            Dashboard</a>
+                    </div>
+                    <div class="dashboard-panel-body">
+                        <p>This remains your personal Academy dashboard. Staff and administrative tools live in the
+                            Staff Dashboard and appear according to your effective permissions.</p>
+                    </div>
+                </section>
                 <?php endif; ?>
             </div>
         </div>

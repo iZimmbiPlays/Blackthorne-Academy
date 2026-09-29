@@ -198,16 +198,16 @@ $dashboardView = $dashboardViews[$dashboardType] ?? null;
 if (!is_string($dashboardView) || !is_file($dashboardView) || filesize($dashboardView) <= 0) {
     http_response_code(500);
     ?>
-    <main id="main-content" class="dashboard-page">
-        <section class="dashboard-overview">
-            <div class="section-inner">
-                <div class="form-message form-message-error">
-                    Your dashboard is currently unavailable.
-                </div>
+<main id="main-content" class="dashboard-page">
+    <section class="dashboard-overview">
+        <div class="section-inner">
+            <div class="form-message form-message-error">
+                Your dashboard is currently unavailable.
             </div>
-        </section>
-    </main>
-    <?php
+        </div>
+    </section>
+</main>
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }

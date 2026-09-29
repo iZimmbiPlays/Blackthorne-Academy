@@ -393,7 +393,7 @@ require INCLUDES_PATH . '/header.php';
         gap: 8px;
     }
 
-    .courses-page .course-card-stats > div {
+    .courses-page .course-card-stats>div {
         min-width: 0;
         padding: 9px 10px;
         border: 1px solid rgba(219, 193, 125, 0.09);
@@ -491,12 +491,10 @@ require INCLUDES_PATH . '/header.php';
             aspect-ratio: 16 / 9;
         }
     }
+
 </style>
 
-<main
-    id="main-content"
-    class="dashboard-page courses-page"
->
+<main id="main-content" class="dashboard-page courses-page">
 
     <section class="dashboard-workspace-section">
         <div class="section-inner dashboard-workspace-layout">
@@ -549,19 +547,19 @@ require INCLUDES_PATH . '/header.php';
                             $activeCourses === []
                         ): ?>
 
-                            <p>
-                                You do not currently have any active course enrollments.
-                            </p>
+                        <p>
+                            You do not currently have any active course enrollments.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="course-card-grid">
+                        <div class="course-card-grid">
 
-                                <?php foreach (
+                            <?php foreach (
                                     $activeCourses
                                     as $courseRow
                                 ): ?>
-                                    <?php
+                            <?php
                                     $summary =
                                         $courseRow[
                                             'lesson_summary'
@@ -609,80 +607,71 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <article class="course-card">
+                            <article class="course-card">
 
-                                        <div class="course-card-top">
+                                <div class="course-card-top">
 
-                                            <?php if (
+                                    <?php if (
                                                 $images[
                                                     'original'
                                                 ] !== ''
                                             ): ?>
 
-                                                <div class="course-card-image">
-                                                    <picture>
-                                                        <?php if (
+                                    <div class="course-card-image">
+                                        <picture>
+                                            <?php if (
                                                             $images[
                                                                 'webp'
                                                             ] !== ''
                                                         ): ?>
-                                                            <source
-                                                                srcset="<?= e(
+                                            <source srcset="<?= e(
                                                                     $images[
                                                                         'webp'
                                                                     ]
-                                                                ); ?>"
-                                                                type="image/webp"
-                                                            >
-                                                        <?php endif; ?>
+                                                                ); ?>" type="image/webp">
+                                            <?php endif; ?>
 
-                                                        <img
-                                                            src="<?= e(
+                                            <img src="<?= e(
                                                                 $images[
                                                                     'original'
                                                                 ]
-                                                            ); ?>"
-                                                            alt="<?= e(
+                                                            ); ?>" alt="<?= e(
                                                                 (string) $courseRow[
                                                                     'title'
                                                                 ]
                                                                 . ' course thumbnail'
-                                                            ); ?>"
-                                                        >
-                                                    </picture>
-                                                </div>
+                                                            ); ?>">
+                                        </picture>
+                                    </div>
 
-                                            <?php else: ?>
+                                    <?php else: ?>
 
-                                                <div
-                                                    class="course-card-image course-card-image-placeholder"
-                                                    aria-hidden="true"
-                                                >
-                                                    <span>B</span>
-                                                </div>
+                                    <div class="course-card-image course-card-image-placeholder" aria-hidden="true">
+                                        <span>B</span>
+                                    </div>
 
-                                            <?php endif; ?>
+                                    <?php endif; ?>
 
-                                            <div class="course-card-heading">
+                                    <div class="course-card-heading">
 
-                                                <p class="academy-overline">
-                                                    <?= e(
+                                        <p class="academy-overline">
+                                            <?= e(
                                                         $courseCode
                                                     ); ?>
-                                                </p>
+                                        </p>
 
-                                                <h3>
-                                                    <?= e(
+                                        <h3>
+                                            <?= e(
                                                         (string) $courseRow[
                                                             'title'
                                                         ]
                                                     ); ?>
-                                                </h3>
+                                        </h3>
 
-                                                <div class="course-card-meta">
+                                        <div class="course-card-meta">
 
-                                                    <span>
-                                                        <?= e(
+                                            <span>
+                                                <?= e(
                                                             (string) (
                                                                 $courseRow[
                                                                     'pacing_mode'
@@ -692,9 +681,9 @@ require INCLUDES_PATH . '/header.php';
                                                                 ? 'Drip Content'
                                                                 : 'Self-Paced'
                                                         ); ?>
-                                                    </span>
+                                            </span>
 
-                                                    <?php if (
+                                            <?php if (
                                                         trim(
                                                             (string) (
                                                                 $courseRow[
@@ -704,58 +693,58 @@ require INCLUDES_PATH . '/header.php';
                                                             )
                                                         ) !== ''
                                                     ): ?>
-                                                        <span>
-                                                            <?= e(
+                                            <span>
+                                                <?= e(
                                                                 (string) $courseRow[
                                                                     'school_year_name'
                                                                 ]
                                                             ); ?>
-                                                        </span>
-                                                    <?php endif; ?>
-
-                                                </div>
-
-                                            </div>
+                                            </span>
+                                            <?php endif; ?>
 
                                         </div>
 
-                                        <div class="course-card-body">
+                                    </div>
 
-                                            <?php if (
+                                </div>
+
+                                <div class="course-card-body">
+
+                                    <?php if (
                                                 $courseDescription !== ''
                                             ): ?>
-                                                <p class="course-card-description">
-                                                    <?= nl2br(
+                                    <p class="course-card-description">
+                                        <?= nl2br(
                                                         e(
                                                             $courseDescription
                                                         )
                                                     ); ?>
-                                                </p>
-                                            <?php endif; ?>
+                                    </p>
+                                    <?php endif; ?>
 
-                                            <div class="course-card-stats">
+                                    <div class="course-card-stats">
 
-                                                <div>
-                                                    <span>Lessons</span>
-                                                    <strong>
-                                                        <?= number_format(
+                                        <div>
+                                            <span>Lessons</span>
+                                            <strong>
+                                                <?= number_format(
                                                             (int) $summary[
                                                                 'completed'
                                                             ]
                                                         ); ?>
-                                                        /
-                                                        <?= number_format(
+                                                /
+                                                <?= number_format(
                                                             (int) $summary[
                                                                 'total'
                                                             ]
                                                         ); ?>
-                                                    </strong>
-                                                </div>
+                                            </strong>
+                                        </div>
 
-                                                <div>
-                                                    <span>Progress</span>
-                                                    <strong>
-                                                        <?= e(
+                                        <div>
+                                            <span>Progress</span>
+                                            <strong>
+                                                <?= e(
                                                             number_format(
                                                                 (float) $summary[
                                                                     'percent'
@@ -763,16 +752,16 @@ require INCLUDES_PATH . '/header.php';
                                                                 0
                                                             )
                                                         ); ?>%
-                                                    </strong>
-                                                </div>
+                                            </strong>
+                                        </div>
 
-                                                <?php if (
+                                        <?php if (
                                                     $hasCourseDates
                                                 ): ?>
-                                                    <div class="course-card-stat-wide">
-                                                        <span>Course Dates</span>
-                                                        <strong>
-                                                            <?= e(
+                                        <div class="course-card-stat-wide">
+                                            <span>Course Dates</span>
+                                            <strong>
+                                                <?= e(
                                                                 student_courses_format_date(
                                                                     $courseRow[
                                                                         'course_start_date'
@@ -780,8 +769,8 @@ require INCLUDES_PATH . '/header.php';
                                                                     ?? null
                                                                 )
                                                             ); ?>
-                                                            –
-                                                            <?= e(
+                                                –
+                                                <?= e(
                                                                 student_courses_format_date(
                                                                     $courseRow[
                                                                         'course_end_date'
@@ -789,17 +778,17 @@ require INCLUDES_PATH . '/header.php';
                                                                     ?? null
                                                                 )
                                                             ); ?>
-                                                        </strong>
-                                                    </div>
-                                                <?php endif; ?>
+                                            </strong>
+                                        </div>
+                                        <?php endif; ?>
 
-                                            </div>
+                                    </div>
 
-                                            <div class="course-card-progress">
-                                                <div class="course-card-progress-label">
-                                                    <span>Lesson progress</span>
-                                                    <span>
-                                                        <?= e(
+                                    <div class="course-card-progress">
+                                        <div class="course-card-progress-label">
+                                            <span>Lesson progress</span>
+                                            <span>
+                                                <?= e(
                                                             number_format(
                                                                 (float) $summary[
                                                                     'percent'
@@ -807,11 +796,10 @@ require INCLUDES_PATH . '/header.php';
                                                                 0
                                                             )
                                                         ); ?>%
-                                                    </span>
-                                                </div>
+                                            </span>
+                                        </div>
 
-                                                <progress
-                                                    value="<?= e(
+                                        <progress value="<?= e(
                                                         number_format(
                                                             (float) $summary[
                                                                 'percent'
@@ -820,10 +808,8 @@ require INCLUDES_PATH . '/header.php';
                                                             '.',
                                                             ''
                                                         )
-                                                    ); ?>"
-                                                    max="100"
-                                                >
-                                                    <?= e(
+                                                    ); ?>" max="100">
+                                            <?= e(
                                                         number_format(
                                                             (float) $summary[
                                                                 'percent'
@@ -831,32 +817,29 @@ require INCLUDES_PATH . '/header.php';
                                                             0
                                                         )
                                                     ); ?>%
-                                                </progress>
-                                            </div>
+                                        </progress>
+                                    </div>
 
-                                            <div class="course-card-actions">
-                                                <a
-                                                    class="button button-primary"
-                                                    href="<?= e(
+                                    <div class="course-card-actions">
+                                        <a class="button button-primary" href="<?= e(
                                                         url(
                                                             'course.php?offering='
                                                             . (int) $courseRow[
                                                                 'offering_id'
                                                             ]
                                                         )
-                                                    ); ?>"
-                                                >
-                                                    Enter Classroom
-                                                </a>
-                                            </div>
+                                                    ); ?>">
+                                            Enter Classroom
+                                        </a>
+                                    </div>
 
-                                        </div>
+                                </div>
 
-                                    </article>
+                            </article>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -869,46 +852,46 @@ require INCLUDES_PATH . '/header.php';
                     $completedCourses !== []
                 ): ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Course History
-                                </p>
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Course History
+                            </p>
 
-                                <h2>
-                                    Completed Courses
-                                </h2>
-                            </div>
+                            <h2>
+                                Completed Courses
+                            </h2>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
+                    <div class="dashboard-panel-body">
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach (
+                            <?php foreach (
                                     $completedCourses
                                     as $courseRow
                                 ): ?>
-                                    <?php
+                            <?php
                                     $summary =
                                         $courseRow[
                                             'lesson_summary'
                                         ];
                                     ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            <?= e(
+                                <strong>
+                                    <?= e(
                                                 (string) $courseRow[
                                                     'title'
                                                 ]
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        <?php if (
+                                <?php if (
                                             trim(
                                                 (string) (
                                                     $courseRow[
@@ -918,68 +901,66 @@ require INCLUDES_PATH . '/header.php';
                                                 )
                                             ) !== ''
                                         ): ?>
-                                            ·
-                                            <?= e(
+                                ·
+                                <?= e(
                                                 (string) $courseRow[
                                                     'school_year_name'
                                                 ]
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             !empty(
                                                 $courseRow[
                                                     'completed_at'
                                                 ]
                                             )
                                         ): ?>
-                                            · Completed
-                                            <?= e(
+                                · Completed
+                                <?= e(
                                                 student_courses_format_date(
                                                     $courseRow[
                                                         'completed_at'
                                                     ]
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        ·
-                                        <?= number_format(
+                                ·
+                                <?= number_format(
                                             (int) $summary[
                                                 'completed'
                                             ]
                                         ); ?>
-                                        /
-                                        <?= number_format(
+                                /
+                                <?= number_format(
                                             (int) $summary[
                                                 'total'
                                             ]
                                         ); ?>
-                                        lessons complete
+                                lessons complete
 
-                                        ·
-                                        <a
-                                            href="<?= e(
+                                ·
+                                <a href="<?= e(
                                                 url(
                                                     'course.php?offering='
                                                     . (int) $courseRow[
                                                         'offering_id'
                                                     ]
                                                 )
-                                            ); ?>"
-                                        >
-                                            Review Course
-                                        </a>
+                                            ); ?>">
+                                    Review Course
+                                </a>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
-
-                            </div>
+                            <?php endforeach; ?>
 
                         </div>
 
-                    </section>
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 
@@ -988,41 +969,41 @@ require INCLUDES_PATH . '/header.php';
                     $inactiveCourses !== []
                 ): ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Enrollment History
-                                </p>
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Enrollment History
+                            </p>
 
-                                <h2>
-                                    Other Courses
-                                </h2>
-                            </div>
+                            <h2>
+                                Other Courses
+                            </h2>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
+                    <div class="dashboard-panel-body">
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach (
+                            <?php foreach (
                                     $inactiveCourses
                                     as $courseRow
                                 ): ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            <?= e(
+                                <strong>
+                                    <?= e(
                                                 (string) $courseRow[
                                                     'title'
                                                 ]
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             ucfirst(
                                                 (string) $courseRow[
                                                     'enrollment_status'
@@ -1030,7 +1011,7 @@ require INCLUDES_PATH . '/header.php';
                                             )
                                         ); ?>
 
-                                        <?php if (
+                                <?php if (
                                             trim(
                                                 (string) (
                                                     $courseRow[
@@ -1040,23 +1021,23 @@ require INCLUDES_PATH . '/header.php';
                                                 )
                                             ) !== ''
                                         ): ?>
-                                            ·
-                                            <?= e(
+                                ·
+                                <?= e(
                                                 (string) $courseRow[
                                                     'school_year_name'
                                                 ]
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
-
-                            </div>
+                            <?php endforeach; ?>
 
                         </div>
 
-                    </section>
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 

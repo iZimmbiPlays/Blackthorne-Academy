@@ -276,31 +276,25 @@ if (
 
     ?>
 
-    <main
-        id="main-content"
-        class="forum-thread-page"
-    >
-        <section class="forum-thread-error">
-            <div class="section-inner">
-                <h1>Thread Not Found</h1>
-                <p>
-                    The requested discussion could not be found.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(
+<main id="main-content" class="forum-thread-page">
+    <section class="forum-thread-error">
+        <div class="section-inner">
+            <h1>Thread Not Found</h1>
+            <p>
+                The requested discussion could not be found.
+            </p>
+            <a class="button button-secondary" href="<?= e(
                         url(
                             'forums.php'
                         )
-                    ); ?>"
-                >
-                    Return to Forums
-                </a>
-            </div>
-        </section>
-    </main>
+                    ); ?>">
+                Return to Forums
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require INCLUDES_PATH . '/footer.php';
 
@@ -346,31 +340,25 @@ if (
 
     ?>
 
-    <main
-        id="main-content"
-        class="forum-thread-page"
-    >
-        <section class="forum-thread-error">
-            <div class="section-inner">
-                <h1>Thread Not Found</h1>
-                <p>
-                    The requested discussion could not be found or is not available to your account.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(
+<main id="main-content" class="forum-thread-page">
+    <section class="forum-thread-error">
+        <div class="section-inner">
+            <h1>Thread Not Found</h1>
+            <p>
+                The requested discussion could not be found or is not available to your account.
+            </p>
+            <a class="button button-secondary" href="<?= e(
                         url(
                             'forums.php'
                         )
-                    ); ?>"
-                >
-                    Return to Forums
-                </a>
-            </div>
-        </section>
-    </main>
+                    ); ?>">
+                Return to Forums
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require INCLUDES_PATH . '/footer.php';
 
@@ -415,31 +403,25 @@ if (
 
     ?>
 
-    <main
-        id="main-content"
-        class="forum-thread-page"
-    >
-        <section class="forum-thread-error">
-            <div class="section-inner">
-                <h1>Access Restricted</h1>
-                <p>
-                    Your account does not have permission to view this discussion.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(
+<main id="main-content" class="forum-thread-page">
+    <section class="forum-thread-error">
+        <div class="section-inner">
+            <h1>Access Restricted</h1>
+            <p>
+                Your account does not have permission to view this discussion.
+            </p>
+            <a class="button button-secondary" href="<?= e(
                         url(
                             'forums.php'
                         )
-                    ); ?>"
-                >
-                    Return to Forums
-                </a>
-            </div>
-        </section>
-    </main>
+                    ); ?>">
+                Return to Forums
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require INCLUDES_PATH . '/footer.php';
 
@@ -3482,10 +3464,7 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="forum-thread-page"
->
+<main id="main-content" class="forum-thread-page">
 
 
     <!-- ================================================================
@@ -3497,24 +3476,19 @@ require INCLUDES_PATH . '/header.php';
         <div class="section-inner">
 
 
-            <nav
-                class="forum-breadcrumbs"
-                aria-label="Forum breadcrumb"
-            >
+            <nav class="forum-breadcrumbs" aria-label="Forum breadcrumb">
 
                 <?php if (
                     $showThreadModeration
                 ): ?>
 
-                    <a
-                        href="<?= e(
+                <a href="<?= e(
                             url(
                                 'forums.php'
                             )
-                        ); ?>"
-                    >
-                        Forums
-                    </a>
+                        ); ?>">
+                    Forums
+                </a>
 
                 <?php endif; ?>
 
@@ -3523,23 +3497,23 @@ require INCLUDES_PATH . '/header.php';
                     $category !== null
                 ): ?>
 
-                    <?php if (
+                <?php if (
                         $showThreadModeration
                     ): ?>
 
-                        <span aria-hidden="true">
-                            /
-                        </span>
+                <span aria-hidden="true">
+                    /
+                </span>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
-                    <span>
-                        <?= e(
+                <span>
+                    <?= e(
                             (string) $category[
                                 'title'
                             ]
                         ); ?>
-                    </span>
+                </span>
 
                 <?php endif; ?>
 
@@ -3549,26 +3523,24 @@ require INCLUDES_PATH . '/header.php';
                     as $ancestorForum
                 ): ?>
 
-                    <span aria-hidden="true">
-                        /
-                    </span>
+                <span aria-hidden="true">
+                    /
+                </span>
 
-                    <a
-                        href="<?= e(
+                <a href="<?= e(
                             url(
                                 'forum.php?f='
                                 . (int) $ancestorForum[
                                     'id'
                                 ]
                             )
-                        ); ?>"
-                    >
-                        <?= e(
+                        ); ?>">
+                    <?= e(
                             (string) $ancestorForum[
                                 'title'
                             ]
                         ); ?>
-                    </a>
+                </a>
 
                 <?php endforeach; ?>
 
@@ -3577,14 +3549,12 @@ require INCLUDES_PATH . '/header.php';
                     /
                 </span>
 
-                <a
-                    href="<?= e(
+                <a href="<?= e(
                         url(
                             'forum.php?f='
                             . $forumId
                         )
-                    ); ?>"
-                >
+                    ); ?>">
                     <?= e(
                         (string) $forum[
                             'title'
@@ -3604,14 +3574,14 @@ require INCLUDES_PATH . '/header.php';
                         $threadLabels !== []
                     ): ?>
 
-                        <div class="forum-thread-page-labels">
+                    <div class="forum-thread-page-labels">
 
-                            <?php foreach (
+                        <?php foreach (
                                 $threadLabels
                                 as $label
                             ): ?>
 
-                                <?php
+                        <?php
 
                                 $labelColor =
                                     blackthorne_thread_safe_color(
@@ -3622,26 +3592,23 @@ require INCLUDES_PATH . '/header.php';
 
                                 ?>
 
-                                <span
-                                    class="forum-thread-page-label"
-                                    <?= $labelColor !== null
+                        <span class="forum-thread-page-label" <?= $labelColor !== null
                                         ? 'style="--thread-label-color: '
                                             . e(
                                                 $labelColor
                                             )
                                             . ';"'
-                                        : ''; ?>
-                                >
-                                    <?= e(
+                                        : ''; ?>>
+                            <?= e(
                                         (string) $label[
                                             'name'
                                         ]
                                     ); ?>
-                                </span>
+                        </span>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                        </div>
+                    </div>
 
                     <?php endif; ?>
 
@@ -3663,9 +3630,9 @@ require INCLUDES_PATH . '/header.php';
                             ] === 1
                         ): ?>
 
-                            <span>
-                                Announcement
-                            </span>
+                        <span>
+                            Announcement
+                        </span>
 
                         <?php endif; ?>
 
@@ -3676,9 +3643,9 @@ require INCLUDES_PATH . '/header.php';
                             ] === 1
                         ): ?>
 
-                            <span>
-                                Sticky
-                            </span>
+                        <span>
+                            Sticky
+                        </span>
 
                         <?php endif; ?>
 
@@ -3689,9 +3656,9 @@ require INCLUDES_PATH . '/header.php';
                             ] === 1
                         ): ?>
 
-                            <span>
-                                Locked
-                            </span>
+                        <span>
+                            Locked
+                        </span>
 
                         <?php endif; ?>
 
@@ -3704,21 +3671,15 @@ require INCLUDES_PATH . '/header.php';
                     $showThreadModeration
                 ): ?>
 
-                    <div class="forum-thread-moderator-controls">
+                <div class="forum-thread-moderator-controls">
 
-                        <button
-                            type="button"
-                            class="forum-thread-moderate-button"
-                            aria-haspopup="dialog"
-                            aria-expanded="false"
-                            aria-controls="forum-thread-moderation-modal"
-                            title="Moderate this thread"
-                            data-open-thread-moderation
-                        >
-                            Moderate
-                        </button>
+                    <button type="button" class="forum-thread-moderate-button" aria-haspopup="dialog"
+                        aria-expanded="false" aria-controls="forum-thread-moderation-modal" title="Moderate this thread"
+                        data-open-thread-moderation>
+                        Moderate
+                    </button>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 
@@ -3742,68 +3703,63 @@ require INCLUDES_PATH . '/header.php';
             <div class="member-home-main forum-board-main forum-thread-main">
 
 
-    <?php
+                <?php
     $reportStatus = (string) ($_GET['reported'] ?? '');
     $reportError = (string) ($_GET['report_error'] ?? '');
     if ($reportStatus !== '' || $reportError !== ''):
     ?>
-        <section class="forum-thread-report-feedback-section" aria-live="polite">
-            <div class="forum-thread-section-inner">
-                <div class="forum-thread-private-notice">
-                    <?php if ($reportStatus === '1'): ?>
-                        <strong>Report submitted.</strong> A staff member can now review this post.
-                    <?php elseif ($reportStatus === 'existing'): ?>
-                        <strong>Report already submitted.</strong> You already have an open report for this post.
-                    <?php else: ?>
-                        <strong>Report not submitted.</strong> Choose a reason and try again.
-                    <?php endif; ?>
-                </div>
-            </div>
-        </section>
-    <?php endif; ?>
+                <section class="forum-thread-report-feedback-section" aria-live="polite">
+                    <div class="forum-thread-section-inner">
+                        <div class="forum-thread-private-notice">
+                            <?php if ($reportStatus === '1'): ?>
+                            <strong>Report submitted.</strong> A staff member can now review this post.
+                            <?php elseif ($reportStatus === 'existing'): ?>
+                            <strong>Report already submitted.</strong> You already have an open report for this post.
+                            <?php else: ?>
+                            <strong>Report not submitted.</strong> Choose a reason and try again.
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </section>
+                <?php endif; ?>
 
 
-    <!-- ================================================================
+                <!-- ================================================================
          THREAD NAVIGATION
     ================================================================= -->
 
-    <section class="forum-thread-nav-section">
+                <section class="forum-thread-nav-section">
 
-        <div class="forum-thread-section-inner">
+                    <div class="forum-thread-section-inner">
 
-            <div class="forum-thread-nav">
+                        <div class="forum-thread-nav">
 
 
-                <nav
-                    class="forum-thread-pagination"
-                    aria-label="Thread pages"
-                >
+                            <nav class="forum-thread-pagination" aria-label="Thread pages">
 
-                    <?php if (
+                                <?php if (
                         $page > 1
                     ): ?>
 
-                        <a
-                            href="<?= e(
+                                <a href="<?= e(
                                 blackthorne_thread_page_url(
                                     $threadId,
                                     $page - 1
                                 )
-                            ); ?>"
-                        >
-                            Previous
-                        </a>
+                            ); ?>">
+                                    Previous
+                                </a>
 
-                    <?php else: ?>
+                                <?php else: ?>
 
-                        <span class="is-disabled">
-                            Previous
-                        </span>
+                                <span class="is-disabled">
+                                    Previous
+                                </span>
 
-                    <?php endif; ?>
+                                <?php endif; ?>
 
 
-                    <?php for (
+                                <?php for (
                         $paginationPage =
                             max(
                                 1,
@@ -3817,157 +3773,134 @@ require INCLUDES_PATH . '/header.php';
                         $paginationPage++
                     ): ?>
 
-                        <?php if (
+                                <?php if (
                             $paginationPage
                             === $page
                         ): ?>
 
-                            <span
-                                class="is-current"
-                                aria-current="page"
-                            >
-                                <?= $paginationPage; ?>
-                            </span>
+                                <span class="is-current" aria-current="page">
+                                    <?= $paginationPage; ?>
+                                </span>
 
-                        <?php else: ?>
+                                <?php else: ?>
 
-                            <a
-                                href="<?= e(
+                                <a href="<?= e(
                                     blackthorne_thread_page_url(
                                         $threadId,
                                         $paginationPage
                                     )
-                                ); ?>"
-                            >
-                                <?= $paginationPage; ?>
-                            </a>
+                                ); ?>">
+                                    <?= $paginationPage; ?>
+                                </a>
 
-                        <?php endif; ?>
+                                <?php endif; ?>
 
-                    <?php endfor; ?>
+                                <?php endfor; ?>
 
 
-                    <?php if (
+                                <?php if (
                         $page < $totalPages
                     ): ?>
 
-                        <a
-                            href="<?= e(
+                                <a href="<?= e(
                                 blackthorne_thread_page_url(
                                     $threadId,
                                     $page + 1
                                 )
-                            ); ?>"
-                        >
-                            Next
-                        </a>
+                            ); ?>">
+                                    Next
+                                </a>
 
-                    <?php else: ?>
+                                <?php else: ?>
 
-                        <span class="is-disabled">
-                            Next
-                        </span>
+                                <span class="is-disabled">
+                                    Next
+                                </span>
 
-                    <?php endif; ?>
+                                <?php endif; ?>
 
-                </nav>
+                            </nav>
 
 
-                <div class="forum-thread-nav-actions">
+                            <div class="forum-thread-nav-actions">
 
-                    <a
-                        class="button button-secondary"
-                        href="<?= e(
+                                <a class="button button-secondary" href="<?= e(
                             url(
                                 'forum.php?f='
                                 . $forumId
                             )
-                        ); ?>"
-                    >
-                        Back to Board
-                    </a>
+                        ); ?>">
+                                    Back to Board
+                                </a>
 
 
-                    <form
-                        action="<?= e(
+                                <form action="<?= e(
                             blackthorne_thread_page_url(
                                 $threadId,
                                 $page
                             )
-                        ); ?>"
-                        method="post"
-                    >
+                        ); ?>" method="post">
 
-                        <?= csrf_field(); ?>
+                                    <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="<?= $isWatchingThread
+                                    <input type="hidden" name="action" value="<?= $isWatchingThread
                                 ? 'unwatch_thread'
-                                : 'watch_thread'; ?>"
-                        >
+                                : 'watch_thread'; ?>">
 
-                        <button
-                            class="button button-secondary"
-                            type="submit"
-                        >
-                            <?= $isWatchingThread
+                                    <button class="button button-secondary" type="submit">
+                                        <?= $isWatchingThread
                                 ? 'Unwatch Thread'
                                 : 'Watch Thread'; ?>
-                        </button>
+                                    </button>
 
-                    </form>
+                                </form>
 
 
-                    <?php if (
+                                <?php if (
                         $canReply
                     ): ?>
 
-                        <a
-                            class="button button-primary"
-                            href="#respond"
-                        >
-                            Reply
-                        </a>
+                                <a class="button button-primary" href="#respond">
+                                    Reply
+                                </a>
 
-                    <?php endif; ?>
+                                <?php endif; ?>
 
-                </div>
+                            </div>
 
-            </div>
+                        </div>
 
-        </div>
+                    </div>
 
-    </section>
+                </section>
 
 
-    <!-- ================================================================
+                <!-- ================================================================
          POSTS
     ================================================================= -->
 
-    <section class="forum-thread-posts">
+                <section class="forum-thread-posts">
 
-        <div class="forum-thread-section-inner">
+                    <div class="forum-thread-section-inner">
 
 
-            <?php if (
+                        <?php if (
                 $posts === []
             ): ?>
 
-                <div class="forum-thread-empty">
-                    This thread does not currently contain any visible posts.
-                </div>
+                        <div class="forum-thread-empty">
+                            This thread does not currently contain any visible posts.
+                        </div>
 
 
-            <?php else: ?>
+                        <?php else: ?>
 
-                <?php foreach (
+                        <?php foreach (
                     $posts
                     as $postIndex => $post
                 ): ?>
 
-                    <?php
+                        <?php
 
                     $postId =
                         (int) $post[
@@ -4094,43 +4027,33 @@ require INCLUDES_PATH . '/header.php';
                     ?>
 
 
-                    <article
-                        class="forum-post<?= $isStarter ? ' is-starter-post' : ''; ?>"
-                        id="post-<?= $postId; ?>"
-                    >
+                        <article class="forum-post<?= $isStarter ? ' is-starter-post' : ''; ?>"
+                            id="post-<?= $postId; ?>">
 
 
-                        <aside class="forum-post-profile">
+                            <aside class="forum-post-profile">
 
 
-                            <a
-                                class="forum-post-avatar"
-                                href="<?= e(
+                                <a class="forum-post-avatar" href="<?= e(
                                     url(
                                         'profile.php?u='
                                         . (int) $post[
                                             'user_id'
                                         ]
                                     )
-                                ); ?>"
-                                aria-label="View <?= e(
+                                ); ?>" aria-label="View <?= e(
                                     $posterName
-                                ); ?>'s profile"
-                            >
+                                ); ?>'s profile">
 
-                                <?php if (
+                                    <?php if (
                                     $avatarUrl !== null
                                 ): ?>
 
-                                    <img
-                                        src="<?= e(
+                                    <img src="<?= e(
                                             $avatarUrl
-                                        ); ?>"
-                                        alt=""
-                                        loading="lazy"
-                                    >
+                                        ); ?>" alt="" loading="lazy">
 
-                                <?php else: ?>
+                                    <?php else: ?>
 
                                     <span aria-hidden="true">
                                         <?= e(
@@ -4140,129 +4063,119 @@ require INCLUDES_PATH . '/header.php';
                                         ); ?>
                                     </span>
 
-                                <?php endif; ?>
+                                    <?php endif; ?>
 
-                            </a>
+                                </a>
 
 
-                            <a
-                                class="forum-post-member-name"
-                                href="<?= e(
+                                <a class="forum-post-member-name" href="<?= e(
                                     url(
                                         'profile.php?u='
                                         . (int) $post[
                                             'user_id'
                                         ]
                                     )
-                                ); ?>"
-                                <?= $posterHouseColor !== null
+                                ); ?>" <?= $posterHouseColor !== null
                                     ? 'style="color: '
                                         . e(
                                             $posterHouseColor
                                         )
                                         . ';"'
-                                    : ''; ?>
-                            >
-                                <?= e(
+                                    : ''; ?>>
+                                    <?= e(
                                     $posterName
                                 ); ?>
-                            </a>
+                                </a>
 
 
-                            <p
-                                class="forum-post-member-role"
-                                <?= $posterRoleColor !== null
+                                <p class="forum-post-member-role" <?= $posterRoleColor !== null
                                     ? 'style="color: '
                                         . e(
                                             $posterRoleColor
                                         )
                                         . ';"'
-                                    : ''; ?>
-                            >
-                                <?= e(
+                                    : ''; ?>>
+                                    <?= e(
                                     $posterRole
                                 ); ?>
-                            </p>
+                                </p>
 
 
-                            <?php if (
+                                <?php if (
                                 $posterHouse !== ''
                             ): ?>
 
-                                <p
-                                    class="forum-post-member-house"
-                                    <?= $posterHouseColor !== null
+                                <p class="forum-post-member-house" <?= $posterHouseColor !== null
                                         ? 'style="color: '
                                             . e(
                                                 $posterHouseColor
                                             )
                                             . ';"'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
                                     <?= e(
                                         $posterHouse
                                     ); ?>
                                 </p>
 
-                            <?php endif; ?>
+                                <?php endif; ?>
 
 
-                            <dl class="forum-post-member-stats">
+                                <dl class="forum-post-member-stats">
 
-                                <div>
-                                    <dt>
-                                        Posts
-                                    </dt>
-                                    <dd>
-                                        <?= number_format(
+                                    <div>
+                                        <dt>
+                                            Posts
+                                        </dt>
+                                        <dd>
+                                            <?= number_format(
                                             (int) $post[
                                                 'forum_post_count'
                                             ]
                                         ); ?>
-                                    </dd>
-                                </div>
+                                        </dd>
+                                    </div>
 
-                                <div>
-                                    <dt>
-                                        Likes
-                                    </dt>
-                                    <dd>
-                                        <?= number_format(
+                                    <div>
+                                        <dt>
+                                            Likes
+                                        </dt>
+                                        <dd>
+                                            <?= number_format(
                                             (int) ($post['forum_like_count'] ?? 0)
                                         ); ?>
-                                    </dd>
-                                </div>
+                                        </dd>
+                                    </div>
 
-                                <div>
-                                    <dt>
-                                        House Points
-                                    </dt>
-                                    <dd>
-                                        —
-                                    </dd>
-                                </div>
+                                    <div>
+                                        <dt>
+                                            House Points
+                                        </dt>
+                                        <dd>
+                                            —
+                                        </dd>
+                                    </div>
 
-                                <div>
-                                    <dt>
-                                        HW Points
-                                    </dt>
-                                    <dd>
-                                        —
-                                    </dd>
-                                </div>
+                                    <div>
+                                        <dt>
+                                            HW Points
+                                        </dt>
+                                        <dd>
+                                            —
+                                        </dd>
+                                    </div>
 
-                            </dl>
+                                </dl>
 
-                        </aside>
-
-
-                        <div class="forum-post-main">
+                            </aside>
 
 
-                            <div class="forum-post-content">
+                            <div class="forum-post-main">
 
 
-                                <?php if (
+                                <div class="forum-post-content">
+
+
+                                    <?php if (
                                     $postQuotes !== []
                                 ): ?>
 
@@ -4273,68 +4186,72 @@ require INCLUDES_PATH . '/header.php';
                                             as $quote
                                         ): ?>
 
-                                            <blockquote class="forum-post-quote">
+                                        <blockquote class="forum-post-quote">
 
-                                                <header>
-                                                    <?= e(
+                                            <header>
+                                                <?= e(
                                                         (string) $quote[
                                                             'quoted_display_name_snapshot'
                                                         ]
                                                     ); ?> wrote:
-                                                </header>
+                                            </header>
 
-                                                <div>
-                                                    <?= nl2br(
+                                            <div>
+                                                <?= nl2br(
                                                         e(
                                                             (string) $quote[
                                                                 'quoted_content_snapshot'
                                                             ]
                                                         )
                                                     ); ?>
-                                                </div>
+                                            </div>
 
-                                            </blockquote>
+                                        </blockquote>
 
                                         <?php endforeach; ?>
 
                                     </div>
 
-                                <?php endif; ?>
+                                    <?php endif; ?>
 
 
-                                <?php if (
+                                    <?php if (
                                     $editPostId === $postId
                                     && $canEditPost
                                 ): ?>
 
-                                    <form
-                                        class="forum-inline-edit-form"
-                                        method="post"
-                                        action="<?= e(
+                                    <form class="forum-inline-edit-form" method="post" action="<?= e(
                                             blackthorne_thread_page_url(
                                                 $threadId,
                                                 $page
                                             )
                                             . '#post-'
                                             . $postId
-                                        ); ?>"
-                                        data-inline-edit-form
-                                    >
+                                        ); ?>" data-inline-edit-form>
                                         <?= csrf_field(); ?>
                                         <input type="hidden" name="action" value="edit_post">
                                         <input type="hidden" name="post_id" value="<?= $postId; ?>">
 
                                         <div class="forum-rich-editor" data-inline-editor>
-                                            <div class="forum-rich-editor-toolbar" role="toolbar" aria-label="Edit post formatting">
+                                            <div class="forum-rich-editor-toolbar" role="toolbar"
+                                                aria-label="Edit post formatting">
                                                 <div class="forum-editor-tool-group">
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="bold" title="Bold"><strong>B</strong></button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="italic" title="Italic"><em>I</em></button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="underline" title="Underline"><u>U</u></button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="strikeThrough" title="Strikethrough"><s>S</s></button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="bold"
+                                                        title="Bold"><strong>B</strong></button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="italic" title="Italic"><em>I</em></button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="underline"
+                                                        title="Underline"><u>U</u></button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="strikeThrough"
+                                                        title="Strikethrough"><s>S</s></button>
                                                 </div>
 
                                                 <div class="forum-editor-tool-group">
-                                                    <select class="forum-editor-select" data-edit-format title="Text style" aria-label="Text style">
+                                                    <select class="forum-editor-select" data-edit-format
+                                                        title="Text style" aria-label="Text style">
                                                         <option value="p">Paragraph</option>
                                                         <option value="h2">Heading 2</option>
                                                         <option value="h3">Heading 3</option>
@@ -4342,7 +4259,8 @@ require INCLUDES_PATH . '/header.php';
                                                         <option value="blockquote">Quote Block</option>
                                                     </select>
 
-                                                    <select class="forum-editor-select" data-edit-size title="Font size" aria-label="Font size">
+                                                    <select class="forum-editor-select" data-edit-size title="Font size"
+                                                        aria-label="Font size">
                                                         <option value="2">Small</option>
                                                         <option value="3" selected>Normal</option>
                                                         <option value="4">Large</option>
@@ -4353,33 +4271,50 @@ require INCLUDES_PATH . '/header.php';
                                                 <div class="forum-editor-tool-group">
                                                     <label class="forum-editor-color-control" title="Text color">
                                                         <span>A</span>
-                                                        <input type="color" value="#e8e0e6" data-edit-color aria-label="Text color">
+                                                        <input type="color" value="#e8e0e6" data-edit-color
+                                                            aria-label="Text color">
                                                     </label>
-                                                    <button type="button" class="forum-editor-tool" data-edit-apply-color title="Apply the current text color to the selected text">Apply Text</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-apply-color
+                                                        title="Apply the current text color to the selected text">Apply
+                                                        Text</button>
                                                     <label class="forum-editor-color-control" title="Highlight color">
                                                         <span>▰</span>
-                                                        <input type="color" value="#34263a" data-edit-highlight aria-label="Highlight color">
+                                                        <input type="color" value="#34263a" data-edit-highlight
+                                                            aria-label="Highlight color">
                                                     </label>
-                                                    <button type="button" class="forum-editor-tool" data-edit-apply-highlight title="Apply the current highlight color to the selected text">Apply Highlight</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-apply-highlight
+                                                        title="Apply the current highlight color to the selected text">Apply
+                                                        Highlight</button>
                                                 </div>
 
                                                 <div class="forum-editor-tool-group">
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="insertUnorderedList" title="Bulleted list">• List</button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="insertOrderedList" title="Numbered list">1. List</button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-quote title="Format selected text as a quote">Quote</button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="justifyLeft" title="Align left">Left</button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="justifyCenter" title="Align center">Center</button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="justifyRight" title="Align right">Right</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="insertUnorderedList" title="Bulleted list">•
+                                                        List</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="insertOrderedList" title="Numbered list">1.
+                                                        List</button>
+                                                    <button type="button" class="forum-editor-tool" data-edit-quote
+                                                        title="Format selected text as a quote">Quote</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="justifyLeft" title="Align left">Left</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="justifyCenter"
+                                                        title="Align center">Center</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="justifyRight"
+                                                        title="Align right">Right</button>
                                                 </div>
 
                                                 <div class="forum-editor-tool-group">
-                                                    <button type="button" class="forum-editor-tool" data-edit-link>Link</button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="unlink">Unlink</button>
-                                                    <select
-                                                        class="forum-editor-select"
-                                                        data-edit-image-size
-                                                        title="Image size"
-                                                    >
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-link>Link</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="unlink">Unlink</button>
+                                                    <select class="forum-editor-select" data-edit-image-size
+                                                        title="Image size">
                                                         <option value="">Image Size</option>
                                                         <option value="25%">25%</option>
                                                         <option value="40%">40%</option>
@@ -4390,71 +4325,57 @@ require INCLUDES_PATH . '/header.php';
                                                         <option value="100%">100%</option>
                                                     </select>
 
-                                                    <select
-                                                        class="forum-editor-select"
-                                                        data-edit-image-align
-                                                        title="Image alignment"
-                                                    >
+                                                    <select class="forum-editor-select" data-edit-image-align
+                                                        title="Image alignment">
                                                         <option value="">Image Align</option>
                                                         <option value="left">Left</option>
                                                         <option value="center">Center</option>
                                                         <option value="right">Right</option>
                                                     </select>
 
-                                                    <button type="button" class="forum-editor-tool" data-edit-image-url>Image URL</button>
-                                                    <button type="button" class="forum-editor-tool forum-editor-youtube-tool" data-edit-youtube title="Embed a YouTube video">YouTube</button>
-                                                    <button type="button" class="forum-editor-tool" data-edit-command="removeFormat">Clear</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-image-url>Image URL</button>
+                                                    <button type="button"
+                                                        class="forum-editor-tool forum-editor-youtube-tool"
+                                                        data-edit-youtube title="Embed a YouTube video">YouTube</button>
+                                                    <button type="button" class="forum-editor-tool"
+                                                        data-edit-command="removeFormat">Clear</button>
                                                 </div>
                                             </div>
 
-                                            <div
-                                                class="forum-rich-editor-surface forum-inline-edit-surface"
-                                                contenteditable="true"
-                                                data-inline-editor-area
-                                            ><?= sanitize_rich_text(
+                                            <div class="forum-rich-editor-surface forum-inline-edit-surface"
+                                                contenteditable="true" data-inline-editor-area><?= sanitize_rich_text(
                                                 (string) $post['content']
                                             ); ?></div>
 
-                                            <div
-                                                class="forum-editor-counts"
-                                                aria-live="polite"
-                                                aria-atomic="true"
-                                            >
+                                            <div class="forum-editor-counts" aria-live="polite" aria-atomic="true">
                                                 <span data-edit-word-count>0 words</span>
                                                 <span aria-hidden="true">•</span>
                                                 <span data-edit-character-count>0 characters</span>
                                             </div>
                                         </div>
 
-                                        <textarea
-                                            name="content"
-                                            class="forum-rich-editor-input"
-                                            aria-hidden="true"
-                                            tabindex="-1"
-                                            data-inline-editor-input
-                                        ><?= e(
+                                        <textarea name="content" class="forum-rich-editor-input" aria-hidden="true"
+                                            tabindex="-1" data-inline-editor-input><?= e(
                                             (string) $post['content']
                                         ); ?></textarea>
 
                                         <div class="forum-inline-edit-actions">
                                             <button type="submit" class="button button-primary">Save Changes</button>
-                                            <a
-                                                class="button button-secondary"
-                                                href="<?= e(
+                                            <a class="button button-secondary" href="<?= e(
                                                     blackthorne_thread_page_url(
                                                         $threadId,
                                                         $page
                                                     )
                                                     . '#post-'
                                                     . $postId
-                                                ); ?>"
-                                            >
+                                                ); ?>">
                                                 Cancel
                                             </a>
                                         </div>
                                     </form>
 
-                                <?php else: ?>
+                                    <?php else: ?>
 
                                     <div class="rich-text-content forum-post-body">
                                         <?= blackthorne_render_forum_content(
@@ -4464,10 +4385,10 @@ require INCLUDES_PATH . '/header.php';
                                         ); ?>
                                     </div>
 
-                                <?php endif; ?>
+                                    <?php endif; ?>
 
 
-                                <?php if (
+                                    <?php if (
                                     (int) $post[
                                         'is_edited'
                                     ] === 1
@@ -4484,151 +4405,124 @@ require INCLUDES_PATH . '/header.php';
                                         ); ?>
                                     </p>
 
-                                <?php endif; ?>
+                                    <?php endif; ?>
 
-                            </div>
+                                </div>
 
 
-                            <footer class="forum-post-footer">
+                                <footer class="forum-post-footer">
 
-                                <div class="forum-post-date">
+                                    <div class="forum-post-date">
 
-                                    <a
-                                        href="<?= e(
+                                        <a href="<?= e(
                                             blackthorne_thread_page_url(
                                                 $threadId,
                                                 $page
                                             )
                                             . '#post-'
                                             . $postId
-                                        ); ?>"
-                                    >
-                                        #<?= $postId; ?>
-                                    </a>
+                                        ); ?>">
+                                            #<?= $postId; ?>
+                                        </a>
 
-                                    <span aria-hidden="true">
-                                        ·
-                                    </span>
+                                        <span aria-hidden="true">
+                                            ·
+                                        </span>
 
-                                    <time
-                                        datetime="<?= e(
+                                        <time datetime="<?= e(
                                             (string) $post[
                                                 'created_at'
                                             ]
-                                        ); ?>"
-                                    >
-                                        <?= e(
+                                        ); ?>">
+                                            <?= e(
                                             blackthorne_thread_datetime(
                                                 (string) $post[
                                                     'created_at'
                                                 ]
                                             )
                                         ); ?>
-                                    </time>
+                                        </time>
 
-                                </div>
+                                    </div>
 
 
-                                <div class="forum-post-actions">
+                                    <div class="forum-post-actions">
 
-                                    <?php if ($userLikedPost): ?>
+                                        <?php if ($userLikedPost): ?>
 
-                                        <span
-                                            class="forum-post-action forum-post-like-action is-active"
-                                            aria-label="You liked this post"
-                                        >
+                                        <span class="forum-post-action forum-post-like-action is-active"
+                                            aria-label="You liked this post">
                                             <span aria-hidden="true">♥</span>
                                             <span>Liked</span>
                                             <?php if ($likeCount > 0): ?>
-                                                <span class="forum-post-like-count"><?= number_format($likeCount); ?></span>
+                                            <span class="forum-post-like-count"><?= number_format($likeCount); ?></span>
                                             <?php endif; ?>
                                         </span>
 
-                                        <form
-                                            method="post"
-                                            action="<?= e(
+                                        <form method="post" action="<?= e(
                                                 blackthorne_thread_page_url(
                                                     $threadId,
                                                     $page
                                                 )
                                                 . '#post-'
                                                 . $postId
-                                            ); ?>"
-                                            class="forum-post-action-form"
-                                        >
+                                            ); ?>" class="forum-post-action-form">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="action" value="toggle_like">
                                             <input type="hidden" name="post_id" value="<?= $postId; ?>">
 
-                                            <button
-                                                type="submit"
-                                                class="forum-post-action forum-post-unlike-action"
-                                                title="Remove your like"
-                                                aria-label="Unlike this post"
-                                            >
+                                            <button type="submit" class="forum-post-action forum-post-unlike-action"
+                                                title="Remove your like" aria-label="Unlike this post">
                                                 Unlike
                                             </button>
                                         </form>
 
-                                    <?php else: ?>
+                                        <?php else: ?>
 
-                                        <form
-                                            method="post"
-                                            action="<?= e(
+                                        <form method="post" action="<?= e(
                                                 blackthorne_thread_page_url(
                                                     $threadId,
                                                     $page
                                                 )
                                                 . '#post-'
                                                 . $postId
-                                            ); ?>"
-                                            class="forum-post-action-form"
-                                        >
+                                            ); ?>" class="forum-post-action-form">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="action" value="toggle_like">
                                             <input type="hidden" name="post_id" value="<?= $postId; ?>">
 
-                                            <button
-                                                type="submit"
-                                                class="forum-post-action forum-post-like-action"
-                                                title="Like this post"
-                                                aria-label="Like this post"
-                                            >
+                                            <button type="submit" class="forum-post-action forum-post-like-action"
+                                                title="Like this post" aria-label="Like this post">
                                                 <span aria-hidden="true">♥</span>
                                                 <span>Like</span>
                                                 <?php if ($likeCount > 0): ?>
-                                                    <span class="forum-post-like-count"><?= number_format($likeCount); ?></span>
+                                                <span
+                                                    class="forum-post-like-count"><?= number_format($likeCount); ?></span>
                                                 <?php endif; ?>
                                             </button>
                                         </form>
 
-                                    <?php endif; ?>
+                                        <?php endif; ?>
 
 
-                                    <?php if (
+                                        <?php if (
                                         $canQuotePost
                                         && $canReply
                                     ): ?>
 
-                                        <button
-                                            type="button"
-                                            class="forum-post-action forum-post-quote-action"
-                                            data-quote-post="<?= $postId; ?>"
-                                            title="Quote this post in your reply"
-                                        >
+                                        <button type="button" class="forum-post-action forum-post-quote-action"
+                                            data-quote-post="<?= $postId; ?>" title="Quote this post in your reply">
                                             Quote
                                         </button>
 
-                                    <?php endif; ?>
+                                        <?php endif; ?>
 
 
-                                    <?php if (
+                                        <?php if (
                                         $canEditPost
                                     ): ?>
 
-                                        <a
-                                            class="forum-post-action forum-post-edit-action"
-                                            href="<?= e(
+                                        <a class="forum-post-action forum-post-edit-action" href="<?= e(
                                                 blackthorne_thread_page_url(
                                                     $threadId,
                                                     $page
@@ -4637,15 +4531,14 @@ require INCLUDES_PATH . '/header.php';
                                                 . $postId
                                                 . '#post-'
                                                 . $postId
-                                            ); ?>"
-                                        >
+                                            ); ?>">
                                             Edit
                                         </a>
 
-                                    <?php endif; ?>
+                                        <?php endif; ?>
 
 
-                                    <?php if (
+                                        <?php if (
                                         $canDeletePost
                                         || (
                                             $isStarter
@@ -4653,27 +4546,21 @@ require INCLUDES_PATH . '/header.php';
                                         )
                                     ): ?>
 
-                                        <form
-                                            method="post"
-                                            class="forum-post-inline-action-form"
-                                            onsubmit="return confirm('<?= $isStarter ? 'Delete this entire thread?' : 'Delete this post?'; ?>');"
-                                        >
+                                        <form method="post" class="forum-post-inline-action-form"
+                                            onsubmit="return confirm('<?= $isStarter ? 'Delete this entire thread?' : 'Delete this post?'; ?>');">
                                             <?= csrf_field(); ?>
                                             <input type="hidden" name="action" value="delete_post">
                                             <input type="hidden" name="post_id" value="<?= $postId; ?>">
 
-                                            <button
-                                                type="submit"
-                                                class="forum-post-action is-danger"
-                                            >
+                                            <button type="submit" class="forum-post-action is-danger">
                                                 <?= $isStarter ? 'Delete Thread' : 'Delete'; ?>
                                             </button>
                                         </form>
 
-                                    <?php endif; ?>
+                                        <?php endif; ?>
 
 
-                                    <?php if (
+                                        <?php if (
                                         forum_can_move_post(
                                             $pdo,
                                             $forumId,
@@ -4681,80 +4568,64 @@ require INCLUDES_PATH . '/header.php';
                                         )
                                     ): ?>
 
-                                        <button
-                                            type="button"
-                                            class="forum-post-action"
-                                            disabled
-                                        >
+                                        <button type="button" class="forum-post-action" disabled>
                                             Move
                                         </button>
 
-                                    <?php endif; ?>
+                                        <?php endif; ?>
 
 
-                                    <button
-                                        type="button"
-                                        class="forum-post-action forum-post-report-action"
-                                        data-report-post="<?= $postId; ?>"
-                                        data-report-author="<?= e((string) $post['display_name']); ?>"
-                                        title="Report this post"
-                                        aria-label="Report this post"
-                                    >
-                                        <span
-                                            class="forum-post-report-cog"
-                                            aria-hidden="true"
-                                        >
-                                            ⚙
-                                        </span>
-                                        <span class="sr-only">Report</span>
-                                    </button>
+                                        <button type="button" class="forum-post-action forum-post-report-action"
+                                            data-report-post="<?= $postId; ?>"
+                                            data-report-author="<?= e((string) $post['display_name']); ?>"
+                                            title="Report this post" aria-label="Report this post">
+                                            <span class="forum-post-report-cog" aria-hidden="true">
+                                                ⚙
+                                            </span>
+                                            <span class="sr-only">Report</span>
+                                        </button>
 
-                                </div>
+                                    </div>
 
-                            </footer>
+                                </footer>
 
-                        </div>
+                            </div>
 
-                    </article>
+                        </article>
 
 
-                <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-            <?php endif; ?>
+                        <?php endif; ?>
 
 
-            <!-- ========================================================
+                        <!-- ========================================================
                  BOTTOM NAV
             ========================================================= -->
 
-            <?php if (
+                        <?php if (
                 $totalPages > 1
             ): ?>
 
-                <nav
-                    class="forum-thread-pagination forum-thread-pagination-bottom"
-                    aria-label="Thread pages"
-                >
+                        <nav class="forum-thread-pagination forum-thread-pagination-bottom" aria-label="Thread pages">
 
-                    <?php if (
+                            <?php if (
                         $page > 1
                     ): ?>
 
-                        <a
-                            href="<?= e(
+                            <a href="<?= e(
                                 blackthorne_thread_page_url(
                                     $threadId,
                                     $page - 1
                                 )
-                            ); ?>"
-                        >
-                            Previous
-                        </a>
+                            ); ?>">
+                                Previous
+                            </a>
 
-                    <?php endif; ?>
+                            <?php endif; ?>
 
 
-                    <?php for (
+                            <?php for (
                         $paginationPage =
                             max(
                                 1,
@@ -4768,288 +4639,297 @@ require INCLUDES_PATH . '/header.php';
                         $paginationPage++
                     ): ?>
 
-                        <?php if (
+                            <?php if (
                             $paginationPage
                             === $page
                         ): ?>
 
-                            <span
-                                class="is-current"
-                                aria-current="page"
-                            >
+                            <span class="is-current" aria-current="page">
                                 <?= $paginationPage; ?>
                             </span>
 
-                        <?php else: ?>
+                            <?php else: ?>
 
-                            <a
-                                href="<?= e(
+                            <a href="<?= e(
                                     blackthorne_thread_page_url(
                                         $threadId,
                                         $paginationPage
                                     )
-                                ); ?>"
-                            >
+                                ); ?>">
                                 <?= $paginationPage; ?>
                             </a>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    <?php endfor; ?>
+                            <?php endfor; ?>
 
 
-                    <?php if (
+                            <?php if (
                         $page < $totalPages
                     ): ?>
 
-                        <a
-                            href="<?= e(
+                            <a href="<?= e(
                                 blackthorne_thread_page_url(
                                     $threadId,
                                     $page + 1
                                 )
-                            ); ?>"
-                        >
-                            Next
-                        </a>
+                            ); ?>">
+                                Next
+                            </a>
 
-                    <?php endif; ?>
+                            <?php endif; ?>
 
-                </nav>
+                        </nav>
 
-            <?php endif; ?>
+                        <?php endif; ?>
 
 
-            <!-- ========================================================
+                        <!-- ========================================================
                  REPLY AREA
             ========================================================= -->
 
-            <section
-                class="forum-thread-reply"
-                id="respond"
-            >
+                        <section class="forum-thread-reply" id="respond">
 
-                <?php if ($isForumMuted): ?>
+                            <?php if ($isForumMuted): ?>
 
-                    <div class="forum-thread-locked-notice">
-                        Your account is currently muted from posting forum content.
-                        <?php if (!empty($activeForumMute['expires_at'])): ?>
-                            This mute expires
-                            <?= e(
+                            <div class="forum-thread-locked-notice">
+                                Your account is currently muted from posting forum content.
+                                <?php if (!empty($activeForumMute['expires_at'])): ?>
+                                This mute expires
+                                <?= e(
                                 blackthorne_thread_datetime(
                                     (string) $activeForumMute['expires_at']
                                 )
                             ); ?>.
-                        <?php else: ?>
-                            This mute does not currently have an automatic expiration.
-                        <?php endif; ?>
-                    </div>
+                                <?php else: ?>
+                                This mute does not currently have an automatic expiration.
+                                <?php endif; ?>
+                            </div>
 
 
-                <?php elseif (
+                            <?php elseif (
                     (int) $thread[
                         'is_locked'
                     ] === 1
                 ): ?>
 
-                    <div class="forum-thread-locked-notice">
-                        This thread is locked. New replies cannot be posted.
-                    </div>
+                            <div class="forum-thread-locked-notice">
+                                This thread is locked. New replies cannot be posted.
+                            </div>
 
 
-                <?php elseif (
+                            <?php elseif (
                     $canReply
                 ): ?>
 
-                    <header class="forum-board-section-titlebar">
+                            <header class="forum-board-section-titlebar">
 
-                        <h2>
-                            Reply to Thread
-                        </h2>
+                                <h2>
+                                    Reply to Thread
+                                </h2>
 
-                    </header>
+                            </header>
 
-                    <?php if ($replyErrors !== []): ?>
-                        <div class="form-alert form-alert-error" role="alert">
-                            <strong>Your reply was not posted.</strong>
-                            <ul>
-                                <?php foreach ($replyErrors as $replyError): ?>
+                            <?php if ($replyErrors !== []): ?>
+                            <div class="form-alert form-alert-error" role="alert">
+                                <strong>Your reply was not posted.</strong>
+                                <ul>
+                                    <?php foreach ($replyErrors as $replyError): ?>
                                     <li><?= e($replyError); ?></li>
-                                <?php endforeach; ?>
-                            </ul>
-                        </div>
-                    <?php endif; ?>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                            <?php endif; ?>
 
-                    <form
-                        class="forum-thread-composer forum-reply-composer"
-                        method="post"
-                        enctype="multipart/form-data"
-                        action="<?= e(blackthorne_thread_page_url($threadId, $page) . '#respond'); ?>"
-                        id="thread-reply-form"
-                    >
-                        <?= csrf_field(); ?>
-                        <input type="hidden" name="action" value="reply">
-                        <input type="hidden" name="quote_post_ids" value="[]" data-quote-post-ids>
+                            <form class="forum-thread-composer forum-reply-composer" method="post"
+                                enctype="multipart/form-data"
+                                action="<?= e(blackthorne_thread_page_url($threadId, $page) . '#respond'); ?>"
+                                id="thread-reply-form">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="action" value="reply">
+                                <input type="hidden" name="quote_post_ids" value="[]" data-quote-post-ids>
 
-                        <div class="form-group forum-rich-editor-field">
-                            <label id="reply-message-label" for="reply-editor">Message</label>
+                                <div class="form-group forum-rich-editor-field">
+                                    <label id="reply-message-label" for="reply-editor">Message</label>
 
-                            <div class="forum-rich-editor" data-forum-editor>
-                                <div class="forum-rich-editor-toolbar" role="toolbar" aria-label="Reply formatting">
-                                    <div class="forum-editor-tool-group">
-                                        <button type="button" class="forum-editor-tool" data-command="bold" title="Bold" aria-label="Bold"><strong>B</strong></button>
-                                        <button type="button" class="forum-editor-tool" data-command="italic" title="Italic" aria-label="Italic"><em>I</em></button>
-                                        <button type="button" class="forum-editor-tool" data-command="underline" title="Underline" aria-label="Underline"><u>U</u></button>
-                                        <button type="button" class="forum-editor-tool" data-command="strikeThrough" title="Strikethrough" aria-label="Strikethrough"><s>S</s></button>
-                                    </div>
+                                    <div class="forum-rich-editor" data-forum-editor>
+                                        <div class="forum-rich-editor-toolbar" role="toolbar"
+                                            aria-label="Reply formatting">
+                                            <div class="forum-editor-tool-group">
+                                                <button type="button" class="forum-editor-tool" data-command="bold"
+                                                    title="Bold" aria-label="Bold"><strong>B</strong></button>
+                                                <button type="button" class="forum-editor-tool" data-command="italic"
+                                                    title="Italic" aria-label="Italic"><em>I</em></button>
+                                                <button type="button" class="forum-editor-tool" data-command="underline"
+                                                    title="Underline" aria-label="Underline"><u>U</u></button>
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-command="strikeThrough" title="Strikethrough"
+                                                    aria-label="Strikethrough"><s>S</s></button>
+                                            </div>
 
-                                    <div class="forum-editor-tool-group">
-                                        <label class="sr-only" for="reply-format">Text style</label>
-                                        <select id="reply-format" class="forum-editor-select" data-editor-format title="Text style">
-                                            <option value="p">Paragraph</option>
-                                            <option value="h2">Heading 2</option>
-                                            <option value="h3">Heading 3</option>
-                                            <option value="h4">Heading 4</option>
-                                            <option value="blockquote">Quote Block</option>
-                                        </select>
-                                        <label class="sr-only" for="reply-font-size">Font size</label>
-                                        <select id="reply-font-size" class="forum-editor-select" data-editor-size title="Font size">
-                                            <option value="3">Normal</option>
-                                            <option value="2">Small</option>
-                                            <option value="4">Large</option>
-                                            <option value="5">Larger</option>
-                                            <option value="6">Very Large</option>
-                                        </select>
-                                    </div>
+                                            <div class="forum-editor-tool-group">
+                                                <label class="sr-only" for="reply-format">Text style</label>
+                                                <select id="reply-format" class="forum-editor-select" data-editor-format
+                                                    title="Text style">
+                                                    <option value="p">Paragraph</option>
+                                                    <option value="h2">Heading 2</option>
+                                                    <option value="h3">Heading 3</option>
+                                                    <option value="h4">Heading 4</option>
+                                                    <option value="blockquote">Quote Block</option>
+                                                </select>
+                                                <label class="sr-only" for="reply-font-size">Font size</label>
+                                                <select id="reply-font-size" class="forum-editor-select"
+                                                    data-editor-size title="Font size">
+                                                    <option value="3">Normal</option>
+                                                    <option value="2">Small</option>
+                                                    <option value="4">Large</option>
+                                                    <option value="5">Larger</option>
+                                                    <option value="6">Very Large</option>
+                                                </select>
+                                            </div>
 
-                                    <div class="forum-editor-tool-group forum-editor-color-tools">
-                                        <label class="forum-editor-color-label" title="Text color">
-                                            <span>A</span>
-                                            <input type="color" value="#e8e1e6" data-editor-color aria-label="Text color">
-                                        </label>
-                                        <button type="button" class="forum-editor-tool" data-editor-apply-color title="Apply the current text color to the selected text">Apply Text</button>
-                                        <label class="forum-editor-color-label" title="Highlight color">
-                                            <span>▰</span>
-                                            <input type="color" value="#3f2b48" data-editor-highlight aria-label="Highlight color">
-                                        </label>
-                                        <button type="button" class="forum-editor-tool" data-editor-apply-highlight title="Apply the current highlight color to the selected text">Apply Highlight</button>
-                                    </div>
+                                            <div class="forum-editor-tool-group forum-editor-color-tools">
+                                                <label class="forum-editor-color-label" title="Text color">
+                                                    <span>A</span>
+                                                    <input type="color" value="#e8e1e6" data-editor-color
+                                                        aria-label="Text color">
+                                                </label>
+                                                <button type="button" class="forum-editor-tool" data-editor-apply-color
+                                                    title="Apply the current text color to the selected text">Apply
+                                                    Text</button>
+                                                <label class="forum-editor-color-label" title="Highlight color">
+                                                    <span>▰</span>
+                                                    <input type="color" value="#3f2b48" data-editor-highlight
+                                                        aria-label="Highlight color">
+                                                </label>
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-editor-apply-highlight
+                                                    title="Apply the current highlight color to the selected text">Apply
+                                                    Highlight</button>
+                                            </div>
 
-                                    <div class="forum-editor-tool-group">
-                                        <button type="button" class="forum-editor-tool" data-command="insertUnorderedList" title="Bulleted list" aria-label="Bulleted list">• List</button>
-                                        <button type="button" class="forum-editor-tool" data-command="insertOrderedList" title="Numbered list" aria-label="Numbered list">1. List</button>
-                                        <button
-                                            type="button"
-                                            class="forum-editor-tool"
-                                            data-editor-quote
-                                            title="Format selected text as a quote"
-                                            aria-label="Quote selected text"
-                                        >
-                                            Quote
-                                        </button>
-                                    </div>
+                                            <div class="forum-editor-tool-group">
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-command="insertUnorderedList" title="Bulleted list"
+                                                    aria-label="Bulleted list">• List</button>
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-command="insertOrderedList" title="Numbered list"
+                                                    aria-label="Numbered list">1. List</button>
+                                                <button type="button" class="forum-editor-tool" data-editor-quote
+                                                    title="Format selected text as a quote"
+                                                    aria-label="Quote selected text">
+                                                    Quote
+                                                </button>
+                                            </div>
 
-                                    <div class="forum-editor-tool-group">
-                                        <button type="button" class="forum-editor-tool" data-command="justifyLeft" title="Align left" aria-label="Align left">Left</button>
-                                        <button type="button" class="forum-editor-tool" data-command="justifyCenter" title="Align center" aria-label="Align center">Center</button>
-                                        <button type="button" class="forum-editor-tool" data-command="justifyRight" title="Align right" aria-label="Align right">Right</button>
-                                    </div>
+                                            <div class="forum-editor-tool-group">
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-command="justifyLeft" title="Align left"
+                                                    aria-label="Align left">Left</button>
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-command="justifyCenter" title="Align center"
+                                                    aria-label="Align center">Center</button>
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-command="justifyRight" title="Align right"
+                                                    aria-label="Align right">Right</button>
+                                            </div>
 
-                                    <div class="forum-editor-tool-group">
-                                        <button type="button" class="forum-editor-tool" data-editor-link title="Insert link">Link</button>
-                                        <button type="button" class="forum-editor-tool" data-command="unlink" title="Remove link">Unlink</button>
-                                        <button type="button" class="forum-editor-tool forum-editor-youtube-tool" data-editor-youtube title="Embed a YouTube video">YouTube</button>
-                                        <button type="button" class="forum-editor-tool" data-command="removeFormat" title="Clear formatting">Clear</button>
-                                    </div>
+                                            <div class="forum-editor-tool-group">
+                                                <button type="button" class="forum-editor-tool" data-editor-link
+                                                    title="Insert link">Link</button>
+                                                <button type="button" class="forum-editor-tool" data-command="unlink"
+                                                    title="Remove link">Unlink</button>
+                                                <button type="button"
+                                                    class="forum-editor-tool forum-editor-youtube-tool"
+                                                    data-editor-youtube title="Embed a YouTube video">YouTube</button>
+                                                <button type="button" class="forum-editor-tool"
+                                                    data-command="removeFormat" title="Clear formatting">Clear</button>
+                                            </div>
 
-                                    <div class="forum-editor-tool-group forum-editor-image-tools">
+                                            <div class="forum-editor-tool-group forum-editor-image-tools">
+                                                <?php if ($forumAllowsImages): ?>
+                                                <select class="forum-editor-select" data-editor-image-size
+                                                    title="Image size">
+                                                    <option value="">Image Size</option>
+                                                    <option value="25%">25%</option>
+                                                    <option value="40%">40%</option>
+                                                    <option value="50%">50%</option>
+                                                    <option value="60%">60%</option>
+                                                    <option value="75%">75%</option>
+                                                    <option value="90%">90%</option>
+                                                    <option value="100%">100%</option>
+                                                </select>
+
+                                                <select class="forum-editor-select" data-editor-image-align
+                                                    title="Image alignment">
+                                                    <option value="">Image Align</option>
+                                                    <option value="left">Left</option>
+                                                    <option value="center">Center</option>
+                                                    <option value="right">Right</option>
+                                                </select>
+
+                                                <button type="button" class="forum-editor-tool" data-editor-image-upload
+                                                    title="Upload an image from your device">Upload Image</button>
+                                                <input class="forum-editor-image-upload-input" type="file"
+                                                    id="reply-image-upload" name="uploaded_images[]"
+                                                    accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
+                                                    multiple data-editor-image-input>
+                                                <input type="hidden" name="upload_tokens" id="reply-upload-tokens"
+                                                    value="[]" data-editor-upload-tokens>
+                                                <?php endif; ?>
+                                                <button type="button" class="forum-editor-tool" data-editor-image-url
+                                                    title="Insert an image from an HTTPS URL">Image URL</button>
+                                            </div>
+                                        </div>
+
+                                        <div class="forum-rich-editor-surface" id="reply-editor" contenteditable="true"
+                                            role="textbox" aria-labelledby="reply-message-label" aria-multiline="true"
+                                            data-placeholder="Write your reply..." spellcheck="true">
+                                            <?= $replyContent !== '' ? sanitize_rich_text($replyContent) : ''; ?></div>
+
                                         <?php if ($forumAllowsImages): ?>
-                                                                                        <select
-                                                class="forum-editor-select"
-                                                data-editor-image-size
-                                                title="Image size"
-                                            >
-                                                <option value="">Image Size</option>
-                                                <option value="25%">25%</option>
-                                                <option value="40%">40%</option>
-                                                <option value="50%">50%</option>
-                                                <option value="60%">60%</option>
-                                                <option value="75%">75%</option>
-                                                <option value="90%">90%</option>
-                                                <option value="100%">100%</option>
-                                            </select>
-
-                                            <select
-                                                class="forum-editor-select"
-                                                data-editor-image-align
-                                                title="Image alignment"
-                                            >
-                                                <option value="">Image Align</option>
-                                                <option value="left">Left</option>
-                                                <option value="center">Center</option>
-                                                <option value="right">Right</option>
-                                            </select>
-
-<button type="button" class="forum-editor-tool" data-editor-image-upload title="Upload an image from your device">Upload Image</button>
-                                            <input class="forum-editor-image-upload-input" type="file" id="reply-image-upload" name="uploaded_images[]" accept="image/jpeg,image/png,image/gif,image/webp,image/avif" multiple data-editor-image-input>
-                                            <input type="hidden" name="upload_tokens" id="reply-upload-tokens" value="[]" data-editor-upload-tokens>
+                                        <div class="forum-editor-image-preview-list" data-editor-image-previews hidden
+                                            aria-live="polite"></div>
                                         <?php endif; ?>
-                                        <button type="button" class="forum-editor-tool" data-editor-image-url title="Insert an image from an HTTPS URL">Image URL</button>
+
+                                        <div class="forum-editor-counts" aria-live="polite" aria-atomic="true">
+                                            <span data-editor-word-count>0 words</span>
+                                            <span aria-hidden="true">•</span>
+                                            <span data-editor-character-count>0 characters</span>
+                                        </div>
+
+                                        <textarea class="forum-rich-editor-input" name="content" id="reply-content"
+                                            required aria-hidden="true"
+                                            tabindex="-1"><?= e($replyContent); ?></textarea>
                                     </div>
+
+                                    <p class="form-help">
+                                        Formatting is preserved when the reply is posted. You may embed a YouTube video,
+                                        insert an HTTPS image URL<?php if ($forumAllowsImages): ?> or upload up to
+                                        <?= $forumMaxAttachmentsPerPost; ?> images (<?= $forumMaxImageSizeMb; ?> MB
+                                        each)<?php endif; ?>.
+                                    </p>
                                 </div>
 
-                                <div
-                                    class="forum-rich-editor-surface"
-                                    id="reply-editor"
-                                    contenteditable="true"
-                                    role="textbox"
-                                    aria-labelledby="reply-message-label"
-                                    aria-multiline="true"
-                                    data-placeholder="Write your reply..."
-                                    spellcheck="true"
-                                ><?= $replyContent !== '' ? sanitize_rich_text($replyContent) : ''; ?></div>
-
-                                <?php if ($forumAllowsImages): ?>
-                                    <div class="forum-editor-image-preview-list" data-editor-image-previews hidden aria-live="polite"></div>
-                                <?php endif; ?>
-
-                                <div
-                                    class="forum-editor-counts"
-                                    aria-live="polite"
-                                    aria-atomic="true"
-                                >
-                                    <span data-editor-word-count>0 words</span>
-                                    <span aria-hidden="true">•</span>
-                                    <span data-editor-character-count>0 characters</span>
+                                <div class="forum-thread-composer-actions">
+                                    <button class="button button-primary" type="submit">Post Reply</button>
                                 </div>
+                            </form>
 
-                                <textarea class="forum-rich-editor-input" name="content" id="reply-content" required aria-hidden="true" tabindex="-1"><?= e($replyContent); ?></textarea>
+
+                            <?php else: ?>
+
+                            <div class="forum-thread-locked-notice">
+                                Your account does not have permission to reply to this thread.
                             </div>
 
-                            <p class="form-help">
-                                Formatting is preserved when the reply is posted. You may embed a YouTube video, insert an HTTPS image URL<?php if ($forumAllowsImages): ?> or upload up to <?= $forumMaxAttachmentsPerPost; ?> images (<?= $forumMaxImageSizeMb; ?> MB each)<?php endif; ?>.
-                            </p>
-                        </div>
+                            <?php endif; ?>
 
-                        <div class="forum-thread-composer-actions">
-                            <button class="button button-primary" type="submit">Post Reply</button>
-                        </div>
-                    </form>
+                        </section>
 
-
-                <?php else: ?>
-
-                    <div class="forum-thread-locked-notice">
-                        Your account does not have permission to reply to this thread.
                     </div>
 
-                <?php endif; ?>
-
-            </section>
-
-        </div>
-
-    </section>
+                </section>
 
 
             </div>
@@ -5062,37 +4942,19 @@ require INCLUDES_PATH . '/header.php';
 
 <?php if ($showThreadModeration): ?>
 
-<dialog
-    class="forum-admin-modal forum-thread-moderation-modal"
-    id="forum-thread-moderation-modal"
-    aria-labelledby="forum-thread-moderation-heading"
->
+<dialog class="forum-admin-modal forum-thread-moderation-modal" id="forum-thread-moderation-modal"
+    aria-labelledby="forum-thread-moderation-heading">
     <header class="forum-admin-titlebar forum-admin-modal-titlebar">
         <div>
             <p class="forum-admin-step">Thread Moderation</p>
             <h2 id="forum-thread-moderation-heading">Moderate Thread</h2>
         </div>
 
-        <button
-            type="button"
-            class="forum-admin-modal-close"
-            data-close-thread-moderation
-            aria-label="Close moderation controls"
-        >
-            <svg
-                viewBox="0 0 24 24"
-                width="18"
-                height="18"
-                aria-hidden="true"
-                focusable="false"
-            >
-                <path
-                    d="M6.75 6.75 17.25 17.25M17.25 6.75 6.75 17.25"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                />
+        <button type="button" class="forum-admin-modal-close" data-close-thread-moderation
+            aria-label="Close moderation controls">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
+                <path d="M6.75 6.75 17.25 17.25M17.25 6.75 6.75 17.25" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" />
             </svg>
         </button>
     </header>
@@ -5112,267 +4974,188 @@ require INCLUDES_PATH . '/header.php';
                 || $canMarkAnnouncement
             ): ?>
 
-                <section class="forum-thread-moderation-section">
-                    <h3>Thread Status</h3>
+            <section class="forum-thread-moderation-section">
+                <h3>Thread Status</h3>
 
-                    <div class="forum-thread-moderation-actions">
+                <div class="forum-thread-moderation-actions">
 
-                        <?php if ($canLockThread): ?>
-                            <form
-                                method="post"
-                                action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
-                            >
-                                <?= csrf_field(); ?>
-                                <input
-                                    type="hidden"
-                                    name="action"
-                                    value="moderate_lock_thread"
-                                >
+                    <?php if ($canLockThread): ?>
+                    <form method="post" action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="action" value="moderate_lock_thread">
 
-                                <button
-                                    type="submit"
-                                    class="button"
-                                >
-                                    <?= (int) $thread['is_locked'] === 1
+                        <button type="submit" class="button">
+                            <?= (int) $thread['is_locked'] === 1
                                         ? 'Unlock Thread'
                                         : 'Lock Thread'; ?>
-                                </button>
-                            </form>
-                        <?php endif; ?>
+                        </button>
+                    </form>
+                    <?php endif; ?>
 
 
-                        <?php if ($canPinThread): ?>
-                            <form
-                                method="post"
-                                action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
-                            >
-                                <?= csrf_field(); ?>
-                                <input
-                                    type="hidden"
-                                    name="action"
-                                    value="moderate_pin_thread"
-                                >
+                    <?php if ($canPinThread): ?>
+                    <form method="post" action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="action" value="moderate_pin_thread">
 
-                                <button
-                                    type="submit"
-                                    class="button"
-                                >
-                                    <?= (int) $thread['is_pinned'] === 1
+                        <button type="submit" class="button">
+                            <?= (int) $thread['is_pinned'] === 1
                                         ? 'Remove Sticky'
                                         : 'Make Sticky'; ?>
-                                </button>
-                            </form>
-                        <?php endif; ?>
+                        </button>
+                    </form>
+                    <?php endif; ?>
 
 
-                        <?php if ($canMarkAnnouncement): ?>
-                            <form
-                                method="post"
-                                action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
-                            >
-                                <?= csrf_field(); ?>
-                                <input
-                                    type="hidden"
-                                    name="action"
-                                    value="moderate_announcement"
-                                >
+                    <?php if ($canMarkAnnouncement): ?>
+                    <form method="post" action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="action" value="moderate_announcement">
 
-                                <button
-                                    type="submit"
-                                    class="button"
-                                >
-                                    <?= (int) $thread['is_announcement'] === 1
+                        <button type="submit" class="button">
+                            <?= (int) $thread['is_announcement'] === 1
                                         ? 'Remove Announcement'
                                         : 'Make Announcement'; ?>
-                                </button>
-                            </form>
-                        <?php endif; ?>
+                        </button>
+                    </form>
+                    <?php endif; ?>
 
-                    </div>
-                </section>
+                </div>
+            </section>
 
             <?php endif; ?>
 
 
             <?php if ($canApplyLabels): ?>
 
-                <section class="forum-thread-moderation-section">
-                    <h3>Labels</h3>
+            <section class="forum-thread-moderation-section">
+                <h3>Labels</h3>
 
-                    <?php if ($availableThreadLabels !== []): ?>
+                <?php if ($availableThreadLabels !== []): ?>
 
-                        <form
-                            method="post"
-                            action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
-                            class="forum-thread-moderation-label-form"
-                        >
-                            <?= csrf_field(); ?>
-                            <input
-                                type="hidden"
-                                name="action"
-                                value="moderate_labels"
-                            >
+                <form method="post" action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
+                    class="forum-thread-moderation-label-form">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="action" value="moderate_labels">
 
-                            <div class="forum-thread-label-choice-list">
+                    <div class="forum-thread-label-choice-list">
 
-                                <?php foreach ($availableThreadLabels as $label): ?>
-                                    <?php
+                        <?php foreach ($availableThreadLabels as $label): ?>
+                        <?php
                                     $labelId = (int) $label['id'];
                                     ?>
 
-                                    <label class="forum-thread-label-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="label_ids[]"
-                                            value="<?= $labelId; ?>"
-                                            <?= in_array(
+                        <label class="forum-thread-label-choice">
+                            <input type="checkbox" name="label_ids[]" value="<?= $labelId; ?>" <?= in_array(
                                                 $labelId,
                                                 $currentThreadLabelIds,
                                                 true
                                             )
                                                 ? 'checked'
-                                                : ''; ?>
-                                        >
+                                                : ''; ?>>
 
-                                        <span
-                                            class="forum-thread-label-dot"
-                                            style="--thread-label-color: <?= e((string) $label['label_color']); ?>;"
-                                            aria-hidden="true"
-                                        ></span>
+                            <span class="forum-thread-label-dot"
+                                style="--thread-label-color: <?= e((string) $label['label_color']); ?>;"
+                                aria-hidden="true"></span>
 
-                                        <span>
-                                            <?= e((string) $label['name']); ?>
-                                        </span>
-                                    </label>
-                                <?php endforeach; ?>
+                            <span>
+                                <?= e((string) $label['name']); ?>
+                            </span>
+                        </label>
+                        <?php endforeach; ?>
 
-                            </div>
+                    </div>
 
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
-                                Save Labels
-                            </button>
-                        </form>
+                    <button type="submit" class="button button-primary">
+                        Save Labels
+                    </button>
+                </form>
 
-                    <?php else: ?>
+                <?php else: ?>
 
-                        <p class="muted">
-                            This board does not have any active labels.
-                        </p>
+                <p class="muted">
+                    This board does not have any active labels.
+                </p>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
-                </section>
+            </section>
 
             <?php endif; ?>
 
 
             <?php if ($canMoveThread): ?>
 
-                <section class="forum-thread-moderation-section">
-                    <h3>Move Thread</h3>
+            <section class="forum-thread-moderation-section">
+                <h3>Move Thread</h3>
 
-                    <?php if ($moveDestinationForums !== []): ?>
+                <?php if ($moveDestinationForums !== []): ?>
 
-                        <form
-                            method="post"
-                            action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
-                            class="forum-thread-moderation-move-form"
-                            data-confirm-move-thread
-                        >
-                            <?= csrf_field(); ?>
-                            <input
-                                type="hidden"
-                                name="action"
-                                value="moderate_move_thread"
-                            >
+                <form method="post" action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
+                    class="forum-thread-moderation-move-form" data-confirm-move-thread>
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="action" value="moderate_move_thread">
 
-                            <label for="moderation-destination-forum">
-                                Destination board
-                            </label>
+                    <label for="moderation-destination-forum">
+                        Destination board
+                    </label>
 
-                            <select
-                                class="form-control"
-                                id="moderation-destination-forum"
-                                name="destination_forum_id"
-                                data-forum-picker
-                                required
-                            >
-                                <option value="">
-                                    Choose a board
-                                </option>
+                    <select class="form-control" id="moderation-destination-forum" name="destination_forum_id"
+                        data-forum-picker required>
+                        <option value="">
+                            Choose a board
+                        </option>
 
-                                <?php foreach ($moveDestinationForums as $destinationForum): ?>
-                                    <option
-                                        value="<?= (int) $destinationForum['id']; ?>"
-                                        data-forum-id="<?= (int) $destinationForum['id']; ?>"
-                                        data-parent-forum-id="<?= (int) ($destinationForum['parent_forum_id'] ?? 0); ?>"
-                                        data-category-title="<?= e((string) $destinationForum['category_title']); ?>"
-                                        data-forum-title="<?= e((string) $destinationForum['title']); ?>"
-                                    >
-                                        <?= e((string) $destinationForum['title']); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
+                        <?php foreach ($moveDestinationForums as $destinationForum): ?>
+                        <option value="<?= (int) $destinationForum['id']; ?>"
+                            data-forum-id="<?= (int) $destinationForum['id']; ?>"
+                            data-parent-forum-id="<?= (int) ($destinationForum['parent_forum_id'] ?? 0); ?>"
+                            data-category-title="<?= e((string) $destinationForum['category_title']); ?>"
+                            data-forum-title="<?= e((string) $destinationForum['title']); ?>">
+                            <?= e((string) $destinationForum['title']); ?>
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
 
-                            <button
-                                type="submit"
-                                class="button"
-                            >
-                                Move Thread
-                            </button>
-                        </form>
+                    <button type="submit" class="button">
+                        Move Thread
+                    </button>
+                </form>
 
-                    <?php else: ?>
+                <?php else: ?>
 
-                        <p class="muted">
-                            There are no other boards available to move this thread to.
-                        </p>
+                <p class="muted">
+                    There are no other boards available to move this thread to.
+                </p>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
-                </section>
+            </section>
 
             <?php endif; ?>
 
 
             <?php if ($canDeleteThread): ?>
 
-                <section class="forum-thread-moderation-section forum-thread-moderation-danger">
-                    <h3>Danger Zone</h3>
+            <section class="forum-thread-moderation-section forum-thread-moderation-danger">
+                <h3>Danger Zone</h3>
 
-                    <p>
-                        Delete this thread from public view. The database record is retained
-                        for moderation history.
-                    </p>
+                <p>
+                    Delete this thread from public view. The database record is retained
+                    for moderation history.
+                </p>
 
-                    <form
-                        method="post"
-                        action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
-                        data-confirm-delete-thread
-                    >
-                        <?= csrf_field(); ?>
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="delete_post"
-                        >
-                        <input
-                            type="hidden"
-                            name="post_id"
-                            value="<?= $starterPostId; ?>"
-                        >
+                <form method="post" action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
+                    data-confirm-delete-thread>
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="action" value="delete_post">
+                    <input type="hidden" name="post_id" value="<?= $starterPostId; ?>">
 
-                        <button
-                            type="submit"
-                            class="button forum-thread-danger-button"
-                        >
-                            Delete Thread
-                        </button>
-                    </form>
-                </section>
+                    <button type="submit" class="button forum-thread-danger-button">
+                        Delete Thread
+                    </button>
+                </form>
+            </section>
 
             <?php endif; ?>
 
@@ -5382,144 +5165,142 @@ require INCLUDES_PATH . '/header.php';
 </dialog>
 
 <script>
-(() => {
-    'use strict';
+    (() => {
+        'use strict';
 
-    const modal =
-        document.getElementById(
-            'forum-thread-moderation-modal'
-        );
+        const modal =
+            document.getElementById(
+                'forum-thread-moderation-modal'
+            );
 
-    const openButton =
-        document.querySelector(
-            '[data-open-thread-moderation]'
-        );
+        const openButton =
+            document.querySelector(
+                '[data-open-thread-moderation]'
+            );
 
-    if (!modal || !openButton) {
-        return;
-    }
-
-    const closeModal = () => {
-        modal.close();
-        openButton.setAttribute(
-            'aria-expanded',
-            'false'
-        );
-    };
-
-    openButton.addEventListener(
-        'click',
-        () => {
-            if (
-                typeof modal.showModal
-                === 'function'
-            ) {
-                modal.showModal();
-                openButton.setAttribute(
-                    'aria-expanded',
-                    'true'
-                );
-            }
+        if (!modal || !openButton) {
+            return;
         }
-    );
 
-    modal
-        .querySelectorAll(
-            '[data-close-thread-moderation]'
-        )
-        .forEach(
-            (button) => {
-                button.addEventListener(
-                    'click',
-                    closeModal
-                );
-            }
-        );
-
-    modal.addEventListener(
-        'close',
-        () => {
+        const closeModal = () => {
+            modal.close();
             openButton.setAttribute(
                 'aria-expanded',
                 'false'
             );
-        }
-    );
+        };
 
-    modal.addEventListener(
-        'click',
-        (event) => {
-            if (event.target !== modal) {
-                return;
+        openButton.addEventListener(
+            'click',
+            () => {
+                if (
+                    typeof modal.showModal ===
+                    'function'
+                ) {
+                    modal.showModal();
+                    openButton.setAttribute(
+                        'aria-expanded',
+                        'true'
+                    );
+                }
             }
+        );
 
-            const rect =
-                modal.getBoundingClientRect();
+        modal
+            .querySelectorAll(
+                '[data-close-thread-moderation]'
+            )
+            .forEach(
+                (button) => {
+                    button.addEventListener(
+                        'click',
+                        closeModal
+                    );
+                }
+            );
 
-            const inside =
-                event.clientX >= rect.left
-                && event.clientX <= rect.right
-                && event.clientY >= rect.top
-                && event.clientY <= rect.bottom;
-
-            if (!inside) {
-                closeModal();
-            }
-        }
-    );
-
-    modal
-        .querySelectorAll(
-            '[data-confirm-move-thread]'
-        )
-        .forEach(
-            (form) => {
-                form.addEventListener(
-                    'submit',
-                    (event) => {
-                        if (
-                            !window.confirm(
-                                'Move this thread to the selected board?'
-                            )
-                        ) {
-                            event.preventDefault();
-                        }
-                    }
+        modal.addEventListener(
+            'close',
+            () => {
+                openButton.setAttribute(
+                    'aria-expanded',
+                    'false'
                 );
             }
         );
 
-    modal
-        .querySelectorAll(
-            '[data-confirm-delete-thread]'
-        )
-        .forEach(
-            (form) => {
-                form.addEventListener(
-                    'submit',
-                    (event) => {
-                        if (
-                            !window.confirm(
-                                'Delete this entire thread? This will remove it from normal forum view.'
-                            )
-                        ) {
-                            event.preventDefault();
-                        }
-                    }
-                );
+        modal.addEventListener(
+            'click',
+            (event) => {
+                if (event.target !== modal) {
+                    return;
+                }
+
+                const rect =
+                    modal.getBoundingClientRect();
+
+                const inside =
+                    event.clientX >= rect.left &&
+                    event.clientX <= rect.right &&
+                    event.clientY >= rect.top &&
+                    event.clientY <= rect.bottom;
+
+                if (!inside) {
+                    closeModal();
+                }
             }
         );
-})();
+
+        modal
+            .querySelectorAll(
+                '[data-confirm-move-thread]'
+            )
+            .forEach(
+                (form) => {
+                    form.addEventListener(
+                        'submit',
+                        (event) => {
+                            if (
+                                !window.confirm(
+                                    'Move this thread to the selected board?'
+                                )
+                            ) {
+                                event.preventDefault();
+                            }
+                        }
+                    );
+                }
+            );
+
+        modal
+            .querySelectorAll(
+                '[data-confirm-delete-thread]'
+            )
+            .forEach(
+                (form) => {
+                    form.addEventListener(
+                        'submit',
+                        (event) => {
+                            if (
+                                !window.confirm(
+                                    'Delete this entire thread? This will remove it from normal forum view.'
+                                )
+                            ) {
+                                event.preventDefault();
+                            }
+                        }
+                    );
+                }
+            );
+    })();
+
 </script>
 
 <?php endif; ?>
 
 
-<dialog
-    class="forum-admin-modal forum-report-modal"
-    id="forum-report-modal"
-    aria-labelledby="forum-report-modal-heading"
->
+<dialog class="forum-admin-modal forum-report-modal" id="forum-report-modal"
+    aria-labelledby="forum-report-modal-heading">
     <header class="forum-admin-titlebar forum-admin-modal-titlebar">
         <div>
             <p class="forum-admin-step">Member Report</p>
@@ -5527,17 +5308,14 @@ require INCLUDES_PATH . '/header.php';
         </div>
         <button type="button" class="forum-admin-modal-close" data-close-report-modal aria-label="Close report form">
             <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false">
-                <path d="M6.75 6.75 17.25 17.25M17.25 6.75 6.75 17.25" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M6.75 6.75 17.25 17.25M17.25 6.75 6.75 17.25" fill="none" stroke="currentColor"
+                    stroke-width="1.8" stroke-linecap="round" />
             </svg>
         </button>
     </header>
 
-    <form
-        method="post"
-        action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
-        class="forum-admin-form forum-report-form"
-        data-report-form
-    >
+    <form method="post" action="<?= e(blackthorne_thread_page_url($threadId, $page)); ?>"
+        class="forum-admin-form forum-report-form" data-report-form>
         <?= csrf_field(); ?>
         <input type="hidden" name="action" value="report_post">
         <input type="hidden" name="post_id" value="" data-report-post-id>
@@ -5560,14 +5338,8 @@ require INCLUDES_PATH . '/header.php';
 
         <div class="form-group">
             <label for="forum-report-details">Additional details <span class="muted">(optional)</span></label>
-            <textarea
-                class="form-control"
-                id="forum-report-details"
-                name="details"
-                rows="5"
-                maxlength="2000"
-                placeholder="Tell staff what they should look at."
-            ></textarea>
+            <textarea class="form-control" id="forum-report-details" name="details" rows="5" maxlength="2000"
+                placeholder="Tell staff what they should look at."></textarea>
         </div>
 
         <div class="forum-report-form-actions">
@@ -5578,1143 +5350,86 @@ require INCLUDES_PATH . '/header.php';
 </dialog>
 
 <script>
-(() => {
-    'use strict';
+    (() => {
+        'use strict';
 
-    const reportModal = document.getElementById('forum-report-modal');
-    if (!reportModal) return;
+        const reportModal = document.getElementById('forum-report-modal');
+        if (!reportModal) return;
 
-    const reportPostInput = reportModal.querySelector('[data-report-post-id]');
-    const reportAuthor = reportModal.querySelector('[data-report-author]');
-    const reportReason = reportModal.querySelector('#forum-report-reason');
-    const reportDetails = reportModal.querySelector('#forum-report-details');
+        const reportPostInput = reportModal.querySelector('[data-report-post-id]');
+        const reportAuthor = reportModal.querySelector('[data-report-author]');
+        const reportReason = reportModal.querySelector('#forum-report-reason');
+        const reportDetails = reportModal.querySelector('#forum-report-details');
 
-    document.querySelectorAll('[data-report-post]').forEach((button) => {
-        button.addEventListener('click', () => {
-            if (reportPostInput) reportPostInput.value = button.dataset.reportPost || '';
-            if (reportAuthor) reportAuthor.textContent = button.dataset.reportAuthor || 'this member';
-            if (reportReason) reportReason.value = '';
-            if (reportDetails) reportDetails.value = '';
+        document.querySelectorAll('[data-report-post]').forEach((button) => {
+            button.addEventListener('click', () => {
+                if (reportPostInput) reportPostInput.value = button.dataset.reportPost || '';
+                if (reportAuthor) reportAuthor.textContent = button.dataset.reportAuthor ||
+                    'this member';
+                if (reportReason) reportReason.value = '';
+                if (reportDetails) reportDetails.value = '';
 
-            if (typeof reportModal.showModal === 'function') {
-                reportModal.showModal();
-            }
-        });
-    });
-
-    reportModal.querySelectorAll('[data-close-report-modal]').forEach((button) => {
-        button.addEventListener('click', () => reportModal.close());
-    });
-
-    reportModal.addEventListener('click', (event) => {
-        if (event.target !== reportModal) return;
-
-        const rect = reportModal.getBoundingClientRect();
-        const inside =
-            event.clientX >= rect.left
-            && event.clientX <= rect.right
-            && event.clientY >= rect.top
-            && event.clientY <= rect.bottom;
-
-        if (!inside) reportModal.close();
-    });
-})();
-</script>
-
-<script>
-(() => {
-    'use strict';
-
-    const form = document.getElementById('thread-reply-form');
-    const editor = document.getElementById('reply-editor');
-    const input = document.getElementById('reply-content');
-
-    if (!form || !editor || !input) {
-        return;
-    }
-
-    const imageUploadButton = form.querySelector('[data-editor-image-upload]');
-    const imageInput = form.querySelector('[data-editor-image-input]');
-    const imageUrlButton = form.querySelector('[data-editor-image-url]');
-    const imageSizeSelect = form.querySelector('[data-editor-image-size]');
-    const imageAlignSelect = form.querySelector('[data-editor-image-align]');
-    const imagePreviews = form.querySelector('[data-editor-image-previews]');
-    const uploadTokensInput = form.querySelector('[data-editor-upload-tokens]');
-    const wordCount = form.querySelector('[data-editor-word-count]');
-    const characterCount = form.querySelector('[data-editor-character-count]');
-    const quoteFormattingButton = form.querySelector('[data-editor-quote]');
-    const youtubeButton = form.querySelector('[data-editor-youtube]');
-    const maxImageUploads = <?= max(0, $forumMaxAttachmentsPerPost); ?>;
-    const maxImageBytes = <?= max(1, $forumMaxImageSizeMb) * 1024 * 1024; ?>;
-    const quotePostIdsInput = form.querySelector('[data-quote-post-ids]');
-
-    let selectedUploads = [];
-    let savedRange = null;
-    let selectedImage = null;
-
-    try {
-        document.execCommand('styleWithCSS', false, true);
-    } catch (error) {
-        // Formatting still works in browsers that ignore styleWithCSS.
-    }
-
-    const escapeHtml = (value) => String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#039;');
-
-    const getPlainEditorText = () =>
-        editor.textContent
-            .replace(/\u00a0/g, ' ')
-            .replace(/\s+/g, ' ')
-            .trim();
-
-    const updateEditorCounts = () => {
-        const plainText = getPlainEditorText();
-
-        const characters = plainText.length;
-
-        const words =
-            plainText === ''
-                ? 0
-                : plainText
-                    .split(/\s+/u)
-                    .filter(Boolean)
-                    .length;
-
-        if (wordCount) {
-            wordCount.textContent =
-                `${words} ${words === 1 ? 'word' : 'words'}`;
-        }
-
-        if (characterCount) {
-            characterCount.textContent =
-                `${characters} ${characters === 1 ? 'character' : 'characters'}`;
-        }
-    };
-
-    const normalizeForumLink = (rawValue) => {
-        const value =
-            String(rawValue || '')
-                .trim();
-
-        if (
-            value === ''
-            || /[\u0000-\u001F\u007F\\]/u.test(value)
-        ) {
-            return null;
-        }
-
-        if (value.startsWith('#')) {
-            return value;
-        }
-
-        if (
-            value.startsWith('/')
-            && !value.startsWith('//')
-        ) {
-            return value;
-        }
-
-        if (/^mailto:/i.test(value)) {
-            const address =
-                value.slice(7);
-
-            if (
-                address === ''
-                || /\s/u.test(address)
-            ) {
-                return null;
-            }
-
-            return `mailto:${address}`;
-        }
-
-        try {
-            const parsed = new URL(value);
-
-            if (
-                parsed.protocol !== 'http:'
-                && parsed.protocol !== 'https:'
-            ) {
-                return null;
-            }
-
-            return parsed.href;
-        } catch (error) {
-            return null;
-        }
-    };
-
-    const insertPlainTextAtSelection = (plainText) => {
-        const normalized =
-            String(plainText || '')
-                .replace(/\r\n?/g, '\n');
-
-        if (normalized === '') {
-            return;
-        }
-
-        const safeHtml =
-            escapeHtml(normalized)
-                .replace(/\n/g, '<br>');
-
-        insertHtmlAtSelection(
-            safeHtml
-        );
-    };
-
-    const youtubeVideoIdFromUrl = (rawValue) => {
-        const value = String(rawValue || '').trim();
-
-        if (value === '') {
-            return null;
-        }
-
-        let parsed;
-
-        try {
-            parsed = new URL(value);
-        } catch (error) {
-            return null;
-        }
-
-        if (
-            parsed.protocol !== 'https:'
-            && parsed.protocol !== 'http:'
-        ) {
-            return null;
-        }
-
-        const host =
-            parsed.hostname
-                .toLowerCase()
-                .replace(/^(?:www\.|m\.)/, '');
-
-        let videoId = null;
-
-        if (host === 'youtu.be') {
-            videoId =
-                parsed.pathname
-                    .split('/')
-                    .filter(Boolean)[0]
-                || null;
-        } else if (
-            host === 'youtube.com'
-            || host === 'youtube-nocookie.com'
-        ) {
-            if (parsed.pathname === '/watch') {
-                videoId =
-                    parsed.searchParams.get('v');
-            } else {
-                const segments =
-                    parsed.pathname
-                        .split('/')
-                        .filter(Boolean);
-
-                if (
-                    segments.length >= 2
-                    && ['shorts', 'embed', 'live'].includes(
-                        segments[0].toLowerCase()
-                    )
-                ) {
-                    videoId = segments[1];
+                if (typeof reportModal.showModal === 'function') {
+                    reportModal.showModal();
                 }
-            }
-        }
-
-        return /^[A-Za-z0-9_-]{11}$/.test(videoId || '')
-            ? videoId
-            : null;
-    };
-
-    const insertYoutubeEmbedPlaceholder = (videoId) => {
-        const href =
-            `https://www.youtube.com/watch?v=${videoId}`;
-
-        const safeHref =
-            escapeHtml(href);
-
-        const safeTitle =
-            escapeHtml(
-                `blackthorne-youtube:${videoId}`
-            );
-
-        insertHtmlAtSelection(
-            `<a href="${safeHref}" title="${safeTitle}" target="_blank" rel="noopener noreferrer nofollow">YouTube video: ${safeHref}</a>`
-        );
-    };
-
-    const saveSelection = () => {
-        const selection = window.getSelection();
-        if (!selection || selection.rangeCount === 0) return;
-        const range = selection.getRangeAt(0);
-        if (editor.contains(range.commonAncestorContainer)) {
-            savedRange = range.cloneRange();
-        }
-    };
-
-    const restoreSelection = () => {
-        if (!savedRange) {
-            return;
-        }
-
-        /*
-         * Clone the author's selection before returning focus to the
-         * contenteditable. Chrome can collapse the live selection when the
-         * toolbar/color control takes focus. Restoring from this private copy
-         * keeps formatting attached to the highlighted text.
-         */
-        const rangeToRestore =
-            savedRange.cloneRange();
-
-        try {
-            editor.focus({ preventScroll: true });
-        } catch (error) {
-            editor.focus();
-        }
-
-        const selection =
-            window.getSelection();
-
-        if (!selection) {
-            return;
-        }
-
-        selection.removeAllRanges();
-        selection.addRange(
-            rangeToRestore
-        );
-    };
-
-    const syncEditor = () => {
-        const clone = editor.cloneNode(true);
-        clone.querySelectorAll('[data-forum-quote-preview]').forEach((quotePreview) => {
-            quotePreview.remove();
-        });
-
-        clone.querySelectorAll('img[data-upload-token]').forEach((image) => {
-            const token = image.getAttribute('data-upload-token');
-            if (token) {
-                image.setAttribute('src', `/__blackthorne_pending_image_${token}__`);
-            }
-            image.removeAttribute('data-upload-token');
-        });
-        input.value = clone.innerHTML.trim();
-        updateEditorCounts();
-    };
-
-    const updateSelectedImageControls = () => {
-        if (!selectedImage) {
-            if (imageSizeSelect) {
-                imageSizeSelect.value = '';
-            }
-
-            if (imageAlignSelect) {
-                imageAlignSelect.value = '';
-            }
-
-            return;
-        }
-
-        if (imageSizeSelect) {
-            const currentWidth =
-                selectedImage.style.width;
-
-            const hasSize =
-                Array.from(
-                    imageSizeSelect.options
-                ).some(
-                    (option) =>
-                        option.value === currentWidth
-                );
-
-            imageSizeSelect.value =
-                hasSize
-                    ? currentWidth
-                    : '';
-        }
-
-        if (imageAlignSelect) {
-            const left =
-                selectedImage.style.marginLeft;
-
-            const right =
-                selectedImage.style.marginRight;
-
-            if (
-                left === '0px'
-                && right === 'auto'
-            ) {
-                imageAlignSelect.value = 'left';
-            } else if (
-                left === 'auto'
-                && right === '0px'
-            ) {
-                imageAlignSelect.value = 'right';
-            } else if (
-                left === 'auto'
-                && right === 'auto'
-            ) {
-                imageAlignSelect.value = 'center';
-            } else {
-                imageAlignSelect.value = '';
-            }
-        }
-    };
-
-    editor.addEventListener(
-        'click',
-        (event) => {
-            const target =
-                event.target;
-
-            selectedImage =
-                target instanceof HTMLImageElement
-                && editor.contains(target)
-                    ? target
-                    : null;
-
-            updateSelectedImageControls();
-        }
-    );
-
-    if (imageSizeSelect) {
-        imageSizeSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    !selectedImage
-                    || !editor.contains(selectedImage)
-                ) {
-                    window.alert(
-                        'Click an image in the editor first, then choose its size.'
-                    );
-
-                    imageSizeSelect.value = '';
-                    return;
-                }
-
-                const size =
-                    imageSizeSelect.value;
-
-                if (size === '') {
-                    return;
-                }
-
-                selectedImage.style.width =
-                    size;
-
-                selectedImage.style.maxWidth =
-                    '100%';
-
-                selectedImage.style.height =
-                    'auto';
-
-                syncEditor();
-            }
-        );
-    }
-
-    if (imageAlignSelect) {
-        imageAlignSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    !selectedImage
-                    || !editor.contains(selectedImage)
-                ) {
-                    window.alert(
-                        'Click an image in the editor first, then choose its alignment.'
-                    );
-
-                    imageAlignSelect.value = '';
-                    return;
-                }
-
-                const alignment =
-                    imageAlignSelect.value;
-
-                if (alignment === '') {
-                    return;
-                }
-
-                selectedImage.style.display =
-                    'block';
-
-                if (alignment === 'left') {
-                    selectedImage.style.marginLeft =
-                        '0';
-
-                    selectedImage.style.marginRight =
-                        'auto';
-                } else if (alignment === 'right') {
-                    selectedImage.style.marginLeft =
-                        'auto';
-
-                    selectedImage.style.marginRight =
-                        '0';
-                } else {
-                    selectedImage.style.marginLeft =
-                        'auto';
-
-                    selectedImage.style.marginRight =
-                        'auto';
-                }
-
-                syncEditor();
-            }
-        );
-    }
-
-
-    const applyBlockAlignment = (alignmentCommand) => {
-        const alignmentMap = {
-            justifyLeft: 'left',
-            justifyCenter: 'center',
-            justifyRight: 'right',
-        };
-
-        const alignment =
-            alignmentMap[
-                alignmentCommand
-            ]
-            ?? '';
-
-        if (alignment === '') {
-            return false;
-        }
-
-        if (!savedRange) {
-            return true;
-        }
-
-        /*
-         * Do not run a browser alignment command on the live selection.
-         * Chrome can merge inline formatting when a selection crosses a
-         * heading/paragraph boundary. Instead, identify the selected blocks,
-         * apply alignment to a detached clone, then replace the editor HTML.
-         * This preserves the exact <strong>, <em>, color, link, etc. markup.
-         */
-        const range =
-            savedRange.cloneRange();
-
-        const blockSelector =
-            'p,h1,h2,h3,h4,h5,h6,blockquote,li,div';
-
-        const liveBlocks =
-            Array.from(
-                editor.querySelectorAll(
-                    blockSelector
-                )
-            );
-
-        let selectedIndexes =
-            liveBlocks
-                .map(
-                    (block, index) => {
-                        try {
-                            return range.intersectsNode(block)
-                                ? index
-                                : -1;
-                        } catch (error) {
-                            return -1;
-                        }
-                    }
-                )
-                .filter(
-                    (index) => index >= 0
-                );
-
-        /*
-         * If both an outer DIV and its inner P/H2 are selected, only style
-         * the innermost blocks. This avoids wrapping/inheritance surprises.
-         */
-        selectedIndexes =
-            selectedIndexes.filter(
-                (index) => {
-                    const block =
-                        liveBlocks[index];
-
-                    return !selectedIndexes.some(
-                        (otherIndex) =>
-                            otherIndex !== index
-                            && block.contains(
-                                liveBlocks[
-                                    otherIndex
-                                ]
-                            )
-                    );
-                }
-            );
-
-        if (selectedIndexes.length === 0) {
-            let node =
-                range.commonAncestorContainer;
-
-            if (node.nodeType === Node.TEXT_NODE) {
-                node =
-                    node.parentElement;
-            }
-
-            const nearestBlock =
-                node instanceof Element
-                    ? node.closest(
-                        blockSelector
-                    )
-                    : null;
-
-            if (
-                nearestBlock
-                && editor.contains(
-                    nearestBlock
-                )
-            ) {
-                const index =
-                    liveBlocks.indexOf(
-                        nearestBlock
-                    );
-
-                if (index >= 0) {
-                    selectedIndexes = [
-                        index,
-                    ];
-                }
-            }
-        }
-
-        if (selectedIndexes.length === 0) {
-            return true;
-        }
-
-        const editorClone =
-            editor.cloneNode(true);
-
-        const clonedBlocks =
-            Array.from(
-                editorClone.querySelectorAll(
-                    blockSelector
-                )
-            );
-
-        selectedIndexes.forEach(
-            (index) => {
-                const clonedBlock =
-                    clonedBlocks[index];
-
-                if (clonedBlock) {
-                    clonedBlock.style.textAlign =
-                        alignment;
-                }
-            }
-        );
-
-        editor.innerHTML =
-            editorClone.innerHTML;
-
-        /*
-         * The old Range points at nodes that were just replaced, so discard
-         * it. The next mouse/keyboard selection will establish a fresh one.
-         */
-        savedRange = null;
-
-        syncEditor();
-        return true;
-    };
-
-    const runCommand = (command, value = null) => {
-        if (applyBlockAlignment(command)) {
-            return;
-        }
-
-        restoreSelection();
-        document.execCommand(command, false, value);
-        saveSelection();
-        syncEditor();
-    };
-
-    const insertHtmlAtSelection = (html) => {
-        restoreSelection();
-        document.execCommand('insertHTML', false, html);
-        saveSelection();
-        syncEditor();
-    };
-
-    const createUploadToken = () => {
-        if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
-            const bytes = new Uint8Array(12);
-            window.crypto.getRandomValues(bytes);
-            return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
-        }
-        return `${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 14)}`;
-    };
-
-    const rebuildFileInput = () => {
-        if (!imageInput || !uploadTokensInput) return;
-        const transfer = new DataTransfer();
-        selectedUploads.forEach((upload) => transfer.items.add(upload.file));
-        imageInput.files = transfer.files;
-        uploadTokensInput.value = JSON.stringify(selectedUploads.map((upload) => upload.token));
-    };
-
-    const renderImagePreviews = () => {
-        if (!imagePreviews) return;
-        imagePreviews.innerHTML = '';
-        imagePreviews.hidden = selectedUploads.length === 0;
-
-        selectedUploads.forEach((upload) => {
-            const card = document.createElement('div');
-            card.className = 'forum-editor-image-preview';
-            const image = document.createElement('img');
-            image.src = upload.previewUrl;
-            image.alt = '';
-            const name = document.createElement('span');
-            name.className = 'forum-editor-image-preview-name';
-            name.textContent = upload.file.name;
-            const remove = document.createElement('button');
-            remove.type = 'button';
-            remove.className = 'forum-editor-image-preview-remove';
-            remove.setAttribute('aria-label', `Remove ${upload.file.name}`);
-            remove.textContent = '×';
-            remove.addEventListener('click', () => {
-                URL.revokeObjectURL(upload.previewUrl);
-                selectedUploads = selectedUploads.filter((item) => item.token !== upload.token);
-                editor.querySelectorAll(`img[data-upload-token="${CSS.escape(upload.token)}"]`).forEach((embedded) => embedded.remove());
-                rebuildFileInput();
-                renderImagePreviews();
-                syncEditor();
             });
-            card.append(image, name, remove);
-            imagePreviews.appendChild(card);
         });
-    };
 
-    form.querySelectorAll('[data-command]').forEach((button) => {
-        button.addEventListener('mousedown', (event) => event.preventDefault());
-        button.addEventListener('click', () => runCommand(button.dataset.command || ''));
-    });
-
-    const formatSelect = form.querySelector('[data-editor-format]');
-    if (formatSelect) {
-        formatSelect.addEventListener('change', () => {
-            runCommand('formatBlock', formatSelect.value);
-            formatSelect.value = 'p';
+        reportModal.querySelectorAll('[data-close-report-modal]').forEach((button) => {
+            button.addEventListener('click', () => reportModal.close());
         });
-    }
 
-    const sizeSelect = form.querySelector('[data-editor-size]');
-    if (sizeSelect) {
-        sizeSelect.addEventListener('change', () => {
-            runCommand('fontSize', sizeSelect.value);
-            sizeSelect.value = '3';
+        reportModal.addEventListener('click', (event) => {
+            if (event.target !== reportModal) return;
+
+            const rect = reportModal.getBoundingClientRect();
+            const inside =
+                event.clientX >= rect.left &&
+                event.clientX <= rect.right &&
+                event.clientY >= rect.top &&
+                event.clientY <= rect.bottom;
+
+            if (!inside) reportModal.close();
         });
-    }
+    })();
 
-    const colorInput = form.querySelector('[data-editor-color]');
-    const applyColorButton = form.querySelector('[data-editor-apply-color]');
-    const applyHighlightButton = form.querySelector('[data-editor-apply-highlight]');
-
-    const applyTextColor = () => {
-        if (!savedRange || savedRange.collapsed) {
-            return;
-        }
-
-        runCommand('foreColor', colorInput.value);
-    };
-
-    if (colorInput) {
-        colorInput.addEventListener('pointerdown', saveSelection);
-        colorInput.addEventListener('click', applyTextColor);
-        colorInput.addEventListener('input', applyTextColor);
-        colorInput.addEventListener('change', applyTextColor);
-    }
-
-    const highlightInput = form.querySelector('[data-editor-highlight]');
-
-    const applyHighlightColor = () => {
-        if (!savedRange || savedRange.collapsed) {
-            return;
-        }
-
-        restoreSelection();
-
-        document.execCommand(
-            document.queryCommandSupported('hiliteColor')
-                ? 'hiliteColor'
-                : 'backColor',
-            false,
-            highlightInput.value
-        );
-
-        syncEditor();
-        saveSelection();
-    };
-
-    if (highlightInput) {
-        highlightInput.addEventListener('pointerdown', saveSelection);
-        highlightInput.addEventListener('click', applyHighlightColor);
-        highlightInput.addEventListener('input', applyHighlightColor);
-        highlightInput.addEventListener('change', applyHighlightColor);
-    }
-
-    if (applyColorButton) {
-        applyColorButton.addEventListener('mousedown', (event) => event.preventDefault());
-        applyColorButton.addEventListener('click', applyTextColor);
-    }
-
-    if (applyHighlightButton) {
-        applyHighlightButton.addEventListener('mousedown', (event) => event.preventDefault());
-        applyHighlightButton.addEventListener('click', applyHighlightColor);
-    }
-
-    const linkButton = form.querySelector('[data-editor-link]');
-    if (linkButton) {
-        linkButton.addEventListener('mousedown', (event) => event.preventDefault());
-        linkButton.addEventListener('click', () => {
-            saveSelection();
-
-            const href = window.prompt('Enter the link URL:');
-
-            if (!href) {
-                return;
-            }
-
-            const normalizedHref =
-                normalizeForumLink(href);
-
-            if (!normalizedHref) {
-                window.alert(
-                    'Use a full http:// or https:// URL, a mailto: link, a #anchor, or a Blackthorne site-relative link beginning with a single /.'
-                );
-                return;
-            }
-
-            restoreSelection();
-
-            const selection =
-                window.getSelection();
-
-            if (
-                selection
-                && selection.rangeCount > 0
-                && !selection.getRangeAt(0).collapsed
-            ) {
-                document.execCommand(
-                    'createLink',
-                    false,
-                    normalizedHref
-                );
-            } else {
-                const safeHref =
-                    escapeHtml(normalizedHref);
-
-                insertHtmlAtSelection(
-                    `<a href="${safeHref}" rel="noopener noreferrer nofollow">${safeHref}</a>`
-                );
-            }
-
-            saveSelection();
-            syncEditor();
-        });
-    }
-
-    if (quoteFormattingButton) {
-        quoteFormattingButton.addEventListener(
-            'mousedown',
-            (event) => event.preventDefault()
-        );
-
-        quoteFormattingButton.addEventListener(
-            'click',
-            () => {
-                runCommand(
-                    'formatBlock',
-                    'blockquote'
-                );
-            }
-        );
-    }
-
-
-    if (youtubeButton) {
-        youtubeButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-                saveSelection();
-            }
-        );
-
-        youtubeButton.addEventListener(
-            'click',
-            () => {
-                const youtubeUrl =
-                    window.prompt(
-                        'Paste the YouTube video URL:'
-                    );
-
-                if (!youtubeUrl) {
-                    return;
-                }
-
-                const videoId =
-                    youtubeVideoIdFromUrl(
-                        youtubeUrl
-                    );
-
-                if (!videoId) {
-                    window.alert(
-                        'Use a valid YouTube video, Shorts, Live, or youtu.be URL.'
-                    );
-                    return;
-                }
-
-                insertYoutubeEmbedPlaceholder(
-                    videoId
-                );
-            }
-        );
-    }
-
-    if (imageUrlButton) {
-        imageUrlButton.addEventListener('mousedown', (event) => {
-            event.preventDefault();
-            saveSelection();
-        });
-        imageUrlButton.addEventListener('click', () => {
-            const imageUrl = window.prompt('Enter the direct HTTPS image URL:');
-            if (!imageUrl) return;
-            const trimmed = imageUrl.trim();
-            if (!/^https:\/\//i.test(trimmed)) {
-                window.alert('Image URLs must begin with https://');
-                return;
-            }
-            const altText = window.prompt('Optional image description (alt text):') || '';
-            insertHtmlAtSelection(`<img src="${escapeHtml(trimmed)}" alt="${escapeHtml(altText.trim())}" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">`);
-        });
-    }
-
-    if (imageUploadButton && imageInput) {
-        imageUploadButton.addEventListener('mousedown', (event) => {
-            event.preventDefault();
-            saveSelection();
-        });
-        imageUploadButton.addEventListener('click', () => imageInput.click());
-        imageInput.addEventListener('change', () => {
-            const incomingFiles = Array.from(imageInput.files || []);
-            if (incomingFiles.length === 0) {
-                rebuildFileInput();
-                return;
-            }
-            if (maxImageUploads > 0 && selectedUploads.length + incomingFiles.length > maxImageUploads) {
-                window.alert(`You can upload up to ${maxImageUploads} images in one post.`);
-                rebuildFileInput();
-                return;
-            }
-            for (const file of incomingFiles) {
-                if (!file.type.startsWith('image/')) {
-                    window.alert(`${file.name} is not an image file.`);
-                    continue;
-                }
-                if (file.size > maxImageBytes) {
-                    window.alert(`${file.name} is larger than the allowed image size.`);
-                    continue;
-                }
-                const token = createUploadToken();
-                const previewUrl = URL.createObjectURL(file);
-                selectedUploads.push({ file, token, previewUrl });
-                insertHtmlAtSelection(`<img src="${escapeHtml(previewUrl)}" alt="${escapeHtml(file.name)}" data-upload-token="${escapeHtml(token)}" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">`);
-            }
-            rebuildFileInput();
-            renderImagePreviews();
-        });
-    }
-
-    document.querySelectorAll('[data-quote-post]').forEach((quoteButton) => {
-        quoteButton.addEventListener('click', () => {
-            const postId = Number.parseInt(quoteButton.dataset.quotePost || '0', 10);
-            const article = quoteButton.closest('.forum-post');
-
-            if (!postId || !article) {
-                return;
-            }
-
-            if (editor.querySelector(`[data-forum-quote-preview][data-quoted-post-id="${postId}"]`)) {
-                document.getElementById('respond')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                editor.focus();
-                return;
-            }
-
-            const author = article.querySelector('.forum-post-member-name')?.textContent?.trim() || 'Member';
-            const body = article.querySelector('.forum-post-body');
-            const quoteText = body?.innerText?.trim() || '';
-
-            const quotePreview = document.createElement('blockquote');
-            quotePreview.className = 'forum-post-quote forum-editor-quoted-post';
-            quotePreview.setAttribute('data-forum-quote-preview', '');
-            quotePreview.setAttribute('data-quoted-post-id', String(postId));
-            quotePreview.setAttribute('contenteditable', 'false');
-
-            const quoteHeader = document.createElement('header');
-            quoteHeader.textContent = `${author} wrote:`;
-
-            const quoteBody = document.createElement('div');
-            quoteBody.textContent = quoteText;
-
-            quotePreview.append(quoteHeader, quoteBody);
-
-            editor.insertBefore(quotePreview, editor.firstChild);
-
-            let replyParagraph = editor.querySelector('[data-quote-reply-caret]');
-
-            if (!replyParagraph) {
-                replyParagraph = document.createElement('p');
-                replyParagraph.setAttribute('data-quote-reply-caret', '');
-                replyParagraph.appendChild(document.createElement('br'));
-                editor.appendChild(replyParagraph);
-            }
-
-            const currentQuoteIds = Array.from(
-                editor.querySelectorAll('[data-forum-quote-preview]')
-            ).map((node) => Number.parseInt(node.getAttribute('data-quoted-post-id') || '0', 10))
-             .filter((id) => id > 0);
-
-            if (quotePostIdsInput) {
-                quotePostIdsInput.value = JSON.stringify(currentQuoteIds);
-            }
-
-            syncEditor();
-            document.getElementById('respond')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-            if (replyParagraph) {
-                const range = document.createRange();
-                range.selectNodeContents(replyParagraph);
-                range.collapse(false);
-
-                const selection = window.getSelection();
-                selection.removeAllRanges();
-                selection.addRange(range);
-                savedRange = range.cloneRange();
-            }
-
-            editor.focus();
-        });
-    });
-
-    editor.addEventListener('click', (event) => {
-        const quotePreview = event.target.closest('[data-forum-quote-preview]');
-
-        if (!quotePreview) {
-            return;
-        }
-
-        let replyParagraph = editor.querySelector('[data-quote-reply-caret]');
-
-        if (!replyParagraph) {
-            replyParagraph = document.createElement('p');
-            replyParagraph.setAttribute('data-quote-reply-caret', '');
-            replyParagraph.appendChild(document.createElement('br'));
-            editor.appendChild(replyParagraph);
-        }
-
-        const range = document.createRange();
-        range.selectNodeContents(replyParagraph);
-        range.collapse(false);
-
-        const selection = window.getSelection();
-        selection.removeAllRanges();
-        selection.addRange(range);
-        savedRange = range.cloneRange();
-        editor.focus({ preventScroll: true });
-    });
-
-    ['keyup', 'mouseup', 'input'].forEach((eventName) => {
-        editor.addEventListener(eventName, () => {
-            saveSelection();
-            syncEditor();
-        });
-    });
-
-    editor.addEventListener(
-        'paste',
-        (event) => {
-            const clipboard = event.clipboardData;
-
-            if (!clipboard) {
-                return;
-            }
-
-            const plainText =
-                clipboard.getData('text/plain');
-
-            if (plainText === '') {
-                return;
-            }
-
-            event.preventDefault();
-            saveSelection();
-
-            insertPlainTextAtSelection(
-                plainText
-            );
-        }
-    );
-
-    form.addEventListener('submit', (event) => {
-        if (quotePostIdsInput) {
-            quotePostIdsInput.value = JSON.stringify(
-                Array.from(
-                    editor.querySelectorAll('[data-forum-quote-preview]')
-                )
-                .map((node) => Number.parseInt(node.getAttribute('data-quoted-post-id') || '0', 10))
-                .filter((id) => id > 0)
-            );
-        }
-
-        syncEditor();
-        const text = getPlainEditorText();
-        const hasImage = editor.querySelector('img') !== null;
-        if (!text && !hasImage) {
-            event.preventDefault();
-            window.alert('Write a reply or add an image before posting.');
-            editor.focus();
-        }
-    });
-
-    if (editor.innerHTML.trim() !== '') {
-        input.value = editor.innerHTML.trim();
-    }
-
-    updateEditorCounts();
-})();
 </script>
 
-
 <script>
-(() => {
-    'use strict';
+    (() => {
+        'use strict';
 
-    document.querySelectorAll('[data-inline-edit-form]').forEach((form) => {
-        const editor = form.querySelector('[data-inline-editor-area]');
-        const input = form.querySelector('[data-inline-editor-input]');
-        const wordCount = form.querySelector('[data-edit-word-count]');
-        const characterCount = form.querySelector('[data-edit-character-count]');
-        const quoteFormattingButton = form.querySelector('[data-edit-quote]');
-        const youtubeButton = form.querySelector('[data-edit-youtube]');
+        const form = document.getElementById('thread-reply-form');
+        const editor = document.getElementById('reply-editor');
+        const input = document.getElementById('reply-content');
 
-        if (!editor || !input) {
+        if (!form || !editor || !input) {
             return;
         }
 
+        const imageUploadButton = form.querySelector('[data-editor-image-upload]');
+        const imageInput = form.querySelector('[data-editor-image-input]');
+        const imageUrlButton = form.querySelector('[data-editor-image-url]');
+        const imageSizeSelect = form.querySelector('[data-editor-image-size]');
+        const imageAlignSelect = form.querySelector('[data-editor-image-align]');
+        const imagePreviews = form.querySelector('[data-editor-image-previews]');
+        const uploadTokensInput = form.querySelector('[data-editor-upload-tokens]');
+        const wordCount = form.querySelector('[data-editor-word-count]');
+        const characterCount = form.querySelector('[data-editor-character-count]');
+        const quoteFormattingButton = form.querySelector('[data-editor-quote]');
+        const youtubeButton = form.querySelector('[data-editor-youtube]');
+        const maxImageUploads = <?= max(0, $forumMaxAttachmentsPerPost); ?>;
+        const maxImageBytes = <?= max(1, $forumMaxImageSizeMb) * 1024 * 1024; ?>;
+        const quotePostIdsInput = form.querySelector('[data-quote-post-ids]');
+
+        let selectedUploads = [];
         let savedRange = null;
         let selectedImage = null;
 
         try {
             document.execCommand('styleWithCSS', false, true);
         } catch (error) {
-            // Formatting still works when styleWithCSS is unavailable.
+            // Formatting still works in browsers that ignore styleWithCSS.
         }
 
         const escapeHtml = (value) => String(value)
@@ -6726,24 +5441,22 @@ require INCLUDES_PATH . '/header.php';
 
         const getPlainEditorText = () =>
             editor.textContent
-                .replace(/\u00a0/g, ' ')
-                .replace(/\s+/g, ' ')
-                .trim();
+            .replace(/\u00a0/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
 
         const updateEditorCounts = () => {
-            const plainText =
-                getPlainEditorText();
+            const plainText = getPlainEditorText();
 
-            const characters =
-                plainText.length;
+            const characters = plainText.length;
 
             const words =
-                plainText === ''
-                    ? 0
-                    : plainText
-                        .split(/\s+/u)
-                        .filter(Boolean)
-                        .length;
+                plainText === '' ?
+                0 :
+                plainText
+                .split(/\s+/u)
+                .filter(Boolean)
+                .length;
 
             if (wordCount) {
                 wordCount.textContent =
@@ -6759,11 +5472,11 @@ require INCLUDES_PATH . '/header.php';
         const normalizeForumLink = (rawValue) => {
             const value =
                 String(rawValue || '')
-                    .trim();
+                .trim();
 
             if (
-                value === ''
-                || /[\u0000-\u001F\u007F\\]/u.test(value)
+                value === '' ||
+                /[\u0000-\u001F\u007F\\]/u.test(value)
             ) {
                 return null;
             }
@@ -6773,8 +5486,8 @@ require INCLUDES_PATH . '/header.php';
             }
 
             if (
-                value.startsWith('/')
-                && !value.startsWith('//')
+                value.startsWith('/') &&
+                !value.startsWith('//')
             ) {
                 return value;
             }
@@ -6784,8 +5497,8 @@ require INCLUDES_PATH . '/header.php';
                     value.slice(7);
 
                 if (
-                    address === ''
-                    || /\s/u.test(address)
+                    address === '' ||
+                    /\s/u.test(address)
                 ) {
                     return null;
                 }
@@ -6794,12 +5507,11 @@ require INCLUDES_PATH . '/header.php';
             }
 
             try {
-                const parsed =
-                    new URL(value);
+                const parsed = new URL(value);
 
                 if (
-                    parsed.protocol !== 'http:'
-                    && parsed.protocol !== 'https:'
+                    parsed.protocol !== 'http:' &&
+                    parsed.protocol !== 'https:'
                 ) {
                     return null;
                 }
@@ -6810,21 +5522,10 @@ require INCLUDES_PATH . '/header.php';
             }
         };
 
-        const insertHtmlAtSelection = (html) => {
-            restoreSelection();
-            document.execCommand(
-                'insertHTML',
-                false,
-                html
-            );
-            saveSelection();
-            sync();
-        };
-
         const insertPlainTextAtSelection = (plainText) => {
             const normalized =
                 String(plainText || '')
-                    .replace(/\r\n?/g, '\n');
+                .replace(/\r\n?/g, '\n');
 
             if (normalized === '') {
                 return;
@@ -6832,7 +5533,7 @@ require INCLUDES_PATH . '/header.php';
 
             const safeHtml =
                 escapeHtml(normalized)
-                    .replace(/\n/g, '<br>');
+                .replace(/\n/g, '<br>');
 
             insertHtmlAtSelection(
                 safeHtml
@@ -6840,9 +5541,7 @@ require INCLUDES_PATH . '/header.php';
         };
 
         const youtubeVideoIdFromUrl = (rawValue) => {
-            const value =
-                String(rawValue || '')
-                    .trim();
+            const value = String(rawValue || '').trim();
 
             if (value === '') {
                 return null;
@@ -6857,28 +5556,28 @@ require INCLUDES_PATH . '/header.php';
             }
 
             if (
-                parsed.protocol !== 'https:'
-                && parsed.protocol !== 'http:'
+                parsed.protocol !== 'https:' &&
+                parsed.protocol !== 'http:'
             ) {
                 return null;
             }
 
             const host =
                 parsed.hostname
-                    .toLowerCase()
-                    .replace(/^(?:www\.|m\.)/, '');
+                .toLowerCase()
+                .replace(/^(?:www\.|m\.)/, '');
 
             let videoId = null;
 
             if (host === 'youtu.be') {
                 videoId =
                     parsed.pathname
-                        .split('/')
-                        .filter(Boolean)[0]
-                    || null;
+                    .split('/')
+                    .filter(Boolean)[0] ||
+                    null;
             } else if (
-                host === 'youtube.com'
-                || host === 'youtube-nocookie.com'
+                host === 'youtube.com' ||
+                host === 'youtube-nocookie.com'
             ) {
                 if (parsed.pathname === '/watch') {
                     videoId =
@@ -6886,12 +5585,11 @@ require INCLUDES_PATH . '/header.php';
                 } else {
                     const segments =
                         parsed.pathname
-                            .split('/')
-                            .filter(Boolean);
+                        .split('/')
+                        .filter(Boolean);
 
                     if (
-                        segments.length >= 2
-                        && ['shorts', 'embed', 'live'].includes(
+                        segments.length >= 2 && ['shorts', 'embed', 'live'].includes(
                             segments[0].toLowerCase()
                         )
                     ) {
@@ -6900,9 +5598,9 @@ require INCLUDES_PATH . '/header.php';
                 }
             }
 
-            return /^[A-Za-z0-9_-]{11}$/.test(videoId || '')
-                ? videoId
-                : null;
+            return /^[A-Za-z0-9_-]{11}$/.test(videoId || '') ?
+                videoId :
+                null;
         };
 
         const insertYoutubeEmbedPlaceholder = (videoId) => {
@@ -6924,13 +5622,8 @@ require INCLUDES_PATH . '/header.php';
 
         const saveSelection = () => {
             const selection = window.getSelection();
-
-            if (!selection || selection.rangeCount === 0) {
-                return;
-            }
-
+            if (!selection || selection.rangeCount === 0) return;
             const range = selection.getRangeAt(0);
-
             if (editor.contains(range.commonAncestorContainer)) {
                 savedRange = range.cloneRange();
             }
@@ -6951,7 +5644,9 @@ require INCLUDES_PATH . '/header.php';
                 savedRange.cloneRange();
 
             try {
-                editor.focus({ preventScroll: true });
+                editor.focus({
+                    preventScroll: true
+                });
             } catch (error) {
                 editor.focus();
             }
@@ -6969,8 +5664,20 @@ require INCLUDES_PATH . '/header.php';
             );
         };
 
-        const sync = () => {
-            input.value = editor.innerHTML.trim();
+        const syncEditor = () => {
+            const clone = editor.cloneNode(true);
+            clone.querySelectorAll('[data-forum-quote-preview]').forEach((quotePreview) => {
+                quotePreview.remove();
+            });
+
+            clone.querySelectorAll('img[data-upload-token]').forEach((image) => {
+                const token = image.getAttribute('data-upload-token');
+                if (token) {
+                    image.setAttribute('src', `/__blackthorne_pending_image_${token}__`);
+                }
+                image.removeAttribute('data-upload-token');
+            });
+            input.value = clone.innerHTML.trim();
             updateEditorCounts();
         };
 
@@ -6996,13 +5703,13 @@ require INCLUDES_PATH . '/header.php';
                         imageSizeSelect.options
                     ).some(
                         (option) =>
-                            option.value === currentWidth
+                        option.value === currentWidth
                     );
 
                 imageSizeSelect.value =
-                    hasSize
-                        ? currentWidth
-                        : '';
+                    hasSize ?
+                    currentWidth :
+                    '';
             }
 
             if (imageAlignSelect) {
@@ -7013,18 +5720,18 @@ require INCLUDES_PATH . '/header.php';
                     selectedImage.style.marginRight;
 
                 if (
-                    left === '0px'
-                    && right === 'auto'
+                    left === '0px' &&
+                    right === 'auto'
                 ) {
                     imageAlignSelect.value = 'left';
                 } else if (
-                    left === 'auto'
-                    && right === '0px'
+                    left === 'auto' &&
+                    right === '0px'
                 ) {
                     imageAlignSelect.value = 'right';
                 } else if (
-                    left === 'auto'
-                    && right === 'auto'
+                    left === 'auto' &&
+                    right === 'auto'
                 ) {
                     imageAlignSelect.value = 'center';
                 } else {
@@ -7040,10 +5747,10 @@ require INCLUDES_PATH . '/header.php';
                     event.target;
 
                 selectedImage =
-                    target instanceof HTMLImageElement
-                    && editor.contains(target)
-                        ? target
-                        : null;
+                    target instanceof HTMLImageElement &&
+                    editor.contains(target) ?
+                    target :
+                    null;
 
                 updateSelectedImageControls();
             }
@@ -7054,8 +5761,8 @@ require INCLUDES_PATH . '/header.php';
                 'change',
                 () => {
                     if (
-                        !selectedImage
-                        || !editor.contains(selectedImage)
+                        !selectedImage ||
+                        !editor.contains(selectedImage)
                     ) {
                         window.alert(
                             'Click an image in the editor first, then choose its size.'
@@ -7081,7 +5788,7 @@ require INCLUDES_PATH . '/header.php';
                     selectedImage.style.height =
                         'auto';
 
-                    sync();
+                    syncEditor();
                 }
             );
         }
@@ -7091,8 +5798,8 @@ require INCLUDES_PATH . '/header.php';
                 'change',
                 () => {
                     if (
-                        !selectedImage
-                        || !editor.contains(selectedImage)
+                        !selectedImage ||
+                        !editor.contains(selectedImage)
                     ) {
                         window.alert(
                             'Click an image in the editor first, then choose its alignment.'
@@ -7132,11 +5839,10 @@ require INCLUDES_PATH . '/header.php';
                             'auto';
                     }
 
-                    sync();
+                    syncEditor();
                 }
             );
         }
-
 
         const applyBlockAlignment = (alignmentCommand) => {
             const alignmentMap = {
@@ -7148,8 +5854,8 @@ require INCLUDES_PATH . '/header.php';
             const alignment =
                 alignmentMap[
                     alignmentCommand
-                ]
-                ?? '';
+                ] ??
+                '';
 
             if (alignment === '') {
                 return false;
@@ -7181,20 +5887,20 @@ require INCLUDES_PATH . '/header.php';
 
             let selectedIndexes =
                 liveBlocks
-                    .map(
-                        (block, index) => {
-                            try {
-                                return range.intersectsNode(block)
-                                    ? index
-                                    : -1;
-                            } catch (error) {
-                                return -1;
-                            }
+                .map(
+                    (block, index) => {
+                        try {
+                            return range.intersectsNode(block) ?
+                                index :
+                                -1;
+                        } catch (error) {
+                            return -1;
                         }
-                    )
-                    .filter(
-                        (index) => index >= 0
-                    );
+                    }
+                )
+                .filter(
+                    (index) => index >= 0
+                );
 
             /*
              * If both an outer DIV and its inner P/H2 are selected, only style
@@ -7208,12 +5914,12 @@ require INCLUDES_PATH . '/header.php';
 
                         return !selectedIndexes.some(
                             (otherIndex) =>
-                                otherIndex !== index
-                                && block.contains(
-                                    liveBlocks[
-                                        otherIndex
-                                    ]
-                                )
+                            otherIndex !== index &&
+                            block.contains(
+                                liveBlocks[
+                                    otherIndex
+                                ]
+                            )
                         );
                     }
                 );
@@ -7228,15 +5934,15 @@ require INCLUDES_PATH . '/header.php';
                 }
 
                 const nearestBlock =
-                    node instanceof Element
-                        ? node.closest(
-                            blockSelector
-                        )
-                        : null;
+                    node instanceof Element ?
+                    node.closest(
+                        blockSelector
+                    ) :
+                    null;
 
                 if (
-                    nearestBlock
-                    && editor.contains(
+                    nearestBlock &&
+                    editor.contains(
                         nearestBlock
                     )
                 ) {
@@ -7288,7 +5994,7 @@ require INCLUDES_PATH . '/header.php';
              */
             savedRange = null;
 
-            sync();
+            syncEditor();
             return true;
         };
 
@@ -7300,18 +6006,74 @@ require INCLUDES_PATH . '/header.php';
             restoreSelection();
             document.execCommand(command, false, value);
             saveSelection();
-            sync();
+            syncEditor();
         };
 
-        form.querySelectorAll('[data-edit-command]').forEach((button) => {
-            button.addEventListener('mousedown', (event) => event.preventDefault());
-            button.addEventListener('click', () => {
-                runCommand(button.dataset.editCommand || '');
+        const insertHtmlAtSelection = (html) => {
+            restoreSelection();
+            document.execCommand('insertHTML', false, html);
+            saveSelection();
+            syncEditor();
+        };
+
+        const createUploadToken = () => {
+            if (window.crypto && typeof window.crypto.getRandomValues === 'function') {
+                const bytes = new Uint8Array(12);
+                window.crypto.getRandomValues(bytes);
+                return Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+            }
+            return `${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 14)}`;
+        };
+
+        const rebuildFileInput = () => {
+            if (!imageInput || !uploadTokensInput) return;
+            const transfer = new DataTransfer();
+            selectedUploads.forEach((upload) => transfer.items.add(upload.file));
+            imageInput.files = transfer.files;
+            uploadTokensInput.value = JSON.stringify(selectedUploads.map((upload) => upload.token));
+        };
+
+        const renderImagePreviews = () => {
+            if (!imagePreviews) return;
+            imagePreviews.innerHTML = '';
+            imagePreviews.hidden = selectedUploads.length === 0;
+
+            selectedUploads.forEach((upload) => {
+                const card = document.createElement('div');
+                card.className = 'forum-editor-image-preview';
+                const image = document.createElement('img');
+                image.src = upload.previewUrl;
+                image.alt = '';
+                const name = document.createElement('span');
+                name.className = 'forum-editor-image-preview-name';
+                name.textContent = upload.file.name;
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'forum-editor-image-preview-remove';
+                remove.setAttribute('aria-label', `Remove ${upload.file.name}`);
+                remove.textContent = '×';
+                remove.addEventListener('click', () => {
+                    URL.revokeObjectURL(upload.previewUrl);
+                    selectedUploads = selectedUploads.filter((item) => item.token !== upload
+                        .token);
+                    editor.querySelectorAll(
+                        `img[data-upload-token="${CSS.escape(upload.token)}"]`).forEach((
+                        embedded) => embedded.remove());
+                    rebuildFileInput();
+                    renderImagePreviews();
+                    syncEditor();
+                });
+                card.append(image, name, remove);
+                imagePreviews.appendChild(card);
             });
+        };
+
+        form.querySelectorAll('[data-command]').forEach((button) => {
+            button.addEventListener('mousedown', (event) => event.preventDefault());
+            button.addEventListener('click', () => runCommand(button.dataset.command || ''));
         });
 
-        const formatSelect = form.querySelector('[data-edit-format]');
-
+        const formatSelect = form.querySelector('[data-editor-format]');
         if (formatSelect) {
             formatSelect.addEventListener('change', () => {
                 runCommand('formatBlock', formatSelect.value);
@@ -7319,8 +6081,7 @@ require INCLUDES_PATH . '/header.php';
             });
         }
 
-        const sizeSelect = form.querySelector('[data-edit-size]');
-
+        const sizeSelect = form.querySelector('[data-editor-size]');
         if (sizeSelect) {
             sizeSelect.addEventListener('change', () => {
                 runCommand('fontSize', sizeSelect.value);
@@ -7328,11 +6089,11 @@ require INCLUDES_PATH . '/header.php';
             });
         }
 
-        const colorInput = form.querySelector('[data-edit-color]');
-        const applyColorButton = form.querySelector('[data-edit-apply-color]');
-        const applyHighlightButton = form.querySelector('[data-edit-apply-highlight]');
+        const colorInput = form.querySelector('[data-editor-color]');
+        const applyColorButton = form.querySelector('[data-editor-apply-color]');
+        const applyHighlightButton = form.querySelector('[data-editor-apply-highlight]');
 
-        const applyEditTextColor = () => {
+        const applyTextColor = () => {
             if (!savedRange || savedRange.collapsed) {
                 return;
             }
@@ -7342,14 +6103,14 @@ require INCLUDES_PATH . '/header.php';
 
         if (colorInput) {
             colorInput.addEventListener('pointerdown', saveSelection);
-            colorInput.addEventListener('click', applyEditTextColor);
-            colorInput.addEventListener('input', applyEditTextColor);
-            colorInput.addEventListener('change', applyEditTextColor);
+            colorInput.addEventListener('click', applyTextColor);
+            colorInput.addEventListener('input', applyTextColor);
+            colorInput.addEventListener('change', applyTextColor);
         }
 
-        const highlightInput = form.querySelector('[data-edit-highlight]');
+        const highlightInput = form.querySelector('[data-editor-highlight]');
 
-        const applyEditHighlightColor = () => {
+        const applyHighlightColor = () => {
             if (!savedRange || savedRange.collapsed) {
                 return;
             }
@@ -7357,9 +6118,9 @@ require INCLUDES_PATH . '/header.php';
             restoreSelection();
 
             document.execCommand(
-                document.queryCommandSupported('hiliteColor')
-                    ? 'hiliteColor'
-                    : 'backColor',
+                document.queryCommandSupported('hiliteColor') ?
+                'hiliteColor' :
+                'backColor',
                 false,
                 highlightInput.value
             );
@@ -7370,32 +6131,28 @@ require INCLUDES_PATH . '/header.php';
 
         if (highlightInput) {
             highlightInput.addEventListener('pointerdown', saveSelection);
-            highlightInput.addEventListener('click', applyEditHighlightColor);
-            highlightInput.addEventListener('input', applyEditHighlightColor);
-            highlightInput.addEventListener('change', applyEditHighlightColor);
+            highlightInput.addEventListener('click', applyHighlightColor);
+            highlightInput.addEventListener('input', applyHighlightColor);
+            highlightInput.addEventListener('change', applyHighlightColor);
         }
 
         if (applyColorButton) {
             applyColorButton.addEventListener('mousedown', (event) => event.preventDefault());
-            applyColorButton.addEventListener('click', applyEditTextColor);
+            applyColorButton.addEventListener('click', applyTextColor);
         }
 
         if (applyHighlightButton) {
             applyHighlightButton.addEventListener('mousedown', (event) => event.preventDefault());
-            applyHighlightButton.addEventListener('click', applyEditHighlightColor);
+            applyHighlightButton.addEventListener('click', applyHighlightColor);
         }
 
-        const linkButton = form.querySelector('[data-edit-link]');
-
+        const linkButton = form.querySelector('[data-editor-link]');
         if (linkButton) {
             linkButton.addEventListener('mousedown', (event) => event.preventDefault());
             linkButton.addEventListener('click', () => {
                 saveSelection();
 
-                const href =
-                    window.prompt(
-                        'Enter the link URL:'
-                    );
+                const href = window.prompt('Enter the link URL:');
 
                 if (!href) {
                     return;
@@ -7417,9 +6174,9 @@ require INCLUDES_PATH . '/header.php';
                     window.getSelection();
 
                 if (
-                    selection
-                    && selection.rangeCount > 0
-                    && !selection.getRangeAt(0).collapsed
+                    selection &&
+                    selection.rangeCount > 0 &&
+                    !selection.getRangeAt(0).collapsed
                 ) {
                     document.execCommand(
                         'createLink',
@@ -7436,7 +6193,7 @@ require INCLUDES_PATH . '/header.php';
                 }
 
                 saveSelection();
-                sync();
+                syncEditor();
             });
         }
 
@@ -7456,7 +6213,6 @@ require INCLUDES_PATH . '/header.php';
                 }
             );
         }
-
 
         if (youtubeButton) {
             youtubeButton.addEventListener(
@@ -7498,74 +6254,196 @@ require INCLUDES_PATH . '/header.php';
             );
         }
 
-        const imageUrlButton = form.querySelector('[data-edit-image-url]');
-        const imageSizeSelect = form.querySelector('[data-edit-image-size]');
-        const imageAlignSelect = form.querySelector('[data-edit-image-align]');
-
         if (imageUrlButton) {
             imageUrlButton.addEventListener('mousedown', (event) => {
                 event.preventDefault();
                 saveSelection();
             });
-
             imageUrlButton.addEventListener('click', () => {
-                const imageUrl =
-                    window.prompt(
-                        'Enter the direct HTTPS image URL:'
-                    );
-
-                if (!imageUrl) {
-                    return;
-                }
-
-                const trimmed =
-                    imageUrl.trim();
-
+                const imageUrl = window.prompt('Enter the direct HTTPS image URL:');
+                if (!imageUrl) return;
+                const trimmed = imageUrl.trim();
                 if (!/^https:\/\//i.test(trimmed)) {
-                    window.alert(
-                        'Image URLs must begin with https://'
-                    );
+                    window.alert('Image URLs must begin with https://');
                     return;
                 }
-
-                const altText =
-                    window.prompt(
-                        'Optional image description (alt text):'
-                    )
-                    || '';
-
-                restoreSelection();
-                document.execCommand(
-                    'insertHTML',
-                    false,
+                const altText = window.prompt('Optional image description (alt text):') || '';
+                insertHtmlAtSelection(
                     `<img src="${escapeHtml(trimmed)}" alt="${escapeHtml(altText.trim())}" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">`
                 );
-                saveSelection();
-                sync();
             });
         }
+
+        if (imageUploadButton && imageInput) {
+            imageUploadButton.addEventListener('mousedown', (event) => {
+                event.preventDefault();
+                saveSelection();
+            });
+            imageUploadButton.addEventListener('click', () => imageInput.click());
+            imageInput.addEventListener('change', () => {
+                const incomingFiles = Array.from(imageInput.files || []);
+                if (incomingFiles.length === 0) {
+                    rebuildFileInput();
+                    return;
+                }
+                if (maxImageUploads > 0 && selectedUploads.length + incomingFiles.length >
+                    maxImageUploads) {
+                    window.alert(`You can upload up to ${maxImageUploads} images in one post.`);
+                    rebuildFileInput();
+                    return;
+                }
+                for (const file of incomingFiles) {
+                    if (!file.type.startsWith('image/')) {
+                        window.alert(`${file.name} is not an image file.`);
+                        continue;
+                    }
+                    if (file.size > maxImageBytes) {
+                        window.alert(`${file.name} is larger than the allowed image size.`);
+                        continue;
+                    }
+                    const token = createUploadToken();
+                    const previewUrl = URL.createObjectURL(file);
+                    selectedUploads.push({
+                        file,
+                        token,
+                        previewUrl
+                    });
+                    insertHtmlAtSelection(
+                        `<img src="${escapeHtml(previewUrl)}" alt="${escapeHtml(file.name)}" data-upload-token="${escapeHtml(token)}" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">`
+                    );
+                }
+                rebuildFileInput();
+                renderImagePreviews();
+            });
+        }
+
+        document.querySelectorAll('[data-quote-post]').forEach((quoteButton) => {
+            quoteButton.addEventListener('click', () => {
+                const postId = Number.parseInt(quoteButton.dataset.quotePost || '0', 10);
+                const article = quoteButton.closest('.forum-post');
+
+                if (!postId || !article) {
+                    return;
+                }
+
+                if (editor.querySelector(
+                        `[data-forum-quote-preview][data-quoted-post-id="${postId}"]`)) {
+                    document.getElementById('respond')?.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    editor.focus();
+                    return;
+                }
+
+                const author = article.querySelector('.forum-post-member-name')?.textContent
+                    ?.trim() || 'Member';
+                const body = article.querySelector('.forum-post-body');
+                const quoteText = body?.innerText?.trim() || '';
+
+                const quotePreview = document.createElement('blockquote');
+                quotePreview.className = 'forum-post-quote forum-editor-quoted-post';
+                quotePreview.setAttribute('data-forum-quote-preview', '');
+                quotePreview.setAttribute('data-quoted-post-id', String(postId));
+                quotePreview.setAttribute('contenteditable', 'false');
+
+                const quoteHeader = document.createElement('header');
+                quoteHeader.textContent = `${author} wrote:`;
+
+                const quoteBody = document.createElement('div');
+                quoteBody.textContent = quoteText;
+
+                quotePreview.append(quoteHeader, quoteBody);
+
+                editor.insertBefore(quotePreview, editor.firstChild);
+
+                let replyParagraph = editor.querySelector('[data-quote-reply-caret]');
+
+                if (!replyParagraph) {
+                    replyParagraph = document.createElement('p');
+                    replyParagraph.setAttribute('data-quote-reply-caret', '');
+                    replyParagraph.appendChild(document.createElement('br'));
+                    editor.appendChild(replyParagraph);
+                }
+
+                const currentQuoteIds = Array.from(
+                        editor.querySelectorAll('[data-forum-quote-preview]')
+                    ).map((node) => Number.parseInt(node.getAttribute('data-quoted-post-id') || '0',
+                        10))
+                    .filter((id) => id > 0);
+
+                if (quotePostIdsInput) {
+                    quotePostIdsInput.value = JSON.stringify(currentQuoteIds);
+                }
+
+                syncEditor();
+                document.getElementById('respond')?.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
+                if (replyParagraph) {
+                    const range = document.createRange();
+                    range.selectNodeContents(replyParagraph);
+                    range.collapse(false);
+
+                    const selection = window.getSelection();
+                    selection.removeAllRanges();
+                    selection.addRange(range);
+                    savedRange = range.cloneRange();
+                }
+
+                editor.focus();
+            });
+        });
+
+        editor.addEventListener('click', (event) => {
+            const quotePreview = event.target.closest('[data-forum-quote-preview]');
+
+            if (!quotePreview) {
+                return;
+            }
+
+            let replyParagraph = editor.querySelector('[data-quote-reply-caret]');
+
+            if (!replyParagraph) {
+                replyParagraph = document.createElement('p');
+                replyParagraph.setAttribute('data-quote-reply-caret', '');
+                replyParagraph.appendChild(document.createElement('br'));
+                editor.appendChild(replyParagraph);
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(replyParagraph);
+            range.collapse(false);
+
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            savedRange = range.cloneRange();
+            editor.focus({
+                preventScroll: true
+            });
+        });
 
         ['keyup', 'mouseup', 'input'].forEach((eventName) => {
             editor.addEventListener(eventName, () => {
                 saveSelection();
-                sync();
+                syncEditor();
             });
         });
 
         editor.addEventListener(
             'paste',
             (event) => {
-                const clipboard =
-                    event.clipboardData;
+                const clipboard = event.clipboardData;
 
                 if (!clipboard) {
                     return;
                 }
 
                 const plainText =
-                    clipboard.getData(
-                        'text/plain'
-                    );
+                    clipboard.getData('text/plain');
 
                 if (plainText === '') {
                     return;
@@ -7581,31 +6459,950 @@ require INCLUDES_PATH . '/header.php';
         );
 
         form.addEventListener('submit', (event) => {
-            sync();
+            if (quotePostIdsInput) {
+                quotePostIdsInput.value = JSON.stringify(
+                    Array.from(
+                        editor.querySelectorAll('[data-forum-quote-preview]')
+                    )
+                    .map((node) => Number.parseInt(node.getAttribute('data-quoted-post-id') || '0', 10))
+                    .filter((id) => id > 0)
+                );
+            }
 
-            const text =
-                getPlainEditorText();
-
-            const hasImage =
-                editor.querySelector('img') !== null;
-
+            syncEditor();
+            const text = getPlainEditorText();
+            const hasImage = editor.querySelector('img') !== null;
             if (!text && !hasImage) {
                 event.preventDefault();
-                window.alert(
-                    'A post cannot be empty.'
-                );
+                window.alert('Write a reply or add an image before posting.');
                 editor.focus();
             }
         });
 
+        if (editor.innerHTML.trim() !== '') {
+            input.value = editor.innerHTML.trim();
+        }
+
         updateEditorCounts();
-    });
-})();
+    })();
+
+</script>
+
+
+<script>
+    (() => {
+        'use strict';
+
+        document.querySelectorAll('[data-inline-edit-form]').forEach((form) => {
+            const editor = form.querySelector('[data-inline-editor-area]');
+            const input = form.querySelector('[data-inline-editor-input]');
+            const wordCount = form.querySelector('[data-edit-word-count]');
+            const characterCount = form.querySelector('[data-edit-character-count]');
+            const quoteFormattingButton = form.querySelector('[data-edit-quote]');
+            const youtubeButton = form.querySelector('[data-edit-youtube]');
+
+            if (!editor || !input) {
+                return;
+            }
+
+            let savedRange = null;
+            let selectedImage = null;
+
+            try {
+                document.execCommand('styleWithCSS', false, true);
+            } catch (error) {
+                // Formatting still works when styleWithCSS is unavailable.
+            }
+
+            const escapeHtml = (value) => String(value)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+
+            const getPlainEditorText = () =>
+                editor.textContent
+                .replace(/\u00a0/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            const updateEditorCounts = () => {
+                const plainText =
+                    getPlainEditorText();
+
+                const characters =
+                    plainText.length;
+
+                const words =
+                    plainText === '' ?
+                    0 :
+                    plainText
+                    .split(/\s+/u)
+                    .filter(Boolean)
+                    .length;
+
+                if (wordCount) {
+                    wordCount.textContent =
+                        `${words} ${words === 1 ? 'word' : 'words'}`;
+                }
+
+                if (characterCount) {
+                    characterCount.textContent =
+                        `${characters} ${characters === 1 ? 'character' : 'characters'}`;
+                }
+            };
+
+            const normalizeForumLink = (rawValue) => {
+                const value =
+                    String(rawValue || '')
+                    .trim();
+
+                if (
+                    value === '' ||
+                    /[\u0000-\u001F\u007F\\]/u.test(value)
+                ) {
+                    return null;
+                }
+
+                if (value.startsWith('#')) {
+                    return value;
+                }
+
+                if (
+                    value.startsWith('/') &&
+                    !value.startsWith('//')
+                ) {
+                    return value;
+                }
+
+                if (/^mailto:/i.test(value)) {
+                    const address =
+                        value.slice(7);
+
+                    if (
+                        address === '' ||
+                        /\s/u.test(address)
+                    ) {
+                        return null;
+                    }
+
+                    return `mailto:${address}`;
+                }
+
+                try {
+                    const parsed =
+                        new URL(value);
+
+                    if (
+                        parsed.protocol !== 'http:' &&
+                        parsed.protocol !== 'https:'
+                    ) {
+                        return null;
+                    }
+
+                    return parsed.href;
+                } catch (error) {
+                    return null;
+                }
+            };
+
+            const insertHtmlAtSelection = (html) => {
+                restoreSelection();
+                document.execCommand(
+                    'insertHTML',
+                    false,
+                    html
+                );
+                saveSelection();
+                sync();
+            };
+
+            const insertPlainTextAtSelection = (plainText) => {
+                const normalized =
+                    String(plainText || '')
+                    .replace(/\r\n?/g, '\n');
+
+                if (normalized === '') {
+                    return;
+                }
+
+                const safeHtml =
+                    escapeHtml(normalized)
+                    .replace(/\n/g, '<br>');
+
+                insertHtmlAtSelection(
+                    safeHtml
+                );
+            };
+
+            const youtubeVideoIdFromUrl = (rawValue) => {
+                const value =
+                    String(rawValue || '')
+                    .trim();
+
+                if (value === '') {
+                    return null;
+                }
+
+                let parsed;
+
+                try {
+                    parsed = new URL(value);
+                } catch (error) {
+                    return null;
+                }
+
+                if (
+                    parsed.protocol !== 'https:' &&
+                    parsed.protocol !== 'http:'
+                ) {
+                    return null;
+                }
+
+                const host =
+                    parsed.hostname
+                    .toLowerCase()
+                    .replace(/^(?:www\.|m\.)/, '');
+
+                let videoId = null;
+
+                if (host === 'youtu.be') {
+                    videoId =
+                        parsed.pathname
+                        .split('/')
+                        .filter(Boolean)[0] ||
+                        null;
+                } else if (
+                    host === 'youtube.com' ||
+                    host === 'youtube-nocookie.com'
+                ) {
+                    if (parsed.pathname === '/watch') {
+                        videoId =
+                            parsed.searchParams.get('v');
+                    } else {
+                        const segments =
+                            parsed.pathname
+                            .split('/')
+                            .filter(Boolean);
+
+                        if (
+                            segments.length >= 2 && ['shorts', 'embed', 'live'].includes(
+                                segments[0].toLowerCase()
+                            )
+                        ) {
+                            videoId = segments[1];
+                        }
+                    }
+                }
+
+                return /^[A-Za-z0-9_-]{11}$/.test(videoId || '') ?
+                    videoId :
+                    null;
+            };
+
+            const insertYoutubeEmbedPlaceholder = (videoId) => {
+                const href =
+                    `https://www.youtube.com/watch?v=${videoId}`;
+
+                const safeHref =
+                    escapeHtml(href);
+
+                const safeTitle =
+                    escapeHtml(
+                        `blackthorne-youtube:${videoId}`
+                    );
+
+                insertHtmlAtSelection(
+                    `<a href="${safeHref}" title="${safeTitle}" target="_blank" rel="noopener noreferrer nofollow">YouTube video: ${safeHref}</a>`
+                );
+            };
+
+            const saveSelection = () => {
+                const selection = window.getSelection();
+
+                if (!selection || selection.rangeCount === 0) {
+                    return;
+                }
+
+                const range = selection.getRangeAt(0);
+
+                if (editor.contains(range.commonAncestorContainer)) {
+                    savedRange = range.cloneRange();
+                }
+            };
+
+            const restoreSelection = () => {
+                if (!savedRange) {
+                    return;
+                }
+
+                /*
+                 * Clone the author's selection before returning focus to the
+                 * contenteditable. Chrome can collapse the live selection when the
+                 * toolbar/color control takes focus. Restoring from this private copy
+                 * keeps formatting attached to the highlighted text.
+                 */
+                const rangeToRestore =
+                    savedRange.cloneRange();
+
+                try {
+                    editor.focus({
+                        preventScroll: true
+                    });
+                } catch (error) {
+                    editor.focus();
+                }
+
+                const selection =
+                    window.getSelection();
+
+                if (!selection) {
+                    return;
+                }
+
+                selection.removeAllRanges();
+                selection.addRange(
+                    rangeToRestore
+                );
+            };
+
+            const sync = () => {
+                input.value = editor.innerHTML.trim();
+                updateEditorCounts();
+            };
+
+            const updateSelectedImageControls = () => {
+                if (!selectedImage) {
+                    if (imageSizeSelect) {
+                        imageSizeSelect.value = '';
+                    }
+
+                    if (imageAlignSelect) {
+                        imageAlignSelect.value = '';
+                    }
+
+                    return;
+                }
+
+                if (imageSizeSelect) {
+                    const currentWidth =
+                        selectedImage.style.width;
+
+                    const hasSize =
+                        Array.from(
+                            imageSizeSelect.options
+                        ).some(
+                            (option) =>
+                            option.value === currentWidth
+                        );
+
+                    imageSizeSelect.value =
+                        hasSize ?
+                        currentWidth :
+                        '';
+                }
+
+                if (imageAlignSelect) {
+                    const left =
+                        selectedImage.style.marginLeft;
+
+                    const right =
+                        selectedImage.style.marginRight;
+
+                    if (
+                        left === '0px' &&
+                        right === 'auto'
+                    ) {
+                        imageAlignSelect.value = 'left';
+                    } else if (
+                        left === 'auto' &&
+                        right === '0px'
+                    ) {
+                        imageAlignSelect.value = 'right';
+                    } else if (
+                        left === 'auto' &&
+                        right === 'auto'
+                    ) {
+                        imageAlignSelect.value = 'center';
+                    } else {
+                        imageAlignSelect.value = '';
+                    }
+                }
+            };
+
+            editor.addEventListener(
+                'click',
+                (event) => {
+                    const target =
+                        event.target;
+
+                    selectedImage =
+                        target instanceof HTMLImageElement &&
+                        editor.contains(target) ?
+                        target :
+                        null;
+
+                    updateSelectedImageControls();
+                }
+            );
+
+            if (imageSizeSelect) {
+                imageSizeSelect.addEventListener(
+                    'change',
+                    () => {
+                        if (
+                            !selectedImage ||
+                            !editor.contains(selectedImage)
+                        ) {
+                            window.alert(
+                                'Click an image in the editor first, then choose its size.'
+                            );
+
+                            imageSizeSelect.value = '';
+                            return;
+                        }
+
+                        const size =
+                            imageSizeSelect.value;
+
+                        if (size === '') {
+                            return;
+                        }
+
+                        selectedImage.style.width =
+                            size;
+
+                        selectedImage.style.maxWidth =
+                            '100%';
+
+                        selectedImage.style.height =
+                            'auto';
+
+                        sync();
+                    }
+                );
+            }
+
+            if (imageAlignSelect) {
+                imageAlignSelect.addEventListener(
+                    'change',
+                    () => {
+                        if (
+                            !selectedImage ||
+                            !editor.contains(selectedImage)
+                        ) {
+                            window.alert(
+                                'Click an image in the editor first, then choose its alignment.'
+                            );
+
+                            imageAlignSelect.value = '';
+                            return;
+                        }
+
+                        const alignment =
+                            imageAlignSelect.value;
+
+                        if (alignment === '') {
+                            return;
+                        }
+
+                        selectedImage.style.display =
+                            'block';
+
+                        if (alignment === 'left') {
+                            selectedImage.style.marginLeft =
+                                '0';
+
+                            selectedImage.style.marginRight =
+                                'auto';
+                        } else if (alignment === 'right') {
+                            selectedImage.style.marginLeft =
+                                'auto';
+
+                            selectedImage.style.marginRight =
+                                '0';
+                        } else {
+                            selectedImage.style.marginLeft =
+                                'auto';
+
+                            selectedImage.style.marginRight =
+                                'auto';
+                        }
+
+                        sync();
+                    }
+                );
+            }
+
+            const applyBlockAlignment = (alignmentCommand) => {
+                const alignmentMap = {
+                    justifyLeft: 'left',
+                    justifyCenter: 'center',
+                    justifyRight: 'right',
+                };
+
+                const alignment =
+                    alignmentMap[
+                        alignmentCommand
+                    ] ??
+                    '';
+
+                if (alignment === '') {
+                    return false;
+                }
+
+                if (!savedRange) {
+                    return true;
+                }
+
+                /*
+                 * Do not run a browser alignment command on the live selection.
+                 * Chrome can merge inline formatting when a selection crosses a
+                 * heading/paragraph boundary. Instead, identify the selected blocks,
+                 * apply alignment to a detached clone, then replace the editor HTML.
+                 * This preserves the exact <strong>, <em>, color, link, etc. markup.
+                 */
+                const range =
+                    savedRange.cloneRange();
+
+                const blockSelector =
+                    'p,h1,h2,h3,h4,h5,h6,blockquote,li,div';
+
+                const liveBlocks =
+                    Array.from(
+                        editor.querySelectorAll(
+                            blockSelector
+                        )
+                    );
+
+                let selectedIndexes =
+                    liveBlocks
+                    .map(
+                        (block, index) => {
+                            try {
+                                return range.intersectsNode(block) ?
+                                    index :
+                                    -1;
+                            } catch (error) {
+                                return -1;
+                            }
+                        }
+                    )
+                    .filter(
+                        (index) => index >= 0
+                    );
+
+                /*
+                 * If both an outer DIV and its inner P/H2 are selected, only style
+                 * the innermost blocks. This avoids wrapping/inheritance surprises.
+                 */
+                selectedIndexes =
+                    selectedIndexes.filter(
+                        (index) => {
+                            const block =
+                                liveBlocks[index];
+
+                            return !selectedIndexes.some(
+                                (otherIndex) =>
+                                otherIndex !== index &&
+                                block.contains(
+                                    liveBlocks[
+                                        otherIndex
+                                    ]
+                                )
+                            );
+                        }
+                    );
+
+                if (selectedIndexes.length === 0) {
+                    let node =
+                        range.commonAncestorContainer;
+
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        node =
+                            node.parentElement;
+                    }
+
+                    const nearestBlock =
+                        node instanceof Element ?
+                        node.closest(
+                            blockSelector
+                        ) :
+                        null;
+
+                    if (
+                        nearestBlock &&
+                        editor.contains(
+                            nearestBlock
+                        )
+                    ) {
+                        const index =
+                            liveBlocks.indexOf(
+                                nearestBlock
+                            );
+
+                        if (index >= 0) {
+                            selectedIndexes = [
+                                index,
+                            ];
+                        }
+                    }
+                }
+
+                if (selectedIndexes.length === 0) {
+                    return true;
+                }
+
+                const editorClone =
+                    editor.cloneNode(true);
+
+                const clonedBlocks =
+                    Array.from(
+                        editorClone.querySelectorAll(
+                            blockSelector
+                        )
+                    );
+
+                selectedIndexes.forEach(
+                    (index) => {
+                        const clonedBlock =
+                            clonedBlocks[index];
+
+                        if (clonedBlock) {
+                            clonedBlock.style.textAlign =
+                                alignment;
+                        }
+                    }
+                );
+
+                editor.innerHTML =
+                    editorClone.innerHTML;
+
+                /*
+                 * The old Range points at nodes that were just replaced, so discard
+                 * it. The next mouse/keyboard selection will establish a fresh one.
+                 */
+                savedRange = null;
+
+                sync();
+                return true;
+            };
+
+            const runCommand = (command, value = null) => {
+                if (applyBlockAlignment(command)) {
+                    return;
+                }
+
+                restoreSelection();
+                document.execCommand(command, false, value);
+                saveSelection();
+                sync();
+            };
+
+            form.querySelectorAll('[data-edit-command]').forEach((button) => {
+                button.addEventListener('mousedown', (event) => event.preventDefault());
+                button.addEventListener('click', () => {
+                    runCommand(button.dataset.editCommand || '');
+                });
+            });
+
+            const formatSelect = form.querySelector('[data-edit-format]');
+
+            if (formatSelect) {
+                formatSelect.addEventListener('change', () => {
+                    runCommand('formatBlock', formatSelect.value);
+                    formatSelect.value = 'p';
+                });
+            }
+
+            const sizeSelect = form.querySelector('[data-edit-size]');
+
+            if (sizeSelect) {
+                sizeSelect.addEventListener('change', () => {
+                    runCommand('fontSize', sizeSelect.value);
+                    sizeSelect.value = '3';
+                });
+            }
+
+            const colorInput = form.querySelector('[data-edit-color]');
+            const applyColorButton = form.querySelector('[data-edit-apply-color]');
+            const applyHighlightButton = form.querySelector('[data-edit-apply-highlight]');
+
+            const applyEditTextColor = () => {
+                if (!savedRange || savedRange.collapsed) {
+                    return;
+                }
+
+                runCommand('foreColor', colorInput.value);
+            };
+
+            if (colorInput) {
+                colorInput.addEventListener('pointerdown', saveSelection);
+                colorInput.addEventListener('click', applyEditTextColor);
+                colorInput.addEventListener('input', applyEditTextColor);
+                colorInput.addEventListener('change', applyEditTextColor);
+            }
+
+            const highlightInput = form.querySelector('[data-edit-highlight]');
+
+            const applyEditHighlightColor = () => {
+                if (!savedRange || savedRange.collapsed) {
+                    return;
+                }
+
+                restoreSelection();
+
+                document.execCommand(
+                    document.queryCommandSupported('hiliteColor') ?
+                    'hiliteColor' :
+                    'backColor',
+                    false,
+                    highlightInput.value
+                );
+
+                syncEditor();
+                saveSelection();
+            };
+
+            if (highlightInput) {
+                highlightInput.addEventListener('pointerdown', saveSelection);
+                highlightInput.addEventListener('click', applyEditHighlightColor);
+                highlightInput.addEventListener('input', applyEditHighlightColor);
+                highlightInput.addEventListener('change', applyEditHighlightColor);
+            }
+
+            if (applyColorButton) {
+                applyColorButton.addEventListener('mousedown', (event) => event.preventDefault());
+                applyColorButton.addEventListener('click', applyEditTextColor);
+            }
+
+            if (applyHighlightButton) {
+                applyHighlightButton.addEventListener('mousedown', (event) => event.preventDefault());
+                applyHighlightButton.addEventListener('click', applyEditHighlightColor);
+            }
+
+            const linkButton = form.querySelector('[data-edit-link]');
+
+            if (linkButton) {
+                linkButton.addEventListener('mousedown', (event) => event.preventDefault());
+                linkButton.addEventListener('click', () => {
+                    saveSelection();
+
+                    const href =
+                        window.prompt(
+                            'Enter the link URL:'
+                        );
+
+                    if (!href) {
+                        return;
+                    }
+
+                    const normalizedHref =
+                        normalizeForumLink(href);
+
+                    if (!normalizedHref) {
+                        window.alert(
+                            'Use a full http:// or https:// URL, a mailto: link, a #anchor, or a Blackthorne site-relative link beginning with a single /.'
+                        );
+                        return;
+                    }
+
+                    restoreSelection();
+
+                    const selection =
+                        window.getSelection();
+
+                    if (
+                        selection &&
+                        selection.rangeCount > 0 &&
+                        !selection.getRangeAt(0).collapsed
+                    ) {
+                        document.execCommand(
+                            'createLink',
+                            false,
+                            normalizedHref
+                        );
+                    } else {
+                        const safeHref =
+                            escapeHtml(normalizedHref);
+
+                        insertHtmlAtSelection(
+                            `<a href="${safeHref}" rel="noopener noreferrer nofollow">${safeHref}</a>`
+                        );
+                    }
+
+                    saveSelection();
+                    sync();
+                });
+            }
+
+            if (quoteFormattingButton) {
+                quoteFormattingButton.addEventListener(
+                    'mousedown',
+                    (event) => event.preventDefault()
+                );
+
+                quoteFormattingButton.addEventListener(
+                    'click',
+                    () => {
+                        runCommand(
+                            'formatBlock',
+                            'blockquote'
+                        );
+                    }
+                );
+            }
+
+            if (youtubeButton) {
+                youtubeButton.addEventListener(
+                    'mousedown',
+                    (event) => {
+                        event.preventDefault();
+                        saveSelection();
+                    }
+                );
+
+                youtubeButton.addEventListener(
+                    'click',
+                    () => {
+                        const youtubeUrl =
+                            window.prompt(
+                                'Paste the YouTube video URL:'
+                            );
+
+                        if (!youtubeUrl) {
+                            return;
+                        }
+
+                        const videoId =
+                            youtubeVideoIdFromUrl(
+                                youtubeUrl
+                            );
+
+                        if (!videoId) {
+                            window.alert(
+                                'Use a valid YouTube video, Shorts, Live, or youtu.be URL.'
+                            );
+                            return;
+                        }
+
+                        insertYoutubeEmbedPlaceholder(
+                            videoId
+                        );
+                    }
+                );
+            }
+
+            const imageUrlButton = form.querySelector('[data-edit-image-url]');
+            const imageSizeSelect = form.querySelector('[data-edit-image-size]');
+            const imageAlignSelect = form.querySelector('[data-edit-image-align]');
+
+            if (imageUrlButton) {
+                imageUrlButton.addEventListener('mousedown', (event) => {
+                    event.preventDefault();
+                    saveSelection();
+                });
+
+                imageUrlButton.addEventListener('click', () => {
+                    const imageUrl =
+                        window.prompt(
+                            'Enter the direct HTTPS image URL:'
+                        );
+
+                    if (!imageUrl) {
+                        return;
+                    }
+
+                    const trimmed =
+                        imageUrl.trim();
+
+                    if (!/^https:\/\//i.test(trimmed)) {
+                        window.alert(
+                            'Image URLs must begin with https://'
+                        );
+                        return;
+                    }
+
+                    const altText =
+                        window.prompt(
+                            'Optional image description (alt text):'
+                        ) ||
+                        '';
+
+                    restoreSelection();
+                    document.execCommand(
+                        'insertHTML',
+                        false,
+                        `<img src="${escapeHtml(trimmed)}" alt="${escapeHtml(altText.trim())}" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">`
+                    );
+                    saveSelection();
+                    sync();
+                });
+            }
+
+            ['keyup', 'mouseup', 'input'].forEach((eventName) => {
+                editor.addEventListener(eventName, () => {
+                    saveSelection();
+                    sync();
+                });
+            });
+
+            editor.addEventListener(
+                'paste',
+                (event) => {
+                    const clipboard =
+                        event.clipboardData;
+
+                    if (!clipboard) {
+                        return;
+                    }
+
+                    const plainText =
+                        clipboard.getData(
+                            'text/plain'
+                        );
+
+                    if (plainText === '') {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    saveSelection();
+
+                    insertPlainTextAtSelection(
+                        plainText
+                    );
+                }
+            );
+
+            form.addEventListener('submit', (event) => {
+                sync();
+
+                const text =
+                    getPlainEditorText();
+
+                const hasImage =
+                    editor.querySelector('img') !== null;
+
+                if (!text && !hasImage) {
+                    event.preventDefault();
+                    window.alert(
+                        'A post cannot be empty.'
+                    );
+                    editor.focus();
+                }
+            });
+
+            updateEditorCounts();
+        });
+    })();
+
 </script>
 
 
 <style>
-/*
+    /*
 |--------------------------------------------------------------------------
 | Rich Editor Working Area
 |--------------------------------------------------------------------------
@@ -7616,42 +7413,43 @@ require INCLUDES_PATH . '/header.php';
 |
 */
 
-.forum-rich-editor {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.forum-rich-editor-toolbar {
-    position: relative;
-    z-index: 3;
-    flex: 0 0 auto;
-}
-
-.forum-rich-editor-surface {
-    box-sizing: border-box;
-    width: 100%;
-    height: 420px;
-    min-height: 260px;
-    max-height: 78vh;
-    overflow-x: auto;
-    overflow-y: auto;
-    resize: vertical;
-    overscroll-behavior: contain;
-    scrollbar-gutter: stable;
-}
-
-.forum-rich-editor-surface:focus {
-    overflow-y: auto;
-}
-
-@media (max-width: 720px) {
-    .forum-rich-editor-surface {
-        height: 340px;
-        min-height: 220px;
-        max-height: 70vh;
+    .forum-rich-editor {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
     }
-}
+
+    .forum-rich-editor-toolbar {
+        position: relative;
+        z-index: 3;
+        flex: 0 0 auto;
+    }
+
+    .forum-rich-editor-surface {
+        box-sizing: border-box;
+        width: 100%;
+        height: 420px;
+        min-height: 260px;
+        max-height: 78vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        resize: vertical;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+    }
+
+    .forum-rich-editor-surface:focus {
+        overflow-y: auto;
+    }
+
+    @media (max-width: 720px) {
+        .forum-rich-editor-surface {
+            height: 340px;
+            min-height: 220px;
+            max-height: 70vh;
+        }
+    }
+
 </style>
 
 

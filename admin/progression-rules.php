@@ -34,23 +34,23 @@ if (!$hasStaffIdentity || !$canManageProgression) {
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <p class="academy-overline">Restricted Staff Area</p>
-                <h1>Access Denied</h1>
-                <p>
-                    Your account does not have permission to manage
-                    Academy progression rules.
-                </p>
-                <a class="button button-secondary" href="<?= e(url('staff-dashboard.php')); ?>">
-                    Return to Staff Dashboard
-                </a>
-            </div>
-        </section>
-    </main>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <p class="academy-overline">Restricted Staff Area</p>
+            <h1>Access Denied</h1>
+            <p>
+                Your account does not have permission to manage
+                Academy progression rules.
+            </p>
+            <a class="button button-secondary" href="<?= e(url('staff-dashboard.php')); ?>">
+                Return to Staff Dashboard
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -474,18 +474,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page progression-rules-admin-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page progression-rules-admin-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="progression-rules-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="progression-rules-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
                 <p class="academy-overline">Academic Progression</p>
@@ -518,14 +512,14 @@ $staffHeroUrl =
                 </header>
 
                 <?php if ($errors !== []): ?>
-                    <div class="form-message form-message-error" role="alert">
-                        <strong>The progression rule could not be saved.</strong>
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li><?= e((string) $error); ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>The progression rule could not be saved.</strong>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li><?= e((string) $error); ?></li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
                 <?php endif; ?>
 
                 <section class="dashboard-workspace-panel">
@@ -540,7 +534,8 @@ $staffHeroUrl =
                             <span><strong><?= number_format($summary['year_groups']); ?></strong> Year Groups</span>
                             <span><strong><?= number_format($summary['configured']); ?></strong> configured rules</span>
                             <span><strong><?= number_format($summary['active_rules']); ?></strong> active rules</span>
-                            <span><strong><?= number_format($summary['with_point_minimum']); ?></strong> require minimum HW Points</span>
+                            <span><strong><?= number_format($summary['with_point_minimum']); ?></strong> require minimum
+                                HW Points</span>
                         </div>
                     </div>
                 </section>
@@ -564,18 +559,18 @@ $staffHeroUrl =
                 </section>
 
                 <?php if ($yearGroups === []): ?>
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-body">
-                            <p>
-                                No Year Groups exist yet. Create Year Groups before
-                                configuring progression rules.
-                            </p>
-                        </div>
-                    </section>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-body">
+                        <p>
+                            No Year Groups exist yet. Create Year Groups before
+                            configuring progression rules.
+                        </p>
+                    </div>
+                </section>
                 <?php else: ?>
 
-                    <?php foreach ($yearGroups as $yearGroup): ?>
-                        <?php
+                <?php foreach ($yearGroups as $yearGroup): ?>
+                <?php
                         $yearGroupId = (int) $yearGroup['id'];
                         $posted = $formValues[$yearGroupId] ?? null;
 
@@ -602,144 +597,118 @@ $staffHeroUrl =
                                 : 1);
                         ?>
 
-                        <section
-                            class="dashboard-workspace-panel"
-                            id="year-group-<?= $yearGroupId; ?>"
-                        >
-                            <div class="dashboard-panel-titlebar">
-                                <div>
-                                    <p class="academy-overline">
-                                        Year <?= number_format((int) $yearGroup['year_number']); ?>
-                                    </p>
-                                    <h3><?= e((string) $yearGroup['name']); ?></h3>
-                                </div>
-                                <div>
-                                    <?= (int) $yearGroup['is_active'] === 1
+                <section class="dashboard-workspace-panel" id="year-group-<?= $yearGroupId; ?>">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Year <?= number_format((int) $yearGroup['year_number']); ?>
+                            </p>
+                            <h3><?= e((string) $yearGroup['name']); ?></h3>
+                        </div>
+                        <div>
+                            <?= (int) $yearGroup['is_active'] === 1
                                         ? 'Active Year Group'
                                         : 'Inactive Year Group'; ?>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-panel-body">
+                        <?php if (trim((string) ($yearGroup['description'] ?? '')) !== ''): ?>
+                        <p><?= e((string) $yearGroup['description']); ?></p>
+                        <?php endif; ?>
+
+                        <p class="form-help">
+                            <?= number_format((int) ($yearGroup['enrollment_count'] ?? 0)); ?>
+                            student Year enrollment
+                            record<?= (int) ($yearGroup['enrollment_count'] ?? 0) === 1 ? '' : 's'; ?>
+                            currently reference this Year Group.
+                        </p>
+
+                        <form method="post" novalidate>
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="action" value="save_progression_rule">
+                            <input type="hidden" name="year_group_id" value="<?= $yearGroupId; ?>">
+
+                            <div class="forum-admin-form-grid">
+                                <div class="form-group">
+                                    <label for="required-percentage-<?= $yearGroupId; ?>">
+                                        Required Academic Percentage
+                                    </label>
+                                    <input class="form-control" type="number"
+                                        id="required-percentage-<?= $yearGroupId; ?>" name="required_percentage" min="0"
+                                        max="100" step="0.01" value="<?= e($requiredPercentageValue); ?>" required>
+                                    <p class="form-help">
+                                        The student must meet or exceed this
+                                        overall academic percentage.
+                                    </p>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="required-points-<?= $yearGroupId; ?>">
+                                        Minimum Required HW Points
+                                    </label>
+                                    <input class="form-control" type="number" id="required-points-<?= $yearGroupId; ?>"
+                                        name="required_points" min="0" step="0.01"
+                                        value="<?= e($requiredPointsValue); ?>" placeholder="No minimum">
+                                    <p class="form-help">
+                                        Leave blank for no minimum HW Point
+                                        requirement. House Points do not count.
+                                    </p>
                                 </div>
                             </div>
 
-                            <div class="dashboard-panel-body">
-                                <?php if (trim((string) ($yearGroup['description'] ?? '')) !== ''): ?>
-                                    <p><?= e((string) $yearGroup['description']); ?></p>
-                                <?php endif; ?>
-
-                                <p class="form-help">
-                                    <?= number_format((int) ($yearGroup['enrollment_count'] ?? 0)); ?>
-                                    student Year enrollment record<?= (int) ($yearGroup['enrollment_count'] ?? 0) === 1 ? '' : 's'; ?>
-                                    currently reference this Year Group.
-                                </p>
-
-                                <form method="post" novalidate>
-                                    <?= csrf_field(); ?>
-                                    <input type="hidden" name="action" value="save_progression_rule">
-                                    <input type="hidden" name="year_group_id" value="<?= $yearGroupId; ?>">
-
-                                    <div class="forum-admin-form-grid">
-                                        <div class="form-group">
-                                            <label for="required-percentage-<?= $yearGroupId; ?>">
-                                                Required Academic Percentage
-                                            </label>
-                                            <input
-                                                class="form-control"
-                                                type="number"
-                                                id="required-percentage-<?= $yearGroupId; ?>"
-                                                name="required_percentage"
-                                                min="0"
-                                                max="100"
-                                                step="0.01"
-                                                value="<?= e($requiredPercentageValue); ?>"
-                                                required
-                                            >
-                                            <p class="form-help">
-                                                The student must meet or exceed this
-                                                overall academic percentage.
-                                            </p>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="required-points-<?= $yearGroupId; ?>">
-                                                Minimum Required HW Points
-                                            </label>
-                                            <input
-                                                class="form-control"
-                                                type="number"
-                                                id="required-points-<?= $yearGroupId; ?>"
-                                                name="required_points"
-                                                min="0"
-                                                step="0.01"
-                                                value="<?= e($requiredPointsValue); ?>"
-                                                placeholder="No minimum"
-                                            >
-                                            <p class="form-help">
-                                                Leave blank for no minimum HW Point
-                                                requirement. House Points do not count.
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    <div class="forum-admin-form-grid">
-                                        <div class="form-group">
-                                            <label for="next-year-group-<?= $yearGroupId; ?>">
-                                                Next Year Group
-                                            </label>
-                                            <select
-                                                class="form-control"
-                                                id="next-year-group-<?= $yearGroupId; ?>"
-                                                name="next_year_group_id"
-                                            >
-                                                <option value="">No next Year Group / final level</option>
-                                                <?php foreach ($yearGroups as $nextYearGroup): ?>
-                                                    <?php
+                            <div class="forum-admin-form-grid">
+                                <div class="form-group">
+                                    <label for="next-year-group-<?= $yearGroupId; ?>">
+                                        Next Year Group
+                                    </label>
+                                    <select class="form-control" id="next-year-group-<?= $yearGroupId; ?>"
+                                        name="next_year_group_id">
+                                        <option value="">No next Year Group / final level</option>
+                                        <?php foreach ($yearGroups as $nextYearGroup): ?>
+                                        <?php
                                                     $candidateId = (int) $nextYearGroup['id'];
                                                     if ($candidateId === $yearGroupId) {
                                                         continue;
                                                     }
                                                     ?>
-                                                    <option
-                                                        value="<?= $candidateId; ?>"
-                                                        <?= $nextYearGroupValue === $candidateId ? 'selected' : ''; ?>
-                                                    >
-                                                        <?= e((string) $nextYearGroup['name']); ?>
-                                                    </option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                            <p class="form-help">
-                                                Leave blank if this is the final Academy
-                                                Year Group rather than a promotion step.
-                                            </p>
-                                        </div>
+                                        <option value="<?= $candidateId; ?>"
+                                            <?= $nextYearGroupValue === $candidateId ? 'selected' : ''; ?>>
+                                            <?= e((string) $nextYearGroup['name']); ?>
+                                        </option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                    <p class="form-help">
+                                        Leave blank if this is the final Academy
+                                        Year Group rather than a promotion step.
+                                    </p>
+                                </div>
 
-                                        <div class="form-group">
-                                            <label class="forum-admin-choice" style="margin-top: 2rem;">
-                                                <input
-                                                    type="checkbox"
-                                                    name="is_active"
-                                                    value="1"
-                                                    <?= $ruleActiveValue === 1 ? 'checked' : ''; ?>
-                                                >
-                                                <span>Progression rule is active</span>
-                                            </label>
-                                            <p class="form-help">
-                                                Inactive rules remain stored but should not
-                                                be used for new requirement snapshots.
-                                            </p>
-                                        </div>
-                                    </div>
+                                <div class="form-group">
+                                    <label class="forum-admin-choice" style="margin-top: 2rem;">
+                                        <input type="checkbox" name="is_active" value="1"
+                                            <?= $ruleActiveValue === 1 ? 'checked' : ''; ?>>
+                                        <span>Progression rule is active</span>
+                                    </label>
+                                    <p class="form-help">
+                                        Inactive rules remain stored but should not
+                                        be used for new requirement snapshots.
+                                    </p>
+                                </div>
+                            </div>
 
-                                    <div class="forum-admin-actions">
-                                        <button type="submit" class="button button-primary">
-                                            <?= $yearGroup['rule_id'] !== null
+                            <div class="forum-admin-actions">
+                                <button type="submit" class="button button-primary">
+                                    <?= $yearGroup['rule_id'] !== null
                                                 ? 'Save Progression Rule'
                                                 : 'Create Progression Rule'; ?>
-                                        </button>
-                                    </div>
-                                </form>
+                                </button>
                             </div>
-                        </section>
+                        </form>
+                    </div>
+                </section>
 
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
                 <?php endif; ?>
 

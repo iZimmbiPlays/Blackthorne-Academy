@@ -1,2 +1,28 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+# ==========================================================================
+# Blackthorne Academy
+# Git Attribute Rules
+# ==========================================================================
+
+# Normalize text files and store them with LF line endings.
+* text=auto eol=lf
+
+*.php text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.xml text eol=lf
+*.svg text eol=lf
+
+# Binary files
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.pdf binary
+*.zip binary

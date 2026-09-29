@@ -406,20 +406,11 @@ require INCLUDES_PATH . '/header.php';
          HERO
     ================================================================= -->
 
-    <section
-        class="contact-hero"
-        aria-labelledby="contact-hero-heading"
-    >
+    <section class="contact-hero" aria-labelledby="contact-hero-heading">
 
-        <div
-            class="hero-ornament hero-ornament-left"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-left" aria-hidden="true"></div>
 
-        <div
-            class="hero-ornament hero-ornament-right"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-right" aria-hidden="true"></div>
 
 
         <div class="section-inner contact-hero-inner">
@@ -443,38 +434,23 @@ require INCLUDES_PATH . '/header.php';
                 </p>
 
 
-                <div
-                    class="hero-actions"
-                    aria-label="Contact page actions"
-                >
+                <div class="hero-actions" aria-label="Contact page actions">
 
-                    <a
-                        href="#contact-form"
-                        class="button button-primary"
-                    >
+                    <a href="#contact-form" class="button button-primary">
                         Send a Message
                     </a>
 
 
-                    <a
-                        href="<?= e(LOGIN_URL); ?>"
-                        class="button button-secondary"
-                    >
+                    <a href="<?= e(LOGIN_URL); ?>" class="button button-secondary">
                         Academy Login
                     </a>
 
                 </div>
 
 
-                <div
-                    class="hero-motto"
-                    aria-label="Blackthorne Academy correspondence"
-                >
+                <div class="hero-motto" aria-label="Blackthorne Academy correspondence">
 
-                    <span
-                        class="ornament-line"
-                        aria-hidden="true"
-                    ></span>
+                    <span class="ornament-line" aria-hidden="true"></span>
 
 
                     <p>
@@ -514,10 +490,7 @@ require INCLUDES_PATH . '/header.php';
          CONTACT INTRODUCTION
     ================================================================= -->
 
-    <section
-        class="contact-introduction"
-        aria-labelledby="contact-introduction-heading"
-    >
+    <section class="contact-introduction" aria-labelledby="contact-introduction-heading">
 
         <div class="section-inner">
 
@@ -533,10 +506,7 @@ require INCLUDES_PATH . '/header.php';
                 </h2>
 
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>
@@ -560,10 +530,7 @@ require INCLUDES_PATH . '/header.php';
          CONTACT ROUTES
     ================================================================= -->
 
-    <section
-        class="contact-routes"
-        aria-labelledby="contact-routes-heading"
-    >
+    <section class="contact-routes" aria-labelledby="contact-routes-heading">
 
         <div class="section-inner">
 
@@ -585,15 +552,9 @@ require INCLUDES_PATH . '/header.php';
             <div class="contact-route-list">
 
 
-                <a
-                    href="<?= e(url('contact.php?subject=admissions#contact-form')); ?>"
-                    class="contact-route"
-                >
+                <a href="<?= e(url('contact.php?subject=admissions#contact-form')); ?>" class="contact-route">
 
-                    <span
-                        class="contact-route-number"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-number" aria-hidden="true">
                         01
                     </span>
 
@@ -613,25 +574,16 @@ require INCLUDES_PATH . '/header.php';
                     </div>
 
 
-                    <span
-                        class="contact-route-arrow"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-arrow" aria-hidden="true">
                         →
                     </span>
 
                 </a>
 
 
-                <a
-                    href="<?= e(url('contact.php?subject=account#contact-form')); ?>"
-                    class="contact-route"
-                >
+                <a href="<?= e(url('contact.php?subject=account#contact-form')); ?>" class="contact-route">
 
-                    <span
-                        class="contact-route-number"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-number" aria-hidden="true">
                         02
                     </span>
 
@@ -651,25 +603,16 @@ require INCLUDES_PATH . '/header.php';
                     </div>
 
 
-                    <span
-                        class="contact-route-arrow"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-arrow" aria-hidden="true">
                         →
                     </span>
 
                 </a>
 
 
-                <a
-                    href="<?= e(url('contact.php?subject=academics#contact-form')); ?>"
-                    class="contact-route"
-                >
+                <a href="<?= e(url('contact.php?subject=academics#contact-form')); ?>" class="contact-route">
 
-                    <span
-                        class="contact-route-number"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-number" aria-hidden="true">
                         03
                     </span>
 
@@ -689,25 +632,16 @@ require INCLUDES_PATH . '/header.php';
                     </div>
 
 
-                    <span
-                        class="contact-route-arrow"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-arrow" aria-hidden="true">
                         →
                     </span>
 
                 </a>
 
 
-                <a
-                    href="<?= e(url('contact.php?subject=community#contact-form')); ?>"
-                    class="contact-route"
-                >
+                <a href="<?= e(url('contact.php?subject=community#contact-form')); ?>" class="contact-route">
 
-                    <span
-                        class="contact-route-number"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-number" aria-hidden="true">
                         04
                     </span>
 
@@ -727,10 +661,7 @@ require INCLUDES_PATH . '/header.php';
                     </div>
 
 
-                    <span
-                        class="contact-route-arrow"
-                        aria-hidden="true"
-                    >
+                    <span class="contact-route-arrow" aria-hidden="true">
                         →
                     </span>
 
@@ -747,11 +678,7 @@ require INCLUDES_PATH . '/header.php';
          CONTACT FORM
     ================================================================= -->
 
-    <section
-        class="contact-correspondence"
-        id="contact-form"
-        aria-labelledby="contact-form-heading"
-    >
+    <section class="contact-correspondence" id="contact-form" aria-labelledby="contact-form-heading">
 
         <div class="section-inner contact-correspondence-grid">
 
@@ -765,49 +692,43 @@ require INCLUDES_PATH . '/header.php';
 
                 <?php if ($contactSuccess !== null): ?>
 
-                    <div
-                        class="contact-form-status contact-form-status-success"
-                        role="status"
-                    >
+                <div class="contact-form-status contact-form-status-success" role="status">
 
-                        <strong>
-                            Correspondence sent.
-                        </strong>
+                    <strong>
+                        Correspondence sent.
+                    </strong>
 
-                        <p>
-                            <?= e($contactSuccess); ?>
-                        </p>
+                    <p>
+                        <?= e($contactSuccess); ?>
+                    </p>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 
 
                 <?php if ($formErrors !== []): ?>
 
-                    <div
-                        class="contact-form-status contact-form-status-error"
-                        role="alert"
-                    >
+                <div class="contact-form-status contact-form-status-error" role="alert">
 
-                        <strong>
-                            Your correspondence could not be sent yet.
-                        </strong>
+                    <strong>
+                        Your correspondence could not be sent yet.
+                    </strong>
 
 
-                        <ul>
+                    <ul>
 
-                            <?php foreach ($formErrors as $error): ?>
+                        <?php foreach ($formErrors as $error): ?>
 
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                        </ul>
+                    </ul>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 
@@ -833,12 +754,8 @@ require INCLUDES_PATH . '/header.php';
                 </div>
 
 
-                <form
-                    class="contact-form"
-                    action="<?= e(url('contact.php#contact-form')); ?>"
-                    method="post"
-                    aria-describedby="contact-form-guidance"
-                >
+                <form class="contact-form" action="<?= e(url('contact.php#contact-form')); ?>" method="post"
+                    aria-describedby="contact-form-guidance">
 
                     <?= csrf_field(); ?>
 
@@ -847,22 +764,13 @@ require INCLUDES_PATH . '/header.php';
                          Honeypot
                     ================================================== -->
 
-                    <div
-                        class="contact-honeypot"
-                        aria-hidden="true"
-                    >
+                    <div class="contact-honeypot" aria-hidden="true">
 
                         <label for="contact-website">
                             Website
                         </label>
 
-                        <input
-                            type="text"
-                            id="contact-website"
-                            name="website"
-                            tabindex="-1"
-                            autocomplete="off"
-                        >
+                        <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
 
                     </div>
 
@@ -880,25 +788,15 @@ require INCLUDES_PATH . '/header.php';
 
                                 Your Name
 
-                                <span
-                                    class="required-marker"
-                                    aria-hidden="true"
-                                >
+                                <span class="required-marker" aria-hidden="true">
                                     *
                                 </span>
 
                             </label>
 
 
-                            <input
-                                type="text"
-                                id="contact-name"
-                                name="name"
-                                value="<?= e($formValues['name']); ?>"
-                                maxlength="100"
-                                autocomplete="name"
-                                required
-                            >
+                            <input type="text" id="contact-name" name="name" value="<?= e($formValues['name']); ?>"
+                                maxlength="100" autocomplete="name" required>
 
                         </div>
 
@@ -909,26 +807,15 @@ require INCLUDES_PATH . '/header.php';
 
                                 Email Address
 
-                                <span
-                                    class="required-marker"
-                                    aria-hidden="true"
-                                >
+                                <span class="required-marker" aria-hidden="true">
                                     *
                                 </span>
 
                             </label>
 
 
-                            <input
-                                type="email"
-                                id="contact-email"
-                                name="email"
-                                value="<?= e($formValues['email']); ?>"
-                                maxlength="254"
-                                autocomplete="email"
-                                inputmode="email"
-                                required
-                            >
+                            <input type="email" id="contact-email" name="email" value="<?= e($formValues['email']); ?>"
+                                maxlength="254" autocomplete="email" inputmode="email" required>
 
                         </div>
 
@@ -950,23 +837,12 @@ require INCLUDES_PATH . '/header.php';
                         </label>
 
 
-                        <input
-                            type="text"
-                            id="contact-username"
-                            name="username"
-                            value="<?= e($formValues['username']); ?>"
-                            maxlength="100"
-                            autocomplete="username"
-                            spellcheck="false"
-                            autocapitalize="none"
-                            aria-describedby="contact-username-help"
-                        >
+                        <input type="text" id="contact-username" name="username"
+                            value="<?= e($formValues['username']); ?>" maxlength="100" autocomplete="username"
+                            spellcheck="false" autocapitalize="none" aria-describedby="contact-username-help">
 
 
-                        <small
-                            class="field-help"
-                            id="contact-username-help"
-                        >
+                        <small class="field-help" id="contact-username-help">
                             If your question concerns an existing Blackthorne
                             account, including your username may help identify
                             the account involved.
@@ -985,39 +861,25 @@ require INCLUDES_PATH . '/header.php';
 
                             Subject
 
-                            <span
-                                class="required-marker"
-                                aria-hidden="true"
-                            >
+                            <span class="required-marker" aria-hidden="true">
                                 *
                             </span>
 
                         </label>
 
 
-                        <select
-                            id="contact-subject"
-                            name="subject"
-                            required
-                        >
+                        <select id="contact-subject" name="subject" required>
 
-                            <option
-                                value=""
-                                <?= $selectedSubject === '' ? 'selected' : ''; ?>
-                                disabled
-                            >
+                            <option value="" <?= $selectedSubject === '' ? 'selected' : ''; ?> disabled>
                                 Choose the closest subject
                             </option>
 
 
                             <?php foreach ($contactSubjects as $value => $label): ?>
 
-                                <option
-                                    value="<?= e($value); ?>"
-                                    <?= $selectedSubject === $value ? 'selected' : ''; ?>
-                                >
-                                    <?= e($label); ?>
-                                </option>
+                            <option value="<?= e($value); ?>" <?= $selectedSubject === $value ? 'selected' : ''; ?>>
+                                <?= e($label); ?>
+                            </option>
 
                             <?php endforeach; ?>
 
@@ -1036,31 +898,18 @@ require INCLUDES_PATH . '/header.php';
 
                             Message
 
-                            <span
-                                class="required-marker"
-                                aria-hidden="true"
-                            >
+                            <span class="required-marker" aria-hidden="true">
                                 *
                             </span>
 
                         </label>
 
 
-                        <textarea
-                            id="contact-message"
-                            name="message"
-                            rows="9"
-                            minlength="20"
-                            maxlength="5000"
-                            required
-                            aria-describedby="contact-message-help"
-                        ><?= e($formValues['message']); ?></textarea>
+                        <textarea id="contact-message" name="message" rows="9" minlength="20" maxlength="5000" required
+                            aria-describedby="contact-message-help"><?= e($formValues['message']); ?></textarea>
 
 
-                        <div
-                            class="field-meta"
-                            id="contact-message-help"
-                        >
+                        <div class="field-meta" id="contact-message-help">
 
                             <small>
                                 Please provide enough detail for us to
@@ -1076,15 +925,9 @@ require INCLUDES_PATH . '/header.php';
                          Security Notice
                     ================================================== -->
 
-                    <div
-                        class="contact-form-notice"
-                        id="contact-form-guidance"
-                    >
+                    <div class="contact-form-notice" id="contact-form-guidance">
 
-                        <span
-                            class="contact-notice-icon"
-                            aria-hidden="true"
-                        >
+                        <span class="contact-notice-icon" aria-hidden="true">
                             ✦
                         </span>
 
@@ -1108,10 +951,7 @@ require INCLUDES_PATH . '/header.php';
 
                     <div class="contact-form-actions">
 
-                        <button
-                            type="submit"
-                            class="button button-primary button-large"
-                        >
+                        <button type="submit" class="button button-primary button-large">
                             Send Correspondence
                         </button>
 
@@ -1133,22 +973,12 @@ require INCLUDES_PATH . '/header.php';
                  Guidance Sidebar
             ========================================================= -->
 
-            <aside
-                class="contact-guidance"
-                aria-labelledby="contact-guidance-heading"
-            >
+            <aside class="contact-guidance" aria-labelledby="contact-guidance-heading">
 
                 <div class="contact-guidance-inner">
 
-                    <img
-                        src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                        alt=""
-                        class="contact-guidance-crest"
-                        width="110"
-                        height="110"
-                        loading="lazy"
-                        decoding="async"
-                    >
+                    <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" class="contact-guidance-crest"
+                        width="110" height="110" loading="lazy" decoding="async">
 
 
                     <p class="academy-overline">
@@ -1161,10 +991,7 @@ require INCLUDES_PATH . '/header.php';
                     </h2>
 
 
-                    <div
-                        class="ornamental-rule"
-                        aria-hidden="true"
-                    >
+                    <div class="ornamental-rule" aria-hidden="true">
                         <span></span>
                         <i></i>
                         <span></span>
@@ -1250,18 +1077,12 @@ require INCLUDES_PATH . '/header.php';
 
                     <div class="contact-guidance-actions">
 
-                        <a
-                            href="<?= e(LOGIN_URL); ?>"
-                            class="button button-secondary"
-                        >
+                        <a href="<?= e(LOGIN_URL); ?>" class="button button-secondary">
                             Login
                         </a>
 
 
-                        <a
-                            href="<?= e(REGISTER_URL); ?>"
-                            class="button button-primary"
-                        >
+                        <a href="<?= e(REGISTER_URL); ?>" class="button button-primary">
                             Enroll
                         </a>
 
@@ -1280,20 +1101,14 @@ require INCLUDES_PATH . '/header.php';
          SAFETY / MODERATION
     ================================================================= -->
 
-    <section
-        class="contact-safety"
-        aria-labelledby="contact-safety-heading"
-    >
+    <section class="contact-safety" aria-labelledby="contact-safety-heading">
 
         <div class="section-inner">
 
             <div class="contact-safety-frame">
 
 
-                <div
-                    class="contact-safety-symbol"
-                    aria-hidden="true"
-                >
+                <div class="contact-safety-symbol" aria-hidden="true">
                     !
                 </div>
 
@@ -1324,10 +1139,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <div class="contact-safety-action">
 
-                    <a
-                        href="<?= e(url('contact.php?subject=safety#contact-form')); ?>"
-                        class="button button-secondary"
-                    >
+                    <a href="<?= e(url('contact.php?subject=safety#contact-form')); ?>" class="button button-secondary">
                         Report a Concern
                     </a>
 
@@ -1344,10 +1156,7 @@ require INCLUDES_PATH . '/header.php';
          CLOSING
     ================================================================= -->
 
-    <section
-        class="contact-closing"
-        aria-labelledby="contact-closing-heading"
-    >
+    <section class="contact-closing" aria-labelledby="contact-closing-heading">
 
         <div class="section-inner">
 
@@ -1363,10 +1172,7 @@ require INCLUDES_PATH . '/header.php';
                 </h2>
 
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>

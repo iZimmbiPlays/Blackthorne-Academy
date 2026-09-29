@@ -815,996 +815,924 @@ function sanitize_rich_text(?string $html): string
 
     $document->loadHTML(
         '<?xml encoding="utf-8" ?>' .
-        '<div id="blackthorne-rich-text-root">' .
-        $html .
-        '</div>',
-        LIBXML_HTML_NOIMPLIED |
-        LIBXML_HTML_NODEFDTD
+'<div id="blackthorne-rich-text-root">' .
+    $html .
+    '</div>',
+LIBXML_HTML_NOIMPLIED |
+LIBXML_HTML_NODEFDTD
+);
+
+
+libxml_clear_errors();
+
+
+libxml_use_internal_errors(
+$previousLibxmlState
+);
+
+
+$root =
+$document->getElementById(
+'blackthorne-rich-text-root'
+);
+
+
+if (
+!$root instanceof DOMElement
+) {
+
+return '';
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Sanitize Elements and Attributes
+|--------------------------------------------------------------------------
+*/
+
+$sanitizeNode =
+static function (DOMNode $node) use (
+&$sanitizeNode,
+$allowedTags,
+$allowedStyleProperties,
+$allowedCustomBlockClasses,
+$allowedCustomBlockStyleProperties
+): void {
+
+foreach (
+iterator_to_array(
+$node->childNodes
+)
+as $child
+) {
+
+if (
+!$child instanceof DOMElement
+) {
+
+continue;
+
+}
+
+
+$tagName =
+strtolower(
+$child->tagName
+);
+
+
+/*
+|--------------------------------------------------------------------------
+| Remove Disallowed Elements
+|--------------------------------------------------------------------------
+|
+| Child text and permitted formatting are preserved, but the
+| disallowed wrapper itself is removed.
+|
+*/
+
+if (
+!in_array(
+$tagName,
+$allowedTags,
+true
+)
+) {
+
+$sanitizeNode(
+$child
+);
+
+
+while (
+$child->firstChild !== null
+) {
+
+$node->insertBefore(
+$child->firstChild,
+$child
+);
+
+}
+
+
+$node->removeChild(
+$child
+);
+
+
+continue;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Sanitize Attributes
+|--------------------------------------------------------------------------
+*/
+
+foreach (
+iterator_to_array(
+$child->attributes
+)
+as $attribute
+) {
+
+$attributeName =
+strtolower(
+$attribute->name
+);
+
+
+/*
+|--------------------------------------------------------------------------
+| Safe Member Custom Block Classes
+|--------------------------------------------------------------------------
+*/
+
+if (
+$attributeName === 'class'
+) {
+
+if ($tagName !== 'div') {
+
+$child->removeAttribute(
+'class'
+);
+
+continue;
+
+}
+
+
+$requestedClasses =
+preg_split(
+'/\\s+/',
+trim(
+$attribute->value
+)
+)
+?: [];
+
+
+$safeClasses =
+[];
+
+
+foreach (
+$requestedClasses
+as $requestedClass
+) {
+
+if (
+in_array(
+$requestedClass,
+$allowedCustomBlockClasses,
+true
+)
+) {
+
+$safeClasses[] =
+$requestedClass;
+
+}
+
+}
+
+
+$safeClasses =
+array_values(
+array_unique(
+$safeClasses
+)
+);
+
+
+if ($safeClasses === []) {
+
+$child->removeAttribute(
+'class'
+);
+
+} else {
+
+$child->setAttribute(
+'class',
+implode(
+' ',
+$safeClasses
+)
+);
+
+}
+
+
+continue;
+
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Safe YouTube Placeholder ID
+|--------------------------------------------------------------------------
+*/
+
+if (
+$tagName === 'div'
+&&
+$attributeName === 'data-youtube-id'
+&&
+in_array(
+'forum-youtube-embed',
+preg_split(
+'/\\s+/',
+trim(
+$child->getAttribute(
+'class'
+)
+)
+)
+?: [],
+true
+)
+) {
+$videoId =
+trim(
+$attribute->value
+);
+
+if (
+preg_match(
+'/^[A-Za-z0-9_-]{11}$/',
+$videoId
+)
+!== 1
+) {
+$child->removeAttribute(
+'data-youtube-id'
+);
+}
+
+continue;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Safe Inline Formatting
+|--------------------------------------------------------------------------
+*/
+
+if (
+$attributeName === 'style'
+) {
+
+$safeDeclarations =
+[];
+
+
+foreach (
+explode(
+';',
+$attribute->value
+)
+as $declaration
+) {
+
+if (
+!str_contains(
+$declaration,
+':'
+)
+) {
+
+continue;
+
+}
+
+
+[
+$property,
+$propertyValue,
+] =
+array_map(
+'trim',
+explode(
+':',
+$declaration,
+2
+)
+);
+
+
+$property =
+strtolower(
+$property
+);
+
+
+$hasUnsafeCss =
+preg_match(
+'/(?:url\s*\(|expression\s*\(|javascript:|data:|@import|behavior\s*:)/i',
+$propertyValue
+)
+===
+1;
+
+
+$isCustomBlock =
+$tagName === 'div'
+&&
+array_intersect(
+preg_split(
+'/\\s+/',
+trim(
+$child->getAttribute(
+'class'
+)
+)
+)
+?: [],
+$allowedCustomBlockClasses
+)
+!== [];
+
+
+$isSizedImage =
+
+
+$tagName === 'img'
+
+
+&&
+
+
+in_array(
+
+
+$property,
+
+
+[
+
+
+'width',
+
+
+'max-width',
+
+
+],
+
+
+true
+
+
+);
+
+
+$isAlignedImage =
+$tagName === 'img'
+&&
+in_array(
+$property,
+[
+'display',
+'margin-left',
+'margin-right',
+],
+true
+);
+
+
+$propertyAllowed =
+
+
+in_array(
+
+
+$property,
+
+
+$allowedStyleProperties,
+
+
+true
+
+
+)
+
+
+||
+
+
+(
+
+
+$isCustomBlock
+
+
+&&
+
+
+in_array(
+
+
+$property,
+
+
+$allowedCustomBlockStyleProperties,
+
+
+true
+
+
+)
+
+
+)
+
+
+||
+$isSizedImage
+||
+$isAlignedImage;
+
+
+$valueAllowed =
+
+
+true;
+
+
+if ($isSizedImage) {
+
+
+$valueAllowed =
+
+
+preg_match(
+
+
+'/^(?:25%|30%|40%|50%|60%|70%|75%|80%|90%|100%)$/',
+
+
+$propertyValue
+
+
+)
+
+
+=== 1;
+
+
+}
+
+
+if ($isAlignedImage) {
+
+if ($property === 'display') {
+
+$valueAllowed =
+$propertyValue === 'block';
+
+} else {
+
+$valueAllowed =
+in_array(
+$propertyValue,
+[
+'0',
+'0px',
+'auto',
+],
+true
+);
+
+}
+
+}
+
+
+if (
+$isCustomBlock
+&&
+in_array(
+$property,
+$allowedCustomBlockStyleProperties,
+true
+)
+) {
+
+switch ($property) {
+
+case 'border-style':
+
+$valueAllowed =
+in_array(
+strtolower(
+$propertyValue
+),
+[
+'none',
+'solid',
+'dashed',
+'dotted',
+'double',
+],
+true
+);
+break;
+
+
+case 'border-width':
+
+$valueAllowed =
+preg_match(
+'/^(?:0|[1-6]px)$/',
+$propertyValue
+)
+=== 1;
+break;
+
+
+case 'border-radius':
+
+$valueAllowed =
+preg_match(
+'/^(?:0|(?:[1-9]|[12][0-9]|30)px)$/',
+$propertyValue
+)
+=== 1;
+break;
+
+
+case 'padding':
+
+$valueAllowed =
+preg_match(
+'/^(?:0|(?:[1-9]|[1-3][0-9]|40)px)(?:\\s+(?:0|(?:[1-9]|[1-3][0-9]|40)px)){0,3}$/',
+$propertyValue
+)
+=== 1;
+break;
+
+
+case 'margin':
+
+$valueAllowed =
+preg_match(
+'/^(?:(?:0|(?:[1-9]|[1-3][0-9]|40)px|auto))(?:\\s+(?:0|(?:[1-9]|[1-3][0-9]|40)px|auto)){0,3}$/',
+$propertyValue
+)
+=== 1;
+break;
+
+
+case 'width':
+case 'max-width':
+
+$valueAllowed =
+preg_match(
+'/^(?:auto|100%|90%|80%|75%|70%|60%|50%|40%|30%|25%)$/',
+$propertyValue
+)
+=== 1;
+break;
+
+
+case 'text-align':
+
+$valueAllowed =
+in_array(
+strtolower(
+$propertyValue
+),
+[
+'left',
+'center',
+'right',
+],
+true
+);
+break;
+
+
+case 'background-color':
+case 'border-color':
+case 'color':
+
+$valueAllowed =
+safe_css_color(
+$propertyValue
+)
+!== null
+||
+strtolower(
+$propertyValue
+)
+=== 'transparent';
+break;
+
+}
+
+}
+
+
+if (
+$propertyAllowed
+&&
+$valueAllowed
+&&
+!$hasUnsafeCss
+&&
+strlen($propertyValue) <= 100 ) { $safeDeclarations[]=$property . ': ' . $propertyValue; } } if ( $safeDeclarations===[]
+    ) { $child->removeAttribute(
+    'style'
     );
 
+    } else {
 
-    libxml_clear_errors();
-
-
-    libxml_use_internal_errors(
-        $previousLibxmlState
+    $child->setAttribute(
+    'style',
+    implode(
+    '; ',
+    $safeDeclarations
+    )
     );
 
-
-    $root =
-        $document->getElementById(
-            'blackthorne-rich-text-root'
-        );
+    }
 
 
-    if (
-        !$root instanceof DOMElement
-    ) {
-
-        return '';
+    continue;
 
     }
 
 
     /*
     |--------------------------------------------------------------------------
-    | Sanitize Elements and Attributes
+    | Safe Images
     |--------------------------------------------------------------------------
+    |
+    | Images may come from Blackthorne's own upload directory or from an
+    | HTTPS URL entered by the member. Data URIs, javascript: URLs, blob
+    | URLs, inline event handlers, srcset, and arbitrary attributes are
+    | intentionally rejected.
+    |
     */
 
-    $sanitizeNode =
-        static function (DOMNode $node) use (
-            &$sanitizeNode,
-            $allowedTags,
-            $allowedStyleProperties,
-            $allowedCustomBlockClasses,
-            $allowedCustomBlockStyleProperties
-        ): void {
+    if (
+    $tagName === 'img'
+    &&
+    $attributeName === 'src'
+    ) {
+
+    $src =
+    trim(
+    $attribute->value
+    );
+
 
-            foreach (
-                iterator_to_array(
-                    $node->childNodes
-                )
-                as $child
-            ) {
+    $isSafeSrc =
+    preg_match(
+    '#^(?:https://|/)#i',
+    $src
+    )
+    ===
+    1;
 
-                if (
-                    !$child instanceof DOMElement
-                ) {
 
-                    continue;
+    if (!$isSafeSrc) {
 
-                }
+    $child->removeAttribute(
+    'src'
+    );
 
+    }
 
-                $tagName =
-                    strtolower(
-                        $child->tagName
-                    );
+
+    continue;
 
+    }
 
-                /*
-                |--------------------------------------------------------------------------
-                | Remove Disallowed Elements
-                |--------------------------------------------------------------------------
-                |
-                | Child text and permitted formatting are preserved, but the
-                | disallowed wrapper itself is removed.
-                |
-                */
 
-                if (
-                    !in_array(
-                        $tagName,
-                        $allowedTags,
-                        true
-                    )
-                ) {
+    if (
+    $tagName === 'img'
+    &&
+    in_array(
+    $attributeName,
+    [
+    'alt',
+    'title',
+    'width',
+    'height',
+    'loading',
+    ],
+    true
+    )
+    ) {
 
-                    $sanitizeNode(
-                        $child
-                    );
+    if (
+    in_array(
+    $attributeName,
+    [
+    'width',
+    'height',
+    ],
+    true
+    )
+    ) {
 
+    $dimension =
+    (int) $attribute->value;
 
-                    while (
-                        $child->firstChild !== null
-                    ) {
 
-                        $node->insertBefore(
-                            $child->firstChild,
-                            $child
-                        );
+    if (
+    $dimension < 1 || $dimension> 2400
+        ) {
 
-                    }
+        $child->removeAttribute(
+        $attributeName
+        );
 
+        } else {
 
-                    $node->removeChild(
-                        $child
-                    );
+        $child->setAttribute(
+        $attributeName,
+        (string) $dimension
+        );
 
+        }
 
-                    continue;
+        } elseif (
+        $attributeName === 'loading'
+        ) {
 
-                }
+        $child->setAttribute(
+        'loading',
+        'lazy'
+        );
 
+        } else {
 
-                /*
-                |--------------------------------------------------------------------------
-                | Sanitize Attributes
-                |--------------------------------------------------------------------------
-                */
+        $child->setAttribute(
+        $attributeName,
+        mb_substr(
+        trim(
+        $attribute->value
+        ),
+        0,
+        255,
+        'UTF-8'
+        )
+        );
 
-                foreach (
-                    iterator_to_array(
-                        $child->attributes
-                    )
-                    as $attribute
-                ) {
+        }
 
-                    $attributeName =
-                        strtolower(
-                            $attribute->name
-                        );
 
+        continue;
 
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Safe Member Custom Block Classes
-                    |--------------------------------------------------------------------------
-                    */
+        }
 
-                    if (
-                        $attributeName === 'class'
-                    ) {
 
-                        if ($tagName !== 'div') {
+        /*
+        |--------------------------------------------------------------------------
+        | Safe Links
+        |--------------------------------------------------------------------------
+        */
 
-                            $child->removeAttribute(
-                                'class'
-                            );
+        if (
+        $tagName === 'a'
+        &&
+        $attributeName === 'href'
+        ) {
 
-                            continue;
+        $href =
+        trim(
+        $attribute->value
+        );
 
-                        }
 
+        $isSafeHref =
+        preg_match(
+        '#^(?:https?://|mailto:|/|\#)#i',
+        $href
+        )
+        ===
+        1;
 
-                        $requestedClasses =
-                            preg_split(
-                                '/\\s+/',
-                                trim(
-                                    $attribute->value
-                                )
-                            )
-                            ?: [];
-
-
-                        $safeClasses =
-                            [];
 
+        if (!$isSafeHref) {
 
-                        foreach (
-                            $requestedClasses
-                            as $requestedClass
-                        ) {
-
-                            if (
-                                in_array(
-                                    $requestedClass,
-                                    $allowedCustomBlockClasses,
-                                    true
-                                )
-                            ) {
+        $child->removeAttribute(
+        'href'
+        );
 
-                                $safeClasses[] =
-                                    $requestedClass;
+        }
 
-                            }
 
-                        }
-
-
-                        $safeClasses =
-                            array_values(
-                                array_unique(
-                                    $safeClasses
-                                )
-                            );
-
-
-                        if ($safeClasses === []) {
+        continue;
 
-                            $child->removeAttribute(
-                                'class'
-                            );
+        }
 
-                        } else {
 
-                            $child->setAttribute(
-                                'class',
-                                implode(
-                                    ' ',
-                                    $safeClasses
-                                )
-                            );
-
-                        }
-
-
-                        continue;
-
-                    }
-
-
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Safe YouTube Placeholder ID
-                    |--------------------------------------------------------------------------
-                    */
-
-                    if (
-                        $tagName === 'div'
-                        &&
-                        $attributeName === 'data-youtube-id'
-                        &&
-                        in_array(
-                            'forum-youtube-embed',
-                            preg_split(
-                                '/\\s+/',
-                                trim(
-                                    $child->getAttribute(
-                                        'class'
-                                    )
-                                )
-                            )
-                            ?: [],
-                            true
-                        )
-                    ) {
-                        $videoId =
-                            trim(
-                                $attribute->value
-                            );
-
-                        if (
-                            preg_match(
-                                '/^[A-Za-z0-9_-]{11}$/',
-                                $videoId
-                            )
-                            !== 1
-                        ) {
-                            $child->removeAttribute(
-                                'data-youtube-id'
-                            );
-                        }
+        if (
+        $tagName === 'a'
+        &&
+        in_array(
+        $attributeName,
+        [
+        'title',
+        'target',
+        'rel',
+        ],
+        true
+        )
+        ) {
 
-                        continue;
-                    }
+        continue;
 
+        }
 
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Safe Inline Formatting
-                    |--------------------------------------------------------------------------
-                    */
 
-                    if (
-                        $attributeName === 'style'
-                    ) {
+        /*
+        |--------------------------------------------------------------------------
+        | Remove Every Other Attribute
+        |--------------------------------------------------------------------------
+        */
 
-                        $safeDeclarations =
-                            [];
+        $child->removeAttribute(
+        $attributeName
+        );
 
+        }
 
-                        foreach (
-                            explode(
-                                ';',
-                                $attribute->value
-                            )
-                            as $declaration
-                        ) {
 
-                            if (
-                                !str_contains(
-                                    $declaration,
-                                    ':'
-                                )
-                            ) {
+        /*
+        |--------------------------------------------------------------------------
+        | Secure New-Tab Links
+        |--------------------------------------------------------------------------
+        */
 
-                                continue;
+        if (
+        $tagName === 'a'
+        &&
+        $child->getAttribute(
+        'target'
+        )
+        ===
+        '_blank'
+        ) {
 
-                            }
+        $child->setAttribute(
+        'rel',
+        'noopener noreferrer'
+        );
 
+        }
 
-                            [
-                                $property,
-                                $propertyValue,
-                            ] =
-                                array_map(
-                                    'trim',
-                                    explode(
-                                        ':',
-                                        $declaration,
-                                        2
-                                    )
-                                );
 
+        $sanitizeNode(
+        $child
+        );
 
-                            $property =
-                                strtolower(
-                                    $property
-                                );
-
-
-                            $hasUnsafeCss =
-                                preg_match(
-                                    '/(?:url\s*\(|expression\s*\(|javascript:|data:|@import|behavior\s*:)/i',
-                                    $propertyValue
-                                )
-                                ===
-                                1;
-
-
-                            $isCustomBlock =
-                                $tagName === 'div'
-                                &&
-                                array_intersect(
-                                    preg_split(
-                                        '/\\s+/',
-                                        trim(
-                                            $child->getAttribute(
-                                                'class'
-                                            )
-                                        )
-                                    )
-                                    ?: [],
-                                    $allowedCustomBlockClasses
-                                )
-                                !== [];
-
-
-                            $isSizedImage =
-
-
-
-                                $tagName === 'img'
-
-
-
-                                &&
-
-
-
-                                in_array(
-
-
-
-                                    $property,
-
-
-
-                                    [
-
-
-
-                                        'width',
-
-
-
-                                        'max-width',
-
-
-
-                                    ],
-
-
-
-                                    true
-
-
-
-                                );
-
-
-
-
-
-
-                            $isAlignedImage =
-                                $tagName === 'img'
-                                &&
-                                in_array(
-                                    $property,
-                                    [
-                                        'display',
-                                        'margin-left',
-                                        'margin-right',
-                                    ],
-                                    true
-                                );
-
-
-                            $propertyAllowed =
-
-
-
-                                in_array(
-
-
-
-                                    $property,
-
-
-
-                                    $allowedStyleProperties,
-
-
-
-                                    true
-
-
-
-                                )
-
-
-
-                                ||
-
-
-
-                                (
-
-
-
-                                    $isCustomBlock
-
-
-
-                                    &&
-
-
-
-                                    in_array(
-
-
-
-                                        $property,
-
-
-
-                                        $allowedCustomBlockStyleProperties,
-
-
-
-                                        true
-
-
-
-                                    )
-
-
-
-                                )
-
-
-
-                                ||
-                                $isSizedImage
-                                ||
-                                $isAlignedImage;
-
-
-
-
-
-                            $valueAllowed =
-
-
-
-                                true;
-
-
-
-
-
-                            if ($isSizedImage) {
-
-
-
-                            
-
-
-
-                                $valueAllowed =
-
-
-
-                                    preg_match(
-
-
-
-                                        '/^(?:25%|30%|40%|50%|60%|70%|75%|80%|90%|100%)$/',
-
-
-
-                                        $propertyValue
-
-
-
-                                    )
-
-
-
-                                    === 1;
-
-
-
-                            
-
-
-
-                            }
-
-
-
-
-                            if ($isAlignedImage) {
-
-                                if ($property === 'display') {
-
-                                    $valueAllowed =
-                                        $propertyValue === 'block';
-
-                                } else {
-
-                                    $valueAllowed =
-                                        in_array(
-                                            $propertyValue,
-                                            [
-                                                '0',
-                                                '0px',
-                                                'auto',
-                                            ],
-                                            true
-                                        );
-
-                                }
-
-                            }
-
-
-                            if (
-                                $isCustomBlock
-                                &&
-                                in_array(
-                                    $property,
-                                    $allowedCustomBlockStyleProperties,
-                                    true
-                                )
-                            ) {
-
-                                switch ($property) {
-
-                                    case 'border-style':
-
-                                        $valueAllowed =
-                                            in_array(
-                                                strtolower(
-                                                    $propertyValue
-                                                ),
-                                                [
-                                                    'none',
-                                                    'solid',
-                                                    'dashed',
-                                                    'dotted',
-                                                    'double',
-                                                ],
-                                                true
-                                            );
-                                        break;
-
-
-                                    case 'border-width':
-
-                                        $valueAllowed =
-                                            preg_match(
-                                                '/^(?:0|[1-6]px)$/',
-                                                $propertyValue
-                                            )
-                                            === 1;
-                                        break;
-
-
-                                    case 'border-radius':
-
-                                        $valueAllowed =
-                                            preg_match(
-                                                '/^(?:0|(?:[1-9]|[12][0-9]|30)px)$/',
-                                                $propertyValue
-                                            )
-                                            === 1;
-                                        break;
-
-
-                                    case 'padding':
-
-                                        $valueAllowed =
-                                            preg_match(
-                                                '/^(?:0|(?:[1-9]|[1-3][0-9]|40)px)(?:\\s+(?:0|(?:[1-9]|[1-3][0-9]|40)px)){0,3}$/',
-                                                $propertyValue
-                                            )
-                                            === 1;
-                                        break;
-
-
-                                    case 'margin':
-
-                                        $valueAllowed =
-                                            preg_match(
-                                                '/^(?:(?:0|(?:[1-9]|[1-3][0-9]|40)px|auto))(?:\\s+(?:0|(?:[1-9]|[1-3][0-9]|40)px|auto)){0,3}$/',
-                                                $propertyValue
-                                            )
-                                            === 1;
-                                        break;
-
-
-                                    case 'width':
-                                    case 'max-width':
-
-                                        $valueAllowed =
-                                            preg_match(
-                                                '/^(?:auto|100%|90%|80%|75%|70%|60%|50%|40%|30%|25%)$/',
-                                                $propertyValue
-                                            )
-                                            === 1;
-                                        break;
-
-
-                                    case 'text-align':
-
-                                        $valueAllowed =
-                                            in_array(
-                                                strtolower(
-                                                    $propertyValue
-                                                ),
-                                                [
-                                                    'left',
-                                                    'center',
-                                                    'right',
-                                                ],
-                                                true
-                                            );
-                                        break;
-
-
-                                    case 'background-color':
-                                    case 'border-color':
-                                    case 'color':
-
-                                        $valueAllowed =
-                                            safe_css_color(
-                                                $propertyValue
-                                            )
-                                            !== null
-                                            ||
-                                            strtolower(
-                                                $propertyValue
-                                            )
-                                            === 'transparent';
-                                        break;
-
-                                }
-
-                            }
-
-
-                            if (
-                                $propertyAllowed
-                                &&
-                                $valueAllowed
-                                &&
-                                !$hasUnsafeCss
-                                &&
-                                strlen($propertyValue) <= 100
-                            ) {
-
-                                $safeDeclarations[] =
-                                    $property .
-                                    ': ' .
-                                    $propertyValue;
-
-                            }
-
-                        }
-
-
-                        if (
-                            $safeDeclarations === []
-                        ) {
-
-                            $child->removeAttribute(
-                                'style'
-                            );
-
-                        } else {
-
-                            $child->setAttribute(
-                                'style',
-                                implode(
-                                    '; ',
-                                    $safeDeclarations
-                                )
-                            );
-
-                        }
-
-
-                        continue;
-
-                    }
-
-
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Safe Images
-                    |--------------------------------------------------------------------------
-                    |
-                    | Images may come from Blackthorne's own upload directory or from an
-                    | HTTPS URL entered by the member. Data URIs, javascript: URLs, blob
-                    | URLs, inline event handlers, srcset, and arbitrary attributes are
-                    | intentionally rejected.
-                    |
-                    */
-
-                    if (
-                        $tagName === 'img'
-                        &&
-                        $attributeName === 'src'
-                    ) {
-
-                        $src =
-                            trim(
-                                $attribute->value
-                            );
-
-
-                        $isSafeSrc =
-                            preg_match(
-                                '#^(?:https://|/)#i',
-                                $src
-                            )
-                            ===
-                            1;
-
-
-                        if (!$isSafeSrc) {
-
-                            $child->removeAttribute(
-                                'src'
-                            );
-
-                        }
-
-
-                        continue;
-
-                    }
-
-
-                    if (
-                        $tagName === 'img'
-                        &&
-                        in_array(
-                            $attributeName,
-                            [
-                                'alt',
-                                'title',
-                                'width',
-                                'height',
-                                'loading',
-                            ],
-                            true
-                        )
-                    ) {
-
-                        if (
-                            in_array(
-                                $attributeName,
-                                [
-                                    'width',
-                                    'height',
-                                ],
-                                true
-                            )
-                        ) {
-
-                            $dimension =
-                                (int) $attribute->value;
-
-
-                            if (
-                                $dimension < 1
-                                ||
-                                $dimension > 2400
-                            ) {
-
-                                $child->removeAttribute(
-                                    $attributeName
-                                );
-
-                            } else {
-
-                                $child->setAttribute(
-                                    $attributeName,
-                                    (string) $dimension
-                                );
-
-                            }
-
-                        } elseif (
-                            $attributeName === 'loading'
-                        ) {
-
-                            $child->setAttribute(
-                                'loading',
-                                'lazy'
-                            );
-
-                        } else {
-
-                            $child->setAttribute(
-                                $attributeName,
-                                mb_substr(
-                                    trim(
-                                        $attribute->value
-                                    ),
-                                    0,
-                                    255,
-                                    'UTF-8'
-                                )
-                            );
-
-                        }
-
-
-                        continue;
-
-                    }
-
-
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Safe Links
-                    |--------------------------------------------------------------------------
-                    */
-
-                    if (
-                        $tagName === 'a'
-                        &&
-                        $attributeName === 'href'
-                    ) {
-
-                        $href =
-                            trim(
-                                $attribute->value
-                            );
-
-
-                        $isSafeHref =
-                            preg_match(
-                                '#^(?:https?://|mailto:|/|\#)#i',
-                                $href
-                            )
-                            ===
-                            1;
-
-
-                        if (!$isSafeHref) {
-
-                            $child->removeAttribute(
-                                'href'
-                            );
-
-                        }
-
-
-                        continue;
-
-                    }
-
-
-                    if (
-                        $tagName === 'a'
-                        &&
-                        in_array(
-                            $attributeName,
-                            [
-                                'title',
-                                'target',
-                                'rel',
-                            ],
-                            true
-                        )
-                    ) {
-
-                        continue;
-
-                    }
-
-
-                    /*
-                    |--------------------------------------------------------------------------
-                    | Remove Every Other Attribute
-                    |--------------------------------------------------------------------------
-                    */
-
-                    $child->removeAttribute(
-                        $attributeName
-                    );
-
-                }
-
-
-                /*
-                |--------------------------------------------------------------------------
-                | Secure New-Tab Links
-                |--------------------------------------------------------------------------
-                */
-
-                if (
-                    $tagName === 'a'
-                    &&
-                    $child->getAttribute(
-                        'target'
-                    )
-                    ===
-                    '_blank'
-                ) {
-
-                    $child->setAttribute(
-                        'rel',
-                        'noopener noreferrer'
-                    );
-
-                }
-
-
-                $sanitizeNode(
-                    $child
-                );
-
-            }
+        }
 
         };
 
 
-    $sanitizeNode(
+        $sanitizeNode(
         $root
-    );
+        );
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | Return Sanitized Inner HTML
-    |--------------------------------------------------------------------------
-    */
+        /*
+        |--------------------------------------------------------------------------
+        | Return Sanitized Inner HTML
+        |--------------------------------------------------------------------------
+        */
 
-    $safeHtml =
+        $safeHtml =
         '';
 
 
-    foreach (
+        foreach (
         $root->childNodes
         as $child
-    ) {
+        ) {
 
         $safeHtml .=
-            $document->saveHTML(
-                $child
-            );
+        $document->saveHTML(
+        $child
+        );
 
-    }
+        }
 
 
-    return
+        return
         $safeHtml;
-}
+        }

@@ -1064,17 +1064,11 @@ require INCLUDES_PATH . '/header.php';
                 control exactly which tools each role is allowed to use.
             </p>
             <div class="forum-admin-edit-actions">
-                <a
-                    href="<?= e(url('staff-dashboard.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">
                     Staff Dashboard
                 </a>
 
-                <a
-                    href="<?= e(DASHBOARD_URL); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(DASHBOARD_URL); ?>" class="button button-secondary">
                     Return to Dashboard
                 </a>
             </div>
@@ -1086,348 +1080,261 @@ require INCLUDES_PATH . '/header.php';
         <div class="section-inner">
 
             <?php if ($successMessage !== null): ?>
-                <div class="form-message form-message-success" role="status">
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="form-message form-message-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
             <?php endif; ?>
 
             <?php if ($errors !== []): ?>
-                <div class="form-message form-message-error" role="alert">
-                    <h2>Please correct the following:</h2>
-                    <ul>
-                        <?php foreach ($errors as $error): ?>
-                            <li><?= e($error); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+            <div class="form-message form-message-error" role="alert">
+                <h2>Please correct the following:</h2>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                    <li><?= e($error); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
             <?php endif; ?>
 
 
             <?php if ($canCreateRoles): ?>
-                <section class="forum-admin-actions" aria-labelledby="create-role-heading">
-                    <div>
-                        <p class="academy-overline">New Role / Group</p>
-                        <h2 id="create-role-heading">Create a Custom Group</h2>
-                        <p>
-                            The slug is generated automatically from the name.
-                            Permissions can be selected immediately after creation.
-                        </p>
-                    </div>
+            <section class="forum-admin-actions" aria-labelledby="create-role-heading">
+                <div>
+                    <p class="academy-overline">New Role / Group</p>
+                    <h2 id="create-role-heading">Create a Custom Group</h2>
+                    <p>
+                        The slug is generated automatically from the name.
+                        Permissions can be selected immediately after creation.
+                    </p>
+                </div>
 
-                    <form
-                        action="<?= e(url('admin/roles.php')); ?>"
-                        method="post"
-                        class="forum-admin-form"
-                    >
-                        <?= csrf_field(); ?>
-                        <input type="hidden" name="form_action" value="create_role">
+                <form action="<?= e(url('admin/roles.php')); ?>" method="post" class="forum-admin-form">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="form_action" value="create_role">
 
-                        <div class="forum-admin-form-grid">
-                            <div class="form-group">
-                                <label for="role-name">Role / Group Name</label>
-                                <input
-                                    class="form-control"
-                                    id="role-name"
-                                    type="text"
-                                    name="role_name"
-                                    maxlength="100"
-                                    value="<?= e(post_value('role_name')); ?>"
-                                    required
-                                >
-                            </div>
-
-                            <div class="form-group">
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="use_display_color"
-                                        value="1"
-                                        data-role-color-toggle="create"
-                                        <?= post_value('use_display_color') === '1' ? 'checked' : ''; ?>
-                                    >
-                                    <span>
-                                        <strong>Use Role Color</strong><br>
-                                        Give this role/group a custom display color.
-                                    </span>
-                                </label>
-
-                                <div
-                                    data-role-color-picker="create"
-                                    <?= post_value('use_display_color') === '1' ? '' : 'hidden'; ?>
-                                >
-                                    <label for="role-color">Role Color</label>
-                                    <input
-                                        class="form-control"
-                                        id="role-color"
-                                        type="color"
-                                        name="display_color"
-                                        value="<?= e(admin_roles_valid_color(post_value('display_color')) && post_value('display_color') !== '' ? post_value('display_color') : '#744081'); ?>"
-                                        <?= post_value('use_display_color') === '1' ? '' : 'disabled'; ?>
-                                    >
-                                </div>
-                            </div>
+                    <div class="forum-admin-form-grid">
+                        <div class="form-group">
+                            <label for="role-name">Role / Group Name</label>
+                            <input class="form-control" id="role-name" type="text" name="role_name" maxlength="100"
+                                value="<?= e(post_value('role_name')); ?>" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="role-description">Description</label>
-                            <textarea
-                                class="form-control"
-                                id="role-description"
-                                name="role_description"
-                                rows="3"
-                                maxlength="5000"
-                            ><?= e(post_value('role_description')); ?></textarea>
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="use_display_color" value="1"
+                                    data-role-color-toggle="create"
+                                    <?= post_value('use_display_color') === '1' ? 'checked' : ''; ?>>
+                                <span>
+                                    <strong>Use Role Color</strong><br>
+                                    Give this role/group a custom display color.
+                                </span>
+                            </label>
+
+                            <div data-role-color-picker="create"
+                                <?= post_value('use_display_color') === '1' ? '' : 'hidden'; ?>>
+                                <label for="role-color">Role Color</label>
+                                <input class="form-control" id="role-color" type="color" name="display_color"
+                                    value="<?= e(admin_roles_valid_color(post_value('display_color')) && post_value('display_color') !== '' ? post_value('display_color') : '#744081'); ?>"
+                                    <?= post_value('use_display_color') === '1' ? '' : 'disabled'; ?>>
+                            </div>
                         </div>
+                    </div>
 
-                        <fieldset class="forum-admin-fieldset">
-                            <legend>Role / Group Status</legend>
+                    <div class="form-group">
+                        <label for="role-description">Description</label>
+                        <textarea class="form-control" id="role-description" name="role_description" rows="3"
+                            maxlength="5000"><?= e(post_value('role_description')); ?></textarea>
+                    </div>
 
-                            <label class="forum-admin-choice">
-                                <input
-                                    type="checkbox"
-                                    name="is_staff"
-                                    value="1"
-                                    <?= post_value('is_staff') === '1' ? 'checked' : ''; ?>
-                                >
-                                <span>
-                                    <strong>Set as Staff</strong><br>
-                                    Identifies members of this group as Academy staff.
-                                    Staff status alone does not grant permissions.
-                                </span>
-                            </label>
+                    <fieldset class="forum-admin-fieldset">
+                        <legend>Role / Group Status</legend>
 
-                            <label class="forum-admin-choice">
-                                <input
-                                    type="checkbox"
-                                    name="is_active"
-                                    value="1"
-                                    <?= !is_post() || post_value('is_active') === '1' ? 'checked' : ''; ?>
-                                >
-                                <span>
-                                    <strong>Active</strong><br>
-                                    Allows this role/group to participate in permission resolution.
-                                </span>
-                            </label>
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="is_staff" value="1"
+                                <?= post_value('is_staff') === '1' ? 'checked' : ''; ?>>
+                            <span>
+                                <strong>Set as Staff</strong><br>
+                                Identifies members of this group as Academy staff.
+                                Staff status alone does not grant permissions.
+                            </span>
+                        </label>
 
-                            <?php if ($isProtectedSuperAdmin): ?>
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="grants_all_permissions"
-                                        value="1"
-                                        <?= post_value('grants_all_permissions') === '1' ? 'checked' : ''; ?>
-                                    >
-                                    <span>
-                                        <strong>Grant All Permissions</strong><br>
-                                        Gives this role every normal site permission.
-                                        Use only for highly trusted administrative groups.
-                                    </span>
-                                </label>
-                            <?php endif; ?>
-                        </fieldset>
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="is_active" value="1"
+                                <?= !is_post() || post_value('is_active') === '1' ? 'checked' : ''; ?>>
+                            <span>
+                                <strong>Active</strong><br>
+                                Allows this role/group to participate in permission resolution.
+                            </span>
+                        </label>
 
-                        <button type="submit" class="button button-primary">
-                            Create Role / Group
-                        </button>
-                    </form>
-                </section>
+                        <?php if ($isProtectedSuperAdmin): ?>
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="grants_all_permissions" value="1"
+                                <?= post_value('grants_all_permissions') === '1' ? 'checked' : ''; ?>>
+                            <span>
+                                <strong>Grant All Permissions</strong><br>
+                                Gives this role every normal site permission.
+                                Use only for highly trusted administrative groups.
+                            </span>
+                        </label>
+                        <?php endif; ?>
+                    </fieldset>
+
+                    <button type="submit" class="button button-primary">
+                        Create Role / Group
+                    </button>
+                </form>
+            </section>
             <?php endif; ?>
 
 
             <?php if ($editRole !== null): ?>
-                <section class="forum-structure-panel" aria-labelledby="edit-role-heading">
-                    <header class="forum-admin-titlebar">
-                        <p class="forum-admin-step">Edit Role / Group</p>
-                        <h2 id="edit-role-heading">
-                            <?= e((string) $editRole['name']); ?>
-                        </h2>
-                    </header>
+            <section class="forum-structure-panel" aria-labelledby="edit-role-heading">
+                <header class="forum-admin-titlebar">
+                    <p class="forum-admin-step">Edit Role / Group</p>
+                    <h2 id="edit-role-heading">
+                        <?= e((string) $editRole['name']); ?>
+                    </h2>
+                </header>
 
-                    <?php if ($canEditSelectedRoleDetails): ?>
-                        <form
-                            action="<?= e(url('admin/roles.php?edit_role=' . (int) $editRole['id'])); ?>"
-                            method="post"
-                            class="forum-admin-form"
-                        >
-                            <?= csrf_field(); ?>
-                            <input type="hidden" name="form_action" value="update_role">
-                            <input type="hidden" name="role_id" value="<?= (int) $editRole['id']; ?>">
+                <?php if ($canEditSelectedRoleDetails): ?>
+                <form action="<?= e(url('admin/roles.php?edit_role=' . (int) $editRole['id'])); ?>" method="post"
+                    class="forum-admin-form">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="form_action" value="update_role">
+                    <input type="hidden" name="role_id" value="<?= (int) $editRole['id']; ?>">
 
-                            <div class="forum-admin-form-grid">
-                                <div class="form-group">
-                                    <label for="edit-role-name">Role / Group Name</label>
-                                    <input
-                                        class="form-control"
-                                        id="edit-role-name"
-                                        type="text"
-                                        name="role_name"
-                                        maxlength="100"
-                                        value="<?= e((string) $editRole['name']); ?>"
-                                        required
-                                    >
-                                </div>
+                    <div class="forum-admin-form-grid">
+                        <div class="form-group">
+                            <label for="edit-role-name">Role / Group Name</label>
+                            <input class="form-control" id="edit-role-name" type="text" name="role_name" maxlength="100"
+                                value="<?= e((string) $editRole['name']); ?>" required>
+                        </div>
 
-                                <div class="form-group">
-                                    <?php $editRoleUsesColor = trim((string) ($editRole['display_color'] ?? '')) !== ''; ?>
-                                    <label class="forum-admin-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="use_display_color"
-                                            value="1"
-                                            data-role-color-toggle="edit"
-                                            <?= $editRoleUsesColor ? 'checked' : ''; ?>
-                                        >
-                                        <span>
-                                            <strong>Use Role Color</strong><br>
-                                            Give this role/group a custom display color.
-                                        </span>
-                                    </label>
+                        <div class="form-group">
+                            <?php $editRoleUsesColor = trim((string) ($editRole['display_color'] ?? '')) !== ''; ?>
+                            <label class="forum-admin-choice">
+                                <input type="checkbox" name="use_display_color" value="1" data-role-color-toggle="edit"
+                                    <?= $editRoleUsesColor ? 'checked' : ''; ?>>
+                                <span>
+                                    <strong>Use Role Color</strong><br>
+                                    Give this role/group a custom display color.
+                                </span>
+                            </label>
 
-                                    <div
-                                        data-role-color-picker="edit"
-                                        <?= $editRoleUsesColor ? '' : 'hidden'; ?>
-                                    >
-                                        <label for="edit-role-color">Role Color</label>
-                                        <input
-                                            class="form-control"
-                                            id="edit-role-color"
-                                            type="color"
-                                            name="display_color"
-                                            value="<?= e(admin_roles_valid_color((string) ($editRole['display_color'] ?? '')) && (string) ($editRole['display_color'] ?? '') !== '' ? (string) $editRole['display_color'] : '#744081'); ?>"
-                                            <?= $editRoleUsesColor ? '' : 'disabled'; ?>
-                                        >
-                                    </div>
-                                </div>
+                            <div data-role-color-picker="edit" <?= $editRoleUsesColor ? '' : 'hidden'; ?>>
+                                <label for="edit-role-color">Role Color</label>
+                                <input class="form-control" id="edit-role-color" type="color" name="display_color"
+                                    value="<?= e(admin_roles_valid_color((string) ($editRole['display_color'] ?? '')) && (string) ($editRole['display_color'] ?? '') !== '' ? (string) $editRole['display_color'] : '#744081'); ?>"
+                                    <?= $editRoleUsesColor ? '' : 'disabled'; ?>>
                             </div>
+                        </div>
+                    </div>
 
-                            <div class="form-group">
-                                <label>Slug</label>
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    value="<?= e((string) $editRole['slug']); ?>"
-                                    readonly
-                                >
-                                <p class="form-help">
-                                    The slug is permanent so existing role assignments and access rules remain stable.
-                                </p>
-                            </div>
+                    <div class="form-group">
+                        <label>Slug</label>
+                        <input class="form-control" type="text" value="<?= e((string) $editRole['slug']); ?>" readonly>
+                        <p class="form-help">
+                            The slug is permanent so existing role assignments and access rules remain stable.
+                        </p>
+                    </div>
 
-                            <div class="form-group">
-                                <label for="edit-role-description">Description</label>
-                                <textarea
-                                    class="form-control"
-                                    id="edit-role-description"
-                                    name="role_description"
-                                    rows="3"
-                                    maxlength="5000"
-                                ><?= e((string) ($editRole['description'] ?? '')); ?></textarea>
-                            </div>
+                    <div class="form-group">
+                        <label for="edit-role-description">Description</label>
+                        <textarea class="form-control" id="edit-role-description" name="role_description" rows="3"
+                            maxlength="5000"><?= e((string) ($editRole['description'] ?? '')); ?></textarea>
+                    </div>
 
-                            <fieldset class="forum-admin-fieldset">
-                                <legend>Role / Group Status</legend>
+                    <fieldset class="forum-admin-fieldset">
+                        <legend>Role / Group Status</legend>
 
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="is_staff"
-                                        value="1"
-                                        <?= (int) $editRole['is_staff'] === 1 ? 'checked' : ''; ?>
-                                    >
-                                    <span>
-                                        <strong>Set as Staff</strong><br>
-                                        Members assigned this role are recognized as Academy staff.
-                                    </span>
-                                </label>
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="is_staff" value="1"
+                                <?= (int) $editRole['is_staff'] === 1 ? 'checked' : ''; ?>>
+                            <span>
+                                <strong>Set as Staff</strong><br>
+                                Members assigned this role are recognized as Academy staff.
+                            </span>
+                        </label>
 
-                                <label class="forum-admin-choice">
-                                    <input
-                                        type="checkbox"
-                                        name="is_active"
-                                        value="1"
-                                        <?= (int) $editRole['is_active'] === 1 ? 'checked' : ''; ?>
-                                    >
-                                    <span>
-                                        <strong>Active</strong><br>
-                                        Inactive roles remain stored but do not grant permissions.
-                                    </span>
-                                </label>
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="is_active" value="1"
+                                <?= (int) $editRole['is_active'] === 1 ? 'checked' : ''; ?>>
+                            <span>
+                                <strong>Active</strong><br>
+                                Inactive roles remain stored but do not grant permissions.
+                            </span>
+                        </label>
 
-                                <?php if ($isProtectedSuperAdmin): ?>
-                                    <label class="forum-admin-choice">
-                                        <input
-                                            type="checkbox"
-                                            name="grants_all_permissions"
-                                            value="1"
-                                            <?= (int) $editRole['grants_all_permissions'] === 1 ? 'checked' : ''; ?>
-                                        >
-                                        <span>
-                                            <strong>Grant All Permissions</strong><br>
-                                            This role bypasses the normal permission matrix.
-                                        </span>
-                                    </label>
-                                <?php endif; ?>
-                            </fieldset>
+                        <?php if ($isProtectedSuperAdmin): ?>
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="grants_all_permissions" value="1"
+                                <?= (int) $editRole['grants_all_permissions'] === 1 ? 'checked' : ''; ?>>
+                            <span>
+                                <strong>Grant All Permissions</strong><br>
+                                This role bypasses the normal permission matrix.
+                            </span>
+                        </label>
+                        <?php endif; ?>
+                    </fieldset>
 
-                            <?php if ((int) $editRole['is_system_role'] === 1): ?>
-                                <div class="form-message form-message-info">
-                                    This is a protected system role. It can be configured,
-                                    but it should not be treated as a disposable custom role.
-                                </div>
-                            <?php endif; ?>
+                    <?php if ((int) $editRole['is_system_role'] === 1): ?>
+                    <div class="form-message form-message-info">
+                        This is a protected system role. It can be configured,
+                        but it should not be treated as a disposable custom role.
+                    </div>
+                    <?php endif; ?>
 
-                            <div class="forum-admin-edit-actions">
-                                <button type="submit" class="button button-primary">
-                                    Save Role Settings
-                                </button>
-                                <a href="<?= e(url('admin/roles.php')); ?>" class="button button-secondary">
-                                    Close Editor
-                                </a>
-                            </div>
-                        </form>
+                    <div class="forum-admin-edit-actions">
+                        <button type="submit" class="button button-primary">
+                            Save Role Settings
+                        </button>
+                        <a href="<?= e(url('admin/roles.php')); ?>" class="button button-secondary">
+                            Close Editor
+                        </a>
+                    </div>
+                </form>
+                <?php else: ?>
+
+                <div class="forum-admin-empty">
+                    <?php if ($editRoleIsCurrentUsersRole): ?>
+                    You cannot edit the settings of a role/group assigned to your own account.
+                    <?php elseif ($editRoleIsFullPrivilege): ?>
+                    Only the protected Super Admin may edit this all-permissions role.
                     <?php else: ?>
-
-                        <div class="forum-admin-empty">
-                            <?php if ($editRoleIsCurrentUsersRole): ?>
-                                You cannot edit the settings of a role/group assigned to your own account.
-                            <?php elseif ($editRoleIsFullPrivilege): ?>
-                                Only the protected Super Admin may edit this all-permissions role.
-                            <?php else: ?>
-                                You can view this role/group, but you do not have permission to edit its settings.
-                            <?php endif; ?>
-                        </div>
-
+                    You can view this role/group, but you do not have permission to edit its settings.
                     <?php endif; ?>
+                </div>
+
+                <?php endif; ?>
 
 
-                    <header class="forum-admin-titlebar">
-                        <p class="forum-admin-step">Permission Matrix</p>
-                        <h2>Allowed Capabilities</h2>
-                    </header>
+                <header class="forum-admin-titlebar">
+                    <p class="forum-admin-step">Permission Matrix</p>
+                    <h2>Allowed Capabilities</h2>
+                </header>
 
-                    <?php if ((int) $editRole['grants_all_permissions'] === 1): ?>
-                        <div class="form-message form-message-success" role="status">
-                            This role currently grants all normal permissions. The boxes below
-                            may still be configured, but the all-permissions setting takes precedence.
-                        </div>
-                    <?php endif; ?>
+                <?php if ((int) $editRole['grants_all_permissions'] === 1): ?>
+                <div class="form-message form-message-success" role="status">
+                    This role currently grants all normal permissions. The boxes below
+                    may still be configured, but the all-permissions setting takes precedence.
+                </div>
+                <?php endif; ?>
 
-                    <?php if ($canEditSelectedRolePermissions): ?>
-                        <form
-                            action="<?= e(url('admin/roles.php?edit_role=' . (int) $editRole['id'])); ?>"
-                            method="post"
-                            class="forum-admin-form"
-                        >
-                            <?= csrf_field(); ?>
-                            <input type="hidden" name="form_action" value="save_role_permissions">
-                            <input type="hidden" name="role_id" value="<?= (int) $editRole['id']; ?>">
+                <?php if ($canEditSelectedRolePermissions): ?>
+                <form action="<?= e(url('admin/roles.php?edit_role=' . (int) $editRole['id'])); ?>" method="post"
+                    class="forum-admin-form">
+                    <?= csrf_field(); ?>
+                    <input type="hidden" name="form_action" value="save_role_permissions">
+                    <input type="hidden" name="role_id" value="<?= (int) $editRole['id']; ?>">
 
-                            <?php foreach ($permissionsByCategory as $category => $categoryPermissions): ?>
-                                <fieldset class="forum-admin-fieldset">
-                                    <legend><?= e($category); ?></legend>
+                    <?php foreach ($permissionsByCategory as $category => $categoryPermissions): ?>
+                    <fieldset class="forum-admin-fieldset">
+                        <legend><?= e($category); ?></legend>
 
-                                    <?php foreach ($categoryPermissions as $permission): ?>
-                                        <?php
+                        <?php foreach ($categoryPermissions as $permission): ?>
+                        <?php
                                         $permissionId = (int) $permission['id'];
                                         $isChecked = in_array(
                                             $permissionId,
@@ -1436,7 +1343,7 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                         ?>
 
-                                        <?php
+                        <?php
                                         $permissionSlug =
                                             trim(
                                                 (string) (
@@ -1466,56 +1373,51 @@ require INCLUDES_PATH . '/header.php';
                                             );
                                         ?>
 
-                                        <label class="forum-admin-choice">
-                                            <input
-                                                type="checkbox"
-                                                name="permission_ids[]"
-                                                value="<?= $permissionId; ?>"
-                                                <?= $isChecked ? 'checked' : ''; ?>
-                                                <?= $actorCanGrantPermission ? '' : 'disabled'; ?>
-                                            >
-                                            <span>
-                                                <strong><?= e((string) $permission['name']); ?></strong>
-                                                <br>
-                                                <?php if (trim((string) ($permission['description'] ?? '')) !== ''): ?>
-                                                    <?= e((string) $permission['description']); ?>
-                                                    <br>
-                                                <?php endif; ?>
-                                                <small><?= e((string) $permission['slug']); ?></small>
+                        <label class="forum-admin-choice">
+                            <input type="checkbox" name="permission_ids[]" value="<?= $permissionId; ?>"
+                                <?= $isChecked ? 'checked' : ''; ?> <?= $actorCanGrantPermission ? '' : 'disabled'; ?>>
+                            <span>
+                                <strong><?= e((string) $permission['name']); ?></strong>
+                                <br>
+                                <?php if (trim((string) ($permission['description'] ?? '')) !== ''): ?>
+                                <?= e((string) $permission['description']); ?>
+                                <br>
+                                <?php endif; ?>
+                                <small><?= e((string) $permission['slug']); ?></small>
 
-                                                <?php if (!$actorCanGrantPermission): ?>
-                                                    <br>
-                                                    <small>
-                                                        <?php if ($permissionIsProtectedAuthority): ?>
-                                                            Locked: only the protected Super Admin may delegate this authority.
-                                                        <?php else: ?>
-                                                            Locked: your account does not have this permission.
-                                                        <?php endif; ?>
-                                                    </small>
-                                                <?php endif; ?>
-                                            </span>
-                                        </label>
-                                    <?php endforeach; ?>
-                                </fieldset>
-                            <?php endforeach; ?>
+                                <?php if (!$actorCanGrantPermission): ?>
+                                <br>
+                                <small>
+                                    <?php if ($permissionIsProtectedAuthority): ?>
+                                    Locked: only the protected Super Admin may delegate this authority.
+                                    <?php else: ?>
+                                    Locked: your account does not have this permission.
+                                    <?php endif; ?>
+                                </small>
+                                <?php endif; ?>
+                            </span>
+                        </label>
+                        <?php endforeach; ?>
+                    </fieldset>
+                    <?php endforeach; ?>
 
-                            <button type="submit" class="button button-primary">
-                                Save Permissions
-                            </button>
-                        </form>
+                    <button type="submit" class="button button-primary">
+                        Save Permissions
+                    </button>
+                </form>
+                <?php else: ?>
+                <div class="forum-admin-empty">
+                    <?php if ($editRoleIsCurrentUsersRole): ?>
+                    You cannot change permissions for a role/group assigned to your own account.
+                    <?php elseif ($editRoleIsFullPrivilege): ?>
+                    Only the protected Super Admin may change permissions for this all-permissions role.
                     <?php else: ?>
-                        <div class="forum-admin-empty">
-                            <?php if ($editRoleIsCurrentUsersRole): ?>
-                                You cannot change permissions for a role/group assigned to your own account.
-                            <?php elseif ($editRoleIsFullPrivilege): ?>
-                                Only the protected Super Admin may change permissions for this all-permissions role.
-                            <?php else: ?>
-                                You can view this role/group, but you do not have permission
-                                to change its capability assignments.
-                            <?php endif; ?>
-                        </div>
+                    You can view this role/group, but you do not have permission
+                    to change its capability assignments.
                     <?php endif; ?>
-                </section>
+                </div>
+                <?php endif; ?>
+            </section>
             <?php endif; ?>
 
 
@@ -1526,13 +1428,13 @@ require INCLUDES_PATH . '/header.php';
                 </header>
 
                 <?php if ($roles === []): ?>
-                    <div class="forum-admin-empty">
-                        No roles or groups have been created yet.
-                    </div>
+                <div class="forum-admin-empty">
+                    No roles or groups have been created yet.
+                </div>
                 <?php else: ?>
-                    <div class="forum-structure-list">
-                        <?php foreach ($roles as $role): ?>
-                            <?php
+                <div class="forum-structure-list">
+                    <?php foreach ($roles as $role): ?>
+                    <?php
                             $roleId = (int) $role['id'];
                             $roleColor = (string) ($role['display_color'] ?? '');
                             $roleNameStyle = admin_roles_valid_color($roleColor) && $roleColor !== ''
@@ -1540,56 +1442,54 @@ require INCLUDES_PATH . '/header.php';
                                 : '';
                             ?>
 
-                            <article class="forum-structure-category">
-                                <header>
-                                    <div>
-                                        <h3<?= $roleNameStyle; ?>>
-                                            <?= e((string) $role['name']); ?>
-                                        </h3>
-                                        <p>
-                                            <?= e((string) ($role['description'] ?? 'No description provided.')); ?>
-                                        </p>
-                                        <p class="form-help">
-                                            Slug: <?= e((string) $role['slug']); ?>
-                                        </p>
-                                    </div>
+                    <article class="forum-structure-category">
+                        <header>
+                            <div>
+                                <h3<?= $roleNameStyle; ?>>
+                                    <?= e((string) $role['name']); ?>
+                                    </h3>
+                                    <p>
+                                        <?= e((string) ($role['description'] ?? 'No description provided.')); ?>
+                                    </p>
+                                    <p class="form-help">
+                                        Slug: <?= e((string) $role['slug']); ?>
+                                    </p>
+                            </div>
 
-                                    <div class="forum-structure-badges">
-                                        <?php if ((int) $role['is_system_role'] === 1): ?>
-                                            <span>System Role</span>
-                                        <?php endif; ?>
+                            <div class="forum-structure-badges">
+                                <?php if ((int) $role['is_system_role'] === 1): ?>
+                                <span>System Role</span>
+                                <?php endif; ?>
 
-                                        <?php if ((int) $role['is_staff'] === 1): ?>
-                                            <span>Staff</span>
-                                        <?php endif; ?>
+                                <?php if ((int) $role['is_staff'] === 1): ?>
+                                <span>Staff</span>
+                                <?php endif; ?>
 
-                                        <?php if ((int) $role['grants_all_permissions'] === 1): ?>
-                                            <span>All Permissions</span>
-                                        <?php else: ?>
-                                            <span>
-                                                <?= number_format((int) $role['permission_count']); ?> permissions
-                                            </span>
-                                        <?php endif; ?>
+                                <?php if ((int) $role['grants_all_permissions'] === 1): ?>
+                                <span>All Permissions</span>
+                                <?php else: ?>
+                                <span>
+                                    <?= number_format((int) $role['permission_count']); ?> permissions
+                                </span>
+                                <?php endif; ?>
 
-                                        <span>
-                                            <?= number_format((int) $role['active_member_count']); ?> active members
-                                        </span>
+                                <span>
+                                    <?= number_format((int) $role['active_member_count']); ?> active members
+                                </span>
 
-                                        <span>
-                                            <?= (int) $role['is_active'] === 1 ? 'Active' : 'Inactive'; ?>
-                                        </span>
+                                <span>
+                                    <?= (int) $role['is_active'] === 1 ? 'Active' : 'Inactive'; ?>
+                                </span>
 
-                                        <a
-                                            class="button button-secondary forum-structure-edit"
-                                            href="<?= e(url('admin/roles.php?edit_role=' . $roleId)); ?>"
-                                        >
-                                            Edit
-                                        </a>
-                                    </div>
-                                </header>
-                            </article>
-                        <?php endforeach; ?>
-                    </div>
+                                <a class="button button-secondary forum-structure-edit"
+                                    href="<?= e(url('admin/roles.php?edit_role=' . $roleId)); ?>">
+                                    Edit
+                                </a>
+                            </div>
+                        </header>
+                    </article>
+                    <?php endforeach; ?>
+                </div>
                 <?php endif; ?>
             </section>
 
@@ -1599,30 +1499,31 @@ require INCLUDES_PATH . '/header.php';
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-role-color-toggle]').forEach(function (toggle) {
-        var key = toggle.getAttribute('data-role-color-toggle');
-        var pickerWrap = document.querySelector('[data-role-color-picker="' + key + '"]');
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('[data-role-color-toggle]').forEach(function(toggle) {
+            var key = toggle.getAttribute('data-role-color-toggle');
+            var pickerWrap = document.querySelector('[data-role-color-picker="' + key + '"]');
 
-        if (!pickerWrap) {
-            return;
-        }
-
-        var colorInput = pickerWrap.querySelector('input[type="color"]');
-
-        function syncRoleColor() {
-            var enabled = toggle.checked;
-            pickerWrap.hidden = !enabled;
-
-            if (colorInput) {
-                colorInput.disabled = !enabled;
+            if (!pickerWrap) {
+                return;
             }
-        }
 
-        toggle.addEventListener('change', syncRoleColor);
-        syncRoleColor();
+            var colorInput = pickerWrap.querySelector('input[type="color"]');
+
+            function syncRoleColor() {
+                var enabled = toggle.checked;
+                pickerWrap.hidden = !enabled;
+
+                if (colorInput) {
+                    colorInput.disabled = !enabled;
+                }
+            }
+
+            toggle.addEventListener('change', syncRoleColor);
+            syncRoleColor();
+        });
     });
-});
+
 </script>
 
 <?php require INCLUDES_PATH . '/footer.php'; ?>

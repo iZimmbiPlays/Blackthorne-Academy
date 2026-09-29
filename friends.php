@@ -69,36 +69,30 @@ if (
         . '/header.php';
 
     ?>
-    <main
-        id="main-content"
-        class="friends-page"
-    >
-        <section class="friends-page-error">
-            <div class="section-inner">
+<main id="main-content" class="friends-page">
+    <section class="friends-page-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Community
-                </p>
+            <p class="academy-overline">
+                Community
+            </p>
 
-                <h1>
-                    Friends Not Found
-                </h1>
+            <h1>
+                Friends Not Found
+            </h1>
 
-                <p>
-                    The requested member friends list could not be found.
-                </p>
+            <p>
+                The requested member friends list could not be found.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('index.php')); ?>"
-                >
-                    Return to Blackthorne
-                </a>
+            <a class="button button-secondary" href="<?= e(url('index.php')); ?>">
+                Return to Blackthorne
+            </a>
 
-            </div>
-        </section>
-    </main>
-    <?php
+        </div>
+    </section>
+</main>
+<?php
 
     require
         INCLUDES_PATH
@@ -240,36 +234,30 @@ if (
         . '/header.php';
 
     ?>
-    <main
-        id="main-content"
-        class="friends-page"
-    >
-        <section class="friends-page-error">
-            <div class="section-inner">
+<main id="main-content" class="friends-page">
+    <section class="friends-page-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Community
-                </p>
+            <p class="academy-overline">
+                Community
+            </p>
 
-                <h1>
-                    Friends Not Found
-                </h1>
+            <h1>
+                Friends Not Found
+            </h1>
 
-                <p>
-                    The requested member friends list could not be found.
-                </p>
+            <p>
+                The requested member friends list could not be found.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('index.php')); ?>"
-                >
-                    Return to Blackthorne
-                </a>
+            <a class="button button-secondary" href="<?= e(url('index.php')); ?>">
+                Return to Blackthorne
+            </a>
 
-            </div>
-        </section>
-    </main>
-    <?php
+        </div>
+    </section>
+</main>
+<?php
 
     require
         INCLUDES_PATH
@@ -337,49 +325,40 @@ if (!$canViewProfile) {
         . '/header.php';
 
     ?>
-    <main
-        id="main-content"
-        class="friends-page"
-    >
-        <section class="friends-page-error">
-            <div class="section-inner">
+<main id="main-content" class="friends-page">
+    <section class="friends-page-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Community
-                </p>
+            <p class="academy-overline">
+                Community
+            </p>
 
-                <h1>
-                    Friends Restricted
-                </h1>
+            <h1>
+                Friends Restricted
+            </h1>
 
-                <p>
-                    <?= e($displayName); ?> has limited who may view this profile.
-                </p>
+            <p>
+                <?= e($displayName); ?> has limited who may view this profile.
+            </p>
 
-                <?php if ($viewerUserId <= 0): ?>
+            <?php if ($viewerUserId <= 0): ?>
 
-                    <a
-                        class="button"
-                        href="<?= e(LOGIN_URL); ?>"
-                    >
-                        Log In
-                    </a>
+            <a class="button" href="<?= e(LOGIN_URL); ?>">
+                Log In
+            </a>
 
-                <?php else: ?>
+            <?php else: ?>
 
-                    <a
-                        class="button button-secondary"
-                        href="<?= e(url('index.php')); ?>"
-                    >
-                        Return to Blackthorne
-                    </a>
+            <a class="button button-secondary" href="<?= e(url('index.php')); ?>">
+                Return to Blackthorne
+            </a>
 
-                <?php endif; ?>
+            <?php endif; ?>
 
-            </div>
-        </section>
-    </main>
-    <?php
+        </div>
+    </section>
+</main>
+<?php
 
     require
         INCLUDES_PATH
@@ -626,10 +605,7 @@ require
 ?>
 
 
-<main
-    id="main-content"
-    class="friends-page"
->
+<main id="main-content" class="friends-page">
 
     <section class="friends-page-hero">
 
@@ -645,20 +621,17 @@ require
 
                     <h1<?= user_display_name_style_attr($targetUserId); ?>>
                         <?= e($displayName); ?>'s Friends
-                    </h1>
+                        </h1>
 
-                    <p class="friends-page-summary">
-                        <?= number_format($friendCount); ?>
-                        <?= $friendCount === 1 ? 'friend' : 'friends'; ?>
-                    </p>
+                        <p class="friends-page-summary">
+                            <?= number_format($friendCount); ?>
+                            <?= $friendCount === 1 ? 'friend' : 'friends'; ?>
+                        </p>
 
                 </div>
 
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e($profileUrl); ?>"
-                >
+                <a class="button button-secondary" href="<?= e($profileUrl); ?>">
                     Back to Profile
                 </a>
 
@@ -675,11 +648,11 @@ require
 
             <?php if ($friends !== []): ?>
 
-                <div class="friends-page-grid">
+            <div class="friends-page-grid">
 
-                    <?php foreach ($friends as $friend): ?>
+                <?php foreach ($friends as $friend): ?>
 
-                        <?php
+                <?php
                         $friendName =
                             (string) (
                                 $friend[
@@ -716,122 +689,101 @@ require
                             );
                         ?>
 
-                        <a
-                            class="friends-page-card"
-                            href="<?= e((string) $friend['profile_url']); ?>"
-                            aria-label="View <?= e($friendName); ?>'s profile"
-                        >
+                <a class="friends-page-card" href="<?= e((string) $friend['profile_url']); ?>"
+                    aria-label="View <?= e($friendName); ?>'s profile">
 
-                            <span class="friends-page-avatar">
+                    <span class="friends-page-avatar">
 
-                                <?php if (
+                        <?php if (
                                     $avatarSources['original']
                                     !== null
                                 ): ?>
 
-                                    <picture>
+                        <picture>
 
-                                        <?php if (
+                            <?php if (
                                             $avatarSources['webp']
                                             !== null
                                             && $avatarSources['webp']
                                                 !== $avatarSources['original']
                                         ): ?>
 
-                                            <source
-                                                srcset="<?= e($avatarSources['webp']); ?>"
-                                                type="image/webp"
-                                            >
+                            <source srcset="<?= e($avatarSources['webp']); ?>" type="image/webp">
 
-                                        <?php endif; ?>
+                            <?php endif; ?>
 
-                                        <img
-                                            src="<?= e($avatarSources['original']); ?>"
-                                            alt=""
-                                            loading="lazy"
-                                            decoding="async"
-                                        >
+                            <img src="<?= e($avatarSources['original']); ?>" alt="" loading="lazy" decoding="async">
 
-                                    </picture>
+                        </picture>
 
-                                <?php else: ?>
+                        <?php else: ?>
 
-                                    <span
-                                        class="friends-page-avatar-fallback"
-                                        aria-hidden="true"
-                                    >
-                                        <?= e(
+                        <span class="friends-page-avatar-fallback" aria-hidden="true">
+                            <?= e(
                                             profile_avatar_initial(
                                                 $friendName
                                             )
                                         ); ?>
-                                    </span>
+                        </span>
 
-                                <?php endif; ?>
-
-
-                                <?php if ($showOnlineStatus): ?>
-
-                                    <span
-                                        class="friends-page-presence<?= $isOnline ? ' is-online' : ''; ?>"
-                                        title="<?= $isOnline ? 'Online' : 'Offline'; ?>"
-                                        aria-label="<?= $isOnline ? 'Online' : 'Offline'; ?>"
-                                    ></span>
-
-                                <?php endif; ?>
-
-                            </span>
+                        <?php endif; ?>
 
 
-                            <span class="friends-page-card-body">
+                        <?php if ($showOnlineStatus): ?>
 
-                                <strong
-                                    class="friends-page-name"
-                                    <?= user_display_name_style_attr((int) ($friend['id'] ?? 0)); ?>
-                                >
-                                    <?= e($friendName); ?>
-                                </strong>
+                        <span class="friends-page-presence<?= $isOnline ? ' is-online' : ''; ?>"
+                            title="<?= $isOnline ? 'Online' : 'Offline'; ?>"
+                            aria-label="<?= $isOnline ? 'Online' : 'Offline'; ?>"></span>
 
-                                <?php if ($showOnlineStatus): ?>
+                        <?php endif; ?>
 
-                                    <span class="friends-page-status">
-                                        <?= $isOnline ? 'Online' : 'Offline'; ?>
-                                    </span>
+                    </span>
 
-                                <?php endif; ?>
 
-                            </span>
+                    <span class="friends-page-card-body">
 
-                        </a>
+                        <strong class="friends-page-name"
+                            <?= user_display_name_style_attr((int) ($friend['id'] ?? 0)); ?>>
+                            <?= e($friendName); ?>
+                        </strong>
 
-                    <?php endforeach; ?>
+                        <?php if ($showOnlineStatus): ?>
 
-                </div>
+                        <span class="friends-page-status">
+                            <?= $isOnline ? 'Online' : 'Offline'; ?>
+                        </span>
+
+                        <?php endif; ?>
+
+                    </span>
+
+                </a>
+
+                <?php endforeach; ?>
+
+            </div>
 
             <?php else: ?>
 
-                <div class="friends-page-empty">
+            <div class="friends-page-empty">
 
-                    <p class="academy-overline">
-                        Community
-                    </p>
+                <p class="academy-overline">
+                    Community
+                </p>
 
-                    <h2>
-                        No Friends Yet
-                    </h2>
+                <h2>
+                    No Friends Yet
+                </h2>
 
-                    <p>
-                        <?= e($displayName); ?> has not added any friends yet.
-                    </p>
+                <p>
+                    <?= e($displayName); ?> has not added any friends yet.
+                </p>
 
-                    <a
-                        class="button button-secondary"
-                        href="<?= e($profileUrl); ?>"
-                    >
-                        Back to Profile
-                    </a>
+                <a class="button button-secondary" href="<?= e($profileUrl); ?>">
+                    Back to Profile
+                </a>
 
-                </div>
+            </div>
 
             <?php endif; ?>
 
@@ -847,4 +799,3 @@ require
 require
     INCLUDES_PATH
     . '/footer.php';
-

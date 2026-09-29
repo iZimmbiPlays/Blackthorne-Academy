@@ -498,15 +498,9 @@ require
 
 ?>
 
-<main
-    id="main-content"
-    class="profile-edit-page"
->
+<main id="main-content" class="profile-edit-page">
 
-    <section
-        class="profile-edit-heading"
-        aria-labelledby="bookmarks-title"
-    >
+    <section class="profile-edit-heading" aria-labelledby="bookmarks-title">
 
         <div class="section-inner">
 
@@ -539,48 +533,39 @@ require
                 && $successMessage !== ''
             ): ?>
 
-                <div
-                    class="form-notice form-notice-success"
-                    role="status"
-                >
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="form-notice form-notice-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
 
             <?php endif; ?>
 
 
             <?php if ($errors !== []): ?>
 
-                <div
-                    class="form-notice form-notice-error"
-                    role="alert"
-                >
+            <div class="form-notice form-notice-error" role="alert">
 
-                    <p>
-                        Please correct the following:
-                    </p>
+                <p>
+                    Please correct the following:
+                </p>
 
-                    <ul>
+                <ul>
 
-                        <?php foreach ($errors as $error): ?>
+                    <?php foreach ($errors as $error): ?>
 
-                            <li>
-                                <?= e($error); ?>
-                            </li>
+                    <li>
+                        <?= e($error); ?>
+                    </li>
 
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                    </ul>
+                </ul>
 
-                </div>
+            </div>
 
             <?php endif; ?>
 
 
-            <section
-                class="profile-edit-panel"
-                aria-labelledby="bookmark-form-heading"
-            >
+            <section class="profile-edit-panel" aria-labelledby="bookmark-form-heading">
 
                 <header class="profile-edit-panel-heading">
 
@@ -608,21 +593,13 @@ require
 
                     <?= csrf_field(); ?>
 
-                    <input
-                        type="hidden"
-                        name="action"
-                        value="<?= $editingBookmarkId > 0
+                    <input type="hidden" name="action" value="<?= $editingBookmarkId > 0
                             ? 'update_bookmark'
-                            : 'add_bookmark'; ?>"
-                    >
+                            : 'add_bookmark'; ?>">
 
                     <?php if ($editingBookmarkId > 0): ?>
 
-                        <input
-                            type="hidden"
-                            name="bookmark_id"
-                            value="<?= (int) $editingBookmarkId; ?>"
-                        >
+                    <input type="hidden" name="bookmark_id" value="<?= (int) $editingBookmarkId; ?>">
 
                     <?php endif; ?>
 
@@ -635,16 +612,9 @@ require
                                 Title
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="bookmark-title"
-                                name="title"
-                                value="<?= e($formTitle); ?>"
-                                maxlength="150"
-                                placeholder="Example: Potions Discussion Board"
-                                required
-                            >
+                            <input class="form-control" type="text" id="bookmark-title" name="title"
+                                value="<?= e($formTitle); ?>" maxlength="150"
+                                placeholder="Example: Potions Discussion Board" required>
 
                         </div>
 
@@ -655,15 +625,8 @@ require
                                 Sort Order
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="number"
-                                id="bookmark-sort-order"
-                                name="sort_order"
-                                value="<?= (int) $formSortOrder; ?>"
-                                min="0"
-                                step="1"
-                            >
+                            <input class="form-control" type="number" id="bookmark-sort-order" name="sort_order"
+                                value="<?= (int) $formSortOrder; ?>" min="0" step="1">
 
                             <p class="form-help">
                                 Lower numbers appear first.
@@ -678,16 +641,9 @@ require
                                 Blackthorne URL
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="bookmark-url"
-                                name="bookmark_url"
-                                value="<?= e($formUrl); ?>"
-                                maxlength="500"
-                                placeholder="/forums.php or https://blkthrnacad.com/forums.php"
-                                required
-                            >
+                            <input class="form-control" type="text" id="bookmark-url" name="bookmark_url"
+                                value="<?= e($formUrl); ?>" maxlength="500"
+                                placeholder="/forums.php or https://blkthrnacad.com/forums.php" required>
 
                             <p class="form-help">
                                 Bookmarks are limited to pages on blkthrnacad.com.
@@ -700,10 +656,7 @@ require
 
                     <div class="profile-edit-actions profile-bookmark-form-actions">
 
-                        <button
-                            type="submit"
-                            class="button button-primary"
-                        >
+                        <button type="submit" class="button button-primary">
                             <?= $editingBookmarkId > 0
                                 ? 'Save Changes'
                                 : 'Add Bookmark'; ?>
@@ -711,16 +664,13 @@ require
 
                         <?php if ($editingBookmarkId > 0): ?>
 
-                            <a
-                                href="<?= e(
+                        <a href="<?= e(
                                     url(
                                         'bookmarks.php'
                                     )
-                                ); ?>"
-                                class="button button-secondary profile-bookmark-open-button"
-                            >
-                                Cancel
-                            </a>
+                                ); ?>" class="button button-secondary profile-bookmark-open-button">
+                            Cancel
+                        </a>
 
                         <?php endif; ?>
 
@@ -731,10 +681,7 @@ require
             </section>
 
 
-            <section
-                class="profile-edit-panel"
-                aria-labelledby="saved-bookmarks-heading"
-            >
+            <section class="profile-edit-panel" aria-labelledby="saved-bookmarks-heading">
 
                 <header class="profile-edit-panel-heading">
 
@@ -751,21 +698,21 @@ require
 
                 <?php if ($bookmarks === []): ?>
 
-                    <div class="announcement-empty-state">
+                <div class="announcement-empty-state">
 
-                        <p>
-                            You have not saved any bookmarks yet.
-                        </p>
+                    <p>
+                        You have not saved any bookmarks yet.
+                    </p>
 
-                    </div>
+                </div>
 
                 <?php else: ?>
 
-                    <div class="announcement-list profile-bookmark-list">
+                <div class="announcement-list profile-bookmark-list">
 
-                        <?php foreach ($bookmarks as $bookmark): ?>
+                    <?php foreach ($bookmarks as $bookmark): ?>
 
-                            <?php
+                    <?php
 
                             $bookmarkId =
                                 (int) (
@@ -789,75 +736,56 @@ require
 
                             ?>
 
-                            <article class="announcement-entry profile-bookmark-entry">
+                    <article class="announcement-entry profile-bookmark-entry">
 
-                                <h3>
+                        <h3>
 
-                                    <a
-                                        href="<?= e(
+                            <a href="<?= e(
                                             blackthorne_bookmark_href(
                                                 $bookmarkUrl
                                             )
-                                        ); ?>"
-                                    >
-                                        <?= e($bookmarkTitle); ?>
-                                    </a>
+                                        ); ?>">
+                                <?= e($bookmarkTitle); ?>
+                            </a>
 
-                                </h3>
+                        </h3>
 
-                                <p class="announcement-byline">
-                                    <?= e($bookmarkUrl); ?>
-                                </p>
+                        <p class="announcement-byline">
+                            <?= e($bookmarkUrl); ?>
+                        </p>
 
-                                <div class="announcement-actions profile-bookmark-item-actions">
+                        <div class="announcement-actions profile-bookmark-item-actions">
 
-                                    <a
-                                        href="<?= e(
+                            <a href="<?= e(
                                             url(
                                                 'bookmarks.php?edit='
                                                 . $bookmarkId
                                             )
-                                        ); ?>"
-                                        class="button button-secondary profile-bookmark-edit-button"
-                                    >
-                                        Edit
-                                    </a>
+                                        ); ?>" class="button button-secondary profile-bookmark-edit-button">
+                                Edit
+                            </a>
 
-                                    <form
-                                        method="post"
-                                        onsubmit="return confirm('Remove this bookmark?');"
-                                    >
+                            <form method="post" onsubmit="return confirm('Remove this bookmark?');">
 
-                                        <?= csrf_field(); ?>
+                                <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="delete_bookmark"
-                                        >
+                                <input type="hidden" name="action" value="delete_bookmark">
 
-                                        <input
-                                            type="hidden"
-                                            name="bookmark_id"
-                                            value="<?= $bookmarkId; ?>"
-                                        >
+                                <input type="hidden" name="bookmark_id" value="<?= $bookmarkId; ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary profile-bookmark-delete-button"
-                                        >
-                                            Delete
-                                        </button>
+                                <button type="submit" class="button button-secondary profile-bookmark-delete-button">
+                                    Delete
+                                </button>
 
-                                    </form>
+                            </form>
 
-                                </div>
+                        </div>
 
-                            </article>
+                    </article>
 
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 

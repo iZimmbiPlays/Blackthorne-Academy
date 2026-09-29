@@ -970,302 +970,296 @@ require
 ?>
 
 <style>
-.moderation-history-page .moderation-history-toolbar {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 1.4rem;
-}
+    .moderation-history-page .moderation-history-toolbar {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1.4rem;
+    }
 
-.moderation-history-page .moderation-history-filters {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.85rem 1rem;
-    padding: 1rem;
-    border: 1px solid rgba(150, 113, 147, 0.28);
-    background: rgba(24, 13, 27, 0.58);
-}
-
-.moderation-history-page .moderation-history-filters .form-group {
-    margin: 0;
-}
-
-.moderation-history-page .moderation-history-filter-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.6rem;
-    align-items: end;
-}
-
-.moderation-history-page select.form-control,
-.moderation-history-page input.form-control {
-    color: #eee7ef;
-    background: #160d19;
-    border: 1px solid rgba(150, 113, 147, 0.55);
-    border-radius: 5px;
-    box-shadow: none;
-}
-
-.moderation-history-page select.form-control:hover,
-.moderation-history-page input.form-control:hover {
-    border-color: rgba(212, 178, 91, 0.55);
-}
-
-.moderation-history-page select.form-control:focus,
-.moderation-history-page input.form-control:focus {
-    color: #fff8ef;
-    background: #1c1020;
-    border-color: #d4b25b;
-    outline: 2px solid rgba(212, 178, 91, 0.18);
-    outline-offset: 2px;
-    box-shadow: none;
-}
-
-.moderation-history-page select.form-control {
-    color-scheme: dark;
-}
-
-.moderation-history-page select.form-control option {
-    color: #eee7ef;
-    background: #160d19;
-}
-
-.moderation-history-page .moderation-summary {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-}
-
-.moderation-history-page .moderation-summary-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    min-height: 2.1rem;
-    padding: 0.38rem 0.7rem;
-    border: 1px solid rgba(212, 178, 91, 0.3);
-    border-radius: 999px;
-    background: rgba(31, 17, 35, 0.6);
-    font-size: 0.8rem;
-}
-
-.moderation-history-page .moderation-summary-pill strong {
-    color: #d4b25b;
-}
-
-.moderation-history-page .moderation-history-list {
-    display: grid;
-    gap: 0.8rem;
-}
-
-.moderation-history-page .moderation-history-card {
-    border: 1px solid rgba(212, 178, 91, 0.18);
-    background: rgba(10, 8, 13, 0.62);
-}
-
-.moderation-history-page .moderation-history-card-header {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 1rem;
-    align-items: start;
-    padding: 0.9rem 1rem;
-    border-bottom: 1px solid rgba(212, 178, 91, 0.12);
-}
-
-.moderation-history-page .moderation-history-card-header h2 {
-    margin: 0 0 0.3rem;
-    font-size: 1rem;
-    font-weight: 500;
-}
-
-.moderation-history-page .moderation-history-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.3rem 0.75rem;
-    margin: 0;
-    font-size: 0.8rem;
-    opacity: 0.78;
-}
-
-.moderation-history-page .moderation-action-badge {
-    display: inline-flex;
-    align-items: center;
-    min-height: 1.8rem;
-    padding: 0.25rem 0.55rem;
-    border: 1px solid rgba(150, 113, 147, 0.5);
-    border-radius: 999px;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    white-space: nowrap;
-}
-
-.moderation-history-page .moderation-history-card-body {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.45fr);
-    gap: 1.2rem;
-    padding: 1rem;
-}
-
-.moderation-history-page .moderation-history-details {
-    min-width: 0;
-}
-
-.moderation-history-page .moderation-history-details p {
-    margin: 0 0 0.65rem;
-}
-
-.moderation-history-page .moderation-history-context {
-    padding: 0.75rem 0.85rem;
-    border-left: 2px solid rgba(212, 178, 91, 0.52);
-    background: rgba(40, 23, 43, 0.34);
-}
-
-.moderation-history-page .moderation-history-context p {
-    margin: 0 0 0.45rem;
-}
-
-.moderation-history-page .moderation-history-context p:last-child {
-    margin-bottom: 0;
-}
-
-.moderation-history-page .moderation-history-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    align-content: start;
-}
-
-.moderation-history-page .moderation-history-empty {
-    padding: 2rem 1rem;
-    text-align: center;
-    border: 1px solid rgba(212, 178, 91, 0.2);
-    background: rgba(255, 255, 255, 0.018);
-}
-
-
-
-.moderation-history-page .moderation-archive-toolbar {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-    align-items: end;
-    margin: 0 0 1rem;
-    padding: 0.9rem;
-    border: 1px solid rgba(212, 178, 91, 0.2);
-    background: rgba(30, 16, 34, 0.42);
-}
-
-.moderation-history-page .moderation-archive-toolbar form {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.55rem;
-    align-items: end;
-    margin: 0;
-}
-
-.moderation-history-page .moderation-archive-toolbar .form-group {
-    margin: 0;
-}
-
-.moderation-history-page .moderation-admin-actions {
-    margin-top: 0.9rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid rgba(150, 113, 147, 0.2);
-}
-
-.moderation-history-page .moderation-admin-actions form {
-    margin: 0;
-}
-
-.moderation-history-page .moderation-admin-actions-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 0.6rem;
-    align-items: end;
-}
-
-.moderation-history-page .moderation-delete-confirm {
-    display: flex;
-    gap: 0.45rem;
-    align-items: flex-start;
-    margin: 0.65rem 0;
-    font-size: 0.8rem;
-}
-
-.moderation-history-page .moderation-archive-meta {
-    margin-top: 0.75rem;
-    padding: 0.7rem 0.8rem;
-    border: 1px solid rgba(212, 178, 91, 0.18);
-    background: rgba(212, 178, 91, 0.04);
-    font-size: 0.82rem;
-}
-
-.moderation-history-page .moderation-pagination {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    margin: 1rem 0;
-}
-
-.moderation-history-page .moderation-pagination a,
-.moderation-history-page .moderation-pagination span {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 2.25rem;
-    min-height: 2.1rem;
-    padding: 0.35rem 0.65rem;
-    border: 1px solid rgba(150, 113, 147, 0.35);
-    border-radius: 4px;
-    background: rgba(31, 17, 35, 0.55);
-    color: #eee7ef;
-    text-decoration: none;
-    font-size: 0.82rem;
-}
-
-.moderation-history-page .moderation-pagination a:hover {
-    border-color: rgba(212, 178, 91, 0.6);
-    color: #fff8ef;
-}
-
-.moderation-history-page .moderation-pagination .current {
-    border-color: #d4b25b;
-    color: #d4b25b;
-    background: rgba(212, 178, 91, 0.08);
-}
-
-.moderation-history-page .moderation-pagination .disabled {
-    opacity: 0.45;
-}
-
-@media (max-width: 900px) {
     .moderation-history-page .moderation-history-filters {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.85rem 1rem;
+        padding: 1rem;
+        border: 1px solid rgba(150, 113, 147, 0.28);
+        background: rgba(24, 13, 27, 0.58);
+    }
+
+    .moderation-history-page .moderation-history-filters .form-group {
+        margin: 0;
+    }
+
+    .moderation-history-page .moderation-history-filter-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        align-items: end;
+    }
+
+    .moderation-history-page select.form-control,
+    .moderation-history-page input.form-control {
+        color: #eee7ef;
+        background: #160d19;
+        border: 1px solid rgba(150, 113, 147, 0.55);
+        border-radius: 5px;
+        box-shadow: none;
+    }
+
+    .moderation-history-page select.form-control:hover,
+    .moderation-history-page input.form-control:hover {
+        border-color: rgba(212, 178, 91, 0.55);
+    }
+
+    .moderation-history-page select.form-control:focus,
+    .moderation-history-page input.form-control:focus {
+        color: #fff8ef;
+        background: #1c1020;
+        border-color: #d4b25b;
+        outline: 2px solid rgba(212, 178, 91, 0.18);
+        outline-offset: 2px;
+        box-shadow: none;
+    }
+
+    .moderation-history-page select.form-control {
+        color-scheme: dark;
+    }
+
+    .moderation-history-page select.form-control option {
+        color: #eee7ef;
+        background: #160d19;
+    }
+
+    .moderation-history-page .moderation-summary {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+    }
+
+    .moderation-history-page .moderation-summary-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        min-height: 2.1rem;
+        padding: 0.38rem 0.7rem;
+        border: 1px solid rgba(212, 178, 91, 0.3);
+        border-radius: 999px;
+        background: rgba(31, 17, 35, 0.6);
+        font-size: 0.8rem;
+    }
+
+    .moderation-history-page .moderation-summary-pill strong {
+        color: #d4b25b;
+    }
+
+    .moderation-history-page .moderation-history-list {
+        display: grid;
+        gap: 0.8rem;
+    }
+
+    .moderation-history-page .moderation-history-card {
+        border: 1px solid rgba(212, 178, 91, 0.18);
+        background: rgba(10, 8, 13, 0.62);
+    }
+
+    .moderation-history-page .moderation-history-card-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: start;
+        padding: 0.9rem 1rem;
+        border-bottom: 1px solid rgba(212, 178, 91, 0.12);
+    }
+
+    .moderation-history-page .moderation-history-card-header h2 {
+        margin: 0 0 0.3rem;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .moderation-history-page .moderation-history-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem 0.75rem;
+        margin: 0;
+        font-size: 0.8rem;
+        opacity: 0.78;
+    }
+
+    .moderation-history-page .moderation-action-badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 1.8rem;
+        padding: 0.25rem 0.55rem;
+        border: 1px solid rgba(150, 113, 147, 0.5);
+        border-radius: 999px;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        white-space: nowrap;
     }
 
     .moderation-history-page .moderation-history-card-body {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(220px, 0.45fr);
+        gap: 1.2rem;
+        padding: 1rem;
     }
-}
 
-@media (max-width: 640px) {
-    .moderation-history-page .moderation-history-filters,
-    .moderation-history-page .moderation-history-card-header {
-        grid-template-columns: 1fr;
+    .moderation-history-page .moderation-history-details {
+        min-width: 0;
     }
-}
+
+    .moderation-history-page .moderation-history-details p {
+        margin: 0 0 0.65rem;
+    }
+
+    .moderation-history-page .moderation-history-context {
+        padding: 0.75rem 0.85rem;
+        border-left: 2px solid rgba(212, 178, 91, 0.52);
+        background: rgba(40, 23, 43, 0.34);
+    }
+
+    .moderation-history-page .moderation-history-context p {
+        margin: 0 0 0.45rem;
+    }
+
+    .moderation-history-page .moderation-history-context p:last-child {
+        margin-bottom: 0;
+    }
+
+    .moderation-history-page .moderation-history-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        align-content: start;
+    }
+
+    .moderation-history-page .moderation-history-empty {
+        padding: 2rem 1rem;
+        text-align: center;
+        border: 1px solid rgba(212, 178, 91, 0.2);
+        background: rgba(255, 255, 255, 0.018);
+    }
+
+    .moderation-history-page .moderation-archive-toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        align-items: end;
+        margin: 0 0 1rem;
+        padding: 0.9rem;
+        border: 1px solid rgba(212, 178, 91, 0.2);
+        background: rgba(30, 16, 34, 0.42);
+    }
+
+    .moderation-history-page .moderation-archive-toolbar form {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+        align-items: end;
+        margin: 0;
+    }
+
+    .moderation-history-page .moderation-archive-toolbar .form-group {
+        margin: 0;
+    }
+
+    .moderation-history-page .moderation-admin-actions {
+        margin-top: 0.9rem;
+        padding-top: 0.9rem;
+        border-top: 1px solid rgba(150, 113, 147, 0.2);
+    }
+
+    .moderation-history-page .moderation-admin-actions form {
+        margin: 0;
+    }
+
+    .moderation-history-page .moderation-admin-actions-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 0.6rem;
+        align-items: end;
+    }
+
+    .moderation-history-page .moderation-delete-confirm {
+        display: flex;
+        gap: 0.45rem;
+        align-items: flex-start;
+        margin: 0.65rem 0;
+        font-size: 0.8rem;
+    }
+
+    .moderation-history-page .moderation-archive-meta {
+        margin-top: 0.75rem;
+        padding: 0.7rem 0.8rem;
+        border: 1px solid rgba(212, 178, 91, 0.18);
+        background: rgba(212, 178, 91, 0.04);
+        font-size: 0.82rem;
+    }
+
+    .moderation-history-page .moderation-pagination {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        margin: 1rem 0;
+    }
+
+    .moderation-history-page .moderation-pagination a,
+    .moderation-history-page .moderation-pagination span {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2.25rem;
+        min-height: 2.1rem;
+        padding: 0.35rem 0.65rem;
+        border: 1px solid rgba(150, 113, 147, 0.35);
+        border-radius: 4px;
+        background: rgba(31, 17, 35, 0.55);
+        color: #eee7ef;
+        text-decoration: none;
+        font-size: 0.82rem;
+    }
+
+    .moderation-history-page .moderation-pagination a:hover {
+        border-color: rgba(212, 178, 91, 0.6);
+        color: #fff8ef;
+    }
+
+    .moderation-history-page .moderation-pagination .current {
+        border-color: #d4b25b;
+        color: #d4b25b;
+        background: rgba(212, 178, 91, 0.08);
+    }
+
+    .moderation-history-page .moderation-pagination .disabled {
+        opacity: 0.45;
+    }
+
+    @media (max-width: 900px) {
+        .moderation-history-page .moderation-history-filters {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .moderation-history-page .moderation-history-card-body {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 640px) {
+
+        .moderation-history-page .moderation-history-filters,
+        .moderation-history-page .moderation-history-card-header {
+            grid-template-columns: 1fr;
+        }
+    }
+
 </style>
 
-<main
-    id="main-content"
-    class="forum-admin-page moderation-history-page"
->
+<main id="main-content" class="forum-admin-page moderation-history-page">
 
-    <section
-        class="forum-admin-hero"
-        aria-labelledby="moderation-history-heading"
-    >
+    <section class="forum-admin-hero" aria-labelledby="moderation-history-heading">
 
         <div class="section-inner">
 
@@ -1281,19 +1275,16 @@ require
 
             <p>
                 <?php if ($archiveView): ?>
-                    Review moderation audit records archived by the protected Admin.
+                Review moderation audit records archived by the protected Admin.
                 <?php else: ?>
-                    Review recorded moderation actions across the Academy,
-                    including forum actions and user sanctions.
+                Review recorded moderation actions across the Academy,
+                including forum actions and user sanctions.
                 <?php endif; ?>
             </p>
 
             <div class="forum-admin-edit-actions">
 
-                <a
-                    href="<?= e(url('admin/moderation.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('admin/moderation.php')); ?>" class="button button-secondary">
                     Moderation
                 </a>
 
@@ -1306,19 +1297,13 @@ require
                     ])
                 ): ?>
 
-                    <a
-                        href="<?= e(url('admin/reports.php')); ?>"
-                        class="button button-secondary"
-                    >
-                        Reports &amp; Moderation
-                    </a>
+                <a href="<?= e(url('admin/reports.php')); ?>" class="button button-secondary">
+                    Reports &amp; Moderation
+                </a>
 
                 <?php endif; ?>
 
-                <a
-                    href="<?= e(url('staff-dashboard.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">
                     Staff Dashboard
                 </a>
 
@@ -1335,10 +1320,7 @@ require
 
             <div class="moderation-history-toolbar">
 
-                <div
-                    class="moderation-summary"
-                    aria-label="Moderation history summary"
-                >
+                <div class="moderation-summary" aria-label="Moderation history summary">
 
                     <span class="moderation-summary-pill">
                         Active History
@@ -1351,14 +1333,14 @@ require
 
                     <?php if ($isProtectedAdmin): ?>
 
-                        <span class="moderation-summary-pill">
-                            Archived
-                            <strong>
-                                <?= number_format(
+                    <span class="moderation-summary-pill">
+                        Archived
+                        <strong>
+                            <?= number_format(
                                     (int) $summary['archived_actions']
                                 ); ?>
-                            </strong>
-                        </span>
+                        </strong>
+                    </span>
 
                     <?php endif; ?>
 
@@ -1394,93 +1376,66 @@ require
 
                 <?php if ($isProtectedAdmin): ?>
 
-                    <div class="moderation-archive-toolbar">
+                <div class="moderation-archive-toolbar">
 
-                        <?php if ($archiveView): ?>
+                    <?php if ($archiveView): ?>
 
-                            <a
-                                href="<?= e(url('admin/moderation-history.php')); ?>"
-                                class="button button-secondary"
-                            >
-                                Active History
-                            </a>
+                    <a href="<?= e(url('admin/moderation-history.php')); ?>" class="button button-secondary">
+                        Active History
+                    </a>
 
-                        <?php else: ?>
+                    <?php else: ?>
 
-                            <a
-                                href="<?= e(url('admin/moderation-history.php') . '?archive=1'); ?>"
-                                class="button button-secondary"
-                            >
-                                Archived History
-                            </a>
+                    <a href="<?= e(url('admin/moderation-history.php') . '?archive=1'); ?>"
+                        class="button button-secondary">
+                        Archived History
+                    </a>
 
 
-                            <form
-                                method="post"
-                                action="<?= e(url('admin/moderation-history.php')); ?>"
-                            >
-                                <?= csrf_field(); ?>
+                    <form method="post" action="<?= e(url('admin/moderation-history.php')); ?>">
+                        <?= csrf_field(); ?>
 
-                                <input
-                                    type="hidden"
-                                    name="form_action"
-                                    value="bulk_archive"
-                                >
+                        <input type="hidden" name="form_action" value="bulk_archive">
 
-                                <div class="form-group">
-                                    <label for="archive-age">
-                                        Bulk Archive
-                                    </label>
+                        <div class="form-group">
+                            <label for="archive-age">
+                                Bulk Archive
+                            </label>
 
-                                    <select
-                                        id="archive-age"
-                                        name="archive_age"
-                                        class="form-control"
-                                        required
-                                    >
-                                        <option value="">
-                                            Choose age…
-                                        </option>
-                                        <option value="6months">
-                                            Older than 6 months
-                                        </option>
-                                        <option value="1year">
-                                            Older than 1 year
-                                        </option>
-                                        <option value="2years">
-                                            Older than 2 years
-                                        </option>
-                                    </select>
-                                </div>
+                            <select id="archive-age" name="archive_age" class="form-control" required>
+                                <option value="">
+                                    Choose age…
+                                </option>
+                                <option value="6months">
+                                    Older than 6 months
+                                </option>
+                                <option value="1year">
+                                    Older than 1 year
+                                </option>
+                                <option value="2years">
+                                    Older than 2 years
+                                </option>
+                            </select>
+                        </div>
 
-                                <button
-                                    type="submit"
-                                    class="button button-secondary"
-                                    onclick="return confirm('Archive all moderation history entries older than the selected age?');"
-                                >
-                                    Archive Old Entries
-                                </button>
-                            </form>
+                        <button type="submit" class="button button-secondary"
+                            onclick="return confirm('Archive all moderation history entries older than the selected age?');">
+                            Archive Old Entries
+                        </button>
+                    </form>
 
-                        <?php endif; ?>
+                    <?php endif; ?>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 
 
-                <form
-                    action="<?= e(url('admin/moderation-history.php')); ?>"
-                    method="get"
-                    class="moderation-history-filters"
-                >
+                <form action="<?= e(url('admin/moderation-history.php')); ?>" method="get"
+                    class="moderation-history-filters">
 
                     <?php if ($archiveView): ?>
-                        <input
-                            type="hidden"
-                            name="archive"
-                            value="1"
-                        >
+                    <input type="hidden" name="archive" value="1">
                     <?php endif; ?>
 
                     <div class="form-group">
@@ -1489,27 +1444,21 @@ require
                             Action
                         </label>
 
-                        <select
-                            id="history-action"
-                            name="action"
-                            class="form-control"
-                        >
+                        <select id="history-action" name="action" class="form-control">
                             <option value="">
                                 All Actions
                             </option>
 
                             <?php foreach ($validActionTypes as $actionType): ?>
 
-                                <option
-                                    value="<?= e($actionType); ?>"
-                                    <?= $actionFilter === $actionType ? 'selected' : ''; ?>
-                                >
-                                    <?= e(
+                            <option value="<?= e($actionType); ?>"
+                                <?= $actionFilter === $actionType ? 'selected' : ''; ?>>
+                                <?= e(
                                         moderation_history_action_label(
                                             $actionType
                                         )
                                     ); ?>
-                                </option>
+                            </option>
 
                             <?php endforeach; ?>
 
@@ -1524,18 +1473,14 @@ require
                             Moderator
                         </label>
 
-                        <select
-                            id="history-moderator"
-                            name="moderator"
-                            class="form-control"
-                        >
+                        <select id="history-moderator" name="moderator" class="form-control">
                             <option value="">
                                 All Moderators
                             </option>
 
                             <?php foreach ($moderators as $moderator): ?>
 
-                                <?php
+                            <?php
 
                                 $moderatorName =
                                     trim(
@@ -1552,12 +1497,10 @@ require
 
                                 ?>
 
-                                <option
-                                    value="<?= (int) $moderator['id']; ?>"
-                                    <?= $moderatorFilter === (int) $moderator['id'] ? 'selected' : ''; ?>
-                                >
-                                    <?= e($moderatorName); ?>
-                                </option>
+                            <option value="<?= (int) $moderator['id']; ?>"
+                                <?= $moderatorFilter === (int) $moderator['id'] ? 'selected' : ''; ?>>
+                                <?= e($moderatorName); ?>
+                            </option>
 
                             <?php endforeach; ?>
 
@@ -1572,18 +1515,14 @@ require
                             Affected User
                         </label>
 
-                        <select
-                            id="history-target-user"
-                            name="target_user"
-                            class="form-control"
-                        >
+                        <select id="history-target-user" name="target_user" class="form-control">
                             <option value="">
                                 All Users
                             </option>
 
                             <?php foreach ($targetUsers as $targetUser): ?>
 
-                                <?php
+                            <?php
 
                                 $targetName =
                                     trim(
@@ -1600,12 +1539,10 @@ require
 
                                 ?>
 
-                                <option
-                                    value="<?= (int) $targetUser['id']; ?>"
-                                    <?= $targetUserFilter === (int) $targetUser['id'] ? 'selected' : ''; ?>
-                                >
-                                    <?= e($targetName); ?>
-                                </option>
+                            <option value="<?= (int) $targetUser['id']; ?>"
+                                <?= $targetUserFilter === (int) $targetUser['id'] ? 'selected' : ''; ?>>
+                                <?= e($targetName); ?>
+                            </option>
 
                             <?php endforeach; ?>
 
@@ -1620,23 +1557,17 @@ require
                             Forum
                         </label>
 
-                        <select
-                            id="history-forum"
-                            name="forum"
-                            class="form-control"
-                        >
+                        <select id="history-forum" name="forum" class="form-control">
                             <option value="">
                                 All Forums
                             </option>
 
                             <?php foreach ($forums as $forum): ?>
 
-                                <option
-                                    value="<?= (int) $forum['id']; ?>"
-                                    <?= $forumFilter === (int) $forum['id'] ? 'selected' : ''; ?>
-                                >
-                                    <?= e((string) $forum['title']); ?>
-                                </option>
+                            <option value="<?= (int) $forum['id']; ?>"
+                                <?= $forumFilter === (int) $forum['id'] ? 'selected' : ''; ?>>
+                                <?= e((string) $forum['title']); ?>
+                            </option>
 
                             <?php endforeach; ?>
 
@@ -1651,13 +1582,8 @@ require
                             From
                         </label>
 
-                        <input
-                            type="date"
-                            id="history-from"
-                            name="from"
-                            class="form-control"
-                            value="<?= e($dateFrom); ?>"
-                        >
+                        <input type="date" id="history-from" name="from" class="form-control"
+                            value="<?= e($dateFrom); ?>">
 
                     </div>
 
@@ -1668,34 +1594,22 @@ require
                             To
                         </label>
 
-                        <input
-                            type="date"
-                            id="history-to"
-                            name="to"
-                            class="form-control"
-                            value="<?= e($dateTo); ?>"
-                        >
+                        <input type="date" id="history-to" name="to" class="form-control" value="<?= e($dateTo); ?>">
 
                     </div>
 
 
                     <div class="moderation-history-filter-actions">
 
-                        <button
-                            type="submit"
-                            class="button button-primary"
-                        >
+                        <button type="submit" class="button button-primary">
                             Apply Filters
                         </button>
 
-                        <a
-                            href="<?= e(
+                        <a href="<?= e(
                                 $archiveView
                                     ? url('admin/moderation-history.php') . '?archive=1'
                                     : url('admin/moderation-history.php')
-                            ); ?>"
-                            class="button button-secondary"
-                        >
+                            ); ?>" class="button button-secondary">
                             Clear
                         </a>
 
@@ -1708,95 +1622,81 @@ require
 
             <?php if ($history === []): ?>
 
-                <div class="moderation-history-empty">
+            <div class="moderation-history-empty">
 
-                    <h2>
-                        <?= $archiveView
+                <h2>
+                    <?= $archiveView
                             ? 'No archived moderation actions found.'
                             : 'No moderation actions found.'; ?>
-                    </h2>
+                </h2>
 
-                    <p>
-                        There are no <?= $archiveView ? 'archived ' : ''; ?>moderation history entries matching
-                        the selected filters.
-                    </p>
+                <p>
+                    There are no <?= $archiveView ? 'archived ' : ''; ?>moderation history entries matching
+                    the selected filters.
+                </p>
 
-                </div>
+            </div>
 
             <?php else: ?>
 
 
-                <nav
-                    class="moderation-pagination"
-                    aria-label="Moderation history pagination"
-                >
+            <nav class="moderation-pagination" aria-label="Moderation history pagination">
 
-                    <?php if ($previousPageUrl !== ''): ?>
+                <?php if ($previousPageUrl !== ''): ?>
 
-                        <a
-                            href="<?= e($previousPageUrl); ?>"
-                            rel="prev"
-                        >
-                            Previous
-                        </a>
+                <a href="<?= e($previousPageUrl); ?>" rel="prev">
+                    Previous
+                </a>
 
-                    <?php else: ?>
+                <?php else: ?>
 
-                        <span class="disabled">
-                            Previous
-                        </span>
+                <span class="disabled">
+                    Previous
+                </span>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
 
-                    <?php foreach ($pageLinks as $pageLink): ?>
+                <?php foreach ($pageLinks as $pageLink): ?>
 
-                        <?php if ($pageLink['current']): ?>
+                <?php if ($pageLink['current']): ?>
 
-                            <span
-                                class="current"
-                                aria-current="page"
-                            >
-                                <?= (int) $pageLink['number']; ?>
-                            </span>
+                <span class="current" aria-current="page">
+                    <?= (int) $pageLink['number']; ?>
+                </span>
 
-                        <?php else: ?>
+                <?php else: ?>
 
-                            <a
-                                href="<?= e((string) $pageLink['url']); ?>"
-                            >
-                                <?= (int) $pageLink['number']; ?>
-                            </a>
+                <a href="<?= e((string) $pageLink['url']); ?>">
+                    <?= (int) $pageLink['number']; ?>
+                </a>
 
-                        <?php endif; ?>
+                <?php endif; ?>
 
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
 
-                    <?php if ($nextPageUrl !== ''): ?>
+                <?php if ($nextPageUrl !== ''): ?>
 
-                        <a
-                            href="<?= e($nextPageUrl); ?>"
-                            rel="next"
-                        >
-                            Next
-                        </a>
+                <a href="<?= e($nextPageUrl); ?>" rel="next">
+                    Next
+                </a>
 
-                    <?php else: ?>
+                <?php else: ?>
 
-                        <span class="disabled">
-                            Next
-                        </span>
+                <span class="disabled">
+                    Next
+                </span>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
-                </nav>
+            </nav>
 
-                <div class="moderation-history-list">
+            <div class="moderation-history-list">
 
-                    <?php foreach ($history as $entry): ?>
+                <?php foreach ($history as $entry): ?>
 
-                        <?php
+                <?php
 
                         $moderatorName =
                             trim(
@@ -1880,64 +1780,64 @@ require
 
                         ?>
 
-                        <article class="moderation-history-card">
+                <article class="moderation-history-card">
 
-                            <header class="moderation-history-card-header">
+                    <header class="moderation-history-card-header">
 
-                                <div>
+                        <div>
 
-                                    <h2>
-                                        <?= e(
+                            <h2>
+                                <?= e(
                                             moderation_history_action_label(
                                                 (string) $entry['action_type']
                                             )
                                         ); ?>
-                                    </h2>
+                            </h2>
 
-                                    <p class="moderation-history-meta">
+                            <p class="moderation-history-meta">
 
-                                        <span>
-                                            By <?= e($moderatorName); ?>
-                                        </span>
+                                <span>
+                                    By <?= e($moderatorName); ?>
+                                </span>
 
-                                        <?php if ($targetName !== ''): ?>
-                                            <span>
-                                                User: <?= e($targetName); ?>
-                                            </span>
-                                        <?php endif; ?>
+                                <?php if ($targetName !== ''): ?>
+                                <span>
+                                    User: <?= e($targetName); ?>
+                                </span>
+                                <?php endif; ?>
 
-                                        <span>
-                                            <?= e(
+                                <span>
+                                    <?= e(
                                                 moderation_history_datetime(
                                                     (string) $entry['created_at']
                                                 )
                                             ); ?>
-                                        </span>
+                                </span>
 
-                                        <span>
-                                            Entry #<?= (int) $entry['id']; ?>
-                                        </span>
+                                <span>
+                                    Entry #<?= (int) $entry['id']; ?>
+                                </span>
 
-                                    </p>
+                            </p>
 
-                                </div>
+                        </div>
 
-                                <span class="moderation-action-badge">
-                                    <?= e(
+                        <span class="moderation-action-badge">
+                            <?= e(
                                         moderation_history_action_label(
                                             (string) $entry['action_type']
                                         )
                                     ); ?>
-                                </span>
+                        </span>
 
-                            </header>
+                    </header>
 
 
-                            <div class="moderation-history-card-body">
+                    <div class="moderation-history-card-body">
 
-                                <div class="moderation-history-details">
+                        <div class="moderation-history-details">
 
-                                    <?php if (
+                            <?php if (
                                         trim(
                                             (string) (
                                                 $entry['reason']
@@ -1946,19 +1846,19 @@ require
                                         ) !== ''
                                     ): ?>
 
-                                        <p>
-                                            <strong>Reason:</strong><br>
-                                            <?= nl2br(
+                            <p>
+                                <strong>Reason:</strong><br>
+                                <?= nl2br(
                                                 e(
                                                     (string) $entry['reason']
                                                 )
                                             ); ?>
-                                        </p>
+                            </p>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                    <?php if (
+                            <?php if (
                                         trim(
                                             (string) (
                                                 $entry['notes']
@@ -1967,82 +1867,82 @@ require
                                         ) !== ''
                                     ): ?>
 
-                                        <p>
-                                            <strong>Notes:</strong><br>
-                                            <?= nl2br(
+                            <p>
+                                <strong>Notes:</strong><br>
+                                <?= nl2br(
                                                 e(
                                                     (string) $entry['notes']
                                                 )
                                             ); ?>
-                                        </p>
+                            </p>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                    <div class="moderation-history-context">
+                            <div class="moderation-history-context">
 
-                                        <?php if ($entry['forum_title'] !== null): ?>
-                                            <p>
-                                                <strong>Forum:</strong>
-                                                <?= e((string) $entry['forum_title']); ?>
-                                            </p>
-                                        <?php endif; ?>
+                                <?php if ($entry['forum_title'] !== null): ?>
+                                <p>
+                                    <strong>Forum:</strong>
+                                    <?= e((string) $entry['forum_title']); ?>
+                                </p>
+                                <?php endif; ?>
 
-                                        <?php if ($entry['thread_title'] !== null): ?>
-                                            <p>
-                                                <strong>Thread:</strong>
-                                                <?= e((string) $entry['thread_title']); ?>
-                                            </p>
-                                        <?php endif; ?>
+                                <?php if ($entry['thread_title'] !== null): ?>
+                                <p>
+                                    <strong>Thread:</strong>
+                                    <?= e((string) $entry['thread_title']); ?>
+                                </p>
+                                <?php endif; ?>
 
-                                        <?php if ($entry['post_id'] !== null): ?>
-                                            <p>
-                                                <strong>Post:</strong>
-                                                #<?= (int) $entry['post_id']; ?>
-                                            </p>
-                                        <?php endif; ?>
+                                <?php if ($entry['post_id'] !== null): ?>
+                                <p>
+                                    <strong>Post:</strong>
+                                    #<?= (int) $entry['post_id']; ?>
+                                </p>
+                                <?php endif; ?>
 
-                                        <?php if ($entry['label_name'] !== null): ?>
-                                            <p>
-                                                <strong>Label:</strong>
-                                                <?= e((string) $entry['label_name']); ?>
-                                            </p>
-                                        <?php endif; ?>
+                                <?php if ($entry['label_name'] !== null): ?>
+                                <p>
+                                    <strong>Label:</strong>
+                                    <?= e((string) $entry['label_name']); ?>
+                                </p>
+                                <?php endif; ?>
 
-                                        <?php if ($entry['source_thread_title'] !== null): ?>
-                                            <p>
-                                                <strong>Moved From:</strong>
-                                                <?= e((string) $entry['source_thread_title']); ?>
-                                            </p>
-                                        <?php endif; ?>
+                                <?php if ($entry['source_thread_title'] !== null): ?>
+                                <p>
+                                    <strong>Moved From:</strong>
+                                    <?= e((string) $entry['source_thread_title']); ?>
+                                </p>
+                                <?php endif; ?>
 
-                                        <?php if ($entry['destination_thread_title'] !== null): ?>
-                                            <p>
-                                                <strong>Moved To:</strong>
-                                                <?= e((string) $entry['destination_thread_title']); ?>
-                                            </p>
-                                        <?php endif; ?>
+                                <?php if ($entry['destination_thread_title'] !== null): ?>
+                                <p>
+                                    <strong>Moved To:</strong>
+                                    <?= e((string) $entry['destination_thread_title']); ?>
+                                </p>
+                                <?php endif; ?>
 
-                                        <?php if ($entry['expires_at'] !== null): ?>
-                                            <p>
-                                                <strong>Expires:</strong>
-                                                <?= e(
+                                <?php if ($entry['expires_at'] !== null): ?>
+                                <p>
+                                    <strong>Expires:</strong>
+                                    <?= e(
                                                     moderation_history_datetime(
                                                         (string) $entry['expires_at']
                                                     )
                                                 ); ?>
-                                            </p>
-                                        <?php endif; ?>
+                                </p>
+                                <?php endif; ?>
 
-                                    </div>
+                            </div>
 
 
-                                    <?php if (
+                            <?php if (
                                         $archiveView
                                         && (int) ($entry['is_archived'] ?? 0) === 1
                                     ): ?>
 
-                                        <?php
+                            <?php
 
                                         $archivedByName =
                                             trim(
@@ -2062,20 +1962,20 @@ require
 
                                         ?>
 
-                                        <div class="moderation-archive-meta">
+                            <div class="moderation-archive-meta">
 
-                                            <strong>Archived:</strong>
-                                            <?= e(
+                                <strong>Archived:</strong>
+                                <?= e(
                                                 moderation_history_datetime(
                                                     (string) $entry['archived_at']
                                                 )
                                             ); ?>
 
-                                            <?php if ($archivedByName !== ''): ?>
-                                                by <?= e($archivedByName); ?>
-                                            <?php endif; ?>
+                                <?php if ($archivedByName !== ''): ?>
+                                by <?= e($archivedByName); ?>
+                                <?php endif; ?>
 
-                                            <?php if (
+                                <?php if (
                                                 trim(
                                                     (string) (
                                                         $entry['archive_reason']
@@ -2083,294 +1983,206 @@ require
                                                     )
                                                 ) !== ''
                                             ): ?>
-                                                <br>
-                                                <strong>Archive reason:</strong>
-                                                <?= e((string) $entry['archive_reason']); ?>
-                                            <?php endif; ?>
+                                <br>
+                                <strong>Archive reason:</strong>
+                                <?= e((string) $entry['archive_reason']); ?>
+                                <?php endif; ?>
 
+                            </div>
+
+                            <?php endif; ?>
+
+
+                            <?php if ($isProtectedAdmin): ?>
+
+                            <div class="moderation-admin-actions">
+
+                                <?php if (!$archiveView): ?>
+
+                                <form method="post" action="<?= e(url('admin/moderation-history.php')); ?>">
+                                    <?= csrf_field(); ?>
+
+                                    <input type="hidden" name="form_action" value="archive_entry">
+
+                                    <input type="hidden" name="entry_id" value="<?= (int) $entry['id']; ?>">
+
+                                    <div class="moderation-admin-actions-grid">
+
+                                        <div class="form-group">
+                                            <label for="archive-reason-<?= (int) $entry['id']; ?>">
+                                                Archive reason
+                                                <span aria-hidden="true">(optional)</span>
+                                            </label>
+
+                                            <input type="text" id="archive-reason-<?= (int) $entry['id']; ?>"
+                                                name="archive_reason" class="form-control" maxlength="255"
+                                                placeholder="Optional note for why this record was archived">
                                         </div>
 
-                                    <?php endif; ?>
+                                        <button type="submit" class="button button-secondary">
+                                            Archive
+                                        </button>
+
+                                    </div>
+                                </form>
+
+                                <?php else: ?>
+
+                                <form method="post" action="<?= e(url('admin/moderation-history.php')); ?>"
+                                    style="margin-bottom: 0.7rem;">
+                                    <?= csrf_field(); ?>
+
+                                    <input type="hidden" name="form_action" value="restore_entry">
+
+                                    <input type="hidden" name="entry_id" value="<?= (int) $entry['id']; ?>">
+
+                                    <input type="hidden" name="return_archive" value="1">
+
+                                    <button type="submit" class="button button-secondary">
+                                        Restore to Active History
+                                    </button>
+                                </form>
 
 
-                                    <?php if ($isProtectedAdmin): ?>
+                                <form method="post" action="<?= e(url('admin/moderation-history.php')); ?>"
+                                    onsubmit="return confirm('Permanently delete this archived moderation record? This cannot be undone.');">
+                                    <?= csrf_field(); ?>
 
-                                        <div class="moderation-admin-actions">
+                                    <input type="hidden" name="form_action" value="delete_entry">
 
-                                            <?php if (!$archiveView): ?>
+                                    <input type="hidden" name="entry_id" value="<?= (int) $entry['id']; ?>">
 
-                                                <form
-                                                    method="post"
-                                                    action="<?= e(url('admin/moderation-history.php')); ?>"
-                                                >
-                                                    <?= csrf_field(); ?>
+                                    <input type="hidden" name="return_archive" value="1">
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="form_action"
-                                                        value="archive_entry"
-                                                    >
+                                    <label class="moderation-delete-confirm">
+                                        <input type="checkbox" name="confirm_delete" value="1" required>
+                                        <span>
+                                            I understand this permanently removes the audit record and cannot be undone.
+                                        </span>
+                                    </label>
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="entry_id"
-                                                        value="<?= (int) $entry['id']; ?>"
-                                                    >
+                                    <button type="submit" class="button button-secondary">
+                                        Permanently Delete
+                                    </button>
+                                </form>
 
-                                                    <div class="moderation-admin-actions-grid">
+                                <?php endif; ?>
 
-                                                        <div class="form-group">
-                                                            <label
-                                                                for="archive-reason-<?= (int) $entry['id']; ?>"
-                                                            >
-                                                                Archive reason
-                                                                <span aria-hidden="true">(optional)</span>
-                                                            </label>
+                            </div>
 
-                                                            <input
-                                                                type="text"
-                                                                id="archive-reason-<?= (int) $entry['id']; ?>"
-                                                                name="archive_reason"
-                                                                class="form-control"
-                                                                maxlength="255"
-                                                                placeholder="Optional note for why this record was archived"
-                                                            >
-                                                        </div>
+                            <?php endif; ?>
 
-                                                        <button
-                                                            type="submit"
-                                                            class="button button-secondary"
-                                                        >
-                                                            Archive
-                                                        </button>
-
-                                                    </div>
-                                                </form>
-
-                                            <?php else: ?>
-
-                                                <form
-                                                    method="post"
-                                                    action="<?= e(url('admin/moderation-history.php')); ?>"
-                                                    style="margin-bottom: 0.7rem;"
-                                                >
-                                                    <?= csrf_field(); ?>
-
-                                                    <input
-                                                        type="hidden"
-                                                        name="form_action"
-                                                        value="restore_entry"
-                                                    >
-
-                                                    <input
-                                                        type="hidden"
-                                                        name="entry_id"
-                                                        value="<?= (int) $entry['id']; ?>"
-                                                    >
-
-                                                    <input
-                                                        type="hidden"
-                                                        name="return_archive"
-                                                        value="1"
-                                                    >
-
-                                                    <button
-                                                        type="submit"
-                                                        class="button button-secondary"
-                                                    >
-                                                        Restore to Active History
-                                                    </button>
-                                                </form>
+                        </div>
 
 
-                                                <form
-                                                    method="post"
-                                                    action="<?= e(url('admin/moderation-history.php')); ?>"
-                                                    onsubmit="return confirm('Permanently delete this archived moderation record? This cannot be undone.');"
-                                                >
-                                                    <?= csrf_field(); ?>
+                        <div class="moderation-history-links">
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="form_action"
-                                                        value="delete_entry"
-                                                    >
+                            <?php if ($threadUrl !== null): ?>
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="entry_id"
-                                                        value="<?= (int) $entry['id']; ?>"
-                                                    >
+                            <a href="<?= e($threadUrl); ?>" class="button button-secondary">
+                                View Thread/Post
+                            </a>
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="return_archive"
-                                                        value="1"
-                                                    >
-
-                                                    <label class="moderation-delete-confirm">
-                                                        <input
-                                                            type="checkbox"
-                                                            name="confirm_delete"
-                                                            value="1"
-                                                            required
-                                                        >
-                                                        <span>
-                                                            I understand this permanently removes the audit record and cannot be undone.
-                                                        </span>
-                                                    </label>
-
-                                                    <button
-                                                        type="submit"
-                                                        class="button button-secondary"
-                                                    >
-                                                        Permanently Delete
-                                                    </button>
-                                                </form>
-
-                                            <?php endif; ?>
-
-                                        </div>
-
-                                    <?php endif; ?>
-
-                                </div>
+                            <?php endif; ?>
 
 
-                                <div class="moderation-history-links">
-
-                                    <?php if ($threadUrl !== null): ?>
-
-                                        <a
-                                            href="<?= e($threadUrl); ?>"
-                                            class="button button-secondary"
-                                        >
-                                            View Thread/Post
-                                        </a>
-
-                                    <?php endif; ?>
-
-
-                                    <?php if (
+                            <?php if (
                                         $forumUrl !== null
                                         && $threadUrl === null
                                     ): ?>
 
-                                        <a
-                                            href="<?= e($forumUrl); ?>"
-                                            class="button button-secondary"
-                                        >
-                                            View Forum
-                                        </a>
+                            <a href="<?= e($forumUrl); ?>" class="button button-secondary">
+                                View Forum
+                            </a>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                    <?php if (
+                            <?php if (
                                         $sourceThreadUrl !== null
                                         && $sourceThreadUrl !== $threadUrl
                                     ): ?>
 
-                                        <a
-                                            href="<?= e($sourceThreadUrl); ?>"
-                                            class="button button-secondary"
-                                        >
-                                            Source Thread
-                                        </a>
+                            <a href="<?= e($sourceThreadUrl); ?>" class="button button-secondary">
+                                Source Thread
+                            </a>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                    <?php if (
+                            <?php if (
                                         $destinationThreadUrl !== null
                                         && $destinationThreadUrl !== $threadUrl
                                     ): ?>
 
-                                        <a
-                                            href="<?= e($destinationThreadUrl); ?>"
-                                            class="button button-secondary"
-                                        >
-                                            Destination Thread
-                                        </a>
-
-                                    <?php endif; ?>
-
-                                </div>
-
-                            </div>
-
-                        </article>
-
-                    <?php endforeach; ?>
-
-                </div>
-
-
-                <nav
-                    class="moderation-pagination"
-                    aria-label="Moderation history pagination"
-                >
-
-                    <?php if ($previousPageUrl !== ''): ?>
-
-                        <a
-                            href="<?= e($previousPageUrl); ?>"
-                            rel="prev"
-                        >
-                            Previous
-                        </a>
-
-                    <?php else: ?>
-
-                        <span class="disabled">
-                            Previous
-                        </span>
-
-                    <?php endif; ?>
-
-
-                    <?php foreach ($pageLinks as $pageLink): ?>
-
-                        <?php if ($pageLink['current']): ?>
-
-                            <span
-                                class="current"
-                                aria-current="page"
-                            >
-                                <?= (int) $pageLink['number']; ?>
-                            </span>
-
-                        <?php else: ?>
-
-                            <a
-                                href="<?= e((string) $pageLink['url']); ?>"
-                            >
-                                <?= (int) $pageLink['number']; ?>
+                            <a href="<?= e($destinationThreadUrl); ?>" class="button button-secondary">
+                                Destination Thread
                             </a>
 
-                        <?php endif; ?>
+                            <?php endif; ?>
 
-                    <?php endforeach; ?>
+                        </div>
+
+                    </div>
+
+                </article>
+
+                <?php endforeach; ?>
+
+            </div>
 
 
-                    <?php if ($nextPageUrl !== ''): ?>
+            <nav class="moderation-pagination" aria-label="Moderation history pagination">
 
-                        <a
-                            href="<?= e($nextPageUrl); ?>"
-                            rel="next"
-                        >
-                            Next
-                        </a>
+                <?php if ($previousPageUrl !== ''): ?>
 
-                    <?php else: ?>
+                <a href="<?= e($previousPageUrl); ?>" rel="prev">
+                    Previous
+                </a>
 
-                        <span class="disabled">
-                            Next
-                        </span>
+                <?php else: ?>
 
-                    <?php endif; ?>
+                <span class="disabled">
+                    Previous
+                </span>
 
-                </nav>
+                <?php endif; ?>
+
+
+                <?php foreach ($pageLinks as $pageLink): ?>
+
+                <?php if ($pageLink['current']): ?>
+
+                <span class="current" aria-current="page">
+                    <?= (int) $pageLink['number']; ?>
+                </span>
+
+                <?php else: ?>
+
+                <a href="<?= e((string) $pageLink['url']); ?>">
+                    <?= (int) $pageLink['number']; ?>
+                </a>
+
+                <?php endif; ?>
+
+                <?php endforeach; ?>
+
+
+                <?php if ($nextPageUrl !== ''): ?>
+
+                <a href="<?= e($nextPageUrl); ?>" rel="next">
+                    Next
+                </a>
+
+                <?php else: ?>
+
+                <span class="disabled">
+                    Next
+                </span>
+
+                <?php endif; ?>
+
+            </nav>
 
 
             <?php endif; ?>

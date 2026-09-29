@@ -249,15 +249,9 @@ $managementAreas = [
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page admin-dashboard-page"
->
+<main id="main-content" class="dashboard-page admin-dashboard-page">
 
-    <section
-        class="dashboard-hero admin-dashboard-hero"
-        aria-labelledby="admin-dashboard-heading"
-    >
+    <section class="dashboard-hero admin-dashboard-hero" aria-labelledby="admin-dashboard-heading">
 
         <div class="section-inner">
 
@@ -287,15 +281,15 @@ $managementAreas = [
 
                     <?php if ($isProtectedSuperAdmin): ?>
 
-                        <span>
-                            Protected Super Admin
-                        </span>
+                    <span>
+                        Protected Super Admin
+                    </span>
 
                     <?php else: ?>
 
-                        <span>
-                            Permission-Based Access
-                        </span>
+                    <span>
+                        Permission-Based Access
+                    </span>
 
                     <?php endif; ?>
 
@@ -314,10 +308,7 @@ $managementAreas = [
     </section>
 
 
-    <section
-        class="admin-dashboard-overview"
-        aria-labelledby="admin-overview-heading"
-    >
+    <section class="admin-dashboard-overview" aria-labelledby="admin-overview-heading">
 
         <div class="section-inner">
 
@@ -405,24 +396,15 @@ $managementAreas = [
 
             <div class="admin-dashboard-quick-links">
 
-                <a
-                    href="<?= e(url('index.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('index.php')); ?>" class="button button-secondary">
                     View Member Homepage
                 </a>
 
-                <a
-                    href="<?= e(url('forums.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('forums.php')); ?>" class="button button-secondary">
                     View Forums
                 </a>
 
-                <a
-                    href="<?= e(url('courses.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('courses.php')); ?>" class="button button-secondary">
                     View Courses
                 </a>
 
@@ -433,10 +415,7 @@ $managementAreas = [
     </section>
 
 
-    <section
-        class="admin-management-section"
-        aria-labelledby="admin-management-heading"
-    >
+    <section class="admin-management-section" aria-labelledby="admin-management-heading">
 
         <div class="section-inner">
 
@@ -462,39 +441,36 @@ $managementAreas = [
 
                 <?php foreach ($managementAreas as $area): ?>
 
-                    <article class="dashboard-card admin-management-card">
+                <article class="dashboard-card admin-management-card">
 
-                        <div class="dashboard-card-number">
-                            <?= e($area['number']); ?>
-                        </div>
+                    <div class="dashboard-card-number">
+                        <?= e($area['number']); ?>
+                    </div>
 
-                        <h3>
-                            <?= e($area['title']); ?>
-                        </h3>
+                    <h3>
+                        <?= e($area['title']); ?>
+                    </h3>
 
-                        <p>
-                            <?= e($area['description']); ?>
-                        </p>
+                    <p>
+                        <?= e($area['description']); ?>
+                    </p>
 
-                        <?php if (is_string($area['url'])): ?>
+                    <?php if (is_string($area['url'])): ?>
 
-                            <a
-                                href="<?= e($area['url']); ?>"
-                                class="dashboard-card-link"
-                            >
-                                <?= e($area['status']); ?>
-                                <span aria-hidden="true">→</span>
-                            </a>
+                    <a href="<?= e($area['url']); ?>" class="dashboard-card-link">
+                        <?= e($area['status']); ?>
+                        <span aria-hidden="true">→</span>
+                    </a>
 
-                        <?php else: ?>
+                    <?php else: ?>
 
-                            <span class="dashboard-card-coming-soon">
-                                <?= e($area['status']); ?>
-                            </span>
+                    <span class="dashboard-card-coming-soon">
+                        <?= e($area['status']); ?>
+                    </span>
 
-                        <?php endif; ?>
+                    <?php endif; ?>
 
-                    </article>
+                </article>
 
                 <?php endforeach; ?>
 
@@ -503,34 +479,28 @@ $managementAreas = [
 
             <?php if ($isProtectedSuperAdmin): ?>
 
-                <aside
-                    class="admin-owner-notice"
-                    aria-label="Protected Super Admin status"
-                >
+            <aside class="admin-owner-notice" aria-label="Protected Super Admin status">
 
-                    <span
-                        class="admin-owner-notice-mark"
-                        aria-hidden="true"
-                    >
-                        ✦
-                    </span>
+                <span class="admin-owner-notice-mark" aria-hidden="true">
+                    ✦
+                </span>
 
-                    <div>
+                <div>
 
-                        <h2>
-                            Protected owner access is active.
-                        </h2>
+                    <h2>
+                        Protected owner access is active.
+                    </h2>
 
-                        <p>
-                            Your account can access every Academy feature and
-                            cannot be replaced by assigning another user the
-                            Admin role. Future administrators will receive only
-                            the permissions granted to them.
-                        </p>
+                    <p>
+                        Your account can access every Academy feature and
+                        cannot be replaced by assigning another user the
+                        Admin role. Future administrators will receive only
+                        the permissions granted to them.
+                    </p>
 
-                    </div>
+                </div>
 
-                </aside>
+            </aside>
 
             <?php endif; ?>
 

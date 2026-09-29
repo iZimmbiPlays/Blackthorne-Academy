@@ -1571,213 +1571,207 @@ require INCLUDES_PATH . '/header.php';
 ?>
 
 <style>
-/* User Management only: compact directory/search presentation */
-.users-admin-page .forum-admin-hero {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-.users-admin-page .forum-admin-hero h1 {
-    margin-bottom: 0.75rem;
-}
-
-.users-admin-page .forum-admin-content {
-    padding-top: 2.5rem;
-    padding-bottom: 3rem;
-}
-
-.users-admin-page .forum-admin-actions {
-    gap: 2rem;
-    padding: 1.5rem;
-    align-items: center;
-}
-
-.users-admin-page .forum-admin-actions h2,
-.users-admin-page .forum-admin-titlebar h2 {
-    font-size: clamp(1.35rem, 2vw, 1.7rem);
-    margin-bottom: 0.4rem;
-}
-
-.users-admin-page .forum-admin-actions p {
-    margin-bottom: 0;
-}
-
-.users-admin-page .forum-admin-actions .forum-admin-form {
-    gap: 0.75rem;
-}
-
-.users-admin-page .forum-admin-actions .form-group {
-    margin-bottom: 0.65rem;
-}
-
-.users-admin-page .forum-structure-panel {
-    margin-top: 1.5rem;
-}
-
-.users-admin-page .forum-admin-titlebar {
-    padding: 1rem 1.4rem;
-}
-
-.users-admin-page .forum-structure-list {
-    padding: 0 1.4rem;
-}
-
-.users-admin-page .forum-structure-category {
-    padding: 1.1rem 0;
-    min-height: 0;
-}
-
-.users-admin-page .forum-structure-category header {
-    gap: 1rem;
-    align-items: center;
-}
-
-.users-admin-page .forum-structure-category h3 {
-    font-size: 1.15rem;
-    line-height: 1.25;
-    margin: 0 0 0.3rem;
-}
-
-.users-admin-page .forum-structure-category p {
-    font-size: 0.86rem;
-    line-height: 1.45;
-    margin: 0.15rem 0;
-}
-
-.users-admin-page .forum-structure-category .button {
-    min-height: 2.4rem;
-    padding: 0.55rem 0.9rem;
-    font-size: 0.82rem;
-    white-space: nowrap;
-}
-
-.users-admin-page .forum-admin-fieldset {
-    padding: 1rem 1.1rem;
-    margin-bottom: 0.85rem;
-}
-
-.users-admin-page .forum-admin-fieldset legend {
-    font-size: 1rem;
-}
-
-
-.users-admin-page .user-permission-intro {
-    padding: 1rem 1.15rem;
-    margin: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.users-admin-page .permission-override-groups {
-    display: grid;
-    gap: 0.8rem;
-    padding: 1rem 1.4rem 1.35rem;
-}
-
-.users-admin-page .permission-override-group {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.015);
-}
-
-.users-admin-page .permission-override-group summary {
-    cursor: pointer;
-    padding: 0.85rem 1rem;
-    color: var(--color-gold, #d4b25b);
-    font-size: 0.96rem;
-    user-select: none;
-}
-
-.users-admin-page .permission-override-list {
-    display: grid;
-    gap: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.users-admin-page .permission-override-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(170px, 210px);
-    gap: 1rem;
-    align-items: center;
-    padding: 0.85rem 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-}
-
-.users-admin-page .permission-override-row:last-child {
-    border-bottom: 0;
-}
-
-.users-admin-page .permission-override-name {
-    margin: 0 0 0.18rem;
-    font-size: 0.94rem;
-}
-
-.users-admin-page .permission-override-slug,
-.users-admin-page .permission-override-description {
-    margin: 0;
-    font-size: 0.78rem;
-    opacity: 0.72;
-    line-height: 1.4;
-}
-
-.users-admin-page .permission-override-select {
-    width: 100%;
-}
-
-.users-admin-page .permission-override-save {
-    padding: 0 1.4rem 1.4rem;
-}
-
-.users-admin-page .permission-override-count {
-    display: inline-block;
-    margin-left: 0.35rem;
-    opacity: 0.72;
-    font-size: 0.78rem;
-}
-
-@media (max-width: 760px) {
-    .users-admin-page .permission-override-row {
-        grid-template-columns: 1fr;
-        gap: 0.65rem;
-    }
-
-    .users-admin-page .permission-override-groups {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
-    .users-admin-page .permission-override-save {
-        padding-left: 1rem;
-        padding-right: 1rem;
-    }
-
+    /* User Management only: compact directory/search presentation */
     .users-admin-page .forum-admin-hero {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .users-admin-page .forum-admin-hero h1 {
+        margin-bottom: 0.75rem;
+    }
+
+    .users-admin-page .forum-admin-content {
+        padding-top: 2.5rem;
+        padding-bottom: 3rem;
     }
 
     .users-admin-page .forum-admin-actions {
-        gap: 1rem;
-        padding: 1.1rem;
+        gap: 2rem;
+        padding: 1.5rem;
+        align-items: center;
+    }
+
+    .users-admin-page .forum-admin-actions h2,
+    .users-admin-page .forum-admin-titlebar h2 {
+        font-size: clamp(1.35rem, 2vw, 1.7rem);
+        margin-bottom: 0.4rem;
+    }
+
+    .users-admin-page .forum-admin-actions p {
+        margin-bottom: 0;
+    }
+
+    .users-admin-page .forum-admin-actions .forum-admin-form {
+        gap: 0.75rem;
+    }
+
+    .users-admin-page .forum-admin-actions .form-group {
+        margin-bottom: 0.65rem;
+    }
+
+    .users-admin-page .forum-structure-panel {
+        margin-top: 1.5rem;
+    }
+
+    .users-admin-page .forum-admin-titlebar {
+        padding: 1rem 1.4rem;
     }
 
     .users-admin-page .forum-structure-list {
-        padding: 0 1rem;
+        padding: 0 1.4rem;
+    }
+
+    .users-admin-page .forum-structure-category {
+        padding: 1.1rem 0;
+        min-height: 0;
     }
 
     .users-admin-page .forum-structure-category header {
-        align-items: flex-start;
+        gap: 1rem;
+        align-items: center;
     }
-}
+
+    .users-admin-page .forum-structure-category h3 {
+        font-size: 1.15rem;
+        line-height: 1.25;
+        margin: 0 0 0.3rem;
+    }
+
+    .users-admin-page .forum-structure-category p {
+        font-size: 0.86rem;
+        line-height: 1.45;
+        margin: 0.15rem 0;
+    }
+
+    .users-admin-page .forum-structure-category .button {
+        min-height: 2.4rem;
+        padding: 0.55rem 0.9rem;
+        font-size: 0.82rem;
+        white-space: nowrap;
+    }
+
+    .users-admin-page .forum-admin-fieldset {
+        padding: 1rem 1.1rem;
+        margin-bottom: 0.85rem;
+    }
+
+    .users-admin-page .forum-admin-fieldset legend {
+        font-size: 1rem;
+    }
+
+    .users-admin-page .user-permission-intro {
+        padding: 1rem 1.15rem;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .users-admin-page .permission-override-groups {
+        display: grid;
+        gap: 0.8rem;
+        padding: 1rem 1.4rem 1.35rem;
+    }
+
+    .users-admin-page .permission-override-group {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.015);
+    }
+
+    .users-admin-page .permission-override-group summary {
+        cursor: pointer;
+        padding: 0.85rem 1rem;
+        color: var(--color-gold, #d4b25b);
+        font-size: 0.96rem;
+        user-select: none;
+    }
+
+    .users-admin-page .permission-override-list {
+        display: grid;
+        gap: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .users-admin-page .permission-override-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(170px, 210px);
+        gap: 1rem;
+        align-items: center;
+        padding: 0.85rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    }
+
+    .users-admin-page .permission-override-row:last-child {
+        border-bottom: 0;
+    }
+
+    .users-admin-page .permission-override-name {
+        margin: 0 0 0.18rem;
+        font-size: 0.94rem;
+    }
+
+    .users-admin-page .permission-override-slug,
+    .users-admin-page .permission-override-description {
+        margin: 0;
+        font-size: 0.78rem;
+        opacity: 0.72;
+        line-height: 1.4;
+    }
+
+    .users-admin-page .permission-override-select {
+        width: 100%;
+    }
+
+    .users-admin-page .permission-override-save {
+        padding: 0 1.4rem 1.4rem;
+    }
+
+    .users-admin-page .permission-override-count {
+        display: inline-block;
+        margin-left: 0.35rem;
+        opacity: 0.72;
+        font-size: 0.78rem;
+    }
+
+    @media (max-width: 760px) {
+        .users-admin-page .permission-override-row {
+            grid-template-columns: 1fr;
+            gap: 0.65rem;
+        }
+
+        .users-admin-page .permission-override-groups {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .users-admin-page .permission-override-save {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .users-admin-page .forum-admin-hero {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .users-admin-page .forum-admin-actions {
+            gap: 1rem;
+            padding: 1.1rem;
+        }
+
+        .users-admin-page .forum-structure-list {
+            padding: 0 1rem;
+        }
+
+        .users-admin-page .forum-structure-category header {
+            align-items: flex-start;
+        }
+    }
+
 </style>
 
-<main
-    id="main-content"
-    class="forum-admin-page users-admin-page"
->
+<main id="main-content" class="forum-admin-page users-admin-page">
 
-    <section
-        class="forum-admin-hero"
-        aria-labelledby="user-admin-heading"
-    >
+    <section class="forum-admin-hero" aria-labelledby="user-admin-heading">
         <div class="section-inner">
 
             <p class="academy-overline">
@@ -1795,10 +1789,7 @@ require INCLUDES_PATH . '/header.php';
 
             <div class="forum-admin-edit-actions">
 
-                <a
-                    href="<?= e(DASHBOARD_URL); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(DASHBOARD_URL); ?>" class="button button-secondary">
                     Return to Dashboard
                 </a>
 
@@ -1807,12 +1798,9 @@ require INCLUDES_PATH . '/header.php';
                     || user_can('roles.view')
                     || user_can('roles.edit')
                 ): ?>
-                    <a
-                        href="<?= e(url('admin/roles.php')); ?>"
-                        class="button button-secondary"
-                    >
-                        Roles &amp; Permissions
-                    </a>
+                <a href="<?= e(url('admin/roles.php')); ?>" class="button button-secondary">
+                    Roles &amp; Permissions
+                </a>
                 <?php endif; ?>
 
             </div>
@@ -1825,28 +1813,22 @@ require INCLUDES_PATH . '/header.php';
         <div class="section-inner">
 
             <?php if ($successMessage !== null): ?>
-                <div
-                    class="form-message form-message-success"
-                    role="status"
-                >
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="form-message form-message-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
             <?php endif; ?>
 
 
             <?php if ($errors !== []): ?>
-                <div
-                    class="form-message form-message-error"
-                    role="alert"
-                >
-                    <h2>Please correct the following:</h2>
+            <div class="form-message form-message-error" role="alert">
+                <h2>Please correct the following:</h2>
 
-                    <ul>
-                        <?php foreach ($errors as $error): ?>
-                            <li><?= e($error); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                    <li><?= e($error); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
             <?php endif; ?>
 
 
@@ -1854,10 +1836,7 @@ require INCLUDES_PATH . '/header.php';
                  Search
             =========================================================== -->
 
-            <section
-                class="forum-admin-actions"
-                aria-labelledby="user-search-heading"
-            >
+            <section class="forum-admin-actions" aria-labelledby="user-search-heading">
 
                 <div>
 
@@ -1876,11 +1855,7 @@ require INCLUDES_PATH . '/header.php';
                 </div>
 
 
-                <form
-                    action="<?= e(url('admin/users.php')); ?>"
-                    method="get"
-                    class="forum-admin-form"
-                >
+                <form action="<?= e(url('admin/users.php')); ?>" method="get" class="forum-admin-form">
 
                     <div class="form-group">
 
@@ -1888,36 +1863,23 @@ require INCLUDES_PATH . '/header.php';
                             Search Users
                         </label>
 
-                        <input
-                            class="form-control"
-                            id="user-search"
-                            type="search"
-                            name="q"
-                            maxlength="255"
-                            value="<?= e($searchValue); ?>"
-                            placeholder="Name, username, or email"
-                        >
+                        <input class="form-control" id="user-search" type="search" name="q" maxlength="255"
+                            value="<?= e($searchValue); ?>" placeholder="Name, username, or email">
 
                     </div>
 
 
                     <div class="forum-admin-edit-actions">
 
-                        <button
-                            type="submit"
-                            class="button button-primary"
-                        >
+                        <button type="submit" class="button button-primary">
                             Search
                         </button>
 
                         <?php if ($searchValue !== ''): ?>
 
-                            <a
-                                href="<?= e(url('admin/users.php')); ?>"
-                                class="button button-secondary"
-                            >
-                                Clear Search
-                            </a>
+                        <a href="<?= e(url('admin/users.php')); ?>" class="button button-secondary">
+                            Clear Search
+                        </a>
 
                         <?php endif; ?>
 
@@ -1934,13 +1896,13 @@ require INCLUDES_PATH . '/header.php';
 
             <?php if ($selectedUserId > 0 && $selectedUser === null): ?>
 
-                <div class="form-message form-message-error">
-                    That user could not be found.
-                </div>
+            <div class="form-message form-message-error">
+                That user could not be found.
+            </div>
 
             <?php elseif ($selectedUser !== null): ?>
 
-                <?php
+            <?php
 
                 $selectedIsProtectedSuperAdmin =
                     (int) $selectedUser['id']
@@ -1952,138 +1914,109 @@ require INCLUDES_PATH . '/header.php';
 
                 ?>
 
-                <section
-                    class="forum-structure-panel"
-                    aria-labelledby="selected-user-heading"
-                >
+            <section class="forum-structure-panel" aria-labelledby="selected-user-heading">
 
-                    <header class="forum-admin-titlebar">
+                <header class="forum-admin-titlebar">
 
-                        <p class="forum-admin-step">
-                            Selected User
-                        </p>
+                    <p class="forum-admin-step">
+                        Selected User
+                    </p>
 
-                        <h2 id="selected-user-heading">
-                            <?= e((string) $selectedUser['display_name']); ?>
-                        </h2>
+                    <h2 id="selected-user-heading">
+                        <?= e((string) $selectedUser['display_name']); ?>
+                    </h2>
 
-                    </header>
+                </header>
 
 
-                    <div class="forum-admin-form">
+                <div class="forum-admin-form">
 
-                        <div class="forum-admin-form-grid">
+                    <div class="forum-admin-form-grid">
 
-                            <div class="form-group">
-                                <label>Username</label>
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    value="<?= e((string) $selectedUser['username']); ?>"
-                                    readonly
-                                >
-                            </div>
-
-                            <div class="form-group">
-                                <label>Email</label>
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    value="<?= e((string) $selectedUser['email']); ?>"
-                                    readonly
-                                >
-                            </div>
-
-                            <div class="form-group">
-                                <label>Account Status</label>
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    value="<?= e(ucfirst((string) $selectedUser['status'])); ?>"
-                                    readonly
-                                >
-                            </div>
-
-                            <div class="form-group">
-                                <label>Email Verification</label>
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    value="<?= $selectedUser['email_verified_at'] !== null ? 'Verified' : 'Not Verified'; ?>"
-                                    readonly
-                                >
-                            </div>
-
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input class="form-control" type="text"
+                                value="<?= e((string) $selectedUser['username']); ?>" readonly>
                         </div>
 
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input class="form-control" type="text" value="<?= e((string) $selectedUser['email']); ?>"
+                                readonly>
+                        </div>
 
-                        <?php if ($selectedIsProtectedSuperAdmin): ?>
+                        <div class="form-group">
+                            <label>Account Status</label>
+                            <input class="form-control" type="text"
+                                value="<?= e(ucfirst((string) $selectedUser['status'])); ?>" readonly>
+                        </div>
 
-                            <div class="form-message form-message-info">
-
-                                <strong>Protected Super Admin Account</strong>
-
-                                <p>
-                                    This account always retains full Blackthorne
-                                    access through the protected Super Admin
-                                    setting, regardless of the roles/groups
-                                    selected below.
-                                </p>
-
-                            </div>
-
-                        <?php endif; ?>
+                        <div class="form-group">
+                            <label>Email Verification</label>
+                            <input class="form-control" type="text"
+                                value="<?= $selectedUser['email_verified_at'] !== null ? 'Verified' : 'Not Verified'; ?>"
+                                readonly>
+                        </div>
 
                     </div>
 
 
-                    <header class="forum-admin-titlebar">
+                    <?php if ($selectedIsProtectedSuperAdmin): ?>
 
-                        <p class="forum-admin-step">
-                            Role Membership
+                    <div class="form-message form-message-info">
+
+                        <strong>Protected Super Admin Account</strong>
+
+                        <p>
+                            This account always retains full Blackthorne
+                            access through the protected Super Admin
+                            setting, regardless of the roles/groups
+                            selected below.
                         </p>
 
-                        <h2>
-                            Assign Roles &amp; Groups
-                        </h2>
+                    </div>
 
-                    </header>
+                    <?php endif; ?>
 
-
-                    <?php if ($canAssignRoles): ?>
-
-                        <form
-                            action="<?= e(url('admin/users.php?user=' . (int) $selectedUser['id'])); ?>"
-                            method="post"
-                            class="forum-admin-form"
-                        >
-
-                            <?= csrf_field(); ?>
-
-                            <input
-                                type="hidden"
-                                name="form_action"
-                                value="save_user_roles"
-                            >
-
-                            <input
-                                type="hidden"
-                                name="user_id"
-                                value="<?= (int) $selectedUser['id']; ?>"
-                            >
+                </div>
 
 
-                            <?php if ($availableRoles === []): ?>
+                <header class="forum-admin-titlebar">
 
-                                <div class="forum-admin-empty">
-                                    No active roles/groups are available.
-                                </div>
+                    <p class="forum-admin-step">
+                        Role Membership
+                    </p>
 
-                            <?php else: ?>
+                    <h2>
+                        Assign Roles &amp; Groups
+                    </h2>
 
-                                <?php foreach ($availableRoles as $role): ?>
+                </header>
 
-                                    <?php
+
+                <?php if ($canAssignRoles): ?>
+
+                <form action="<?= e(url('admin/users.php?user=' . (int) $selectedUser['id'])); ?>" method="post"
+                    class="forum-admin-form">
+
+                    <?= csrf_field(); ?>
+
+                    <input type="hidden" name="form_action" value="save_user_roles">
+
+                    <input type="hidden" name="user_id" value="<?= (int) $selectedUser['id']; ?>">
+
+
+                    <?php if ($availableRoles === []): ?>
+
+                    <div class="forum-admin-empty">
+                        No active roles/groups are available.
+                    </div>
+
+                    <?php else: ?>
+
+                    <?php foreach ($availableRoles as $role): ?>
+
+                    <?php
 
                                     $roleId =
                                         (int) $role['id'];
@@ -2121,55 +2054,46 @@ require INCLUDES_PATH . '/header.php';
 
                                     ?>
 
-                                    <fieldset class="forum-admin-fieldset">
+                    <fieldset class="forum-admin-fieldset">
 
-                                        <legend
-                                            <?php if ($roleHasColor): ?>
-                                                style="color: <?= e($roleColor); ?>;"
-                                            <?php endif; ?>
-                                        >
-                                            <?= e((string) $role['name']); ?>
-                                        </legend>
+                        <legend <?php if ($roleHasColor): ?> style="color: <?= e($roleColor); ?>;" <?php endif; ?>>
+                            <?= e((string) $role['name']); ?>
+                        </legend>
 
 
-                                        <label class="forum-admin-choice">
+                        <label class="forum-admin-choice">
 
-                                            <input
-                                                type="checkbox"
-                                                name="role_ids[]"
-                                                value="<?= $roleId; ?>"
-                                                data-role-assignment-toggle="<?= $roleId; ?>"
-                                                <?= $isChecked ? 'checked' : ''; ?>
-                                            >
+                            <input type="checkbox" name="role_ids[]" value="<?= $roleId; ?>"
+                                data-role-assignment-toggle="<?= $roleId; ?>" <?= $isChecked ? 'checked' : ''; ?>>
 
-                                            <span>
+                            <span>
 
-                                                <strong>
-                                                    Assign <?= e((string) $role['name']); ?>
-                                                </strong>
+                                <strong>
+                                    Assign <?= e((string) $role['name']); ?>
+                                </strong>
 
-                                                <?php if ((int) $role['is_staff'] === 1): ?>
-                                                    <br>
-                                                    <small>
-                                                        Staff Role
-                                                    </small>
-                                                <?php endif; ?>
+                                <?php if ((int) $role['is_staff'] === 1): ?>
+                                <br>
+                                <small>
+                                    Staff Role
+                                </small>
+                                <?php endif; ?>
 
-                                                <?php if ($isAdminRole): ?>
-                                                    <br>
-                                                    <small>
-                                                        Full-Privilege Role
-                                                    </small>
+                                <?php if ($isAdminRole): ?>
+                                <br>
+                                <small>
+                                    Full-Privilege Role
+                                </small>
 
-                                                    <?php if (false): ?>
-                                                        <br>
-                                                        <small>
-                                                            Only a full-privilege administrator can assign or remove this role.
-                                                        </small>
-                                                    <?php endif; ?>
-                                                <?php endif; ?>
+                                <?php if (false): ?>
+                                <br>
+                                <small>
+                                    Only a full-privilege administrator can assign or remove this role.
+                                </small>
+                                <?php endif; ?>
+                                <?php endif; ?>
 
-                                                <?php if (
+                                <?php if (
                                                     trim(
                                                         (string) (
                                                             $role['description']
@@ -2177,199 +2101,159 @@ require INCLUDES_PATH . '/header.php';
                                                         )
                                                     ) !== ''
                                                 ): ?>
-                                                    <br>
-                                                    <?= e((string) $role['description']); ?>
-                                                <?php endif; ?>
+                                <br>
+                                <?= e((string) $role['description']); ?>
+                                <?php endif; ?>
 
-                                            </span>
+                            </span>
 
-                                        </label>
-
-
-                                        <div
-                                            class="form-group"
-                                            data-role-expiration-box="<?= $roleId; ?>"
-                                            <?= $isChecked ? '' : 'hidden'; ?>
-                                        >
-
-                                            <label for="role-expires-<?= $roleId; ?>">
-                                                Optional Expiration Date
-                                            </label>
-
-                                            <input
-                                                class="form-control"
-                                                id="role-expires-<?= $roleId; ?>"
-                                                type="date"
-                                                name="role_expires[<?= $roleId; ?>]"
-                                                value="<?= e($expirationValue); ?>"
-                                                <?= $isChecked ? '' : 'disabled'; ?>
-                                            >
-
-                                            <p class="form-help">
-                                                Leave blank for a permanent
-                                                assignment. The role remains
-                                                active through the selected date.
-                                            </p>
-
-                                        </div>
-
-                                    </fieldset>
-
-                                <?php endforeach; ?>
+                        </label>
 
 
-                                <div class="forum-admin-edit-actions">
+                        <div class="form-group" data-role-expiration-box="<?= $roleId; ?>"
+                            <?= $isChecked ? '' : 'hidden'; ?>>
 
-                                    <button
-                                        type="submit"
-                                        class="button button-primary"
-                                    >
-                                        Save Role Assignments
-                                    </button>
+                            <label for="role-expires-<?= $roleId; ?>">
+                                Optional Expiration Date
+                            </label>
 
-                                    <a
-                                        href="<?= e(url('admin/users.php')); ?>"
-                                        class="button button-secondary"
-                                    >
-                                        Close User
-                                    </a>
+                            <input class="form-control" id="role-expires-<?= $roleId; ?>" type="date"
+                                name="role_expires[<?= $roleId; ?>]" value="<?= e($expirationValue); ?>"
+                                <?= $isChecked ? '' : 'disabled'; ?>>
 
-                                </div>
+                            <p class="form-help">
+                                Leave blank for a permanent
+                                assignment. The role remains
+                                active through the selected date.
+                            </p>
 
-                            <?php endif; ?>
-
-                        </form>
-
-                    <?php else: ?>
-
-                        <div class="forum-admin-empty">
-                            You may view this user, but you do not have
-                            permission to assign or remove roles/groups.
                         </div>
+
+                    </fieldset>
+
+                    <?php endforeach; ?>
+
+
+                    <div class="forum-admin-edit-actions">
+
+                        <button type="submit" class="button button-primary">
+                            Save Role Assignments
+                        </button>
+
+                        <a href="<?= e(url('admin/users.php')); ?>" class="button button-secondary">
+                            Close User
+                        </a>
+
+                    </div>
 
                     <?php endif; ?>
 
+                </form>
 
-                    <?php if ($canManageUserPermissions): ?>
+                <?php else: ?>
 
-                        <header
-                            class="forum-admin-titlebar"
-                            id="individual-permissions"
-                        >
+                <div class="forum-admin-empty">
+                    You may view this user, but you do not have
+                    permission to assign or remove roles/groups.
+                </div>
 
-                            <p class="forum-admin-step">
-                                Individual Access
-                            </p>
-
-                            <h2>
-                                Individual Permission Overrides
-                            </h2>
-
-                        </header>
+                <?php endif; ?>
 
 
-                        <?php if ($selectedIsProtectedSuperAdmin): ?>
+                <?php if ($canManageUserPermissions): ?>
 
-                            <div class="forum-admin-empty">
-                                Individual permission overrides are not used for
-                                this protected Admin account. Its protected access
-                                always takes precedence.
-                            </div>
+                <header class="forum-admin-titlebar" id="individual-permissions">
 
-                        <?php elseif (
+                    <p class="forum-admin-step">
+                        Individual Access
+                    </p>
+
+                    <h2>
+                        Individual Permission Overrides
+                    </h2>
+
+                </header>
+
+
+                <?php if ($selectedIsProtectedSuperAdmin): ?>
+
+                <div class="forum-admin-empty">
+                    Individual permission overrides are not used for
+                    this protected Admin account. Its protected access
+                    always takes precedence.
+                </div>
+
+                <?php elseif (
                             $selectedIsCurrentUser
                             && !$isProtectedSuperAdmin
                         ): ?>
 
-                            <div class="forum-admin-empty">
-                                You cannot change individual permission overrides
-                                for your own account.
-                            </div>
+                <div class="forum-admin-empty">
+                    You cannot change individual permission overrides
+                    for your own account.
+                </div>
 
-                        <?php else: ?>
+                <?php else: ?>
 
-                            <div class="forum-admin-form">
+                <div class="forum-admin-form">
 
-                                <div class="forum-admin-edit-actions">
+                    <div class="forum-admin-edit-actions">
 
-                                    <form
-                                        action="<?= e(url('admin/users.php?user=' . (int) $selectedUser['id'])); ?>"
-                                        method="post"
-                                        onsubmit="return confirm('Clear ALL individual permission overrides for this user?');"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form action="<?= e(url('admin/users.php?user=' . (int) $selectedUser['id'])); ?>" method="post"
+                            onsubmit="return confirm('Clear ALL individual permission overrides for this user?');">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="form_action"
-                                            value="clear_user_permissions"
-                                        >
+                            <input type="hidden" name="form_action" value="clear_user_permissions">
 
-                                        <input
-                                            type="hidden"
-                                            name="user_id"
-                                            value="<?= (int) $selectedUser['id']; ?>"
-                                        >
+                            <input type="hidden" name="user_id" value="<?= (int) $selectedUser['id']; ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Clear All Overrides
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Clear All Overrides
+                            </button>
+                        </form>
 
-                                </div>
+                    </div>
 
-                            </div>
+                </div>
 
 
-                            <form
-                                action="<?= e(url('admin/users.php?user=' . (int) $selectedUser['id'] . '#individual-permissions')); ?>"
-                                method="post"
-                                class="forum-admin-form"
-                            >
+                <form
+                    action="<?= e(url('admin/users.php?user=' . (int) $selectedUser['id'] . '#individual-permissions')); ?>"
+                    method="post" class="forum-admin-form">
 
-                                <?= csrf_field(); ?>
+                    <?= csrf_field(); ?>
 
-                                <input
-                                    type="hidden"
-                                    name="form_action"
-                                    value="save_user_permissions"
-                                >
+                    <input type="hidden" name="form_action" value="save_user_permissions">
 
-                                <input
-                                    type="hidden"
-                                    name="user_id"
-                                    value="<?= (int) $selectedUser['id']; ?>"
-                                >
+                    <input type="hidden" name="user_id" value="<?= (int) $selectedUser['id']; ?>">
 
 
-                                <p class="user-permission-intro">
-                                    Only the protected Super Admin may manage direct user overrides. Use <strong>Use Role Setting</strong> for normal
-                                    role-based access. <strong>Allow</strong> grants
-                                    this permission directly to this user, while
-                                    <strong>Deny</strong> blocks it even when one
-                                    of the user's roles normally grants it.
-                                </p>
+                    <p class="user-permission-intro">
+                        Only the protected Super Admin may manage direct user overrides. Use <strong>Use Role
+                            Setting</strong> for normal
+                        role-based access. <strong>Allow</strong> grants
+                        this permission directly to this user, while
+                        <strong>Deny</strong> blocks it even when one
+                        of the user's roles normally grants it.
+                    </p>
 
 
-                                <?php if ($permissionsByCategory === []): ?>
+                    <?php if ($permissionsByCategory === []): ?>
 
-                                    <div class="forum-admin-empty">
-                                        No active permissions are available.
-                                    </div>
+                    <div class="forum-admin-empty">
+                        No active permissions are available.
+                    </div>
 
-                                <?php else: ?>
+                    <?php else: ?>
 
-                                    <div class="permission-override-groups">
+                    <div class="permission-override-groups">
 
-                                        <?php foreach (
+                        <?php foreach (
                                             $permissionsByCategory
                                             as $category => $categoryPermissions
                                         ): ?>
 
-                                            <?php
+                        <?php
                                             $visibleCategoryPermissions = [];
 
                                             foreach (
@@ -2415,28 +2299,28 @@ require INCLUDES_PATH . '/header.php';
                                             }
                                             ?>
 
-                                            <details class="permission-override-group">
+                        <details class="permission-override-group">
 
-                                                <summary>
-                                                    <?= e($category); ?>
+                            <summary>
+                                <?= e($category); ?>
 
-                                                    <?php if ($categoryOverrideCount > 0): ?>
-                                                        <span class="permission-override-count">
-                                                            <?= $categoryOverrideCount; ?>
-                                                            override<?= $categoryOverrideCount === 1 ? '' : 's'; ?>
-                                                        </span>
-                                                    <?php endif; ?>
-                                                </summary>
+                                <?php if ($categoryOverrideCount > 0): ?>
+                                <span class="permission-override-count">
+                                    <?= $categoryOverrideCount; ?>
+                                    override<?= $categoryOverrideCount === 1 ? '' : 's'; ?>
+                                </span>
+                                <?php endif; ?>
+                            </summary>
 
 
-                                                <div class="permission-override-list">
+                            <div class="permission-override-list">
 
-                                                    <?php foreach (
+                                <?php foreach (
                                                         $visibleCategoryPermissions
                                                         as $permission
                                                     ): ?>
 
-                                                        <?php
+                                <?php
                                                         $permissionId =
                                                             (int) $permission['id'];
 
@@ -2445,19 +2329,19 @@ require INCLUDES_PATH . '/header.php';
                                                             ?? 'inherit';
                                                         ?>
 
-                                                        <div class="permission-override-row">
+                                <div class="permission-override-row">
 
-                                                            <div>
+                                    <div>
 
-                                                                <p class="permission-override-name">
-                                                                    <?= e((string) $permission['name']); ?>
-                                                                </p>
+                                        <p class="permission-override-name">
+                                            <?= e((string) $permission['name']); ?>
+                                        </p>
 
-                                                                <p class="permission-override-slug">
-                                                                    <?= e((string) $permission['slug']); ?>
-                                                                </p>
+                                        <p class="permission-override-slug">
+                                            <?= e((string) $permission['slug']); ?>
+                                        </p>
 
-                                                                <?php if (
+                                        <?php if (
                                                                     trim(
                                                                         (string) (
                                                                             $permission['description']
@@ -2466,107 +2350,91 @@ require INCLUDES_PATH . '/header.php';
                                                                     ) !== ''
                                                                 ): ?>
 
-                                                                    <p class="permission-override-description">
-                                                                        <?= e((string) $permission['description']); ?>
-                                                                    </p>
+                                        <p class="permission-override-description">
+                                            <?= e((string) $permission['description']); ?>
+                                        </p>
 
-                                                                <?php endif; ?>
-
-                                                            </div>
-
-
-                                                            <div>
-
-                                                                <label
-                                                                    class="sr-only"
-                                                                    for="permission-override-<?= $permissionId; ?>"
-                                                                >
-                                                                    Override for
-                                                                    <?= e((string) $permission['name']); ?>
-                                                                </label>
-
-                                                                <select
-                                                                    class="form-control permission-override-select"
-                                                                    id="permission-override-<?= $permissionId; ?>"
-                                                                    name="permission_overrides[<?= $permissionId; ?>]"
-                                                                >
-                                                                    <option
-                                                                        value="inherit"
-                                                                        <?= $overrideState === 'inherit' ? 'selected' : ''; ?>
-                                                                    >
-                                                                        Use Role Setting
-                                                                    </option>
-
-                                                                    <option
-                                                                        value="allow"
-                                                                        <?= $overrideState === 'allow' ? 'selected' : ''; ?>
-                                                                    >
-                                                                        Allow
-                                                                    </option>
-
-                                                                    <option
-                                                                        value="deny"
-                                                                        <?= $overrideState === 'deny' ? 'selected' : ''; ?>
-                                                                    >
-                                                                        Deny
-                                                                    </option>
-                                                                </select>
-
-                                                            </div>
-
-                                                        </div>
-
-                                                    <?php endforeach; ?>
-
-                                                </div>
-
-                                            </details>
-
-                                        <?php endforeach; ?>
+                                        <?php endif; ?>
 
                                     </div>
 
 
-                                    <div class="forum-admin-edit-actions permission-override-save">
+                                    <div>
 
-                                        <button
-                                            type="submit"
-                                            class="button button-primary"
-                                        >
-                                            Save Permission Overrides
-                                        </button>
+                                        <label class="sr-only" for="permission-override-<?= $permissionId; ?>">
+                                            Override for
+                                            <?= e((string) $permission['name']); ?>
+                                        </label>
+
+                                        <select class="form-control permission-override-select"
+                                            id="permission-override-<?= $permissionId; ?>"
+                                            name="permission_overrides[<?= $permissionId; ?>]">
+                                            <option value="inherit"
+                                                <?= $overrideState === 'inherit' ? 'selected' : ''; ?>>
+                                                Use Role Setting
+                                            </option>
+
+                                            <option value="allow" <?= $overrideState === 'allow' ? 'selected' : ''; ?>>
+                                                Allow
+                                            </option>
+
+                                            <option value="deny" <?= $overrideState === 'deny' ? 'selected' : ''; ?>>
+                                                Deny
+                                            </option>
+                                        </select>
 
                                     </div>
 
-                                <?php endif; ?>
+                                </div>
 
-                            </form>
+                                <?php endforeach; ?>
 
-                        <?php endif; ?>
+                            </div>
+
+                        </details>
+
+                        <?php endforeach; ?>
+
+                    </div>
+
+
+                    <div class="forum-admin-edit-actions permission-override-save">
+
+                        <button type="submit" class="button button-primary">
+                            Save Permission Overrides
+                        </button>
+
+                    </div>
 
                     <?php endif; ?>
 
+                </form>
 
-                    <?php if ($selectedUserRoles !== []): ?>
+                <?php endif; ?>
 
-                        <header class="forum-admin-titlebar">
-
-                            <p class="forum-admin-step">
-                                Current Access
-                            </p>
-
-                            <h2>
-                                Active Assignments
-                            </h2>
-
-                        </header>
+                <?php endif; ?>
 
 
-                        <div class="forum-structure-list">
+                <?php if ($selectedUserRoles !== []): ?>
 
-                            <?php foreach ($selectedUserRoles as $assignedRole): ?>
+                <header class="forum-admin-titlebar">
 
-                                <?php
+                    <p class="forum-admin-step">
+                        Current Access
+                    </p>
+
+                    <h2>
+                        Active Assignments
+                    </h2>
+
+                </header>
+
+
+                <div class="forum-structure-list">
+
+                    <?php foreach ($selectedUserRoles as $assignedRole): ?>
+
+                    <?php
 
                                 $assignedColor =
                                     trim(
@@ -2582,31 +2450,28 @@ require INCLUDES_PATH . '/header.php';
 
                                 ?>
 
-                                <article class="forum-structure-category">
+                    <article class="forum-structure-category">
 
-                                    <header>
+                        <header>
 
-                                        <div>
+                            <div>
 
-                                            <h3
-                                                <?php if ($assignedHasColor): ?>
-                                                    style="color: <?= e($assignedColor); ?>;"
-                                                <?php endif; ?>
-                                            >
-                                                <?= e((string) $assignedRole['name']); ?>
-                                            </h3>
+                                <h3 <?php if ($assignedHasColor): ?> style="color: <?= e($assignedColor); ?>;"
+                                    <?php endif; ?>>
+                                    <?= e((string) $assignedRole['name']); ?>
+                                </h3>
 
-                                            <p>
+                                <p>
 
-                                                <?php if ((int) $assignedRole['is_staff'] === 1): ?>
-                                                    Staff Role
-                                                <?php else: ?>
-                                                    Member Role
-                                                <?php endif; ?>
+                                    <?php if ((int) $assignedRole['is_staff'] === 1): ?>
+                                    Staff Role
+                                    <?php else: ?>
+                                    Member Role
+                                    <?php endif; ?>
 
-                                                <?php if ($assignedRole['expires_at'] !== null): ?>
-                                                    · Expires
-                                                    <?= e(
+                                    <?php if ($assignedRole['expires_at'] !== null): ?>
+                                    · Expires
+                                    <?= e(
                                                         date(
                                                             'M j, Y',
                                                             strtotime(
@@ -2614,25 +2479,25 @@ require INCLUDES_PATH . '/header.php';
                                                             )
                                                         )
                                                     ); ?>
-                                                <?php else: ?>
-                                                    · No expiration
-                                                <?php endif; ?>
+                                    <?php else: ?>
+                                    · No expiration
+                                    <?php endif; ?>
 
-                                            </p>
+                                </p>
 
-                                        </div>
+                            </div>
 
-                                    </header>
+                        </header>
 
-                                </article>
+                    </article>
 
-                            <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                        </div>
+                </div>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
-                </section>
+            </section>
 
             <?php endif; ?>
 
@@ -2641,10 +2506,7 @@ require INCLUDES_PATH . '/header.php';
                  User List
             =========================================================== -->
 
-            <section
-                class="forum-structure-panel"
-                aria-labelledby="users-list-heading"
-            >
+            <section class="forum-structure-panel" aria-labelledby="users-list-heading">
 
                 <header class="forum-admin-titlebar">
 
@@ -2661,17 +2523,17 @@ require INCLUDES_PATH . '/header.php';
 
                 <?php if ($users === []): ?>
 
-                    <div class="forum-admin-empty">
-                        No users matched your search.
-                    </div>
+                <div class="forum-admin-empty">
+                    No users matched your search.
+                </div>
 
                 <?php else: ?>
 
-                    <div class="forum-structure-list">
+                <div class="forum-structure-list">
 
-                        <?php foreach ($users as $user): ?>
+                    <?php foreach ($users as $user): ?>
 
-                            <?php
+                    <?php
 
                             $userId =
                                 (int) $user['id'];
@@ -2681,57 +2543,55 @@ require INCLUDES_PATH . '/header.php';
 
                             ?>
 
-                            <article class="forum-structure-category">
+                    <article class="forum-structure-category">
 
-                                <header>
+                        <header>
 
-                                    <div>
+                            <div>
 
-                                        <h3<?= user_display_name_style_attr($userId); ?>>
-                                            <?= e((string) $user['display_name']); ?>
-                                        </h3>
+                                <h3<?= user_display_name_style_attr($userId); ?>>
+                                    <?= e((string) $user['display_name']); ?>
+                                    </h3>
 
-                                        <p>
-                                            @<?= e((string) $user['username']); ?>
-                                            · <?= e((string) $user['email']); ?>
-                                        </p>
+                                    <p>
+                                        @<?= e((string) $user['username']); ?>
+                                        · <?= e((string) $user['email']); ?>
+                                    </p>
 
-                                        <p>
-                                            Status:
-                                            <?= e(ucfirst((string) $user['status'])); ?>
-                                            ·
-                                            <?= $user['email_verified_at'] !== null ? 'Verified' : 'Not Verified'; ?>
-                                            ·
-                                            <?= number_format((int) $user['active_role_count']); ?>
-                                            Active
-                                            <?= (int) $user['active_role_count'] === 1 ? 'Role' : 'Roles'; ?>
+                                    <p>
+                                        Status:
+                                        <?= e(ucfirst((string) $user['status'])); ?>
+                                        ·
+                                        <?= $user['email_verified_at'] !== null ? 'Verified' : 'Not Verified'; ?>
+                                        ·
+                                        <?= number_format((int) $user['active_role_count']); ?>
+                                        Active
+                                        <?= (int) $user['active_role_count'] === 1 ? 'Role' : 'Roles'; ?>
 
-                                            <?php if ($isProtected): ?>
-                                                · Protected Super Admin
-                                            <?php endif; ?>
-                                        </p>
+                                        <?php if ($isProtected): ?>
+                                        · Protected Super Admin
+                                        <?php endif; ?>
+                                    </p>
 
-                                    </div>
+                            </div>
 
 
-                                    <div class="forum-admin-edit-actions">
+                            <div class="forum-admin-edit-actions">
 
-                                        <a
-                                            href="<?= e(url('admin/users.php?user=' . $userId)); ?>"
-                                            class="button button-secondary"
-                                        >
-                                            Manage Roles
-                                        </a>
+                                <a href="<?= e(url('admin/users.php?user=' . $userId)); ?>"
+                                    class="button button-secondary">
+                                    Manage Roles
+                                </a>
 
-                                    </div>
+                            </div>
 
-                                </header>
+                        </header>
 
-                            </article>
+                    </article>
 
-                        <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-                    </div>
+                </div>
 
                 <?php endif; ?>
 
@@ -2744,69 +2604,68 @@ require INCLUDES_PATH . '/header.php';
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
 
-    document
-        .querySelectorAll('[data-role-assignment-toggle]')
-        .forEach(function (toggle) {
+        document
+            .querySelectorAll('[data-role-assignment-toggle]')
+            .forEach(function(toggle) {
 
-            var roleId =
-                toggle.getAttribute(
-                    'data-role-assignment-toggle'
-                );
+                var roleId =
+                    toggle.getAttribute(
+                        'data-role-assignment-toggle'
+                    );
 
-            var expirationBox =
-                document.querySelector(
-                    '[data-role-expiration-box="' + roleId + '"]'
-                );
+                var expirationBox =
+                    document.querySelector(
+                        '[data-role-expiration-box="' + roleId + '"]'
+                    );
 
-            if (!expirationBox) {
-                return;
-            }
+                if (!expirationBox) {
+                    return;
+                }
 
-            var expirationInput =
-                expirationBox.querySelector(
-                    'input[type="date"]'
-                );
+                var expirationInput =
+                    expirationBox.querySelector(
+                        'input[type="date"]'
+                    );
 
+                function syncExpirationBox() {
 
-            function syncExpirationBox() {
+                    if (toggle.checked) {
 
-                if (toggle.checked) {
-
-                    expirationBox.hidden =
-                        false;
-
-                    if (expirationInput) {
-                        expirationInput.disabled =
+                        expirationBox.hidden =
                             false;
-                    }
 
-                } else {
+                        if (expirationInput) {
+                            expirationInput.disabled =
+                                false;
+                        }
 
-                    expirationBox.hidden =
-                        true;
+                    } else {
 
-                    if (expirationInput) {
-                        expirationInput.disabled =
+                        expirationBox.hidden =
                             true;
+
+                        if (expirationInput) {
+                            expirationInput.disabled =
+                                true;
+                        }
+
                     }
 
                 }
 
-            }
+                toggle.addEventListener(
+                    'change',
+                    syncExpirationBox
+                );
 
+                syncExpirationBox();
 
-            toggle.addEventListener(
-                'change',
-                syncExpirationBox
-            );
+            });
 
-            syncExpirationBox();
+    });
 
-        });
-
-});
 </script>
 
 <?php require INCLUDES_PATH . '/footer.php'; ?>

@@ -1073,200 +1073,196 @@ $errorMessage =
 ?>
 
 <style>
-.sanctions-page .sanctions-layout {
-    display: grid;
-    grid-template-columns: minmax(250px, 0.38fr) minmax(0, 1fr);
-    gap: 1.2rem;
-    align-items: start;
-}
+    .sanctions-page .sanctions-layout {
+        display: grid;
+        grid-template-columns: minmax(250px, 0.38fr) minmax(0, 1fr);
+        gap: 1.2rem;
+        align-items: start;
+    }
 
-.sanctions-page .sanctions-panel {
-    border: 1px solid rgba(150, 113, 147, 0.26);
-    background: rgba(20, 12, 23, 0.58);
-    padding: 1rem;
-}
+    .sanctions-page .sanctions-panel {
+        border: 1px solid rgba(150, 113, 147, 0.26);
+        background: rgba(20, 12, 23, 0.58);
+        padding: 1rem;
+    }
 
-.sanctions-page .sanctions-panel h2,
-.sanctions-page .sanctions-panel h3 {
-    margin-top: 0;
-}
+    .sanctions-page .sanctions-panel h2,
+    .sanctions-page .sanctions-panel h3 {
+        margin-top: 0;
+    }
 
-.sanctions-page .sanctions-search-results {
-    display: grid;
-    gap: 0.55rem;
-    margin-top: 0.9rem;
-}
+    .sanctions-page .sanctions-search-results {
+        display: grid;
+        gap: 0.55rem;
+        margin-top: 0.9rem;
+    }
 
-.sanctions-page .sanctions-user-result {
-    display: block;
-    padding: 0.7rem 0.8rem;
-    border: 1px solid rgba(150, 113, 147, 0.28);
-    background: rgba(31, 17, 35, 0.42);
-    color: #eee7ef;
-    text-decoration: none;
-}
+    .sanctions-page .sanctions-user-result {
+        display: block;
+        padding: 0.7rem 0.8rem;
+        border: 1px solid rgba(150, 113, 147, 0.28);
+        background: rgba(31, 17, 35, 0.42);
+        color: #eee7ef;
+        text-decoration: none;
+    }
 
-.sanctions-page .sanctions-user-result:hover {
-    border-color: rgba(212, 178, 91, 0.55);
-}
+    .sanctions-page .sanctions-user-result:hover {
+        border-color: rgba(212, 178, 91, 0.55);
+    }
 
-.sanctions-page .sanctions-user-result strong,
-.sanctions-page .sanctions-user-result span {
-    display: block;
-}
+    .sanctions-page .sanctions-user-result strong,
+    .sanctions-page .sanctions-user-result span {
+        display: block;
+    }
 
-.sanctions-page .sanctions-user-result span {
-    margin-top: 0.18rem;
-    font-size: 0.78rem;
-    opacity: 0.72;
-}
+    .sanctions-page .sanctions-user-result span {
+        margin-top: 0.18rem;
+        font-size: 0.78rem;
+        opacity: 0.72;
+    }
 
-.sanctions-page select.form-control,
-.sanctions-page textarea.form-control,
-.sanctions-page input.form-control {
-    color: #eee7ef;
-    background: #160d19;
-    border: 1px solid rgba(150, 113, 147, 0.55);
-    border-radius: 5px;
-    box-shadow: none;
-}
+    .sanctions-page select.form-control,
+    .sanctions-page textarea.form-control,
+    .sanctions-page input.form-control {
+        color: #eee7ef;
+        background: #160d19;
+        border: 1px solid rgba(150, 113, 147, 0.55);
+        border-radius: 5px;
+        box-shadow: none;
+    }
 
-.sanctions-page select.form-control:hover,
-.sanctions-page textarea.form-control:hover,
-.sanctions-page input.form-control:hover {
-    border-color: rgba(212, 178, 91, 0.55);
-}
+    .sanctions-page select.form-control:hover,
+    .sanctions-page textarea.form-control:hover,
+    .sanctions-page input.form-control:hover {
+        border-color: rgba(212, 178, 91, 0.55);
+    }
 
-.sanctions-page select.form-control:focus,
-.sanctions-page textarea.form-control:focus,
-.sanctions-page input.form-control:focus {
-    color: #fff8ef;
-    background: #1c1020;
-    border-color: #d4b25b;
-    outline: 2px solid rgba(212, 178, 91, 0.18);
-    outline-offset: 2px;
-    box-shadow: none;
-}
+    .sanctions-page select.form-control:focus,
+    .sanctions-page textarea.form-control:focus,
+    .sanctions-page input.form-control:focus {
+        color: #fff8ef;
+        background: #1c1020;
+        border-color: #d4b25b;
+        outline: 2px solid rgba(212, 178, 91, 0.18);
+        outline-offset: 2px;
+        box-shadow: none;
+    }
 
-.sanctions-page select.form-control {
-    color-scheme: dark;
-}
+    .sanctions-page select.form-control {
+        color-scheme: dark;
+    }
 
-.sanctions-page select.form-control option {
-    color: #eee7ef;
-    background: #160d19;
-}
+    .sanctions-page select.form-control option {
+        color: #eee7ef;
+        background: #160d19;
+    }
 
-.sanctions-page .selected-user-card {
-    margin-bottom: 1rem;
-    padding: 0.85rem 1rem;
-    border-left: 2px solid rgba(212, 178, 91, 0.62);
-    background: rgba(40, 23, 43, 0.34);
-}
+    .sanctions-page .selected-user-card {
+        margin-bottom: 1rem;
+        padding: 0.85rem 1rem;
+        border-left: 2px solid rgba(212, 178, 91, 0.62);
+        background: rgba(40, 23, 43, 0.34);
+    }
 
-.sanctions-page .selected-user-card p {
-    margin: 0.15rem 0;
-}
+    .sanctions-page .selected-user-card p {
+        margin: 0.15rem 0;
+    }
 
-.sanctions-page .protected-account-note {
-    padding: 0.9rem;
-    border: 1px solid rgba(212, 178, 91, 0.3);
-    background: rgba(212, 178, 91, 0.06);
-}
+    .sanctions-page .protected-account-note {
+        padding: 0.9rem;
+        border: 1px solid rgba(212, 178, 91, 0.3);
+        background: rgba(212, 178, 91, 0.06);
+    }
 
-.sanctions-page .sanction-section {
-    margin-top: 1.25rem;
-}
+    .sanctions-page .sanction-section {
+        margin-top: 1.25rem;
+    }
 
-.sanctions-page .sanction-list {
-    display: grid;
-    gap: 0.75rem;
-}
+    .sanctions-page .sanction-list {
+        display: grid;
+        gap: 0.75rem;
+    }
 
-.sanctions-page .sanction-card {
-    padding: 0.9rem 1rem;
-    border: 1px solid rgba(150, 113, 147, 0.25);
-    background: rgba(10, 8, 13, 0.58);
-}
+    .sanctions-page .sanction-card {
+        padding: 0.9rem 1rem;
+        border: 1px solid rgba(150, 113, 147, 0.25);
+        background: rgba(10, 8, 13, 0.58);
+    }
 
-.sanctions-page .sanction-card-header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.7rem;
-    align-items: start;
-}
+    .sanctions-page .sanction-card-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.7rem;
+        align-items: start;
+    }
 
-.sanctions-page .sanction-card-header h4 {
-    margin: 0;
-    font-size: 0.98rem;
-}
+    .sanctions-page .sanction-card-header h4 {
+        margin: 0;
+        font-size: 0.98rem;
+    }
 
-.sanctions-page .sanction-badge {
-    display: inline-flex;
-    padding: 0.25rem 0.55rem;
-    border: 1px solid rgba(212, 178, 91, 0.35);
-    border-radius: 999px;
-    color: #d4b25b;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
+    .sanctions-page .sanction-badge {
+        display: inline-flex;
+        padding: 0.25rem 0.55rem;
+        border: 1px solid rgba(212, 178, 91, 0.35);
+        border-radius: 999px;
+        color: #d4b25b;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
 
-.sanctions-page .sanction-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 0.8rem;
-    margin: 0.55rem 0 0;
-    font-size: 0.78rem;
-    opacity: 0.76;
-}
+    .sanctions-page .sanction-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem 0.8rem;
+        margin: 0.55rem 0 0;
+        font-size: 0.78rem;
+        opacity: 0.76;
+    }
 
-.sanctions-page .sanction-reason {
-    margin: 0.7rem 0 0;
-    padding: 0.7rem 0.8rem;
-    border-left: 2px solid rgba(212, 178, 91, 0.48);
-    background: rgba(40, 23, 43, 0.3);
-}
+    .sanctions-page .sanction-reason {
+        margin: 0.7rem 0 0;
+        padding: 0.7rem 0.8rem;
+        border-left: 2px solid rgba(212, 178, 91, 0.48);
+        background: rgba(40, 23, 43, 0.3);
+    }
 
-.sanctions-page .issue-sanction-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 0.7fr) minmax(0, 0.7fr);
-    gap: 0.8rem 1rem;
-}
-
-.sanctions-page .issue-sanction-grid .full-width {
-    grid-column: 1 / -1;
-}
-
-.sanctions-page .empty-state {
-    padding: 1rem;
-    border: 1px dashed rgba(150, 113, 147, 0.28);
-    text-align: center;
-    opacity: 0.78;
-}
-
-@media (max-width: 860px) {
-    .sanctions-page .sanctions-layout,
     .sanctions-page .issue-sanction-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: minmax(0, 0.7fr) minmax(0, 0.7fr);
+        gap: 0.8rem 1rem;
     }
 
     .sanctions-page .issue-sanction-grid .full-width {
-        grid-column: auto;
+        grid-column: 1 / -1;
     }
-}
+
+    .sanctions-page .empty-state {
+        padding: 1rem;
+        border: 1px dashed rgba(150, 113, 147, 0.28);
+        text-align: center;
+        opacity: 0.78;
+    }
+
+    @media (max-width: 860px) {
+
+        .sanctions-page .sanctions-layout,
+        .sanctions-page .issue-sanction-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .sanctions-page .issue-sanction-grid .full-width {
+            grid-column: auto;
+        }
+    }
+
 </style>
 
-<main
-    id="main-content"
-    class="forum-admin-page sanctions-page"
->
+<main id="main-content" class="forum-admin-page sanctions-page">
 
-    <section
-        class="forum-admin-hero"
-        aria-labelledby="sanctions-heading"
-    >
+    <section class="forum-admin-hero" aria-labelledby="sanctions-heading">
         <div class="section-inner">
 
             <p class="academy-overline">
@@ -1284,20 +1280,14 @@ $errorMessage =
 
             <div class="forum-admin-edit-actions">
 
-                <a
-                    href="<?= e(url('admin/moderation.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('admin/moderation.php')); ?>" class="button button-secondary">
                     Moderation
                 </a>
 
                 <?php if (user_can('moderation.history.view')): ?>
-                    <a
-                        href="<?= e(url('admin/moderation-history.php')); ?>"
-                        class="button button-secondary"
-                    >
-                        Moderation History
-                    </a>
+                <a href="<?= e(url('admin/moderation-history.php')); ?>" class="button button-secondary">
+                    Moderation History
+                </a>
                 <?php endif; ?>
 
                 <?php if (
@@ -1308,18 +1298,12 @@ $errorMessage =
                         'moderation.reports.dismiss',
                     ])
                 ): ?>
-                    <a
-                        href="<?= e(url('admin/reports.php')); ?>"
-                        class="button button-secondary"
-                    >
-                        Reports &amp; Moderation
-                    </a>
+                <a href="<?= e(url('admin/reports.php')); ?>" class="button button-secondary">
+                    Reports &amp; Moderation
+                </a>
                 <?php endif; ?>
 
-                <a
-                    href="<?= e(url('staff-dashboard.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">
                     Staff Dashboard
                 </a>
 
@@ -1334,17 +1318,17 @@ $errorMessage =
 
             <?php if ($successMessage): ?>
 
-                <div class="alert alert-success">
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="alert alert-success">
+                <?= e($successMessage); ?>
+            </div>
 
             <?php endif; ?>
 
             <?php if ($errorMessage): ?>
 
-                <div class="alert alert-error">
-                    <?= e($errorMessage); ?>
-                </div>
+            <div class="alert alert-error">
+                <?= e($errorMessage); ?>
+            </div>
 
             <?php endif; ?>
 
@@ -1357,30 +1341,17 @@ $errorMessage =
                         Find User
                     </h2>
 
-                    <form
-                        action="<?= e(url('admin/sanctions.php')); ?>"
-                        method="get"
-                    >
+                    <form action="<?= e(url('admin/sanctions.php')); ?>" method="get">
                         <div class="form-group">
                             <label for="sanction-user-search">
                                 Name, username, or email
                             </label>
 
-                            <input
-                                type="search"
-                                id="sanction-user-search"
-                                name="q"
-                                class="form-control"
-                                value="<?= e($searchQuery); ?>"
-                                placeholder="Search users"
-                                required
-                            >
+                            <input type="search" id="sanction-user-search" name="q" class="form-control"
+                                value="<?= e($searchQuery); ?>" placeholder="Search users" required>
                         </div>
 
-                        <button
-                            type="submit"
-                            class="button button-primary"
-                        >
+                        <button type="submit" class="button button-primary">
                             Search
                         </button>
                     </form>
@@ -1388,50 +1359,47 @@ $errorMessage =
 
                     <?php if ($searchQuery !== ''): ?>
 
-                        <div class="sanctions-search-results">
+                    <div class="sanctions-search-results">
 
-                            <?php if ($searchResults === []): ?>
+                        <?php if ($searchResults === []): ?>
 
-                                <div class="empty-state">
-                                    No users matched that search.
-                                </div>
+                        <div class="empty-state">
+                            No users matched that search.
+                        </div>
 
-                            <?php else: ?>
+                        <?php else: ?>
 
-                                <?php foreach ($searchResults as $result): ?>
+                        <?php foreach ($searchResults as $result): ?>
 
-                                    <a
-                                        href="<?= e(
+                        <a href="<?= e(
                                             url(
                                                 'admin/sanctions.php?user='
                                                 . (int) $result['id']
                                             )
-                                        ); ?>"
-                                        class="sanctions-user-result"
-                                    >
-                                        <strong>
-                                            <?= e(
+                                        ); ?>" class="sanctions-user-result">
+                            <strong>
+                                <?= e(
                                                 sanctions_user_name(
                                                     $result
                                                 )
                                             ); ?>
-                                        </strong>
+                            </strong>
 
-                                        <span>
-                                            @<?= e((string) $result['username']); ?>
-                                            · <?= e((string) $result['status']); ?>
-                                        </span>
+                            <span>
+                                @<?= e((string) $result['username']); ?>
+                                · <?= e((string) $result['status']); ?>
+                            </span>
 
-                                        <span>
-                                            <?= e((string) $result['email']); ?>
-                                        </span>
-                                    </a>
+                            <span>
+                                <?= e((string) $result['email']); ?>
+                            </span>
+                        </a>
 
-                                <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
-                        </div>
+                    </div>
 
                     <?php endif; ?>
 
@@ -1442,22 +1410,22 @@ $errorMessage =
 
                     <?php if (!$selectedUser): ?>
 
-                        <div class="sanctions-panel">
+                    <div class="sanctions-panel">
 
-                            <h2>
-                                Select a User
-                            </h2>
+                        <h2>
+                            Select a User
+                        </h2>
 
-                            <p>
-                                Search for a member to view their active
-                                sanctions and sanction history.
-                            </p>
+                        <p>
+                            Search for a member to view their active
+                            sanctions and sanction history.
+                        </p>
 
-                        </div>
+                    </div>
 
                     <?php else: ?>
 
-                        <?php
+                    <?php
 
                         $selectedName =
                             sanctions_user_name(
@@ -1471,211 +1439,182 @@ $errorMessage =
 
                         ?>
 
-                        <div class="sanctions-panel">
+                    <div class="sanctions-panel">
 
-                            <div class="selected-user-card">
+                        <div class="selected-user-card">
 
-                                <h2>
-                                    <?= e($selectedName); ?>
-                                </h2>
+                            <h2>
+                                <?= e($selectedName); ?>
+                            </h2>
 
-                                <p>
-                                    @<?= e((string) $selectedUser['username']); ?>
-                                </p>
+                            <p>
+                                @<?= e((string) $selectedUser['username']); ?>
+                            </p>
 
-                                <p>
-                                    <?= e((string) $selectedUser['email']); ?>
-                                </p>
+                            <p>
+                                <?= e((string) $selectedUser['email']); ?>
+                            </p>
 
-                                <p>
-                                    Account status:
-                                    <strong>
-                                        <?= e((string) $selectedUser['status']); ?>
-                                    </strong>
-                                </p>
+                            <p>
+                                Account status:
+                                <strong>
+                                    <?= e((string) $selectedUser['status']); ?>
+                                </strong>
+                            </p>
 
-                            </div>
+                        </div>
 
 
-                            <?php if ($selectedIsProtected): ?>
+                        <?php if ($selectedIsProtected): ?>
 
-                                <div class="protected-account-note">
+                        <div class="protected-account-note">
 
-                                    <strong>
-                                        Protected Admin Account
-                                    </strong>
+                            <strong>
+                                Protected Admin Account
+                            </strong>
 
-                                    <p>
-                                        Sanctions cannot be issued to or
-                                        lifted from this protected account.
-                                    </p>
+                            <p>
+                                Sanctions cannot be issued to or
+                                lifted from this protected account.
+                            </p>
 
-                                </div>
+                        </div>
 
-                            <?php elseif (
+                        <?php elseif (
                                 (int) $selectedUser['id']
                                 === $currentUserId
                             ): ?>
 
-                                <div class="protected-account-note">
+                        <div class="protected-account-note">
 
-                                    <strong>
-                                        Your Account
-                                    </strong>
+                            <strong>
+                                Your Account
+                            </strong>
 
-                                    <p>
-                                        Staff cannot issue or lift sanctions
-                                        on their own account.
-                                    </p>
+                            <p>
+                                Staff cannot issue or lift sanctions
+                                on their own account.
+                            </p>
 
-                                </div>
+                        </div>
 
-                            <?php elseif (
+                        <?php elseif (
                                 $canManageMutes
                                 || $canManageAccountSanctions
                             ): ?>
 
-                                <section class="sanction-section">
+                        <section class="sanction-section">
 
-                                    <h3>
-                                        Issue Sanction
-                                    </h3>
+                            <h3>
+                                Issue Sanction
+                            </h3>
 
-                                    <form
-                                        action="<?= e(url('admin/sanctions.php')); ?>"
-                                        method="post"
-                                    >
-                                        <?= csrf_field(); ?>
+                            <form action="<?= e(url('admin/sanctions.php')); ?>" method="post">
+                                <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="form_action"
-                                            value="issue_sanction"
-                                        >
+                                <input type="hidden" name="form_action" value="issue_sanction">
 
-                                        <input
-                                            type="hidden"
-                                            name="user_id"
-                                            value="<?= (int) $selectedUser['id']; ?>"
-                                        >
+                                <input type="hidden" name="user_id" value="<?= (int) $selectedUser['id']; ?>">
 
-                                        <div class="issue-sanction-grid">
+                                <div class="issue-sanction-grid">
 
-                                            <div class="form-group">
+                                    <div class="form-group">
 
-                                                <label for="sanction-type">
-                                                    Sanction Type
-                                                </label>
+                                        <label for="sanction-type">
+                                            Sanction Type
+                                        </label>
 
-                                                <select
-                                                    id="sanction-type"
-                                                    name="sanction_type"
-                                                    class="form-control"
-                                                    required
-                                                >
-                                                    <option value="">
-                                                        Choose sanction…
-                                                    </option>
+                                        <select id="sanction-type" name="sanction_type" class="form-control" required>
+                                            <option value="">
+                                                Choose sanction…
+                                            </option>
 
-                                                    <?php if ($canManageMutes): ?>
-                                                        <option value="forum_mute">
-                                                            Forum Mute
-                                                        </option>
-                                                        <option value="messaging_mute">
-                                                            Messaging Mute
-                                                        </option>
-                                                    <?php endif; ?>
+                                            <?php if ($canManageMutes): ?>
+                                            <option value="forum_mute">
+                                                Forum Mute
+                                            </option>
+                                            <option value="messaging_mute">
+                                                Messaging Mute
+                                            </option>
+                                            <?php endif; ?>
 
-                                                    <?php if ($canManageAccountSanctions): ?>
-                                                        <option value="account_suspension">
-                                                            Account Suspension
-                                                        </option>
-                                                        <option value="account_ban">
-                                                            Account Ban
-                                                        </option>
-                                                    <?php endif; ?>
-                                                </select>
+                                            <?php if ($canManageAccountSanctions): ?>
+                                            <option value="account_suspension">
+                                                Account Suspension
+                                            </option>
+                                            <option value="account_ban">
+                                                Account Ban
+                                            </option>
+                                            <?php endif; ?>
+                                        </select>
 
-                                            </div>
-
-
-                                            <div class="form-group">
-
-                                                <label for="sanction-expires">
-                                                    Expires
-                                                </label>
-
-                                                <input
-                                                    type="datetime-local"
-                                                    id="sanction-expires"
-                                                    name="expires_at"
-                                                    class="form-control"
-                                                >
-
-                                                <small>
-                                                    Leave blank for no automatic expiration.
-                                                </small>
-
-                                            </div>
-
-
-                                            <div class="form-group full-width">
-
-                                                <label for="sanction-reason">
-                                                    Reason
-                                                </label>
-
-                                                <textarea
-                                                    id="sanction-reason"
-                                                    name="reason"
-                                                    class="form-control"
-                                                    rows="4"
-                                                    maxlength="4000"
-                                                    required
-                                                ></textarea>
-
-                                            </div>
-
-
-                                            <div class="full-width">
-
-                                                <button
-                                                    type="submit"
-                                                    class="button button-primary"
-                                                >
-                                                    Issue Sanction
-                                                </button>
-
-                                            </div>
-
-                                        </div>
-
-                                    </form>
-
-                                </section>
-
-                            <?php endif; ?>
-
-
-                            <section class="sanction-section">
-
-                                <h3>
-                                    Active Sanctions
-                                </h3>
-
-                                <?php if ($activeSanctions === []): ?>
-
-                                    <div class="empty-state">
-                                        This user has no active sanctions.
                                     </div>
 
-                                <?php else: ?>
 
-                                    <div class="sanction-list">
+                                    <div class="form-group">
 
-                                        <?php foreach ($activeSanctions as $sanction): ?>
+                                        <label for="sanction-expires">
+                                            Expires
+                                        </label>
 
-                                            <?php
+                                        <input type="datetime-local" id="sanction-expires" name="expires_at"
+                                            class="form-control">
+
+                                        <small>
+                                            Leave blank for no automatic expiration.
+                                        </small>
+
+                                    </div>
+
+
+                                    <div class="form-group full-width">
+
+                                        <label for="sanction-reason">
+                                            Reason
+                                        </label>
+
+                                        <textarea id="sanction-reason" name="reason" class="form-control" rows="4"
+                                            maxlength="4000" required></textarea>
+
+                                    </div>
+
+
+                                    <div class="full-width">
+
+                                        <button type="submit" class="button button-primary">
+                                            Issue Sanction
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </form>
+
+                        </section>
+
+                        <?php endif; ?>
+
+
+                        <section class="sanction-section">
+
+                            <h3>
+                                Active Sanctions
+                            </h3>
+
+                            <?php if ($activeSanctions === []): ?>
+
+                            <div class="empty-state">
+                                This user has no active sanctions.
+                            </div>
+
+                            <?php else: ?>
+
+                            <div class="sanction-list">
+
+                                <?php foreach ($activeSanctions as $sanction): ?>
+
+                                <?php
 
                                             $sanctionType =
                                                 (string) $sanction['sanction_type'];
@@ -1691,66 +1630,66 @@ $errorMessage =
 
                                             ?>
 
-                                            <article class="sanction-card">
+                                <article class="sanction-card">
 
-                                                <div class="sanction-card-header">
+                                    <div class="sanction-card-header">
 
-                                                    <h4>
-                                                        <?= e(
+                                        <h4>
+                                            <?= e(
                                                             sanctions_type_label(
                                                                 $sanctionType
                                                             )
                                                         ); ?>
-                                                    </h4>
+                                        </h4>
 
-                                                    <span class="sanction-badge">
-                                                        Active
-                                                    </span>
+                                        <span class="sanction-badge">
+                                            Active
+                                        </span>
 
-                                                </div>
+                                    </div>
 
-                                                <p class="sanction-meta">
+                                    <p class="sanction-meta">
 
-                                                    <span>
-                                                        Issued by
-                                                        <?= e(
+                                        <span>
+                                            Issued by
+                                            <?= e(
                                                             sanctions_user_name(
                                                                 $sanction,
                                                                 'issued_by_display_name',
                                                                 'issued_by_username'
                                                             )
                                                         ); ?>
-                                                    </span>
+                                        </span>
 
-                                                    <span>
-                                                        <?= e(
+                                        <span>
+                                            <?= e(
                                                             sanctions_datetime(
                                                                 (string) $sanction['starts_at']
                                                             )
                                                         ); ?>
-                                                    </span>
+                                        </span>
 
-                                                    <span>
-                                                        Expires:
-                                                        <?= e(
+                                        <span>
+                                            Expires:
+                                            <?= e(
                                                             $sanction['expires_at'] !== null
                                                                 ? sanctions_datetime(
                                                                     (string) $sanction['expires_at']
                                                                 )
                                                                 : 'No expiration'
                                                         ); ?>
-                                                    </span>
+                                        </span>
 
-                                                </p>
+                                    </p>
 
-                                                <div class="sanction-reason">
+                                    <div class="sanction-reason">
 
-                                                    <strong>
-                                                        Reason
-                                                    </strong>
+                                        <strong>
+                                            Reason
+                                        </strong>
 
-                                                    <div>
-                                                        <?= nl2br(
+                                        <div>
+                                            <?= nl2br(
                                                             e(
                                                                 (string) (
                                                                     $sanction['reason']
@@ -1758,80 +1697,61 @@ $errorMessage =
                                                                 )
                                                             )
                                                         ); ?>
-                                                    </div>
-
-                                                </div>
-
-
-                                                <?php if ($canLiftThis): ?>
-
-                                                    <form
-                                                        action="<?= e(url('admin/sanctions.php')); ?>"
-                                                        method="post"
-                                                        style="margin-top: 0.75rem;"
-                                                        onsubmit="return confirm('Lift this sanction?');"
-                                                    >
-                                                        <?= csrf_field(); ?>
-
-                                                        <input
-                                                            type="hidden"
-                                                            name="form_action"
-                                                            value="lift_sanction"
-                                                        >
-
-                                                        <input
-                                                            type="hidden"
-                                                            name="user_id"
-                                                            value="<?= (int) $selectedUser['id']; ?>"
-                                                        >
-
-                                                        <input
-                                                            type="hidden"
-                                                            name="sanction_id"
-                                                            value="<?= (int) $sanction['id']; ?>"
-                                                        >
-
-                                                        <button
-                                                            type="submit"
-                                                            class="button button-secondary"
-                                                        >
-                                                            Lift Sanction
-                                                        </button>
-
-                                                    </form>
-
-                                                <?php endif; ?>
-
-                                            </article>
-
-                                        <?php endforeach; ?>
+                                        </div>
 
                                     </div>
 
-                                <?php endif; ?>
 
-                            </section>
+                                    <?php if ($canLiftThis): ?>
+
+                                    <form action="<?= e(url('admin/sanctions.php')); ?>" method="post"
+                                        style="margin-top: 0.75rem;" onsubmit="return confirm('Lift this sanction?');">
+                                        <?= csrf_field(); ?>
+
+                                        <input type="hidden" name="form_action" value="lift_sanction">
+
+                                        <input type="hidden" name="user_id" value="<?= (int) $selectedUser['id']; ?>">
+
+                                        <input type="hidden" name="sanction_id" value="<?= (int) $sanction['id']; ?>">
+
+                                        <button type="submit" class="button button-secondary">
+                                            Lift Sanction
+                                        </button>
+
+                                    </form>
+
+                                    <?php endif; ?>
+
+                                </article>
+
+                                <?php endforeach; ?>
+
+                            </div>
+
+                            <?php endif; ?>
+
+                        </section>
 
 
-                            <section class="sanction-section">
+                        <section class="sanction-section">
 
-                                <h3>
-                                    Sanction History
-                                </h3>
+                            <h3>
+                                Sanction History
+                            </h3>
 
-                                <?php if ($sanctionHistory === []): ?>
+                            <?php if ($sanctionHistory === []): ?>
 
-                                    <div class="empty-state">
-                                        No previous sanctions are recorded for this user.
-                                    </div>
+                            <div class="empty-state">
+                                No previous sanctions are recorded for this user.
+                            </div>
 
-                                <?php else: ?>
+                            <?php else: ?>
 
-                                    <div class="sanction-list">
+                            <div class="sanction-list">
 
-                                        <?php foreach ($sanctionHistory as $sanction): ?>
+                                <?php foreach ($sanctionHistory as $sanction): ?>
 
-                                            <?php
+                                <?php
 
                                             $lifterName =
                                                 sanctions_user_name(
@@ -1849,77 +1769,77 @@ $errorMessage =
 
                                             ?>
 
-                                            <article class="sanction-card">
+                                <article class="sanction-card">
 
-                                                <div class="sanction-card-header">
+                                    <div class="sanction-card-header">
 
-                                                    <h4>
-                                                        <?= e(
+                                        <h4>
+                                            <?= e(
                                                             sanctions_type_label(
                                                                 (string) $sanction['sanction_type']
                                                             )
                                                         ); ?>
-                                                    </h4>
+                                        </h4>
 
-                                                    <span class="sanction-badge">
-                                                        <?= $expiredNaturally
+                                        <span class="sanction-badge">
+                                            <?= $expiredNaturally
                                                             ? 'Expired'
                                                             : 'Lifted'; ?>
-                                                    </span>
+                                        </span>
 
-                                                </div>
+                                    </div>
 
-                                                <p class="sanction-meta">
+                                    <p class="sanction-meta">
 
-                                                    <span>
-                                                        Issued:
-                                                        <?= e(
+                                        <span>
+                                            Issued:
+                                            <?= e(
                                                             sanctions_datetime(
                                                                 (string) $sanction['starts_at']
                                                             )
                                                         ); ?>
-                                                    </span>
+                                        </span>
 
-                                                    <?php if ($expiredNaturally): ?>
+                                        <?php if ($expiredNaturally): ?>
 
-                                                        <span>
-                                                            Expired:
-                                                            <?= e(
+                                        <span>
+                                            Expired:
+                                            <?= e(
                                                                 sanctions_datetime(
                                                                     (string) $sanction['expires_at']
                                                                 )
                                                             ); ?>
-                                                        </span>
+                                        </span>
 
-                                                    <?php elseif ($sanction['lifted_at'] !== null): ?>
+                                        <?php elseif ($sanction['lifted_at'] !== null): ?>
 
-                                                        <span>
-                                                            Lifted:
-                                                            <?= e(
+                                        <span>
+                                            Lifted:
+                                            <?= e(
                                                                 sanctions_datetime(
                                                                     (string) $sanction['lifted_at']
                                                                 )
                                                             ); ?>
-                                                        </span>
+                                        </span>
 
-                                                        <?php if ($lifterName !== ''): ?>
-                                                            <span>
-                                                                By <?= e($lifterName); ?>
-                                                            </span>
-                                                        <?php endif; ?>
+                                        <?php if ($lifterName !== ''): ?>
+                                        <span>
+                                            By <?= e($lifterName); ?>
+                                        </span>
+                                        <?php endif; ?>
 
-                                                    <?php endif; ?>
+                                        <?php endif; ?>
 
-                                                </p>
+                                    </p>
 
-                                                <div class="sanction-reason">
+                                    <div class="sanction-reason">
 
-                                                    <strong>
-                                                        Original Reason
-                                                    </strong>
+                                        <strong>
+                                            Original Reason
+                                        </strong>
 
-                                                    <div>
-                                                        <?= nl2br(
+                                        <div>
+                                            <?= nl2br(
                                                             e(
                                                                 (string) (
                                                                     $sanction['reason']
@@ -1927,21 +1847,21 @@ $errorMessage =
                                                                 )
                                                             )
                                                         ); ?>
-                                                    </div>
-
-                                                </div>
-
-                                            </article>
-
-                                        <?php endforeach; ?>
+                                        </div>
 
                                     </div>
 
-                                <?php endif; ?>
+                                </article>
 
-                            </section>
+                                <?php endforeach; ?>
 
-                        </div>
+                            </div>
+
+                            <?php endif; ?>
+
+                        </section>
+
+                    </div>
 
                     <?php endif; ?>
 

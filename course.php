@@ -148,20 +148,20 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="dashboard-page">
-        <section class="section-inner">
-            <div class="dashboard-workspace-panel">
-                <div class="dashboard-panel-body">
-                    <h1>Course Not Found</h1>
-                    <p>
-                        The requested course could not be found.
-                    </p>
-                </div>
+<main id="main-content" class="dashboard-page">
+    <section class="section-inner">
+        <div class="dashboard-workspace-panel">
+            <div class="dashboard-panel-body">
+                <h1>Course Not Found</h1>
+                <p>
+                    The requested course could not be found.
+                </p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -191,27 +191,24 @@ if ($enrollment === null) {
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="dashboard-page">
-        <section class="section-inner">
-            <div class="dashboard-workspace-panel">
-                <div class="dashboard-panel-body">
-                    <h1>Course Unavailable</h1>
-                    <p>
-                        You are not enrolled in this course offering.
-                    </p>
+<main id="main-content" class="dashboard-page">
+    <section class="section-inner">
+        <div class="dashboard-workspace-panel">
+            <div class="dashboard-panel-body">
+                <h1>Course Unavailable</h1>
+                <p>
+                    You are not enrolled in this course offering.
+                </p>
 
-                    <a
-                        class="button button-secondary"
-                        href="<?= e(url('courses.php')); ?>"
-                    >
-                        Back to My Courses
-                    </a>
-                </div>
+                <a class="button button-secondary" href="<?= e(url('courses.php')); ?>">
+                    Back to My Courses
+                </a>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -289,20 +286,20 @@ if (!is_array($course)) {
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="dashboard-page">
-        <section class="section-inner">
-            <div class="dashboard-workspace-panel">
-                <div class="dashboard-panel-body">
-                    <h1>Course Not Found</h1>
-                    <p>
-                        The requested course offering no longer exists.
-                    </p>
-                </div>
+<main id="main-content" class="dashboard-page">
+    <section class="section-inner">
+        <div class="dashboard-workspace-panel">
+            <div class="dashboard-panel-body">
+                <h1>Course Not Found</h1>
+                <p>
+                    The requested course offering no longer exists.
+                </p>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -852,10 +849,7 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page course-page"
->
+<main id="main-content" class="dashboard-page course-page">
 
     <section class="dashboard-workspace-section">
         <div class="section-inner dashboard-workspace-layout">
@@ -910,34 +904,28 @@ require INCLUDES_PATH . '/header.php';
                         ?>
 
                         <?php if ($courseShortDescription !== ''): ?>
-                            <p class="course-overview-intro">
-                                <?= e($courseShortDescription); ?>
-                            </p>
+                        <p class="course-overview-intro">
+                            <?= e($courseShortDescription); ?>
+                        </p>
                         <?php endif; ?>
 
                         <?php if ($courseImageUrl !== ''): ?>
-                            <div class="course-overview-image">
-                                <picture>
-                                    <?php if (
+                        <div class="course-overview-image">
+                            <picture>
+                                <?php if (
                                         $courseImageWebpUrl
                                         !== ''
                                     ): ?>
-                                        <source
-                                            srcset="<?= e(
+                                <source srcset="<?= e(
                                                 $courseImageWebpUrl
-                                            ); ?>"
-                                            type="image/webp"
-                                        >
-                                    <?php endif; ?>
+                                            ); ?>" type="image/webp">
+                                <?php endif; ?>
 
-                                    <img
-                                        src="<?= e(
+                                <img src="<?= e(
                                             $courseImageUrl
-                                        ); ?>"
-                                        alt=""
-                                    >
-                                </picture>
-                            </div>
+                                        ); ?>" alt="">
+                            </picture>
+                        </div>
                         <?php endif; ?>
 
                         <?php if (
@@ -951,15 +939,15 @@ require INCLUDES_PATH . '/header.php';
                             ) !== ''
                         ): ?>
 
-                            <div class="forum-post-content">
-                                <?= nl2br(
+                        <div class="forum-post-content">
+                            <?= nl2br(
                                     e(
                                         (string) $course[
                                             'description'
                                         ]
                                     )
                                 ); ?>
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -976,16 +964,16 @@ require INCLUDES_PATH . '/header.php';
                                     )
                                 ) !== ''
                             ): ?>
-                                <span class="course-overview-pill">
-                                    <small>School Year</small>
-                                    <strong>
-                                        <?= e(
+                            <span class="course-overview-pill">
+                                <small>School Year</small>
+                                <strong>
+                                    <?= e(
                                             (string) $course[
                                                 'school_year_name'
                                             ]
                                         ); ?>
-                                    </strong>
-                                </span>
+                                </strong>
+                            </span>
                             <?php endif; ?>
 
                             <span class="course-overview-pill">
@@ -1055,11 +1043,7 @@ require INCLUDES_PATH . '/header.php';
                 </section>
 
 
-
-                <section
-                    class="course-classroom-home"
-                    aria-label="Course classroom dashboard"
-                >
+                <section class="course-classroom-home" aria-label="Course classroom dashboard">
                     <div class="course-classroom-primary">
 
                         <article class="course-classroom-card course-continue-card">
@@ -1071,7 +1055,7 @@ require INCLUDES_PATH . '/header.php';
 
                                     <h2>
                                         <?php if ($continueLesson !== null): ?>
-                                            <?= e(
+                                        <?= e(
                                                 (string) (
                                                     $continueLesson[
                                                         'title'
@@ -1090,17 +1074,17 @@ require INCLUDES_PATH . '/header.php';
                                                 ?? ''
                                             ) === 'completed'
                                         ): ?>
-                                            Course Complete
+                                        Course Complete
                                         <?php else: ?>
-                                            Classroom Ready
+                                        Classroom Ready
                                         <?php endif; ?>
                                     </h2>
                                 </div>
                             </div>
 
                             <?php if ($continueLesson !== null): ?>
-                                <p>
-                                    <?php
+                            <p>
+                                <?php
                                     $continueDescription =
                                         trim(
                                             (string) (
@@ -1112,15 +1096,13 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <?= $continueDescription !== ''
+                                <?= $continueDescription !== ''
                                         ? e($continueDescription)
                                         : 'Pick up where you left off and continue through the course in order.'; ?>
-                                </p>
+                            </p>
 
-                                <div class="course-classroom-actions">
-                                    <a
-                                        class="button button-primary"
-                                        href="<?= e(
+                            <div class="course-classroom-actions">
+                                <a class="button button-primary" href="<?= e(
                                             url(
                                                 'lesson.php?offering='
                                                 . $offeringId
@@ -1129,9 +1111,8 @@ require INCLUDES_PATH . '/header.php';
                                                     'lesson_id'
                                                 ]
                                             )
-                                        ); ?>"
-                                    >
-                                        <?= (
+                                        ); ?>">
+                                    <?= (
                                             $continueLesson[
                                                 'progress_status'
                                             ]
@@ -1139,24 +1120,21 @@ require INCLUDES_PATH . '/header.php';
                                         ) === 'in_progress'
                                             ? 'Continue Lesson'
                                             : 'Open Lesson'; ?>
-                                    </a>
+                                </a>
 
-                                    <?php if ($courseForum !== null): ?>
-                                        <a
-                                            class="button button-secondary"
-                                            href="<?= e(
+                                <?php if ($courseForum !== null): ?>
+                                <a class="button button-secondary" href="<?= e(
                                                 url(
                                                     'forum.php?f='
                                                     . (int) $courseForum[
                                                         'id'
                                                     ]
                                                 )
-                                            ); ?>"
-                                        >
-                                            Course Forum
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
+                                            ); ?>">
+                                    Course Forum
+                                </a>
+                                <?php endif; ?>
+                            </div>
                             <?php elseif (
                                 (
                                     $enrollment[
@@ -1165,17 +1143,17 @@ require INCLUDES_PATH . '/header.php';
                                     ?? ''
                                 ) === 'completed'
                             ): ?>
-                                <p>
-                                    You have completed this course. Your lessons
-                                    remain available for review while your course
-                                    access is active.
-                                </p>
+                            <p>
+                                You have completed this course. Your lessons
+                                remain available for review while your course
+                                access is active.
+                            </p>
                             <?php else: ?>
-                                <p>
-                                    No lesson is currently available to open.
-                                    Check the lesson list below for release timing
-                                    or prerequisites.
-                                </p>
+                            <p>
+                                No lesson is currently available to open.
+                                Check the lesson list below for release timing
+                                or prerequisites.
+                            </p>
                             <?php endif; ?>
                         </article>
 
@@ -1197,30 +1175,21 @@ require INCLUDES_PATH . '/header.php';
                                 </div>
                             </div>
 
-                            <div
-                                class="course-progress-track"
-                                role="progressbar"
-                                aria-valuemin="0"
-                                aria-valuemax="100"
+                            <div class="course-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100"
                                 aria-valuenow="<?= e(
                                     number_format(
                                         $overallCourseProgress,
                                         0
                                     )
-                                ); ?>"
-                                aria-label="Overall course progress"
-                            >
-                                <span
-                                    class="course-progress-fill"
-                                    style="width: <?= e(
+                                ); ?>" aria-label="Overall course progress">
+                                <span class="course-progress-fill" style="width: <?= e(
                                         number_format(
                                             $overallCourseProgress,
                                             2,
                                             '.',
                                             ''
                                         )
-                                    ); ?>%;"
-                                ></span>
+                                    ); ?>%;"></span>
                             </div>
 
                             <div class="course-progress-summary">
@@ -1280,14 +1249,14 @@ require INCLUDES_PATH . '/header.php';
                             </div>
 
                             <?php if ($courseStaff === []): ?>
-                                <p class="course-classroom-muted">
-                                    No instructor has been assigned to this
-                                    offering yet.
-                                </p>
+                            <p class="course-classroom-muted">
+                                No instructor has been assigned to this
+                                offering yet.
+                            </p>
                             <?php else: ?>
-                                <div class="course-staff-list">
-                                    <?php foreach ($courseStaff as $staffMember): ?>
-                                        <?php
+                            <div class="course-staff-list">
+                                <?php foreach ($courseStaff as $staffMember): ?>
+                                <?php
                                         $staffDisplayName =
                                             trim(
                                                 (string) (
@@ -1331,35 +1300,33 @@ require INCLUDES_PATH . '/header.php';
                                             );
                                         ?>
 
-                                        <div class="course-staff-member">
-                                            <div>
-                                                <?php if ($staffProfileSlug !== ''): ?>
-                                                    <a
-                                                        href="<?= e(
+                                <div class="course-staff-member">
+                                    <div>
+                                        <?php if ($staffProfileSlug !== ''): ?>
+                                        <a href="<?= e(
                                                             url(
                                                                 'profile.php?u='
                                                                 . rawurlencode(
                                                                     $staffProfileSlug
                                                                 )
                                                             )
-                                                        ); ?>"
-                                                    >
-                                                        <?= e($staffDisplayName); ?>
-                                                    </a>
-                                                <?php else: ?>
-                                                    <strong>
-                                                        <?= e($staffDisplayName); ?>
-                                                    </strong>
-                                                <?php endif; ?>
+                                                        ); ?>">
+                                            <?= e($staffDisplayName); ?>
+                                        </a>
+                                        <?php else: ?>
+                                        <strong>
+                                            <?= e($staffDisplayName); ?>
+                                        </strong>
+                                        <?php endif; ?>
 
-                                                <span>
-                                                    <?= e($staffRole); ?>
-                                                </span>
-                                            </div>
-                                        </div>
-
-                                    <?php endforeach; ?>
+                                        <span>
+                                            <?= e($staffRole); ?>
+                                        </span>
+                                    </div>
                                 </div>
+
+                                <?php endforeach; ?>
+                            </div>
                             <?php endif; ?>
                         </article>
 
@@ -1377,20 +1344,19 @@ require INCLUDES_PATH . '/header.php';
                             </div>
 
                             <?php if ($courseAnnouncements === []): ?>
-                                <p class="course-classroom-muted">
-                                    <?php if ($courseForum === null): ?>
-                                        No dedicated course forum has been assigned yet.
-                                    <?php else: ?>
-                                        No pinned announcement threads have been posted yet.
-                                    <?php endif; ?>
-                                </p>
+                            <p class="course-classroom-muted">
+                                <?php if ($courseForum === null): ?>
+                                No dedicated course forum has been assigned yet.
+                                <?php else: ?>
+                                No pinned announcement threads have been posted yet.
+                                <?php endif; ?>
+                            </p>
                             <?php else: ?>
-                                <div class="course-announcement-list">
-                                    <?php foreach ($courseAnnouncements as $announcement): ?>
-                                        <article class="course-announcement-item">
-                                            <h3>
-                                                <a
-                                                    href="<?= e(
+                            <div class="course-announcement-list">
+                                <?php foreach ($courseAnnouncements as $announcement): ?>
+                                <article class="course-announcement-item">
+                                    <h3>
+                                        <a href="<?= e(
                                                         url(
                                                             'thread.php?t='
                                                             . (int) (
@@ -1400,9 +1366,8 @@ require INCLUDES_PATH . '/header.php';
                                                                 ?? 0
                                                             )
                                                         )
-                                                    ); ?>"
-                                                >
-                                                    <?= e(
+                                                    ); ?>">
+                                            <?= e(
                                                         (string) (
                                                             $announcement[
                                                                 'title'
@@ -1410,11 +1375,11 @@ require INCLUDES_PATH . '/header.php';
                                                             ?? 'Announcement'
                                                         )
                                                     ); ?>
-                                                </a>
-                                            </h3>
+                                        </a>
+                                    </h3>
 
-                                            <p class="course-announcement-meta">
-                                                <?= e(
+                                    <p class="course-announcement-meta">
+                                        <?= e(
                                                     student_course_format_datetime(
                                                         $announcement[
                                                             'last_activity_at'
@@ -1426,7 +1391,7 @@ require INCLUDES_PATH . '/header.php';
                                                     )
                                                 ); ?>
 
-                                                <?php
+                                        <?php
                                                 $announcementAuthor =
                                                     trim(
                                                         (string) (
@@ -1441,12 +1406,12 @@ require INCLUDES_PATH . '/header.php';
                                                     );
                                                 ?>
 
-                                                <?php if ($announcementAuthor !== ''): ?>
-                                                    · <?= e($announcementAuthor); ?>
-                                                <?php endif; ?>
-                                            </p>
+                                        <?php if ($announcementAuthor !== ''): ?>
+                                        · <?= e($announcementAuthor); ?>
+                                        <?php endif; ?>
+                                    </p>
 
-                                            <?php
+                                    <?php
                                             $announcementContent =
                                                 trim(
                                                     strip_tags(
@@ -1460,9 +1425,9 @@ require INCLUDES_PATH . '/header.php';
                                                 );
                                             ?>
 
-                                            <?php if ($announcementContent !== ''): ?>
-                                                <p>
-                                                    <?= nl2br(
+                                    <?php if ($announcementContent !== ''): ?>
+                                    <p>
+                                        <?= nl2br(
                                                         e(
                                                             mb_strimwidth(
                                                                 $announcementContent,
@@ -1473,11 +1438,11 @@ require INCLUDES_PATH . '/header.php';
                                                             )
                                                         )
                                                     ); ?>
-                                                </p>
-                                            <?php endif; ?>
-                                        </article>
-                                    <?php endforeach; ?>
-                                </div>
+                                    </p>
+                                    <?php endif; ?>
+                                </article>
+                                <?php endforeach; ?>
+                            </div>
                             <?php endif; ?>
                         </article>
 
@@ -1517,24 +1482,16 @@ require INCLUDES_PATH . '/header.php';
                                     </strong>
                                 </div>
 
-                                <div
-                                    class="course-progress-track"
-                                    role="progressbar"
-                                    aria-valuemin="0"
-                                    aria-valuemax="100"
-                                    aria-valuenow="<?= e(
+                                <div class="course-progress-track" role="progressbar" aria-valuemin="0"
+                                    aria-valuemax="100" aria-valuenow="<?= e(
                                         number_format(
                                             (float) $lessonSummary[
                                                 'percent'
                                             ],
                                             0
                                         )
-                                    ); ?>"
-                                    aria-label="Lesson progress"
-                                >
-                                    <span
-                                        class="course-progress-fill"
-                                        style="width: <?= e(
+                                    ); ?>" aria-label="Lesson progress">
+                                    <span class="course-progress-fill" style="width: <?= e(
                                             number_format(
                                                 (float) $lessonSummary[
                                                     'percent'
@@ -1543,8 +1500,7 @@ require INCLUDES_PATH . '/header.php';
                                                 '.',
                                                 ''
                                             )
-                                        ); ?>%;"
-                                    ></span>
+                                        ); ?>%;"></span>
                                 </div>
                             </div>
 
@@ -1609,16 +1565,16 @@ require INCLUDES_PATH . '/header.php';
 
                         <?php if ($lessons === []): ?>
 
-                            <p>
-                                No lessons have been added to this course offering yet.
-                            </p>
+                        <p>
+                            No lessons have been added to this course offering yet.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="course-lesson-list">
+                        <div class="course-lesson-list">
 
-                                <?php foreach ($lessons as $lessonRow): ?>
-                                    <?php
+                            <?php foreach ($lessons as $lessonRow): ?>
+                            <?php
                                     $lessonAvailable =
                                         (bool) (
                                             $lessonRow[
@@ -1665,13 +1621,11 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <article
-                                        class="course-lesson-row <?= $lessonAvailable
+                            <article class="course-lesson-row <?= $lessonAvailable
                                             ? 'is-available'
-                                            : 'is-locked'; ?>"
-                                    >
-                                        <div class="course-lesson-number">
-                                            <?= number_format(
+                                            : 'is-locked'; ?>">
+                                <div class="course-lesson-number">
+                                    <?= number_format(
                                                 (int) (
                                                     $lessonRow[
                                                         'sort_order'
@@ -1679,15 +1633,15 @@ require INCLUDES_PATH . '/header.php';
                                                     ?? 0
                                                 )
                                             ); ?>
-                                        </div>
+                                </div>
 
-                                        <div class="course-lesson-copy">
-                                            <div class="course-lesson-heading">
-                                                <h3><?= e($lessonTitle); ?></h3>
+                                <div class="course-lesson-copy">
+                                    <div class="course-lesson-heading">
+                                        <h3><?= e($lessonTitle); ?></h3>
 
-                                                <div class="course-lesson-badges">
-                                                    <span class="course-lesson-badge">
-                                                        <?= e(
+                                        <div class="course-lesson-badges">
+                                            <span class="course-lesson-badge">
+                                                <?= e(
                                                             ucwords(
                                                                 str_replace(
                                                                     '_',
@@ -1696,44 +1650,42 @@ require INCLUDES_PATH . '/header.php';
                                                                 )
                                                             )
                                                         ); ?>
-                                                    </span>
+                                            </span>
 
-                                                    <span class="course-lesson-badge">
-                                                        <?= e(
+                                            <span class="course-lesson-badge">
+                                                <?= e(
                                                             student_course_reason_label(
                                                                 $availabilityReason
                                                             )
                                                         ); ?>
-                                                    </span>
-                                                </div>
-                                            </div>
+                                            </span>
+                                        </div>
+                                    </div>
 
-                                            <?php if ($lessonDescription !== ''): ?>
-                                                <p><?= e($lessonDescription); ?></p>
-                                            <?php endif; ?>
+                                    <?php if ($lessonDescription !== ''): ?>
+                                    <p><?= e($lessonDescription); ?></p>
+                                    <?php endif; ?>
 
-                                            <?php if (
+                                    <?php if (
                                                 !$lessonAvailable
                                                 && !empty($lessonRow['unlocks_at'])
                                             ): ?>
-                                                <p class="course-lesson-unlock">
-                                                    Opens
-                                                    <?= e(
+                                    <p class="course-lesson-unlock">
+                                        Opens
+                                        <?= e(
                                                         student_course_format_datetime(
                                                             $lessonRow[
                                                                 'unlocks_at'
                                                             ]
                                                         )
                                                     ); ?>
-                                                </p>
-                                            <?php endif; ?>
-                                        </div>
+                                    </p>
+                                    <?php endif; ?>
+                                </div>
 
-                                        <div class="course-lesson-action">
-                                            <?php if ($lessonAvailable): ?>
-                                                <a
-                                                    class="button button-secondary"
-                                                    href="<?= e(
+                                <div class="course-lesson-action">
+                                    <?php if ($lessonAvailable): ?>
+                                    <a class="button button-secondary" href="<?= e(
                                                         url(
                                                             'lesson.php?offering='
                                                             . $offeringId
@@ -1742,22 +1694,21 @@ require INCLUDES_PATH . '/header.php';
                                                                 'lesson_id'
                                                             ]
                                                         )
-                                                    ); ?>"
-                                                >
-                                                    <?= $lessonStatus === 'completed'
+                                                    ); ?>">
+                                        <?= $lessonStatus === 'completed'
                                                         ? 'Review'
                                                         : 'Open Lesson'; ?>
-                                                </a>
-                                            <?php else: ?>
-                                                <span class="course-lesson-lock">
-                                                    Locked
-                                                </span>
-                                            <?php endif; ?>
-                                        </div>
-                                    </article>
-                                <?php endforeach; ?>
+                                    </a>
+                                    <?php else: ?>
+                                    <span class="course-lesson-lock">
+                                        Locked
+                                    </span>
+                                    <?php endif; ?>
+                                </div>
+                            </article>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -1786,19 +1737,19 @@ require INCLUDES_PATH . '/header.php';
                             $assignmentCards === []
                         ): ?>
 
-                            <p>
-                                No published assignments are available for this course yet.
-                            </p>
+                        <p>
+                            No published assignments are available for this course yet.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach (
+                            <?php foreach (
                                     $assignmentCards
                                     as $assignmentRow
                                 ): ?>
-                                    <?php
+                            <?php
                                     $assignmentAvailability =
                                         $assignmentRow[
                                             'availability'
@@ -1843,10 +1794,10 @@ require INCLUDES_PATH . '/header.php';
                                         );
                                     ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            <?= e(
+                                <strong>
+                                    <?= e(
                                                 (string) (
                                                     $assignmentRow[
                                                         'title'
@@ -1857,10 +1808,10 @@ require INCLUDES_PATH . '/header.php';
                                                     ?? 'Assignment'
                                                 )
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             number_format(
                                                 (float) (
                                                     $assignmentRow[
@@ -1871,31 +1822,31 @@ require INCLUDES_PATH . '/header.php';
                                                 2
                                             )
                                         ); ?>
-                                        points
+                                points
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             $assignmentStatus
                                         ); ?>
 
-                                        <?php if (
+                                <?php if (
                                             !empty(
                                                 $assignmentRow[
                                                     'due_date'
                                                 ]
                                             )
                                         ): ?>
-                                            · Due
-                                            <?= e(
+                                · Due
+                                <?= e(
                                                 student_course_format_datetime(
                                                     $assignmentRow[
                                                         'due_date'
                                                     ]
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             (bool) (
                                                 $assignmentAvailability[
                                                     'is_late'
@@ -1909,10 +1860,10 @@ require INCLUDES_PATH . '/header.php';
                                                 ?? false
                                             )
                                         ): ?>
-                                            · Late
-                                        <?php endif; ?>
+                                · Late
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             trim(
                                                 (string) (
                                                     $assignmentRow[
@@ -1922,20 +1873,19 @@ require INCLUDES_PATH . '/header.php';
                                                 )
                                             ) !== ''
                                         ): ?>
-                                            · Related to
-                                            <?= e(
+                                · Related to
+                                <?= e(
                                                 (string) $assignmentRow[
                                                     'lesson_title'
                                                 ]
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             $canOpenAssignment
                                         ): ?>
-                                            ·
-                                            <a
-                                                href="<?= e(
+                                ·
+                                <a href="<?= e(
                                                     url(
                                                         'assignment.php?offering='
                                                         . $offeringId
@@ -1944,24 +1894,23 @@ require INCLUDES_PATH . '/header.php';
                                                             'assignment_id'
                                                         ]
                                                     )
-                                                ); ?>"
-                                            >
-                                                <?= is_array(
+                                                ); ?>">
+                                    <?= is_array(
                                                     $latestAttempt
                                                 )
                                                     ? 'View Assignment'
                                                     : 'Start Assignment'; ?>
-                                            </a>
-                                        <?php endif; ?>
+                                </a>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             $assignmentSummary[
                                                 'highest_grade'
                                             ] !== null
                                         ): ?>
-                                            · Highest grade:
-                                            <strong>
-                                                <?= e(
+                                · Highest grade:
+                                <strong>
+                                    <?= e(
                                                     number_format(
                                                         (float) $assignmentSummary[
                                                             'highest_grade'
@@ -1969,10 +1918,10 @@ require INCLUDES_PATH . '/header.php';
                                                         2
                                                     )
                                                 ); ?>
-                                            </strong>
-                                        <?php endif; ?>
+                                </strong>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             trim(
                                                 (string) (
                                                     $assignmentRow[
@@ -1982,19 +1931,19 @@ require INCLUDES_PATH . '/header.php';
                                                 )
                                             ) !== ''
                                         ): ?>
-                                            <br>
-                                            <?= e(
+                                <br>
+                                <?= e(
                                                 (string) $assignmentRow[
                                                     'description'
                                                 ]
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -2011,7 +1960,7 @@ require INCLUDES_PATH . '/header.php';
 
 
 <style>
-/*
+    /*
 |--------------------------------------------------------------------------
 | Course Classroom Typography
 |--------------------------------------------------------------------------
@@ -2021,515 +1970,500 @@ require INCLUDES_PATH . '/header.php';
 |
 */
 
-.course-page .academy-overline {
-    margin: 0 0 14px;
-    color: var(--color-gold-light);
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-}
+    .course-page .academy-overline {
+        margin: 0 0 14px;
+        color: var(--color-gold-light);
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+    }
 
-.course-page .dashboard-panel-titlebar h2,
-.course-page .course-classroom-card h2,
-.course-page .course-classroom-card h3,
-.course-page .course-lesson-heading h3 {
-    font-family: Georgia, "Times New Roman", serif;
-    font-weight: 500;
-    letter-spacing: 0;
-}
+    .course-page .dashboard-panel-titlebar h2,
+    .course-page .course-classroom-card h2,
+    .course-page .course-classroom-card h3,
+    .course-page .course-lesson-heading h3 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: 500;
+        letter-spacing: 0;
+    }
 
-.course-page .dashboard-panel-titlebar h2 {
-    font-size: clamp(28px, 3vw, 38px);
-    line-height: 1.1;
-}
+    .course-page .dashboard-panel-titlebar h2 {
+        font-size: clamp(28px, 3vw, 38px);
+        line-height: 1.1;
+    }
 
-/*
+    /*
  * Secondary classroom panel headings should use the same restrained scale
  * as the corrected Orientation treatment, rather than oversized display text.
  */
-.course-page .dashboard-workspace-panel:not(:first-child)
-.dashboard-panel-titlebar h2 {
-    font-size: clamp(30px, 3vw, 40px);
-    line-height: 1.08;
-    font-weight: 500;
-}
+    .course-page .dashboard-workspace-panel:not(:first-child) .dashboard-panel-titlebar h2 {
+        font-size: clamp(30px, 3vw, 40px);
+        line-height: 1.08;
+        font-weight: 500;
+    }
 
-.course-page .course-classroom-card h2 {
-    font-size: clamp(22px, 2.2vw, 30px);
-    line-height: 1.15;
-}
+    .course-page .course-classroom-card h2 {
+        font-size: clamp(22px, 2.2vw, 30px);
+        line-height: 1.15;
+    }
 
-.course-page .course-classroom-card h3,
-.course-page .course-lesson-heading h3 {
-    font-size: 1.05rem;
-    line-height: 1.3;
-}
+    .course-page .course-classroom-card h3,
+    .course-page .course-lesson-heading h3 {
+        font-size: 1.05rem;
+        line-height: 1.3;
+    }
 
-/*
+    /*
  * The main course name is the visual anchor of the classroom, using the
  * same large, restrained serif treatment that previously identified the
  * Orientation course at the top of the page.
  */
-.course-page .dashboard-workspace-main > .dashboard-workspace-panel:first-child
-.dashboard-panel-titlebar h2 {
-    font-size: clamp(42px, 5vw, 64px);
-    font-weight: 500;
-    line-height: 1.04;
-}
+    .course-page .dashboard-workspace-main>.dashboard-workspace-panel:first-child .dashboard-panel-titlebar h2 {
+        font-size: clamp(42px, 5vw, 64px);
+        font-weight: 500;
+        line-height: 1.04;
+    }
 
-.course-classroom-home {
-    display: grid;
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
+    .course-classroom-home {
+        display: grid;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
 
-.course-classroom-primary,
-.course-classroom-secondary {
-    display: grid;
-    gap: 1rem;
-}
+    .course-classroom-primary,
+    .course-classroom-secondary {
+        display: grid;
+        gap: 1rem;
+    }
 
-.course-classroom-primary {
-    grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr);
-}
+    .course-classroom-primary {
+        grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr);
+    }
 
-.course-classroom-secondary {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+    .course-classroom-secondary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
-.course-classroom-card {
-    min-width: 0;
-    padding: 1.2rem;
-    border: 1px solid rgba(197, 157, 85, 0.28);
-    border-radius: 0.9rem;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(44, 27, 43, 0.96),
-            rgba(20, 14, 21, 0.98)
-        );
-    box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.16);
-}
+    .course-classroom-card {
+        min-width: 0;
+        padding: 1.2rem;
+        border: 1px solid rgba(197, 157, 85, 0.28);
+        border-radius: 0.9rem;
+        background:
+            linear-gradient(145deg,
+                rgba(44, 27, 43, 0.96),
+                rgba(20, 14, 21, 0.98));
+        box-shadow: 0 0.6rem 1.5rem rgba(0, 0, 0, 0.16);
+    }
 
-.course-classroom-card-head {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.75rem;
-}
+    .course-classroom-card-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 0.75rem;
+    }
 
-.course-classroom-card h2,
-.course-classroom-card h3,
-.course-classroom-card p {
-    margin-top: 0;
-}
+    .course-classroom-card h2,
+    .course-classroom-card h3,
+    .course-classroom-card p {
+        margin-top: 0;
+    }
 
-.course-classroom-card h2 {
-    margin-bottom: 0;
-}
+    .course-classroom-card h2 {
+        margin-bottom: 0;
+    }
 
-.course-classroom-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-    margin-top: 1rem;
-}
+    .course-classroom-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1rem;
+    }
 
-.course-progress-track {
-    position: relative;
-    width: 100%;
-    height: 0.7rem;
-    overflow: hidden;
-    border: 1px solid rgba(197, 157, 85, 0.28);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.07);
-}
+    .course-progress-track {
+        position: relative;
+        width: 100%;
+        height: 0.7rem;
+        overflow: hidden;
+        border: 1px solid rgba(197, 157, 85, 0.28);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+    }
 
-.course-progress-fill {
-    display: block;
-    height: 100%;
-    border-radius: inherit;
-    background:
-        linear-gradient(
-            90deg,
-            #8d6b32,
-            #c59d55
-        );
-}
+    .course-progress-fill {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background:
+            linear-gradient(90deg,
+                #8d6b32,
+                #c59d55);
+    }
 
-.course-progress-summary {
-    display: grid;
-    gap: 0.35rem;
-    margin-top: 0.85rem;
-    font-size: 0.95rem;
-}
+    .course-progress-summary {
+        display: grid;
+        gap: 0.35rem;
+        margin-top: 0.85rem;
+        font-size: 0.95rem;
+    }
 
-.course-staff-list,
-.course-announcement-list {
-    display: grid;
-    gap: 0.75rem;
-}
+    .course-staff-list,
+    .course-announcement-list {
+        display: grid;
+        gap: 0.75rem;
+    }
 
-.course-staff-member {
-    padding: 0.75rem 0;
-    border-top: 1px solid rgba(197, 157, 85, 0.18);
-}
+    .course-staff-member {
+        padding: 0.75rem 0;
+        border-top: 1px solid rgba(197, 157, 85, 0.18);
+    }
 
-.course-staff-member:first-child {
-    padding-top: 0;
-    border-top: 0;
-}
+    .course-staff-member:first-child {
+        padding-top: 0;
+        border-top: 0;
+    }
 
-.course-staff-member a,
-.course-staff-member strong {
-    display: inline-block;
-    font-weight: 600;
-}
+    .course-staff-member a,
+    .course-staff-member strong {
+        display: inline-block;
+        font-weight: 600;
+    }
 
-.course-staff-member span {
-    display: block;
-    margin-top: 0.2rem;
-    opacity: 0.78;
-    font-size: 0.9rem;
-}
+    .course-staff-member span {
+        display: block;
+        margin-top: 0.2rem;
+        opacity: 0.78;
+        font-size: 0.9rem;
+    }
 
-.course-announcement-item {
-    padding-top: 0.8rem;
-    border-top: 1px solid rgba(197, 157, 85, 0.18);
-}
+    .course-announcement-item {
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(197, 157, 85, 0.18);
+    }
 
-.course-announcement-item:first-child {
-    padding-top: 0;
-    border-top: 0;
-}
+    .course-announcement-item:first-child {
+        padding-top: 0;
+        border-top: 0;
+    }
 
-.course-announcement-item h3 {
-    margin-bottom: 0.25rem;
-    font-size: 1rem;
-}
+    .course-announcement-item h3 {
+        margin-bottom: 0.25rem;
+        font-size: 1rem;
+    }
 
-.course-announcement-meta {
-    margin-bottom: 0.45rem;
-    opacity: 0.7;
-    font-size: 0.86rem;
-}
+    .course-announcement-meta {
+        margin-bottom: 0.45rem;
+        opacity: 0.7;
+        font-size: 0.86rem;
+    }
 
-.course-classroom-muted {
-    margin-bottom: 0;
-    opacity: 0.78;
-}
+    .course-classroom-muted {
+        margin-bottom: 0;
+        opacity: 0.78;
+    }
 
+    .course-overview-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1.25rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(197, 157, 85, 0.18);
+    }
 
-.course-overview-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
-    margin-top: 1.25rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(197, 157, 85, 0.18);
-}
+    .course-overview-pill {
+        display: flex;
+        flex: 1 1 9rem;
+        min-width: 0;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.72rem 0.9rem;
+        border: 1px solid rgba(197, 157, 85, 0.26);
+        border-radius: 999px;
+        background: rgba(197, 157, 85, 0.07);
+        text-align: center;
+    }
 
-.course-overview-pill {
-    display: flex;
-    flex: 1 1 9rem;
-    min-width: 0;
-    flex-direction: column;
-    gap: 0.2rem;
-    padding: 0.72rem 0.9rem;
-    border: 1px solid rgba(197, 157, 85, 0.26);
-    border-radius: 999px;
-    background: rgba(197, 157, 85, 0.07);
-    text-align: center;
-}
+    .course-overview-pill small {
+        color: #c7af80;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
 
-.course-overview-pill small {
-    color: #c7af80;
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
+    .course-overview-pill strong {
+        font-size: 0.9rem;
+        font-weight: 600;
+    }
 
-.course-overview-pill strong {
-    font-size: 0.9rem;
-    font-weight: 600;
-}
+    .course-snapshot-visual {
+        display: grid;
+        gap: 1rem;
+    }
 
-.course-snapshot-visual {
-    display: grid;
-    gap: 1rem;
-}
+    .course-snapshot-progress {
+        padding: 1rem;
+        border: 1px solid rgba(197, 157, 85, 0.22);
+        border-radius: 0.8rem;
+        background: rgba(255, 255, 255, 0.025);
+    }
 
-.course-snapshot-progress {
-    padding: 1rem;
-    border: 1px solid rgba(197, 157, 85, 0.22);
-    border-radius: 0.8rem;
-    background: rgba(255, 255, 255, 0.025);
-}
+    .course-snapshot-progress-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-bottom: 0.7rem;
+    }
 
-.course-snapshot-progress-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    margin-bottom: 0.7rem;
-}
+    .course-snapshot-progress-head span {
+        color: #d7c7a8;
+    }
 
-.course-snapshot-progress-head span {
-    color: #d7c7a8;
-}
+    .course-snapshot-progress-head strong {
+        color: #d9b96e;
+        font-size: 1.35rem;
+    }
 
-.course-snapshot-progress-head strong {
-    color: #d9b96e;
-    font-size: 1.35rem;
-}
+    .course-snapshot-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.75rem;
+    }
 
-.course-snapshot-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.75rem;
-}
+    .course-snapshot-stat {
+        min-width: 0;
+        padding: 1rem 0.8rem;
+        border: 1px solid rgba(197, 157, 85, 0.22);
+        border-radius: 0.8rem;
+        background: linear-gradient(145deg,
+                rgba(54, 34, 53, 0.8),
+                rgba(25, 17, 26, 0.92));
+        text-align: center;
+    }
 
-.course-snapshot-stat {
-    min-width: 0;
-    padding: 1rem 0.8rem;
-    border: 1px solid rgba(197, 157, 85, 0.22);
-    border-radius: 0.8rem;
-    background: linear-gradient(
-        145deg,
-        rgba(54, 34, 53, 0.8),
-        rgba(25, 17, 26, 0.92)
-    );
-    text-align: center;
-}
+    .course-snapshot-stat strong {
+        display: block;
+        margin-bottom: 0.22rem;
+        color: #d9b96e;
+        font-size: 1.45rem;
+        font-weight: 600;
+    }
 
-.course-snapshot-stat strong {
-    display: block;
-    margin-bottom: 0.22rem;
-    color: #d9b96e;
-    font-size: 1.45rem;
-    font-weight: 600;
-}
+    .course-snapshot-stat span {
+        font-size: 0.82rem;
+        opacity: 0.82;
+    }
 
-.course-snapshot-stat span {
-    font-size: 0.82rem;
-    opacity: 0.82;
-}
+    .course-snapshot-note {
+        margin-top: 1rem;
+    }
 
-.course-snapshot-note {
-    margin-top: 1rem;
-}
+    .course-lesson-list {
+        display: grid;
+        gap: 0.8rem;
+    }
 
-.course-lesson-list {
-    display: grid;
-    gap: 0.8rem;
-}
+    .course-lesson-row {
+        display: grid;
+        grid-template-columns: 2.7rem minmax(0, 1fr) auto;
+        gap: 1rem;
+        align-items: center;
+        padding: 1rem;
+        border: 1px solid rgba(197, 157, 85, 0.22);
+        border-radius: 0.8rem;
+        background: rgba(255, 255, 255, 0.025);
+    }
 
-.course-lesson-row {
-    display: grid;
-    grid-template-columns: 2.7rem minmax(0, 1fr) auto;
-    gap: 1rem;
-    align-items: center;
-    padding: 1rem;
-    border: 1px solid rgba(197, 157, 85, 0.22);
-    border-radius: 0.8rem;
-    background: rgba(255, 255, 255, 0.025);
-}
+    .course-lesson-row.is-available {
+        border-color: rgba(197, 157, 85, 0.35);
+    }
 
-.course-lesson-row.is-available {
-    border-color: rgba(197, 157, 85, 0.35);
-}
+    .course-lesson-row.is-locked {
+        opacity: 0.72;
+    }
 
-.course-lesson-row.is-locked {
-    opacity: 0.72;
-}
+    .course-lesson-number {
+        display: grid;
+        width: 2.4rem;
+        height: 2.4rem;
+        place-items: center;
+        border: 1px solid rgba(197, 157, 85, 0.4);
+        border-radius: 50%;
+        color: #d9b96e;
+        font-weight: 700;
+    }
 
-.course-lesson-number {
-    display: grid;
-    width: 2.4rem;
-    height: 2.4rem;
-    place-items: center;
-    border: 1px solid rgba(197, 157, 85, 0.4);
-    border-radius: 50%;
-    color: #d9b96e;
-    font-weight: 700;
-}
+    .course-lesson-copy {
+        min-width: 0;
+    }
 
-.course-lesson-copy {
-    min-width: 0;
-}
+    .course-lesson-heading {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 0.75rem;
+    }
 
-.course-lesson-heading {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 0.75rem;
-}
+    .course-lesson-heading h3 {
+        margin: 0;
+        font-size: 1rem;
+    }
 
-.course-lesson-heading h3 {
-    margin: 0;
-    font-size: 1rem;
-}
+    .course-lesson-copy p {
+        margin: 0.45rem 0 0;
+        opacity: 0.82;
+    }
 
-.course-lesson-copy p {
-    margin: 0.45rem 0 0;
-    opacity: 0.82;
-}
+    .course-lesson-badges {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 0.35rem;
+    }
 
-.course-lesson-badges {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.35rem;
-}
+    .course-lesson-badge {
+        padding: 0.22rem 0.5rem;
+        border: 1px solid rgba(197, 157, 85, 0.24);
+        border-radius: 999px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
 
-.course-lesson-badge {
-    padding: 0.22rem 0.5rem;
-    border: 1px solid rgba(197, 157, 85, 0.24);
-    border-radius: 999px;
-    font-size: 0.7rem;
-    white-space: nowrap;
-}
+    .course-lesson-unlock {
+        color: #c7af80;
+        font-size: 0.82rem;
+    }
 
-.course-lesson-unlock {
-    color: #c7af80;
-    font-size: 0.82rem;
-}
+    .course-lesson-action {
+        align-self: center;
+    }
 
-.course-lesson-action {
-    align-self: center;
-}
+    .course-lesson-lock {
+        display: inline-block;
+        padding: 0.42rem 0.65rem;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        font-size: 0.75rem;
+        opacity: 0.75;
+    }
 
-.course-lesson-lock {
-    display: inline-block;
-    padding: 0.42rem 0.65rem;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 999px;
-    font-size: 0.75rem;
-    opacity: 0.75;
-}
+    .course-announcement-item h3 a {
+        color: inherit;
+        text-decoration: none;
+    }
 
-.course-announcement-item h3 a {
-    color: inherit;
-    text-decoration: none;
-}
+    .course-announcement-item h3 a:hover,
+    .course-announcement-item h3 a:focus-visible {
+        color: #d9b96e;
+    }
 
-.course-announcement-item h3 a:hover,
-.course-announcement-item h3 a:focus-visible {
-    color: #d9b96e;
-}
-
-
-
-
-/*
+    /*
 |--------------------------------------------------------------------------
 | Course Overview Spacing / Scale
 |--------------------------------------------------------------------------
 */
 
-.course-page .dashboard-workspace-main > .dashboard-workspace-panel:first-child {
-    margin-bottom: 1rem;
-}
-
-.course-page .dashboard-workspace-main > .dashboard-workspace-panel:first-child
-.dashboard-panel-titlebar {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
-
-.course-page .dashboard-workspace-main > .dashboard-workspace-panel:first-child
-.dashboard-panel-titlebar .academy-overline {
-    margin-bottom: 0.55rem;
-}
-
-.course-page .dashboard-workspace-main > .dashboard-workspace-panel:first-child
-.dashboard-panel-titlebar h2 {
-    margin: 0;
-    font-size: clamp(32px, 3.6vw, 44px);
-    line-height: 1.05;
-}
-
-.course-page .dashboard-workspace-main > .dashboard-workspace-panel:first-child
-.dashboard-panel-body {
-    padding-top: 1.15rem;
-}
-
-.course-overview-intro {
-    margin: 0 0 1.5rem;
-    font-size: 1rem;
-    line-height: 1.7;
-}
-
-.course-overview-image {
-    margin: 1.5rem 0 1.25rem !important;
-    overflow: hidden;
-    border: 1px solid rgba(197, 157, 85, 0.24);
-    border-radius: 0.8rem;
-    background: rgba(0, 0, 0, 0.18);
-}
-
-.course-overview-image picture,
-.course-overview-image img {
-    display: block;
-    width: 100%;
-}
-
-.course-overview-image img {
-    height: auto;
-    object-fit: contain;
-}
-
-@media (max-width: 980px) {
-    .course-snapshot-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+    .course-page .dashboard-workspace-main>.dashboard-workspace-panel:first-child {
+        margin-bottom: 1rem;
     }
 
-    .course-lesson-row {
-        grid-template-columns: 2.7rem minmax(0, 1fr);
+    .course-page .dashboard-workspace-main>.dashboard-workspace-panel:first-child .dashboard-panel-titlebar {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
-    .course-lesson-action {
-        grid-column: 2;
+    .course-page .dashboard-workspace-main>.dashboard-workspace-panel:first-child .dashboard-panel-titlebar .academy-overline {
+        margin-bottom: 0.55rem;
     }
 
-    .course-classroom-primary,
-    .course-classroom-secondary {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 640px) {
-    .course-snapshot-grid {
-        grid-template-columns: 1fr;
+    .course-page .dashboard-workspace-main>.dashboard-workspace-panel:first-child .dashboard-panel-titlebar h2 {
+        margin: 0;
+        font-size: clamp(32px, 3.6vw, 44px);
+        line-height: 1.05;
     }
 
-    .course-overview-pill {
-        flex-basis: calc(50% - 0.4rem);
+    .course-page .dashboard-workspace-main>.dashboard-workspace-panel:first-child .dashboard-panel-body {
+        padding-top: 1.15rem;
     }
 
-    .course-lesson-row {
-        grid-template-columns: 2.35rem minmax(0, 1fr);
-        gap: 0.75rem;
-        padding: 0.85rem;
+    .course-overview-intro {
+        margin: 0 0 1.5rem;
+        font-size: 1rem;
+        line-height: 1.7;
     }
 
-    .course-lesson-heading {
+    .course-overview-image {
+        margin: 1.5rem 0 1.25rem !important;
+        overflow: hidden;
+        border: 1px solid rgba(197, 157, 85, 0.24);
+        border-radius: 0.8rem;
+        background: rgba(0, 0, 0, 0.18);
+    }
+
+    .course-overview-image picture,
+    .course-overview-image img {
         display: block;
+        width: 100%;
     }
 
-    .course-lesson-badges {
-        justify-content: flex-start;
-        margin-top: 0.45rem;
+    .course-overview-image img {
+        height: auto;
+        object-fit: contain;
     }
 
-    .course-classroom-card {
-        padding: 1rem;
+    @media (max-width: 980px) {
+        .course-snapshot-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .course-lesson-row {
+            grid-template-columns: 2.7rem minmax(0, 1fr);
+        }
+
+        .course-lesson-action {
+            grid-column: 2;
+        }
+
+        .course-classroom-primary,
+        .course-classroom-secondary {
+            grid-template-columns: 1fr;
+        }
     }
-}
+
+    @media (max-width: 640px) {
+        .course-snapshot-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .course-overview-pill {
+            flex-basis: calc(50% - 0.4rem);
+        }
+
+        .course-lesson-row {
+            grid-template-columns: 2.35rem minmax(0, 1fr);
+            gap: 0.75rem;
+            padding: 0.85rem;
+        }
+
+        .course-lesson-heading {
+            display: block;
+        }
+
+        .course-lesson-badges {
+            justify-content: flex-start;
+            margin-top: 0.45rem;
+        }
+
+        .course-classroom-card {
+            padding: 1rem;
+        }
+    }
+
 </style>
 
 <?php

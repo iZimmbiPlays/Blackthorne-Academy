@@ -626,20 +626,14 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="forum-index-page"
->
+<main id="main-content" class="forum-index-page">
 
 
     <!-- ================================================================
          FORUM HEADER
     ================================================================= -->
 
-    <section
-        class="forum-index-header"
-        aria-labelledby="forum-index-heading"
-    >
+    <section class="forum-index-header" aria-labelledby="forum-index-heading">
 
         <div class="section-inner">
 
@@ -673,7 +667,7 @@ require INCLUDES_PATH . '/header.php';
             <div class="member-home-main forum-index-main">
 
 
-            <?php if ($visibleCategories === []): ?>
+                <?php if ($visibleCategories === []): ?>
 
                 <div class="forum-index-empty">
 
@@ -689,7 +683,7 @@ require INCLUDES_PATH . '/header.php';
                 </div>
 
 
-            <?php else: ?>
+                <?php else: ?>
 
                 <div class="forum-index-categories">
 
@@ -699,7 +693,7 @@ require INCLUDES_PATH . '/header.php';
                         as $category
                     ): ?>
 
-                        <?php
+                    <?php
 
                         $categoryId =
                             (int) $category['id'];
@@ -715,48 +709,40 @@ require INCLUDES_PATH . '/header.php';
                         ?>
 
 
-                        <section
-                            class="forum-index-category"
-                            aria-labelledby="forum-category-<?= $categoryId; ?>"
-                        >
+                    <section class="forum-index-category" aria-labelledby="forum-category-<?= $categoryId; ?>">
 
 
-                            <header class="forum-index-category-titlebar">
+                        <header class="forum-index-category-titlebar">
 
-                                <h2
-                                    id="forum-category-<?= $categoryId; ?>"
-                                >
-                                    <?= e(
+                            <h2 id="forum-category-<?= $categoryId; ?>">
+                                <?= e(
                                         (string) $category[
                                             'title'
                                         ]
                                     ); ?>
-                                </h2>
+                            </h2>
 
-                            </header>
-
-
-                            <?php if ($categoryForums === []): ?>
-
-                                <div class="forum-index-category-empty">
-                                    No Announcement Forums are available in this category.
-                                </div>
+                        </header>
 
 
-                            <?php else: ?>
+                        <?php if ($categoryForums === []): ?>
 
-                                <div
-                                    class="forum-index-board-list"
-                                    role="list"
-                                >
+                        <div class="forum-index-category-empty">
+                            No Announcement Forums are available in this category.
+                        </div>
 
 
-                                    <?php foreach (
+                        <?php else: ?>
+
+                        <div class="forum-index-board-list" role="list">
+
+
+                            <?php foreach (
                                         $categoryForums
                                         as $forum
                                     ): ?>
 
-                                        <?php
+                            <?php
 
                                         $forumId =
                                             (int) $forum['id'];
@@ -797,36 +783,31 @@ require INCLUDES_PATH . '/header.php';
                                         ?>
 
 
-                                        <article
-                                            class="forum-index-board"
-                                            role="listitem"
-                                        >
+                            <article class="forum-index-board" role="listitem">
 
-                                            <div class="forum-index-board-top">
+                                <div class="forum-index-board-top">
 
-                                                <div class="forum-index-board-copy">
+                                    <div class="forum-index-board-copy">
 
-                                                    <h3>
+                                        <h3>
 
-                                                        <a
-                                                            href="<?= e(
+                                            <a href="<?= e(
                                                                 url(
                                                                     'forum.php?f=' .
                                                                     $forumId
                                                                 )
-                                                            ); ?>"
-                                                        >
-                                                            <?= e(
+                                                            ); ?>">
+                                                <?= e(
                                                                 (string) $forum[
                                                                     'title'
                                                                 ]
                                                             ); ?>
-                                                        </a>
+                                            </a>
 
-                                                    </h3>
+                                        </h3>
 
 
-                                                    <?php if (
+                                        <?php if (
                                                         trim(
                                                             (string) (
                                                                 $forum[
@@ -837,88 +818,82 @@ require INCLUDES_PATH . '/header.php';
                                                         ) !== ''
                                                     ): ?>
 
-                                                        <p class="forum-index-board-description">
-                                                            <?= e(
+                                        <p class="forum-index-board-description">
+                                            <?= e(
                                                                 (string) $forum[
                                                                     'description'
                                                                 ]
                                                             ); ?>
-                                                        </p>
+                                        </p>
 
-                                                    <?php endif; ?>
+                                        <?php endif; ?>
 
-                                                </div>
+                                    </div>
 
 
-                                                <div
-                                                    class="forum-index-board-stat forum-index-thread-stat"
-                                                    aria-label="<?= number_format(
+                                    <div class="forum-index-board-stat forum-index-thread-stat" aria-label="<?= number_format(
                                                         (int) $stats[
                                                             'thread_count'
                                                         ]
-                                                    ); ?> threads"
-                                                >
+                                                    ); ?> threads">
 
-                                                    <strong>
-                                                        <?= number_format(
+                                        <strong>
+                                            <?= number_format(
                                                             (int) $stats[
                                                                 'thread_count'
                                                             ]
                                                         ); ?>
-                                                    </strong>
+                                        </strong>
 
-                                                    <span>
-                                                        <?= (int) $stats[
+                                        <span>
+                                            <?= (int) $stats[
                                                             'thread_count'
                                                         ] === 1
                                                             ? 'Thread'
                                                             : 'Threads'; ?>
-                                                    </span>
+                                        </span>
 
-                                                </div>
+                                    </div>
 
 
-                                                <div
-                                                    class="forum-index-board-stat forum-index-post-stat"
-                                                    aria-label="<?= number_format(
+                                    <div class="forum-index-board-stat forum-index-post-stat" aria-label="<?= number_format(
                                                         (int) $stats[
                                                             'post_count'
                                                         ]
-                                                    ); ?> posts"
-                                                >
+                                                    ); ?> posts">
 
-                                                    <strong>
-                                                        <?= number_format(
+                                        <strong>
+                                            <?= number_format(
                                                             (int) $stats[
                                                                 'post_count'
                                                             ]
                                                         ); ?>
-                                                    </strong>
+                                        </strong>
 
-                                                    <span>
-                                                        <?= (int) $stats[
+                                        <span>
+                                            <?= (int) $stats[
                                                             'post_count'
                                                         ] === 1
                                                             ? 'Post'
                                                             : 'Posts'; ?>
-                                                    </span>
+                                        </span>
 
-                                                </div>
+                                    </div>
 
 
-                                                <div class="forum-index-last-post">
+                                    <div class="forum-index-last-post">
 
-                                                    <?php if (
+                                        <?php if (
                                                         $lastPost === null
                                                     ): ?>
 
-                                                        <p class="forum-index-no-posts">
-                                                            No posts have been made on this board yet.
-                                                        </p>
+                                        <p class="forum-index-no-posts">
+                                            No posts have been made on this board yet.
+                                        </p>
 
-                                                    <?php else: ?>
+                                        <?php else: ?>
 
-                                                        <?php
+                                        <?php
 
                                                         $lastPosterName =
                                                             trim(
@@ -956,236 +931,216 @@ require INCLUDES_PATH . '/header.php';
 
                                                         ?>
 
-                                                        <div class="forum-index-last-post-inner">
+                                        <div class="forum-index-last-post-inner">
 
-                                                            <a
-                                                                class="forum-index-last-post-avatar"
-                                                                href="<?= e(
+                                            <a class="forum-index-last-post-avatar" href="<?= e(
                                                                     url(
                                                                         'profile.php?u=' .
                                                                         (int) $lastPost[
                                                                             'user_id'
                                                                         ]
                                                                     )
-                                                                ); ?>"
-                                                                aria-label="View <?= e(
+                                                                ); ?>" aria-label="View <?= e(
                                                                     $lastPosterName
-                                                                ); ?>'s profile"
-                                                            >
+                                                                ); ?>'s profile">
 
-                                                                <?php if (
+                                                <?php if (
                                                                     $avatarUrl
                                                                     !== null
                                                                 ): ?>
 
-                                                                    <img
-                                                                        src="<?= e(
+                                                <img src="<?= e(
                                                                             $avatarUrl
-                                                                        ); ?>"
-                                                                        alt=""
-                                                                        loading="lazy"
-                                                                    >
+                                                                        ); ?>" alt="" loading="lazy">
 
-                                                                <?php else: ?>
+                                                <?php else: ?>
 
-                                                                    <span aria-hidden="true">
-                                                                        <?= e(
+                                                <span aria-hidden="true">
+                                                    <?= e(
                                                                             forum_index_initials(
                                                                                 $lastPosterName
                                                                             )
                                                                         ); ?>
-                                                                    </span>
+                                                </span>
 
-                                                                <?php endif; ?>
+                                                <?php endif; ?>
 
-                                                            </a>
+                                            </a>
 
 
-                                                            <div class="forum-index-last-post-copy">
+                                            <div class="forum-index-last-post-copy">
 
-                                                                <a
-                                                                    class="forum-index-last-thread"
-                                                                    href="<?= e(
+                                                <a class="forum-index-last-thread" href="<?= e(
                                                                         url(
                                                                             'thread.php?t=' .
                                                                             (int) $lastPost[
                                                                                 'thread_id'
                                                                             ]
                                                                         )
-                                                                    ); ?>"
-                                                                >
-                                                                    <?= e(
+                                                                    ); ?>">
+                                                    <?= e(
                                                                         (string) $lastPost[
                                                                             'thread_title'
                                                                         ]
                                                                     ); ?>
-                                                                </a>
+                                                </a>
 
-                                                                <p>
+                                                <p>
 
-                                                                    by
+                                                    by
 
-                                                                    <a
-                                                                        class="forum-index-last-user"
-                                                                        href="<?= e(
+                                                    <a class="forum-index-last-user" href="<?= e(
                                                                             url(
                                                                                 'profile.php?u=' .
                                                                                 (int) $lastPost[
                                                                                     'user_id'
                                                                                 ]
                                                                             )
-                                                                        ); ?>"
-                                                                    >
-                                                                        <?= e(
+                                                                        ); ?>">
+                                                        <?= e(
                                                                             $lastPosterName
                                                                         ); ?>
-                                                                    </a>
+                                                    </a>
 
-                                                                </p>
+                                                </p>
 
-                                                                <time
-                                                                    datetime="<?= e(
+                                                <time datetime="<?= e(
                                                                         (string) $lastPost[
                                                                             'post_created_at'
                                                                         ]
-                                                                    ); ?>"
-                                                                >
-                                                                    <?= e(
+                                                                    ); ?>">
+                                                    <?= e(
                                                                         forum_index_datetime(
                                                                             (string) $lastPost[
                                                                                 'post_created_at'
                                                                             ]
                                                                         )
                                                                     ); ?>
-                                                                </time>
-
-                                                            </div>
-
-                                                        </div>
-
-                                                    <?php endif; ?>
-
-                                                </div>
+                                                </time>
 
                                             </div>
 
+                                        </div>
 
-                                            <?php if (
+                                        <?php endif; ?>
+
+                                    </div>
+
+                                </div>
+
+
+                                <?php if (
                                                 $forumAncestors !== []
                                                 || $moderators !== []
                                             ): ?>
 
-                                                <div class="forum-index-board-meta-strip">
+                                <div class="forum-index-board-meta-strip">
 
-                                                    <?php if (
+                                    <?php if (
                                                         $forumAncestors !== []
                                                     ): ?>
 
-                                                        <div class="forum-index-subboards">
+                                    <div class="forum-index-subboards">
 
-                                                            <span class="forum-index-subboards-label">
-                                                                Located in:
-                                                            </span>
+                                        <span class="forum-index-subboards-label">
+                                            Located in:
+                                        </span>
 
-                                                            <div class="forum-index-subboard-links">
+                                        <div class="forum-index-subboard-links">
 
-                                                                <?php foreach (
+                                            <?php foreach (
                                                                     $forumAncestors
                                                                     as $ancestorForum
                                                                 ): ?>
 
-                                                                    <a
-                                                                        href="<?= e(
+                                            <a href="<?= e(
                                                                             url(
                                                                                 'forum.php?f=' .
                                                                                 (int) $ancestorForum[
                                                                                     'id'
                                                                                 ]
                                                                             )
-                                                                        ); ?>"
-                                                                    >
-                                                                        <?= e(
+                                                                        ); ?>">
+                                                <?= e(
                                                                             (string) $ancestorForum[
                                                                                 'title'
                                                                             ]
                                                                         ); ?>
-                                                                    </a>
+                                            </a>
 
-                                                                <?php endforeach; ?>
+                                            <?php endforeach; ?>
 
-                                                            </div>
+                                        </div>
 
-                                                        </div>
+                                    </div>
 
-                                                    <?php endif; ?>
+                                    <?php endif; ?>
 
 
-                                                    <?php if (
+                                    <?php if (
                                                         $moderators !== []
                                                     ): ?>
 
-                                                        <div class="forum-index-moderators">
+                                    <div class="forum-index-moderators">
 
-                                                            <span class="forum-index-moderators-label">
-                                                                <?= count(
+                                        <span class="forum-index-moderators-label">
+                                            <?= count(
                                                                     $moderators
                                                                 ) === 1
                                                                     ? 'Moderator:'
                                                                     : 'Moderators:'; ?>
-                                                            </span>
+                                        </span>
 
-                                                            <span class="forum-index-moderator-links">
+                                        <span class="forum-index-moderator-links">
 
-                                                                <?php foreach (
+                                            <?php foreach (
                                                                     $moderators
                                                                     as $index => $moderator
                                                                 ): ?>
 
-                                                                    <?php if (
+                                            <?php if (
                                                                         $index > 0
                                                                     ): ?>,
-                                                                    <?php endif; ?>
+                                            <?php endif; ?>
 
-                                                                    <a
-                                                                        href="<?= e(
+                                            <a href="<?= e(
                                                                             url(
                                                                                 'profile.php?u=' .
                                                                                 (int) $moderator[
                                                                                     'id'
                                                                                 ]
                                                                             )
-                                                                        ); ?>"
-                                                                    >
-                                                                        <?= e(
+                                                                        ); ?>">
+                                                <?= e(
                                                                             (string) $moderator[
                                                                                 'display_name'
                                                                             ]
                                                                         ); ?>
-                                                                    </a>
+                                            </a>
 
-                                                                <?php endforeach; ?>
+                                            <?php endforeach; ?>
 
-                                                            </span>
+                                        </span>
 
-                                                        </div>
+                                    </div>
 
-                                                    <?php endif; ?>
-
-                                                </div>
-
-                                            <?php endif; ?>
-
-                                        </article>
-
-
-                                    <?php endforeach; ?>
-
+                                    <?php endif; ?>
 
                                 </div>
 
-                            <?php endif; ?>
+                                <?php endif; ?>
 
-                        </section>
+                            </article>
+
+
+                            <?php endforeach; ?>
+
+
+                        </div>
+
+                        <?php endif; ?>
+
+                    </section>
 
 
                     <?php endforeach; ?>
@@ -1193,7 +1148,7 @@ require INCLUDES_PATH . '/header.php';
 
                 </div>
 
-            <?php endif; ?>
+                <?php endif; ?>
 
             </div>
 

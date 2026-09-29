@@ -114,28 +114,22 @@ if (
         . '/header.php';
 
     ?>
-    <main
-        id="main-content"
-        class="member-profile-page"
-    >
-        <section class="member-profile-error">
-            <div class="section-inner">
-                <h1>
-                    Profile Not Found
-                </h1>
-                <p>
-                    The requested member profile could not be found.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('index.php')); ?>"
-                >
-                    Return to Blackthorne
-                </a>
-            </div>
-        </section>
-    </main>
-    <?php
+<main id="main-content" class="member-profile-page">
+    <section class="member-profile-error">
+        <div class="section-inner">
+            <h1>
+                Profile Not Found
+            </h1>
+            <p>
+                The requested member profile could not be found.
+            </p>
+            <a class="button button-secondary" href="<?= e(url('index.php')); ?>">
+                Return to Blackthorne
+            </a>
+        </div>
+    </section>
+</main>
+<?php
 
     require
         INCLUDES_PATH
@@ -310,28 +304,22 @@ if (
         . '/header.php';
 
     ?>
-    <main
-        id="main-content"
-        class="member-profile-page"
-    >
-        <section class="member-profile-error">
-            <div class="section-inner">
-                <h1>
-                    Profile Not Found
-                </h1>
-                <p>
-                    The requested member profile could not be found.
-                </p>
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('index.php')); ?>"
-                >
-                    Return to Blackthorne
-                </a>
-            </div>
-        </section>
-    </main>
-    <?php
+<main id="main-content" class="member-profile-page">
+    <section class="member-profile-error">
+        <div class="section-inner">
+            <h1>
+                Profile Not Found
+            </h1>
+            <p>
+                The requested member profile could not be found.
+            </p>
+            <a class="button button-secondary" href="<?= e(url('index.php')); ?>">
+                Return to Blackthorne
+            </a>
+        </div>
+    </section>
+</main>
+<?php
 
     require
         INCLUDES_PATH
@@ -388,46 +376,37 @@ if (!$canViewProfile) {
         . '/header.php';
 
     ?>
-    <main
-        id="main-content"
-        class="member-profile-page"
-    >
-        <section class="member-profile-error">
-            <div class="section-inner">
-                <p class="academy-overline">
-                    Member Profile
-                </p>
-                <h1>
-                    Profile Restricted
-                </h1>
-                <p>
-                    <?= e($displayName); ?> has limited who may view this profile.
-                </p>
+<main id="main-content" class="member-profile-page">
+    <section class="member-profile-error">
+        <div class="section-inner">
+            <p class="academy-overline">
+                Member Profile
+            </p>
+            <h1>
+                Profile Restricted
+            </h1>
+            <p>
+                <?= e($displayName); ?> has limited who may view this profile.
+            </p>
 
-                <?php if ($viewerUserId <= 0): ?>
+            <?php if ($viewerUserId <= 0): ?>
 
-                    <a
-                        class="button button-primary"
-                        href="<?= e(LOGIN_URL); ?>"
-                    >
-                        Log In
-                    </a>
+            <a class="button button-primary" href="<?= e(LOGIN_URL); ?>">
+                Log In
+            </a>
 
-                <?php else: ?>
+            <?php else: ?>
 
-                    <a
-                        class="button button-secondary"
-                        href="<?= e(DASHBOARD_URL); ?>"
-                    >
-                        Back to Dashboard
-                    </a>
+            <a class="button button-secondary" href="<?= e(DASHBOARD_URL); ?>">
+                Back to Dashboard
+            </a>
 
-                <?php endif; ?>
+            <?php endif; ?>
 
-            </div>
-        </section>
-    </main>
-    <?php
+        </div>
+    </section>
+</main>
+<?php
 
     require
         INCLUDES_PATH
@@ -1859,52 +1838,37 @@ require
 
 ?>
 
-<main
-    id="main-content"
-    class="member-profile-page"
->
+<main id="main-content" class="member-profile-page">
 
     <!-- ================================================================
          Profile Hero
     ================================================================= -->
 
-    <section
-        class="member-profile-hero<?= $coverSources['original'] !== null ? ' has-cover-image' : ''; ?>"
-        aria-labelledby="member-profile-name"
-    >
+    <section class="member-profile-hero<?= $coverSources['original'] !== null ? ' has-cover-image' : ''; ?>"
+        aria-labelledby="member-profile-name">
 
         <?php if (
             $coverSources['original'] !== null
         ): ?>
 
-            <picture class="member-profile-cover">
+        <picture class="member-profile-cover">
 
-                <?php if (
+            <?php if (
                     $coverSources['webp'] !== null
                     && $coverSources['webp'] !== $coverSources['original']
                 ): ?>
 
-                    <source
-                        srcset="<?= e($coverSources['webp']); ?>"
-                        type="image/webp"
-                    >
+            <source srcset="<?= e($coverSources['webp']); ?>" type="image/webp">
 
-                <?php endif; ?>
+            <?php endif; ?>
 
-                <img
-                    src="<?= e($coverSources['original']); ?>"
-                    alt=""
-                    aria-hidden="true"
-                >
+            <img src="<?= e($coverSources['original']); ?>" alt="" aria-hidden="true">
 
-            </picture>
+        </picture>
 
         <?php endif; ?>
 
-        <div
-            class="member-profile-hero-overlay"
-            aria-hidden="true"
-        ></div>
+        <div class="member-profile-hero-overlay" aria-hidden="true"></div>
 
         <div class="section-inner member-profile-hero-inner">
 
@@ -1916,40 +1880,31 @@ require
                         $avatarSources['original'] !== null
                     ): ?>
 
-                        <picture>
+                    <picture>
 
-                            <?php if (
+                        <?php if (
                                 $avatarSources['webp'] !== null
                                 && $avatarSources['webp'] !== $avatarSources['original']
                             ): ?>
 
-                                <source
-                                    srcset="<?= e($avatarSources['webp']); ?>"
-                                    type="image/webp"
-                                >
+                        <source srcset="<?= e($avatarSources['webp']); ?>" type="image/webp">
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
-                            <img
-                                src="<?= e($avatarSources['original']); ?>"
-                                alt="<?= e($displayName); ?>'s avatar"
-                            >
+                        <img src="<?= e($avatarSources['original']); ?>" alt="<?= e($displayName); ?>'s avatar">
 
-                        </picture>
+                    </picture>
 
                     <?php else: ?>
 
-                        <span
-                            class="member-profile-avatar-fallback"
-                            aria-label="<?= e($displayName); ?>'s avatar"
-                        >
-                            <?= e(
+                    <span class="member-profile-avatar-fallback" aria-label="<?= e($displayName); ?>'s avatar">
+                        <?= e(
                                 profile_avatar_initial(
                                     $displayName,
                                     $username
                                 )
                             ); ?>
-                        </span>
+                    </span>
 
                     <?php endif; ?>
 
@@ -1958,11 +1913,7 @@ require
                         && $isOnline
                     ): ?>
 
-                        <span
-                            class="member-profile-online-dot"
-                            title="Online"
-                            aria-label="Online"
-                        ></span>
+                    <span class="member-profile-online-dot" title="Online" aria-label="Online"></span>
 
                     <?php endif; ?>
 
@@ -1975,15 +1926,15 @@ require
                         Blackthorne Academy Member
                     </p>
 
-                    <h1 id="member-profile-name"<?= user_display_name_style_attr($targetUserId); ?>>
+                    <h1 id="member-profile-name" <?= user_display_name_style_attr($targetUserId); ?>>
                         <?= e($displayName); ?>
                     </h1>
 
                     <?php if ($username !== ''): ?>
 
-                        <p class="member-profile-username">
-                            @<?= e($username); ?>
-                        </p>
+                    <p class="member-profile-username">
+                        @<?= e($username); ?>
+                    </p>
 
                     <?php endif; ?>
 
@@ -1994,31 +1945,27 @@ require
                             $hasAllPermissionsRole
                         ): ?>
 
-                            <span class="member-profile-role-badge">
-                                Admin
-                            </span>
+                        <span class="member-profile-role-badge">
+                            Admin
+                        </span>
 
                         <?php elseif (
                             $showRoles
                             && $roles !== []
                         ): ?>
 
-                            <?php foreach ($roles as $role): ?>
+                        <?php foreach ($roles as $role): ?>
 
-                                <span
-                                    class="member-profile-role-badge"
-                                    <?php if (
+                        <span class="member-profile-role-badge" <?php if (
                                         !empty(
                                             $role['display_color']
                                         )
-                                    ): ?>
-                                        style="--profile-role-color: <?= e((string) $role['display_color']); ?>;"
-                                    <?php endif; ?>
-                                >
-                                    <?= e((string) $role['name']); ?>
-                                </span>
+                                    ): ?> style="--profile-role-color: <?= e((string) $role['display_color']); ?>;"
+                            <?php endif; ?>>
+                            <?= e((string) $role['name']); ?>
+                        </span>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
                         <?php endif; ?>
 
@@ -2026,14 +1973,12 @@ require
                         <span class="member-profile-meta-item">
                             House:
                             <?php if ($profileHouseName !== ''): ?>
-                                <span
-                                    class="member-profile-house-name"
-                                    style="margin-left: 0.35rem;<?php if ($profileHouseColor !== null): ?> color: <?= e($profileHouseColor); ?>;<?php endif; ?>"
-                                >
-                                    <?= e($profileHouseName); ?>
-                                </span>
+                            <span class="member-profile-house-name"
+                                style="margin-left: 0.35rem;<?php if ($profileHouseColor !== null): ?> color: <?= e($profileHouseColor); ?>;<?php endif; ?>">
+                                <?= e($profileHouseName); ?>
+                            </span>
                             <?php else: ?>
-                                Not Assigned
+                            Not Assigned
                             <?php endif; ?>
                         </span>
 
@@ -2057,334 +2002,176 @@ require
                     || $viewerUserId > 0
                 ): ?>
 
-                    <div class="member-profile-hero-actions">
+                <div class="member-profile-hero-actions">
 
-                        <?php if ($friendActionSuccess !== null): ?>
+                    <?php if ($friendActionSuccess !== null): ?>
 
-                            <p
-                                class="member-profile-action-message is-success"
-                                role="status"
-                            >
-                                <?= e($friendActionSuccess); ?>
-                            </p>
+                    <p class="member-profile-action-message is-success" role="status">
+                        <?= e($friendActionSuccess); ?>
+                    </p>
 
-                        <?php endif; ?>
+                    <?php endif; ?>
 
 
-                        <?php if ($friendActionError !== null): ?>
+                    <?php if ($friendActionError !== null): ?>
 
-                            <p
-                                class="member-profile-action-message is-error"
-                                role="alert"
-                            >
-                                <?= e($friendActionError); ?>
-                            </p>
+                    <p class="member-profile-action-message is-error" role="alert">
+                        <?= e($friendActionError); ?>
+                    </p>
 
-                        <?php endif; ?>
+                    <?php endif; ?>
 
 
-                        <?php if ($isOwnProfile): ?>
+                    <?php if ($isOwnProfile): ?>
 
-                            <a
-                                class="button button-secondary"
-                                href="<?= e(url('profile-edit.php')); ?>"
-                            >
-                                Edit Profile
-                            </a>
+                    <a class="button button-secondary" href="<?= e(url('profile-edit.php')); ?>">
+                        Edit Profile
+                    </a>
 
-                            <a
-                                class="button button-secondary"
-                                href="<?= e(url('blocked-users.php')); ?>"
-                            >
-                                Blocked Members
-                            </a>
+                    <a class="button button-secondary" href="<?= e(url('blocked-users.php')); ?>">
+                        Blocked Members
+                    </a>
 
-                        <?php else: ?>
+                    <?php else: ?>
 
-                            <div class="member-profile-relationship-actions">
+                    <div class="member-profile-relationship-actions">
 
-                                <?php if ($viewerHasBlockedTarget): ?>
+                        <?php if ($viewerHasBlockedTarget): ?>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="unblock"
-                                        >
+                            <input type="hidden" name="action" value="unblock">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Unblock
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Unblock
+                            </button>
+                        </form>
 
-                                <?php elseif ($friendRelationshipState === 'pending_outgoing'): ?>
+                        <?php elseif ($friendRelationshipState === 'pending_outgoing'): ?>
 
-                                    <span
-                                        class="button button-secondary member-profile-status-button"
-                                        aria-label="Friend request sent"
-                                    >
-                                        Request Sent
-                                    </span>
+                        <span class="button button-secondary member-profile-status-button"
+                            aria-label="Friend request sent">
+                            Request Sent
+                        </span>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="cancel"
-                                        >
+                            <input type="hidden" name="action" value="cancel">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Cancel Request
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Cancel Request
+                            </button>
+                        </form>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="block"
-                                        >
+                            <input type="hidden" name="action" value="block">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Block
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Block
+                            </button>
+                        </form>
 
-                                <?php elseif ($friendRelationshipState === 'pending_incoming'): ?>
+                        <?php elseif ($friendRelationshipState === 'pending_incoming'): ?>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="accept"
-                                        >
+                            <input type="hidden" name="action" value="accept">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button"
-                                        >
-                                            Accept
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button">
+                                Accept
+                            </button>
+                        </form>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="decline"
-                                        >
+                            <input type="hidden" name="action" value="decline">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Decline
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Decline
+                            </button>
+                        </form>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="block"
-                                        >
+                            <input type="hidden" name="action" value="block">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Block
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Block
+                            </button>
+                        </form>
 
-                                <?php elseif ($friendRelationshipState === 'friends'): ?>
+                        <?php elseif ($friendRelationshipState === 'friends'): ?>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="unfriend"
-                                        >
+                            <input type="hidden" name="action" value="unfriend">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Unfriend
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Unfriend
+                            </button>
+                        </form>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="block"
-                                        >
+                            <input type="hidden" name="action" value="block">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Block
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button button-secondary">
+                                Block
+                            </button>
+                        </form>
 
-                                <?php elseif ($targetHasBlockedViewer): ?>
+                        <?php elseif ($targetHasBlockedViewer): ?>
 
-                                    <?php
+                        <?php
                                     /*
                                      * Intentionally render no friendship controls.
                                      *
@@ -2393,81 +2180,45 @@ require
                                      */
                                     ?>
 
-                                <?php else: ?>
+                        <?php else: ?>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="add"
-                                        >
+                            <input type="hidden" name="action" value="add">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button"
-                                        >
-                                            Add Friend
-                                        </button>
-                                    </form>
+                            <button type="submit" class="button">
+                                Add Friend
+                            </button>
+                        </form>
 
-                                    <form
-                                        method="post"
-                                        action="<?= e(url('friend-action.php')); ?>"
-                                        class="member-profile-action-form"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                            class="member-profile-action-form">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="action"
-                                            value="block"
-                                        >
+                            <input type="hidden" name="action" value="block">
 
-                                        <input
-                                            type="hidden"
-                                            name="target_user_id"
-                                            value="<?= (int) $targetUserId; ?>"
-                                        >
+                            <input type="hidden" name="target_user_id" value="<?= (int) $targetUserId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_to"
-                                            value="<?= e($profileReturnPath); ?>"
-                                        >
+                            <input type="hidden" name="return_to" value="<?= e($profileReturnPath); ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            Block
-                                        </button>
-                                    </form>
-
-                                <?php endif; ?>
-
-                            </div>
+                            <button type="submit" class="button button-secondary">
+                                Block
+                            </button>
+                        </form>
 
                         <?php endif; ?>
 
                     </div>
+
+                    <?php endif; ?>
+
+                </div>
 
                 <?php endif; ?>
 
@@ -2510,41 +2261,38 @@ require
 
                     <?php if ($detailRows !== []): ?>
 
-                        <dl class="member-profile-detail-list">
+                    <dl class="member-profile-detail-list">
 
-                            <?php foreach ($detailRows as $detailRow): ?>
+                        <?php foreach ($detailRows as $detailRow): ?>
 
-                                <div class="member-profile-detail-row">
+                        <div class="member-profile-detail-row">
 
-                                    <dt>
-                                        <?= e((string) $detailRow['label']); ?>
-                                    </dt>
+                            <dt>
+                                <?= e((string) $detailRow['label']); ?>
+                            </dt>
 
-                                    <dd>
-                                        <?= e((string) $detailRow['value']); ?>
-                                    </dd>
+                            <dd>
+                                <?= e((string) $detailRow['value']); ?>
+                            </dd>
 
-                                </div>
+                        </div>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                        </dl>
+                    </dl>
 
                     <?php else: ?>
 
-                        <p class="member-profile-empty">
-                            No additional profile details are being shown.
-                        </p>
+                    <p class="member-profile-empty">
+                        No additional profile details are being shown.
+                    </p>
 
                     <?php endif; ?>
 
                 </section>
 
 
-                <section
-                    class="member-profile-card member-profile-friends-card"
-                    id="friends"
-                >
+                <section class="member-profile-card member-profile-friends-card" id="friends">
 
                     <header class="member-profile-card-heading member-profile-friends-heading">
 
@@ -2561,10 +2309,8 @@ require
                         </div>
 
 
-                        <span
-                            class="member-profile-friend-count"
-                            aria-label="<?= number_format($friendCount); ?> friends"
-                        >
+                        <span class="member-profile-friend-count"
+                            aria-label="<?= number_format($friendCount); ?> friends">
                             <?= number_format($friendCount); ?>
                         </span>
 
@@ -2573,11 +2319,11 @@ require
 
                     <?php if ($friendPreview !== []): ?>
 
-                        <div class="member-profile-friend-preview">
+                    <div class="member-profile-friend-preview">
 
-                            <?php foreach ($friendPreview as $friendPreviewMember): ?>
+                        <?php foreach ($friendPreview as $friendPreviewMember): ?>
 
-                                <?php
+                        <?php
                                 $friendAvatarSources =
                                     is_array(
                                         $friendPreviewMember['avatar_sources']
@@ -2608,62 +2354,49 @@ require
                                 }
                                 ?>
 
-                                <a
-                                    class="member-profile-friend"
-                                    href="<?= e((string) $friendPreviewMember['profile_url']); ?>"
-                                    title="<?= e($friendDisplayName); ?>"
-                                    aria-label="View <?= e($friendDisplayName); ?>'s profile"
-                                >
+                        <a class="member-profile-friend" href="<?= e((string) $friendPreviewMember['profile_url']); ?>"
+                            title="<?= e($friendDisplayName); ?>"
+                            aria-label="View <?= e($friendDisplayName); ?>'s profile">
 
-                                    <span class="member-profile-friend-avatar">
+                            <span class="member-profile-friend-avatar">
 
-                                        <?php if (
+                                <?php if (
                                             $friendAvatarSources['original']
                                             !== null
                                         ): ?>
 
-                                            <picture>
+                                <picture>
 
-                                                <?php if (
+                                    <?php if (
                                                     $friendAvatarSources['webp']
                                                     !== null
                                                     && $friendAvatarSources['webp']
                                                         !== $friendAvatarSources['original']
                                                 ): ?>
 
-                                                    <source
-                                                        srcset="<?= e($friendAvatarSources['webp']); ?>"
-                                                        type="image/webp"
-                                                    >
+                                    <source srcset="<?= e($friendAvatarSources['webp']); ?>" type="image/webp">
 
-                                                <?php endif; ?>
+                                    <?php endif; ?>
 
-                                                <img
-                                                    src="<?= e($friendAvatarSources['original']); ?>"
-                                                    alt=""
-                                                    loading="lazy"
-                                                    decoding="async"
-                                                >
+                                    <img src="<?= e($friendAvatarSources['original']); ?>" alt="" loading="lazy"
+                                        decoding="async">
 
-                                            </picture>
+                                </picture>
 
-                                        <?php else: ?>
+                                <?php else: ?>
 
-                                            <span
-                                                class="member-profile-friend-avatar-fallback"
-                                                aria-hidden="true"
-                                            >
-                                                <?= e(
+                                <span class="member-profile-friend-avatar-fallback" aria-hidden="true">
+                                    <?= e(
                                                     profile_avatar_initial(
                                                         $friendDisplayName
                                                     )
                                                 ); ?>
-                                            </span>
+                                </span>
 
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
 
-                                        <?php if (
+                                <?php if (
                                             (bool) (
                                                 $friendPreviewMember[
                                                     'show_online_status'
@@ -2672,7 +2405,7 @@ require
                                             )
                                         ): ?>
 
-                                            <?php
+                                <?php
                                             $friendIsOnline =
                                                 (bool) (
                                                     $friendPreviewMember[
@@ -2682,40 +2415,35 @@ require
                                                 );
                                             ?>
 
-                                            <span
-                                                class="member-profile-friend-presence<?= $friendIsOnline ? ' is-online' : ''; ?>"
-                                                title="<?= $friendIsOnline ? 'Online' : 'Offline'; ?>"
-                                                aria-label="<?= $friendIsOnline ? 'Online' : 'Offline'; ?>"
-                                            ></span>
+                                <span class="member-profile-friend-presence<?= $friendIsOnline ? ' is-online' : ''; ?>"
+                                    title="<?= $friendIsOnline ? 'Online' : 'Offline'; ?>"
+                                    aria-label="<?= $friendIsOnline ? 'Online' : 'Offline'; ?>"></span>
 
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </span>
+                            </span>
 
 
-                                    <span class="member-profile-friend-name">
-                                        <?= e($friendDisplayName); ?>
-                                    </span>
+                            <span class="member-profile-friend-name">
+                                <?= e($friendDisplayName); ?>
+                            </span>
 
-                                </a>
-
-                            <?php endforeach; ?>
-
-                        </div>
-
-
-                        <a
-                            class="member-profile-friends-view-all"
-                            href="<?= e($friendsPageUrl); ?>"
-                        >
-                            View All Friends
                         </a>
+
+                        <?php endforeach; ?>
+
+                    </div>
+
+
+                    <a class="member-profile-friends-view-all" href="<?= e($friendsPageUrl); ?>">
+                        View All Friends
+                    </a>
 
                     <?php else: ?>
 
-                        <p class="member-profile-empty">
-                            <?= e($displayName); ?> has not added any friends yet.
-                        </p>
+                    <p class="member-profile-empty">
+                        <?= e($displayName); ?> has not added any friends yet.
+                    </p>
 
                     <?php endif; ?>
 
@@ -2724,46 +2452,42 @@ require
 
                 <?php if ($socialLinks !== []): ?>
 
-                    <section class="member-profile-card member-profile-social-card">
+                <section class="member-profile-card member-profile-social-card">
 
-                        <header class="member-profile-card-heading">
+                    <header class="member-profile-card-heading">
 
-                            <p class="academy-overline">
-                                Connect
-                            </p>
+                        <p class="academy-overline">
+                            Connect
+                        </p>
 
-                            <h2>
-                                Around the Web
-                            </h2>
+                        <h2>
+                            Around the Web
+                        </h2>
 
-                        </header>
+                    </header>
 
 
-                        <div class="member-profile-social-links">
+                    <div class="member-profile-social-links">
 
-                            <?php foreach ($socialLinks as $socialLink): ?>
+                        <?php foreach ($socialLinks as $socialLink): ?>
 
-                                <a
-                                    class="member-profile-social-link"
-                                    href="<?= e((string) $socialLink['url']); ?>"
-                                    target="_blank"
-                                    rel="noopener noreferrer nofollow"
-                                    aria-label="<?= e((string) $socialLink['label']); ?>"
-                                    title="<?= e((string) $socialLink['label']); ?>"
-                                >
-                                    <?= profile_social_icon_svg(
+                        <a class="member-profile-social-link" href="<?= e((string) $socialLink['url']); ?>"
+                            target="_blank" rel="noopener noreferrer nofollow"
+                            aria-label="<?= e((string) $socialLink['label']); ?>"
+                            title="<?= e((string) $socialLink['label']); ?>">
+                            <?= profile_social_icon_svg(
                                         (string) $socialLink['platform']
                                     ); ?>
-                                    <span class="sr-only">
-                                        <?= e((string) $socialLink['label']); ?>
-                                    </span>
-                                </a>
+                            <span class="sr-only">
+                                <?= e((string) $socialLink['label']); ?>
+                            </span>
+                        </a>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                        </div>
+                    </div>
 
-                    </section>
+                </section>
 
                 <?php endif; ?>
 
@@ -2774,42 +2498,40 @@ require
                     || $showLastSeen
                 ): ?>
 
-                    <section class="member-profile-card">
+                <section class="member-profile-card">
 
-                        <header class="member-profile-card-heading">
+                    <header class="member-profile-card-heading">
 
-                            <p class="academy-overline">
-                                Presence
-                            </p>
+                        <p class="academy-overline">
+                            Presence
+                        </p>
 
-                            <h2>
-                                Around the Academy
-                            </h2>
+                        <h2>
+                            Around the Academy
+                        </h2>
 
-                        </header>
-
-
-                        <div class="member-profile-presence">
-
-                            <?php if ($showOnlineStatus): ?>
-
-                                <div class="member-profile-presence-row">
-
-                                    <span
-                                        class="member-profile-presence-status<?= $isOnline ? ' is-online' : ''; ?>"
-                                        aria-hidden="true"
-                                    ></span>
-
-                                    <span>
-                                        <?= $isOnline ? 'Online' : 'Offline'; ?>
-                                    </span>
-
-                                </div>
-
-                            <?php endif; ?>
+                    </header>
 
 
-                            <?php if (
+                    <div class="member-profile-presence">
+
+                        <?php if ($showOnlineStatus): ?>
+
+                        <div class="member-profile-presence-row">
+
+                            <span class="member-profile-presence-status<?= $isOnline ? ' is-online' : ''; ?>"
+                                aria-hidden="true"></span>
+
+                            <span>
+                                <?= $isOnline ? 'Online' : 'Offline'; ?>
+                            </span>
+
+                        </div>
+
+                        <?php endif; ?>
+
+
+                        <?php if (
                                 $showCurrentLocation
                                 && $isOnline
                                 && $presence !== null
@@ -2821,48 +2543,48 @@ require
                                 ) !== ''
                             ): ?>
 
-                                <div class="member-profile-presence-copy">
+                        <div class="member-profile-presence-copy">
 
-                                    <span class="member-profile-small-label">
-                                        Browsing
-                                    </span>
+                            <span class="member-profile-small-label">
+                                Browsing
+                            </span>
 
-                                    <strong>
-                                        <?= e(
+                            <strong>
+                                <?= e(
                                             trim(
                                                 (string) $presence['location_label']
                                             )
                                         ); ?>
-                                    </strong>
+                            </strong>
 
-                                </div>
+                        </div>
 
-                            <?php endif; ?>
+                        <?php endif; ?>
 
 
-                            <?php if (
+                        <?php if (
                                 $showLastSeen
                                 && !$isOnline
                                 && $lastSeenLabel !== null
                             ): ?>
 
-                                <div class="member-profile-presence-copy">
+                        <div class="member-profile-presence-copy">
 
-                                    <span class="member-profile-small-label">
-                                        Last Seen
-                                    </span>
+                            <span class="member-profile-small-label">
+                                Last Seen
+                            </span>
 
-                                    <strong>
-                                        <?= e($lastSeenLabel); ?>
-                                    </strong>
-
-                                </div>
-
-                            <?php endif; ?>
+                            <strong>
+                                <?= e($lastSeenLabel); ?>
+                            </strong>
 
                         </div>
 
-                    </section>
+                        <?php endif; ?>
+
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 
@@ -2871,51 +2593,51 @@ require
                     $showActivity
                 ): ?>
 
-                    <section class="member-profile-card">
+                <section class="member-profile-card">
 
-                        <header class="member-profile-card-heading">
+                    <header class="member-profile-card-heading">
 
-                            <p class="academy-overline">
-                                Community
-                            </p>
+                        <p class="academy-overline">
+                            Community
+                        </p>
 
-                            <h2>
-                                Activity
-                            </h2>
+                        <h2>
+                            Activity
+                        </h2>
 
-                        </header>
-
-
-                        <div class="member-profile-stats">
-
-                            <div class="member-profile-stat">
-
-                                <strong>
-                                    <?= number_format($postCount); ?>
-                                </strong>
-
-                                <span>
-                                    Posts
-                                </span>
-
-                            </div>
+                    </header>
 
 
-                            <div class="member-profile-stat">
+                    <div class="member-profile-stats">
 
-                                <strong>
-                                    <?= number_format($likesReceived); ?>
-                                </strong>
+                        <div class="member-profile-stat">
 
-                                <span>
-                                    Likes
-                                </span>
+                            <strong>
+                                <?= number_format($postCount); ?>
+                            </strong>
 
-                            </div>
+                            <span>
+                                Posts
+                            </span>
 
                         </div>
 
-                    </section>
+
+                        <div class="member-profile-stat">
+
+                            <strong>
+                                <?= number_format($likesReceived); ?>
+                            </strong>
+
+                            <span>
+                                Likes
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 
@@ -2929,10 +2651,7 @@ require
             <div class="member-profile-main">
 
 
-                <section
-                    class="member-profile-academy-points"
-                    aria-label="Academy points"
-                >
+                <section class="member-profile-academy-points" aria-label="Academy points">
 
                     <div class="member-profile-academy-point">
 
@@ -2946,13 +2665,10 @@ require
 
                         <?php if ($viewerCanEditHousePoints): ?>
 
-                            <button
-                                class="button button-secondary js-profile-points-modal-open"
-                                type="button"
-                                style="margin-top:10px;padding:7px 12px;font-size:.82rem;"
-                            >
-                                Edit House Points
-                            </button>
+                        <button class="button button-secondary js-profile-points-modal-open" type="button"
+                            style="margin-top:10px;padding:7px 12px;font-size:.82rem;">
+                            Edit House Points
+                        </button>
 
                         <?php endif; ?>
 
@@ -2974,111 +2690,227 @@ require
                 </section>
 
                 <?php if ($profilePointEditSuccess !== ''): ?>
-                    <div class="member-profile-action-message is-success" role="status" style="margin:0 0 18px;">
-                        <?= e($profilePointEditSuccess); ?>
-                    </div>
+                <div class="member-profile-action-message is-success" role="status" style="margin:0 0 18px;">
+                    <?= e($profilePointEditSuccess); ?>
+                </div>
                 <?php endif; ?>
 
                 <?php if ($viewerCanEditHousePoints): ?>
-                    <style>
-                        .profile-points-modal[hidden] { display: none !important; }
-                        .profile-points-modal { position: fixed; inset: 0; z-index: 10020; display: grid; place-items: center; padding: 24px; }
-                        .profile-points-modal-backdrop { position: absolute; inset: 0; border: 0; background: rgba(7, 4, 10, .82); cursor: pointer; }
-                        .profile-points-modal-card { position: relative; z-index: 1; width: min(560px, 100%); max-height: calc(100vh - 48px); overflow-y: auto; padding: 30px; border: 1px solid rgba(201, 168, 92, .52); border-radius: 18px; background: linear-gradient(145deg, rgba(35, 16, 40, .99), rgba(12, 8, 15, .99)); box-shadow: 0 24px 70px rgba(0,0,0,.58), inset 0 0 0 1px rgba(255,255,255,.025); }
-                        .profile-points-modal-card::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(201, 168, 92, .18); border-radius: 12px; pointer-events: none; }
-                        .profile-points-modal-close { position: absolute; top: 14px; right: 14px; z-index: 2; width: 38px; height: 38px; border: 1px solid rgba(201,168,92,.34); border-radius: 50%; background: rgba(10,6,12,.78); color: #d7bd7a; font-size: 1.35rem; cursor: pointer; }
-                        .profile-points-modal-title { margin: 3px 48px 8px 0; font-family: Georgia, 'Times New Roman', serif; color: #d7bd7a; font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 400; }
-                        .profile-points-modal-copy { margin: 0 0 22px; color: rgba(245,239,229,.76); }
-                        .profile-points-modal-meta { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 22px; }
-                        .profile-points-modal-pill { padding: 7px 11px; border: 1px solid rgba(201,168,92,.25); border-radius: 999px; background: rgba(255,255,255,.035); color: rgba(245,239,229,.82); font-size: .84rem; }
-                        .profile-points-modal .form-group { margin-bottom: 17px; }
-                        .profile-points-modal .form-group label { display:block; margin-bottom:7px; }
-                        .profile-points-modal-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top:22px; }
-                        body.profile-points-modal-open { overflow: hidden; }
-                        @media (max-width: 600px) { .profile-points-modal { padding: 14px; } .profile-points-modal-card { padding: 24px 20px; } }
-                    </style>
+                <style>
+                    .profile-points-modal[hidden] {
+                        display: none !important;
+                    }
 
-                    <div
-                        class="profile-points-modal"
-                        id="profile-points-modal"
-                        role="dialog"
-                        aria-modal="true"
-                        aria-labelledby="profile-points-modal-title"
-                        <?= $profilePointEditOpenModal ? '' : 'hidden'; ?>
-                    >
-                        <button class="profile-points-modal-backdrop js-profile-points-modal-close" type="button" aria-label="Close House Point editor"></button>
+                    .profile-points-modal {
+                        position: fixed;
+                        inset: 0;
+                        z-index: 10020;
+                        display: grid;
+                        place-items: center;
+                        padding: 24px;
+                    }
 
-                        <div class="profile-points-modal-card">
-                            <button class="profile-points-modal-close js-profile-points-modal-close" type="button" aria-label="Close">×</button>
-                            <p class="academy-overline">Staff Point Control</p>
-                            <h3 class="profile-points-modal-title" id="profile-points-modal-title">Edit <?= e($displayName); ?>'s House Points</h3>
-                            <p class="profile-points-modal-copy">This changes House Points only. HW Points remain controlled by coursework and cannot be edited from a member profile.</p>
+                    .profile-points-modal-backdrop {
+                        position: absolute;
+                        inset: 0;
+                        border: 0;
+                        background: rgba(7, 4, 10, .82);
+                        cursor: pointer;
+                    }
 
-                            <div class="profile-points-modal-meta">
-                                <span class="profile-points-modal-pill">Current House Points: <?= number_format($housePoints); ?></span>
-                                <?php if (is_array($currentPointsSchoolYear)): ?>
-                                    <span class="profile-points-modal-pill"><?= e((string) ($currentPointsSchoolYear['name'] ?? 'Current School Year')); ?></span>
-                                <?php endif; ?>
-                                <?php if ($profileHouseName !== ''): ?>
-                                    <span class="profile-points-modal-pill"><?= e($profileHouseName); ?></span>
-                                <?php endif; ?>
-                            </div>
+                    .profile-points-modal-card {
+                        position: relative;
+                        z-index: 1;
+                        width: min(560px, 100%);
+                        max-height: calc(100vh - 48px);
+                        overflow-y: auto;
+                        padding: 30px;
+                        border: 1px solid rgba(201, 168, 92, .52);
+                        border-radius: 18px;
+                        background: linear-gradient(145deg, rgba(35, 16, 40, .99), rgba(12, 8, 15, .99));
+                        box-shadow: 0 24px 70px rgba(0, 0, 0, .58), inset 0 0 0 1px rgba(255, 255, 255, .025);
+                    }
 
-                            <?php if ($profilePointEditErrors !== []): ?>
-                                <div class="member-profile-action-message is-error" role="alert" style="margin-bottom:18px;">
-                                    <?php foreach ($profilePointEditErrors as $profilePointError): ?>
-                                        <div><?= e($profilePointError); ?></div>
-                                    <?php endforeach; ?>
-                                </div>
+                    .profile-points-modal-card::before {
+                        content: '';
+                        position: absolute;
+                        inset: 8px;
+                        border: 1px solid rgba(201, 168, 92, .18);
+                        border-radius: 12px;
+                        pointer-events: none;
+                    }
+
+                    .profile-points-modal-close {
+                        position: absolute;
+                        top: 14px;
+                        right: 14px;
+                        z-index: 2;
+                        width: 38px;
+                        height: 38px;
+                        border: 1px solid rgba(201, 168, 92, .34);
+                        border-radius: 50%;
+                        background: rgba(10, 6, 12, .78);
+                        color: #d7bd7a;
+                        font-size: 1.35rem;
+                        cursor: pointer;
+                    }
+
+                    .profile-points-modal-title {
+                        margin: 3px 48px 8px 0;
+                        font-family: Georgia, 'Times New Roman', serif;
+                        color: #d7bd7a;
+                        font-size: clamp(1.5rem, 4vw, 2rem);
+                        font-weight: 400;
+                    }
+
+                    .profile-points-modal-copy {
+                        margin: 0 0 22px;
+                        color: rgba(245, 239, 229, .76);
+                    }
+
+                    .profile-points-modal-meta {
+                        display: flex;
+                        gap: 10px;
+                        flex-wrap: wrap;
+                        margin: 0 0 22px;
+                    }
+
+                    .profile-points-modal-pill {
+                        padding: 7px 11px;
+                        border: 1px solid rgba(201, 168, 92, .25);
+                        border-radius: 999px;
+                        background: rgba(255, 255, 255, .035);
+                        color: rgba(245, 239, 229, .82);
+                        font-size: .84rem;
+                    }
+
+                    .profile-points-modal .form-group {
+                        margin-bottom: 17px;
+                    }
+
+                    .profile-points-modal .form-group label {
+                        display: block;
+                        margin-bottom: 7px;
+                    }
+
+                    .profile-points-modal-actions {
+                        display: flex;
+                        gap: 10px;
+                        flex-wrap: wrap;
+                        margin-top: 22px;
+                    }
+
+                    body.profile-points-modal-open {
+                        overflow: hidden;
+                    }
+
+                    @media (max-width: 600px) {
+                        .profile-points-modal {
+                            padding: 14px;
+                        }
+
+                        .profile-points-modal-card {
+                            padding: 24px 20px;
+                        }
+                    }
+
+                </style>
+
+                <div class="profile-points-modal" id="profile-points-modal" role="dialog" aria-modal="true"
+                    aria-labelledby="profile-points-modal-title" <?= $profilePointEditOpenModal ? '' : 'hidden'; ?>>
+                    <button class="profile-points-modal-backdrop js-profile-points-modal-close" type="button"
+                        aria-label="Close House Point editor"></button>
+
+                    <div class="profile-points-modal-card">
+                        <button class="profile-points-modal-close js-profile-points-modal-close" type="button"
+                            aria-label="Close">×</button>
+                        <p class="academy-overline">Staff Point Control</p>
+                        <h3 class="profile-points-modal-title" id="profile-points-modal-title">Edit
+                            <?= e($displayName); ?>'s House Points</h3>
+                        <p class="profile-points-modal-copy">This changes House Points only. HW Points remain controlled
+                            by coursework and cannot be edited from a member profile.</p>
+
+                        <div class="profile-points-modal-meta">
+                            <span class="profile-points-modal-pill">Current House Points:
+                                <?= number_format($housePoints); ?></span>
+                            <?php if (is_array($currentPointsSchoolYear)): ?>
+                            <span
+                                class="profile-points-modal-pill"><?= e((string) ($currentPointsSchoolYear['name'] ?? 'Current School Year')); ?></span>
                             <?php endif; ?>
-
-                            <?php if ($house === null): ?>
-                                <div class="member-profile-action-message is-error" role="status">This member must be sorted into a House before House Points can be changed.</div>
-                            <?php elseif (!is_array($currentPointsSchoolYear) || $currentPointsSchoolYearId <= 0): ?>
-                                <div class="member-profile-action-message is-error" role="status">No current active school year is available.</div>
-                            <?php elseif ((int) ($currentPointsSchoolYear['is_finalized'] ?? 0) === 1): ?>
-                                <div class="member-profile-action-message is-error" role="status">The current school year has been finalized and its point records are read-only.</div>
-                            <?php else: ?>
-                                <form method="post" action="<?= e(url('profile.php?u=' . $targetUserId)); ?>">
-                                    <?= csrf_field(); ?>
-                                    <input type="hidden" name="profile_action" value="change_house_points">
-
-                                    <div class="form-group">
-                                        <label for="profile-points-direction">Change</label>
-                                        <select class="form-control" id="profile-points-direction" name="direction" required>
-                                            <?php if ($viewerCanAwardHousePoints): ?><option value="award"<?= (($_POST['direction'] ?? '') === 'award') ? ' selected' : ''; ?>>Award House Points</option><?php endif; ?>
-                                            <?php if ($viewerCanDeductHousePoints): ?><option value="deduct"<?= (($_POST['direction'] ?? '') === 'deduct') ? ' selected' : ''; ?>>Deduct House Points</option><?php endif; ?>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="profile-points-amount">Amount</label>
-                                        <input class="form-control" id="profile-points-amount" name="amount" type="number" min="0.01" max="99999999.99" step="0.01" value="<?= e((string) ($_POST['amount'] ?? '')); ?>" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="profile-points-description">Reason</label>
-                                        <input class="form-control" id="profile-points-description" name="description" type="text" maxlength="255" value="<?= e((string) ($_POST['description'] ?? '')); ?>" placeholder="Why are these House Points changing?" required>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label style="display:flex;align-items:center;gap:9px;">
-                                            <input type="checkbox" name="is_public" value="1"<?= isset($_POST['is_public']) ? ' checked' : ''; ?>>
-                                            Show this change in the public House Point feed
-                                        </label>
-                                    </div>
-
-                                    <div class="profile-points-modal-actions">
-                                        <button class="button button-primary" type="submit">Save House Point Change</button>
-                                        <button class="button button-secondary js-profile-points-modal-close" type="button">Cancel</button>
-                                    </div>
-                                </form>
+                            <?php if ($profileHouseName !== ''): ?>
+                            <span class="profile-points-modal-pill"><?= e($profileHouseName); ?></span>
                             <?php endif; ?>
                         </div>
-                    </div>
 
-                    <script>
-                    (function () {
+                        <?php if ($profilePointEditErrors !== []): ?>
+                        <div class="member-profile-action-message is-error" role="alert" style="margin-bottom:18px;">
+                            <?php foreach ($profilePointEditErrors as $profilePointError): ?>
+                            <div><?= e($profilePointError); ?></div>
+                            <?php endforeach; ?>
+                        </div>
+                        <?php endif; ?>
+
+                        <?php if ($house === null): ?>
+                        <div class="member-profile-action-message is-error" role="status">This member must be sorted
+                            into a House before House Points can be changed.</div>
+                        <?php elseif (!is_array($currentPointsSchoolYear) || $currentPointsSchoolYearId <= 0): ?>
+                        <div class="member-profile-action-message is-error" role="status">No current active school year
+                            is available.</div>
+                        <?php elseif ((int) ($currentPointsSchoolYear['is_finalized'] ?? 0) === 1): ?>
+                        <div class="member-profile-action-message is-error" role="status">The current school year has
+                            been finalized and its point records are read-only.</div>
+                        <?php else: ?>
+                        <form method="post" action="<?= e(url('profile.php?u=' . $targetUserId)); ?>">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="profile_action" value="change_house_points">
+
+                            <div class="form-group">
+                                <label for="profile-points-direction">Change</label>
+                                <select class="form-control" id="profile-points-direction" name="direction" required>
+                                    <?php if ($viewerCanAwardHousePoints): ?><option value="award"
+                                        <?= (($_POST['direction'] ?? '') === 'award') ? ' selected' : ''; ?>>Award House
+                                        Points</option><?php endif; ?>
+                                    <?php if ($viewerCanDeductHousePoints): ?><option value="deduct"
+                                        <?= (($_POST['direction'] ?? '') === 'deduct') ? ' selected' : ''; ?>>Deduct
+                                        House Points</option><?php endif; ?>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profile-points-amount">Amount</label>
+                                <input class="form-control" id="profile-points-amount" name="amount" type="number"
+                                    min="0.01" max="99999999.99" step="0.01"
+                                    value="<?= e((string) ($_POST['amount'] ?? '')); ?>" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="profile-points-description">Reason</label>
+                                <input class="form-control" id="profile-points-description" name="description"
+                                    type="text" maxlength="255"
+                                    value="<?= e((string) ($_POST['description'] ?? '')); ?>"
+                                    placeholder="Why are these House Points changing?" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label style="display:flex;align-items:center;gap:9px;">
+                                    <input type="checkbox" name="is_public" value="1"
+                                        <?= isset($_POST['is_public']) ? ' checked' : ''; ?>>
+                                    Show this change in the public House Point feed
+                                </label>
+                            </div>
+
+                            <div class="profile-points-modal-actions">
+                                <button class="button button-primary" type="submit">Save House Point Change</button>
+                                <button class="button button-secondary js-profile-points-modal-close"
+                                    type="button">Cancel</button>
+                            </div>
+                        </form>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <script>
+                    (function() {
                         const modal = document.getElementById('profile-points-modal');
                         if (!modal) return;
 
@@ -3086,7 +2918,7 @@ require
                         const openers = document.querySelectorAll('.js-profile-points-modal-open');
                         const closers = modal.querySelectorAll('.js-profile-points-modal-close');
 
-                        const openModal = function (trigger) {
+                        const openModal = function(trigger) {
                             lastTrigger = trigger || document.activeElement;
                             modal.hidden = false;
                             document.body.classList.add('profile-points-modal-open');
@@ -3094,7 +2926,7 @@ require
                             if (field) window.setTimeout(() => field.focus(), 0);
                         };
 
-                        const closeModal = function () {
+                        const closeModal = function() {
                             modal.hidden = true;
                             document.body.classList.remove('profile-points-modal-open');
                             if (lastTrigger && typeof lastTrigger.focus === 'function') lastTrigger.focus();
@@ -3103,7 +2935,7 @@ require
                         openers.forEach((button) => button.addEventListener('click', () => openModal(button)));
                         closers.forEach((button) => button.addEventListener('click', closeModal));
 
-                        document.addEventListener('keydown', function (event) {
+                        document.addEventListener('keydown', function(event) {
                             if (event.key === 'Escape' && !modal.hidden) closeModal();
                         });
 
@@ -3111,7 +2943,8 @@ require
                             document.body.classList.add('profile-points-modal-open');
                         }
                     }());
-                    </script>
+
+                </script>
                 <?php endif; ?>
 
 
@@ -3132,15 +2965,15 @@ require
 
                     <?php if ($bioDisplayHtml !== ''): ?>
 
-                        <div class="member-profile-bio forum-rich-text">
-                            <?= $bioDisplayHtml; ?>
-                        </div>
+                    <div class="member-profile-bio forum-rich-text">
+                        <?= $bioDisplayHtml; ?>
+                    </div>
 
                     <?php else: ?>
 
-                        <p class="member-profile-empty">
-                            <?= e($displayName); ?> has not added a bio yet.
-                        </p>
+                    <p class="member-profile-empty">
+                        <?= e($displayName); ?> has not added a bio yet.
+                    </p>
 
                     <?php endif; ?>
 
@@ -3151,34 +2984,34 @@ require
                     $customFields !== []
                 ): ?>
 
-                    <section class="member-profile-card member-profile-card-large">
+                <section class="member-profile-card member-profile-card-large">
 
-                        <header class="member-profile-card-heading">
+                    <header class="member-profile-card-heading">
 
-                            <p class="academy-overline">
-                                Profile Details
-                            </p>
+                        <p class="academy-overline">
+                            Profile Details
+                        </p>
 
-                            <h2>
-                                More About Me
-                            </h2>
+                        <h2>
+                            More About Me
+                        </h2>
 
-                        </header>
+                    </header>
 
 
-                        <dl class="member-profile-custom-fields">
+                    <dl class="member-profile-custom-fields">
 
-                            <?php foreach ($customFields as $customField): ?>
+                        <?php foreach ($customFields as $customField): ?>
 
-                                <div class="member-profile-custom-field">
+                        <div class="member-profile-custom-field">
 
-                                    <dt>
-                                        <?= e((string) $customField['field_label']); ?>
-                                    </dt>
+                            <dt>
+                                <?= e((string) $customField['field_label']); ?>
+                            </dt>
 
-                                    <dd>
+                            <dd>
 
-                                        <?php
+                                <?php
                                         $fieldValue =
                                             trim(
                                                 (string) $customField['field_value']
@@ -3188,7 +3021,7 @@ require
                                             (string) $customField['field_type'];
                                         ?>
 
-                                        <?php if (
+                                <?php if (
                                             $fieldType === 'url'
                                             && filter_var(
                                                 $fieldValue,
@@ -3200,35 +3033,31 @@ require
                                             ) === 1
                                         ): ?>
 
-                                            <a
-                                                href="<?= e($fieldValue); ?>"
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                <?= e($fieldValue); ?>
-                                            </a>
+                                <a href="<?= e($fieldValue); ?>" target="_blank" rel="noopener noreferrer">
+                                    <?= e($fieldValue); ?>
+                                </a>
 
-                                        <?php elseif (
+                                <?php elseif (
                                             $fieldType === 'textarea'
                                         ): ?>
 
-                                            <?= nl2br(e($fieldValue)); ?>
+                                <?= nl2br(e($fieldValue)); ?>
 
-                                        <?php else: ?>
+                                <?php else: ?>
 
-                                            <?= e($fieldValue); ?>
+                                <?= e($fieldValue); ?>
 
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </dd>
+                            </dd>
 
-                                </div>
+                        </div>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                        </dl>
+                    </dl>
 
-                    </section>
+                </section>
 
                 <?php endif; ?>
 
@@ -3237,189 +3066,190 @@ require
                     $showAchievements
                 ): ?>
 
-                    <section class="member-profile-card member-profile-card-large">
+                <section class="member-profile-card member-profile-card-large">
 
-                        <header class="member-profile-card-heading">
+                    <header class="member-profile-card-heading">
 
-                            <p class="academy-overline">
-                                Academy Record
-                            </p>
+                        <p class="academy-overline">
+                            Academy Record
+                        </p>
 
-                            <h2>
-                                Achievements
-                            </h2>
+                        <h2>
+                            Achievements
+                        </h2>
 
-                        </header>
+                    </header>
 
 
-                        <?php if ($achievements !== []): ?>
+                    <?php if ($achievements !== []): ?>
 
-                            <style>
-                                .member-profile-achievements {
-                                    display: flex;
-                                    flex-wrap: wrap;
-                                    gap: 18px;
-                                    align-items: center;
-                                }
+                    <style>
+                        .member-profile-achievements {
+                            display: flex;
+                            flex-wrap: wrap;
+                            gap: 18px;
+                            align-items: center;
+                        }
 
-                                .member-profile-achievement-button {
-                                    display: block;
-                                    width: 112px;
-                                    height: 112px;
-                                    padding: 6px;
-                                    border: 1px solid rgba(197, 154, 75, .28);
-                                    border-radius: 16px;
-                                    background: rgba(12, 5, 17, .42);
-                                    cursor: pointer;
-                                    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
-                                }
+                        .member-profile-achievement-button {
+                            display: block;
+                            width: 112px;
+                            height: 112px;
+                            padding: 6px;
+                            border: 1px solid rgba(197, 154, 75, .28);
+                            border-radius: 16px;
+                            background: rgba(12, 5, 17, .42);
+                            cursor: pointer;
+                            transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+                        }
 
-                                .member-profile-achievement-button:hover,
-                                .member-profile-achievement-button:focus-visible {
-                                    transform: translateY(-2px) scale(1.03);
-                                    border-color: rgba(219, 178, 92, .72);
-                                    box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
-                                    outline: none;
-                                }
+                        .member-profile-achievement-button:hover,
+                        .member-profile-achievement-button:focus-visible {
+                            transform: translateY(-2px) scale(1.03);
+                            border-color: rgba(219, 178, 92, .72);
+                            box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
+                            outline: none;
+                        }
 
-                                .member-profile-achievement-badge,
-                                .member-profile-achievement-mark {
-                                    width: 100px;
-                                    height: 100px;
-                                }
+                        .member-profile-achievement-badge,
+                        .member-profile-achievement-mark {
+                            width: 100px;
+                            height: 100px;
+                        }
 
-                                .member-profile-achievement-badge {
-                                    display: block;
-                                    object-fit: contain;
-                                }
+                        .member-profile-achievement-badge {
+                            display: block;
+                            object-fit: contain;
+                        }
 
-                                .member-profile-achievement-mark {
-                                    display: grid;
-                                    place-items: center;
-                                    font-size: 2.15rem;
-                                }
+                        .member-profile-achievement-mark {
+                            display: grid;
+                            place-items: center;
+                            font-size: 2.15rem;
+                        }
 
-                                .achievement-modal[hidden] {
-                                    display: none;
-                                }
+                        .achievement-modal[hidden] {
+                            display: none;
+                        }
 
-                                .achievement-modal {
-                                    position: fixed;
-                                    inset: 0;
-                                    z-index: 9999;
-                                    display: grid;
-                                    place-items: center;
-                                    padding: 24px;
-                                }
+                        .achievement-modal {
+                            position: fixed;
+                            inset: 0;
+                            z-index: 9999;
+                            display: grid;
+                            place-items: center;
+                            padding: 24px;
+                        }
 
-                                .achievement-modal-backdrop {
-                                    position: absolute;
-                                    inset: 0;
-                                    border: 0;
-                                    background: rgba(4, 1, 7, .82);
-                                    backdrop-filter: blur(5px);
-                                    cursor: default;
-                                }
+                        .achievement-modal-backdrop {
+                            position: absolute;
+                            inset: 0;
+                            border: 0;
+                            background: rgba(4, 1, 7, .82);
+                            backdrop-filter: blur(5px);
+                            cursor: default;
+                        }
 
-                                .achievement-modal-card {
-                                    position: relative;
-                                    width: min(92vw, 520px);
-                                    padding: 34px 30px 30px;
-                                    border: 1px solid rgba(209, 166, 80, .48);
-                                    border-radius: 20px;
-                                    background:
-                                        radial-gradient(circle at top, rgba(91, 44, 91, .24), transparent 42%),
-                                        linear-gradient(180deg, #1a0d20 0%, #100813 100%);
-                                    box-shadow: 0 28px 70px rgba(0, 0, 0, .58);
-                                    text-align: center;
-                                }
+                        .achievement-modal-card {
+                            position: relative;
+                            width: min(92vw, 520px);
+                            padding: 34px 30px 30px;
+                            border: 1px solid rgba(209, 166, 80, .48);
+                            border-radius: 20px;
+                            background:
+                                radial-gradient(circle at top, rgba(91, 44, 91, .24), transparent 42%),
+                                linear-gradient(180deg, #1a0d20 0%, #100813 100%);
+                            box-shadow: 0 28px 70px rgba(0, 0, 0, .58);
+                            text-align: center;
+                        }
 
-                                .achievement-modal-close {
-                                    position: absolute;
-                                    top: 12px;
-                                    right: 14px;
-                                    width: 38px;
-                                    height: 38px;
-                                    border: 1px solid rgba(209, 166, 80, .3);
-                                    border-radius: 50%;
-                                    background: rgba(7, 3, 10, .7);
-                                    color: #e4c779;
-                                    font-size: 1.45rem;
-                                    line-height: 1;
-                                    cursor: pointer;
-                                }
+                        .achievement-modal-close {
+                            position: absolute;
+                            top: 12px;
+                            right: 14px;
+                            width: 38px;
+                            height: 38px;
+                            border: 1px solid rgba(209, 166, 80, .3);
+                            border-radius: 50%;
+                            background: rgba(7, 3, 10, .7);
+                            color: #e4c779;
+                            font-size: 1.45rem;
+                            line-height: 1;
+                            cursor: pointer;
+                        }
 
-                                .achievement-modal-image {
-                                    display: block;
-                                    width: min(240px, 62vw);
-                                    height: min(240px, 62vw);
-                                    margin: 8px auto 24px;
-                                    object-fit: contain;
-                                    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .45));
-                                }
+                        .achievement-modal-image {
+                            display: block;
+                            width: min(240px, 62vw);
+                            height: min(240px, 62vw);
+                            margin: 8px auto 24px;
+                            object-fit: contain;
+                            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .45));
+                        }
 
-                                .achievement-modal-kicker {
-                                    margin: 0 0 8px;
-                                    color: #d6ad55;
-                                    font-size: .76rem;
-                                    font-weight: 700;
-                                    letter-spacing: .18em;
-                                    text-transform: uppercase;
-                                }
+                        .achievement-modal-kicker {
+                            margin: 0 0 8px;
+                            color: #d6ad55;
+                            font-size: .76rem;
+                            font-weight: 700;
+                            letter-spacing: .18em;
+                            text-transform: uppercase;
+                        }
 
-                                .achievement-modal-title {
-                                    margin: 0;
-                                    color: #f0d477;
-                                    font-family: Georgia, 'Times New Roman', serif;
-                                    font-size: clamp(2rem, 7vw, 3rem);
-                                    line-height: 1.05;
-                                }
+                        .achievement-modal-title {
+                            margin: 0;
+                            color: #f0d477;
+                            font-family: Georgia, 'Times New Roman', serif;
+                            font-size: clamp(2rem, 7vw, 3rem);
+                            line-height: 1.05;
+                        }
 
-                                .achievement-modal-divider {
-                                    width: 86px;
-                                    height: 1px;
-                                    margin: 18px auto;
-                                    background: linear-gradient(90deg, transparent, #c79c45, transparent);
-                                }
+                        .achievement-modal-divider {
+                            width: 86px;
+                            height: 1px;
+                            margin: 18px auto;
+                            background: linear-gradient(90deg, transparent, #c79c45, transparent);
+                        }
 
-                                .achievement-modal-description {
-                                    margin: 0 auto;
-                                    max-width: 42ch;
-                                    color: #d9cddd;
-                                    font-size: 1rem;
-                                    line-height: 1.65;
-                                }
+                        .achievement-modal-description {
+                            margin: 0 auto;
+                            max-width: 42ch;
+                            color: #d9cddd;
+                            font-size: 1rem;
+                            line-height: 1.65;
+                        }
 
-                                .achievement-modal-earned {
-                                    margin: 18px 0 0;
-                                    color: #a995aa;
-                                    font-size: .84rem;
-                                    letter-spacing: .04em;
-                                }
+                        .achievement-modal-earned {
+                            margin: 18px 0 0;
+                            color: #a995aa;
+                            font-size: .84rem;
+                            letter-spacing: .04em;
+                        }
 
-                                @media (max-width: 520px) {
-                                    .member-profile-achievement-button {
-                                        width: 104px;
-                                        height: 104px;
-                                    }
+                        @media (max-width: 520px) {
+                            .member-profile-achievement-button {
+                                width: 104px;
+                                height: 104px;
+                            }
 
-                                    .member-profile-achievement-badge,
-                                    .member-profile-achievement-mark {
-                                        width: 92px;
-                                        height: 92px;
-                                    }
+                            .member-profile-achievement-badge,
+                            .member-profile-achievement-mark {
+                                width: 92px;
+                                height: 92px;
+                            }
 
-                                    .achievement-modal-card {
-                                        padding: 30px 20px 24px;
-                                    }
-                                }
-                            </style>
+                            .achievement-modal-card {
+                                padding: 30px 20px 24px;
+                            }
+                        }
 
-                            <div class="member-profile-achievements">
+                    </style>
 
-                                <?php foreach ($achievements as $achievement): ?>
+                    <div class="member-profile-achievements">
 
-                                    <?php
+                        <?php foreach ($achievements as $achievement): ?>
+
+                        <?php
                                     $achievementName =
                                         trim((string) ($achievement['name'] ?? ''));
 
@@ -3454,166 +3284,138 @@ require
                                     }
                                     ?>
 
-                                    <button
-                                        type="button"
-                                        class="member-profile-achievement-button js-achievement-modal-open"
-                                        aria-label="View <?= e($achievementName); ?> achievement"
-                                        data-achievement-name="<?= e($achievementName); ?>"
-                                        data-achievement-description="<?= e($achievementDescription); ?>"
-                                        data-achievement-image="<?= e($achievementBadgeUrl); ?>"
-                                        data-achievement-earned="<?= e($achievementEarnedLabel); ?>"
-                                    >
+                        <button type="button" class="member-profile-achievement-button js-achievement-modal-open"
+                            aria-label="View <?= e($achievementName); ?> achievement"
+                            data-achievement-name="<?= e($achievementName); ?>"
+                            data-achievement-description="<?= e($achievementDescription); ?>"
+                            data-achievement-image="<?= e($achievementBadgeUrl); ?>"
+                            data-achievement-earned="<?= e($achievementEarnedLabel); ?>">
 
-                                        <?php if ($achievementBadgeUrl !== ''): ?>
+                            <?php if ($achievementBadgeUrl !== ''): ?>
 
-                                            <img
-                                                class="member-profile-achievement-badge"
-                                                src="<?= e($achievementBadgeUrl); ?>"
-                                                alt="<?= e($achievementName); ?> badge"
-                                                width="100"
-                                                height="100"
-                                                loading="lazy"
-                                            >
+                            <img class="member-profile-achievement-badge" src="<?= e($achievementBadgeUrl); ?>"
+                                alt="<?= e($achievementName); ?> badge" width="100" height="100" loading="lazy">
 
-                                        <?php else: ?>
+                            <?php else: ?>
 
-                                            <span
-                                                class="member-profile-achievement-mark"
-                                                aria-hidden="true"
-                                            >
-                                                ✦
-                                            </span>
+                            <span class="member-profile-achievement-mark" aria-hidden="true">
+                                ✦
+                            </span>
 
-                                        <?php endif; ?>
+                            <?php endif; ?>
 
-                                    </button>
+                        </button>
 
-                                <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                            </div>
+                    </div>
 
-                            <div
-                                class="achievement-modal"
-                                id="achievement-modal"
-                                role="dialog"
-                                aria-modal="true"
-                                aria-labelledby="achievement-modal-title"
-                                hidden
-                            >
-                                <button
-                                    type="button"
-                                    class="achievement-modal-backdrop js-achievement-modal-close"
-                                    aria-label="Close achievement details"
-                                ></button>
+                    <div class="achievement-modal" id="achievement-modal" role="dialog" aria-modal="true"
+                        aria-labelledby="achievement-modal-title" hidden>
+                        <button type="button" class="achievement-modal-backdrop js-achievement-modal-close"
+                            aria-label="Close achievement details"></button>
 
-                                <div class="achievement-modal-card">
-                                    <button
-                                        type="button"
-                                        class="achievement-modal-close js-achievement-modal-close"
-                                        aria-label="Close achievement details"
-                                    >
-                                        ×
-                                    </button>
+                        <div class="achievement-modal-card">
+                            <button type="button" class="achievement-modal-close js-achievement-modal-close"
+                                aria-label="Close achievement details">
+                                ×
+                            </button>
 
-                                    <img
-                                        class="achievement-modal-image"
-                                        id="achievement-modal-image"
-                                        src=""
-                                        alt=""
-                                        width="240"
-                                        height="240"
-                                    >
+                            <img class="achievement-modal-image" id="achievement-modal-image" src="" alt="" width="240"
+                                height="240">
 
-                                    <p class="achievement-modal-kicker">Achievement Earned</p>
-                                    <h3 class="achievement-modal-title" id="achievement-modal-title"></h3>
-                                    <div class="achievement-modal-divider" aria-hidden="true"></div>
-                                    <p class="achievement-modal-description" id="achievement-modal-description"></p>
-                                    <p class="achievement-modal-earned" id="achievement-modal-earned"></p>
-                                </div>
-                            </div>
+                            <p class="achievement-modal-kicker">Achievement Earned</p>
+                            <h3 class="achievement-modal-title" id="achievement-modal-title"></h3>
+                            <div class="achievement-modal-divider" aria-hidden="true"></div>
+                            <p class="achievement-modal-description" id="achievement-modal-description"></p>
+                            <p class="achievement-modal-earned" id="achievement-modal-earned"></p>
+                        </div>
+                    </div>
 
-                            <script>
-                                (() => {
-                                    const modal = document.getElementById('achievement-modal');
+                    <script>
+                        (() => {
+                            const modal = document.getElementById('achievement-modal');
 
-                                    if (!modal) {
-                                        return;
+                            if (!modal) {
+                                return;
+                            }
+
+                            const image = document.getElementById('achievement-modal-image');
+                            const title = document.getElementById('achievement-modal-title');
+                            const description = document.getElementById('achievement-modal-description');
+                            const earned = document.getElementById('achievement-modal-earned');
+                            let lastTrigger = null;
+
+                            const closeModal = () => {
+                                modal.hidden = true;
+                                document.body.style.overflow = '';
+
+                                if (lastTrigger) {
+                                    lastTrigger.focus();
+                                }
+                            };
+
+                            document.querySelectorAll('.js-achievement-modal-open').forEach((button) => {
+                                button.addEventListener('click', () => {
+                                    lastTrigger = button;
+
+                                    const name = button.dataset.achievementName || 'Achievement';
+                                    const details = button.dataset.achievementDescription || '';
+                                    const imageUrl = button.dataset.achievementImage || '';
+                                    const earnedLabel = button.dataset.achievementEarned || '';
+
+                                    title.textContent = name;
+                                    description.textContent = details;
+                                    description.hidden = details === '';
+
+                                    if (imageUrl !== '') {
+                                        image.src = imageUrl;
+                                        image.alt = `${name} badge`;
+                                        image.hidden = false;
+                                    } else {
+                                        image.src = '';
+                                        image.alt = '';
+                                        image.hidden = true;
                                     }
 
-                                    const image = document.getElementById('achievement-modal-image');
-                                    const title = document.getElementById('achievement-modal-title');
-                                    const description = document.getElementById('achievement-modal-description');
-                                    const earned = document.getElementById('achievement-modal-earned');
-                                    let lastTrigger = null;
+                                    earned.textContent = earnedLabel !== '' ?
+                                        `Earned ${earnedLabel}` :
+                                        '';
+                                    earned.hidden = earnedLabel === '';
 
-                                    const closeModal = () => {
-                                        modal.hidden = true;
-                                        document.body.style.overflow = '';
+                                    modal.hidden = false;
+                                    document.body.style.overflow = 'hidden';
 
-                                        if (lastTrigger) {
-                                            lastTrigger.focus();
-                                        }
-                                    };
+                                    const closeButton = modal.querySelector(
+                                        '.achievement-modal-close');
+                                    if (closeButton) {
+                                        closeButton.focus();
+                                    }
+                                });
+                            });
 
-                                    document.querySelectorAll('.js-achievement-modal-open').forEach((button) => {
-                                        button.addEventListener('click', () => {
-                                            lastTrigger = button;
+                            modal.querySelectorAll('.js-achievement-modal-close').forEach((button) => {
+                                button.addEventListener('click', closeModal);
+                            });
 
-                                            const name = button.dataset.achievementName || 'Achievement';
-                                            const details = button.dataset.achievementDescription || '';
-                                            const imageUrl = button.dataset.achievementImage || '';
-                                            const earnedLabel = button.dataset.achievementEarned || '';
+                            document.addEventListener('keydown', (event) => {
+                                if (event.key === 'Escape' && !modal.hidden) {
+                                    closeModal();
+                                }
+                            });
+                        })();
 
-                                            title.textContent = name;
-                                            description.textContent = details;
-                                            description.hidden = details === '';
+                    </script>
 
-                                            if (imageUrl !== '') {
-                                                image.src = imageUrl;
-                                                image.alt = `${name} badge`;
-                                                image.hidden = false;
-                                            } else {
-                                                image.src = '';
-                                                image.alt = '';
-                                                image.hidden = true;
-                                            }
+                    <?php else: ?>
 
-                                            earned.textContent = earnedLabel !== ''
-                                                ? `Earned ${earnedLabel}`
-                                                : '';
-                                            earned.hidden = earnedLabel === '';
+                    <p class="member-profile-empty">
+                        No achievements have been earned yet.
+                    </p>
 
-                                            modal.hidden = false;
-                                            document.body.style.overflow = 'hidden';
+                    <?php endif; ?>
 
-                                            const closeButton = modal.querySelector('.achievement-modal-close');
-                                            if (closeButton) {
-                                                closeButton.focus();
-                                            }
-                                        });
-                                    });
-
-                                    modal.querySelectorAll('.js-achievement-modal-close').forEach((button) => {
-                                        button.addEventListener('click', closeModal);
-                                    });
-
-                                    document.addEventListener('keydown', (event) => {
-                                        if (event.key === 'Escape' && !modal.hidden) {
-                                            closeModal();
-                                        }
-                                    });
-                                })();
-                            </script>
-
-                        <?php else: ?>
-
-                            <p class="member-profile-empty">
-                                No achievements have been earned yet.
-                            </p>
-
-                        <?php endif; ?>
-
-                    </section>
+                </section>
 
                 <?php endif; ?>
 

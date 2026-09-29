@@ -65,34 +65,31 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to manage lessons.
-                </p>
+            <p>
+                Your account does not have permission to manage lessons.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/courses.php')); ?>"
-                >
-                    Return to Courses
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/courses.php')); ?>">
+                Return to Courses
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -2417,18 +2414,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page lessons-admin-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page lessons-admin-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="lessons-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="lessons-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -2482,22 +2473,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The lesson could not be saved.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The lesson could not be saved.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -2514,28 +2502,19 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(url('admin/lessons.php')); ?>"
-                        method="get"
-                        class="forum-admin-form"
-                    >
+                    <form action="<?= e(url('admin/lessons.php')); ?>" method="get" class="forum-admin-form">
                         <div class="form-group">
                             <label for="offering">
                                 Course Offering
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="offering"
-                                name="offering"
-                                required
-                            >
+                            <select class="form-control" id="offering" name="offering" required>
                                 <option value="">
                                     Select an offering
                                 </option>
 
                                 <?php foreach ($offerings as $offeringRow): ?>
-                                    <?php
+                                <?php
                                     $scope =
                                         (string) (
                                             $offeringRow['offering_scope']
@@ -2607,23 +2586,17 @@ $staffHeroUrl =
                                         );
                                     ?>
 
-                                    <option
-                                        value="<?= (int) $offeringRow['id']; ?>"
-                                        <?= (int) $offeringRow['id'] === $selectedOfferingId
+                                <option value="<?= (int) $offeringRow['id']; ?>" <?= (int) $offeringRow['id'] === $selectedOfferingId
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        <?= e($optionLabel); ?>
-                                    </option>
+                                            : ''; ?>>
+                                    <?= e($optionLabel); ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Load Lessons
                             </button>
                         </div>
@@ -2634,16 +2607,16 @@ $staffHeroUrl =
 
                 <?php if ($selectedOffering !== null): ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Selected Offering
-                                </p>
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Selected Offering
+                            </p>
 
-                                <h3>
-                                    <?= e(
+                            <h3>
+                                <?= e(
                                         (string) (
                                             $selectedOffering[
                                                 'course_title'
@@ -2651,17 +2624,17 @@ $staffHeroUrl =
                                             ?? 'Course'
                                         )
                                     ); ?>
-                                </h3>
-                            </div>
+                            </h3>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
+                    <div class="dashboard-panel-body">
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <span>
-                                    <strong>Scope:</strong>
-                                    <?= e(
+                            <span>
+                                <strong>Scope:</strong>
+                                <?= e(
                                         ucfirst(
                                             str_replace(
                                                 '_',
@@ -2675,45 +2648,45 @@ $staffHeroUrl =
                                             )
                                         )
                                     ); ?>
-                                </span>
+                            </span>
 
-                                <?php if (
+                            <?php if (
                                     !empty(
                                         $selectedOffering[
                                             'school_year_name'
                                         ]
                                     )
                                 ): ?>
-                                    <span>
-                                        <strong>School Year:</strong>
-                                        <?= e(
+                            <span>
+                                <strong>School Year:</strong>
+                                <?= e(
                                             (string) $selectedOffering[
                                                 'school_year_name'
                                             ]
                                         ); ?>
-                                    </span>
-                                <?php endif; ?>
+                            </span>
+                            <?php endif; ?>
 
-                                <?php if (
+                            <?php if (
                                     !empty(
                                         $selectedOffering[
                                             'year_group_names'
                                         ]
                                     )
                                 ): ?>
-                                    <span>
-                                        <strong>Grade Level:</strong>
-                                        <?= e(
+                            <span>
+                                <strong>Grade Level:</strong>
+                                <?= e(
                                             (string) $selectedOffering[
                                                 'year_group_names'
                                             ]
                                         ); ?>
-                                    </span>
-                                <?php endif; ?>
+                            </span>
+                            <?php endif; ?>
 
-                                <span>
-                                    <strong>Pacing:</strong>
-                                    <?= e(
+                            <span>
+                                <strong>Pacing:</strong>
+                                <?= e(
                                         ucfirst(
                                             str_replace(
                                                 '_',
@@ -2727,66 +2700,66 @@ $staffHeroUrl =
                                             )
                                         )
                                     ); ?>
-                                </span>
+                            </span>
 
-                                <?php if (
+                            <?php if (
                                     !empty(
                                         $selectedOffering[
                                             'course_start_date'
                                         ]
                                     )
                                 ): ?>
-                                    <span>
-                                        <strong>Course Start:</strong>
-                                        <?= e(
+                            <span>
+                                <strong>Course Start:</strong>
+                                <?= e(
                                             lessons_format_datetime(
                                                 $selectedOffering[
                                                     'course_start_date'
                                                 ]
                                             )
                                         ); ?>
-                                    </span>
-                                <?php endif; ?>
-
-                            </div>
+                            </span>
+                            <?php endif; ?>
 
                         </div>
 
-                    </section>
+                    </div>
+
+                </section>
 
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Lesson Sequence
-                                </p>
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Lesson Sequence
+                            </p>
 
-                                <h3>
-                                    Existing Lessons
-                                </h3>
-                            </div>
+                            <h3>
+                                Existing Lessons
+                            </h3>
                         </div>
+                    </div>
 
-                        <div class="dashboard-panel-body">
+                    <div class="dashboard-panel-body">
 
-                            <?php if ($offeringLessons === []): ?>
+                        <?php if ($offeringLessons === []): ?>
 
-                                <p>
-                                    No lessons have been added to this offering yet.
-                                </p>
+                        <p>
+                            No lessons have been added to this offering yet.
+                        </p>
 
-                            <?php else: ?>
+                        <?php else: ?>
 
-                                <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                    <?php foreach ($offeringLessons as $lessonIndex => $lessonRow): ?>
+                            <?php foreach ($offeringLessons as $lessonIndex => $lessonRow): ?>
 
-                                        <span>
+                            <span>
 
-                                            <strong>
-                                                <?= number_format(
+                                <strong>
+                                    <?= number_format(
                                                     (int) (
                                                         $lessonRow[
                                                             'sort_order'
@@ -2794,7 +2767,7 @@ $staffHeroUrl =
                                                         ?? 0
                                                     )
                                                 ); ?>.
-                                                <?= e(
+                                    <?= e(
                                                     (string) (
                                                         $lessonRow[
                                                             'title'
@@ -2805,10 +2778,10 @@ $staffHeroUrl =
                                                         ?? 'Lesson'
                                                     )
                                                 ); ?>
-                                            </strong>
+                                </strong>
 
-                                            · Version
-                                            <?= number_format(
+                                · Version
+                                <?= number_format(
                                                 (int) (
                                                     $lessonRow[
                                                         'version_number'
@@ -2817,8 +2790,8 @@ $staffHeroUrl =
                                                 )
                                             ); ?>
 
-                                            ·
-                                            <?= e(
+                                ·
+                                <?= e(
                                                 ucfirst(
                                                     (string) (
                                                         $lessonRow[
@@ -2829,17 +2802,16 @@ $staffHeroUrl =
                                                 )
                                             ); ?>
 
-                                            ·
-                                            <?= e(
+                                ·
+                                <?= e(
                                                 lessons_release_label(
                                                     $lessonRow
                                                 )
                                             ); ?>
 
-                                            <?php if ($canEditLessons): ?>
-                                                ·
-                                                <a
-                                                    href="<?= e(
+                                <?php if ($canEditLessons): ?>
+                                ·
+                                <a href="<?= e(
                                                         url(
                                                             'admin/lesson-edit.php?offering='
                                                             . $selectedOfferingId
@@ -2851,53 +2823,33 @@ $staffHeroUrl =
                                                                 ?? 0
                                                             )
                                                         )
-                                                    ); ?>"
-                                                >
-                                                    Edit
-                                                </a>
+                                                    ); ?>">
+                                    Edit
+                                </a>
 
 
-                                                ·
-                                                <form
-                                                    action="<?= e(
+                                ·
+                                <form action="<?= e(
                                                         url(
                                                             'admin/lessons.php?offering='
                                                             . $selectedOfferingId
                                                         )
-                                                    ); ?>"
-                                                    method="post"
-                                                    style="display:inline;"
-                                                    onsubmit="return confirm('Permanently delete this lesson? This removes the lesson, all of its versions, and its placement from course offerings. This cannot be undone.');"
-                                                >
-                                                    <?= csrf_field(); ?>
+                                                    ); ?>" method="post" style="display:inline;"
+                                    onsubmit="return confirm('Permanently delete this lesson? This removes the lesson, all of its versions, and its placement from course offerings. This cannot be undone.');">
+                                    <?= csrf_field(); ?>
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="action"
-                                                        value="delete_lesson"
-                                                    >
+                                    <input type="hidden" name="action" value="delete_lesson">
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="offering_id"
-                                                        value="<?= $selectedOfferingId; ?>"
-                                                    >
+                                    <input type="hidden" name="offering_id" value="<?= $selectedOfferingId; ?>">
 
-                                                    <input
-                                                        type="hidden"
-                                                        name="lesson_id"
-                                                        value="<?= (int) (
+                                    <input type="hidden" name="lesson_id" value="<?= (int) (
                                                             $lessonRow[
                                                                 'lesson_id'
                                                             ]
                                                             ?? 0
-                                                        ); ?>"
-                                                    >
+                                                        ); ?>">
 
-                                                    <button
-                                                        type="submit"
-                                                        class="button-link lesson-delete-link"
-                                                        aria-label="Delete <?= e(
+                                    <button type="submit" class="button-link lesson-delete-link" aria-label="Delete <?= e(
                                                             (string) (
                                                                 $lessonRow[
                                                                     'title'
@@ -2907,53 +2859,33 @@ $staffHeroUrl =
                                                                 ]
                                                                 ?? 'lesson'
                                                             )
-                                                        ); ?>"
-                                                    >
-                                                        Delete
-                                                    </button>
-                                                </form>
+                                                        ); ?>">
+                                        Delete
+                                    </button>
+                                </form>
 
-                                                <?php if ($lessonIndex > 0): ?>
-                                                    ·
-                                                    <form
-                                                        action="<?= e(
+                                <?php if ($lessonIndex > 0): ?>
+                                ·
+                                <form action="<?= e(
                                                             url(
                                                                 'admin/lessons.php?offering='
                                                                 . $selectedOfferingId
                                                             )
-                                                        ); ?>"
-                                                        method="post"
-                                                        style="display:inline;"
-                                                    >
-                                                        <?= csrf_field(); ?>
+                                                        ); ?>" method="post" style="display:inline;">
+                                    <?= csrf_field(); ?>
 
-                                                        <input
-                                                            type="hidden"
-                                                            name="action"
-                                                            value="move_lesson_up"
-                                                        >
+                                    <input type="hidden" name="action" value="move_lesson_up">
 
-                                                        <input
-                                                            type="hidden"
-                                                            name="offering_id"
-                                                            value="<?= $selectedOfferingId; ?>"
-                                                        >
+                                    <input type="hidden" name="offering_id" value="<?= $selectedOfferingId; ?>">
 
-                                                        <input
-                                                            type="hidden"
-                                                            name="offering_lesson_id"
-                                                            value="<?= (int) (
+                                    <input type="hidden" name="offering_lesson_id" value="<?= (int) (
                                                                 $lessonRow[
                                                                     'offering_lesson_id'
                                                                 ]
                                                                 ?? 0
-                                                            ); ?>"
-                                                        >
+                                                            ); ?>">
 
-                                                        <button
-                                                            type="submit"
-                                                            class="button-link"
-                                                            aria-label="Move <?= e(
+                                    <button type="submit" class="button-link" aria-label="Move <?= e(
                                                                 (string) (
                                                                     $lessonRow[
                                                                         'title'
@@ -2963,57 +2895,37 @@ $staffHeroUrl =
                                                                     ]
                                                                     ?? 'lesson'
                                                                 )
-                                                            ); ?> up"
-                                                        >
-                                                            Move Up
-                                                        </button>
-                                                    </form>
-                                                <?php endif; ?>
+                                                            ); ?> up">
+                                        Move Up
+                                    </button>
+                                </form>
+                                <?php endif; ?>
 
-                                                <?php if (
+                                <?php if (
                                                     $lessonIndex
                                                     < count($offeringLessons) - 1
                                                 ): ?>
-                                                    ·
-                                                    <form
-                                                        action="<?= e(
+                                ·
+                                <form action="<?= e(
                                                             url(
                                                                 'admin/lessons.php?offering='
                                                                 . $selectedOfferingId
                                                             )
-                                                        ); ?>"
-                                                        method="post"
-                                                        style="display:inline;"
-                                                    >
-                                                        <?= csrf_field(); ?>
+                                                        ); ?>" method="post" style="display:inline;">
+                                    <?= csrf_field(); ?>
 
-                                                        <input
-                                                            type="hidden"
-                                                            name="action"
-                                                            value="move_lesson_down"
-                                                        >
+                                    <input type="hidden" name="action" value="move_lesson_down">
 
-                                                        <input
-                                                            type="hidden"
-                                                            name="offering_id"
-                                                            value="<?= $selectedOfferingId; ?>"
-                                                        >
+                                    <input type="hidden" name="offering_id" value="<?= $selectedOfferingId; ?>">
 
-                                                        <input
-                                                            type="hidden"
-                                                            name="offering_lesson_id"
-                                                            value="<?= (int) (
+                                    <input type="hidden" name="offering_lesson_id" value="<?= (int) (
                                                                 $lessonRow[
                                                                     'offering_lesson_id'
                                                                 ]
                                                                 ?? 0
-                                                            ); ?>"
-                                                        >
+                                                            ); ?>">
 
-                                                        <button
-                                                            type="submit"
-                                                            class="button-link"
-                                                            aria-label="Move <?= e(
+                                    <button type="submit" class="button-link" aria-label="Move <?= e(
                                                                 (string) (
                                                                     $lessonRow[
                                                                         'title'
@@ -3023,536 +2935,405 @@ $staffHeroUrl =
                                                                     ]
                                                                     ?? 'lesson'
                                                                 )
-                                                            ); ?> down"
-                                                        >
-                                                            Move Down
-                                                        </button>
-                                                    </form>
-                                                <?php endif; ?>
-                                            <?php endif; ?>
+                                                            ); ?> down">
+                                        Move Down
+                                    </button>
+                                </form>
+                                <?php endif; ?>
+                                <?php endif; ?>
 
-                                        </span>
+                            </span>
 
-                                    <?php endforeach; ?>
-
-                                </div>
-
-                            <?php endif; ?>
+                            <?php endforeach; ?>
 
                         </div>
 
-                    </section>
+                        <?php endif; ?>
+
+                    </div>
+
+                </section>
 
 
-                    <?php if ($canCreateLessons): ?>
+                <?php if ($canCreateLessons): ?>
 
-                        <section class="forum-admin-panel">
+                <section class="forum-admin-panel">
 
-                            <header class="forum-admin-titlebar">
-                                <p class="forum-admin-step">
-                                    Step 2
-                                </p>
+                    <header class="forum-admin-titlebar">
+                        <p class="forum-admin-step">
+                            Step 2
+                        </p>
 
-                                <h2>
-                                    Create Lesson
-                                </h2>
-                            </header>
+                        <h2>
+                            Create Lesson
+                        </h2>
+                    </header>
 
-                            <form
-                                action="<?= e(
+                    <form action="<?= e(
                                     url(
                                         'admin/lessons.php?offering='
                                         . $selectedOfferingId
                                     )
-                                ); ?>"
-                                method="post"
-                                enctype="multipart/form-data"
-                                class="forum-admin-form"
-                                id="lesson-create-form"
-                            >
-                                <?= csrf_field(); ?>
+                                ); ?>" method="post" enctype="multipart/form-data" class="forum-admin-form"
+                        id="lesson-create-form">
+                        <?= csrf_field(); ?>
 
-                                <input
-                                    type="hidden"
-                                    name="action"
-                                    value="create_lesson"
-                                >
+                        <input type="hidden" name="action" value="create_lesson">
 
-                                <input
-                                    type="hidden"
-                                    name="offering_id"
-                                    value="<?= $selectedOfferingId; ?>"
-                                >
+                        <input type="hidden" name="offering_id" value="<?= $selectedOfferingId; ?>">
 
 
-                                <div class="form-group">
-                                    <label for="lesson-title">
-                                        Lesson Title
-                                    </label>
+                        <div class="form-group">
+                            <label for="lesson-title">
+                                Lesson Title
+                            </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="text"
-                                        id="lesson-title"
-                                        name="title"
-                                        maxlength="200"
-                                        value="<?= e($form['title']); ?>"
-                                        placeholder="Lesson 1: ..."
-                                        required
-                                    >
-                                </div>
+                            <input class="form-control" type="text" id="lesson-title" name="title" maxlength="200"
+                                value="<?= e($form['title']); ?>" placeholder="Lesson 1: ..." required>
+                        </div>
 
 
-                                <div class="form-group">
-                                    <label for="lesson-image">
-                                        Lesson Image
-                                    </label>
+                        <div class="form-group">
+                            <label for="lesson-image">
+                                Lesson Image
+                            </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="file"
-                                        id="lesson-image"
-                                        name="lesson_image"
-                                        accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
-                                    >
+                            <input class="form-control" type="file" id="lesson-image" name="lesson_image"
+                                accept="image/jpeg,image/png,image/gif,image/webp,image/avif">
 
-                                    <p class="form-help">
-                                        Optional. Use this as the lesson thumbnail or header image. Maximum file size: 10 MB.
-                                    </p>
-                                </div>
+                            <p class="form-help">
+                                Optional. Use this as the lesson thumbnail or header image. Maximum file size: 10 MB.
+                            </p>
+                        </div>
 
 
-                                <div class="form-group">
-                                    <label for="lesson-description">
-                                        Lesson Description
-                                    </label>
+                        <div class="form-group">
+                            <label for="lesson-description">
+                                Lesson Description
+                            </label>
 
-                                    <textarea
-                                        class="form-control"
-                                        id="lesson-description"
-                                        name="description"
-                                        rows="4"
-                                    ><?= e($form['description']); ?></textarea>
-                                </div>
+                            <textarea class="form-control" id="lesson-description" name="description"
+                                rows="4"><?= e($form['description']); ?></textarea>
+                        </div>
 
 
-                                <div class="form-group forum-rich-editor-field">
-                                    <label id="lesson-content-label" for="lesson-editor">
-                                        Lesson Content
-                                    </label>
+                        <div class="form-group forum-rich-editor-field">
+                            <label id="lesson-content-label" for="lesson-editor">
+                                Lesson Content
+                            </label>
 
-                                    <div class="forum-rich-editor" data-forum-editor>
-                                        <div
-                                            class="forum-rich-editor-toolbar"
-                                            role="toolbar"
-                                            aria-label="Lesson content formatting"
-                                        >
-                                            <div class="forum-editor-tool-group">
-                                                <button type="button" class="forum-editor-tool" data-command="bold"><strong>B</strong></button>
-                                                <button type="button" class="forum-editor-tool" data-command="italic"><em>I</em></button>
-                                                <button type="button" class="forum-editor-tool" data-command="underline"><u>U</u></button>
-                                                <button type="button" class="forum-editor-tool" data-command="strikeThrough"><s>S</s></button>
-                                            </div>
-
-                                            <div class="forum-editor-tool-group">
-                                                <select class="forum-editor-select" data-editor-format title="Text style">
-                                                    <option value="">Text Style</option>
-                                                    <option value="p">Paragraph</option>
-                                                    <option value="h2">Heading 2</option>
-                                                    <option value="h3">Heading 3</option>
-                                                    <option value="h4">Heading 4</option>
-                                                </select>
-
-                                                <select class="forum-editor-select" data-editor-size title="Font size">
-                                                    <option value="">Font Size</option>
-                                                    <option value="14px">Small</option>
-                                                    <option value="16px">Normal</option>
-                                                    <option value="18px">Large</option>
-                                                    <option value="22px">Extra Large</option>
-                                                    <option value="28px">Display</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="forum-editor-tool-group forum-editor-color-tools">
-                                                <label class="forum-editor-color-label">
-                                                    Text
-                                                    <input type="color" value="#e8e1e6" data-editor-color aria-label="Text color">
-                                                </label>
-                                                <button
-                                                    type="button"
-                                                    class="forum-editor-tool"
-                                                    data-editor-apply-color
-                                                    title="Apply the current text color to the selected text"
-                                                >
-                                                    Apply Text
-                                                </button>
-
-                                                <label class="forum-editor-color-label">
-                                                    Highlight
-                                                    <input type="color" value="#55336f" data-editor-highlight aria-label="Highlight color">
-                                                </label>
-                                                <button
-                                                    type="button"
-                                                    class="forum-editor-tool"
-                                                    data-editor-apply-highlight
-                                                    title="Apply the current highlight color to the selected text"
-                                                >
-                                                    Apply Highlight
-                                                </button>
-                                            </div>
-
-                                            <div class="forum-editor-tool-group">
-                                                <button type="button" class="forum-editor-tool" data-command="insertUnorderedList">• List</button>
-                                                <button type="button" class="forum-editor-tool" data-command="insertOrderedList">1. List</button>
-                                                <button type="button" class="forum-editor-tool" data-editor-quote>Quote</button>
-                                            </div>
-
-                                            <div class="forum-editor-tool-group">
-                                                <button type="button" class="forum-editor-tool" data-command="justifyLeft">Left</button>
-                                                <button type="button" class="forum-editor-tool" data-command="justifyCenter">Center</button>
-                                                <button type="button" class="forum-editor-tool" data-command="justifyRight">Right</button>
-                                            </div>
-
-                                            <div class="forum-editor-tool-group">
-                                                <button type="button" class="forum-editor-tool" data-editor-link>Link</button>
-                                                <button type="button" class="forum-editor-tool" data-command="unlink">Unlink</button>
-                                                <button type="button" class="forum-editor-tool" data-command="removeFormat">Clear</button>
-                                            </div>
-
-                                            <div class="forum-editor-tool-group forum-editor-image-tools">
-                                                <select
-                                                    class="forum-editor-select"
-                                                    data-editor-image-size
-                                                    title="Image size"
-                                                >
-                                                    <option value="">Image Size</option>
-                                                    <option value="25%">25%</option>
-                                                    <option value="40%">40%</option>
-                                                    <option value="50%">50%</option>
-                                                    <option value="60%">60%</option>
-                                                    <option value="75%">75%</option>
-                                                    <option value="90%">90%</option>
-                                                    <option value="100%">100%</option>
-                                                </select>
-
-                                                    <select
-                                                        class="forum-editor-select"
-                                                        data-editor-image-align
-                                                        title="Image alignment"
-                                                    >
-                                                        <option value="">Image Align</option>
-                                                        <option value="left">Left</option>
-                                                        <option value="center">Center</option>
-                                                        <option value="right">Right</option>
-                                                    </select>
-
-                                                <button
-                                                    type="button"
-                                                    class="forum-editor-tool"
-                                                    data-editor-image-upload
-                                                >
-                                                    Upload Image
-                                                </button>
-
-                                                <input
-                                                    class="forum-editor-image-upload-input"
-                                                    type="file"
-                                                    id="lesson-content-image-upload"
-                                                    name="uploaded_images[]"
-                                                    accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
-                                                    multiple
-                                                    data-editor-image-input
-                                                >
-
-                                                <input
-                                                    type="hidden"
-                                                    name="upload_tokens"
-                                                    value="[]"
-                                                    data-editor-upload-tokens
-                                                >
-
-                                                <button
-                                                    type="button"
-                                                    class="forum-editor-tool"
-                                                    data-editor-image-url
-                                                >
-                                                    Image URL
-                                                </button>
-                                            </div>
-                                        </div>
-
-                                        <div
-                                            class="forum-rich-editor-surface"
-                                            id="lesson-editor"
-                                            contenteditable="true"
-                                            role="textbox"
-                                            aria-labelledby="lesson-content-label"
-                                            aria-multiline="true"
-                                            data-placeholder="Write the lesson content here..."
-                                            spellcheck="true"
-                                        ><?= $form['content'] !== '' ? sanitize_rich_text($form['content']) : ''; ?></div>
-
-                                        <div
-                                            class="forum-editor-image-preview-list"
-                                            data-editor-image-previews
-                                            hidden
-                                            aria-live="polite"
-                                        ></div>
-
-                                        <div
-                                            class="forum-editor-counts"
-                                            aria-live="polite"
-                                            aria-atomic="true"
-                                        >
-                                            <span data-editor-word-count>0 words</span>
-                                            <span aria-hidden="true">•</span>
-                                            <span data-editor-character-count>0 characters</span>
-                                        </div>
-
-                                        <textarea
-                                            class="forum-rich-editor-input"
-                                            name="content"
-                                            id="lesson-content"
-                                            aria-hidden="true"
-                                            tabindex="-1"
-                                        ><?= e($form['content']); ?></textarea>
+                            <div class="forum-rich-editor" data-forum-editor>
+                                <div class="forum-rich-editor-toolbar" role="toolbar"
+                                    aria-label="Lesson content formatting">
+                                    <div class="forum-editor-tool-group">
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="bold"><strong>B</strong></button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="italic"><em>I</em></button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="underline"><u>U</u></button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="strikeThrough"><s>S</s></button>
                                     </div>
 
-                                    <p class="form-help">
-                                        Use headings, emphasis, colors, lists, alignment, links, quotes, and images. This stores Version 1; later edits create new lesson versions instead of overwriting historical content.
-                                    </p>
-                                </div>
+                                    <div class="forum-editor-tool-group">
+                                        <select class="forum-editor-select" data-editor-format title="Text style">
+                                            <option value="">Text Style</option>
+                                            <option value="p">Paragraph</option>
+                                            <option value="h2">Heading 2</option>
+                                            <option value="h3">Heading 3</option>
+                                            <option value="h4">Heading 4</option>
+                                        </select>
 
-
-                                <div class="forum-admin-form-grid">
-
-                                    <div class="form-group">
-                                        <label for="lesson-sort-order">
-                                            Lesson Order
-                                        </label>
-
-                                        <input
-                                            class="form-control"
-                                            type="number"
-                                            id="lesson-sort-order"
-                                            name="sort_order"
-                                            min="0"
-                                            step="1"
-                                            value="<?= e($form['sort_order']); ?>"
-                                            required
-                                        >
-                                    </div>
-
-
-                                    <div class="form-group">
-                                        <label for="lesson-status">
-                                            Lesson Status
-                                        </label>
-
-                                        <select
-                                            class="form-control"
-                                            id="lesson-status"
-                                            name="status"
-                                        >
-                                            <option
-                                                value="draft"
-                                                <?= $form['status'] === 'draft'
-                                                    ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                Draft
-                                            </option>
-
-                                            <option
-                                                value="review"
-                                                <?= $form['status'] === 'review'
-                                                    ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                Review
-                                            </option>
-
-                                            <?php if ($canPublishLessons): ?>
-                                                <option
-                                                    value="published"
-                                                    <?= $form['status'] === 'published'
-                                                        ? 'selected'
-                                                        : ''; ?>
-                                                >
-                                                    Published
-                                                </option>
-                                            <?php endif; ?>
+                                        <select class="forum-editor-select" data-editor-size title="Font size">
+                                            <option value="">Font Size</option>
+                                            <option value="14px">Small</option>
+                                            <option value="16px">Normal</option>
+                                            <option value="18px">Large</option>
+                                            <option value="22px">Extra Large</option>
+                                            <option value="28px">Display</option>
                                         </select>
                                     </div>
 
+                                    <div class="forum-editor-tool-group forum-editor-color-tools">
+                                        <label class="forum-editor-color-label">
+                                            Text
+                                            <input type="color" value="#e8e1e6" data-editor-color
+                                                aria-label="Text color">
+                                        </label>
+                                        <button type="button" class="forum-editor-tool" data-editor-apply-color
+                                            title="Apply the current text color to the selected text">
+                                            Apply Text
+                                        </button>
+
+                                        <label class="forum-editor-color-label">
+                                            Highlight
+                                            <input type="color" value="#55336f" data-editor-highlight
+                                                aria-label="Highlight color">
+                                        </label>
+                                        <button type="button" class="forum-editor-tool" data-editor-apply-highlight
+                                            title="Apply the current highlight color to the selected text">
+                                            Apply Highlight
+                                        </button>
+                                    </div>
+
+                                    <div class="forum-editor-tool-group">
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="insertUnorderedList">• List</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="insertOrderedList">1. List</button>
+                                        <button type="button" class="forum-editor-tool" data-editor-quote>Quote</button>
+                                    </div>
+
+                                    <div class="forum-editor-tool-group">
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="justifyLeft">Left</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="justifyCenter">Center</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="justifyRight">Right</button>
+                                    </div>
+
+                                    <div class="forum-editor-tool-group">
+                                        <button type="button" class="forum-editor-tool" data-editor-link>Link</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="unlink">Unlink</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="removeFormat">Clear</button>
+                                    </div>
+
+                                    <div class="forum-editor-tool-group forum-editor-image-tools">
+                                        <select class="forum-editor-select" data-editor-image-size title="Image size">
+                                            <option value="">Image Size</option>
+                                            <option value="25%">25%</option>
+                                            <option value="40%">40%</option>
+                                            <option value="50%">50%</option>
+                                            <option value="60%">60%</option>
+                                            <option value="75%">75%</option>
+                                            <option value="90%">90%</option>
+                                            <option value="100%">100%</option>
+                                        </select>
+
+                                        <select class="forum-editor-select" data-editor-image-align
+                                            title="Image alignment">
+                                            <option value="">Image Align</option>
+                                            <option value="left">Left</option>
+                                            <option value="center">Center</option>
+                                            <option value="right">Right</option>
+                                        </select>
+
+                                        <button type="button" class="forum-editor-tool" data-editor-image-upload>
+                                            Upload Image
+                                        </button>
+
+                                        <input class="forum-editor-image-upload-input" type="file"
+                                            id="lesson-content-image-upload" name="uploaded_images[]"
+                                            accept="image/jpeg,image/png,image/gif,image/webp,image/avif" multiple
+                                            data-editor-image-input>
+
+                                        <input type="hidden" name="upload_tokens" value="[]" data-editor-upload-tokens>
+
+                                        <button type="button" class="forum-editor-tool" data-editor-image-url>
+                                            Image URL
+                                        </button>
+                                    </div>
                                 </div>
 
+                                <div class="forum-rich-editor-surface" id="lesson-editor" contenteditable="true"
+                                    role="textbox" aria-labelledby="lesson-content-label" aria-multiline="true"
+                                    data-placeholder="Write the lesson content here..." spellcheck="true">
+                                    <?= $form['content'] !== '' ? sanitize_rich_text($form['content']) : ''; ?></div>
 
-                                <fieldset class="forum-admin-fieldset">
+                                <div class="forum-editor-image-preview-list" data-editor-image-previews hidden
+                                    aria-live="polite"></div>
 
-                                    <legend>
-                                        Release Rule
-                                    </legend>
+                                <div class="forum-editor-counts" aria-live="polite" aria-atomic="true">
+                                    <span data-editor-word-count>0 words</span>
+                                    <span aria-hidden="true">•</span>
+                                    <span data-editor-character-count>0 characters</span>
+                                </div>
 
-                                    <?php if (!$canManageRelease): ?>
+                                <textarea class="forum-rich-editor-input" name="content" id="lesson-content"
+                                    aria-hidden="true" tabindex="-1"><?= e($form['content']); ?></textarea>
+                            </div>
 
-                                        <p class="form-help">
-                                            You do not have permission to manage
-                                            release schedules. This lesson will
-                                            release immediately.
-                                        </p>
+                            <p class="form-help">
+                                Use headings, emphasis, colors, lists, alignment, links, quotes, and images. This stores
+                                Version 1; later edits create new lesson versions instead of overwriting historical
+                                content.
+                            </p>
+                        </div>
 
-                                        <input
-                                            type="hidden"
-                                            name="release_type"
-                                            value="immediate"
-                                        >
 
-                                    <?php else: ?>
+                        <div class="forum-admin-form-grid">
 
-                                        <div class="form-group">
-                                            <label for="release-type">
-                                                Release Type
-                                            </label>
+                            <div class="form-group">
+                                <label for="lesson-sort-order">
+                                    Lesson Order
+                                </label>
 
-                                            <select
-                                                class="form-control"
-                                                id="release-type"
-                                                name="release_type"
-                                            >
-                                                <option
-                                                    value="immediate"
-                                                    <?= $form['release_type'] === 'immediate'
+                                <input class="form-control" type="number" id="lesson-sort-order" name="sort_order"
+                                    min="0" step="1" value="<?= e($form['sort_order']); ?>" required>
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="lesson-status">
+                                    Lesson Status
+                                </label>
+
+                                <select class="form-control" id="lesson-status" name="status">
+                                    <option value="draft" <?= $form['status'] === 'draft'
+                                                    ? 'selected'
+                                                    : ''; ?>>
+                                        Draft
+                                    </option>
+
+                                    <option value="review" <?= $form['status'] === 'review'
+                                                    ? 'selected'
+                                                    : ''; ?>>
+                                        Review
+                                    </option>
+
+                                    <?php if ($canPublishLessons): ?>
+                                    <option value="published" <?= $form['status'] === 'published'
                                                         ? 'selected'
-                                                        : ''; ?>
-                                                >
-                                                    Immediate
-                                                </option>
+                                                        : ''; ?>>
+                                        Published
+                                    </option>
+                                    <?php endif; ?>
+                                </select>
+                            </div>
 
-                                                <?php if (
+                        </div>
+
+
+                        <fieldset class="forum-admin-fieldset">
+
+                            <legend>
+                                Release Rule
+                            </legend>
+
+                            <?php if (!$canManageRelease): ?>
+
+                            <p class="form-help">
+                                You do not have permission to manage
+                                release schedules. This lesson will
+                                release immediately.
+                            </p>
+
+                            <input type="hidden" name="release_type" value="immediate">
+
+                            <?php else: ?>
+
+                            <div class="form-group">
+                                <label for="release-type">
+                                    Release Type
+                                </label>
+
+                                <select class="form-control" id="release-type" name="release_type">
+                                    <option value="immediate" <?= $form['release_type'] === 'immediate'
+                                                        ? 'selected'
+                                                        : ''; ?>>
+                                        Immediate
+                                    </option>
+
+                                    <?php if (
                                                     ($selectedOffering['offering_scope'] ?? '')
                                                     !== 'perpetual'
                                                 ): ?>
 
-                                                    <option
-                                                        value="days_after_course_start"
-                                                        <?= $form['release_type'] === 'days_after_course_start'
+                                    <option value="days_after_course_start" <?= $form['release_type'] === 'days_after_course_start'
                                                             ? 'selected'
-                                                            : ''; ?>
-                                                    >
-                                                        Days After Course Start
-                                                    </option>
+                                                            : ''; ?>>
+                                        Days After Course Start
+                                    </option>
 
-                                                    <option
-                                                        value="fixed_date"
-                                                        <?= $form['release_type'] === 'fixed_date'
+                                    <option value="fixed_date" <?= $form['release_type'] === 'fixed_date'
                                                             ? 'selected'
-                                                            : ''; ?>
-                                                    >
-                                                        Fixed Date
-                                                    </option>
+                                                            : ''; ?>>
+                                        Fixed Date
+                                    </option>
 
-                                                <?php endif; ?>
+                                    <?php endif; ?>
 
-                                                <?php if ($offeringLessons !== []): ?>
-                                                    <option
-                                                        value="after_previous_lesson"
-                                                        <?= $form['release_type'] === 'after_previous_lesson'
+                                    <?php if ($offeringLessons !== []): ?>
+                                    <option value="after_previous_lesson" <?= $form['release_type'] === 'after_previous_lesson'
                                                             ? 'selected'
-                                                            : ''; ?>
-                                                    >
-                                                        After Previous Lesson
-                                                    </option>
-                                                <?php endif; ?>
-                                            </select>
+                                                            : ''; ?>>
+                                        After Previous Lesson
+                                    </option>
+                                    <?php endif; ?>
+                                </select>
 
-                                            <p class="form-help">
-                                                Enrollment-relative release is
-                                                intentionally not available.
-                                                Late registrants follow the same
-                                                cohort schedule as everyone else.
-                                            </p>
-                                        </div>
+                                <p class="form-help">
+                                    Enrollment-relative release is
+                                    intentionally not available.
+                                    Late registrants follow the same
+                                    cohort schedule as everyone else.
+                                </p>
+                            </div>
 
 
-                                        <?php if (
+                            <?php if (
                                             ($selectedOffering['offering_scope'] ?? '')
                                             !== 'perpetual'
                                         ): ?>
 
-                                            <div class="form-group">
-                                                <label for="release-delay-days">
-                                                    Days After Course Start
-                                                </label>
+                            <div class="form-group">
+                                <label for="release-delay-days">
+                                    Days After Course Start
+                                </label>
 
-                                                <input
-                                                    class="form-control"
-                                                    type="number"
-                                                    id="release-delay-days"
-                                                    name="release_delay_days"
-                                                    min="0"
-                                                    step="1"
-                                                    value="<?= e(
+                                <input class="form-control" type="number" id="release-delay-days"
+                                    name="release_delay_days" min="0" step="1" value="<?= e(
                                                         $form[
                                                             'release_delay_days'
                                                         ]
-                                                    ); ?>"
-                                                >
+                                                    ); ?>">
 
-                                                <p class="form-help">
-                                                    Example: 7 releases the lesson
-                                                    seven days after the offering's
-                                                    Course Start Date.
-                                                </p>
-                                            </div>
+                                <p class="form-help">
+                                    Example: 7 releases the lesson
+                                    seven days after the offering's
+                                    Course Start Date.
+                                </p>
+                            </div>
 
 
-                                            <div class="form-group">
-                                                <label for="release-at">
-                                                    Fixed Release Date
-                                                </label>
+                            <div class="form-group">
+                                <label for="release-at">
+                                    Fixed Release Date
+                                </label>
 
-                                                <input
-                                                    class="form-control"
-                                                    type="datetime-local"
-                                                    id="release-at"
-                                                    name="release_at"
-                                                    value="<?= e(
+                                <input class="form-control" type="datetime-local" id="release-at" name="release_at"
+                                    value="<?= e(
                                                         $form[
                                                             'release_at'
                                                         ]
-                                                    ); ?>"
-                                                >
-                                            </div>
+                                                    ); ?>">
+                            </div>
 
-                                        <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                        <?php if ($offeringLessons !== []): ?>
+                            <?php if ($offeringLessons !== []): ?>
 
-                                            <div class="form-group">
-                                                <label for="prerequisite-lesson">
-                                                    Previous Lesson
-                                                </label>
+                            <div class="form-group">
+                                <label for="prerequisite-lesson">
+                                    Previous Lesson
+                                </label>
 
-                                                <select
-                                                    class="form-control"
-                                                    id="prerequisite-lesson"
-                                                    name="prerequisite_lesson_id"
-                                                >
-                                                    <option value="">
-                                                        Select a lesson
-                                                    </option>
+                                <select class="form-control" id="prerequisite-lesson" name="prerequisite_lesson_id">
+                                    <option value="">
+                                        Select a lesson
+                                    </option>
 
-                                                    <?php foreach ($offeringLessons as $lessonRow): ?>
-                                                        <option
-                                                            value="<?= (int) $lessonRow['lesson_id']; ?>"
-                                                            <?= (string) $lessonRow['lesson_id']
+                                    <?php foreach ($offeringLessons as $lessonRow): ?>
+                                    <option value="<?= (int) $lessonRow['lesson_id']; ?>" <?= (string) $lessonRow['lesson_id']
                                                                 === $form['prerequisite_lesson_id']
                                                                     ? 'selected'
-                                                                    : ''; ?>
-                                                        >
-                                                            <?= e(
+                                                                    : ''; ?>>
+                                        <?= e(
                                                                 (string) (
                                                                     $lessonRow[
                                                                         'title'
@@ -3563,57 +3344,54 @@ $staffHeroUrl =
                                                                     ?? 'Lesson'
                                                                 )
                                                             ); ?>
-                                                        </option>
-                                                    <?php endforeach; ?>
-                                                </select>
-                                            </div>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
-                                        <?php endif; ?>
+                            <?php endif; ?>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </fieldset>
+                        </fieldset>
 
 
-                                <div class="forum-admin-actions">
-                                    <button
-                                        type="submit"
-                                        class="button button-primary"
-                                    >
-                                        Create Lesson
-                                    </button>
-                                </div>
+                        <div class="forum-admin-actions">
+                            <button type="submit" class="button button-primary">
+                                Create Lesson
+                            </button>
+                        </div>
 
-                            </form>
+                    </form>
 
-                        </section>
+                </section>
 
-                    <?php endif; ?>
+                <?php endif; ?>
 
                 <?php else: ?>
 
-                    <section class="dashboard-workspace-panel">
+                <section class="dashboard-workspace-panel">
 
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">
-                                    Start Here
-                                </p>
-
-                                <h3>
-                                    Select an Offering
-                                </h3>
-                            </div>
-                        </div>
-
-                        <div class="dashboard-panel-body">
-                            <p>
-                                Choose a course offering above to view its lesson
-                                sequence or create new lesson content.
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">
+                                Start Here
                             </p>
-                        </div>
 
-                    </section>
+                            <h3>
+                                Select an Offering
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-panel-body">
+                        <p>
+                            Choose a course offering above to view its lesson
+                            sequence or create new lesson content.
+                        </p>
+                    </div>
+
+                </section>
 
                 <?php endif; ?>
 
@@ -3626,198 +3404,200 @@ $staffHeroUrl =
 
 
 <script>
-(() => {
-    'use strict';
+    (() => {
+        'use strict';
 
-    const form = document.getElementById('lesson-create-form');
-    const editor = document.getElementById('lesson-editor');
-    const input = document.getElementById('lesson-content');
+        const form = document.getElementById('lesson-create-form');
+        const editor = document.getElementById('lesson-editor');
+        const input = document.getElementById('lesson-content');
 
-    if (!form || !editor || !input) {
-        return;
-    }
+        if (!form || !editor || !input) {
+            return;
+        }
 
-    const q = (selector) => form.querySelector(selector);
-    const imageUploadButton = q('[data-editor-image-upload]');
-    const imageInput = q('[data-editor-image-input]');
-    const imageUrlButton = q('[data-editor-image-url]');
-    const imageSizeSelect = q('[data-editor-image-size]');
-    const imageAlignSelect = q('[data-editor-image-align]');
-    const imagePreviews = q('[data-editor-image-previews]');
-    const uploadTokensInput = q('[data-editor-upload-tokens]');
-    const formatSelect = q('[data-editor-format]');
-    const sizeSelect = q('[data-editor-size]');
-    const colorInput = q('[data-editor-color]');
-    const highlightInput = q('[data-editor-highlight]');
-    const applyColorButton = q('[data-editor-apply-color]');
-    const applyHighlightButton = q('[data-editor-apply-highlight]');
-    const quoteButton = q('[data-editor-quote]');
-    const linkButton = q('[data-editor-link]');
-    const wordCount = q('[data-editor-word-count]');
-    const characterCount = q('[data-editor-character-count]');
+        const q = (selector) => form.querySelector(selector);
+        const imageUploadButton = q('[data-editor-image-upload]');
+        const imageInput = q('[data-editor-image-input]');
+        const imageUrlButton = q('[data-editor-image-url]');
+        const imageSizeSelect = q('[data-editor-image-size]');
+        const imageAlignSelect = q('[data-editor-image-align]');
+        const imagePreviews = q('[data-editor-image-previews]');
+        const uploadTokensInput = q('[data-editor-upload-tokens]');
+        const formatSelect = q('[data-editor-format]');
+        const sizeSelect = q('[data-editor-size]');
+        const colorInput = q('[data-editor-color]');
+        const highlightInput = q('[data-editor-highlight]');
+        const applyColorButton = q('[data-editor-apply-color]');
+        const applyHighlightButton = q('[data-editor-apply-highlight]');
+        const quoteButton = q('[data-editor-quote]');
+        const linkButton = q('[data-editor-link]');
+        const wordCount = q('[data-editor-word-count]');
+        const characterCount = q('[data-editor-character-count]');
 
-    let selectedUploads = [];
-    let savedRange = null;
-    let selectedImage = null;
+        let selectedUploads = [];
+        let savedRange = null;
+        let selectedImage = null;
 
-    try {
-        document.execCommand('styleWithCSS', false, true);
-    } catch (error) {}
+        try {
+            document.execCommand('styleWithCSS', false, true);
+        } catch (error) {}
 
-    const sync = () => {
-        const clone =
-            editor.cloneNode(true);
+        const sync = () => {
+            const clone =
+                editor.cloneNode(true);
 
-        clone.querySelectorAll(
-            'img[data-upload-token]'
-        ).forEach(
-            (image) => {
-                const token =
-                    image.getAttribute(
+            clone.querySelectorAll(
+                'img[data-upload-token]'
+            ).forEach(
+                (image) => {
+                    const token =
+                        image.getAttribute(
+                            'data-upload-token'
+                        );
+
+                    if (token) {
+                        image.setAttribute(
+                            'src',
+                            '/__lesson_upload__/' +
+                            token
+                        );
+                    }
+
+                    image.removeAttribute(
                         'data-upload-token'
                     );
 
-                if (token) {
-                    image.setAttribute(
-                        'src',
-                        '/__lesson_upload__/'
-                        + token
+                    image.removeAttribute(
+                        'data-editor-selected-image'
                     );
                 }
-
-                image.removeAttribute(
-                    'data-upload-token'
-                );
-
-                image.removeAttribute(
-                    'data-editor-selected-image'
-                );
-            }
-        );
-
-        input.value =
-            clone.innerHTML.trim();
-
-        const plain = editor.textContent
-            .replace(/\u00a0/g, ' ')
-            .replace(/\s+/g, ' ')
-            .trim();
-
-        const words =
-            plain === ''
-                ? 0
-                : plain.split(/\s+/u).filter(Boolean).length;
-
-        if (wordCount) {
-            wordCount.textContent =
-                `${words} ${words === 1 ? 'word' : 'words'}`;
-        }
-
-        if (characterCount) {
-            characterCount.textContent =
-                `${plain.length} ${plain.length === 1 ? 'character' : 'characters'}`;
-        }
-    };
-
-    const saveSelection = () => {
-        const selection = window.getSelection();
-
-        if (!selection || selection.rangeCount < 1) {
-            return;
-        }
-
-        const range = selection.getRangeAt(0);
-
-        if (
-            editor.contains(range.commonAncestorContainer)
-            || range.commonAncestorContainer === editor
-        ) {
-            savedRange = range.cloneRange();
-        }
-    };
-
-    const restoreSelection = () => {
-        if (!savedRange) {
-            return;
-        }
-
-        /*
-         * Clone the author's selection before returning focus to the
-         * contenteditable. Chrome can collapse the live selection when the
-         * toolbar/color control takes focus. Restoring from this private copy
-         * keeps formatting attached to the highlighted text.
-         */
-        const rangeToRestore =
-            savedRange.cloneRange();
-
-        try {
-            editor.focus({ preventScroll: true });
-        } catch (error) {
-            editor.focus();
-        }
-
-        const selection =
-            window.getSelection();
-
-        if (!selection) {
-            return;
-        }
-
-        selection.removeAllRanges();
-        selection.addRange(
-            rangeToRestore
-        );
-    };
-
-    const applyBlockAlignment = (alignmentCommand) => {
-        const alignmentMap = {
-            justifyLeft: 'left',
-            justifyCenter: 'center',
-            justifyRight: 'right',
-        };
-
-        const alignment =
-            alignmentMap[
-                alignmentCommand
-            ]
-            ?? '';
-
-        if (alignment === '') {
-            return false;
-        }
-
-        if (!savedRange) {
-            return true;
-        }
-
-        /*
-         * Do not run a browser alignment command on the live selection.
-         * Chrome can merge inline formatting when a selection crosses a
-         * heading/paragraph boundary. Instead, identify the selected blocks,
-         * apply alignment to a detached clone, then replace the editor HTML.
-         * This preserves the exact <strong>, <em>, color, link, etc. markup.
-         */
-        const range =
-            savedRange.cloneRange();
-
-        const blockSelector =
-            'p,h1,h2,h3,h4,h5,h6,blockquote,li,div';
-
-        const liveBlocks =
-            Array.from(
-                editor.querySelectorAll(
-                    blockSelector
-                )
             );
 
-        let selectedIndexes =
-            liveBlocks
+            input.value =
+                clone.innerHTML.trim();
+
+            const plain = editor.textContent
+                .replace(/\u00a0/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+
+            const words =
+                plain === '' ?
+                0 :
+                plain.split(/\s+/u).filter(Boolean).length;
+
+            if (wordCount) {
+                wordCount.textContent =
+                    `${words} ${words === 1 ? 'word' : 'words'}`;
+            }
+
+            if (characterCount) {
+                characterCount.textContent =
+                    `${plain.length} ${plain.length === 1 ? 'character' : 'characters'}`;
+            }
+        };
+
+        const saveSelection = () => {
+            const selection = window.getSelection();
+
+            if (!selection || selection.rangeCount < 1) {
+                return;
+            }
+
+            const range = selection.getRangeAt(0);
+
+            if (
+                editor.contains(range.commonAncestorContainer) ||
+                range.commonAncestorContainer === editor
+            ) {
+                savedRange = range.cloneRange();
+            }
+        };
+
+        const restoreSelection = () => {
+            if (!savedRange) {
+                return;
+            }
+
+            /*
+             * Clone the author's selection before returning focus to the
+             * contenteditable. Chrome can collapse the live selection when the
+             * toolbar/color control takes focus. Restoring from this private copy
+             * keeps formatting attached to the highlighted text.
+             */
+            const rangeToRestore =
+                savedRange.cloneRange();
+
+            try {
+                editor.focus({
+                    preventScroll: true
+                });
+            } catch (error) {
+                editor.focus();
+            }
+
+            const selection =
+                window.getSelection();
+
+            if (!selection) {
+                return;
+            }
+
+            selection.removeAllRanges();
+            selection.addRange(
+                rangeToRestore
+            );
+        };
+
+        const applyBlockAlignment = (alignmentCommand) => {
+            const alignmentMap = {
+                justifyLeft: 'left',
+                justifyCenter: 'center',
+                justifyRight: 'right',
+            };
+
+            const alignment =
+                alignmentMap[
+                    alignmentCommand
+                ] ??
+                '';
+
+            if (alignment === '') {
+                return false;
+            }
+
+            if (!savedRange) {
+                return true;
+            }
+
+            /*
+             * Do not run a browser alignment command on the live selection.
+             * Chrome can merge inline formatting when a selection crosses a
+             * heading/paragraph boundary. Instead, identify the selected blocks,
+             * apply alignment to a detached clone, then replace the editor HTML.
+             * This preserves the exact <strong>, <em>, color, link, etc. markup.
+             */
+            const range =
+                savedRange.cloneRange();
+
+            const blockSelector =
+                'p,h1,h2,h3,h4,h5,h6,blockquote,li,div';
+
+            const liveBlocks =
+                Array.from(
+                    editor.querySelectorAll(
+                        blockSelector
+                    )
+                );
+
+            let selectedIndexes =
+                liveBlocks
                 .map(
                     (block, index) => {
                         try {
-                            return range.intersectsNode(block)
-                                ? index
-                                : -1;
+                            return range.intersectsNode(block) ?
+                                index :
+                                -1;
                         } catch (error) {
                             return -1;
                         }
@@ -3827,698 +3607,700 @@ $staffHeroUrl =
                     (index) => index >= 0
                 );
 
-        /*
-         * If both an outer DIV and its inner P/H2 are selected, only style
-         * the innermost blocks. This avoids wrapping/inheritance surprises.
-         */
-        selectedIndexes =
-            selectedIndexes.filter(
-                (index) => {
-                    const block =
-                        liveBlocks[index];
+            /*
+             * If both an outer DIV and its inner P/H2 are selected, only style
+             * the innermost blocks. This avoids wrapping/inheritance surprises.
+             */
+            selectedIndexes =
+                selectedIndexes.filter(
+                    (index) => {
+                        const block =
+                            liveBlocks[index];
 
-                    return !selectedIndexes.some(
-                        (otherIndex) =>
-                            otherIndex !== index
-                            && block.contains(
+                        return !selectedIndexes.some(
+                            (otherIndex) =>
+                            otherIndex !== index &&
+                            block.contains(
                                 liveBlocks[
                                     otherIndex
                                 ]
                             )
-                    );
+                        );
+                    }
+                );
+
+            if (selectedIndexes.length === 0) {
+                let node =
+                    range.commonAncestorContainer;
+
+                if (node.nodeType === Node.TEXT_NODE) {
+                    node =
+                        node.parentElement;
                 }
-            );
 
-        if (selectedIndexes.length === 0) {
-            let node =
-                range.commonAncestorContainer;
+                const nearestBlock =
+                    node instanceof Element ?
+                    node.closest(
+                        blockSelector
+                    ) :
+                    null;
 
-            if (node.nodeType === Node.TEXT_NODE) {
-                node =
-                    node.parentElement;
+                if (
+                    nearestBlock &&
+                    editor.contains(
+                        nearestBlock
+                    )
+                ) {
+                    const index =
+                        liveBlocks.indexOf(
+                            nearestBlock
+                        );
+
+                    if (index >= 0) {
+                        selectedIndexes = [
+                            index,
+                        ];
+                    }
+                }
             }
 
-            const nearestBlock =
-                node instanceof Element
-                    ? node.closest(
+            if (selectedIndexes.length === 0) {
+                return true;
+            }
+
+            const editorClone =
+                editor.cloneNode(true);
+
+            const clonedBlocks =
+                Array.from(
+                    editorClone.querySelectorAll(
                         blockSelector
                     )
-                    : null;
+                );
 
-            if (
-                nearestBlock
-                && editor.contains(
-                    nearestBlock
-                )
-            ) {
-                const index =
-                    liveBlocks.indexOf(
-                        nearestBlock
-                    );
+            selectedIndexes.forEach(
+                (index) => {
+                    const clonedBlock =
+                        clonedBlocks[index];
 
-                if (index >= 0) {
-                    selectedIndexes = [
-                        index,
-                    ];
+                    if (clonedBlock) {
+                        clonedBlock.style.textAlign =
+                            alignment;
+                    }
                 }
-            }
-        }
-
-        if (selectedIndexes.length === 0) {
-            return true;
-        }
-
-        const editorClone =
-            editor.cloneNode(true);
-
-        const clonedBlocks =
-            Array.from(
-                editorClone.querySelectorAll(
-                    blockSelector
-                )
             );
 
-        selectedIndexes.forEach(
-            (index) => {
-                const clonedBlock =
-                    clonedBlocks[index];
+            editor.innerHTML =
+                editorClone.innerHTML;
 
-                if (clonedBlock) {
-                    clonedBlock.style.textAlign =
-                        alignment;
-                }
-            }
-        );
+            /*
+             * The old Range points at nodes that were just replaced, so discard
+             * it. The next mouse/keyboard selection will establish a fresh one.
+             */
+            savedRange = null;
 
-        editor.innerHTML =
-            editorClone.innerHTML;
+            sync();
+            return true;
+        };
 
-        /*
-         * The old Range points at nodes that were just replaced, so discard
-         * it. The next mouse/keyboard selection will establish a fresh one.
-         */
-        savedRange = null;
-
-        sync();
-        return true;
-    };
-
-    const command = (name, value = null) => {
-        if (applyBlockAlignment(name)) {
-            return;
-        }
-
-        restoreSelection();
-        document.execCommand(name, false, value);
-        sync();
-        saveSelection();
-    };
-
-    form.querySelectorAll('[data-command]').forEach((button) => {
-        button.addEventListener('mousedown', (event) => event.preventDefault());
-        button.addEventListener('click', () => command(button.dataset.command));
-    });
-
-    if (formatSelect) {
-        formatSelect.addEventListener('change', () => {
-            if (formatSelect.value !== '') {
-                command('formatBlock', formatSelect.value);
-                formatSelect.value = '';
-            }
-        });
-    }
-
-    if (sizeSelect) {
-        sizeSelect.addEventListener('change', () => {
-            if (sizeSelect.value === '') {
+        const command = (name, value = null) => {
+            if (applyBlockAlignment(name)) {
                 return;
             }
 
             restoreSelection();
-            document.execCommand('fontSize', false, '7');
+            document.execCommand(name, false, value);
+            sync();
+            saveSelection();
+        };
 
-            editor.querySelectorAll('font[size="7"]').forEach((font) => {
-                const span = document.createElement('span');
-                span.style.fontSize = sizeSelect.value;
+        form.querySelectorAll('[data-command]').forEach((button) => {
+            button.addEventListener('mousedown', (event) => event.preventDefault());
+            button.addEventListener('click', () => command(button.dataset.command));
+        });
 
-                while (font.firstChild) {
-                    span.appendChild(font.firstChild);
+        if (formatSelect) {
+            formatSelect.addEventListener('change', () => {
+                if (formatSelect.value !== '') {
+                    command('formatBlock', formatSelect.value);
+                    formatSelect.value = '';
+                }
+            });
+        }
+
+        if (sizeSelect) {
+            sizeSelect.addEventListener('change', () => {
+                if (sizeSelect.value === '') {
+                    return;
                 }
 
-                font.replaceWith(span);
+                restoreSelection();
+                document.execCommand('fontSize', false, '7');
+
+                editor.querySelectorAll('font[size="7"]').forEach((font) => {
+                    const span = document.createElement('span');
+                    span.style.fontSize = sizeSelect.value;
+
+                    while (font.firstChild) {
+                        span.appendChild(font.firstChild);
+                    }
+
+                    font.replaceWith(span);
+                });
+
+                sizeSelect.value = '';
+                sync();
             });
+        }
 
-            sizeSelect.value = '';
+        const applyTextColor = () => {
+            if (!savedRange || savedRange.collapsed) {
+                return;
+            }
+
+            command(
+                'foreColor',
+                colorInput.value
+            );
+        };
+
+        const applyHighlightColor = () => {
+            if (!savedRange || savedRange.collapsed) {
+                return;
+            }
+
+            restoreSelection();
+
+            document.execCommand(
+                document.queryCommandSupported('hiliteColor') ?
+                'hiliteColor' :
+                'backColor',
+                false,
+                highlightInput.value
+            );
+
             sync();
-        });
-    }
-
-    const applyTextColor = () => {
-        if (!savedRange || savedRange.collapsed) {
-            return;
-        }
-
-        command(
-            'foreColor',
-            colorInput.value
-        );
-    };
-
-    const applyHighlightColor = () => {
-        if (!savedRange || savedRange.collapsed) {
-            return;
-        }
-
-        restoreSelection();
-
-        document.execCommand(
-            document.queryCommandSupported('hiliteColor')
-                ? 'hiliteColor'
-                : 'backColor',
-            false,
-            highlightInput.value
-        );
-
-        sync();
-        saveSelection();
-    };
-
-    if (colorInput) {
-        /*
-         * Save the editor selection before the native color picker takes
-         * focus. The click handler also applies the swatch's current value,
-         * which matters when the author intentionally chooses the SAME color
-         * again. Browsers do not fire input/change when a color value is
-         * re-selected unchanged, so relying on input alone made that case
-         * appear broken.
-         */
-        colorInput.addEventListener(
-            'pointerdown',
-            saveSelection
-        );
-
-        colorInput.addEventListener(
-            'click',
-            applyTextColor
-        );
-
-        colorInput.addEventListener(
-            'input',
-            applyTextColor
-        );
-
-        colorInput.addEventListener(
-            'change',
-            applyTextColor
-        );
-    }
-
-    if (highlightInput) {
-        highlightInput.addEventListener(
-            'pointerdown',
-            saveSelection
-        );
-
-        highlightInput.addEventListener(
-            'click',
-            applyHighlightColor
-        );
-
-        highlightInput.addEventListener(
-            'input',
-            applyHighlightColor
-        );
-
-        highlightInput.addEventListener(
-            'change',
-            applyHighlightColor
-        );
-    }
-
-    if (applyColorButton) {
-        applyColorButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        applyColorButton.addEventListener(
-            'click',
-            applyTextColor
-        );
-    }
-
-    if (applyHighlightButton) {
-        applyHighlightButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        applyHighlightButton.addEventListener(
-            'click',
-            applyHighlightColor
-        );
-    }
-
-    if (quoteButton) {
-        quoteButton.addEventListener('mousedown', (event) => event.preventDefault());
-        quoteButton.addEventListener('click', () => command('formatBlock', 'blockquote'));
-    }
-
-    if (linkButton) {
-        linkButton.addEventListener('mousedown', (event) => event.preventDefault());
-        linkButton.addEventListener('click', () => {
             saveSelection();
+        };
 
-            const url = window.prompt('Enter a link URL.');
+        if (colorInput) {
+            /*
+             * Save the editor selection before the native color picker takes
+             * focus. The click handler also applies the swatch's current value,
+             * which matters when the author intentionally chooses the SAME color
+             * again. Browsers do not fire input/change when a color value is
+             * re-selected unchanged, so relying on input alone made that case
+             * appear broken.
+             */
+            colorInput.addEventListener(
+                'pointerdown',
+                saveSelection
+            );
 
-            if (url !== null && url.trim() !== '') {
-                command('createLink', url.trim());
-            }
-        });
-    }
+            colorInput.addEventListener(
+                'click',
+                applyTextColor
+            );
 
-    const escapeAttribute = (value) => String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/"/g, '&quot;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;');
+            colorInput.addEventListener(
+                'input',
+                applyTextColor
+            );
 
-    const insertImage = (
-        src,
-        alt = '',
-        uploadToken = ''
-    ) => {
-        restoreSelection();
+            colorInput.addEventListener(
+                'change',
+                applyTextColor
+            );
+        }
 
-        const tokenAttribute =
-            uploadToken !== ''
-                ? ` data-upload-token="${escapeAttribute(uploadToken)}"`
-                : '';
+        if (highlightInput) {
+            highlightInput.addEventListener(
+                'pointerdown',
+                saveSelection
+            );
 
-        document.execCommand(
-            'insertHTML',
-            false,
-            `<img src="${escapeAttribute(src)}" alt="${escapeAttribute(alt)}"${tokenAttribute} loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">`
-        );
+            highlightInput.addEventListener(
+                'click',
+                applyHighlightColor
+            );
 
-        sync();
-        saveSelection();
-    };
+            highlightInput.addEventListener(
+                'input',
+                applyHighlightColor
+            );
 
-    editor.addEventListener(
-        'click',
-        (event) => {
-            const target =
-                event.target;
+            highlightInput.addEventListener(
+                'change',
+                applyHighlightColor
+            );
+        }
 
-            editor.querySelectorAll(
-                'img[data-editor-selected-image="1"]'
-            ).forEach(
-                (image) => {
-                    image.removeAttribute(
-                        'data-editor-selected-image'
-                    );
+        if (applyColorButton) {
+            applyColorButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
                 }
             );
 
-            if (
-                target instanceof HTMLImageElement
-                && editor.contains(target)
-            ) {
-                selectedImage =
-                    target;
+            applyColorButton.addEventListener(
+                'click',
+                applyTextColor
+            );
+        }
 
-                selectedImage.setAttribute(
-                    'data-editor-selected-image',
-                    '1'
+        if (applyHighlightButton) {
+            applyHighlightButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
+                }
+            );
+
+            applyHighlightButton.addEventListener(
+                'click',
+                applyHighlightColor
+            );
+        }
+
+        if (quoteButton) {
+            quoteButton.addEventListener('mousedown', (event) => event.preventDefault());
+            quoteButton.addEventListener('click', () => command('formatBlock', 'blockquote'));
+        }
+
+        if (linkButton) {
+            linkButton.addEventListener('mousedown', (event) => event.preventDefault());
+            linkButton.addEventListener('click', () => {
+                saveSelection();
+
+                const url = window.prompt('Enter a link URL.');
+
+                if (url !== null && url.trim() !== '') {
+                    command('createLink', url.trim());
+                }
+            });
+        }
+
+        const escapeAttribute = (value) => String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+
+        const insertImage = (
+            src,
+            alt = '',
+            uploadToken = ''
+        ) => {
+            restoreSelection();
+
+            const tokenAttribute =
+                uploadToken !== '' ?
+                ` data-upload-token="${escapeAttribute(uploadToken)}"` :
+                '';
+
+            document.execCommand(
+                'insertHTML',
+                false,
+                `<img src="${escapeAttribute(src)}" alt="${escapeAttribute(alt)}"${tokenAttribute} loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">`
+            );
+
+            sync();
+            saveSelection();
+        };
+
+        editor.addEventListener(
+            'click',
+            (event) => {
+                const target =
+                    event.target;
+
+                editor.querySelectorAll(
+                    'img[data-editor-selected-image="1"]'
+                ).forEach(
+                    (image) => {
+                        image.removeAttribute(
+                            'data-editor-selected-image'
+                        );
+                    }
                 );
 
-                if (imageSizeSelect) {
-                    const currentWidth =
-                        selectedImage.style.width
-                        || '100%';
+                if (
+                    target instanceof HTMLImageElement &&
+                    editor.contains(target)
+                ) {
+                    selectedImage =
+                        target;
 
-                    const hasOption =
-                        Array.from(
-                            imageSizeSelect.options
-                        ).some(
-                            (option) =>
+                    selectedImage.setAttribute(
+                        'data-editor-selected-image',
+                        '1'
+                    );
+
+                    if (imageSizeSelect) {
+                        const currentWidth =
+                            selectedImage.style.width ||
+                            '100%';
+
+                        const hasOption =
+                            Array.from(
+                                imageSizeSelect.options
+                            ).some(
+                                (option) =>
                                 option.value === currentWidth
-                        );
+                            );
 
-                    imageSizeSelect.value =
-                        hasOption
-                            ? currentWidth
-                            : '';
+                        imageSizeSelect.value =
+                            hasOption ?
+                            currentWidth :
+                            '';
+                    }
+
+                    if (imageAlignSelect) {
+                        const marginLeft =
+                            selectedImage.style.marginLeft;
+
+                        const marginRight =
+                            selectedImage.style.marginRight;
+
+                        if (
+                            marginLeft === '0px' &&
+                            marginRight === 'auto'
+                        ) {
+                            imageAlignSelect.value = 'left';
+                        } else if (
+                            marginLeft === 'auto' &&
+                            marginRight === '0px'
+                        ) {
+                            imageAlignSelect.value = 'right';
+                        } else {
+                            imageAlignSelect.value = 'center';
+                        }
+                    }
+
+                    return;
+                }
+
+                selectedImage = null;
+
+                if (imageSizeSelect) {
+                    imageSizeSelect.value = '';
                 }
 
                 if (imageAlignSelect) {
-                    const marginLeft =
-                        selectedImage.style.marginLeft;
-
-                    const marginRight =
-                        selectedImage.style.marginRight;
-
-                    if (
-                        marginLeft === '0px'
-                        && marginRight === 'auto'
-                    ) {
-                        imageAlignSelect.value = 'left';
-                    } else if (
-                        marginLeft === 'auto'
-                        && marginRight === '0px'
-                    ) {
-                        imageAlignSelect.value = 'right';
-                    } else {
-                        imageAlignSelect.value = 'center';
-                    }
-                }
-
-                return;
-            }
-
-            selectedImage = null;
-
-            if (imageSizeSelect) {
-                imageSizeSelect.value = '';
-            }
-
-            if (imageAlignSelect) {
-                imageAlignSelect.value = '';
-            }
-        }
-    );
-
-    if (imageSizeSelect) {
-        imageSizeSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    !selectedImage
-                    || !editor.contains(selectedImage)
-                ) {
-                    window.alert(
-                        'Click an image in the lesson first, then choose its size.'
-                    );
-
-                    imageSizeSelect.value = '';
-                    return;
-                }
-
-                const size =
-                    imageSizeSelect.value;
-
-                if (size === '') {
-                    return;
-                }
-
-                selectedImage.style.width =
-                    size;
-
-                selectedImage.style.maxWidth =
-                    '100%';
-
-                syncInput();
-            }
-        );
-    }
-
-    if (imageAlignSelect) {
-        imageAlignSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    !selectedImage
-                    || !editor.contains(selectedImage)
-                ) {
-                    window.alert(
-                        'Click an image in the lesson first, then choose its alignment.'
-                    );
-
                     imageAlignSelect.value = '';
-                    return;
                 }
-
-                const alignment =
-                    imageAlignSelect.value;
-
-                if (alignment === '') {
-                    return;
-                }
-
-                if (alignment === 'left') {
-                    selectedImage.style.marginLeft =
-                        '0';
-
-                    selectedImage.style.marginRight =
-                        'auto';
-                } else if (alignment === 'right') {
-                    selectedImage.style.marginLeft =
-                        'auto';
-
-                    selectedImage.style.marginRight =
-                        '0';
-                } else {
-                    selectedImage.style.marginLeft =
-                        'auto';
-
-                    selectedImage.style.marginRight =
-                        'auto';
-                }
-
-                syncInput();
             }
         );
-    }
 
-    if (imageUrlButton) {
-        imageUrlButton.addEventListener('mousedown', (event) => event.preventDefault());
-        imageUrlButton.addEventListener('click', () => {
-            saveSelection();
-
-            const src = window.prompt('Enter an HTTPS image URL.');
-
-            if (src === null || !/^https:\/\//i.test(src.trim())) {
-                return;
-            }
-
-            const alt = window.prompt('Enter image alt text.', '') ?? '';
-            insertImage(src.trim(), alt);
-        });
-    }
-
-    const makeToken = () => {
-        if (window.crypto && window.crypto.getRandomValues) {
-            const values = new Uint32Array(4);
-            window.crypto.getRandomValues(values);
-
-            return Array.from(values, (value) => value.toString(36)).join('');
-        }
-
-        return Date.now().toString(36) + Math.random().toString(36).slice(2);
-    };
-
-    const syncFiles = () => {
-        if (!imageInput || !uploadTokensInput) {
-            return;
-        }
-
-        const transfer = new DataTransfer();
-
-        selectedUploads.forEach((item) => transfer.items.add(item.file));
-
-        imageInput.files = transfer.files;
-        uploadTokensInput.value = JSON.stringify(
-            selectedUploads.map((item) => item.token)
-        );
-    };
-
-    const renderPreviews = () => {
-        if (!imagePreviews) {
-            return;
-        }
-
-        imagePreviews.innerHTML = '';
-
-        if (selectedUploads.length === 0) {
-            imagePreviews.hidden = true;
-            return;
-        }
-
-        imagePreviews.hidden = false;
-
-        selectedUploads.forEach((item) => {
-            const row = document.createElement('div');
-            row.className = 'forum-editor-image-preview';
-
-            const label = document.createElement('span');
-            label.textContent = item.file.name;
-
-            const remove = document.createElement('button');
-            remove.type = 'button';
-            remove.className = 'button-link';
-            remove.textContent = 'Remove';
-
-            remove.addEventListener('click', () => {
-                const removedUpload =
-                    selectedUploads.find(
-                        (candidate) =>
-                            candidate.token
-                            === item.token
-                    );
-
-                if (
-                    removedUpload
-                    && removedUpload.previewUrl
-                ) {
-                    URL.revokeObjectURL(
-                        removedUpload.previewUrl
-                    );
-                }
-
-                selectedUploads =
-                    selectedUploads.filter(
-                        (candidate) =>
-                            candidate.token
-                            !== item.token
-                    );
-
-                editor.querySelectorAll(
-                    'img[data-upload-token]'
-                ).forEach(
-                    (img) => {
-                        if (
-                            img.getAttribute(
-                                'data-upload-token'
-                            ) === item.token
-                        ) {
-                            img.remove();
-                        }
-                    }
-                );
-
-                if (
-                    selectedImage
-                    && !editor.contains(
-                        selectedImage
-                    )
-                ) {
-                    selectedImage = null;
-                }
-
-                syncFiles();
-                renderPreviews();
-                sync();
-            });
-
-            row.append(label, remove);
-            imagePreviews.appendChild(row);
-        });
-    };
-
-    if (imageUploadButton && imageInput) {
-        imageUploadButton.addEventListener('mousedown', (event) => event.preventDefault());
-        imageUploadButton.addEventListener('click', () => {
-            saveSelection();
-            imageInput.click();
-        });
-
-        imageInput.addEventListener('change', () => {
-            const incoming = Array.from(imageInput.files ?? []);
-
-            if (incoming.length + selectedUploads.length > 10) {
-                window.alert('You can upload up to 10 inline lesson images at a time.');
-                imageInput.value = '';
-                return;
-            }
-
-            incoming.forEach((file) => {
-                if (file.size > 10 * 1024 * 1024) {
-                    window.alert(`${file.name} is larger than 10 MB.`);
-                    return;
-                }
-
-                const token =
-                    makeToken();
-
-                const previewUrl =
-                    URL.createObjectURL(
-                        file
-                    );
-
-                selectedUploads.push({
-                    file,
-                    token,
-                    previewUrl,
-                });
-
-                const alt = file.name
-                    .replace(/\.[^.]+$/, '')
-                    .replace(/[-_]+/g, ' ')
-                    .trim();
-
-                insertImage(
-                    previewUrl,
-                    alt,
-                    token
-                );
-            });
-
-            syncFiles();
-            renderPreviews();
-        });
-    }
-
-    ['keyup', 'mouseup', 'input'].forEach((eventName) => {
-        editor.addEventListener(eventName, () => {
-            saveSelection();
-            sync();
-        });
-    });
-
-    editor.addEventListener('paste', () => {
-        window.setTimeout(sync, 0);
-    });
-
-    form.addEventListener('submit', () => {
-        sync();
-        syncFiles();
-    });
-
-    window.addEventListener(
-        'beforeunload',
-        () => {
-            selectedUploads.forEach(
-                (upload) => {
-                    if (upload.previewUrl) {
-                        URL.revokeObjectURL(
-                            upload.previewUrl
+        if (imageSizeSelect) {
+            imageSizeSelect.addEventListener(
+                'change',
+                () => {
+                    if (
+                        !selectedImage ||
+                        !editor.contains(selectedImage)
+                    ) {
+                        window.alert(
+                            'Click an image in the lesson first, then choose its size.'
                         );
+
+                        imageSizeSelect.value = '';
+                        return;
                     }
+
+                    const size =
+                        imageSizeSelect.value;
+
+                    if (size === '') {
+                        return;
+                    }
+
+                    selectedImage.style.width =
+                        size;
+
+                    selectedImage.style.maxWidth =
+                        '100%';
+
+                    syncInput();
                 }
             );
         }
-    );
 
-    sync();
-})();
+        if (imageAlignSelect) {
+            imageAlignSelect.addEventListener(
+                'change',
+                () => {
+                    if (
+                        !selectedImage ||
+                        !editor.contains(selectedImage)
+                    ) {
+                        window.alert(
+                            'Click an image in the lesson first, then choose its alignment.'
+                        );
+
+                        imageAlignSelect.value = '';
+                        return;
+                    }
+
+                    const alignment =
+                        imageAlignSelect.value;
+
+                    if (alignment === '') {
+                        return;
+                    }
+
+                    if (alignment === 'left') {
+                        selectedImage.style.marginLeft =
+                            '0';
+
+                        selectedImage.style.marginRight =
+                            'auto';
+                    } else if (alignment === 'right') {
+                        selectedImage.style.marginLeft =
+                            'auto';
+
+                        selectedImage.style.marginRight =
+                            '0';
+                    } else {
+                        selectedImage.style.marginLeft =
+                            'auto';
+
+                        selectedImage.style.marginRight =
+                            'auto';
+                    }
+
+                    syncInput();
+                }
+            );
+        }
+
+        if (imageUrlButton) {
+            imageUrlButton.addEventListener('mousedown', (event) => event.preventDefault());
+            imageUrlButton.addEventListener('click', () => {
+                saveSelection();
+
+                const src = window.prompt('Enter an HTTPS image URL.');
+
+                if (src === null || !/^https:\/\//i.test(src.trim())) {
+                    return;
+                }
+
+                const alt = window.prompt('Enter image alt text.', '') ?? '';
+                insertImage(src.trim(), alt);
+            });
+        }
+
+        const makeToken = () => {
+            if (window.crypto && window.crypto.getRandomValues) {
+                const values = new Uint32Array(4);
+                window.crypto.getRandomValues(values);
+
+                return Array.from(values, (value) => value.toString(36)).join('');
+            }
+
+            return Date.now().toString(36) + Math.random().toString(36).slice(2);
+        };
+
+        const syncFiles = () => {
+            if (!imageInput || !uploadTokensInput) {
+                return;
+            }
+
+            const transfer = new DataTransfer();
+
+            selectedUploads.forEach((item) => transfer.items.add(item.file));
+
+            imageInput.files = transfer.files;
+            uploadTokensInput.value = JSON.stringify(
+                selectedUploads.map((item) => item.token)
+            );
+        };
+
+        const renderPreviews = () => {
+            if (!imagePreviews) {
+                return;
+            }
+
+            imagePreviews.innerHTML = '';
+
+            if (selectedUploads.length === 0) {
+                imagePreviews.hidden = true;
+                return;
+            }
+
+            imagePreviews.hidden = false;
+
+            selectedUploads.forEach((item) => {
+                const row = document.createElement('div');
+                row.className = 'forum-editor-image-preview';
+
+                const label = document.createElement('span');
+                label.textContent = item.file.name;
+
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'button-link';
+                remove.textContent = 'Remove';
+
+                remove.addEventListener('click', () => {
+                    const removedUpload =
+                        selectedUploads.find(
+                            (candidate) =>
+                            candidate.token ===
+                            item.token
+                        );
+
+                    if (
+                        removedUpload &&
+                        removedUpload.previewUrl
+                    ) {
+                        URL.revokeObjectURL(
+                            removedUpload.previewUrl
+                        );
+                    }
+
+                    selectedUploads =
+                        selectedUploads.filter(
+                            (candidate) =>
+                            candidate.token !==
+                            item.token
+                        );
+
+                    editor.querySelectorAll(
+                        'img[data-upload-token]'
+                    ).forEach(
+                        (img) => {
+                            if (
+                                img.getAttribute(
+                                    'data-upload-token'
+                                ) === item.token
+                            ) {
+                                img.remove();
+                            }
+                        }
+                    );
+
+                    if (
+                        selectedImage &&
+                        !editor.contains(
+                            selectedImage
+                        )
+                    ) {
+                        selectedImage = null;
+                    }
+
+                    syncFiles();
+                    renderPreviews();
+                    sync();
+                });
+
+                row.append(label, remove);
+                imagePreviews.appendChild(row);
+            });
+        };
+
+        if (imageUploadButton && imageInput) {
+            imageUploadButton.addEventListener('mousedown', (event) => event.preventDefault());
+            imageUploadButton.addEventListener('click', () => {
+                saveSelection();
+                imageInput.click();
+            });
+
+            imageInput.addEventListener('change', () => {
+                const incoming = Array.from(imageInput.files ?? []);
+
+                if (incoming.length + selectedUploads.length > 10) {
+                    window.alert('You can upload up to 10 inline lesson images at a time.');
+                    imageInput.value = '';
+                    return;
+                }
+
+                incoming.forEach((file) => {
+                    if (file.size > 10 * 1024 * 1024) {
+                        window.alert(`${file.name} is larger than 10 MB.`);
+                        return;
+                    }
+
+                    const token =
+                        makeToken();
+
+                    const previewUrl =
+                        URL.createObjectURL(
+                            file
+                        );
+
+                    selectedUploads.push({
+                        file,
+                        token,
+                        previewUrl,
+                    });
+
+                    const alt = file.name
+                        .replace(/\.[^.]+$/, '')
+                        .replace(/[-_]+/g, ' ')
+                        .trim();
+
+                    insertImage(
+                        previewUrl,
+                        alt,
+                        token
+                    );
+                });
+
+                syncFiles();
+                renderPreviews();
+            });
+        }
+
+        ['keyup', 'mouseup', 'input'].forEach((eventName) => {
+            editor.addEventListener(eventName, () => {
+                saveSelection();
+                sync();
+            });
+        });
+
+        editor.addEventListener('paste', () => {
+            window.setTimeout(sync, 0);
+        });
+
+        form.addEventListener('submit', () => {
+            sync();
+            syncFiles();
+        });
+
+        window.addEventListener(
+            'beforeunload',
+            () => {
+                selectedUploads.forEach(
+                    (upload) => {
+                        if (upload.previewUrl) {
+                            URL.revokeObjectURL(
+                                upload.previewUrl
+                            );
+                        }
+                    }
+                );
+            }
+        );
+
+        sync();
+    })();
+
 </script>
 
 
 <style>
-.forum-rich-editor-surface img[data-editor-selected-image="1"] {
-    outline: 2px solid var(--gold, #c7a45b);
-    outline-offset: 3px;
-}
+    .forum-rich-editor-surface img[data-editor-selected-image="1"] {
+        outline: 2px solid var(--gold, #c7a45b);
+        outline-offset: 3px;
+    }
+
 </style>
 
 
 <style>
-/*
+    /*
 |--------------------------------------------------------------------------
 | Rich Editor Working Area
 |--------------------------------------------------------------------------
@@ -4529,63 +4311,64 @@ $staffHeroUrl =
 |
 */
 
-.forum-rich-editor {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.forum-rich-editor-toolbar {
-    position: relative;
-    z-index: 3;
-    flex: 0 0 auto;
-}
-
-.forum-rich-editor-surface {
-    box-sizing: border-box;
-    width: 100%;
-    height: 420px;
-    min-height: 260px;
-    max-height: 78vh;
-    overflow-x: auto;
-    overflow-y: auto;
-    resize: vertical;
-    overscroll-behavior: contain;
-    scrollbar-gutter: stable;
-}
-
-.forum-rich-editor-surface:focus {
-    overflow-y: auto;
-}
-
-@media (max-width: 720px) {
-    .forum-rich-editor-surface {
-        height: 340px;
-        min-height: 220px;
-        max-height: 70vh;
+    .forum-rich-editor {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
     }
-}
+
+    .forum-rich-editor-toolbar {
+        position: relative;
+        z-index: 3;
+        flex: 0 0 auto;
+    }
+
+    .forum-rich-editor-surface {
+        box-sizing: border-box;
+        width: 100%;
+        height: 420px;
+        min-height: 260px;
+        max-height: 78vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        resize: vertical;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+    }
+
+    .forum-rich-editor-surface:focus {
+        overflow-y: auto;
+    }
+
+    @media (max-width: 720px) {
+        .forum-rich-editor-surface {
+            height: 340px;
+            min-height: 220px;
+            max-height: 70vh;
+        }
+    }
+
 </style>
 
 
-
 <style>
-.lesson-delete-link {
-    appearance: none;
-    border: 0;
-    padding: 0;
-    background: transparent;
-    color: #d96a72;
-    font: inherit;
-    text-decoration: none;
-    cursor: pointer;
-}
+    .lesson-delete-link {
+        appearance: none;
+        border: 0;
+        padding: 0;
+        background: transparent;
+        color: #d96a72;
+        font: inherit;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-.lesson-delete-link:hover,
-.lesson-delete-link:focus-visible {
-    color: #f08a91;
-    text-decoration: underline;
-}
+    .lesson-delete-link:hover,
+    .lesson-delete-link:focus-visible {
+        color: #f08a91;
+        text-decoration: underline;
+    }
+
 </style>
 
 <?php

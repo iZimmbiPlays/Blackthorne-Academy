@@ -55,34 +55,31 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to manage assignment extra credit.
-                </p>
+            <p>
+                Your account does not have permission to manage assignment extra credit.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/assignments.php')); ?>"
-                >
-                    Return to Assignments
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/assignments.php')); ?>">
+                Return to Assignments
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -895,18 +892,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page assignment-extra-credit-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page assignment-extra-credit-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="assignment-extra-credit-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="assignment-extra-credit-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -980,17 +971,14 @@ $staffHeroUrl =
                     </div>
 
                     <div class="dashboard-workspace-heading-actions">
-                        <a
-                            class="button button-secondary"
-                            href="<?= e(
+                        <a class="button button-secondary" href="<?= e(
                                 url(
                                     'admin/assignment-edit.php?offering='
                                     . $offeringId
                                     . '&assignment='
                                     . $assignmentId
                                 )
-                            ); ?>"
-                        >
+                            ); ?>">
                             Back to Assignment
                         </a>
                     </div>
@@ -999,22 +987,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            Extra credit could not be updated.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        Extra credit could not be updated.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -1106,10 +1091,10 @@ $staffHeroUrl =
                                 ?? 0
                             ) !== 1
                         ): ?>
-                            <p class="form-help">
-                                Extra credit is currently disabled for this offering.
-                                Enable it from Assignment Edit before adding tasks.
-                            </p>
+                        <p class="form-help">
+                            Extra credit is currently disabled for this offering.
+                            Enable it from Assignment Edit before adding tasks.
+                        </p>
                         <?php endif; ?>
 
                     </div>
@@ -1135,20 +1120,20 @@ $staffHeroUrl =
 
                         <?php if ($tasks === []): ?>
 
-                            <p>
-                                No extra-credit tasks have been created for this version.
-                            </p>
+                        <p>
+                            No extra-credit tasks have been created for this version.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach ($tasks as $taskRow): ?>
+                            <?php foreach ($tasks as $taskRow): ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            <?= number_format(
+                                <strong>
+                                    <?= number_format(
                                                 (int) (
                                                     $taskRow[
                                                         'sort_order'
@@ -1156,7 +1141,7 @@ $staffHeroUrl =
                                                     ?? 0
                                                 )
                                             ); ?>.
-                                            <?= e(
+                                    <?= e(
                                                 (string) (
                                                     $taskRow[
                                                         'title'
@@ -1164,10 +1149,10 @@ $staffHeroUrl =
                                                     ?? 'Extra-Credit Task'
                                                 )
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             number_format(
                                                 (float) (
                                                     $taskRow[
@@ -1178,54 +1163,39 @@ $staffHeroUrl =
                                                 2
                                             )
                                         ); ?>
-                                        points
+                                points
 
-                                        <form
-                                            action="<?= e(
+                                <form action="<?= e(
                                                 url(
                                                     'admin/assignment-extra-credit.php?offering='
                                                     . $offeringId
                                                     . '&assignment='
                                                     . $assignmentId
                                                 )
-                                            ); ?>"
-                                            method="post"
-                                            style="display:inline;"
-                                            onsubmit="return confirm('Delete this extra-credit task?');"
-                                        >
-                                            <?= csrf_field(); ?>
+                                            ); ?>" method="post" style="display:inline;"
+                                    onsubmit="return confirm('Delete this extra-credit task?');">
+                                    <?= csrf_field(); ?>
 
-                                            <input
-                                                type="hidden"
-                                                name="action"
-                                                value="delete_task"
-                                            >
+                                    <input type="hidden" name="action" value="delete_task">
 
-                                            <input
-                                                type="hidden"
-                                                name="task_id"
-                                                value="<?= (int) (
+                                    <input type="hidden" name="task_id" value="<?= (int) (
                                                     $taskRow[
                                                         'id'
                                                     ]
                                                     ?? 0
-                                                ); ?>"
-                                            >
+                                                ); ?>">
 
-                                            ·
-                                            <button
-                                                type="submit"
-                                                class="button-link"
-                                            >
-                                                Delete
-                                            </button>
-                                        </form>
+                                    ·
+                                    <button type="submit" class="button-link">
+                                        Delete
+                                    </button>
+                                </form>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -1243,122 +1213,84 @@ $staffHeroUrl =
                     ) === 1
                 ): ?>
 
-                    <section class="forum-admin-panel">
+                <section class="forum-admin-panel">
 
-                        <header class="forum-admin-titlebar">
-                            <p class="forum-admin-step">
-                                New Task
-                            </p>
+                    <header class="forum-admin-titlebar">
+                        <p class="forum-admin-step">
+                            New Task
+                        </p>
 
-                            <h2>
-                                Add Extra-Credit Task
-                            </h2>
-                        </header>
+                        <h2>
+                            Add Extra-Credit Task
+                        </h2>
+                    </header>
 
-                        <form
-                            action="<?= e(
+                    <form action="<?= e(
                                 url(
                                     'admin/assignment-extra-credit.php?offering='
                                     . $offeringId
                                     . '&assignment='
                                     . $assignmentId
                                 )
-                            ); ?>"
-                            method="post"
-                            class="forum-admin-form"
-                        >
-                            <?= csrf_field(); ?>
+                            ); ?>" method="post" class="forum-admin-form">
+                        <?= csrf_field(); ?>
 
-                            <input
-                                type="hidden"
-                                name="action"
-                                value="create_task"
-                            >
+                        <input type="hidden" name="action" value="create_task">
+
+
+                        <div class="form-group">
+                            <label for="task-title">
+                                Task Title
+                            </label>
+
+                            <input class="form-control" type="text" id="task-title" name="title" maxlength="200"
+                                value="<?= e($form['title']); ?>" required>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="task-instructions">
+                                Instructions
+                            </label>
+
+                            <textarea class="form-control" id="task-instructions" name="instructions"
+                                rows="8"><?= e($form['instructions']); ?></textarea>
+                        </div>
+
+
+                        <div class="forum-admin-form-grid">
+
+                            <div class="form-group">
+                                <label for="task-points">
+                                    Points Possible
+                                </label>
+
+                                <input class="form-control" type="number" id="task-points" name="points_possible"
+                                    min="0.01" step="0.01" value="<?= e($form['points_possible']); ?>" required>
+                            </div>
 
 
                             <div class="form-group">
-                                <label for="task-title">
-                                    Task Title
+                                <label for="task-sort-order">
+                                    Display Order
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    id="task-title"
-                                    name="title"
-                                    maxlength="200"
-                                    value="<?= e($form['title']); ?>"
-                                    required
-                                >
+                                <input class="form-control" type="number" id="task-sort-order" name="sort_order" min="0"
+                                    step="1" value="<?= e($form['sort_order']); ?>" required>
                             </div>
 
-
-                            <div class="form-group">
-                                <label for="task-instructions">
-                                    Instructions
-                                </label>
-
-                                <textarea
-                                    class="form-control"
-                                    id="task-instructions"
-                                    name="instructions"
-                                    rows="8"
-                                ><?= e($form['instructions']); ?></textarea>
-                            </div>
+                        </div>
 
 
-                            <div class="forum-admin-form-grid">
+                        <div class="forum-admin-actions">
+                            <button type="submit" class="button button-primary">
+                                Add Extra-Credit Task
+                            </button>
+                        </div>
 
-                                <div class="form-group">
-                                    <label for="task-points">
-                                        Points Possible
-                                    </label>
+                    </form>
 
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        id="task-points"
-                                        name="points_possible"
-                                        min="0.01"
-                                        step="0.01"
-                                        value="<?= e($form['points_possible']); ?>"
-                                        required
-                                    >
-                                </div>
-
-
-                                <div class="form-group">
-                                    <label for="task-sort-order">
-                                        Display Order
-                                    </label>
-
-                                    <input
-                                        class="form-control"
-                                        type="number"
-                                        id="task-sort-order"
-                                        name="sort_order"
-                                        min="0"
-                                        step="1"
-                                        value="<?= e($form['sort_order']); ?>"
-                                        required
-                                    >
-                                </div>
-
-                            </div>
-
-
-                            <div class="forum-admin-actions">
-                                <button
-                                    type="submit"
-                                    class="button button-primary"
-                                >
-                                    Add Extra-Credit Task
-                                </button>
-                            </div>
-
-                        </form>
-
-                    </section>
+                </section>
 
                 <?php endif; ?>
 

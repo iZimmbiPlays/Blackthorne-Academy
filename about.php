@@ -30,20 +30,11 @@ require INCLUDES_PATH . '/header.php';
          HERO
     ================================================================= -->
 
-    <section
-        class="about-hero"
-        aria-labelledby="about-hero-heading"
-    >
+    <section class="about-hero" aria-labelledby="about-hero-heading">
 
-        <div
-            class="hero-ornament hero-ornament-left"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-left" aria-hidden="true"></div>
 
-        <div
-            class="hero-ornament hero-ornament-right"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-right" aria-hidden="true"></div>
 
 
         <div class="section-inner about-hero-inner">
@@ -70,38 +61,23 @@ require INCLUDES_PATH . '/header.php';
                 </p>
 
 
-                <div
-                    class="hero-actions"
-                    aria-label="About Blackthorne actions"
-                >
+                <div class="hero-actions" aria-label="About Blackthorne actions">
 
-                    <a
-    href="<?= e('login.php'); ?>"
-    class="button button-primary"
->
-    Enter the Academy
-</a>
+                    <a href="<?= e('login.php'); ?>" class="button button-primary">
+                        Enter the Academy
+                    </a>
 
 
-                    <a
-                        href="<?= e(url('features.php')); ?>"
-                        class="button button-secondary"
-                    >
+                    <a href="<?= e(url('features.php')); ?>" class="button button-secondary">
                         Explore Academy Life
                     </a>
 
                 </div>
 
 
-                <div
-                    class="hero-motto"
-                    aria-label="Blackthorne Academy motto"
-                >
+                <div class="hero-motto" aria-label="Blackthorne Academy motto">
 
-                    <span
-                        class="ornament-line"
-                        aria-hidden="true"
-                    ></span>
+                    <span class="ornament-line" aria-hidden="true"></span>
 
 
                     <p>
@@ -141,11 +117,7 @@ require INCLUDES_PATH . '/header.php';
          ABOUT BLACKTHORNE
     ================================================================= -->
 
-    <section
-        class="about-introduction"
-        id="about-blackthorne"
-        aria-labelledby="about-blackthorne-heading"
-    >
+    <section class="about-introduction" id="about-blackthorne" aria-labelledby="about-blackthorne-heading">
 
         <div class="section-inner about-introduction-grid">
 
@@ -214,10 +186,7 @@ require INCLUDES_PATH . '/header.php';
          RP INTRODUCTION
     ================================================================= -->
 
-    <section
-        class="about-arrival"
-        aria-labelledby="arrival-heading"
-    >
+    <section class="about-arrival" aria-labelledby="arrival-heading">
 
         <div class="section-inner">
 
@@ -225,18 +194,9 @@ require INCLUDES_PATH . '/header.php';
             <div class="about-arrival-frame">
 
 
-                <div
-                    class="about-arrival-mark"
-                    aria-hidden="true"
-                >
-                    <img
-                        src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                        alt=""
-                        width="130"
-                        height="130"
-                        loading="lazy"
-                        decoding="async"
-                    >
+                <div class="about-arrival-mark" aria-hidden="true">
+                    <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" width="130" height="130" loading="lazy"
+                        decoding="async">
                 </div>
 
 
@@ -252,10 +212,7 @@ require INCLUDES_PATH . '/header.php';
                     </h2>
 
 
-                    <div
-                        class="ornamental-rule"
-                        aria-hidden="true"
-                    >
+                    <div class="ornamental-rule" aria-hidden="true">
                         <span></span>
                         <i></i>
                         <span></span>
@@ -323,38 +280,29 @@ require INCLUDES_PATH . '/header.php';
 
                     <footer class="about-arrival-signature">
 
-    <span>
-        Welcome to Blackthorne Academy.
-    </span>
+                        <span>
+                            Welcome to Blackthorne Academy.
+                        </span>
 
-    <small>
-        The gates are open.
-    </small>
-
-
-    <div
-        class="about-arrival-actions"
-        aria-label="Blackthorne Academy account actions"
-    >
-
-        <a
-            href="<?= e(LOGIN_URL); ?>"
-            class="button button-secondary"
-        >
-            Login
-        </a>
+                        <small>
+                            The gates are open.
+                        </small>
 
 
-        <a
-            href="<?= e(REGISTER_URL); ?>"
-            class="button button-primary"
-        >
-            Enroll
-        </a>
+                        <div class="about-arrival-actions" aria-label="Blackthorne Academy account actions">
 
-    </div>
+                            <a href="<?= e(LOGIN_URL); ?>" class="button button-secondary">
+                                Login
+                            </a>
 
-</footer>
+
+                            <a href="<?= e(REGISTER_URL); ?>" class="button button-primary">
+                                Enroll
+                            </a>
+
+                        </div>
+
+                    </footer>
 
                 </div>
 
@@ -369,10 +317,7 @@ require INCLUDES_PATH . '/header.php';
          TWO SIDES OF BLACKTHORNE
     ================================================================= -->
 
-    <section
-        class="about-two-worlds"
-        aria-labelledby="two-worlds-heading"
-    >
+    <section class="about-two-worlds" aria-labelledby="two-worlds-heading">
 
         <div class="section-inner">
 
@@ -403,10 +348,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="about-world about-world-real">
 
-                    <span
-                        class="about-world-number"
-                        aria-hidden="true"
-                    >
+                    <span class="about-world-number" aria-hidden="true">
                         I
                     </span>
 
@@ -437,10 +379,7 @@ require INCLUDES_PATH . '/header.php';
                 </article>
 
 
-                <div
-                    class="about-world-divider"
-                    aria-hidden="true"
-                >
+                <div class="about-world-divider" aria-hidden="true">
 
                     <span></span>
 
@@ -455,10 +394,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="about-world about-world-story">
 
-                    <span
-                        class="about-world-number"
-                        aria-hidden="true"
-                    >
+                    <span class="about-world-number" aria-hidden="true">
                         II
                     </span>
 
@@ -499,20 +435,14 @@ require INCLUDES_PATH . '/header.php';
          OUR APPROACH
     ================================================================= -->
 
-    <section
-        class="about-philosophy"
-        aria-labelledby="philosophy-heading"
-    >
+    <section class="about-philosophy" aria-labelledby="philosophy-heading">
 
         <div class="section-inner">
 
 
             <div class="about-philosophy-heading">
 
-                <span
-                    class="about-section-number"
-                    aria-hidden="true"
-                >
+                <span class="about-section-number" aria-hidden="true">
                     03
                 </span>
 
@@ -540,10 +470,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="about-philosophy-entry">
 
-                    <span
-                        class="about-philosophy-symbol"
-                        aria-hidden="true"
-                    >
+                    <span class="about-philosophy-symbol" aria-hidden="true">
                         I
                     </span>
 
@@ -568,10 +495,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="about-philosophy-entry">
 
-                    <span
-                        class="about-philosophy-symbol"
-                        aria-hidden="true"
-                    >
+                    <span class="about-philosophy-symbol" aria-hidden="true">
                         II
                     </span>
 
@@ -596,10 +520,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="about-philosophy-entry">
 
-                    <span
-                        class="about-philosophy-symbol"
-                        aria-hidden="true"
-                    >
+                    <span class="about-philosophy-symbol" aria-hidden="true">
                         III
                     </span>
 
@@ -632,10 +553,7 @@ require INCLUDES_PATH . '/header.php';
          IMMERSION WITHOUT OBLIGATION
     ================================================================= -->
 
-    <section
-        class="about-roleplay"
-        aria-labelledby="roleplay-heading"
-    >
+    <section class="about-roleplay" aria-labelledby="roleplay-heading">
 
         <div class="section-inner about-roleplay-grid">
 
@@ -676,15 +594,9 @@ require INCLUDES_PATH . '/header.php';
             </div>
 
 
-            <aside
-                class="about-roleplay-note"
-                aria-label="Blackthorne roleplay philosophy"
-            >
+            <aside class="about-roleplay-note" aria-label="Blackthorne roleplay philosophy">
 
-                <div
-                    class="about-roleplay-note-mark"
-                    aria-hidden="true"
-                >
+                <div class="about-roleplay-note-mark" aria-hidden="true">
                     ✦
                 </div>
 
@@ -712,10 +624,7 @@ require INCLUDES_PATH . '/header.php';
          WHAT BLACKTHORNE IS BECOMING
     ================================================================= -->
 
-    <section
-        class="about-future"
-        aria-labelledby="future-heading"
-    >
+    <section class="about-future" aria-labelledby="future-heading">
 
         <div class="section-inner">
 
@@ -732,10 +641,7 @@ require INCLUDES_PATH . '/header.php';
                 </h2>
 
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>
@@ -773,10 +679,7 @@ require INCLUDES_PATH . '/header.php';
                 </article>
 
 
-                <div
-                    class="about-path-line"
-                    aria-hidden="true"
-                ></div>
+                <div class="about-path-line" aria-hidden="true"></div>
 
 
                 <article>
@@ -797,10 +700,7 @@ require INCLUDES_PATH . '/header.php';
                 </article>
 
 
-                <div
-                    class="about-path-line"
-                    aria-hidden="true"
-                ></div>
+                <div class="about-path-line" aria-hidden="true"></div>
 
 
                 <article>
@@ -831,25 +731,15 @@ require INCLUDES_PATH . '/header.php';
          CLOSING
     ================================================================= -->
 
-    <section
-        class="about-closing"
-        aria-labelledby="about-closing-heading"
-    >
+    <section class="about-closing" aria-labelledby="about-closing-heading">
 
         <div class="section-inner">
 
             <div class="about-closing-frame">
 
 
-                <img
-                    src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                    alt=""
-                    class="about-closing-crest"
-                    width="145"
-                    height="145"
-                    loading="lazy"
-                    decoding="async"
-                >
+                <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" class="about-closing-crest" width="145"
+                    height="145" loading="lazy" decoding="async">
 
 
                 <p class="academy-overline">
@@ -882,20 +772,14 @@ require INCLUDES_PATH . '/header.php';
          ADMISSIONS
     ================================================================= -->
 
-    <section
-        class="admissions-notice about-admissions"
-        aria-labelledby="about-admissions-heading"
-    >
+    <section class="admissions-notice about-admissions" aria-labelledby="about-admissions-heading">
 
         <div class="section-inner">
 
             <div class="admissions-frame">
 
 
-                <div
-                    class="admissions-seal"
-                    aria-hidden="true"
-                >
+                <div class="admissions-seal" aria-hidden="true">
                     B
                 </div>
 
@@ -922,10 +806,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <div class="admissions-action">
 
-                    <a
-                        href="<?= e(REGISTER_URL); ?>"
-                        class="button button-primary button-large"
-                    >
+                    <a href="<?= e(REGISTER_URL); ?>" class="button button-primary button-large">
                         Enroll at Blackthorne
                     </a>
 

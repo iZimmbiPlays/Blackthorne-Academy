@@ -1,0 +1,26 @@
+{
+  "name": "blackthorne_academy_git",
+  "version": "1.0.0",
+  "description": "**A custom-built virtual academy, learning management, and community platform developed from the ground up with PHP and MySQL.**",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iZimmbiPlays/Blackthorne-Academy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/iZimmbiPlays/Blackthorne-Academy/issues"
+  },
+  "homepage": "https://github.com/iZimmbiPlays/Blackthorne-Academy#readme",
+  "devDependencies": {
+    "@prettier/plugin-php": "^0.25.0",
+    "js-beautify": "^2.0.3",
+    "prettier": "^3.9.9"
+  }
+}

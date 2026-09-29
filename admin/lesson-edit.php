@@ -55,34 +55,31 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to edit lessons.
-                </p>
+            <p>
+                Your account does not have permission to edit lessons.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/lessons.php')); ?>"
-                >
-                    Return to Lessons
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/lessons.php')); ?>">
+                Return to Lessons
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -2236,18 +2233,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page lesson-edit-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page lesson-edit-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="lesson-edit-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="lesson-edit-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -2315,15 +2306,12 @@ $staffHeroUrl =
                     </div>
 
                     <div class="dashboard-workspace-heading-actions">
-                        <a
-                            class="button button-secondary"
-                            href="<?= e(
+                        <a class="button button-secondary" href="<?= e(
                                 url(
                                     'admin/lessons.php?offering='
                                     . $offeringId
                                 )
-                            ); ?>"
-                        >
+                            ); ?>">
                             Back to Lessons
                         </a>
                     </div>
@@ -2332,22 +2320,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The lesson could not be updated.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The lesson could not be updated.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -2400,14 +2385,14 @@ $staffHeroUrl =
                                     ]
                                 )
                             ): ?>
-                                <span>
-                                    <strong>School Year:</strong>
-                                    <?= e(
+                            <span>
+                                <strong>School Year:</strong>
+                                <?= e(
                                         (string) $lesson[
                                             'school_year_name'
                                         ]
                                     ); ?>
-                                </span>
+                            </span>
                             <?php endif; ?>
 
                             <?php if (
@@ -2417,14 +2402,14 @@ $staffHeroUrl =
                                     ]
                                 )
                             ): ?>
-                                <span>
-                                    <strong>Grade Level:</strong>
-                                    <?= e(
+                            <span>
+                                <strong>Grade Level:</strong>
+                                <?= e(
                                         (string) $lesson[
                                             'year_group_names'
                                         ]
                                     ); ?>
-                                </span>
+                            </span>
                             <?php endif; ?>
 
                             <span>
@@ -2455,27 +2440,18 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(
+                    <form action="<?= e(
                             url(
                                 'admin/lesson-edit.php?offering='
                                 . $offeringId
                                 . '&lesson='
                                 . $lessonId
                             )
-                        ); ?>"
-                        method="post"
-                        enctype="multipart/form-data"
-                        class="forum-admin-form"
-                        id="lesson-version-form"
-                    >
+                        ); ?>" method="post" enctype="multipart/form-data" class="forum-admin-form"
+                        id="lesson-version-form">
                         <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="create_new_version"
-                        >
+                        <input type="hidden" name="action" value="create_new_version">
 
 
                         <div class="form-group">
@@ -2483,15 +2459,8 @@ $staffHeroUrl =
                                 Lesson Title
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="lesson-title"
-                                name="title"
-                                maxlength="200"
-                                value="<?= e($form['title']); ?>"
-                                required
-                            >
+                            <input class="form-control" type="text" id="lesson-title" name="title" maxlength="200"
+                                value="<?= e($form['title']); ?>" required>
                         </div>
 
 
@@ -2508,43 +2477,30 @@ $staffHeroUrl =
                                     )
                                 ) !== ''
                             ): ?>
-                                <div class="lesson-edit-current-image">
-                                    <img
-                                        src="<?= e(
+                            <div class="lesson-edit-current-image">
+                                <img src="<?= e(
                                             url(
                                                 ltrim(
                                                     (string) $lesson['lesson_image'],
                                                     '/'
                                                 )
                                             )
-                                        ); ?>"
-                                        alt="<?= e(
+                                        ); ?>" alt="<?= e(
                                             (string) (
                                                 $lesson['active_title']
                                                 ?? 'Lesson'
                                             )
-                                        ); ?>"
-                                        loading="lazy"
-                                    >
+                                        ); ?>" loading="lazy">
 
-                                    <label class="forum-admin-checkbox-row">
-                                        <input
-                                            type="checkbox"
-                                            name="remove_lesson_image"
-                                            value="1"
-                                        >
-                                        Remove current lesson image
-                                    </label>
-                                </div>
+                                <label class="forum-admin-checkbox-row">
+                                    <input type="checkbox" name="remove_lesson_image" value="1">
+                                    Remove current lesson image
+                                </label>
+                            </div>
                             <?php endif; ?>
 
-                            <input
-                                class="form-control"
-                                type="file"
-                                id="lesson-image"
-                                name="lesson_image"
-                                accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
-                            >
+                            <input class="form-control" type="file" id="lesson-image" name="lesson_image"
+                                accept="image/jpeg,image/png,image/gif,image/webp,image/avif">
 
                             <p class="form-help">
                                 Optional. Upload a replacement lesson thumbnail/header image. Maximum file size: 10 MB.
@@ -2557,12 +2513,8 @@ $staffHeroUrl =
                                 Lesson Description
                             </label>
 
-                            <textarea
-                                class="form-control"
-                                id="lesson-description"
-                                name="description"
-                                rows="4"
-                            ><?= e($form['description']); ?></textarea>
+                            <textarea class="form-control" id="lesson-description" name="description"
+                                rows="4"><?= e($form['description']); ?></textarea>
                         </div>
 
 
@@ -2573,25 +2525,22 @@ $staffHeroUrl =
 
                             <div class="forum-rich-editor" data-forum-editor>
 
-                                <div
-                                    class="forum-rich-editor-toolbar"
-                                    role="toolbar"
-                                    aria-label="Lesson content formatting"
-                                >
+                                <div class="forum-rich-editor-toolbar" role="toolbar"
+                                    aria-label="Lesson content formatting">
                                     <div class="forum-editor-tool-group">
-                                        <button type="button" class="forum-editor-tool" data-command="bold" title="Bold"><strong>B</strong></button>
-                                        <button type="button" class="forum-editor-tool" data-command="italic" title="Italic"><em>I</em></button>
-                                        <button type="button" class="forum-editor-tool" data-command="underline" title="Underline"><u>U</u></button>
-                                        <button type="button" class="forum-editor-tool" data-command="strikeThrough" title="Strikethrough"><s>S</s></button>
+                                        <button type="button" class="forum-editor-tool" data-command="bold"
+                                            title="Bold"><strong>B</strong></button>
+                                        <button type="button" class="forum-editor-tool" data-command="italic"
+                                            title="Italic"><em>I</em></button>
+                                        <button type="button" class="forum-editor-tool" data-command="underline"
+                                            title="Underline"><u>U</u></button>
+                                        <button type="button" class="forum-editor-tool" data-command="strikeThrough"
+                                            title="Strikethrough"><s>S</s></button>
                                     </div>
 
                                     <div class="forum-editor-tool-group">
-                                        <select
-                                            class="forum-editor-select"
-                                            data-editor-format
-                                            title="Text style"
-                                            aria-label="Text style"
-                                        >
+                                        <select class="forum-editor-select" data-editor-format title="Text style"
+                                            aria-label="Text style">
                                             <option value="">Text Style</option>
                                             <option value="p">Paragraph</option>
                                             <option value="h2">Heading 2</option>
@@ -2599,12 +2548,8 @@ $staffHeroUrl =
                                             <option value="h4">Heading 4</option>
                                         </select>
 
-                                        <select
-                                            class="forum-editor-select"
-                                            data-editor-size
-                                            title="Font size"
-                                            aria-label="Font size"
-                                        >
+                                        <select class="forum-editor-select" data-editor-size title="Font size"
+                                            aria-label="Font size">
                                             <option value="">Font Size</option>
                                             <option value="14px">Small</option>
                                             <option value="16px">Normal</option>
@@ -2617,65 +2562,53 @@ $staffHeroUrl =
                                     <div class="forum-editor-tool-group forum-editor-color-tools">
                                         <label class="forum-editor-color-label" title="Text color">
                                             Text
-                                            <input
-                                                type="color"
-                                                value="#e8e1e6"
-                                                data-editor-color
-                                                aria-label="Text color"
-                                            >
+                                            <input type="color" value="#e8e1e6" data-editor-color
+                                                aria-label="Text color">
                                         </label>
-                                        <button
-                                            type="button"
-                                            class="forum-editor-tool"
-                                            data-editor-apply-color
-                                            title="Apply the current text color to the selected text"
-                                        >
+                                        <button type="button" class="forum-editor-tool" data-editor-apply-color
+                                            title="Apply the current text color to the selected text">
                                             Apply Text
                                         </button>
 
                                         <label class="forum-editor-color-label" title="Highlight color">
                                             Highlight
-                                            <input
-                                                type="color"
-                                                value="#55336f"
-                                                data-editor-highlight
-                                                aria-label="Highlight color"
-                                            >
+                                            <input type="color" value="#55336f" data-editor-highlight
+                                                aria-label="Highlight color">
                                         </label>
-                                        <button
-                                            type="button"
-                                            class="forum-editor-tool"
-                                            data-editor-apply-highlight
-                                            title="Apply the current highlight color to the selected text"
-                                        >
+                                        <button type="button" class="forum-editor-tool" data-editor-apply-highlight
+                                            title="Apply the current highlight color to the selected text">
                                             Apply Highlight
                                         </button>
                                     </div>
 
                                     <div class="forum-editor-tool-group">
-                                        <button type="button" class="forum-editor-tool" data-command="insertUnorderedList" title="Bulleted list">• List</button>
-                                        <button type="button" class="forum-editor-tool" data-command="insertOrderedList" title="Numbered list">1. List</button>
-                                        <button type="button" class="forum-editor-tool" data-editor-quote title="Quote">Quote</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="insertUnorderedList" title="Bulleted list">• List</button>
+                                        <button type="button" class="forum-editor-tool" data-command="insertOrderedList"
+                                            title="Numbered list">1. List</button>
+                                        <button type="button" class="forum-editor-tool" data-editor-quote
+                                            title="Quote">Quote</button>
                                     </div>
 
                                     <div class="forum-editor-tool-group">
-                                        <button type="button" class="forum-editor-tool" data-command="justifyLeft">Left</button>
-                                        <button type="button" class="forum-editor-tool" data-command="justifyCenter">Center</button>
-                                        <button type="button" class="forum-editor-tool" data-command="justifyRight">Right</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="justifyLeft">Left</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="justifyCenter">Center</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="justifyRight">Right</button>
                                     </div>
 
                                     <div class="forum-editor-tool-group">
                                         <button type="button" class="forum-editor-tool" data-editor-link>Link</button>
-                                        <button type="button" class="forum-editor-tool" data-command="unlink">Unlink</button>
-                                        <button type="button" class="forum-editor-tool" data-command="removeFormat">Clear</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="unlink">Unlink</button>
+                                        <button type="button" class="forum-editor-tool"
+                                            data-command="removeFormat">Clear</button>
                                     </div>
 
                                     <div class="forum-editor-tool-group forum-editor-image-tools">
-                                        <select
-                                            class="forum-editor-select"
-                                            data-editor-image-size
-                                            title="Image size"
-                                        >
+                                        <select class="forum-editor-select" data-editor-image-size title="Image size">
                                             <option value="">Image Size</option>
                                             <option value="25%">25%</option>
                                             <option value="40%">40%</option>
@@ -2686,92 +2619,53 @@ $staffHeroUrl =
                                             <option value="100%">100%</option>
                                         </select>
 
-                                            <select
-                                                class="forum-editor-select"
-                                                data-editor-image-align
-                                                title="Image alignment"
-                                            >
-                                                <option value="">Image Align</option>
-                                                <option value="left">Left</option>
-                                                <option value="center">Center</option>
-                                                <option value="right">Right</option>
-                                            </select>
+                                        <select class="forum-editor-select" data-editor-image-align
+                                            title="Image alignment">
+                                            <option value="">Image Align</option>
+                                            <option value="left">Left</option>
+                                            <option value="center">Center</option>
+                                            <option value="right">Right</option>
+                                        </select>
 
-                                        <button
-                                            type="button"
-                                            class="forum-editor-tool"
-                                            data-editor-image-upload
-                                        >
+                                        <button type="button" class="forum-editor-tool" data-editor-image-upload>
                                             Upload Image
                                         </button>
 
-                                        <input
-                                            class="forum-editor-image-upload-input"
-                                            type="file"
-                                            id="lesson-content-image-upload"
-                                            name="uploaded_images[]"
-                                            accept="image/jpeg,image/png,image/gif,image/webp,image/avif"
-                                            multiple
-                                            data-editor-image-input
-                                        >
+                                        <input class="forum-editor-image-upload-input" type="file"
+                                            id="lesson-content-image-upload" name="uploaded_images[]"
+                                            accept="image/jpeg,image/png,image/gif,image/webp,image/avif" multiple
+                                            data-editor-image-input>
 
-                                        <input
-                                            type="hidden"
-                                            name="upload_tokens"
-                                            value="[]"
-                                            data-editor-upload-tokens
-                                        >
+                                        <input type="hidden" name="upload_tokens" value="[]" data-editor-upload-tokens>
 
-                                        <button
-                                            type="button"
-                                            class="forum-editor-tool"
-                                            data-editor-image-url
-                                        >
+                                        <button type="button" class="forum-editor-tool" data-editor-image-url>
                                             Image URL
                                         </button>
                                     </div>
                                 </div>
 
-                                <div
-                                    class="forum-rich-editor-surface"
-                                    id="lesson-editor"
-                                    contenteditable="true"
-                                    role="textbox"
-                                    aria-labelledby="lesson-content-label"
-                                    aria-multiline="true"
-                                    data-placeholder="Write the lesson content here..."
-                                    spellcheck="true"
-                                ><?= $form['content'] !== '' ? sanitize_rich_text($form['content']) : ''; ?></div>
+                                <div class="forum-rich-editor-surface" id="lesson-editor" contenteditable="true"
+                                    role="textbox" aria-labelledby="lesson-content-label" aria-multiline="true"
+                                    data-placeholder="Write the lesson content here..." spellcheck="true">
+                                    <?= $form['content'] !== '' ? sanitize_rich_text($form['content']) : ''; ?></div>
 
-                                <div
-                                    class="forum-editor-image-preview-list"
-                                    data-editor-image-previews
-                                    hidden
-                                    aria-live="polite"
-                                ></div>
+                                <div class="forum-editor-image-preview-list" data-editor-image-previews hidden
+                                    aria-live="polite"></div>
 
-                                <div
-                                    class="forum-editor-counts"
-                                    aria-live="polite"
-                                    aria-atomic="true"
-                                >
+                                <div class="forum-editor-counts" aria-live="polite" aria-atomic="true">
                                     <span data-editor-word-count>0 words</span>
                                     <span aria-hidden="true">•</span>
                                     <span data-editor-character-count>0 characters</span>
                                 </div>
 
-                                <textarea
-                                    class="forum-rich-editor-input"
-                                    name="content"
-                                    id="lesson-content"
-                                    aria-hidden="true"
-                                    tabindex="-1"
-                                ><?= e($form['content']); ?></textarea>
+                                <textarea class="forum-rich-editor-input" name="content" id="lesson-content"
+                                    aria-hidden="true" tabindex="-1"><?= e($form['content']); ?></textarea>
 
                             </div>
 
                             <p class="form-help">
-                                Saving creates a new lesson version. Use headings, text styles, colors, lists, alignment, links, quotes, and inline images without overwriting the previous version.
+                                Saving creates a new lesson version. Use headings, text styles, colors, lists,
+                                alignment, links, quotes, and inline images without overwriting the previous version.
                             </p>
                         </div>
 
@@ -2781,48 +2675,32 @@ $staffHeroUrl =
                                 New Version Status
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="lesson-status"
-                                name="status"
-                            >
-                                <option
-                                    value="draft"
-                                    <?= $form['status'] === 'draft'
+                            <select class="form-control" id="lesson-status" name="status">
+                                <option value="draft" <?= $form['status'] === 'draft'
                                         ? 'selected'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
                                     Draft
                                 </option>
 
-                                <option
-                                    value="review"
-                                    <?= $form['status'] === 'review'
+                                <option value="review" <?= $form['status'] === 'review'
                                         ? 'selected'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
                                     Review
                                 </option>
 
                                 <?php if ($canPublishLessons): ?>
-                                    <option
-                                        value="published"
-                                        <?= $form['status'] === 'published'
+                                <option value="published" <?= $form['status'] === 'published'
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        Published
-                                    </option>
+                                            : ''; ?>>
+                                    Published
+                                </option>
                                 <?php endif; ?>
                             </select>
                         </div>
 
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Create New Version
                             </button>
                         </div>
@@ -2844,25 +2722,17 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(
+                    <form action="<?= e(
                             url(
                                 'admin/lesson-edit.php?offering='
                                 . $offeringId
                                 . '&lesson='
                                 . $lessonId
                             )
-                        ); ?>"
-                        method="post"
-                        class="forum-admin-form"
-                    >
+                        ); ?>" method="post" class="forum-admin-form">
                         <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="update_offering_settings"
-                        >
+                        <input type="hidden" name="action" value="update_offering_settings">
 
 
                         <div class="form-group">
@@ -2870,163 +2740,120 @@ $staffHeroUrl =
                                 Lesson Order
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="number"
-                                id="sort-order"
-                                name="sort_order"
-                                min="0"
-                                step="1"
-                                value="<?= e($form['sort_order']); ?>"
-                                required
-                            >
+                            <input class="form-control" type="number" id="sort-order" name="sort_order" min="0" step="1"
+                                value="<?= e($form['sort_order']); ?>" required>
                         </div>
 
 
                         <?php if ($canManageRelease): ?>
 
-                            <fieldset class="forum-admin-fieldset">
+                        <fieldset class="forum-admin-fieldset">
 
-                                <legend>
-                                    Release Rule
-                                </legend>
+                            <legend>
+                                Release Rule
+                            </legend>
 
-                                <div class="form-group">
-                                    <label for="release-type">
-                                        Release Type
-                                    </label>
+                            <div class="form-group">
+                                <label for="release-type">
+                                    Release Type
+                                </label>
 
-                                    <select
-                                        class="form-control"
-                                        id="release-type"
-                                        name="release_type"
-                                    >
-                                        <option
-                                            value="immediate"
-                                            <?= $form['release_type'] === 'immediate'
+                                <select class="form-control" id="release-type" name="release_type">
+                                    <option value="immediate" <?= $form['release_type'] === 'immediate'
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            Immediate
-                                        </option>
+                                                : ''; ?>>
+                                        Immediate
+                                    </option>
 
-                                        <?php if (
+                                    <?php if (
                                             ($lesson['offering_scope'] ?? '')
                                             !== 'perpetual'
                                         ): ?>
 
-                                            <option
-                                                value="days_after_course_start"
-                                                <?= $form['release_type'] === 'days_after_course_start'
+                                    <option value="days_after_course_start" <?= $form['release_type'] === 'days_after_course_start'
                                                     ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                Days After Course Start
-                                            </option>
+                                                    : ''; ?>>
+                                        Days After Course Start
+                                    </option>
 
-                                            <option
-                                                value="fixed_date"
-                                                <?= $form['release_type'] === 'fixed_date'
+                                    <option value="fixed_date" <?= $form['release_type'] === 'fixed_date'
                                                     ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                Fixed Date
-                                            </option>
+                                                    : ''; ?>>
+                                        Fixed Date
+                                    </option>
 
-                                        <?php endif; ?>
+                                    <?php endif; ?>
 
-                                        <?php if ($otherLessons !== []): ?>
-                                            <option
-                                                value="after_previous_lesson"
-                                                <?= $form['release_type'] === 'after_previous_lesson'
+                                    <?php if ($otherLessons !== []): ?>
+                                    <option value="after_previous_lesson" <?= $form['release_type'] === 'after_previous_lesson'
                                                     ? 'selected'
-                                                    : ''; ?>
-                                            >
-                                                After Previous Lesson
-                                            </option>
-                                        <?php endif; ?>
-                                    </select>
+                                                    : ''; ?>>
+                                        After Previous Lesson
+                                    </option>
+                                    <?php endif; ?>
+                                </select>
 
-                                    <p class="form-help">
-                                        Enrollment-relative release is intentionally
-                                        excluded so late registrants remain on the
-                                        same course timeline as the rest of the cohort.
-                                    </p>
-                                </div>
+                                <p class="form-help">
+                                    Enrollment-relative release is intentionally
+                                    excluded so late registrants remain on the
+                                    same course timeline as the rest of the cohort.
+                                </p>
+                            </div>
 
 
-                                <?php if (
+                            <?php if (
                                     ($lesson['offering_scope'] ?? '')
                                     !== 'perpetual'
                                 ): ?>
 
-                                    <div class="form-group">
-                                        <label for="release-delay-days">
-                                            Days After Course Start
-                                        </label>
+                            <div class="form-group">
+                                <label for="release-delay-days">
+                                    Days After Course Start
+                                </label>
 
-                                        <input
-                                            class="form-control"
-                                            type="number"
-                                            id="release-delay-days"
-                                            name="release_delay_days"
-                                            min="0"
-                                            step="1"
-                                            value="<?= e(
+                                <input class="form-control" type="number" id="release-delay-days"
+                                    name="release_delay_days" min="0" step="1" value="<?= e(
                                                 $form[
                                                     'release_delay_days'
                                                 ]
-                                            ); ?>"
-                                        >
-                                    </div>
+                                            ); ?>">
+                            </div>
 
 
-                                    <div class="form-group">
-                                        <label for="release-at">
-                                            Fixed Release Date
-                                        </label>
+                            <div class="form-group">
+                                <label for="release-at">
+                                    Fixed Release Date
+                                </label>
 
-                                        <input
-                                            class="form-control"
-                                            type="datetime-local"
-                                            id="release-at"
-                                            name="release_at"
-                                            value="<?= e(
+                                <input class="form-control" type="datetime-local" id="release-at" name="release_at"
+                                    value="<?= e(
                                                 $form[
                                                     'release_at'
                                                 ]
-                                            ); ?>"
-                                        >
-                                    </div>
+                                            ); ?>">
+                            </div>
 
-                                <?php endif; ?>
+                            <?php endif; ?>
 
 
-                                <?php if ($otherLessons !== []): ?>
+                            <?php if ($otherLessons !== []): ?>
 
-                                    <div class="form-group">
-                                        <label for="prerequisite-lesson">
-                                            Previous Lesson
-                                        </label>
+                            <div class="form-group">
+                                <label for="prerequisite-lesson">
+                                    Previous Lesson
+                                </label>
 
-                                        <select
-                                            class="form-control"
-                                            id="prerequisite-lesson"
-                                            name="prerequisite_lesson_id"
-                                        >
-                                            <option value="">
-                                                Select a lesson
-                                            </option>
+                                <select class="form-control" id="prerequisite-lesson" name="prerequisite_lesson_id">
+                                    <option value="">
+                                        Select a lesson
+                                    </option>
 
-                                            <?php foreach ($otherLessons as $otherLesson): ?>
-                                                <option
-                                                    value="<?= (int) $otherLesson['lesson_id']; ?>"
-                                                    <?= (string) $otherLesson['lesson_id']
+                                    <?php foreach ($otherLessons as $otherLesson): ?>
+                                    <option value="<?= (int) $otherLesson['lesson_id']; ?>" <?= (string) $otherLesson['lesson_id']
                                                         === $form['prerequisite_lesson_id']
                                                             ? 'selected'
-                                                            : ''; ?>
-                                                >
-                                                    <?= e(
+                                                            : ''; ?>>
+                                        <?= e(
                                                         (string) (
                                                             $otherLesson[
                                                                 'title'
@@ -3034,43 +2861,36 @@ $staffHeroUrl =
                                                             ?? 'Lesson'
                                                         )
                                                     ); ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    </div>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
 
-                                <?php endif; ?>
+                            <?php endif; ?>
 
-                            </fieldset>
+                        </fieldset>
 
                         <?php else: ?>
 
-                            <input
-                                type="hidden"
-                                name="release_type"
-                                value="<?= e(
+                        <input type="hidden" name="release_type" value="<?= e(
                                     (string) (
                                         $lesson[
                                             'release_type'
                                         ]
                                         ?? 'immediate'
                                     )
-                                ); ?>"
-                            >
+                                ); ?>">
 
-                            <p class="form-help">
-                                You can change lesson order, but your role does
-                                not have permission to alter release rules.
-                            </p>
+                        <p class="form-help">
+                            You can change lesson order, but your role does
+                            not have permission to alter release rules.
+                        </p>
 
                         <?php endif; ?>
 
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Save Offering Settings
                             </button>
                         </div>
@@ -3098,16 +2918,16 @@ $staffHeroUrl =
 
                         <?php if ($versions === []): ?>
 
-                            <p>
-                                No version history is available.
-                            </p>
+                        <p>
+                            No version history is available.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach ($versions as $versionRow): ?>
-                                    <?php
+                            <?php foreach ($versions as $versionRow): ?>
+                            <?php
                                     $creatorName =
                                         trim(
                                             (string) (
@@ -3148,11 +2968,11 @@ $staffHeroUrl =
                                         );
                                     ?>
 
-                                    <span>
+                            <span>
 
-                                        <strong>
-                                            Version
-                                            <?= number_format(
+                                <strong>
+                                    Version
+                                    <?= number_format(
                                                 (int) (
                                                     $versionRow[
                                                         'version_number'
@@ -3160,8 +2980,8 @@ $staffHeroUrl =
                                                     ?? 1
                                                 )
                                             ); ?>
-                                            —
-                                            <?= e(
+                                    —
+                                    <?= e(
                                                 (string) (
                                                     $versionRow[
                                                         'title'
@@ -3169,14 +2989,14 @@ $staffHeroUrl =
                                                     ?? 'Lesson'
                                                 )
                                             ); ?>
-                                        </strong>
+                                </strong>
 
-                                        <?php if ($isCurrentVersion): ?>
-                                            · Current for this offering
-                                        <?php endif; ?>
+                                <?php if ($isCurrentVersion): ?>
+                                · Current for this offering
+                                <?php endif; ?>
 
-                                        ·
-                                        <?= e(
+                                ·
+                                <?= e(
                                             ucfirst(
                                                 (string) (
                                                     $versionRow[
@@ -3187,8 +3007,8 @@ $staffHeroUrl =
                                             )
                                         ); ?>
 
-                                        · Created
-                                        <?= e(
+                                · Created
+                                <?= e(
                                             lesson_edit_format_datetime(
                                                 $versionRow[
                                                     'created_at'
@@ -3197,37 +3017,37 @@ $staffHeroUrl =
                                             )
                                         ); ?>
 
-                                        <?php if ($creatorName !== ''): ?>
-                                            by <?= e($creatorName); ?>
-                                        <?php endif; ?>
+                                <?php if ($creatorName !== ''): ?>
+                                by <?= e($creatorName); ?>
+                                <?php endif; ?>
 
-                                        <?php if (
+                                <?php if (
                                             !empty(
                                                 $versionRow[
                                                     'published_at'
                                                 ]
                                             )
                                         ): ?>
-                                            · Published
-                                            <?= e(
+                                · Published
+                                <?= e(
                                                 lesson_edit_format_datetime(
                                                     $versionRow[
                                                         'published_at'
                                                     ]
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                        <?php if ($approverName !== ''): ?>
-                                            · Approved by
-                                            <?= e($approverName); ?>
-                                        <?php endif; ?>
+                                <?php if ($approverName !== ''): ?>
+                                · Approved by
+                                <?= e($approverName); ?>
+                                <?php endif; ?>
 
-                                    </span>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -3244,329 +3064,332 @@ $staffHeroUrl =
 
 
 <style>
-.lesson-edit-current-image {
-    display: grid;
-    gap: 0.75rem;
-    margin-bottom: 1rem;
-}
+    .lesson-edit-current-image {
+        display: grid;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
 
-.lesson-edit-current-image img {
-    display: block;
-    width: min(100%, 520px);
-    max-height: 260px;
-    object-fit: contain;
-    border: 1px solid rgba(203, 168, 95, 0.38);
-    border-radius: 0.45rem;
-    background: rgba(13, 8, 15, 0.74);
-}
+    .lesson-edit-current-image img {
+        display: block;
+        width: min(100%, 520px);
+        max-height: 260px;
+        object-fit: contain;
+        border: 1px solid rgba(203, 168, 95, 0.38);
+        border-radius: 0.45rem;
+        background: rgba(13, 8, 15, 0.74);
+    }
+
 </style>
 
 <script>
-(() => {
-    'use strict';
+    (() => {
+        'use strict';
 
-    const form =
-        document.getElementById(
-            'lesson-version-form'
-        );
+        const form =
+            document.getElementById(
+                'lesson-version-form'
+            );
 
-    const editor =
-        document.getElementById(
-            'lesson-editor'
-        );
+        const editor =
+            document.getElementById(
+                'lesson-editor'
+            );
 
-    const input =
-        document.getElementById(
-            'lesson-content'
-        );
+        const input =
+            document.getElementById(
+                'lesson-content'
+            );
 
-    if (
-        !form
-        || !editor
-        || !input
-    ) {
-        return;
-    }
+        if (
+            !form ||
+            !editor ||
+            !input
+        ) {
+            return;
+        }
 
-    const imageUploadButton =
-        form.querySelector(
-            '[data-editor-image-upload]'
-        );
+        const imageUploadButton =
+            form.querySelector(
+                '[data-editor-image-upload]'
+            );
 
-    const imageInput =
-        form.querySelector(
-            '[data-editor-image-input]'
-        );
+        const imageInput =
+            form.querySelector(
+                '[data-editor-image-input]'
+            );
 
-    const imageUrlButton =
-        form.querySelector(
-            '[data-editor-image-url]'
-        );
+        const imageUrlButton =
+            form.querySelector(
+                '[data-editor-image-url]'
+            );
 
-    const imageSizeSelect =
-        form.querySelector(
-            '[data-editor-image-size]'
-        );
+        const imageSizeSelect =
+            form.querySelector(
+                '[data-editor-image-size]'
+            );
 
-    const imageAlignSelect =
-        form.querySelector(
-            '[data-editor-image-align]'
-        );
+        const imageAlignSelect =
+            form.querySelector(
+                '[data-editor-image-align]'
+            );
 
-    const imagePreviews =
-        form.querySelector(
-            '[data-editor-image-previews]'
-        );
+        const imagePreviews =
+            form.querySelector(
+                '[data-editor-image-previews]'
+            );
 
-    const uploadTokensInput =
-        form.querySelector(
-            '[data-editor-upload-tokens]'
-        );
+        const uploadTokensInput =
+            form.querySelector(
+                '[data-editor-upload-tokens]'
+            );
 
-    const wordCount =
-        form.querySelector(
-            '[data-editor-word-count]'
-        );
+        const wordCount =
+            form.querySelector(
+                '[data-editor-word-count]'
+            );
 
-    const characterCount =
-        form.querySelector(
-            '[data-editor-character-count]'
-        );
+        const characterCount =
+            form.querySelector(
+                '[data-editor-character-count]'
+            );
 
-    const quoteButton =
-        form.querySelector(
-            '[data-editor-quote]'
-        );
+        const quoteButton =
+            form.querySelector(
+                '[data-editor-quote]'
+            );
 
-    const formatSelect =
-        form.querySelector(
-            '[data-editor-format]'
-        );
+        const formatSelect =
+            form.querySelector(
+                '[data-editor-format]'
+            );
 
-    const sizeSelect =
-        form.querySelector(
-            '[data-editor-size]'
-        );
+        const sizeSelect =
+            form.querySelector(
+                '[data-editor-size]'
+            );
 
-    const colorInput =
-        form.querySelector(
-            '[data-editor-color]'
-        );
+        const colorInput =
+            form.querySelector(
+                '[data-editor-color]'
+            );
 
-    const highlightInput =
-        form.querySelector(
-            '[data-editor-highlight]'
-        );
+        const highlightInput =
+            form.querySelector(
+                '[data-editor-highlight]'
+            );
 
-    const applyColorButton =
-        form.querySelector(
-            '[data-editor-apply-color]'
-        );
+        const applyColorButton =
+            form.querySelector(
+                '[data-editor-apply-color]'
+            );
 
-    const applyHighlightButton =
-        form.querySelector(
-            '[data-editor-apply-highlight]'
-        );
+        const applyHighlightButton =
+            form.querySelector(
+                '[data-editor-apply-highlight]'
+            );
 
-    const linkButton =
-        form.querySelector(
-            '[data-editor-link]'
-        );
+        const linkButton =
+            form.querySelector(
+                '[data-editor-link]'
+            );
 
-    let selectedUploads = [];
-    let savedRange = null;
-    let selectedImage = null;
+        let selectedUploads = [];
+        let savedRange = null;
+        let selectedImage = null;
 
-    try {
-        document.execCommand(
-            'styleWithCSS',
-            false,
-            true
-        );
-    } catch (error) {
-        // Formatting still works without styleWithCSS support.
-    }
+        try {
+            document.execCommand(
+                'styleWithCSS',
+                false,
+                true
+            );
+        } catch (error) {
+            // Formatting still works without styleWithCSS support.
+        }
 
-    const escapeHtml = (value) =>
-        String(value)
+        const escapeHtml = (value) =>
+            String(value)
             .replace(/&/g, '&amp;')
             .replace(/</g, '&lt;')
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;')
             .replace(/'/g, '&#039;');
 
-    const saveSelection = () => {
-        const selection =
-            window.getSelection();
+        const saveSelection = () => {
+            const selection =
+                window.getSelection();
 
-        if (
-            !selection
-            || selection.rangeCount < 1
-        ) {
-            return;
-        }
+            if (
+                !selection ||
+                selection.rangeCount < 1
+            ) {
+                return;
+            }
 
-        const range =
-            selection.getRangeAt(0);
+            const range =
+                selection.getRangeAt(0);
 
-        if (
-            editor.contains(
-                range.commonAncestorContainer
-            )
-            || range.commonAncestorContainer
-                === editor
-        ) {
-            savedRange =
-                range.cloneRange();
-        }
-    };
+            if (
+                editor.contains(
+                    range.commonAncestorContainer
+                ) ||
+                range.commonAncestorContainer ===
+                editor
+            ) {
+                savedRange =
+                    range.cloneRange();
+            }
+        };
 
-    const restoreSelection = () => {
-        if (!savedRange) {
-            return;
-        }
+        const restoreSelection = () => {
+            if (!savedRange) {
+                return;
+            }
 
-        /*
-         * Clone the author's selection before returning focus to the
-         * contenteditable. Chrome can collapse the live selection when the
-         * toolbar/color control takes focus. Restoring from this private copy
-         * keeps formatting attached to the highlighted text.
-         */
-        const rangeToRestore =
-            savedRange.cloneRange();
+            /*
+             * Clone the author's selection before returning focus to the
+             * contenteditable. Chrome can collapse the live selection when the
+             * toolbar/color control takes focus. Restoring from this private copy
+             * keeps formatting attached to the highlighted text.
+             */
+            const rangeToRestore =
+                savedRange.cloneRange();
 
-        try {
-            editor.focus({ preventScroll: true });
-        } catch (error) {
-            editor.focus();
-        }
+            try {
+                editor.focus({
+                    preventScroll: true
+                });
+            } catch (error) {
+                editor.focus();
+            }
 
-        const selection =
-            window.getSelection();
+            const selection =
+                window.getSelection();
 
-        if (!selection) {
-            return;
-        }
+            if (!selection) {
+                return;
+            }
 
-        selection.removeAllRanges();
-        selection.addRange(
-            rangeToRestore
-        );
-    };
+            selection.removeAllRanges();
+            selection.addRange(
+                rangeToRestore
+            );
+        };
 
-    const updateCounts = () => {
-        const plain =
-            editor.textContent
+        const updateCounts = () => {
+            const plain =
+                editor.textContent
                 .replace(/\u00a0/g, ' ')
                 .replace(/\s+/g, ' ')
                 .trim();
 
-        const words =
-            plain === ''
-                ? 0
-                : plain
-                    .split(/\s+/u)
-                    .filter(Boolean)
-                    .length;
+            const words =
+                plain === '' ?
+                0 :
+                plain
+                .split(/\s+/u)
+                .filter(Boolean)
+                .length;
 
-        if (wordCount) {
-            wordCount.textContent =
-                `${words} ${words === 1 ? 'word' : 'words'}`;
-        }
+            if (wordCount) {
+                wordCount.textContent =
+                    `${words} ${words === 1 ? 'word' : 'words'}`;
+            }
 
-        if (characterCount) {
-            characterCount.textContent =
-                `${plain.length} ${plain.length === 1 ? 'character' : 'characters'}`;
-        }
-    };
+            if (characterCount) {
+                characterCount.textContent =
+                    `${plain.length} ${plain.length === 1 ? 'character' : 'characters'}`;
+            }
+        };
 
-    const syncInput = () => {
-        const clone =
-            editor.cloneNode(true);
+        const syncInput = () => {
+            const clone =
+                editor.cloneNode(true);
 
-        clone.querySelectorAll(
-            'img[data-upload-token]'
-        ).forEach(
-            (image) => {
-                const token =
-                    image.getAttribute(
+            clone.querySelectorAll(
+                'img[data-upload-token]'
+            ).forEach(
+                (image) => {
+                    const token =
+                        image.getAttribute(
+                            'data-upload-token'
+                        );
+
+                    if (token) {
+                        image.setAttribute(
+                            'src',
+                            '/__blackthorne_pending_lesson_image_' +
+                            token +
+                            '__'
+                        );
+                    }
+
+                    image.removeAttribute(
                         'data-upload-token'
                     );
 
-                if (token) {
-                    image.setAttribute(
-                        'src',
-                        '/__blackthorne_pending_lesson_image_'
-                        + token
-                        + '__'
+                    image.removeAttribute(
+                        'data-editor-selected-image'
                     );
                 }
-
-                image.removeAttribute(
-                    'data-upload-token'
-                );
-
-                image.removeAttribute(
-                    'data-editor-selected-image'
-                );
-            }
-        );
-
-        input.value =
-            clone.innerHTML.trim();
-
-        updateCounts();
-    };
-
-    const applyBlockAlignment = (alignmentCommand) => {
-        const alignmentMap = {
-            justifyLeft: 'left',
-            justifyCenter: 'center',
-            justifyRight: 'right',
-        };
-
-        const alignment =
-            alignmentMap[
-                alignmentCommand
-            ]
-            ?? '';
-
-        if (alignment === '') {
-            return false;
-        }
-
-        if (!savedRange) {
-            return true;
-        }
-
-        /*
-         * Do not run a browser alignment command on the live selection.
-         * Chrome can merge inline formatting when a selection crosses a
-         * heading/paragraph boundary. Instead, identify the selected blocks,
-         * apply alignment to a detached clone, then replace the editor HTML.
-         * This preserves the exact <strong>, <em>, color, link, etc. markup.
-         */
-        const range =
-            savedRange.cloneRange();
-
-        const blockSelector =
-            'p,h1,h2,h3,h4,h5,h6,blockquote,li,div';
-
-        const liveBlocks =
-            Array.from(
-                editor.querySelectorAll(
-                    blockSelector
-                )
             );
 
-        let selectedIndexes =
-            liveBlocks
+            input.value =
+                clone.innerHTML.trim();
+
+            updateCounts();
+        };
+
+        const applyBlockAlignment = (alignmentCommand) => {
+            const alignmentMap = {
+                justifyLeft: 'left',
+                justifyCenter: 'center',
+                justifyRight: 'right',
+            };
+
+            const alignment =
+                alignmentMap[
+                    alignmentCommand
+                ] ??
+                '';
+
+            if (alignment === '') {
+                return false;
+            }
+
+            if (!savedRange) {
+                return true;
+            }
+
+            /*
+             * Do not run a browser alignment command on the live selection.
+             * Chrome can merge inline formatting when a selection crosses a
+             * heading/paragraph boundary. Instead, identify the selected blocks,
+             * apply alignment to a detached clone, then replace the editor HTML.
+             * This preserves the exact <strong>, <em>, color, link, etc. markup.
+             */
+            const range =
+                savedRange.cloneRange();
+
+            const blockSelector =
+                'p,h1,h2,h3,h4,h5,h6,blockquote,li,div';
+
+            const liveBlocks =
+                Array.from(
+                    editor.querySelectorAll(
+                        blockSelector
+                    )
+                );
+
+            let selectedIndexes =
+                liveBlocks
                 .map(
                     (block, index) => {
                         try {
-                            return range.intersectsNode(block)
-                                ? index
-                                : -1;
+                            return range.intersectsNode(block) ?
+                                index :
+                                -1;
                         } catch (error) {
                             return -1;
                         }
@@ -3576,848 +3399,847 @@ $staffHeroUrl =
                     (index) => index >= 0
                 );
 
-        /*
-         * If both an outer DIV and its inner P/H2 are selected, only style
-         * the innermost blocks. This avoids wrapping/inheritance surprises.
-         */
-        selectedIndexes =
-            selectedIndexes.filter(
-                (index) => {
-                    const block =
-                        liveBlocks[index];
+            /*
+             * If both an outer DIV and its inner P/H2 are selected, only style
+             * the innermost blocks. This avoids wrapping/inheritance surprises.
+             */
+            selectedIndexes =
+                selectedIndexes.filter(
+                    (index) => {
+                        const block =
+                            liveBlocks[index];
 
-                    return !selectedIndexes.some(
-                        (otherIndex) =>
-                            otherIndex !== index
-                            && block.contains(
+                        return !selectedIndexes.some(
+                            (otherIndex) =>
+                            otherIndex !== index &&
+                            block.contains(
                                 liveBlocks[
                                     otherIndex
                                 ]
                             )
-                    );
-                }
-            );
-
-        if (selectedIndexes.length === 0) {
-            let node =
-                range.commonAncestorContainer;
-
-            if (node.nodeType === Node.TEXT_NODE) {
-                node =
-                    node.parentElement;
-            }
-
-            const nearestBlock =
-                node instanceof Element
-                    ? node.closest(
-                        blockSelector
-                    )
-                    : null;
-
-            if (
-                nearestBlock
-                && editor.contains(
-                    nearestBlock
-                )
-            ) {
-                const index =
-                    liveBlocks.indexOf(
-                        nearestBlock
-                    );
-
-                if (index >= 0) {
-                    selectedIndexes = [
-                        index,
-                    ];
-                }
-            }
-        }
-
-        if (selectedIndexes.length === 0) {
-            return true;
-        }
-
-        const editorClone =
-            editor.cloneNode(true);
-
-        const clonedBlocks =
-            Array.from(
-                editorClone.querySelectorAll(
-                    blockSelector
-                )
-            );
-
-        selectedIndexes.forEach(
-            (index) => {
-                const clonedBlock =
-                    clonedBlocks[index];
-
-                if (clonedBlock) {
-                    clonedBlock.style.textAlign =
-                        alignment;
-                }
-            }
-        );
-
-        editor.innerHTML =
-            editorClone.innerHTML;
-
-        /*
-         * The old Range points at nodes that were just replaced, so discard
-         * it. The next mouse/keyboard selection will establish a fresh one.
-         */
-        savedRange = null;
-
-        syncInput();
-        return true;
-    };
-
-    const runCommand = (
-        command,
-        value = null
-    ) => {
-        if (applyBlockAlignment(command)) {
-            return;
-        }
-
-        restoreSelection();
-
-        document.execCommand(
-            command,
-            false,
-            value
-        );
-
-        syncInput();
-        saveSelection();
-    };
-
-    form
-        .querySelectorAll(
-            '[data-command]'
-        )
-        .forEach(
-            (button) => {
-                button.addEventListener(
-                    'mousedown',
-                    (event) => {
-                        event.preventDefault();
-                    }
-                );
-
-                button.addEventListener(
-                    'click',
-                    () => {
-                        runCommand(
-                            button.dataset.command
                         );
                     }
                 );
-            }
-        );
 
-    if (formatSelect) {
-        formatSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    formatSelect.value !== ''
-                ) {
-                    runCommand(
-                        'formatBlock',
-                        formatSelect.value
-                    );
+            if (selectedIndexes.length === 0) {
+                let node =
+                    range.commonAncestorContainer;
 
-                    formatSelect.value = '';
-                }
-            }
-        );
-    }
-
-    if (sizeSelect) {
-        sizeSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    sizeSelect.value === ''
-                ) {
-                    return;
+                if (node.nodeType === Node.TEXT_NODE) {
+                    node =
+                        node.parentElement;
                 }
 
-                restoreSelection();
+                const nearestBlock =
+                    node instanceof Element ?
+                    node.closest(
+                        blockSelector
+                    ) :
+                    null;
 
-                document.execCommand(
-                    'fontSize',
-                    false,
-                    '7'
+                if (
+                    nearestBlock &&
+                    editor.contains(
+                        nearestBlock
+                    )
+                ) {
+                    const index =
+                        liveBlocks.indexOf(
+                            nearestBlock
+                        );
+
+                    if (index >= 0) {
+                        selectedIndexes = [
+                            index,
+                        ];
+                    }
+                }
+            }
+
+            if (selectedIndexes.length === 0) {
+                return true;
+            }
+
+            const editorClone =
+                editor.cloneNode(true);
+
+            const clonedBlocks =
+                Array.from(
+                    editorClone.querySelectorAll(
+                        blockSelector
+                    )
                 );
 
-                editor
-                    .querySelectorAll(
-                        'font[size="7"]'
-                    )
-                    .forEach(
-                        (node) => {
-                            const span =
-                                document.createElement(
-                                    'span'
-                                );
+            selectedIndexes.forEach(
+                (index) => {
+                    const clonedBlock =
+                        clonedBlocks[index];
 
-                            span.style.fontSize =
-                                sizeSelect.value;
+                    if (clonedBlock) {
+                        clonedBlock.style.textAlign =
+                            alignment;
+                    }
+                }
+            );
 
-                            while (
-                                node.firstChild
-                            ) {
-                                span.appendChild(
-                                    node.firstChild
-                                );
-                            }
+            editor.innerHTML =
+                editorClone.innerHTML;
 
-                            node.replaceWith(
-                                span
-                            );
+            /*
+             * The old Range points at nodes that were just replaced, so discard
+             * it. The next mouse/keyboard selection will establish a fresh one.
+             */
+            savedRange = null;
+
+            syncInput();
+            return true;
+        };
+
+        const runCommand = (
+            command,
+            value = null
+        ) => {
+            if (applyBlockAlignment(command)) {
+                return;
+            }
+
+            restoreSelection();
+
+            document.execCommand(
+                command,
+                false,
+                value
+            );
+
+            syncInput();
+            saveSelection();
+        };
+
+        form
+            .querySelectorAll(
+                '[data-command]'
+            )
+            .forEach(
+                (button) => {
+                    button.addEventListener(
+                        'mousedown',
+                        (event) => {
+                            event.preventDefault();
                         }
                     );
 
-                sizeSelect.value = '';
-                syncInput();
-            }
-        );
-    }
-
-    const applyTextColor = () => {
-        if (!savedRange || savedRange.collapsed) {
-            return;
-        }
-
-        runCommand(
-            'foreColor',
-            colorInput.value
-        );
-    };
-
-    if (colorInput) {
-        colorInput.addEventListener(
-            'pointerdown',
-            saveSelection
-        );
-
-        colorInput.addEventListener(
-            'click',
-            applyTextColor
-        );
-
-        colorInput.addEventListener(
-            'input',
-            applyTextColor
-        );
-
-        colorInput.addEventListener(
-            'change',
-            applyTextColor
-        );
-    }
-
-    const applyHighlightColor = () => {
-        if (!savedRange || savedRange.collapsed) {
-            return;
-        }
-
-        restoreSelection();
-
-        document.execCommand(
-            document.queryCommandSupported(
-                'hiliteColor'
-            )
-                ? 'hiliteColor'
-                : 'backColor',
-            false,
-            highlightInput.value
-        );
-
-        syncInput();
-        saveSelection();
-    };
-
-    if (highlightInput) {
-        highlightInput.addEventListener(
-            'pointerdown',
-            saveSelection
-        );
-
-        highlightInput.addEventListener(
-            'click',
-            applyHighlightColor
-        );
-
-        highlightInput.addEventListener(
-            'input',
-            applyHighlightColor
-        );
-
-        highlightInput.addEventListener(
-            'change',
-            applyHighlightColor
-        );
-    }
-
-    if (applyColorButton) {
-        applyColorButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        applyColorButton.addEventListener(
-            'click',
-            applyTextColor
-        );
-    }
-
-    if (applyHighlightButton) {
-        applyHighlightButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        applyHighlightButton.addEventListener(
-            'click',
-            applyHighlightColor
-        );
-    }
-
-    if (quoteButton) {
-        quoteButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        quoteButton.addEventListener(
-            'click',
-            () => {
-                runCommand(
-                    'formatBlock',
-                    'blockquote'
-                );
-            }
-        );
-    }
-
-    if (linkButton) {
-        linkButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        linkButton.addEventListener(
-            'click',
-            () => {
-                saveSelection();
-
-                const value =
-                    window.prompt(
-                        'Enter an HTTPS/HTTP URL, mailto link, #anchor, or site-relative path.'
-                    );
-
-                if (
-                    value === null
-                    || value.trim() === ''
-                ) {
-                    return;
-                }
-
-                runCommand(
-                    'createLink',
-                    value.trim()
-                );
-            }
-        );
-    }
-
-    const insertHtml = (html) => {
-        restoreSelection();
-
-        document.execCommand(
-            'insertHTML',
-            false,
-            html
-        );
-
-        syncInput();
-        saveSelection();
-    };
-
-    editor.addEventListener(
-        'click',
-        (event) => {
-            const target =
-                event.target;
-
-            editor.querySelectorAll(
-                'img[data-editor-selected-image="1"]'
-            ).forEach(
-                (image) => {
-                    image.removeAttribute(
-                        'data-editor-selected-image'
+                    button.addEventListener(
+                        'click',
+                        () => {
+                            runCommand(
+                                button.dataset.command
+                            );
+                        }
                     );
                 }
             );
 
-            if (
-                target instanceof HTMLImageElement
-                && editor.contains(target)
-            ) {
-                selectedImage =
-                    target;
-
-                selectedImage.setAttribute(
-                    'data-editor-selected-image',
-                    '1'
-                );
-
-                if (imageSizeSelect) {
-                    const currentWidth =
-                        selectedImage.style.width
-                        || '100%';
-
-                    const hasOption =
-                        Array.from(
-                            imageSizeSelect.options
-                        ).some(
-                            (option) =>
-                                option.value === currentWidth
+        if (formatSelect) {
+            formatSelect.addEventListener(
+                'change',
+                () => {
+                    if (
+                        formatSelect.value !== ''
+                    ) {
+                        runCommand(
+                            'formatBlock',
+                            formatSelect.value
                         );
 
-                    imageSizeSelect.value =
-                        hasOption
-                            ? currentWidth
-                            : '';
+                        formatSelect.value = '';
+                    }
+                }
+            );
+        }
+
+        if (sizeSelect) {
+            sizeSelect.addEventListener(
+                'change',
+                () => {
+                    if (
+                        sizeSelect.value === ''
+                    ) {
+                        return;
+                    }
+
+                    restoreSelection();
+
+                    document.execCommand(
+                        'fontSize',
+                        false,
+                        '7'
+                    );
+
+                    editor
+                        .querySelectorAll(
+                            'font[size="7"]'
+                        )
+                        .forEach(
+                            (node) => {
+                                const span =
+                                    document.createElement(
+                                        'span'
+                                    );
+
+                                span.style.fontSize =
+                                    sizeSelect.value;
+
+                                while (
+                                    node.firstChild
+                                ) {
+                                    span.appendChild(
+                                        node.firstChild
+                                    );
+                                }
+
+                                node.replaceWith(
+                                    span
+                                );
+                            }
+                        );
+
+                    sizeSelect.value = '';
+                    syncInput();
+                }
+            );
+        }
+
+        const applyTextColor = () => {
+            if (!savedRange || savedRange.collapsed) {
+                return;
+            }
+
+            runCommand(
+                'foreColor',
+                colorInput.value
+            );
+        };
+
+        if (colorInput) {
+            colorInput.addEventListener(
+                'pointerdown',
+                saveSelection
+            );
+
+            colorInput.addEventListener(
+                'click',
+                applyTextColor
+            );
+
+            colorInput.addEventListener(
+                'input',
+                applyTextColor
+            );
+
+            colorInput.addEventListener(
+                'change',
+                applyTextColor
+            );
+        }
+
+        const applyHighlightColor = () => {
+            if (!savedRange || savedRange.collapsed) {
+                return;
+            }
+
+            restoreSelection();
+
+            document.execCommand(
+                document.queryCommandSupported(
+                    'hiliteColor'
+                ) ?
+                'hiliteColor' :
+                'backColor',
+                false,
+                highlightInput.value
+            );
+
+            syncInput();
+            saveSelection();
+        };
+
+        if (highlightInput) {
+            highlightInput.addEventListener(
+                'pointerdown',
+                saveSelection
+            );
+
+            highlightInput.addEventListener(
+                'click',
+                applyHighlightColor
+            );
+
+            highlightInput.addEventListener(
+                'input',
+                applyHighlightColor
+            );
+
+            highlightInput.addEventListener(
+                'change',
+                applyHighlightColor
+            );
+        }
+
+        if (applyColorButton) {
+            applyColorButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
+                }
+            );
+
+            applyColorButton.addEventListener(
+                'click',
+                applyTextColor
+            );
+        }
+
+        if (applyHighlightButton) {
+            applyHighlightButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
+                }
+            );
+
+            applyHighlightButton.addEventListener(
+                'click',
+                applyHighlightColor
+            );
+        }
+
+        if (quoteButton) {
+            quoteButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
+                }
+            );
+
+            quoteButton.addEventListener(
+                'click',
+                () => {
+                    runCommand(
+                        'formatBlock',
+                        'blockquote'
+                    );
+                }
+            );
+        }
+
+        if (linkButton) {
+            linkButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
+                }
+            );
+
+            linkButton.addEventListener(
+                'click',
+                () => {
+                    saveSelection();
+
+                    const value =
+                        window.prompt(
+                            'Enter an HTTPS/HTTP URL, mailto link, #anchor, or site-relative path.'
+                        );
+
+                    if (
+                        value === null ||
+                        value.trim() === ''
+                    ) {
+                        return;
+                    }
+
+                    runCommand(
+                        'createLink',
+                        value.trim()
+                    );
+                }
+            );
+        }
+
+        const insertHtml = (html) => {
+            restoreSelection();
+
+            document.execCommand(
+                'insertHTML',
+                false,
+                html
+            );
+
+            syncInput();
+            saveSelection();
+        };
+
+        editor.addEventListener(
+            'click',
+            (event) => {
+                const target =
+                    event.target;
+
+                editor.querySelectorAll(
+                    'img[data-editor-selected-image="1"]'
+                ).forEach(
+                    (image) => {
+                        image.removeAttribute(
+                            'data-editor-selected-image'
+                        );
+                    }
+                );
+
+                if (
+                    target instanceof HTMLImageElement &&
+                    editor.contains(target)
+                ) {
+                    selectedImage =
+                        target;
+
+                    selectedImage.setAttribute(
+                        'data-editor-selected-image',
+                        '1'
+                    );
+
+                    if (imageSizeSelect) {
+                        const currentWidth =
+                            selectedImage.style.width ||
+                            '100%';
+
+                        const hasOption =
+                            Array.from(
+                                imageSizeSelect.options
+                            ).some(
+                                (option) =>
+                                option.value === currentWidth
+                            );
+
+                        imageSizeSelect.value =
+                            hasOption ?
+                            currentWidth :
+                            '';
+                    }
+
+                    if (imageAlignSelect) {
+                        const marginLeft =
+                            selectedImage.style.marginLeft;
+
+                        const marginRight =
+                            selectedImage.style.marginRight;
+
+                        if (
+                            marginLeft === '0px' &&
+                            marginRight === 'auto'
+                        ) {
+                            imageAlignSelect.value = 'left';
+                        } else if (
+                            marginLeft === 'auto' &&
+                            marginRight === '0px'
+                        ) {
+                            imageAlignSelect.value = 'right';
+                        } else {
+                            imageAlignSelect.value = 'center';
+                        }
+                    }
+
+                    return;
+                }
+
+                selectedImage = null;
+
+                if (imageSizeSelect) {
+                    imageSizeSelect.value = '';
                 }
 
                 if (imageAlignSelect) {
-                    const marginLeft =
-                        selectedImage.style.marginLeft;
+                    imageAlignSelect.value = '';
+                }
+            }
+        );
 
-                    const marginRight =
-                        selectedImage.style.marginRight;
+        if (imageSizeSelect) {
+            imageSizeSelect.addEventListener(
+                'change',
+                () => {
+                    if (
+                        !selectedImage ||
+                        !editor.contains(selectedImage)
+                    ) {
+                        window.alert(
+                            'Click an image in the lesson first, then choose its size.'
+                        );
+
+                        imageSizeSelect.value = '';
+                        return;
+                    }
+
+                    const size =
+                        imageSizeSelect.value;
+
+                    if (size === '') {
+                        return;
+                    }
+
+                    selectedImage.style.width =
+                        size;
+
+                    selectedImage.style.maxWidth =
+                        '100%';
+
+                    syncInput();
+                }
+            );
+        }
+
+        if (imageAlignSelect) {
+            imageAlignSelect.addEventListener(
+                'change',
+                () => {
+                    if (
+                        !selectedImage ||
+                        !editor.contains(selectedImage)
+                    ) {
+                        window.alert(
+                            'Click an image in the lesson first, then choose its alignment.'
+                        );
+
+                        imageAlignSelect.value = '';
+                        return;
+                    }
+
+                    const alignment =
+                        imageAlignSelect.value;
+
+                    if (alignment === '') {
+                        return;
+                    }
+
+                    if (alignment === 'left') {
+                        selectedImage.style.marginLeft =
+                            '0';
+
+                        selectedImage.style.marginRight =
+                            'auto';
+                    } else if (alignment === 'right') {
+                        selectedImage.style.marginLeft =
+                            'auto';
+
+                        selectedImage.style.marginRight =
+                            '0';
+                    } else {
+                        selectedImage.style.marginLeft =
+                            'auto';
+
+                        selectedImage.style.marginRight =
+                            'auto';
+                    }
+
+                    syncInput();
+                }
+            );
+        }
+
+        if (imageUrlButton) {
+            imageUrlButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
+                }
+            );
+
+            imageUrlButton.addEventListener(
+                'click',
+                () => {
+                    saveSelection();
+
+                    const src =
+                        window.prompt(
+                            'Enter an HTTPS image URL.'
+                        );
 
                     if (
-                        marginLeft === '0px'
-                        && marginRight === 'auto'
+                        src === null ||
+                        !/^https:\/\//i.test(
+                            src.trim()
+                        )
                     ) {
-                        imageAlignSelect.value = 'left';
-                    } else if (
-                        marginLeft === 'auto'
-                        && marginRight === '0px'
-                    ) {
-                        imageAlignSelect.value = 'right';
-                    } else {
-                        imageAlignSelect.value = 'center';
+                        return;
                     }
+
+                    const alt =
+                        window.prompt(
+                            'Enter image alt text.',
+                            ''
+                        ) ??
+                        '';
+
+                    insertHtml(
+                        '<img src="' +
+                        escapeHtml(
+                            src.trim()
+                        ) +
+                        '" alt="' +
+                        escapeHtml(
+                            alt
+                        ) +
+                        '" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">'
+                    );
                 }
+            );
+        }
+
+        const makeToken = () => {
+            if (
+                window.crypto &&
+                window.crypto.getRandomValues
+            ) {
+                const values =
+                    new Uint32Array(4);
+
+                window.crypto.getRandomValues(
+                    values
+                );
+
+                return Array.from(
+                    values,
+                    (value) =>
+                    value.toString(36)
+                ).join('');
+            }
+
+            return (
+                Date.now().toString(36) +
+                Math.random()
+                .toString(36)
+                .slice(2)
+            );
+        };
+
+        const syncUploadFiles = () => {
+            if (
+                !imageInput ||
+                !uploadTokensInput
+            ) {
+                return;
+            }
+
+            const transfer =
+                new DataTransfer();
+
+            selectedUploads.forEach(
+                (item) => {
+                    transfer.items.add(
+                        item.file
+                    );
+                }
+            );
+
+            imageInput.files =
+                transfer.files;
+
+            uploadTokensInput.value =
+                JSON.stringify(
+                    selectedUploads.map(
+                        (item) =>
+                        item.token
+                    )
+                );
+        };
+
+        const renderUploadPreviews = () => {
+            if (!imagePreviews) {
+                return;
+            }
+
+            imagePreviews.innerHTML = '';
+
+            if (
+                selectedUploads.length === 0
+            ) {
+                imagePreviews.hidden =
+                    true;
 
                 return;
             }
 
-            selectedImage = null;
-
-            if (imageSizeSelect) {
-                imageSizeSelect.value = '';
-            }
-
-            if (imageAlignSelect) {
-                imageAlignSelect.value = '';
-            }
-        }
-    );
-
-    if (imageSizeSelect) {
-        imageSizeSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    !selectedImage
-                    || !editor.contains(selectedImage)
-                ) {
-                    window.alert(
-                        'Click an image in the lesson first, then choose its size.'
-                    );
-
-                    imageSizeSelect.value = '';
-                    return;
-                }
-
-                const size =
-                    imageSizeSelect.value;
-
-                if (size === '') {
-                    return;
-                }
-
-                selectedImage.style.width =
-                    size;
-
-                selectedImage.style.maxWidth =
-                    '100%';
-
-                syncInput();
-            }
-        );
-    }
-
-    if (imageAlignSelect) {
-        imageAlignSelect.addEventListener(
-            'change',
-            () => {
-                if (
-                    !selectedImage
-                    || !editor.contains(selectedImage)
-                ) {
-                    window.alert(
-                        'Click an image in the lesson first, then choose its alignment.'
-                    );
-
-                    imageAlignSelect.value = '';
-                    return;
-                }
-
-                const alignment =
-                    imageAlignSelect.value;
-
-                if (alignment === '') {
-                    return;
-                }
-
-                if (alignment === 'left') {
-                    selectedImage.style.marginLeft =
-                        '0';
-
-                    selectedImage.style.marginRight =
-                        'auto';
-                } else if (alignment === 'right') {
-                    selectedImage.style.marginLeft =
-                        'auto';
-
-                    selectedImage.style.marginRight =
-                        '0';
-                } else {
-                    selectedImage.style.marginLeft =
-                        'auto';
-
-                    selectedImage.style.marginRight =
-                        'auto';
-                }
-
-                syncInput();
-            }
-        );
-    }
-
-    if (imageUrlButton) {
-        imageUrlButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        imageUrlButton.addEventListener(
-            'click',
-            () => {
-                saveSelection();
-
-                const src =
-                    window.prompt(
-                        'Enter an HTTPS image URL.'
-                    );
-
-                if (
-                    src === null
-                    || !/^https:\/\//i.test(
-                        src.trim()
-                    )
-                ) {
-                    return;
-                }
-
-                const alt =
-                    window.prompt(
-                        'Enter image alt text.',
-                        ''
-                    )
-                    ?? '';
-
-                insertHtml(
-                    '<img src="'
-                    + escapeHtml(
-                        src.trim()
-                    )
-                    + '" alt="'
-                    + escapeHtml(
-                        alt
-                    )
-                    + '" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">'
-                );
-            }
-        );
-    }
-
-    const makeToken = () => {
-        if (
-            window.crypto
-            && window.crypto.getRandomValues
-        ) {
-            const values =
-                new Uint32Array(4);
-
-            window.crypto.getRandomValues(
-                values
-            );
-
-            return Array.from(
-                values,
-                (value) =>
-                    value.toString(36)
-            ).join('');
-        }
-
-        return (
-            Date.now().toString(36)
-            + Math.random()
-                .toString(36)
-                .slice(2)
-        );
-    };
-
-    const syncUploadFiles = () => {
-        if (
-            !imageInput
-            || !uploadTokensInput
-        ) {
-            return;
-        }
-
-        const transfer =
-            new DataTransfer();
-
-        selectedUploads.forEach(
-            (item) => {
-                transfer.items.add(
-                    item.file
-                );
-            }
-        );
-
-        imageInput.files =
-            transfer.files;
-
-        uploadTokensInput.value =
-            JSON.stringify(
-                selectedUploads.map(
-                    (item) =>
-                        item.token
-                )
-            );
-    };
-
-    const renderUploadPreviews = () => {
-        if (!imagePreviews) {
-            return;
-        }
-
-        imagePreviews.innerHTML = '';
-
-        if (
-            selectedUploads.length === 0
-        ) {
             imagePreviews.hidden =
-                true;
+                false;
 
-            return;
-        }
+            selectedUploads.forEach(
+                (item) => {
+                    const row =
+                        document.createElement(
+                            'div'
+                        );
 
-        imagePreviews.hidden =
-            false;
+                    row.className =
+                        'forum-editor-image-preview';
 
-        selectedUploads.forEach(
-            (item) => {
-                const row =
-                    document.createElement(
-                        'div'
-                    );
+                    const label =
+                        document.createElement(
+                            'span'
+                        );
 
-                row.className =
-                    'forum-editor-image-preview';
+                    label.textContent =
+                        item.file.name;
 
-                const label =
-                    document.createElement(
-                        'span'
-                    );
+                    const remove =
+                        document.createElement(
+                            'button'
+                        );
 
-                label.textContent =
-                    item.file.name;
+                    remove.type =
+                        'button';
 
-                const remove =
-                    document.createElement(
-                        'button'
-                    );
+                    remove.className =
+                        'button-link';
 
-                remove.type =
-                    'button';
+                    remove.textContent =
+                        'Remove';
 
-                remove.className =
-                    'button-link';
+                    remove.addEventListener(
+                        'click',
+                        () => {
+                            const removedUpload =
+                                selectedUploads.find(
+                                    (candidate) =>
+                                    candidate.token ===
+                                    item.token
+                                );
 
-                remove.textContent =
-                    'Remove';
-
-                remove.addEventListener(
-                    'click',
-                    () => {
-                        const removedUpload =
-                            selectedUploads.find(
-                                (candidate) =>
-                                    candidate.token
-                                    === item.token
-                            );
-
-                        if (
-                            removedUpload
-                            && removedUpload.previewUrl
-                        ) {
-                            URL.revokeObjectURL(
+                            if (
+                                removedUpload &&
                                 removedUpload.previewUrl
-                            );
-                        }
+                            ) {
+                                URL.revokeObjectURL(
+                                    removedUpload.previewUrl
+                                );
+                            }
 
-                        selectedUploads =
-                            selectedUploads.filter(
-                                (candidate) =>
-                                    candidate.token
-                                    !== item.token
-                            );
+                            selectedUploads =
+                                selectedUploads.filter(
+                                    (candidate) =>
+                                    candidate.token !==
+                                    item.token
+                                );
 
-                        editor
-                            .querySelectorAll(
-                                'img[data-upload-token]'
-                            )
-                            .forEach(
-                                (img) => {
-                                    if (
-                                        img.getAttribute(
-                                            'data-upload-token'
-                                        ) === item.token
-                                    ) {
-                                        img.remove();
+                            editor
+                                .querySelectorAll(
+                                    'img[data-upload-token]'
+                                )
+                                .forEach(
+                                    (img) => {
+                                        if (
+                                            img.getAttribute(
+                                                'data-upload-token'
+                                            ) === item.token
+                                        ) {
+                                            img.remove();
+                                        }
                                     }
-                                }
-                            );
+                                );
 
-                        if (
-                            selectedImage
-                            && !editor.contains(
-                                selectedImage
-                            )
-                        ) {
-                            selectedImage = null;
+                            if (
+                                selectedImage &&
+                                !editor.contains(
+                                    selectedImage
+                                )
+                            ) {
+                                selectedImage = null;
+                            }
+
+                            syncUploadFiles();
+                            renderUploadPreviews();
+                            syncInput();
                         }
-
-                        syncUploadFiles();
-                        renderUploadPreviews();
-                        syncInput();
-                    }
-                );
-
-                row.append(
-                    label,
-                    remove
-                );
-
-                imagePreviews.appendChild(
-                    row
-                );
-            }
-        );
-    };
-
-    if (
-        imageUploadButton
-        && imageInput
-    ) {
-        imageUploadButton.addEventListener(
-            'mousedown',
-            (event) => {
-                event.preventDefault();
-            }
-        );
-
-        imageUploadButton.addEventListener(
-            'click',
-            () => {
-                saveSelection();
-                imageInput.click();
-            }
-        );
-
-        imageInput.addEventListener(
-            'change',
-            () => {
-                const incoming =
-                    Array.from(
-                        imageInput.files
-                        ?? []
                     );
 
-                if (
-                    incoming.length
-                    + selectedUploads.length
-                    > 10
-                ) {
-                    window.alert(
-                        'You can upload up to 10 inline lesson images at a time.'
+                    row.append(
+                        label,
+                        remove
                     );
 
-                    imageInput.value = '';
-                    return;
+                    imagePreviews.appendChild(
+                        row
+                    );
                 }
+            );
+        };
 
-                incoming.forEach(
-                    (file) => {
-                        if (
-                            file.size
-                            > 10 * 1024 * 1024
-                        ) {
-                            window.alert(
-                                `${file.name} is larger than 10 MB.`
-                            );
+        if (
+            imageUploadButton &&
+            imageInput
+        ) {
+            imageUploadButton.addEventListener(
+                'mousedown',
+                (event) => {
+                    event.preventDefault();
+                }
+            );
 
-                            return;
-                        }
+            imageUploadButton.addEventListener(
+                'click',
+                () => {
+                    saveSelection();
+                    imageInput.click();
+                }
+            );
 
-                        const token =
-                            makeToken();
+            imageInput.addEventListener(
+                'change',
+                () => {
+                    const incoming =
+                        Array.from(
+                            imageInput.files ?? []
+                        );
 
-                        const previewUrl =
-                            URL.createObjectURL(
-                                file
-                            );
+                    if (
+                        incoming.length +
+                        selectedUploads.length >
+                        10
+                    ) {
+                        window.alert(
+                            'You can upload up to 10 inline lesson images at a time.'
+                        );
 
-                        selectedUploads.push({
-                            file,
-                            token,
-                            previewUrl,
-                        });
+                        imageInput.value = '';
+                        return;
+                    }
 
-                        const alt =
-                            file.name
+                    incoming.forEach(
+                        (file) => {
+                            if (
+                                file.size >
+                                10 * 1024 * 1024
+                            ) {
+                                window.alert(
+                                    `${file.name} is larger than 10 MB.`
+                                );
+
+                                return;
+                            }
+
+                            const token =
+                                makeToken();
+
+                            const previewUrl =
+                                URL.createObjectURL(
+                                    file
+                                );
+
+                            selectedUploads.push({
+                                file,
+                                token,
+                                previewUrl,
+                            });
+
+                            const alt =
+                                file.name
                                 .replace(
                                     /\.[^.]+$/,
                                     ''
@@ -4428,94 +4250,96 @@ $staffHeroUrl =
                                 )
                                 .trim();
 
-                        insertHtml(
-                            '<img src="'
-                            + escapeHtml(
-                                previewUrl
-                            )
-                            + '" alt="'
-                            + escapeHtml(
-                                alt
-                            )
-                            + '" data-upload-token="'
-                            + escapeHtml(
-                                token
-                            )
-                            + '" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">'
-                        );
+                            insertHtml(
+                                '<img src="' +
+                                escapeHtml(
+                                    previewUrl
+                                ) +
+                                '" alt="' +
+                                escapeHtml(
+                                    alt
+                                ) +
+                                '" data-upload-token="' +
+                                escapeHtml(
+                                    token
+                                ) +
+                                '" loading="lazy" style="display:block;margin-left:auto;margin-right:auto;max-width:100%;height:auto;">'
+                            );
+                        }
+                    );
+
+                    syncUploadFiles();
+                    renderUploadPreviews();
+                }
+            );
+        }
+
+        [
+            'keyup',
+            'mouseup',
+            'input',
+        ].forEach(
+            (eventName) => {
+                editor.addEventListener(
+                    eventName,
+                    () => {
+                        saveSelection();
+                        syncInput();
                     }
                 );
-
-                syncUploadFiles();
-                renderUploadPreviews();
             }
         );
-    }
 
-    [
-        'keyup',
-        'mouseup',
-        'input',
-    ].forEach(
-        (eventName) => {
-            editor.addEventListener(
-                eventName,
-                () => {
-                    saveSelection();
-                    syncInput();
-                }
-            );
-        }
-    );
+        editor.addEventListener(
+            'paste',
+            () => {
+                window.setTimeout(
+                    syncInput,
+                    0
+                );
+            }
+        );
 
-    editor.addEventListener(
-        'paste',
-        () => {
-            window.setTimeout(
-                syncInput,
-                0
-            );
-        }
-    );
+        form.addEventListener(
+            'submit',
+            () => {
+                syncInput();
+                syncUploadFiles();
+            }
+        );
 
-    form.addEventListener(
-        'submit',
-        () => {
-            syncInput();
-            syncUploadFiles();
-        }
-    );
-
-    window.addEventListener(
-        'beforeunload',
-        () => {
-            selectedUploads.forEach(
-                (upload) => {
-                    if (upload.previewUrl) {
-                        URL.revokeObjectURL(
-                            upload.previewUrl
-                        );
+        window.addEventListener(
+            'beforeunload',
+            () => {
+                selectedUploads.forEach(
+                    (upload) => {
+                        if (upload.previewUrl) {
+                            URL.revokeObjectURL(
+                                upload.previewUrl
+                            );
+                        }
                     }
-                }
-            );
-        }
-    );
+                );
+            }
+        );
 
-    syncInput();
-})();
+        syncInput();
+    })();
+
 </script>
 
 
 <style>
-.forum-rich-editor-surface img[data-editor-selected-image="1"] {
-    outline: 2px solid var(--gold, #c7a45b);
-    outline-offset: 3px;
-}
+    .forum-rich-editor-surface img[data-editor-selected-image="1"] {
+        outline: 2px solid var(--gold, #c7a45b);
+        outline-offset: 3px;
+    }
+
 </style>
 
 
 <style>
-/*
+    /*
 |--------------------------------------------------------------------------
 | Rich Editor Working Area
 |--------------------------------------------------------------------------
@@ -4526,42 +4350,43 @@ $staffHeroUrl =
 |
 */
 
-.forum-rich-editor {
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-}
-
-.forum-rich-editor-toolbar {
-    position: relative;
-    z-index: 3;
-    flex: 0 0 auto;
-}
-
-.forum-rich-editor-surface {
-    box-sizing: border-box;
-    width: 100%;
-    height: 420px;
-    min-height: 260px;
-    max-height: 78vh;
-    overflow-x: auto;
-    overflow-y: auto;
-    resize: vertical;
-    overscroll-behavior: contain;
-    scrollbar-gutter: stable;
-}
-
-.forum-rich-editor-surface:focus {
-    overflow-y: auto;
-}
-
-@media (max-width: 720px) {
-    .forum-rich-editor-surface {
-        height: 340px;
-        min-height: 220px;
-        max-height: 70vh;
+    .forum-rich-editor {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
     }
-}
+
+    .forum-rich-editor-toolbar {
+        position: relative;
+        z-index: 3;
+        flex: 0 0 auto;
+    }
+
+    .forum-rich-editor-surface {
+        box-sizing: border-box;
+        width: 100%;
+        height: 420px;
+        min-height: 260px;
+        max-height: 78vh;
+        overflow-x: auto;
+        overflow-y: auto;
+        resize: vertical;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+    }
+
+    .forum-rich-editor-surface:focus {
+        overflow-y: auto;
+    }
+
+    @media (max-width: 720px) {
+        .forum-rich-editor-surface {
+            height: 340px;
+            min-height: 220px;
+            max-height: 70vh;
+        }
+    }
+
 </style>
 
 

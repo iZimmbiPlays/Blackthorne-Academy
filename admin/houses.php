@@ -1846,272 +1846,264 @@ require INCLUDES_PATH . '/header.php';
 ?>
 
 <style>
-.house-admin-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
-    gap: 24px;
-    align-items: start;
-}
-
-.house-admin-card,
-.house-admin-list-card {
-    border: 1px solid rgba(205, 171, 91, 0.18);
-    border-radius: 14px;
-    background: rgba(22, 14, 26, 0.78);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
-}
-
-.house-admin-card {
-    padding: 24px;
-}
-
-.house-admin-card + .house-admin-card {
-    margin-top: 22px;
-}
-
-.house-admin-titlebar {
-    margin-bottom: 20px;
-}
-
-.house-admin-titlebar h2,
-.house-admin-titlebar h3 {
-    margin-bottom: 6px;
-}
-
-.house-admin-form {
-    display: grid;
-    gap: 18px;
-}
-
-.house-admin-field-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-}
-
-.house-theme-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
-}
-
-.house-theme-control {
-    display: grid;
-    grid-template-columns: 52px minmax(0, 1fr);
-    gap: 10px;
-    align-items: end;
-}
-
-.house-theme-control input[type="color"] {
-    width: 52px;
-    height: 44px;
-    padding: 3px;
-    border: 1px solid rgba(205, 171, 91, 0.28);
-    border-radius: 8px;
-    background: #1d1421;
-    cursor: pointer;
-}
-
-.house-theme-preview {
-    display: grid;
-    gap: 14px;
-    margin-top: 6px;
-    padding: 18px;
-    border: 1px solid var(--preview-accent, #a77e49);
-    border-radius: 12px;
-    background:
-        linear-gradient(
-            145deg,
-            var(--preview-dark, #1d1421),
-            rgba(17, 11, 21, 0.96)
-        );
-}
-
-.house-theme-preview h3 {
-    margin: 0;
-    color: var(--preview-primary, #d7b867);
-}
-
-.house-theme-preview p {
-    margin: 0;
-    color: var(--preview-highlight, #e8dcb9);
-}
-
-.house-theme-preview a {
-    color: var(--preview-accent, #d3ad63);
-}
-
-.house-theme-preview .button {
-    justify-self: start;
-    border-color: var(--preview-highlight, #e2ca87);
-    background: var(--preview-secondary, #5a355f);
-    color: #fff;
-}
-
-.house-crest-preview {
-    width: min(260px, 100%);
-    aspect-ratio: 1 / 1;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    border: 1px solid rgba(205, 171, 91, 0.22);
-    border-radius: 14px;
-    background: rgba(12, 8, 15, 0.72);
-}
-
-.house-crest-preview img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.house-mascot-preview {
-    margin-top: 16px;
-    width: min(320px, 100%);
-    min-height: 190px;
-    display: grid;
-    place-items: center;
-    overflow: hidden;
-    padding: 18px;
-    border: 1px solid rgba(205, 171, 91, 0.22);
-    border-radius: 14px;
-    background: rgba(12, 8, 15, 0.72);
-}
-
-.house-mascot-preview img {
-    display: block;
-    width: min(100%, 260px);
-    max-height: 280px;
-    object-fit: contain;
-}
-
-.house-admin-list {
-    display: grid;
-    gap: 16px;
-}
-
-.house-admin-list-card {
-    padding: 18px;
-}
-
-.house-admin-list-card header {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    align-items: flex-start;
-}
-
-.house-admin-list-card h3 {
-    margin-bottom: 4px;
-}
-
-.house-admin-color-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 12px;
-}
-
-.house-admin-color-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 999px;
-    font-size: 0.8rem;
-    color: #d7ccd9;
-}
-
-.house-admin-color-dot {
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.28);
-}
-
-.house-status-badge {
-    display: inline-flex;
-    padding: 4px 8px;
-    border-radius: 999px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-}
-
-.house-status-active {
-    background: rgba(83, 128, 88, 0.18);
-    color: #c7e4ca;
-}
-
-.house-status-inactive {
-    background: rgba(139, 81, 91, 0.2);
-    color: #e8c4cb;
-}
-
-.house-admin-danger-zone {
-    border-color: rgba(178, 81, 95, 0.34);
-    background: rgba(61, 27, 34, 0.2);
-}
-
-.house-admin-danger-zone h3 {
-    color: #e5bbc1;
-}
-
-.house-admin-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-}
-
-.house-admin-delete-button {
-    border-color: rgba(189, 95, 105, 0.48);
-    background: linear-gradient(
-        180deg,
-        rgba(106, 48, 58, 0.94),
-        rgba(71, 31, 40, 0.98)
-    );
-    color: #f2dadd;
-}
-
-.house-admin-delete-button:hover,
-.house-admin-delete-button:focus-visible {
-    border-color: rgba(222, 132, 142, 0.72);
-    color: #fff0f2;
-}
-
-@media (max-width: 900px) {
     .house-admin-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(300px, 0.95fr);
+        gap: 24px;
+        align-items: start;
     }
-}
 
-@media (max-width: 650px) {
-    .house-admin-field-grid,
+    .house-admin-card,
+    .house-admin-list-card {
+        border: 1px solid rgba(205, 171, 91, 0.18);
+        border-radius: 14px;
+        background: rgba(22, 14, 26, 0.78);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+    }
+
+    .house-admin-card {
+        padding: 24px;
+    }
+
+    .house-admin-card+.house-admin-card {
+        margin-top: 22px;
+    }
+
+    .house-admin-titlebar {
+        margin-bottom: 20px;
+    }
+
+    .house-admin-titlebar h2,
+    .house-admin-titlebar h3 {
+        margin-bottom: 6px;
+    }
+
+    .house-admin-form {
+        display: grid;
+        gap: 18px;
+    }
+
+    .house-admin-field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
     .house-theme-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .house-theme-control {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 10px;
+        align-items: end;
+    }
+
+    .house-theme-control input[type="color"] {
+        width: 52px;
+        height: 44px;
+        padding: 3px;
+        border: 1px solid rgba(205, 171, 91, 0.28);
+        border-radius: 8px;
+        background: #1d1421;
+        cursor: pointer;
+    }
+
+    .house-theme-preview {
+        display: grid;
+        gap: 14px;
+        margin-top: 6px;
+        padding: 18px;
+        border: 1px solid var(--preview-accent, #a77e49);
+        border-radius: 12px;
+        background:
+            linear-gradient(145deg,
+                var(--preview-dark, #1d1421),
+                rgba(17, 11, 21, 0.96));
+    }
+
+    .house-theme-preview h3 {
+        margin: 0;
+        color: var(--preview-primary, #d7b867);
+    }
+
+    .house-theme-preview p {
+        margin: 0;
+        color: var(--preview-highlight, #e8dcb9);
+    }
+
+    .house-theme-preview a {
+        color: var(--preview-accent, #d3ad63);
+    }
+
+    .house-theme-preview .button {
+        justify-self: start;
+        border-color: var(--preview-highlight, #e2ca87);
+        background: var(--preview-secondary, #5a355f);
+        color: #fff;
+    }
+
+    .house-crest-preview {
+        width: min(260px, 100%);
+        aspect-ratio: 1 / 1;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border: 1px solid rgba(205, 171, 91, 0.22);
+        border-radius: 14px;
+        background: rgba(12, 8, 15, 0.72);
+    }
+
+    .house-crest-preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .house-mascot-preview {
+        margin-top: 16px;
+        width: min(320px, 100%);
+        min-height: 190px;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        padding: 18px;
+        border: 1px solid rgba(205, 171, 91, 0.22);
+        border-radius: 14px;
+        background: rgba(12, 8, 15, 0.72);
+    }
+
+    .house-mascot-preview img {
+        display: block;
+        width: min(100%, 260px);
+        max-height: 280px;
+        object-fit: contain;
+    }
+
+    .house-admin-list {
+        display: grid;
+        gap: 16px;
+    }
+
+    .house-admin-list-card {
+        padding: 18px;
     }
 
     .house-admin-list-card header {
-        display: grid;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
     }
 
-    .house-admin-actions .button {
-        width: 100%;
+    .house-admin-list-card h3 {
+        margin-bottom: 4px;
     }
-}
+
+    .house-admin-color-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .house-admin-color-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        font-size: 0.8rem;
+        color: #d7ccd9;
+    }
+
+    .house-admin-color-dot {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .house-status-badge {
+        display: inline-flex;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+    }
+
+    .house-status-active {
+        background: rgba(83, 128, 88, 0.18);
+        color: #c7e4ca;
+    }
+
+    .house-status-inactive {
+        background: rgba(139, 81, 91, 0.2);
+        color: #e8c4cb;
+    }
+
+    .house-admin-danger-zone {
+        border-color: rgba(178, 81, 95, 0.34);
+        background: rgba(61, 27, 34, 0.2);
+    }
+
+    .house-admin-danger-zone h3 {
+        color: #e5bbc1;
+    }
+
+    .house-admin-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .house-admin-delete-button {
+        border-color: rgba(189, 95, 105, 0.48);
+        background: linear-gradient(180deg,
+                rgba(106, 48, 58, 0.94),
+                rgba(71, 31, 40, 0.98));
+        color: #f2dadd;
+    }
+
+    .house-admin-delete-button:hover,
+    .house-admin-delete-button:focus-visible {
+        border-color: rgba(222, 132, 142, 0.72);
+        color: #fff0f2;
+    }
+
+    @media (max-width: 900px) {
+        .house-admin-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media (max-width: 650px) {
+
+        .house-admin-field-grid,
+        .house-theme-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .house-admin-list-card header {
+            display: grid;
+        }
+
+        .house-admin-actions .button {
+            width: 100%;
+        }
+    }
+
 </style>
 
-<main
-    id="main-content"
-    class="forum-admin-page house-admin-page"
->
+<main id="main-content" class="forum-admin-page house-admin-page">
 
-    <section
-        class="forum-admin-hero"
-        aria-labelledby="house-admin-heading"
-    >
+    <section class="forum-admin-hero" aria-labelledby="house-admin-heading">
         <div class="section-inner">
 
             <p class="academy-overline">
@@ -2133,34 +2125,22 @@ require INCLUDES_PATH . '/header.php';
                     $isProtectedSuperAdmin
                     || user_can('houses.sorting.manage')
                 ): ?>
-                    <a
-                        href="<?= e(url('admin/sorting-ceremony.php')); ?>"
-                        class="button button-primary"
-                    >
-                        Sorting Ceremony Manager
-                    </a>
+                <a href="<?= e(url('admin/sorting-ceremony.php')); ?>" class="button button-primary">
+                    Sorting Ceremony Manager
+                </a>
                 <?php endif; ?>
 
                 <?php if (current_user_is_admin()): ?>
-                    <a
-                        href="<?= e(url('admin/house-members.php')); ?>"
-                        class="button button-primary"
-                    >
-                        Manage House Members
-                    </a>
+                <a href="<?= e(url('admin/house-members.php')); ?>" class="button button-primary">
+                    Manage House Members
+                </a>
                 <?php endif; ?>
 
-                <a
-                    href="<?= e(url('staff-dashboard.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">
                     Staff Dashboard
                 </a>
 
-                <a
-                    href="<?= e(DASHBOARD_URL); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(DASHBOARD_URL); ?>" class="button button-secondary">
                     Return to Dashboard
                 </a>
 
@@ -2174,28 +2154,22 @@ require INCLUDES_PATH . '/header.php';
         <div class="section-inner">
 
             <?php if ($successMessage !== null): ?>
-                <div
-                    class="form-message form-message-success"
-                    role="status"
-                >
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="form-message form-message-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
             <?php endif; ?>
 
 
             <?php if ($errors !== []): ?>
-                <div
-                    class="form-message form-message-error"
-                    role="alert"
-                >
-                    <h2>Please correct the following:</h2>
+            <div class="form-message form-message-error" role="alert">
+                <h2>Please correct the following:</h2>
 
-                    <ul>
-                        <?php foreach ($errors as $error): ?>
-                            <li><?= e($error); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                    <li><?= e($error); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
             <?php endif; ?>
 
 
@@ -2208,41 +2182,29 @@ require INCLUDES_PATH . '/header.php';
                         && $editHouse === null
                     ): ?>
 
-                        <section
-                            class="house-admin-card"
-                            aria-labelledby="create-house-heading"
-                        >
-                            <header class="house-admin-titlebar">
-                                <p class="forum-admin-step">
-                                    House Setup
-                                </p>
+                    <section class="house-admin-card" aria-labelledby="create-house-heading">
+                        <header class="house-admin-titlebar">
+                            <p class="forum-admin-step">
+                                House Setup
+                            </p>
 
-                                <h2 id="create-house-heading">
-                                    Create a House
-                                </h2>
+                            <h2 id="create-house-heading">
+                                Create a House
+                            </h2>
 
-                                <p>
-                                    Create the House identity first. Forums may
-                                    be attached now or later.
-                                </p>
-                            </header>
+                            <p>
+                                Create the House identity first. Forums may
+                                be attached now or later.
+                            </p>
+                        </header>
 
-                            <form
-                                action="<?= e(url('admin/houses.php')); ?>"
-                                method="post"
-                                enctype="multipart/form-data"
-                                class="house-admin-form"
-                                data-house-form
-                            >
-                                <?= csrf_field(); ?>
+                        <form action="<?= e(url('admin/houses.php')); ?>" method="post" enctype="multipart/form-data"
+                            class="house-admin-form" data-house-form>
+                            <?= csrf_field(); ?>
 
-                                <input
-                                    type="hidden"
-                                    name="form_action"
-                                    value="create_house"
-                                >
+                            <input type="hidden" name="form_action" value="create_house">
 
-                                <?php
+                            <?php
                                 $houseForm = [
                                     'name' => '',
                                     'display_name' => '',
@@ -2266,233 +2228,175 @@ require INCLUDES_PATH . '/header.php';
                                 ];
                                 ?>
 
-                                <?php require __DIR__ . '/partials/house-form-fields.php'; ?>
+                            <?php require __DIR__ . '/partials/house-form-fields.php'; ?>
 
-                                <div class="house-admin-actions">
-                                    <button
-                                        type="submit"
-                                        class="button button-primary"
-                                    >
-                                        Create House
-                                    </button>
-                                </div>
+                            <div class="house-admin-actions">
+                                <button type="submit" class="button button-primary">
+                                    Create House
+                                </button>
+                            </div>
 
-                            </form>
-                        </section>
+                        </form>
+                    </section>
 
                     <?php endif; ?>
 
 
                     <?php if ($editHouse !== null): ?>
 
-                        <?php if ($canEditHouses): ?>
+                    <?php if ($canEditHouses): ?>
 
-                            <section
-                                class="house-admin-card"
-                                aria-labelledby="edit-house-heading"
-                            >
-                                <header class="house-admin-titlebar">
-                                    <p class="forum-admin-step">
-                                        House Setup
-                                    </p>
+                    <section class="house-admin-card" aria-labelledby="edit-house-heading">
+                        <header class="house-admin-titlebar">
+                            <p class="forum-admin-step">
+                                House Setup
+                            </p>
 
-                                    <h2 id="edit-house-heading">
-                                        Edit
-                                        <?= e(
+                            <h2 id="edit-house-heading">
+                                Edit
+                                <?= e(
                                             (string) (
                                                 $editHouse['display_name']
                                                 ?? $editHouse['name']
                                             )
                                         ); ?>
-                                    </h2>
+                            </h2>
 
-                                    <p>
-                                        Changes here control the House identity,
-                                        Common Room configuration, and theme.
-                                    </p>
-                                </header>
+                            <p>
+                                Changes here control the House identity,
+                                Common Room configuration, and theme.
+                            </p>
+                        </header>
 
-                                <?php
+                        <?php
                                 $houseForm =
                                     $editHouse;
                                 ?>
 
-                                <form
-                                    action="<?= e(url('admin/houses.php?edit_house=' . $editHouseId)); ?>"
-                                    method="post"
-                                    enctype="multipart/form-data"
-                                    class="house-admin-form"
-                                    data-house-form
-                                >
-                                    <?= csrf_field(); ?>
+                        <form action="<?= e(url('admin/houses.php?edit_house=' . $editHouseId)); ?>" method="post"
+                            enctype="multipart/form-data" class="house-admin-form" data-house-form>
+                            <?= csrf_field(); ?>
 
-                                    <input
-                                        type="hidden"
-                                        name="form_action"
-                                        value="update_house"
-                                    >
+                            <input type="hidden" name="form_action" value="update_house">
 
-                                    <input
-                                        type="hidden"
-                                        name="house_id"
-                                        value="<?= (int) $editHouseId; ?>"
-                                    >
+                            <input type="hidden" name="house_id" value="<?= (int) $editHouseId; ?>">
 
-                                    <?php require __DIR__ . '/partials/house-form-fields.php'; ?>
+                            <?php require __DIR__ . '/partials/house-form-fields.php'; ?>
 
-                                    <div class="house-admin-actions">
+                            <div class="house-admin-actions">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-primary"
-                                        >
-                                            Save House
-                                        </button>
+                                <button type="submit" class="button button-primary">
+                                    Save House
+                                </button>
 
-                                        <a
-                                            href="<?= e(url('admin/houses.php')); ?>"
-                                            class="button button-secondary"
-                                        >
-                                            Create / View Houses
-                                        </a>
+                                <a href="<?= e(url('admin/houses.php')); ?>" class="button button-secondary">
+                                    Create / View Houses
+                                </a>
 
-                                    </div>
+                            </div>
 
-                                </form>
-                            </section>
+                        </form>
+                    </section>
 
 
-                            <section
-                                class="house-admin-card house-admin-danger-zone"
-                                aria-labelledby="house-status-heading"
-                            >
-                                <header class="house-admin-titlebar">
-                                    <p class="forum-admin-step">
-                                        House Status
-                                    </p>
+                    <section class="house-admin-card house-admin-danger-zone" aria-labelledby="house-status-heading">
+                        <header class="house-admin-titlebar">
+                            <p class="forum-admin-step">
+                                House Status
+                            </p>
 
-                                    <h3 id="house-status-heading">
-                                        Deactivate or Delete
-                                    </h3>
+                            <h3 id="house-status-heading">
+                                Deactivate or Delete
+                            </h3>
 
-                                    <p>
-                                        Deactivation preserves House history.
-                                        Permanent deletion is only available
-                                        before a House has membership, points,
-                                        or House Cup records.
-                                    </p>
-                                </header>
+                            <p>
+                                Deactivation preserves House history.
+                                Permanent deletion is only available
+                                before a House has membership, points,
+                                or House Cup records.
+                            </p>
+                        </header>
 
-                                <div class="house-admin-actions">
+                        <div class="house-admin-actions">
 
-                                    <form
-                                        action="<?= e(url('admin/houses.php?edit_house=' . $editHouseId)); ?>"
-                                        method="post"
-                                    >
-                                        <?= csrf_field(); ?>
+                            <form action="<?= e(url('admin/houses.php?edit_house=' . $editHouseId)); ?>" method="post">
+                                <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="house_id"
-                                            value="<?= (int) $editHouseId; ?>"
-                                        >
+                                <input type="hidden" name="house_id" value="<?= (int) $editHouseId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="form_action"
-                                            value="<?= (int) $editHouse['is_active'] === 1 ? 'deactivate_house' : 'reactivate_house'; ?>"
-                                        >
+                                <input type="hidden" name="form_action"
+                                    value="<?= (int) $editHouse['is_active'] === 1 ? 'deactivate_house' : 'reactivate_house'; ?>">
 
-                                        <button
-                                            type="submit"
-                                            class="button button-secondary"
-                                        >
-                                            <?= (int) $editHouse['is_active'] === 1
+                                <button type="submit" class="button button-secondary">
+                                    <?= (int) $editHouse['is_active'] === 1
                                                 ? 'Deactivate House'
                                                 : 'Reactivate House'; ?>
-                                        </button>
-                                    </form>
+                                </button>
+                            </form>
 
 
-                                    <?php if (
+                            <?php if (
                                         $canDeleteHouses
                                         && !admin_houses_has_history(
                                             $editHistoryCounts
                                         )
                                     ): ?>
 
-                                        <form
-                                            action="<?= e(url('admin/houses.php')); ?>"
-                                            method="post"
-                                            onsubmit="return confirm('Permanently delete this unused House? This cannot be undone.');"
-                                        >
-                                            <?= csrf_field(); ?>
+                            <form action="<?= e(url('admin/houses.php')); ?>" method="post"
+                                onsubmit="return confirm('Permanently delete this unused House? This cannot be undone.');">
+                                <?= csrf_field(); ?>
 
-                                            <input
-                                                type="hidden"
-                                                name="form_action"
-                                                value="delete_house"
-                                            >
+                                <input type="hidden" name="form_action" value="delete_house">
 
-                                            <input
-                                                type="hidden"
-                                                name="house_id"
-                                                value="<?= (int) $editHouseId; ?>"
-                                            >
+                                <input type="hidden" name="house_id" value="<?= (int) $editHouseId; ?>">
 
-                                            <button
-                                                type="submit"
-                                                class="button house-admin-delete-button"
-                                            >
-                                                Delete Permanently
-                                            </button>
-                                        </form>
+                                <button type="submit" class="button house-admin-delete-button">
+                                    Delete Permanently
+                                </button>
+                            </form>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </div>
+                        </div>
 
-                                <?php if (
+                        <?php if (
                                     admin_houses_has_history(
                                         $editHistoryCounts
                                     )
                                 ): ?>
-                                    <p class="form-help">
-                                        Permanent deletion is disabled because
-                                        this House has historical records:
-                                        <?= number_format($editHistoryCounts['memberships']); ?>
-                                        membership record(s),
-                                        <?= number_format($editHistoryCounts['cup_results']); ?>
-                                        House Cup record(s), and
-                                        <?= number_format($editHistoryCounts['points_entries']); ?>
-                                        point ledger record(s).
-                                    </p>
-                                <?php endif; ?>
-
-                            </section>
-
+                        <p class="form-help">
+                            Permanent deletion is disabled because
+                            this House has historical records:
+                            <?= number_format($editHistoryCounts['memberships']); ?>
+                            membership record(s),
+                            <?= number_format($editHistoryCounts['cup_results']); ?>
+                            House Cup record(s), and
+                            <?= number_format($editHistoryCounts['points_entries']); ?>
+                            point ledger record(s).
+                        </p>
                         <?php endif; ?>
+
+                    </section>
+
+                    <?php endif; ?>
 
                     <?php elseif (
                         !$canCreateHouses
                     ): ?>
 
-                        <section class="house-admin-card">
-                            <p>
-                                You can view Houses, but you do not currently
-                                have permission to create one.
-                            </p>
-                        </section>
+                    <section class="house-admin-card">
+                        <p>
+                            You can view Houses, but you do not currently
+                            have permission to create one.
+                        </p>
+                    </section>
 
                     <?php endif; ?>
 
                 </div>
 
 
-                <aside
-                    class="house-admin-card"
-                    aria-labelledby="house-list-heading"
-                >
+                <aside class="house-admin-card" aria-labelledby="house-list-heading">
                     <header class="house-admin-titlebar">
                         <p class="forum-admin-step">
                             Academy Houses
@@ -2510,16 +2414,16 @@ require INCLUDES_PATH . '/header.php';
 
                     <?php if ($houses === []): ?>
 
-                        <div class="forum-admin-empty">
-                            No Houses have been created yet.
-                        </div>
+                    <div class="forum-admin-empty">
+                        No Houses have been created yet.
+                    </div>
 
                     <?php else: ?>
 
-                        <div class="house-admin-list">
+                    <div class="house-admin-list">
 
-                            <?php foreach ($houses as $house): ?>
-                                <?php
+                        <?php foreach ($houses as $house): ?>
+                        <?php
                                 $houseId =
                                     (int) $house['id'];
 
@@ -2563,94 +2467,85 @@ require INCLUDES_PATH . '/header.php';
                                 ];
                                 ?>
 
-                                <article class="house-admin-list-card">
+                        <article class="house-admin-list-card">
 
-                                    <header>
+                            <header>
 
-                                        <div>
-                                            <h3
-                                                <?php if (
+                                <div>
+                                    <h3 <?php if (
                                                     !empty(
                                                         $house['display_color']
                                                     )
-                                                ): ?>
-                                                    style="color: <?= e((string) $house['display_color']); ?>;"
-                                                <?php endif; ?>
-                                            >
-                                                <?= e($houseName); ?>
-                                            </h3>
+                                                ): ?> style="color: <?= e((string) $house['display_color']); ?>;"
+                                        <?php endif; ?>>
+                                        <?= e($houseName); ?>
+                                    </h3>
 
-                                            <p>
-                                                /<?= e((string) $house['slug']); ?>
-                                                ·
-                                                <?= number_format(
+                                    <p>
+                                        /<?= e((string) $house['slug']); ?>
+                                        ·
+                                        <?= number_format(
                                                     (int) $house['active_member_count']
                                                 ); ?>
-                                                active member(s)
-                                            </p>
+                                        active member(s)
+                                    </p>
 
-                                            <span
-                                                class="house-status-badge <?= (int) $house['is_active'] === 1 ? 'house-status-active' : 'house-status-inactive'; ?>"
-                                            >
-                                                <?= (int) $house['is_active'] === 1
+                                    <span
+                                        class="house-status-badge <?= (int) $house['is_active'] === 1 ? 'house-status-active' : 'house-status-inactive'; ?>">
+                                        <?= (int) $house['is_active'] === 1
                                                     ? 'Active'
                                                     : 'Inactive'; ?>
-                                            </span>
-                                        </div>
+                                    </span>
+                                </div>
 
-                                        <?php if ($canEditHouses): ?>
-                                            <a
-                                                href="<?= e(url('admin/houses.php?edit_house=' . $houseId)); ?>"
-                                                class="button button-secondary"
-                                            >
-                                                Edit
-                                            </a>
-                                        <?php endif; ?>
+                                <?php if ($canEditHouses): ?>
+                                <a href="<?= e(url('admin/houses.php?edit_house=' . $houseId)); ?>"
+                                    class="button button-secondary">
+                                    Edit
+                                </a>
+                                <?php endif; ?>
 
-                                    </header>
+                            </header>
 
 
-                                    <div class="house-admin-color-row">
+                            <div class="house-admin-color-row">
 
-                                        <?php foreach ($palette as $label => $color): ?>
-                                            <?php if (
+                                <?php foreach ($palette as $label => $color): ?>
+                                <?php if (
                                                 is_string($color)
                                                 && $color !== ''
                                             ): ?>
-                                                <span class="house-admin-color-chip">
-                                                    <span
-                                                        class="house-admin-color-dot"
-                                                        style="background: <?= e($color); ?>;"
-                                                        aria-hidden="true"
-                                                    ></span>
+                                <span class="house-admin-color-chip">
+                                    <span class="house-admin-color-dot" style="background: <?= e($color); ?>;"
+                                        aria-hidden="true"></span>
 
-                                                    <?= e($label); ?>
-                                                </span>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
+                                    <?= e($label); ?>
+                                </span>
+                                <?php endif; ?>
+                                <?php endforeach; ?>
 
-                                    </div>
+                            </div>
 
 
-                                    <p>
-                                        Common Room:
-                                        <?= $house['common_room_forum_title'] !== null
+                            <p>
+                                Common Room:
+                                <?= $house['common_room_forum_title'] !== null
                                             ? e((string) $house['common_room_forum_title'])
                                             : 'Not selected'; ?>
-                                    </p>
+                            </p>
 
-                                    <p>
-                                        Announcements:
-                                        <?= $house['announcement_forum_title'] !== null
+                            <p>
+                                Announcements:
+                                <?= $house['announcement_forum_title'] !== null
                                             ? e((string) $house['announcement_forum_title'])
                                             : 'Not selected'; ?>
-                                    </p>
+                            </p>
 
-                                </article>
+                        </article>
 
-                            <?php endforeach; ?>
+                        <?php endforeach; ?>
 
-                        </div>
+                    </div>
 
                     <?php endif; ?>
 
@@ -2665,87 +2560,88 @@ require INCLUDES_PATH . '/header.php';
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    document
-        .querySelectorAll('[data-house-form]')
-        .forEach(function (form) {
+    document.addEventListener('DOMContentLoaded', function() {
+        document
+            .querySelectorAll('[data-house-form]')
+            .forEach(function(form) {
 
-            var preview =
-                form.querySelector(
-                    '[data-house-theme-preview]'
-                );
-
-            if (!preview) {
-                return;
-            }
-
-            var mappings = {
-                primary_color: '--preview-primary',
-                secondary_color: '--preview-secondary',
-                accent_color: '--preview-accent',
-                dark_neutral_color: '--preview-dark',
-                highlight_color: '--preview-highlight'
-            };
-
-            Object.keys(mappings).forEach(function (name) {
-                var textInput =
+                var preview =
                     form.querySelector(
-                        '[name="' + name + '"]'
+                        '[data-house-theme-preview]'
                     );
 
-                var colorInput =
-                    form.querySelector(
-                        '[data-color-picker="' + name + '"]'
-                    );
-
-                if (!textInput || !colorInput) {
+                if (!preview) {
                     return;
                 }
 
-                function applyValue(value) {
-                    if (
-                        /^#[0-9A-Fa-f]{6}$/.test(
-                            value
-                        )
-                    ) {
-                        colorInput.value =
-                            value;
+                var mappings = {
+                    primary_color: '--preview-primary',
+                    secondary_color: '--preview-secondary',
+                    accent_color: '--preview-accent',
+                    dark_neutral_color: '--preview-dark',
+                    highlight_color: '--preview-highlight'
+                };
 
-                        preview.style.setProperty(
-                            mappings[name],
-                            value
+                Object.keys(mappings).forEach(function(name) {
+                    var textInput =
+                        form.querySelector(
+                            '[name="' + name + '"]'
                         );
-                    }
-                }
 
-                colorInput.addEventListener(
-                    'input',
-                    function () {
-                        textInput.value =
-                            colorInput.value
+                    var colorInput =
+                        form.querySelector(
+                            '[data-color-picker="' + name + '"]'
+                        );
+
+                    if (!textInput || !colorInput) {
+                        return;
+                    }
+
+                    function applyValue(value) {
+                        if (
+                            /^#[0-9A-Fa-f]{6}$/.test(
+                                value
+                            )
+                        ) {
+                            colorInput.value =
+                                value;
+
+                            preview.style.setProperty(
+                                mappings[name],
+                                value
+                            );
+                        }
+                    }
+
+                    colorInput.addEventListener(
+                        'input',
+                        function() {
+                            textInput.value =
+                                colorInput.value
                                 .toUpperCase();
 
-                        applyValue(
-                            textInput.value
-                        );
-                    }
-                );
+                            applyValue(
+                                textInput.value
+                            );
+                        }
+                    );
 
-                textInput.addEventListener(
-                    'input',
-                    function () {
-                        applyValue(
-                            textInput.value
-                        );
-                    }
-                );
+                    textInput.addEventListener(
+                        'input',
+                        function() {
+                            applyValue(
+                                textInput.value
+                            );
+                        }
+                    );
 
-                applyValue(
-                    textInput.value
-                );
+                    applyValue(
+                        textInput.value
+                    );
+                });
             });
-        });
-});
+    });
+
 </script>
 
 <?php require INCLUDES_PATH . '/footer.php'; ?>

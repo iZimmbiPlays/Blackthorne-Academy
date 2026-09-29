@@ -122,20 +122,14 @@ $easternDateTime =
 
 ?>
 
-<main
-    id="main-content"
-    class="member-homepage"
->
+<main id="main-content" class="member-homepage">
 
 
     <!-- ================================================================
          REGISTERED-MEMBER HERO
     ================================================================= -->
 
-    <section
-        class="member-home-hero"
-        aria-labelledby="member-home-heading"
-    >
+    <section class="member-home-hero" aria-labelledby="member-home-heading">
 
         <div class="member-home-hero-overlay">
 
@@ -189,20 +183,13 @@ $easternDateTime =
              ANNOUNCEMENTS AND EVENTS
         ============================================================= -->
 
-        <section
-            class="member-home-main"
-            aria-labelledby="announcements-events-heading"
-        >
+        <section class="member-home-main" aria-labelledby="announcements-events-heading">
 
-            <p
-                class="member-home-datetime"
-                data-eastern-datetime
-                data-server-time="<?= e(
+            <p class="member-home-datetime" data-eastern-datetime data-server-time="<?= e(
                     $easternTime->format(
                         DateTimeInterface::ATOM
                     )
-                ); ?>"
-            >
+                ); ?>">
                 <?= e($easternDateTime); ?>
             </p>
 
@@ -222,49 +209,47 @@ $easternDateTime =
                     $registeredHomeData['announcements'] === []
                 ): ?>
 
-                    <div class="announcement-empty-state">
+                <div class="announcement-empty-state">
 
-                        <p>
-                            There are no announcements or events posted yet.
-                            When academy news arrives, it will appear here.
-                        </p>
+                    <p>
+                        There are no announcements or events posted yet.
+                        When academy news arrives, it will appear here.
+                    </p>
 
-                    </div>
+                </div>
 
                 <?php else: ?>
 
-                    <?php foreach (
+                <?php foreach (
                         $registeredHomeData['announcements']
                         as $announcement
                     ): ?>
 
-                        <article class="announcement-entry">
+                <article class="announcement-entry">
 
-                            <h3>
+                    <h3>
 
-                                <a
-                                    href="<?= e(
+                        <a href="<?= e(
                                         url(
                                             'thread.php?t=' .
                                             (int) $announcement['id']
                                         )
-                                    ); ?>"
-                                >
-                                    <?= e(
+                                    ); ?>">
+                            <?= e(
                                         (string) $announcement[
                                             'title'
                                         ]
                                     ); ?>
-                                </a>
+                        </a>
 
-                            </h3>
+                    </h3>
 
 
-                            <p class="announcement-byline">
+                    <p class="announcement-byline">
 
-                                by
+                        by
 
-                                <?php
+                        <?php
                                 $announcementAuthorHouseColor =
                                     safe_css_color(
                                         (string) (
@@ -276,32 +261,27 @@ $easternDateTime =
                                     );
                                 ?>
 
-                                <a
-                                    href="<?= e(
+                        <a href="<?= e(
                                         url(
                                             'profile.php?u=' .
                                             (int) $announcement[
                                                 'author_id'
                                             ]
                                         )
-                                    ); ?>"
-                                    <?php if ($announcementAuthorHouseColor !== null): ?>
-                                        style="color: <?= e($announcementAuthorHouseColor); ?>;"
-                                    <?php endif; ?>
-                                >
-                                    <?= e(
+                                    ); ?>" <?php if ($announcementAuthorHouseColor !== null): ?>
+                            style="color: <?= e($announcementAuthorHouseColor); ?>;" <?php endif; ?>>
+                            <?= e(
                                         (string) $announcement[
                                             'author_display_name'
                                         ]
                                     ); ?>
-                                </a>
+                        </a>
 
-                                <span aria-hidden="true">
-                                    •
-                                </span>
+                        <span aria-hidden="true">
+                            •
+                        </span>
 
-                                <time
-                                    datetime="<?= e(
+                        <time datetime="<?= e(
                                         date(
                                             'Y-m-d',
                                             strtotime(
@@ -310,9 +290,8 @@ $easternDateTime =
                                                 ]
                                             )
                                         )
-                                    ); ?>"
-                                >
-                                    <?= e(
+                                    ); ?>">
+                            <?= e(
                                         date(
                                             'F j, Y',
                                             strtotime(
@@ -322,59 +301,55 @@ $easternDateTime =
                                             )
                                         )
                                     ); ?>
-                                </time>
+                        </time>
 
-                            </p>
+                    </p>
 
 
-                            <div
-                                class="announcement-content rich-text-content"
-                            >
-                                <?= sanitize_rich_text(
+                    <div class="announcement-content rich-text-content">
+                        <?= sanitize_rich_text(
                                     (string) $announcement['content']
                                 ); ?>
-                            </div>
+                    </div>
 
 
-                            <p class="announcement-actions">
+                    <p class="announcement-actions">
 
-                                <span>
-                                    Replies (<?= number_format(
+                        <span>
+                            Replies (<?= number_format(
                                         (int) $announcement[
                                             'reply_count'
                                         ]
                                     ); ?>)
-                                </span>
+                        </span>
 
-                                <?php if (
+                        <?php if (
                                     (int) $announcement[
                                         'is_locked'
                                     ] !== 1
                                 ): ?>
 
-                                    <span aria-hidden="true">
-                                        |
-                                    </span>
+                        <span aria-hidden="true">
+                            |
+                        </span>
 
-                                    <a
-                                        href="<?= e(
+                        <a href="<?= e(
                                             url(
                                                 'thread.php?t=' .
                                                 (int) $announcement['id'] .
                                                 '#respond'
                                             )
-                                        ); ?>"
-                                    >
-                                        Respond
-                                    </a>
+                                        ); ?>">
+                            Respond
+                        </a>
 
-                                <?php endif; ?>
+                        <?php endif; ?>
 
-                            </p>
+                    </p>
 
-                        </article>
+                </article>
 
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
                 <?php endif; ?>
 
@@ -383,14 +358,11 @@ $easternDateTime =
 
             <div class="announcement-view-all">
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(
+                <a class="button button-secondary" href="<?= e(
                         url(
                             'announcements.php'
                         )
-                    ); ?>"
-                >
+                    ); ?>">
                     View All
                 </a>
 

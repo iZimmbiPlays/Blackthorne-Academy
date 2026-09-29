@@ -47,38 +47,32 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
 
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to manage
-                    course registration groups.
-                </p>
+            <p>
+                Your account does not have permission to manage
+                course registration groups.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/courses.php')); ?>"
-                >
-                    Return to Courses
-                </a>
+            <a class="button button-secondary" href="<?= e(url('admin/courses.php')); ?>">
+                Return to Courses
+            </a>
 
-            </div>
-        </section>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1302,18 +1296,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-registration-groups-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-registration-groups-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="registration-groups-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="registration-groups-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
 
@@ -1369,22 +1357,19 @@ $staffHeroUrl =
 
                 <?php if ($errors !== []): ?>
 
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The registration group could not be created.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The registration group could not be created.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
 
                 <?php endif; ?>
 
@@ -1401,19 +1386,11 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(url('admin/course-registration-groups.php')); ?>"
-                        method="post"
-                        class="forum-admin-form"
-                        data-registration-group-form
-                    >
+                    <form action="<?= e(url('admin/course-registration-groups.php')); ?>" method="post"
+                        class="forum-admin-form" data-registration-group-form>
                         <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="create_group"
-                        >
+                        <input type="hidden" name="action" value="create_group">
 
 
                         <div class="form-group">
@@ -1421,16 +1398,8 @@ $staffHeroUrl =
                                 Registration Group Name
                             </label>
 
-                            <input
-                                class="form-control"
-                                type="text"
-                                id="group-name"
-                                name="name"
-                                maxlength="150"
-                                value="<?= e($form['name']); ?>"
-                                placeholder="First Year — 2026/2027"
-                                required
-                            >
+                            <input class="form-control" type="text" id="group-name" name="name" maxlength="150"
+                                value="<?= e($form['name']); ?>" placeholder="First Year — 2026/2027" required>
 
                             <p class="form-help">
                                 Example: First Year — 2026/2027.
@@ -1443,12 +1412,8 @@ $staffHeroUrl =
                                 Description
                             </label>
 
-                            <textarea
-                                class="form-control"
-                                id="group-description"
-                                name="description"
-                                rows="4"
-                            ><?= e($form['description']); ?></textarea>
+                            <textarea class="form-control" id="group-description" name="description"
+                                rows="4"><?= e($form['description']); ?></textarea>
                         </div>
 
 
@@ -1459,29 +1424,21 @@ $staffHeroUrl =
                                     School Year
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="school-year-id"
-                                    name="school_year_id"
-                                    required
-                                    data-group-school-year
-                                >
+                                <select class="form-control" id="school-year-id" name="school_year_id" required
+                                    data-group-school-year>
                                     <option value="">
                                         Choose a school year
                                     </option>
 
                                     <?php foreach ($schoolYears as $schoolYear): ?>
-                                        <option
-                                            value="<?= (int) $schoolYear['id']; ?>"
-                                            <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
+                                    <option value="<?= (int) $schoolYear['id']; ?>" <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e((string) $schoolYear['name']); ?>
-                                            <?= (int) ($schoolYear['is_current'] ?? 0) === 1
+                                                : ''; ?>>
+                                        <?= e((string) $schoolYear['name']); ?>
+                                        <?= (int) ($schoolYear['is_current'] ?? 0) === 1
                                                 ? ' — Current'
                                                 : ''; ?>
-                                        </option>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -1492,26 +1449,18 @@ $staffHeroUrl =
                                     Grade Level
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="year-group-id"
-                                    name="year_group_id"
-                                    required
-                                    data-group-year-level
-                                >
+                                <select class="form-control" id="year-group-id" name="year_group_id" required
+                                    data-group-year-level>
                                     <option value="">
                                         Choose a grade level
                                     </option>
 
                                     <?php foreach ($yearGroups as $yearGroup): ?>
-                                        <option
-                                            value="<?= (int) $yearGroup['id']; ?>"
-                                            <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
+                                    <option value="<?= (int) $yearGroup['id']; ?>" <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e((string) $yearGroup['name']); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e((string) $yearGroup['name']); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -1524,18 +1473,13 @@ $staffHeroUrl =
                                 Gateway Course
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="gateway-course-id"
-                                name="gateway_course_id"
-                                required
-                            >
+                            <select class="form-control" id="gateway-course-id" name="gateway_course_id" required>
                                 <option value="">
                                     Choose a gateway course
                                 </option>
 
                                 <?php foreach ($gatewayCourses as $courseRow): ?>
-                                    <?php
+                                <?php
                                     $courseTitle =
                                         trim(
                                             (string) (
@@ -1551,14 +1495,11 @@ $staffHeroUrl =
                                     }
                                     ?>
 
-                                    <option
-                                        value="<?= (int) $courseRow['id']; ?>"
-                                        <?= (int) $form['gateway_course_id'] === (int) $courseRow['id']
+                                <option value="<?= (int) $courseRow['id']; ?>" <?= (int) $form['gateway_course_id'] === (int) $courseRow['id']
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        <?= e($courseTitle); ?>
-                                    </option>
+                                            : ''; ?>>
+                                    <?= e($courseTitle); ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
 
@@ -1577,13 +1518,8 @@ $staffHeroUrl =
                                     Registration Opens
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="registration-opens-at"
-                                    name="registration_opens_at"
-                                    value="<?= e($form['registration_opens_at']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="registration-opens-at"
+                                    name="registration_opens_at" value="<?= e($form['registration_opens_at']); ?>">
 
                                 <p class="form-help">
                                     Optional. Leave blank if registration
@@ -1597,13 +1533,8 @@ $staffHeroUrl =
                                     Registration Closes
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="registration-closes-at"
-                                    name="registration_closes_at"
-                                    value="<?= e($form['registration_closes_at']); ?>"
-                                >
+                                <input class="form-control" type="datetime-local" id="registration-closes-at"
+                                    name="registration_closes_at" value="<?= e($form['registration_closes_at']); ?>">
 
                                 <p class="form-help">
                                     Optional. Leave blank if late registration
@@ -1628,16 +1559,16 @@ $staffHeroUrl =
 
                             <?php if ($schoolYearOfferings === []): ?>
 
-                                <p class="form-help">
-                                    No school-year course offerings have been
-                                    created yet.
-                                </p>
+                            <p class="form-help">
+                                No school-year course offerings have been
+                                created yet.
+                            </p>
 
                             <?php else: ?>
 
-                                <div class="forum-admin-role-box">
-                                    <?php foreach ($schoolYearOfferings as $offeringRow): ?>
-                                        <?php
+                            <div class="forum-admin-role-box">
+                                <?php foreach ($schoolYearOfferings as $offeringRow): ?>
+                                <?php
                                         $offeringId =
                                             (int) (
                                                 $offeringRow['id']
@@ -1674,37 +1605,30 @@ $staffHeroUrl =
                                             );
                                         ?>
 
-                                        <label
-                                            data-offering-choice
-                                            data-school-year-id="<?= (int) ($offeringRow['school_year_id'] ?? 0); ?>"
-                                            data-year-group-id="<?= (int) ($offeringRow['year_group_id'] ?? 0); ?>"
-                                        >
-                                            <input
-                                                type="checkbox"
-                                                name="offering_ids[]"
-                                                value="<?= $offeringId; ?>"
-                                                <?= in_array(
+                                <label data-offering-choice
+                                    data-school-year-id="<?= (int) ($offeringRow['school_year_id'] ?? 0); ?>"
+                                    data-year-group-id="<?= (int) ($offeringRow['year_group_id'] ?? 0); ?>">
+                                    <input type="checkbox" name="offering_ids[]" value="<?= $offeringId; ?>" <?= in_array(
                                                     $offeringId,
                                                     $form['offering_ids'],
                                                     true
                                                 )
                                                     ? 'checked'
-                                                    : ''; ?>
-                                            >
+                                                    : ''; ?>>
 
-                                            <span>
-                                                <?= e($courseTitle); ?>
-                                                <?php if ($schoolYearName !== ''): ?>
-                                                    — <?= e($schoolYearName); ?>
-                                                <?php endif; ?>
-                                                <?php if ($yearGroupName !== ''): ?>
-                                                    — <?= e($yearGroupName); ?>
-                                                <?php endif; ?>
-                                            </span>
-                                        </label>
+                                    <span>
+                                        <?= e($courseTitle); ?>
+                                        <?php if ($schoolYearName !== ''): ?>
+                                        — <?= e($schoolYearName); ?>
+                                        <?php endif; ?>
+                                        <?php if ($yearGroupName !== ''): ?>
+                                        — <?= e($yearGroupName); ?>
+                                        <?php endif; ?>
+                                    </span>
+                                </label>
 
-                                    <?php endforeach; ?>
-                                </div>
+                                <?php endforeach; ?>
+                            </div>
 
                             <?php endif; ?>
 
@@ -1716,26 +1640,16 @@ $staffHeroUrl =
                                 Group Status
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="group-status"
-                                name="is_active"
-                            >
-                                <option
-                                    value="1"
-                                    <?= $form['is_active'] === '1'
+                            <select class="form-control" id="group-status" name="is_active">
+                                <option value="1" <?= $form['is_active'] === '1'
                                         ? 'selected'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
                                     Active
                                 </option>
 
-                                <option
-                                    value="0"
-                                    <?= $form['is_active'] === '0'
+                                <option value="0" <?= $form['is_active'] === '0'
                                         ? 'selected'
-                                        : ''; ?>
-                                >
+                                        : ''; ?>>
                                     Inactive
                                 </option>
                             </select>
@@ -1743,10 +1657,7 @@ $staffHeroUrl =
 
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Create Registration Group
                             </button>
                         </div>
@@ -1774,19 +1685,19 @@ $staffHeroUrl =
 
                         <?php if ($groups === []): ?>
 
-                            <p>
-                                No registration groups have been created yet.
-                                The first expected group will be the current
-                                school year's First Year registration bundle,
-                                gated by Orientation.
-                            </p>
+                        <p>
+                            No registration groups have been created yet.
+                            The first expected group will be the current
+                            school year's First Year registration bundle,
+                            gated by Orientation.
+                        </p>
 
                         <?php else: ?>
 
-                            <div class="dashboard-placeholder-list">
+                        <div class="dashboard-placeholder-list">
 
-                                <?php foreach ($groups as $groupRow): ?>
-                                    <?php
+                            <?php foreach ($groups as $groupRow): ?>
+                            <?php
                                     $groupId =
                                         (int) (
                                             $groupRow['id']
@@ -1800,52 +1711,52 @@ $staffHeroUrl =
                                         ?? [];
                                     ?>
 
-                                    <span>
-                                        <strong>
-                                            <?= e((string) ($groupRow['name'] ?? 'Registration Group')); ?>
-                                        </strong>
+                            <span>
+                                <strong>
+                                    <?= e((string) ($groupRow['name'] ?? 'Registration Group')); ?>
+                                </strong>
 
-                                        · <?= e((string) ($groupRow['school_year_name'] ?? 'School Year')); ?>
+                                · <?= e((string) ($groupRow['school_year_name'] ?? 'School Year')); ?>
 
-                                        · <?= e((string) ($groupRow['year_group_name'] ?? 'Grade Level')); ?>
+                                · <?= e((string) ($groupRow['year_group_name'] ?? 'Grade Level')); ?>
 
-                                        · Gateway:
-                                        <?= e((string) ($groupRow['gateway_course_title'] ?? 'None')); ?>
+                                · Gateway:
+                                <?= e((string) ($groupRow['gateway_course_title'] ?? 'None')); ?>
 
-                                        · <?= number_format(
+                                · <?= number_format(
                                             (int) (
                                                 $groupRow['offering_count']
                                                 ?? 0
                                             )
                                         ); ?>
-                                        courses
+                                courses
 
-                                        · <?= number_format(
+                                · <?= number_format(
                                             (int) (
                                                 $groupRow['active_registration_count']
                                                 ?? 0
                                             )
                                         ); ?>
-                                        registered
+                                registered
 
-                                        · <?= (int) ($groupRow['is_active'] ?? 0) === 1
+                                · <?= (int) ($groupRow['is_active'] ?? 0) === 1
                                             ? 'Active'
                                             : 'Inactive'; ?>
 
-                                        <?php if ($groupOfferingTitles !== []): ?>
-                                            · Includes:
-                                            <?= e(
+                                <?php if ($groupOfferingTitles !== []): ?>
+                                · Includes:
+                                <?= e(
                                                 implode(
                                                     ', ',
                                                     $groupOfferingTitles
                                                 )
                                             ); ?>
-                                        <?php endif; ?>
-                                    </span>
+                                <?php endif; ?>
+                            </span>
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            </div>
+                        </div>
 
                         <?php endif; ?>
 
@@ -1862,74 +1773,74 @@ $staffHeroUrl =
 
 
 <script>
-(function () {
-    'use strict';
+    (function() {
+        'use strict';
 
-    var schoolYear =
-        document.querySelector(
-            '[data-group-school-year]'
-        );
+        var schoolYear =
+            document.querySelector(
+                '[data-group-school-year]'
+            );
 
-    var yearLevel =
-        document.querySelector(
-            '[data-group-year-level]'
-        );
+        var yearLevel =
+            document.querySelector(
+                '[data-group-year-level]'
+            );
 
-    var choices =
-        document.querySelectorAll(
-            '[data-offering-choice]'
-        );
+        var choices =
+            document.querySelectorAll(
+                '[data-offering-choice]'
+            );
 
-    if (
-        !schoolYear
-        || !yearLevel
-        || !choices.length
-    ) {
-        return;
-    }
+        if (
+            !schoolYear ||
+            !yearLevel ||
+            !choices.length
+        ) {
+            return;
+        }
 
-    function syncOfferingChoices() {
-        var schoolYearId =
-            schoolYear.value;
+        function syncOfferingChoices() {
+            var schoolYearId =
+                schoolYear.value;
 
-        var yearGroupId =
-            yearLevel.value;
+            var yearGroupId =
+                yearLevel.value;
 
-        choices.forEach(function (choice) {
-            var matches =
-                schoolYearId !== ''
-                && yearGroupId !== ''
-                && choice.dataset.schoolYearId === schoolYearId
-                && choice.dataset.yearGroupId === yearGroupId;
+            choices.forEach(function(choice) {
+                var matches =
+                    schoolYearId !== '' &&
+                    yearGroupId !== '' &&
+                    choice.dataset.schoolYearId === schoolYearId &&
+                    choice.dataset.yearGroupId === yearGroupId;
 
-            choice.hidden =
-                !matches;
+                choice.hidden = !matches;
 
-            if (!matches) {
-                var checkbox =
-                    choice.querySelector(
-                        'input[type="checkbox"]'
-                    );
+                if (!matches) {
+                    var checkbox =
+                        choice.querySelector(
+                            'input[type="checkbox"]'
+                        );
 
-                if (checkbox) {
-                    checkbox.checked = false;
+                    if (checkbox) {
+                        checkbox.checked = false;
+                    }
                 }
-            }
-        });
-    }
+            });
+        }
 
-    schoolYear.addEventListener(
-        'change',
-        syncOfferingChoices
-    );
+        schoolYear.addEventListener(
+            'change',
+            syncOfferingChoices
+        );
 
-    yearLevel.addEventListener(
-        'change',
-        syncOfferingChoices
-    );
+        yearLevel.addEventListener(
+            'change',
+            syncOfferingChoices
+        );
 
-    syncOfferingChoices();
-})();
+        syncOfferingChoices();
+    })();
+
 </script>
 
 <?php

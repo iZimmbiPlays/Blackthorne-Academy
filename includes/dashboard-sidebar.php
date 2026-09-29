@@ -91,29 +91,31 @@ $renderDashboardSidebarLink = static function (
 
     if ($isDisabled || $href === '') {
         ?>
-        <span class="<?= e(implode(' ', $classes)); ?>" aria-disabled="true">
-            <span class="dashboard-nav-icon" aria-hidden="true"><?= e($icon); ?></span>
-            <span class="dashboard-nav-copy">
-                <span class="dashboard-nav-label"><?= e($label); ?></span>
-                <?php if ($meta !== ''): ?>
-                    <span class="dashboard-nav-meta"<?= $metaColor !== '' ? ' style="color:' . e($metaColor) . ';"' : ''; ?>><?= e($meta); ?></span>
-                <?php endif; ?>
-            </span>
-        </span>
-        <?php
+<span class="<?= e(implode(' ', $classes)); ?>" aria-disabled="true">
+    <span class="dashboard-nav-icon" aria-hidden="true"><?= e($icon); ?></span>
+    <span class="dashboard-nav-copy">
+        <span class="dashboard-nav-label"><?= e($label); ?></span>
+        <?php if ($meta !== ''): ?>
+        <span class="dashboard-nav-meta"
+            <?= $metaColor !== '' ? ' style="color:' . e($metaColor) . ';"' : ''; ?>><?= e($meta); ?></span>
+        <?php endif; ?>
+    </span>
+</span>
+<?php
         return;
     }
     ?>
-    <a class="<?= e(implode(' ', $classes)); ?>" href="<?= e($href); ?>"<?= $isActive ? ' aria-current="page"' : ''; ?>>
-        <span class="dashboard-nav-icon" aria-hidden="true"><?= e($icon); ?></span>
-        <span class="dashboard-nav-copy">
-            <span class="dashboard-nav-label"><?= e($label); ?></span>
-            <?php if ($meta !== ''): ?>
-                <span class="dashboard-nav-meta"<?= $metaColor !== '' ? ' style="color:' . e($metaColor) . ';"' : ''; ?>><?= e($meta); ?></span>
-            <?php endif; ?>
-        </span>
-    </a>
-    <?php
+<a class="<?= e(implode(' ', $classes)); ?>" href="<?= e($href); ?>" <?= $isActive ? ' aria-current="page"' : ''; ?>>
+    <span class="dashboard-nav-icon" aria-hidden="true"><?= e($icon); ?></span>
+    <span class="dashboard-nav-copy">
+        <span class="dashboard-nav-label"><?= e($label); ?></span>
+        <?php if ($meta !== ''): ?>
+        <span class="dashboard-nav-meta"
+            <?= $metaColor !== '' ? ' style="color:' . e($metaColor) . ';"' : ''; ?>><?= e($meta); ?></span>
+        <?php endif; ?>
+    </span>
+</a>
+<?php
 };
 
 $renderDashboardSidebarGroup = static function (array $group) use (
@@ -141,32 +143,33 @@ $renderDashboardSidebarGroup = static function (array $group) use (
     }
 
     ?>
-    <section class="dashboard-nav-group<?= $groupActive ? ' is-active' : ''; ?>">
-        <?php if ($href !== ''): ?>
-            <a class="dashboard-nav-group-heading" href="<?= e($href); ?>"<?= $dashboardSidebarItemIsActive($group) ? ' aria-current="page"' : ''; ?>>
-                <span><?= e($label); ?></span>
-                <?php if ($meta !== ''): ?>
-                    <small><?= e($meta); ?></small>
-                <?php endif; ?>
-            </a>
-        <?php else: ?>
-            <div class="dashboard-nav-group-heading is-static">
-                <span><?= e($label); ?></span>
-                <?php if ($meta !== ''): ?>
-                    <small><?= e($meta); ?></small>
-                <?php endif; ?>
-            </div>
+<section class="dashboard-nav-group<?= $groupActive ? ' is-active' : ''; ?>">
+    <?php if ($href !== ''): ?>
+    <a class="dashboard-nav-group-heading" href="<?= e($href); ?>"
+        <?= $dashboardSidebarItemIsActive($group) ? ' aria-current="page"' : ''; ?>>
+        <span><?= e($label); ?></span>
+        <?php if ($meta !== ''): ?>
+        <small><?= e($meta); ?></small>
         <?php endif; ?>
+    </a>
+    <?php else: ?>
+    <div class="dashboard-nav-group-heading is-static">
+        <span><?= e($label); ?></span>
+        <?php if ($meta !== ''): ?>
+        <small><?= e($meta); ?></small>
+        <?php endif; ?>
+    </div>
+    <?php endif; ?>
 
-        <?php if ($children !== []): ?>
-            <div class="dashboard-nav-children">
-                <?php foreach ($children as $child): ?>
-                    <?php $renderDashboardSidebarLink($child, true); ?>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-    </section>
-    <?php
+    <?php if ($children !== []): ?>
+    <div class="dashboard-nav-children">
+        <?php foreach ($children as $child): ?>
+        <?php $renderDashboardSidebarLink($child, true); ?>
+        <?php endforeach; ?>
+    </div>
+    <?php endif; ?>
+</section>
+<?php
 };
 ?>
 
@@ -179,26 +182,26 @@ $renderDashboardSidebarGroup = static function (array $group) use (
 
         <nav class="dashboard-workspace-nav" aria-label="<?= e($dashboardSidebarTitle); ?>">
             <?php foreach ($dashboardSidebarItems as $item): ?>
-                <?php if (!is_array($item)): ?>
-                    <?php continue; ?>
-                <?php endif; ?>
+            <?php if (!is_array($item)): ?>
+            <?php continue; ?>
+            <?php endif; ?>
 
-                <?php if (($item['type'] ?? '') === 'group'): ?>
-                    <?php $renderDashboardSidebarGroup($item); ?>
-                <?php else: ?>
-                    <?php $renderDashboardSidebarLink($item); ?>
-                <?php endif; ?>
+            <?php if (($item['type'] ?? '') === 'group'): ?>
+            <?php $renderDashboardSidebarGroup($item); ?>
+            <?php else: ?>
+            <?php $renderDashboardSidebarLink($item); ?>
+            <?php endif; ?>
             <?php endforeach; ?>
         </nav>
 
         <?php if ($dashboardSidebarFooter !== []): ?>
-            <div class="dashboard-workspace-sidebar-footer">
-                <?php foreach ($dashboardSidebarFooter as $item): ?>
-                    <?php if (is_array($item)): ?>
-                        <?php $renderDashboardSidebarLink($item); ?>
-                    <?php endif; ?>
-                <?php endforeach; ?>
-            </div>
+        <div class="dashboard-workspace-sidebar-footer">
+            <?php foreach ($dashboardSidebarFooter as $item): ?>
+            <?php if (is_array($item)): ?>
+            <?php $renderDashboardSidebarLink($item); ?>
+            <?php endif; ?>
+            <?php endforeach; ?>
+        </div>
         <?php endif; ?>
     </div>
 </aside>

@@ -323,10 +323,7 @@ require INCLUDES_PATH . '/header.php';
 
 ?>
 
-<main
-    id="main-content"
-    class="living-ledger-page"
->
+<main id="main-content" class="living-ledger-page">
 
     <section class="living-ledger-intro">
         <div class="section-inner">
@@ -345,10 +342,7 @@ require INCLUDES_PATH . '/header.php';
                 their House.
             </p>
 
-            <div
-                class="living-ledger-summary"
-                aria-label="Living Ledger online summary"
-            >
+            <div class="living-ledger-summary" aria-label="Living Ledger online summary">
                 <span>
                     <strong><?= number_format($totalOnlineMembers); ?></strong>
                     <?= $totalOnlineMembers === 1
@@ -358,14 +352,14 @@ require INCLUDES_PATH . '/header.php';
                 </span>
 
                 <?php if ($totalOnlineStaff > 0): ?>
-                    <span aria-hidden="true">
-                        •
-                    </span>
+                <span aria-hidden="true">
+                    •
+                </span>
 
-                    <span>
-                        <strong><?= number_format($totalOnlineStaff); ?></strong>
-                        staff
-                    </span>
+                <span>
+                    <strong><?= number_format($totalOnlineStaff); ?></strong>
+                    staff
+                </span>
                 <?php endif; ?>
             </div>
 
@@ -374,9 +368,7 @@ require INCLUDES_PATH . '/header.php';
 
 
     <section class="living-ledger-content">
-        <div
-            class="section-inner member-home-layout living-ledger-layout"
-        >
+        <div class="section-inner member-home-layout living-ledger-layout">
 
             <?php
             require
@@ -388,22 +380,22 @@ require INCLUDES_PATH . '/header.php';
 
                 <?php if ($houses === []): ?>
 
-                    <section class="living-ledger-empty-page">
-                        <h2>
-                            The Ledger is quiet.
-                        </h2>
+                <section class="living-ledger-empty-page">
+                    <h2>
+                        The Ledger is quiet.
+                    </h2>
 
-                        <p>
-                            No active Houses are currently available.
-                        </p>
-                    </section>
+                    <p>
+                        No active Houses are currently available.
+                    </p>
+                </section>
 
                 <?php else: ?>
 
-                    <div class="living-ledger-houses">
+                <div class="living-ledger-houses">
 
-                        <?php foreach ($houses as $house): ?>
-                            <?php
+                    <?php foreach ($houses as $house): ?>
+                    <?php
                             $houseId =
                                 (int) (
                                     $house['id']
@@ -551,44 +543,31 @@ require INCLUDES_PATH . '/header.php';
                                 . ';';
                             ?>
 
-                            <section
-                                class="living-ledger-house"
-                                style="<?= e($houseStyle); ?>"
-                                aria-labelledby="living-ledger-house-<?= $houseId; ?>"
-                            >
+                    <section class="living-ledger-house" style="<?= e($houseStyle); ?>"
+                        aria-labelledby="living-ledger-house-<?= $houseId; ?>">
 
-                                <header class="living-ledger-house-header">
+                        <header class="living-ledger-house-header">
 
-                                    <div class="living-ledger-house-crest-wrap">
+                            <div class="living-ledger-house-crest-wrap">
 
-                                        <?php if ($crestUrl !== null): ?>
+                                <?php if ($crestUrl !== null): ?>
 
-                                            <picture>
-                                                <?php if (
+                                <picture>
+                                    <?php if (
                                                     $crestWebpUrl !== null
                                                     && $crestWebpUrl !== $crestUrl
                                                 ): ?>
-                                                    <source
-                                                        srcset="<?= e($crestWebpUrl); ?>"
-                                                        type="image/webp"
-                                                    >
-                                                <?php endif; ?>
+                                    <source srcset="<?= e($crestWebpUrl); ?>" type="image/webp">
+                                    <?php endif; ?>
 
-                                                <img
-                                                    class="living-ledger-house-crest"
-                                                    src="<?= e($crestUrl); ?>"
-                                                    alt="<?= e($houseName . ' House crest'); ?>"
-                                                    loading="lazy"
-                                                >
-                                            </picture>
+                                    <img class="living-ledger-house-crest" src="<?= e($crestUrl); ?>"
+                                        alt="<?= e($houseName . ' House crest'); ?>" loading="lazy">
+                                </picture>
 
-                                        <?php else: ?>
+                                <?php else: ?>
 
-                                            <span
-                                                class="living-ledger-house-crest-fallback"
-                                                aria-hidden="true"
-                                            >
-                                                <?= e(
+                                <span class="living-ledger-house-crest-fallback" aria-hidden="true">
+                                    <?= e(
                                                     function_exists(
                                                         'mb_substr'
                                                     )
@@ -609,62 +588,60 @@ require INCLUDES_PATH . '/header.php';
                                                             )
                                                         )
                                                 ); ?>
-                                            </span>
+                                </span>
 
-                                        <?php endif; ?>
+                                <?php endif; ?>
 
-                                    </div>
+                            </div>
 
-                                    <div class="living-ledger-house-heading">
+                            <div class="living-ledger-house-heading">
 
-                                        <p class="living-ledger-house-kicker">
-                                            House
-                                        </p>
+                                <p class="living-ledger-house-kicker">
+                                    House
+                                </p>
 
-                                        <h2
-                                            id="living-ledger-house-<?= $houseId; ?>"
-                                        >
-                                            <?= e($houseName); ?>
-                                        </h2>
+                                <h2 id="living-ledger-house-<?= $houseId; ?>">
+                                    <?= e($houseName); ?>
+                                </h2>
 
-                                        <p class="living-ledger-house-count">
-                                            <?php if ($houseMembers === []): ?>
-                                                No one currently recorded
-                                                in these halls.
-                                            <?php else: ?>
-                                                <?= number_format(
+                                <p class="living-ledger-house-count">
+                                    <?php if ($houseMembers === []): ?>
+                                    No one currently recorded
+                                    in these halls.
+                                    <?php else: ?>
+                                    <?= number_format(
                                                     count(
                                                         $houseMembers
                                                     )
                                                 ); ?>
-                                                <?= count($houseMembers) === 1
+                                    <?= count($houseMembers) === 1
                                                     ? 'member'
                                                     : 'members'; ?>
-                                                currently online
-                                            <?php endif; ?>
-                                        </p>
+                                    currently online
+                                    <?php endif; ?>
+                                </p>
 
-                                    </div>
+                            </div>
 
-                                </header>
+                        </header>
 
 
-                                <div class="living-ledger-house-body">
+                        <div class="living-ledger-house-body">
 
-                                    <?php if ($houseMembers === []): ?>
+                            <?php if ($houseMembers === []): ?>
 
-                                        <p class="living-ledger-house-empty">
-                                            The ink remains still. No
-                                            <?= e($houseName); ?> members are
-                                            currently online.
-                                        </p>
+                            <p class="living-ledger-house-empty">
+                                The ink remains still. No
+                                <?= e($houseName); ?> members are
+                                currently online.
+                            </p>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <div class="living-ledger-member-list">
+                            <div class="living-ledger-member-list">
 
-                                            <?php foreach ($houseMembers as $member): ?>
-                                                <?php
+                                <?php foreach ($houseMembers as $member): ?>
+                                <?php
                                                 $memberId =
                                                     (int) (
                                                         $member[
@@ -718,50 +695,43 @@ require INCLUDES_PATH . '/header.php';
                                                 }
                                                 ?>
 
-                                                <div class="living-ledger-member">
+                                <div class="living-ledger-member">
 
-                                                    <span
-                                                        class="living-ledger-online-mark"
-                                                        aria-hidden="true"
-                                                    ></span>
+                                    <span class="living-ledger-online-mark" aria-hidden="true"></span>
 
-                                                    <a
-                                                        class="living-ledger-member-name"
-                                                        href="<?= e(
+                                    <a class="living-ledger-member-name" href="<?= e(
                                                             url(
                                                                 'profile.php?u='
                                                                 . $memberId
                                                             )
-                                                        ); ?>"
-                                                        <?= user_display_name_style_attr(
+                                                        ); ?>" <?= user_display_name_style_attr(
                                                             $memberId,
                                                             $houseDisplayColor
-                                                        ); ?>
-                                                    >
-                                                        <?= e($memberName); ?>
-                                                    </a>
+                                                        ); ?>>
+                                        <?= e($memberName); ?>
+                                    </a>
 
-                                                    <?php if ($isStaff): ?>
-                                                        <span class="living-ledger-staff-mark">
-                                                            <?= e($staffRoleName); ?>
-                                                        </span>
-                                                    <?php endif; ?>
-
-                                                </div>
-
-                                            <?php endforeach; ?>
-
-                                        </div>
-
+                                    <?php if ($isStaff): ?>
+                                    <span class="living-ledger-staff-mark">
+                                        <?= e($staffRoleName); ?>
+                                    </span>
                                     <?php endif; ?>
 
                                 </div>
 
-                            </section>
+                                <?php endforeach; ?>
 
-                        <?php endforeach; ?>
+                            </div>
 
-                    </div>
+                            <?php endif; ?>
+
+                        </div>
+
+                    </section>
+
+                    <?php endforeach; ?>
+
+                </div>
 
                 <?php endif; ?>
 

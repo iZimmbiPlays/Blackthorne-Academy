@@ -565,16 +565,10 @@ require
 
 ?>
 
-<main
-    id="main-content"
-    class="enroll-page verification-page"
->
+<main id="main-content" class="enroll-page verification-page">
 
 
-    <section
-        class="enroll-intro verification-section"
-        aria-labelledby="verification-heading"
-    >
+    <section class="enroll-intro verification-section" aria-labelledby="verification-heading">
 
         <div class="section-inner">
 
@@ -587,14 +581,8 @@ require
 
                 <div class="enroll-intro-mark">
 
-                    <img
-                        src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                        alt=""
-                        width="110"
-                        height="110"
-                        loading="eager"
-                        decoding="async"
-                    >
+                    <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" width="110" height="110"
+                        loading="eager" decoding="async">
 
                 </div>
 
@@ -609,23 +597,23 @@ require
                         $verificationSuccess
                     ): ?>
 
-                        Account Verified
+                    Account Verified
 
                     <?php elseif (
                         $verificationAlreadyUsed
                     ): ?>
 
-                        Verification Complete
+                    Verification Complete
 
                     <?php elseif (
                         !$verificationAttempted
                     ): ?>
 
-                        Manual Verification
+                    Manual Verification
 
                     <?php else: ?>
 
-                        Account Verification
+                    Account Verification
 
                     <?php endif; ?>
 
@@ -642,23 +630,23 @@ require
                         $verificationSuccess
                     ): ?>
 
-                        The gates are open.
+                    The gates are open.
 
                     <?php elseif (
                         $verificationAlreadyUsed
                     ): ?>
 
-                        You have already crossed the threshold.
+                    You have already crossed the threshold.
 
                     <?php elseif (
                         !$verificationAttempted
                     ): ?>
 
-                        Complete your verification.
+                    Complete your verification.
 
                     <?php else: ?>
 
-                        The gates remain closed.
+                    The gates remain closed.
 
                     <?php endif; ?>
 
@@ -678,10 +666,7 @@ require
                      Ornament
                 ===================================================== -->
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>
@@ -698,210 +683,177 @@ require
                     $verificationAlreadyUsed
                 ): ?>
 
-                    <p class="enroll-age-notice">
-                        Your academy account is ready.
-                    </p>
+                <p class="enroll-age-notice">
+                    Your academy account is ready.
+                </p>
 
 
-                    <div class="verification-actions">
+                <div class="verification-actions">
 
-                        <a
-                            href="<?= e(LOGIN_URL); ?>"
-                            class="button button-primary"
-                        >
-                            Enter the Academy
-                        </a>
+                    <a href="<?= e(LOGIN_URL); ?>" class="button button-primary">
+                        Enter the Academy
+                    </a>
 
-                    </div>
+                </div>
 
 
                 <?php else: ?>
 
 
-                    <?php if (
+                <?php if (
                         $linkTokenReady
                     ): ?>
 
-                        <div class="enroll-form-panel">
+                <div class="enroll-form-panel">
 
-                            <header class="enroll-form-header">
+                    <header class="enroll-form-header">
 
-                                <p class="academy-overline">
-                                    Verification Ready
-                                </p>
+                        <p class="academy-overline">
+                            Verification Ready
+                        </p>
 
-                                <h2>
-                                    Confirm your email address
-                                </h2>
+                        <h2>
+                            Confirm your email address
+                        </h2>
 
-                                <p>
-                                    Your verification link is valid. Press the button below to activate your Blackthorne Academy account.
-                                </p>
+                        <p>
+                            Your verification link is valid. Press the button below to activate your Blackthorne Academy
+                            account.
+                        </p>
 
-                            </header>
-
-
-                            <form
-                                class="enroll-form"
-                                action="<?= e(url('verify.php')); ?>"
-                                method="post"
-                            >
-
-                                <?= csrf_field(); ?>
-
-                                <input
-                                    type="hidden"
-                                    name="verification_token"
-                                    value="<?= e($linkToken); ?>"
-                                >
+                    </header>
 
 
-                                <div class="enroll-submit-area">
+                    <form class="enroll-form" action="<?= e(url('verify.php')); ?>" method="post">
 
-                                    <button
-                                        type="submit"
-                                        class="button button-primary button-large"
-                                    >
-                                        Verify My Academy Account
-                                    </button>
+                        <?= csrf_field(); ?>
 
-                                </div>
+                        <input type="hidden" name="verification_token" value="<?= e($linkToken); ?>">
 
-                            </form>
+
+                        <div class="enroll-submit-area">
+
+                            <button type="submit" class="button button-primary button-large">
+                                Verify My Academy Account
+                            </button>
 
                         </div>
 
-                    <?php endif; ?>
+                    </form>
+
+                </div>
+
+                <?php endif; ?>
 
 
-                    <?php if (
+                <?php if (
                         $showManualVerificationForm
                     ): ?>
 
-                        <!-- =============================================
+                <!-- =============================================
                              Manual Verification Form
                         ============================================== -->
 
-                        <div class="enroll-form-panel">
+                <div class="enroll-form-panel">
 
-                            <header class="enroll-form-header">
+                    <header class="enroll-form-header">
 
-                                <p class="academy-overline">
-                                    Verification Code
-                                </p>
-
-
-                                <h2>
-                                    Enter your code manually
-                                </h2>
+                        <p class="academy-overline">
+                            Verification Code
+                        </p>
 
 
-                                <p>
-                                    Copy the verification code from your email
-                                    and paste it below. Spaces and hyphens are
-                                    ignored.
-                                </p>
-
-                            </header>
+                        <h2>
+                            Enter your code manually
+                        </h2>
 
 
-                            <form
-                                class="enroll-form"
-                                action="<?= e(url('verify.php')); ?>"
-                                method="post"
-                            >
+                        <p>
+                            Copy the verification code from your email
+                            and paste it below. Spaces and hyphens are
+                            ignored.
+                        </p>
 
-                                <?= csrf_field(); ?>
-
-
-                                <div class="form-field">
-
-                                    <label for="verification-code">
-                                        Verification Code
-                                    </label>
+                    </header>
 
 
-                                    <input
-                                        type="text"
-                                        id="verification-code"
-                                        name="verification_code"
-                                        maxlength="96"
-                                        autocomplete="off"
-                                        autocapitalize="characters"
-                                        spellcheck="false"
-                                        inputmode="text"
-                                        required
-                                    >
+                    <form class="enroll-form" action="<?= e(url('verify.php')); ?>" method="post">
+
+                        <?= csrf_field(); ?>
 
 
-                                    <small class="field-help">
-                                        Paste the full code exactly as it appears
-                                        in your verification email.
-                                    </small>
+                        <div class="form-field">
 
-                                </div>
+                            <label for="verification-code">
+                                Verification Code
+                            </label>
 
 
-                                <div class="enroll-submit-area">
+                            <input type="text" id="verification-code" name="verification_code" maxlength="96"
+                                autocomplete="off" autocapitalize="characters" spellcheck="false" inputmode="text"
+                                required>
 
-                                    <button
-                                        type="submit"
-                                        class="button button-primary button-large"
-                                    >
-                                        Verify My Account
-                                    </button>
 
-                                </div>
-
-                            </form>
+                            <small class="field-help">
+                                Paste the full code exactly as it appears
+                                in your verification email.
+                            </small>
 
                         </div>
 
 
-                    <?php endif; ?>
+                        <div class="enroll-submit-area">
+
+                            <button type="submit" class="button button-primary button-large">
+                                Verify My Account
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
 
 
-                    <!-- =============================================
+                <?php endif; ?>
+
+
+                <!-- =============================================
                          Failure / Support Actions
                     ============================================== -->
 
-                    <?php if (
+                <?php if (
                         $verificationExpired
                     ): ?>
 
-                        <p class="enroll-age-notice">
-                            The original verification credential can no longer
-                            be used.
-                        </p>
+                <p class="enroll-age-notice">
+                    The original verification credential can no longer
+                    be used.
+                </p>
 
-                    <?php else: ?>
+                <?php else: ?>
 
-                        <p class="enroll-age-notice">
-                            You can use either the email link or the manual
-                            verification code.
-                        </p>
+                <p class="enroll-age-notice">
+                    You can use either the email link or the manual
+                    verification code.
+                </p>
 
-                    <?php endif; ?>
-
-
-                    <div class="verification-actions">
-
-                        <a
-                            href="<?= e(url('contact.php?subject=account#contact-form')); ?>"
-                            class="button button-secondary"
-                        >
-                            Contact Academy Support
-                        </a>
+                <?php endif; ?>
 
 
-                        <a
-                            href="<?= e(LOGIN_URL); ?>"
-                            class="button button-secondary"
-                        >
-                            Academy Login
-                        </a>
+                <div class="verification-actions">
 
-                    </div>
+                    <a href="<?= e(url('contact.php?subject=account#contact-form')); ?>"
+                        class="button button-secondary">
+                        Contact Academy Support
+                    </a>
+
+
+                    <a href="<?= e(LOGIN_URL); ?>" class="button button-secondary">
+                        Academy Login
+                    </a>
+
+                </div>
 
 
                 <?php endif; ?>

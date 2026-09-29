@@ -547,101 +547,69 @@ $easternDateTime =
 
 ?>
 
-        <button
-            class="member-sidebar-mobile-toggle"
-            type="button"
-            aria-expanded="false"
-            aria-controls="member-sidebar-drawer"
-            data-member-sidebar-open
-        >
-            <span aria-hidden="true">☰</span>
-            <span>Open Sidebar</span>
+<button class="member-sidebar-mobile-toggle" type="button" aria-expanded="false" aria-controls="member-sidebar-drawer"
+    data-member-sidebar-open>
+    <span aria-hidden="true">☰</span>
+    <span>Open Sidebar</span>
+</button>
+
+<div class="member-sidebar-backdrop" data-member-sidebar-backdrop hidden></div>
+
+<aside class="member-sidebar" id="member-sidebar-drawer" aria-label="Member and academy navigation">
+
+    <div class="member-sidebar-mobile-header">
+        <span>Academy Sidebar</span>
+
+        <button class="member-sidebar-mobile-close" type="button" aria-label="Close sidebar" data-member-sidebar-close>
+            <span aria-hidden="true">×</span>
         </button>
-
-        <div
-            class="member-sidebar-backdrop"
-            data-member-sidebar-backdrop
-            hidden
-        ></div>
-
-        <aside
-            class="member-sidebar"
-            id="member-sidebar-drawer"
-            aria-label="Member and academy navigation"
-        >
-
-            <div class="member-sidebar-mobile-header">
-                <span>Academy Sidebar</span>
-
-                <button
-                    class="member-sidebar-mobile-close"
-                    type="button"
-                    aria-label="Close sidebar"
-                    data-member-sidebar-close
-                >
-                    <span aria-hidden="true">×</span>
-                </button>
-            </div>
+    </div>
 
 
-            <!-- ========================================================
+    <!-- ========================================================
                  USER INFORMATION
             ========================================================= -->
 
-            <section class="sidebar-panel">
+    <section class="sidebar-panel">
 
-                <div class="sidebar-titlebar">
+        <div class="sidebar-titlebar">
 
-                    <h2>
-                        <a
-                            href="<?= e($profileUrl); ?>"
-                            <?php if ($sidebarHouseDisplayColor !== null): ?>
-                                style="color: <?= e($sidebarHouseDisplayColor); ?>;"
-                            <?php endif; ?>
-                        >
-                            <?= e(
+            <h2>
+                <a href="<?= e($profileUrl); ?>" <?php if ($sidebarHouseDisplayColor !== null): ?>
+                    style="color: <?= e($sidebarHouseDisplayColor); ?>;" <?php endif; ?>>
+                    <?= e(
                                 (string) $sidebarData[
                                     'display_name'
                                 ]
                             ); ?>
-                        </a>
-                    </h2>
+                </a>
+            </h2>
 
-                    <button
-                        class="sidebar-collapse-toggle"
-                        type="button"
-                        aria-expanded="true"
-                        aria-controls="sidebar-profile-content"
-                    >
+            <button class="sidebar-collapse-toggle" type="button" aria-expanded="true"
+                aria-controls="sidebar-profile-content">
 
-                        <span class="sr-only">
-                            Toggle profile information
-                        </span>
+                <span class="sr-only">
+                    Toggle profile information
+                </span>
 
-                        <span
-                            class="sidebar-toggle-mark"
-                            aria-hidden="true"
-                        >
-                            −
-                        </span>
+                <span class="sidebar-toggle-mark" aria-hidden="true">
+                    −
+                </span>
 
-                    </button>
+            </button>
 
-                </div>
+        </div>
 
 
-                <div
-                    class="sidebar-panel-content sidebar-profile-details"
-                    id="sidebar-profile-content"
-                >
+        <div class="sidebar-panel-content sidebar-profile-details" id="sidebar-profile-content">
 
-                    <?php if (
+            <?php if (
                         is_array(
                             $sidebarData['house']
                         )
                     ): ?>
 
-                        <?php
+            <?php
 
                         $houseColor =
                             $sidebarHouseDisplayColor;
@@ -661,340 +629,304 @@ $easternDateTime =
 
                         ?>
 
-                        <p>
+            <p>
 
-                            <span
-                                class="sidebar-house-name"
-                                <?php if ($houseColor !== null): ?>
-                                    style="color: <?= e($houseColor); ?>;"
-                                <?php endif; ?>
-                            >
-                                <?= e($sidebarHouseName); ?>
-                            </span>
+                <span class="sidebar-house-name" <?php if ($houseColor !== null): ?>
+                    style="color: <?= e($houseColor); ?>;" <?php endif; ?>>
+                    <?= e($sidebarHouseName); ?>
+                </span>
 
-                        </p>
+            </p>
 
-                    <?php else: ?>
+            <?php else: ?>
 
-                        <p>
+            <p>
 
-                            <a href="<?= e(
+                <a href="<?= e(
                                 url(
                                     'sorting-ceremony.php'
                                 )
                             ); ?>">
-                                Get Sorted
-                            </a>
+                    Get Sorted
+                </a>
 
-                        </p>
+            </p>
 
-                    <?php endif; ?>
+            <?php endif; ?>
 
 
-                    <p class="sidebar-user-role">
+            <p class="sidebar-user-role">
 
-                        <em>
-                            <?= e(
+                <em>
+                    <?= e(
                                 (string) $sidebarData[
                                     'role_name'
                                 ]
                             ); ?>
-                        </em>
+                </em>
 
-                    </p>
-
-
-                    <div class="sidebar-user-points">
-
-                        <p>
-                            <span>
-                                House Points:
-                            </span>
-
-                            <?= number_format($housePoints); ?>
-                        </p>
-
-                        <p>
-                            <span>
-                                HW Points:
-                            </span>
-
-                            <?= number_format($homeworkPoints); ?>
-                        </p>
-
-                    </div>
+            </p>
 
 
-                    <?php if (
+            <div class="sidebar-user-points">
+
+                <p>
+                    <span>
+                        House Points:
+                    </span>
+
+                    <?= number_format($housePoints); ?>
+                </p>
+
+                <p>
+                    <span>
+                        HW Points:
+                    </span>
+
+                    <?= number_format($homeworkPoints); ?>
+                </p>
+
+            </div>
+
+
+            <?php if (
                         is_string(
                             $sidebarData['class_year']
                         )
                     ): ?>
 
-                        <p class="sidebar-class-year">
+            <p class="sidebar-class-year">
 
-                            <?= e(
+                <?= e(
                                 $sidebarData['class_year']
                             ); ?>
 
-                        </p>
+            </p>
 
-                    <?php endif; ?>
+            <?php endif; ?>
 
-                </div>
+        </div>
 
-            </section>
+    </section>
 
 
-            <?php if ($showModeratorTools): ?>
+    <?php if ($showModeratorTools): ?>
 
-                <!-- ====================================================
+    <!-- ====================================================
                      MODERATOR TOOLS
                 ===================================================== -->
 
-                <section class="sidebar-panel">
+    <section class="sidebar-panel">
 
-                    <div class="sidebar-titlebar">
+        <div class="sidebar-titlebar">
 
-                        <h2>
-                            Moderator Tools
-                        </h2>
+            <h2>
+                Moderator Tools
+            </h2>
 
-                        <button
-                            class="sidebar-collapse-toggle"
-                            type="button"
-                            aria-expanded="true"
-                            aria-controls="sidebar-moderator-tools-content"
-                        >
+            <button class="sidebar-collapse-toggle" type="button" aria-expanded="true"
+                aria-controls="sidebar-moderator-tools-content">
 
-                            <span class="sr-only">
-                                Toggle Moderator Tools links
-                            </span>
+                <span class="sr-only">
+                    Toggle Moderator Tools links
+                </span>
 
-                            <span
-                                class="sidebar-toggle-mark"
-                                aria-hidden="true"
-                            >
-                                −
-                            </span>
+                <span class="sidebar-toggle-mark" aria-hidden="true">
+                    −
+                </span>
 
-                        </button>
+            </button>
 
-                    </div>
+        </div>
 
 
-                    <nav
-                        class="sidebar-panel-content sidebar-link-list"
-                        id="sidebar-moderator-tools-content"
-                        aria-label="Moderator Tools"
-                    >
+        <nav class="sidebar-panel-content sidebar-link-list" id="sidebar-moderator-tools-content"
+            aria-label="Moderator Tools">
 
-                        <a href="<?= e(
+            <a href="<?= e(
                             url(
                                 'forums.php'
                             )
                         ); ?>">
-                            Forums
-                        </a>
+                Forums
+            </a>
 
-                        <?php if ($canOpenForumManagement): ?>
+            <?php if ($canOpenForumManagement): ?>
 
-                            <a href="<?= e(
+            <a href="<?= e(
                                 url(
                                     'admin/forums.php'
                                 )
                             ); ?>">
-                                Forum Management
-                            </a>
-
-                        <?php endif; ?>
-
-
-                        <?php if ($canOpenReportManagement): ?>
-
-                            <a href="<?= e(
-                                url(
-                                    'admin/reports.php'
-                                )
-                            ); ?>">
-                                Reports &amp; Moderation<?php if ($pendingModerationReportCount > 0): ?>
-                                    (<?= number_format($pendingModerationReportCount); ?>)
-                                <?php endif; ?>
-                            </a>
-
-                        <?php endif; ?>
-
-                    </nav>
-
-                </section>
+                Forum Management
+            </a>
 
             <?php endif; ?>
 
 
-            <!-- ========================================================
+            <?php if ($canOpenReportManagement): ?>
+
+            <a href="<?= e(
+                                url(
+                                    'admin/reports.php'
+                                )
+                            ); ?>">
+                Reports &amp; Moderation<?php if ($pendingModerationReportCount > 0): ?>
+                (<?= number_format($pendingModerationReportCount); ?>)
+                <?php endif; ?>
+            </a>
+
+            <?php endif; ?>
+
+        </nav>
+
+    </section>
+
+    <?php endif; ?>
+
+
+    <!-- ========================================================
                  WELCOME
             ========================================================= -->
 
-            <section class="sidebar-panel">
+    <section class="sidebar-panel">
 
-                <div class="sidebar-titlebar">
+        <div class="sidebar-titlebar">
 
-                    <h2>
-                        Welcome
-                    </h2>
+            <h2>
+                Welcome
+            </h2>
 
-                    <button
-                        class="sidebar-collapse-toggle"
-                        type="button"
-                        aria-expanded="true"
-                        aria-controls="sidebar-welcome-content"
-                    >
+            <button class="sidebar-collapse-toggle" type="button" aria-expanded="true"
+                aria-controls="sidebar-welcome-content">
 
-                        <span class="sr-only">
-                            Toggle Welcome links
-                        </span>
+                <span class="sr-only">
+                    Toggle Welcome links
+                </span>
 
-                        <span
-                            class="sidebar-toggle-mark"
-                            aria-hidden="true"
-                        >
-                            −
-                        </span>
+                <span class="sidebar-toggle-mark" aria-hidden="true">
+                    −
+                </span>
 
-                    </button>
+            </button>
 
-                </div>
+        </div>
 
 
-                <nav
-                    class="sidebar-panel-content sidebar-link-list"
-                    id="sidebar-welcome-content"
-                    aria-label="Welcome"
-                >
+        <nav class="sidebar-panel-content sidebar-link-list" id="sidebar-welcome-content" aria-label="Welcome">
 
-                    <?php if (
+            <?php if (
                         $sidebarData['class_year'] === null
                     ): ?>
 
-                        <a href="<?= e(
+            <a href="<?= e(
                             url(
                                 'course.php?slug=academy-orientation'
                             )
                         ); ?>">
-                            Orientation
-                        </a>
+                Orientation
+            </a>
 
-                    <?php endif; ?>
+            <?php endif; ?>
 
 
-                    <?php if (
+            <?php if (
                         $sidebarData['house'] === null
                     ): ?>
 
-                        <a href="<?= e(
+            <a href="<?= e(
                             url(
                                 'sorting-ceremony.php'
                             )
                         ); ?>">
-                            Get Sorted
-                        </a>
+                Get Sorted
+            </a>
 
-                    <?php endif; ?>
+            <?php endif; ?>
 
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'knowledge-base.php'
                         )
                     ); ?>">
-                        Knowledge Base
-                    </a>
+                Knowledge Base
+            </a>
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'faq.php'
                         )
                     ); ?>">
-                        FAQ
-                    </a>
+                FAQ
+            </a>
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'forums.php?board=support'
                         )
                     ); ?>">
-                        Support
-                    </a>
+                Support
+            </a>
 
-                </nav>
+        </nav>
 
-            </section>
+    </section>
 
 
-            <!-- ========================================================
+    <!-- ========================================================
                  INTERACT
             ========================================================= -->
 
-            <section class="sidebar-panel">
+    <section class="sidebar-panel">
 
-                <div class="sidebar-titlebar">
+        <div class="sidebar-titlebar">
 
-                    <h2>
-                        Interact
-                    </h2>
+            <h2>
+                Interact
+            </h2>
 
-                    <button
-                        class="sidebar-collapse-toggle"
-                        type="button"
-                        aria-expanded="true"
-                        aria-controls="sidebar-interact-content"
-                    >
+            <button class="sidebar-collapse-toggle" type="button" aria-expanded="true"
+                aria-controls="sidebar-interact-content">
 
-                        <span class="sr-only">
-                            Toggle Interact links
-                        </span>
+                <span class="sr-only">
+                    Toggle Interact links
+                </span>
 
-                        <span
-                            class="sidebar-toggle-mark"
-                            aria-hidden="true"
-                        >
-                            −
-                        </span>
+                <span class="sidebar-toggle-mark" aria-hidden="true">
+                    −
+                </span>
 
-                    </button>
+            </button>
 
-                </div>
+        </div>
 
 
-                <nav
-                    class="sidebar-panel-content sidebar-link-list"
-                    id="sidebar-interact-content"
-                    aria-label="Interact"
-                >
+        <nav class="sidebar-panel-content sidebar-link-list" id="sidebar-interact-content" aria-label="Interact">
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'messages.php'
                         )
                     ); ?>">
-                        Messages<?php if (
+                Messages<?php if (
                             (int) $sidebarData[
                                 'unread_messages'
                             ] > 0
                         ): ?>
-                            (<?= number_format(
+                (<?= number_format(
                                 (int) $sidebarData[
                                     'unread_messages'
                                 ]
                             ); ?>)<?php endif; ?>
-                    </a>
+            </a>
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'friends.php'
                         )
                     ); ?>">
-                        Friends<?php if (
+                Friends<?php if (
                             is_int(
                                 $sidebarData[
                                     'online_friends'
@@ -1005,58 +937,58 @@ $easternDateTime =
                                 'online_friends'
                             ] > 0
                         ): ?>
-                            (<?= number_format(
+                (<?= number_format(
                                 $sidebarData[
                                     'online_friends'
                                 ]
                             ); ?>)<?php endif; ?>
-                    </a>
+            </a>
 
-                    <?php if (is_array($sidebarData['house'])): ?>
-                        <a href="<?= e(url('common-room.php')); ?>">
-                            Common Room
-                        </a>
-                    <?php endif; ?>
+            <?php if (is_array($sidebarData['house'])): ?>
+            <a href="<?= e(url('common-room.php')); ?>">
+                Common Room
+            </a>
+            <?php endif; ?>
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'living-ledger.php'
                         )
                     ); ?>">
-                        The Living Ledger
-                    </a>
+                The Living Ledger
+            </a>
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'clubs.php'
                         )
                     ); ?>">
-                        Clubs
-                    </a>
+                Clubs
+            </a>
 
-                    <a href="<?= e(
+            <a href="<?= e(
                         url(
                             'dorms.php'
                         )
                     ); ?>">
-                        Dorms
-                    </a>
+                Dorms
+            </a>
 
-                </nav>
+        </nav>
 
-            </section>
+    </section>
 
 
-            <!-- ========================================================
+    <!-- ========================================================
                  DYNAMIC FORUM CATEGORIES
             ========================================================= -->
 
-            <?php foreach (
+    <?php foreach (
                 $sidebarData['forum_categories']
                 as $category
             ): ?>
 
-                <?php
+    <?php
 
                 $categoryId =
                     (int) $category['id'];
@@ -1075,192 +1007,176 @@ $easternDateTime =
 
                 ?>
 
-                <section
-                    class="sidebar-panel sidebar-forum-panel"
-                    data-forum-category-id="<?= $categoryId; ?>"
-                >
+    <section class="sidebar-panel sidebar-forum-panel" data-forum-category-id="<?= $categoryId; ?>">
 
-                    <div class="sidebar-titlebar">
+        <div class="sidebar-titlebar">
 
-                        <h2>
-                            <?= e(
+            <h2>
+                <?= e(
                                 (string) $category['title']
                             ); ?>
-                        </h2>
+            </h2>
 
-                        <button
-                            class="sidebar-collapse-toggle"
-                            type="button"
-                            aria-expanded="true"
-                            aria-controls="<?= e($panelId); ?>"
-                        >
+            <button class="sidebar-collapse-toggle" type="button" aria-expanded="true"
+                aria-controls="<?= e($panelId); ?>">
 
-                            <span class="sr-only">
-                                Toggle <?= e(
+                <span class="sr-only">
+                    Toggle <?= e(
                                     (string) $category['title']
                                 ); ?> boards
-                            </span>
+                </span>
 
-                            <span
-                                class="sidebar-toggle-mark"
-                                aria-hidden="true"
-                            >
-                                −
-                            </span>
+                <span class="sidebar-toggle-mark" aria-hidden="true">
+                    −
+                </span>
 
-                        </button>
+            </button>
 
-                    </div>
+        </div>
 
 
-                    <nav
-                        class="sidebar-panel-content sidebar-forum-navigation"
-                        id="<?= e($panelId); ?>"
-                        aria-label="<?= e(
+        <nav class="sidebar-panel-content sidebar-forum-navigation" id="<?= e($panelId); ?>" aria-label="<?= e(
                             (string) $category['title']
-                        ); ?> boards"
-                    >
+                        ); ?> boards">
 
-                        <?php if ($categoryForums === []): ?>
+            <?php if ($categoryForums === []): ?>
 
-                            <p class="sidebar-forum-empty">
-                                No boards have been added yet.
-                            </p>
+            <p class="sidebar-forum-empty">
+                No boards have been added yet.
+            </p>
 
-                        <?php else: ?>
+            <?php else: ?>
 
-                            <?php foreach (
+            <?php foreach (
                                 $categoryForums
                                 as $sidebarForum
                             ): ?>
 
-                                <?php
+            <?php
 
                                 $sidebarForumId =
                                     (int) $sidebarForum['id'];
 
                                 ?>
 
-                                <div
-                                    class="sidebar-forum-group"
-                                    data-forum-id="<?= $sidebarForumId; ?>"
-                                >
+            <div class="sidebar-forum-group" data-forum-id="<?= $sidebarForumId; ?>">
 
-                                    <a
-                                        class="sidebar-forum-link sidebar-forum-main-link"
-                                        href="<?= e(
+                <a class="sidebar-forum-link sidebar-forum-main-link" href="<?= e(
                                             url(
                                                 'forum.php?f=' .
                                                 $sidebarForumId
                                             )
-                                        ); ?>"
-                                    >
-                                        <?= e(
+                                        ); ?>">
+                    <?= e(
                                             (string) $sidebarForum['title']
                                         ); ?>
-                                    </a>
+                </a>
 
-                                </div>
-
-                            <?php endforeach; ?>
-
-                        <?php endif; ?>
-
-                    </nav>
-
-                </section>
+            </div>
 
             <?php endforeach; ?>
 
-        </aside>
+            <?php endif; ?>
 
-        <script>
-        (() => {
-            'use strict';
+        </nav>
 
-            const sidebar = document.getElementById('member-sidebar-drawer');
-            const openButton = document.querySelector('[data-member-sidebar-open]');
-            const closeButton = document.querySelector('[data-member-sidebar-close]');
-            const backdrop = document.querySelector('[data-member-sidebar-backdrop]');
+    </section>
 
-            if (!sidebar || !openButton || !closeButton || !backdrop) {
-                return;
-            }
+    <?php endforeach; ?>
 
-            const mobileMedia = window.matchMedia('(max-width: 760px)');
+</aside>
 
-            const openSidebar = () => {
-                if (!mobileMedia.matches) return;
+<script>
+    (() => {
+        'use strict';
 
-                sidebar.classList.add('is-mobile-open');
-                backdrop.hidden = false;
+        const sidebar = document.getElementById('member-sidebar-drawer');
+        const openButton = document.querySelector('[data-member-sidebar-open]');
+        const closeButton = document.querySelector('[data-member-sidebar-close]');
+        const backdrop = document.querySelector('[data-member-sidebar-backdrop]');
 
-                requestAnimationFrame(() => {
-                    backdrop.classList.add('is-visible');
+        if (!sidebar || !openButton || !closeButton || !backdrop) {
+            return;
+        }
+
+        const mobileMedia = window.matchMedia('(max-width: 760px)');
+
+        const openSidebar = () => {
+            if (!mobileMedia.matches) return;
+
+            sidebar.classList.add('is-mobile-open');
+            backdrop.hidden = false;
+
+            requestAnimationFrame(() => {
+                backdrop.classList.add('is-visible');
+            });
+
+            openButton.setAttribute('aria-expanded', 'true');
+            document.body.classList.add('member-sidebar-open');
+
+            closeButton.focus({
+                preventScroll: true
+            });
+        };
+
+        const closeSidebar = (restoreFocus = true) => {
+            sidebar.classList.remove('is-mobile-open');
+            backdrop.classList.remove('is-visible');
+            openButton.setAttribute('aria-expanded', 'false');
+            document.body.classList.remove('member-sidebar-open');
+
+            window.setTimeout(() => {
+                if (!backdrop.classList.contains('is-visible')) {
+                    backdrop.hidden = true;
+                }
+            }, 220);
+
+            if (restoreFocus && mobileMedia.matches) {
+                openButton.focus({
+                    preventScroll: true
                 });
+            }
+        };
 
-                openButton.setAttribute('aria-expanded', 'true');
-                document.body.classList.add('member-sidebar-open');
+        openButton.addEventListener('click', openSidebar);
+        closeButton.addEventListener('click', () => closeSidebar());
+        backdrop.addEventListener('click', () => closeSidebar());
 
-                closeButton.focus({ preventScroll: true });
-            };
+        document.addEventListener('keydown', (event) => {
+            if (
+                event.key === 'Escape' &&
+                sidebar.classList.contains('is-mobile-open')
+            ) {
+                closeSidebar();
+            }
+        });
 
-            const closeSidebar = (restoreFocus = true) => {
+        sidebar.addEventListener('click', (event) => {
+            if (!mobileMedia.matches) return;
+
+            const link = event.target.closest('a');
+            if (link) {
+                closeSidebar(false);
+            }
+        });
+
+        const resetForViewport = () => {
+            if (!mobileMedia.matches) {
                 sidebar.classList.remove('is-mobile-open');
                 backdrop.classList.remove('is-visible');
+                backdrop.hidden = true;
                 openButton.setAttribute('aria-expanded', 'false');
                 document.body.classList.remove('member-sidebar-open');
-
-                window.setTimeout(() => {
-                    if (!backdrop.classList.contains('is-visible')) {
-                        backdrop.hidden = true;
-                    }
-                }, 220);
-
-                if (restoreFocus && mobileMedia.matches) {
-                    openButton.focus({ preventScroll: true });
-                }
-            };
-
-            openButton.addEventListener('click', openSidebar);
-            closeButton.addEventListener('click', () => closeSidebar());
-            backdrop.addEventListener('click', () => closeSidebar());
-
-            document.addEventListener('keydown', (event) => {
-                if (
-                    event.key === 'Escape'
-                    && sidebar.classList.contains('is-mobile-open')
-                ) {
-                    closeSidebar();
-                }
-            });
-
-            sidebar.addEventListener('click', (event) => {
-                if (!mobileMedia.matches) return;
-
-                const link = event.target.closest('a');
-                if (link) {
-                    closeSidebar(false);
-                }
-            });
-
-            const resetForViewport = () => {
-                if (!mobileMedia.matches) {
-                    sidebar.classList.remove('is-mobile-open');
-                    backdrop.classList.remove('is-visible');
-                    backdrop.hidden = true;
-                    openButton.setAttribute('aria-expanded', 'false');
-                    document.body.classList.remove('member-sidebar-open');
-                }
-            };
-
-            if (typeof mobileMedia.addEventListener === 'function') {
-                mobileMedia.addEventListener('change', resetForViewport);
-            } else {
-                mobileMedia.addListener(resetForViewport);
             }
+        };
 
-            resetForViewport();
-        })();
-        </script>
+        if (typeof mobileMedia.addEventListener === 'function') {
+            mobileMedia.addEventListener('change', resetForViewport);
+        } else {
+            mobileMedia.addListener(resetForViewport);
+        }
 
+        resetForViewport();
+    })();
+
+</script>

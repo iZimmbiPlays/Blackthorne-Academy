@@ -192,10 +192,7 @@ require
 ?>
 
 
-<main
-    id="main-content"
-    class="blocked-members-page"
->
+<main id="main-content" class="blocked-members-page">
 
     <section class="blocked-members-hero">
 
@@ -219,10 +216,7 @@ require
 
                 </div>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('profile.php?u=me')); ?>"
-                >
+                <a class="button button-secondary" href="<?= e(url('profile.php?u=me')); ?>">
                     Back to Profile
                 </a>
 
@@ -239,35 +233,29 @@ require
 
             <?php if ($successMessage !== null): ?>
 
-                <div
-                    class="blocked-members-message is-success"
-                    role="status"
-                >
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="blocked-members-message is-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
 
             <?php endif; ?>
 
 
             <?php if ($errorMessage !== null): ?>
 
-                <div
-                    class="blocked-members-message is-error"
-                    role="alert"
-                >
-                    <?= e($errorMessage); ?>
-                </div>
+            <div class="blocked-members-message is-error" role="alert">
+                <?= e($errorMessage); ?>
+            </div>
 
             <?php endif; ?>
 
 
             <?php if ($blockedMemberCards !== []): ?>
 
-                <div class="blocked-members-list">
+            <div class="blocked-members-list">
 
-                    <?php foreach ($blockedMemberCards as $member): ?>
+                <?php foreach ($blockedMemberCards as $member): ?>
 
-                        <?php
+                <?php
                         $memberUserId =
                             (int) $member['user_id'];
 
@@ -284,134 +272,100 @@ require
                             );
                         ?>
 
-                        <article class="blocked-member-card">
+                <article class="blocked-member-card">
 
-                            <a
-                                class="blocked-member-profile-link"
-                                href="<?= e(
+                    <a class="blocked-member-profile-link" href="<?= e(
                                     url(
                                         'profile.php?u='
                                         . $memberUserId
                                     )
-                                ); ?>"
-                            >
+                                ); ?>">
 
-                                <span class="blocked-member-avatar">
+                        <span class="blocked-member-avatar">
 
-                                    <?php if (!empty($member['avatar_original'])): ?>
+                            <?php if (!empty($member['avatar_original'])): ?>
 
-                                        <picture>
+                            <picture>
 
-                                            <?php if (!empty($member['avatar_webp'])): ?>
+                                <?php if (!empty($member['avatar_webp'])): ?>
 
-                                                <source
-                                                    srcset="<?= e(
+                                <source srcset="<?= e(
                                                         (string) $member['avatar_webp']
-                                                    ); ?>"
-                                                    type="image/webp"
-                                                >
+                                                    ); ?>" type="image/webp">
 
-                                            <?php endif; ?>
+                                <?php endif; ?>
 
-                                            <img
-                                                src="<?= e(
+                                <img src="<?= e(
                                                     (string) $member['avatar_original']
-                                                ); ?>"
-                                                alt="<?= e($memberName); ?>"
-                                                loading="lazy"
-                                            >
+                                                ); ?>" alt="<?= e($memberName); ?>" loading="lazy">
 
-                                        </picture>
+                            </picture>
 
-                                    <?php else: ?>
+                            <?php else: ?>
 
-                                        <span
-                                            class="blocked-member-avatar-fallback"
-                                            aria-hidden="true"
-                                        >
-                                            <?= e($memberInitial); ?>
-                                        </span>
+                            <span class="blocked-member-avatar-fallback" aria-hidden="true">
+                                <?= e($memberInitial); ?>
+                            </span>
 
-                                    <?php endif; ?>
+                            <?php endif; ?>
 
-                                </span>
+                        </span>
 
 
-                                <span class="blocked-member-details">
+                        <span class="blocked-member-details">
 
-                                    <strong
-                                        class="blocked-member-name"
-                                        <?= user_display_name_style_attr($memberUserId); ?>
-                                    >
-                                        <?= e($memberName); ?>
-                                    </strong>
+                            <strong class="blocked-member-name" <?= user_display_name_style_attr($memberUserId); ?>>
+                                <?= e($memberName); ?>
+                            </strong>
 
-                                    <span class="blocked-member-status">
-                                        Blocked
-                                    </span>
+                            <span class="blocked-member-status">
+                                Blocked
+                            </span>
 
-                                </span>
+                        </span>
 
-                            </a>
+                    </a>
 
 
-                            <form
-                                method="post"
-                                action="<?= e(url('friend-action.php')); ?>"
-                                class="blocked-member-unblock-form"
-                            >
-                                <?= csrf_field(); ?>
+                    <form method="post" action="<?= e(url('friend-action.php')); ?>"
+                        class="blocked-member-unblock-form">
+                        <?= csrf_field(); ?>
 
-                                <input
-                                    type="hidden"
-                                    name="action"
-                                    value="unblock"
-                                >
+                        <input type="hidden" name="action" value="unblock">
 
-                                <input
-                                    type="hidden"
-                                    name="target_user_id"
-                                    value="<?= $memberUserId; ?>"
-                                >
+                        <input type="hidden" name="target_user_id" value="<?= $memberUserId; ?>">
 
-                                <input
-                                    type="hidden"
-                                    name="return_to"
-                                    value="<?= e(url('blocked-users.php')); ?>"
-                                >
+                        <input type="hidden" name="return_to" value="<?= e(url('blocked-users.php')); ?>">
 
-                                <button
-                                    type="submit"
-                                    class="button button-secondary"
-                                >
-                                    Unblock
-                                </button>
+                        <button type="submit" class="button button-secondary">
+                            Unblock
+                        </button>
 
-                            </form>
+                    </form>
 
-                        </article>
+                </article>
 
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
-                </div>
+            </div>
 
             <?php else: ?>
 
-                <div class="blocked-members-empty">
+            <div class="blocked-members-empty">
 
-                    <p class="academy-overline">
-                        No Blocks
-                    </p>
+                <p class="academy-overline">
+                    No Blocks
+                </p>
 
-                    <h2>
-                        Your Block List Is Empty
-                    </h2>
+                <h2>
+                    Your Block List Is Empty
+                </h2>
 
-                    <p>
-                        Members you block will appear here so you can easily unblock them later.
-                    </p>
+                <p>
+                    Members you block will appear here so you can easily unblock them later.
+                </p>
 
-                </div>
+            </div>
 
             <?php endif; ?>
 

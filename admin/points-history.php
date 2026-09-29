@@ -27,17 +27,18 @@ if (!$hasStaffIdentity || (!$canViewHistory && !$canReverse)) {
 
     require INCLUDES_PATH . '/header.php';
     ?>
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <p class="academy-overline">Restricted Staff Area</p>
-                <h1>Access Denied</h1>
-                <p>Your account does not have permission to view House Point history.</p>
-                <a class="button button-secondary" href="<?= e(url('staff-dashboard.php')); ?>">Return to Staff Dashboard</a>
-            </div>
-        </section>
-    </main>
-    <?php
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <p class="academy-overline">Restricted Staff Area</p>
+            <h1>Access Denied</h1>
+            <p>Your account does not have permission to view House Point history.</p>
+            <a class="button button-secondary" href="<?= e(url('staff-dashboard.php')); ?>">Return to Staff
+                Dashboard</a>
+        </div>
+    </section>
+</main>
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -434,17 +435,15 @@ $buildHistoryUrl = static function (int $targetPage) use (
 ?>
 
 <main id="main-content" class="dashboard-page staff-dashboard-page dashboard-workspace-page points-history-page">
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="point-history-heading"
-        <?php if ($heroUrl !== ''): ?>style="--staff-dashboard-hero-image: url('<?= e($heroUrl); ?>');"<?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="point-history-heading"
+        <?php if ($heroUrl !== ''): ?>style="--staff-dashboard-hero-image: url('<?= e($heroUrl); ?>');" <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
                 <p class="academy-overline">House Records</p>
                 <h1 id="point-history-heading">House Point History</h1>
                 <p class="dashboard-hero-copy">
-                    Review the complete House Point ledger for a member by school year, including revisions, reversals, source records, and the staff member responsible for each change.
+                    Review the complete House Point ledger for a member by school year, including revisions, reversals,
+                    source records, and the staff member responsible for each change.
                 </p>
             </div>
         </div>
@@ -459,12 +458,13 @@ $buildHistoryUrl = static function (int $targetPage) use (
                     <div>
                         <p class="academy-overline">Ledger Review</p>
                         <h2>Point History</h2>
-                        <p>HW Points are intentionally excluded from this staff history screen. Academic records remain controlled by coursework and grading.</p>
+                        <p>HW Points are intentionally excluded from this staff history screen. Academic records remain
+                            controlled by coursework and grading.</p>
                     </div>
                 </header>
 
                 <?php foreach ($errors as $error): ?>
-                    <div class="form-message form-message-error" role="alert"><?= e($error); ?></div>
+                <div class="form-message form-message-error" role="alert"><?= e($error); ?></div>
                 <?php endforeach; ?>
 
                 <section class="dashboard-workspace-panel">
@@ -482,12 +482,14 @@ $buildHistoryUrl = static function (int $targetPage) use (
                                     <select class="form-control" id="history-user" name="user" required>
                                         <option value="">Choose a member</option>
                                         <?php foreach ($users as $user): ?>
-                                            <option value="<?= (int) $user['id']; ?>" <?= (int) $user['id'] === $selectedUserId ? 'selected' : ''; ?>>
-                                                <?= e((string) $user['display_name']); ?> (@<?= e((string) $user['username']); ?>)
-                                                <?php if (trim((string) ($user['house_display_name'] ?? $user['house_name'] ?? '')) !== ''): ?>
-                                                    · <?= e((string) ($user['house_display_name'] ?? $user['house_name'])); ?>
-                                                <?php endif; ?>
-                                            </option>
+                                        <option value="<?= (int) $user['id']; ?>"
+                                            <?= (int) $user['id'] === $selectedUserId ? 'selected' : ''; ?>>
+                                            <?= e((string) $user['display_name']); ?>
+                                            (@<?= e((string) $user['username']); ?>)
+                                            <?php if (trim((string) ($user['house_display_name'] ?? $user['house_name'] ?? '')) !== ''): ?>
+                                            · <?= e((string) ($user['house_display_name'] ?? $user['house_name'])); ?>
+                                            <?php endif; ?>
+                                        </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -496,11 +498,12 @@ $buildHistoryUrl = static function (int $targetPage) use (
                                     <label for="history-year">School Year</label>
                                     <select class="form-control" id="history-year" name="school_year" required>
                                         <?php foreach ($schoolYears as $schoolYear): ?>
-                                            <option value="<?= (int) $schoolYear['id']; ?>" <?= (int) $schoolYear['id'] === $selectedSchoolYearId ? 'selected' : ''; ?>>
-                                                <?= e((string) $schoolYear['name']); ?>
-                                                <?= (int) ($schoolYear['is_current'] ?? 0) === 1 ? ' · Current' : ''; ?>
-                                                <?= (int) ($schoolYear['is_finalized'] ?? 0) === 1 ? ' · Finalized' : ''; ?>
-                                            </option>
+                                        <option value="<?= (int) $schoolYear['id']; ?>"
+                                            <?= (int) $schoolYear['id'] === $selectedSchoolYearId ? 'selected' : ''; ?>>
+                                            <?= e((string) $schoolYear['name']); ?>
+                                            <?= (int) ($schoolYear['is_current'] ?? 0) === 1 ? ' · Current' : ''; ?>
+                                            <?= (int) ($schoolYear['is_finalized'] ?? 0) === 1 ? ' · Finalized' : ''; ?>
+                                        </option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -508,24 +511,39 @@ $buildHistoryUrl = static function (int $targetPage) use (
                                 <div class="form-group">
                                     <label for="history-source">Source</label>
                                     <select class="form-control" id="history-source" name="source">
-                                        <option value="all" <?= $sourceFilter === 'all' ? 'selected' : ''; ?>>All sources</option>
-                                        <option value="manual" <?= $sourceFilter === 'manual' ? 'selected' : ''; ?>>Manual</option>
-                                        <option value="bonus" <?= $sourceFilter === 'bonus' ? 'selected' : ''; ?>>Bonus</option>
-                                        <option value="penalty" <?= $sourceFilter === 'penalty' ? 'selected' : ''; ?>>Penalty</option>
-                                        <option value="achievement" <?= $sourceFilter === 'achievement' ? 'selected' : ''; ?>>Achievement</option>
-                                        <option value="contest" <?= $sourceFilter === 'contest' ? 'selected' : ''; ?>>Contest</option>
-                                        <option value="event" <?= $sourceFilter === 'event' ? 'selected' : ''; ?>>Event</option>
-                                        <option value="forum_thread" <?= $sourceFilter === 'forum_thread' ? 'selected' : ''; ?>>Forum Thread</option>
-                                        <option value="forum_reply" <?= $sourceFilter === 'forum_reply' ? 'selected' : ''; ?>>Forum Reply</option>
+                                        <option value="all" <?= $sourceFilter === 'all' ? 'selected' : ''; ?>>All
+                                            sources</option>
+                                        <option value="manual" <?= $sourceFilter === 'manual' ? 'selected' : ''; ?>>
+                                            Manual</option>
+                                        <option value="bonus" <?= $sourceFilter === 'bonus' ? 'selected' : ''; ?>>Bonus
+                                        </option>
+                                        <option value="penalty" <?= $sourceFilter === 'penalty' ? 'selected' : ''; ?>>
+                                            Penalty</option>
+                                        <option value="achievement"
+                                            <?= $sourceFilter === 'achievement' ? 'selected' : ''; ?>>Achievement
+                                        </option>
+                                        <option value="contest" <?= $sourceFilter === 'contest' ? 'selected' : ''; ?>>
+                                            Contest</option>
+                                        <option value="event" <?= $sourceFilter === 'event' ? 'selected' : ''; ?>>Event
+                                        </option>
+                                        <option value="forum_thread"
+                                            <?= $sourceFilter === 'forum_thread' ? 'selected' : ''; ?>>Forum Thread
+                                        </option>
+                                        <option value="forum_reply"
+                                            <?= $sourceFilter === 'forum_reply' ? 'selected' : ''; ?>>Forum Reply
+                                        </option>
                                     </select>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="history-status">Status</label>
                                     <select class="form-control" id="history-status" name="status">
-                                        <option value="all" <?= $statusFilter === 'all' ? 'selected' : ''; ?>>Active and reversed</option>
-                                        <option value="active" <?= $statusFilter === 'active' ? 'selected' : ''; ?>>Active only</option>
-                                        <option value="reversed" <?= $statusFilter === 'reversed' ? 'selected' : ''; ?>>Reversed only</option>
+                                        <option value="all" <?= $statusFilter === 'all' ? 'selected' : ''; ?>>Active and
+                                            reversed</option>
+                                        <option value="active" <?= $statusFilter === 'active' ? 'selected' : ''; ?>>
+                                            Active only</option>
+                                        <option value="reversed" <?= $statusFilter === 'reversed' ? 'selected' : ''; ?>>
+                                            Reversed only</option>
                                     </select>
                                 </div>
                             </div>
@@ -533,8 +551,11 @@ $buildHistoryUrl = static function (int $targetPage) use (
                             <div class="forum-admin-actions">
                                 <button type="submit" class="button button-primary">View History</button>
                                 <?php if ($selectedUserId > 0): ?>
-                                    <a class="button button-secondary" href="<?= e(url('admin/points.php?user=' . $selectedUserId . '&school_year=' . $selectedSchoolYearId)); ?>">Award / Deduct Points</a>
-                                    <a class="button button-secondary" href="<?= e(url('profile.php?u=' . $selectedUserId)); ?>">View Profile</a>
+                                <a class="button button-secondary"
+                                    href="<?= e(url('admin/points.php?user=' . $selectedUserId . '&school_year=' . $selectedSchoolYearId)); ?>">Award
+                                    / Deduct Points</a>
+                                <a class="button button-secondary"
+                                    href="<?= e(url('profile.php?u=' . $selectedUserId)); ?>">View Profile</a>
                                 <?php endif; ?>
                             </div>
                         </form>
@@ -542,60 +563,63 @@ $buildHistoryUrl = static function (int $targetPage) use (
                 </section>
 
                 <?php if ($selectedUser !== null && $selectedSchoolYear !== null): ?>
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">Current Totals</p>
-                                <h3><?= e((string) $selectedUser['display_name']); ?></h3>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">Current Totals</p>
+                            <h3><?= e((string) $selectedUser['display_name']); ?></h3>
+                        </div>
+                    </div>
+                    <div class="dashboard-panel-body">
+                        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:stretch;">
+                            <div
+                                style="min-width:180px;flex:1;padding:1rem;border:1px solid rgba(201,170,104,.28);border-radius:10px;">
+                                <strong style="display:block;">House Points</strong>
+                                <span><?= number_format((float) ($totals['house_only'] ?? 0), 2); ?></span>
+                            </div>
+                            <div
+                                style="min-width:180px;flex:1;padding:1rem;border:1px solid rgba(201,170,104,.28);border-radius:10px;">
+                                <strong style="display:block;">School Year</strong>
+                                <span><?= e((string) $selectedSchoolYear['name']); ?></span>
+                            </div>
+                            <div
+                                style="min-width:180px;flex:1;padding:1rem;border:1px solid rgba(201,170,104,.28);border-radius:10px;">
+                                <strong style="display:block;">Transactions</strong>
+                                <span><?= number_format($totalRows); ?></span>
                             </div>
                         </div>
-                        <div class="dashboard-panel-body">
-                            <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:stretch;">
-                                <div style="min-width:180px;flex:1;padding:1rem;border:1px solid rgba(201,170,104,.28);border-radius:10px;">
-                                    <strong style="display:block;">House Points</strong>
-                                    <span><?= number_format((float) ($totals['house_only'] ?? 0), 2); ?></span>
-                                </div>
-                                <div style="min-width:180px;flex:1;padding:1rem;border:1px solid rgba(201,170,104,.28);border-radius:10px;">
-                                    <strong style="display:block;">School Year</strong>
-                                    <span><?= e((string) $selectedSchoolYear['name']); ?></span>
-                                </div>
-                                <div style="min-width:180px;flex:1;padding:1rem;border:1px solid rgba(201,170,104,.28);border-radius:10px;">
-                                    <strong style="display:block;">Transactions</strong>
-                                    <span><?= number_format($totalRows); ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    </div>
+                </section>
 
-                    <section class="dashboard-workspace-panel">
-                        <div class="dashboard-panel-titlebar">
-                            <div>
-                                <p class="academy-overline">Ledger</p>
-                                <h3>House Point Transactions</h3>
-                            </div>
+                <section class="dashboard-workspace-panel">
+                    <div class="dashboard-panel-titlebar">
+                        <div>
+                            <p class="academy-overline">Ledger</p>
+                            <h3>House Point Transactions</h3>
                         </div>
-                        <div class="dashboard-panel-body">
-                            <?php if ($history === []): ?>
-                                <p>No House Point transactions match these filters.</p>
-                            <?php else: ?>
-                                <div style="overflow-x:auto;">
-                                    <table class="forum-admin-table" style="width:100%;">
-                                        <thead>
-                                            <tr>
-                                                <th>ID / Revision</th>
-                                                <th>Date</th>
-                                                <th>Change</th>
-                                                <th>Source</th>
-                                                <th>Description</th>
-                                                <th>House Snapshot</th>
-                                                <th>Staff / System</th>
-                                                <th>Status</th>
-                                                <?php if ($canReverse): ?><th>Action</th><?php endif; ?>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($history as $entry): ?>
-                                                <?php
+                    </div>
+                    <div class="dashboard-panel-body">
+                        <?php if ($history === []): ?>
+                        <p>No House Point transactions match these filters.</p>
+                        <?php else: ?>
+                        <div style="overflow-x:auto;">
+                            <table class="forum-admin-table" style="width:100%;">
+                                <thead>
+                                    <tr>
+                                        <th>ID / Revision</th>
+                                        <th>Date</th>
+                                        <th>Change</th>
+                                        <th>Source</th>
+                                        <th>Description</th>
+                                        <th>House Snapshot</th>
+                                        <th>Staff / System</th>
+                                        <th>Status</th>
+                                        <?php if ($canReverse): ?><th>Action</th><?php endif; ?>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($history as $entry): ?>
+                                    <?php
                                                 $entryPoints = (float) ($entry['points'] ?? 0);
                                                 $entryReversed = (int) ($entry['is_reversed'] ?? 0) === 1;
                                                 $sourceType = (string) ($entry['source_type'] ?? 'manual');
@@ -611,78 +635,90 @@ $buildHistoryUrl = static function (int $targetPage) use (
                                                     && $yearWritable
                                                     && in_array($sourceType, ['manual', 'bonus', 'penalty'], true);
                                                 ?>
-                                                <tr>
-                                                    <td>
-                                                        #<?= (int) $entry['id']; ?><br>
-                                                        <small>Revision <?= $revisionNumber; ?><?php if ($replacesLedgerId !== null): ?> · replaces #<?= $replacesLedgerId; ?><?php endif; ?></small>
-                                                    </td>
-                                                    <td><?= e((string) ($entry['created_at'] ?? '')); ?></td>
-                                                    <td><strong><?= $entryPoints > 0 ? '+' : ''; ?><?= number_format($entryPoints, 2); ?></strong></td>
-                                                    <td>
-                                                        <?= e(ucwords(str_replace('_', ' ', $sourceType))); ?>
-                                                        <?php if ($sourceId !== null): ?><br><small>Source #<?= $sourceId; ?></small><?php endif; ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= e((string) ($entry['description'] ?? '')); ?>
-                                                        <?php if ((int) ($entry['is_public'] ?? 0) === 1): ?><br><small>Public House feed</small><?php endif; ?>
-                                                    </td>
-                                                    <td><?= e((string) ($entry['house_display_name'] ?? $entry['house_name'] ?? 'No House')); ?></td>
-                                                    <td><?= e((string) ($entry['awarded_by_display_name'] ?? 'System')); ?></td>
-                                                    <td>
-                                                        <?= $entryReversed ? 'Reversed' : 'Active'; ?>
-                                                        <?php if ($entryReversed): ?>
-                                                            <?php if (trim((string) ($entry['reversal_reason'] ?? '')) !== ''): ?>
-                                                                <br><small><?= e((string) $entry['reversal_reason']); ?></small>
-                                                            <?php endif; ?>
-                                                            <?php if (trim((string) ($entry['reversed_by_display_name'] ?? '')) !== ''): ?>
-                                                                <br><small>by <?= e((string) $entry['reversed_by_display_name']); ?></small>
-                                                            <?php endif; ?>
-                                                            <?php if (trim((string) ($entry['reversed_at'] ?? '')) !== ''): ?>
-                                                                <br><small><?= e((string) $entry['reversed_at']); ?></small>
-                                                            <?php endif; ?>
-                                                        <?php endif; ?>
-                                                    </td>
-                                                    <?php if ($canReverse): ?>
-                                                        <td>
-                                                            <?php if ($canReverseThis): ?>
-                                                                <form method="post" style="display:grid;gap:.5rem;min-width:240px;">
-                                                                    <?= csrf_field(); ?>
-                                                                    <input type="hidden" name="action" value="reverse_house_points">
-                                                                    <input type="hidden" name="ledger_id" value="<?= (int) $entry['id']; ?>">
-                                                                    <input type="hidden" name="user_id" value="<?= (int) $selectedUser['id']; ?>">
-                                                                    <input type="hidden" name="school_year_id" value="<?= (int) $selectedSchoolYear['id']; ?>">
-                                                                    <input class="form-control" type="text" name="reversal_reason" maxlength="255" placeholder="Reversal reason" required>
-                                                                    <button type="submit" class="button button-secondary">Reverse</button>
-                                                                </form>
-                                                            <?php elseif ($sourceType === 'achievement'): ?>
-                                                                Automatic
-                                                            <?php elseif (!$yearWritable): ?>
-                                                                Read only
-                                                            <?php else: ?>
-                                                                —
-                                                            <?php endif; ?>
-                                                        </td>
-                                                    <?php endif; ?>
-                                                </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <?php if ($totalPages > 1): ?>
-                                    <nav aria-label="Point history pages" style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1rem;">
-                                        <?php if ($page > 1): ?>
-                                            <a class="button button-secondary" href="<?= e($buildHistoryUrl($page - 1)); ?>">Previous</a>
+                                    <tr>
+                                        <td>
+                                            #<?= (int) $entry['id']; ?><br>
+                                            <small>Revision
+                                                <?= $revisionNumber; ?><?php if ($replacesLedgerId !== null): ?> ·
+                                                replaces #<?= $replacesLedgerId; ?><?php endif; ?></small>
+                                        </td>
+                                        <td><?= e((string) ($entry['created_at'] ?? '')); ?></td>
+                                        <td><strong><?= $entryPoints > 0 ? '+' : ''; ?><?= number_format($entryPoints, 2); ?></strong>
+                                        </td>
+                                        <td>
+                                            <?= e(ucwords(str_replace('_', ' ', $sourceType))); ?>
+                                            <?php if ($sourceId !== null): ?><br><small>Source
+                                                #<?= $sourceId; ?></small><?php endif; ?>
+                                        </td>
+                                        <td>
+                                            <?= e((string) ($entry['description'] ?? '')); ?>
+                                            <?php if ((int) ($entry['is_public'] ?? 0) === 1): ?><br><small>Public House
+                                                feed</small><?php endif; ?>
+                                        </td>
+                                        <td><?= e((string) ($entry['house_display_name'] ?? $entry['house_name'] ?? 'No House')); ?>
+                                        </td>
+                                        <td><?= e((string) ($entry['awarded_by_display_name'] ?? 'System')); ?></td>
+                                        <td>
+                                            <?= $entryReversed ? 'Reversed' : 'Active'; ?>
+                                            <?php if ($entryReversed): ?>
+                                            <?php if (trim((string) ($entry['reversal_reason'] ?? '')) !== ''): ?>
+                                            <br><small><?= e((string) $entry['reversal_reason']); ?></small>
+                                            <?php endif; ?>
+                                            <?php if (trim((string) ($entry['reversed_by_display_name'] ?? '')) !== ''): ?>
+                                            <br><small>by <?= e((string) $entry['reversed_by_display_name']); ?></small>
+                                            <?php endif; ?>
+                                            <?php if (trim((string) ($entry['reversed_at'] ?? '')) !== ''): ?>
+                                            <br><small><?= e((string) $entry['reversed_at']); ?></small>
+                                            <?php endif; ?>
+                                            <?php endif; ?>
+                                        </td>
+                                        <?php if ($canReverse): ?>
+                                        <td>
+                                            <?php if ($canReverseThis): ?>
+                                            <form method="post" style="display:grid;gap:.5rem;min-width:240px;">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="action" value="reverse_house_points">
+                                                <input type="hidden" name="ledger_id"
+                                                    value="<?= (int) $entry['id']; ?>">
+                                                <input type="hidden" name="user_id"
+                                                    value="<?= (int) $selectedUser['id']; ?>">
+                                                <input type="hidden" name="school_year_id"
+                                                    value="<?= (int) $selectedSchoolYear['id']; ?>">
+                                                <input class="form-control" type="text" name="reversal_reason"
+                                                    maxlength="255" placeholder="Reversal reason" required>
+                                                <button type="submit" class="button button-secondary">Reverse</button>
+                                            </form>
+                                            <?php elseif ($sourceType === 'achievement'): ?>
+                                            Automatic
+                                            <?php elseif (!$yearWritable): ?>
+                                            Read only
+                                            <?php else: ?>
+                                            —
+                                            <?php endif; ?>
+                                        </td>
                                         <?php endif; ?>
-                                        <span>Page <?= $page; ?> of <?= $totalPages; ?></span>
-                                        <?php if ($page < $totalPages): ?>
-                                            <a class="button button-secondary" href="<?= e($buildHistoryUrl($page + 1)); ?>">Next</a>
-                                        <?php endif; ?>
-                                    </nav>
-                                <?php endif; ?>
-                            <?php endif; ?>
+                                    </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                            </table>
                         </div>
-                    </section>
+
+                        <?php if ($totalPages > 1): ?>
+                        <nav aria-label="Point history pages"
+                            style="display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1rem;">
+                            <?php if ($page > 1): ?>
+                            <a class="button button-secondary"
+                                href="<?= e($buildHistoryUrl($page - 1)); ?>">Previous</a>
+                            <?php endif; ?>
+                            <span>Page <?= $page; ?> of <?= $totalPages; ?></span>
+                            <?php if ($page < $totalPages): ?>
+                            <a class="button button-secondary" href="<?= e($buildHistoryUrl($page + 1)); ?>">Next</a>
+                            <?php endif; ?>
+                        </nav>
+                        <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </section>
                 <?php endif; ?>
             </div>
         </div>

@@ -33,34 +33,28 @@ if (!current_user_is_admin()) {
 
     require INCLUDES_PATH . '/header.php';
     ?>
-    <main id="main-content" class="forum-admin-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <h1>Access Restricted</h1>
-                <p>
-                    Only Academy administrators may add, remove,
-                    or transfer House members.
-                </p>
+<main id="main-content" class="forum-admin-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <h1>Access Restricted</h1>
+            <p>
+                Only Academy administrators may add, remove,
+                or transfer House members.
+            </p>
 
-                <div class="forum-admin-edit-actions">
-                    <a
-                        href="<?= e(url('staff-dashboard.php')); ?>"
-                        class="button button-secondary"
-                    >
-                        Staff Dashboard
-                    </a>
+            <div class="forum-admin-edit-actions">
+                <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">
+                    Staff Dashboard
+                </a>
 
-                    <a
-                        href="<?= e(DASHBOARD_URL); ?>"
-                        class="button button-secondary"
-                    >
-                        Return to Dashboard
-                    </a>
-                </div>
+                <a href="<?= e(DASHBOARD_URL); ?>" class="button button-secondary">
+                    Return to Dashboard
+                </a>
             </div>
-        </section>
-    </main>
-    <?php
+        </div>
+    </section>
+</main>
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -886,145 +880,139 @@ require INCLUDES_PATH . '/header.php';
 ?>
 
 <style>
-.house-members-admin-grid {
-    display: grid;
-    gap: 18px;
-}
+    .house-members-admin-grid {
+        display: grid;
+        gap: 18px;
+    }
 
-.house-members-search-panel,
-.house-member-card {
-    border: 1px solid rgba(205, 171, 91, 0.18);
-    border-radius: 14px;
-    background: rgba(22, 14, 26, 0.78);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
-}
+    .house-members-search-panel,
+    .house-member-card {
+        border: 1px solid rgba(205, 171, 91, 0.18);
+        border-radius: 14px;
+        background: rgba(22, 14, 26, 0.78);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.14);
+    }
 
-.house-members-search-panel {
-    padding: 22px;
-}
+    .house-members-search-panel {
+        padding: 22px;
+    }
 
-.house-members-search-form {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 12px;
-    align-items: end;
-}
-
-.house-member-results {
-    display: grid;
-    gap: 16px;
-    margin-top: 24px;
-}
-
-.house-member-card {
-    padding: 20px;
-}
-
-.house-member-card-header {
-    display: flex;
-    justify-content: space-between;
-    gap: 18px;
-    align-items: flex-start;
-}
-
-.house-member-card h2 {
-    margin: 0 0 4px;
-    font-size: 1.2rem;
-}
-
-.house-member-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px 14px;
-    margin-top: 8px;
-    color: #c8bec5;
-    font-size: 0.9rem;
-}
-
-.house-member-status {
-    display: inline-flex;
-    align-items: center;
-    padding: 5px 9px;
-    border: 1px solid rgba(205, 171, 91, 0.2);
-    border-radius: 999px;
-    color: #d9ccd9;
-    font-size: 0.78rem;
-}
-
-.house-member-current {
-    margin-top: 16px;
-    padding: 14px 16px;
-    border: 1px solid rgba(205, 171, 91, 0.18);
-    border-radius: 10px;
-    background: rgba(10, 7, 13, 0.48);
-}
-
-.house-member-current strong {
-    font-weight: 600;
-}
-
-.house-member-actions {
-    display: grid;
-    grid-template-columns: minmax(220px, 1fr) auto auto;
-    gap: 10px;
-    align-items: end;
-    margin-top: 16px;
-}
-
-.house-member-actions form {
-    display: contents;
-}
-
-.house-member-actions .form-group {
-    margin: 0;
-}
-
-.house-member-remove {
-    align-self: end;
-}
-
-
-.house-members-warning {
-    padding: 16px;
-    border: 1px solid rgba(192, 102, 109, 0.36);
-    border-radius: 10px;
-    background: rgba(84, 34, 43, 0.24);
-    color: #efcfd3;
-}
-
-@media (max-width: 760px) {
     .house-members-search-form {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: end;
+    }
+
+    .house-member-results {
+        display: grid;
+        gap: 16px;
+        margin-top: 24px;
+    }
+
+    .house-member-card {
+        padding: 20px;
     }
 
     .house-member-card-header {
-        display: grid;
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
+    }
+
+    .house-member-card h2 {
+        margin: 0 0 4px;
+        font-size: 1.2rem;
+    }
+
+    .house-member-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 14px;
+        margin-top: 8px;
+        color: #c8bec5;
+        font-size: 0.9rem;
+    }
+
+    .house-member-status {
+        display: inline-flex;
+        align-items: center;
+        padding: 5px 9px;
+        border: 1px solid rgba(205, 171, 91, 0.2);
+        border-radius: 999px;
+        color: #d9ccd9;
+        font-size: 0.78rem;
+    }
+
+    .house-member-current {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border: 1px solid rgba(205, 171, 91, 0.18);
+        border-radius: 10px;
+        background: rgba(10, 7, 13, 0.48);
+    }
+
+    .house-member-current strong {
+        font-weight: 600;
     }
 
     .house-member-actions {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: minmax(220px, 1fr) auto auto;
+        gap: 10px;
+        align-items: end;
+        margin-top: 16px;
     }
 
     .house-member-actions form {
-        display: grid;
-        gap: 10px;
+        display: contents;
     }
 
-    .house-member-actions .button {
-        width: 100%;
+    .house-member-actions .form-group {
+        margin: 0;
     }
-}
+
+    .house-member-remove {
+        align-self: end;
+    }
+
+    .house-members-warning {
+        padding: 16px;
+        border: 1px solid rgba(192, 102, 109, 0.36);
+        border-radius: 10px;
+        background: rgba(84, 34, 43, 0.24);
+        color: #efcfd3;
+    }
+
+    @media (max-width: 760px) {
+        .house-members-search-form {
+            grid-template-columns: 1fr;
+        }
+
+        .house-member-card-header {
+            display: grid;
+        }
+
+        .house-member-actions {
+            grid-template-columns: 1fr;
+        }
+
+        .house-member-actions form {
+            display: grid;
+            gap: 10px;
+        }
+
+        .house-member-actions .button {
+            width: 100%;
+        }
+    }
+
 </style>
 
-<main
-    id="main-content"
-    class="forum-admin-page house-members-admin-page"
->
+<main id="main-content" class="forum-admin-page house-members-admin-page">
 
-    <section
-        class="forum-admin-hero"
-        aria-labelledby="house-members-heading"
-    >
+    <section class="forum-admin-hero" aria-labelledby="house-members-heading">
         <div class="section-inner">
 
             <p class="academy-overline">
@@ -1042,24 +1030,15 @@ require INCLUDES_PATH . '/header.php';
 
             <div class="forum-admin-edit-actions">
 
-                <a
-                    href="<?= e(url('admin/houses.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('admin/houses.php')); ?>" class="button button-secondary">
                     House Management
                 </a>
 
-                <a
-                    href="<?= e(url('staff-dashboard.php')); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(url('staff-dashboard.php')); ?>" class="button button-secondary">
                     Staff Dashboard
                 </a>
 
-                <a
-                    href="<?= e(DASHBOARD_URL); ?>"
-                    class="button button-secondary"
-                >
+                <a href="<?= e(DASHBOARD_URL); ?>" class="button button-secondary">
                     Return to Dashboard
                 </a>
 
@@ -1073,47 +1052,38 @@ require INCLUDES_PATH . '/header.php';
         <div class="section-inner">
 
             <?php if ($successMessage !== null): ?>
-                <div
-                    class="form-message form-message-success"
-                    role="status"
-                >
-                    <?= e($successMessage); ?>
-                </div>
+            <div class="form-message form-message-success" role="status">
+                <?= e($successMessage); ?>
+            </div>
             <?php endif; ?>
 
 
             <?php if ($errors !== []): ?>
-                <div
-                    class="form-message form-message-error"
-                    role="alert"
-                >
-                    <h2>
-                        Please correct the following:
-                    </h2>
+            <div class="form-message form-message-error" role="alert">
+                <h2>
+                    Please correct the following:
+                </h2>
 
-                    <ul>
-                        <?php foreach ($errors as $error): ?>
-                            <li><?= e($error); ?></li>
-                        <?php endforeach; ?>
-                    </ul>
-                </div>
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                    <li><?= e($error); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
             <?php endif; ?>
 
 
             <?php if ($availableHouses === []): ?>
 
-                <div class="house-members-warning">
-                    No active Houses exist yet.
-                    Create or reactivate a House before assigning members.
-                </div>
+            <div class="house-members-warning">
+                No active Houses exist yet.
+                Create or reactivate a House before assigning members.
+            </div>
 
             <?php endif; ?>
 
 
-            <section
-                class="house-members-search-panel"
-                aria-labelledby="house-member-search-heading"
-            >
+            <section class="house-members-search-panel" aria-labelledby="house-member-search-heading">
                 <header class="forum-admin-titlebar">
                     <p class="forum-admin-step">
                         Member Search
@@ -1128,31 +1098,17 @@ require INCLUDES_PATH . '/header.php';
                     </p>
                 </header>
 
-                <form
-                    action="<?= e(url('admin/house-members.php')); ?>"
-                    method="get"
-                    class="house-members-search-form"
-                >
+                <form action="<?= e(url('admin/house-members.php')); ?>" method="get" class="house-members-search-form">
                     <div class="form-group">
                         <label for="member-search">
                             Search Members
                         </label>
 
-                        <input
-                            class="form-control"
-                            id="member-search"
-                            type="search"
-                            name="q"
-                            value="<?= e($searchQuery); ?>"
-                            placeholder="Name, username, or email"
-                            autocomplete="off"
-                        >
+                        <input class="form-control" id="member-search" type="search" name="q"
+                            value="<?= e($searchQuery); ?>" placeholder="Name, username, or email" autocomplete="off">
                     </div>
 
-                    <button
-                        type="submit"
-                        class="button button-primary"
-                    >
+                    <button type="submit" class="button button-primary">
                         Search
                     </button>
                 </form>
@@ -1163,14 +1119,14 @@ require INCLUDES_PATH . '/header.php';
 
                 <?php if ($users === []): ?>
 
-                    <div class="forum-admin-empty">
-                        No matching members were found.
-                    </div>
+                <div class="forum-admin-empty">
+                    No matching members were found.
+                </div>
 
                 <?php else: ?>
 
-                    <?php foreach ($users as $user): ?>
-                        <?php
+                <?php foreach ($users as $user): ?>
+                <?php
                         $userId =
                             (int) $user['id'];
 
@@ -1224,58 +1180,54 @@ require INCLUDES_PATH . '/header.php';
                             ) === 1;
                         ?>
 
-                        <article class="house-member-card">
+                <article class="house-member-card">
 
-                            <header class="house-member-card-header">
+                    <header class="house-member-card-header">
 
-                                <div>
-                                    <h2>
-                                        <?= e($displayName); ?>
-                                    </h2>
+                        <div>
+                            <h2>
+                                <?= e($displayName); ?>
+                            </h2>
 
-                                    <div class="house-member-meta">
-                                        <span>
-                                            @<?= e((string) $user['username']); ?>
-                                        </span>
+                            <div class="house-member-meta">
+                                <span>
+                                    @<?= e((string) $user['username']); ?>
+                                </span>
 
-                                        <span>
-                                            <?= e((string) $user['email']); ?>
-                                        </span>
+                                <span>
+                                    <?= e((string) $user['email']); ?>
+                                </span>
 
-                                        <span>
-                                            User #<?= $userId; ?>
-                                        </span>
-                                    </div>
-                                </div>
+                                <span>
+                                    User #<?= $userId; ?>
+                                </span>
+                            </div>
+                        </div>
 
-                                <span class="house-member-status">
-                                    <?= e(
+                        <span class="house-member-status">
+                            <?= e(
                                         ucfirst(
                                             (string) $user['status']
                                         )
                                     ); ?>
-                                </span>
+                        </span>
 
-                            </header>
+                    </header>
 
 
-                            <div class="house-member-current">
+                    <div class="house-member-current">
 
-                                <?php if ($currentHouseId > 0): ?>
+                        <?php if ($currentHouseId > 0): ?>
 
-                                    Current House:
-                                    <strong
-                                        <?php if ($validHouseColor): ?>
-                                            style="color: <?= e($houseColor); ?>;"
-                                        <?php endif; ?>
-                                    >
-                                        <?= e($currentHouseName); ?>
-                                    </strong>
+                        Current House:
+                        <strong <?php if ($validHouseColor): ?> style="color: <?= e($houseColor); ?>;" <?php endif; ?>>
+                            <?= e($currentHouseName); ?>
+                        </strong>
 
-                                    <?php if (!empty($user['joined_at'])): ?>
-                                        <span>
-                                            · joined
-                                            <?= e(
+                        <?php if (!empty($user['joined_at'])): ?>
+                        <span>
+                            · joined
+                            <?= e(
                                                 date(
                                                     'M j, Y',
                                                     strtotime(
@@ -1283,71 +1235,50 @@ require INCLUDES_PATH . '/header.php';
                                                     )
                                                 )
                                             ); ?>
-                                        </span>
-                                    <?php endif; ?>
+                        </span>
+                        <?php endif; ?>
 
-                                <?php else: ?>
+                        <?php else: ?>
 
-                                    <strong>
-                                        No active House membership
-                                    </strong>.
+                        <strong>
+                            No active House membership
+                        </strong>.
 
-                                <?php endif; ?>
+                        <?php endif; ?>
 
-                            </div>
+                    </div>
 
 
-                            <?php if ($availableHouses !== []): ?>
+                    <?php if ($availableHouses !== []): ?>
 
-                                <div class="house-member-actions">
+                    <div class="house-member-actions">
 
-                                    <form
-                                        action="<?= e(url('admin/house-members.php')); ?>"
-                                        method="post"
-                                    >
-                                        <?= csrf_field(); ?>
+                        <form action="<?= e(url('admin/house-members.php')); ?>" method="post">
+                            <?= csrf_field(); ?>
 
-                                        <input
-                                            type="hidden"
-                                            name="user_id"
-                                            value="<?= $userId; ?>"
-                                        >
+                            <input type="hidden" name="user_id" value="<?= $userId; ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="return_query"
-                                            value="<?= e($searchQuery); ?>"
-                                        >
+                            <input type="hidden" name="return_query" value="<?= e($searchQuery); ?>">
 
-                                        <input
-                                            type="hidden"
-                                            name="form_action"
-                                            value="<?= $currentHouseId > 0
+                            <input type="hidden" name="form_action" value="<?= $currentHouseId > 0
                                                 ? 'transfer_house'
-                                                : 'assign_house'; ?>"
-                                        >
+                                                : 'assign_house'; ?>">
 
-                                        <div class="form-group">
-                                            <label
-                                                for="house-for-user-<?= $userId; ?>"
-                                            >
-                                                <?= $currentHouseId > 0
+                            <div class="form-group">
+                                <label for="house-for-user-<?= $userId; ?>">
+                                    <?= $currentHouseId > 0
                                                     ? 'Transfer to House'
                                                     : 'Assign to House'; ?>
-                                            </label>
+                                </label>
 
-                                            <select
-                                                class="form-control"
-                                                id="house-for-user-<?= $userId; ?>"
-                                                name="house_id"
-                                                required
-                                            >
-                                                <option value="">
-                                                    Choose a House
-                                                </option>
+                                <select class="form-control" id="house-for-user-<?= $userId; ?>" name="house_id"
+                                    required>
+                                    <option value="">
+                                        Choose a House
+                                    </option>
 
-                                                <?php foreach ($availableHouses as $house): ?>
-                                                    <?php
+                                    <?php foreach ($availableHouses as $house): ?>
+                                    <?php
                                                     $houseId =
                                                         (int) $house['id'];
 
@@ -1369,73 +1300,52 @@ require INCLUDES_PATH . '/header.php';
                                                     }
                                                     ?>
 
-                                                    <option value="<?= $houseId; ?>">
-                                                        <?= e($houseName); ?>
-                                                    </option>
+                                    <option value="<?= $houseId; ?>">
+                                        <?= e($houseName); ?>
+                                    </option>
 
-                                                <?php endforeach; ?>
+                                    <?php endforeach; ?>
 
-                                            </select>
-                                        </div>
+                                </select>
+                            </div>
 
-                                        <button
-                                            type="submit"
-                                            class="button button-primary"
-                                        >
-                                            <?= $currentHouseId > 0
+                            <button type="submit" class="button button-primary">
+                                <?= $currentHouseId > 0
                                                 ? 'Transfer'
                                                 : 'Assign'; ?>
-                                        </button>
+                            </button>
 
-                                    </form>
+                        </form>
 
 
-                                    <?php if ($currentHouseId > 0): ?>
+                        <?php if ($currentHouseId > 0): ?>
 
-                                        <form
-                                            action="<?= e(url('admin/house-members.php')); ?>"
-                                            method="post"
-                                            class="house-member-remove"
-                                            onsubmit="return confirm('Remove this member from their current House? Their membership history will be preserved.');"
-                                        >
-                                            <?= csrf_field(); ?>
+                        <form action="<?= e(url('admin/house-members.php')); ?>" method="post"
+                            class="house-member-remove"
+                            onsubmit="return confirm('Remove this member from their current House? Their membership history will be preserved.');">
+                            <?= csrf_field(); ?>
 
-                                            <input
-                                                type="hidden"
-                                                name="form_action"
-                                                value="remove_house"
-                                            >
+                            <input type="hidden" name="form_action" value="remove_house">
 
-                                            <input
-                                                type="hidden"
-                                                name="user_id"
-                                                value="<?= $userId; ?>"
-                                            >
+                            <input type="hidden" name="user_id" value="<?= $userId; ?>">
 
-                                            <input
-                                                type="hidden"
-                                                name="return_query"
-                                                value="<?= e($searchQuery); ?>"
-                                            >
+                            <input type="hidden" name="return_query" value="<?= e($searchQuery); ?>">
 
-                                            <button
-                                                type="submit"
-                                                class="button button-secondary"
-                                            >
-                                                Remove from House
-                                            </button>
+                            <button type="submit" class="button button-secondary">
+                                Remove from House
+                            </button>
 
-                                        </form>
+                        </form>
 
-                                    <?php endif; ?>
+                        <?php endif; ?>
 
-                                </div>
+                    </div>
 
-                            <?php endif; ?>
+                    <?php endif; ?>
 
-                        </article>
+                </article>
 
-                    <?php endforeach; ?>
+                <?php endforeach; ?>
 
                 <?php endif; ?>
 

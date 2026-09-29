@@ -725,35 +725,29 @@ function require_permission(string $permissionSlug): void
 
     ?>
 
-    <main
-        id="main-content"
-        class="forum-board-page"
-    >
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <p class="academy-overline">
-                    Restricted Area
-                </p>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <p class="academy-overline">
+                Restricted Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    You do not have permission to access this area.
-                </p>
+            <p>
+                You do not have permission to access this area.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(HOME_URL); ?>"
-                >
-                    Return to Home
-                </a>
-            </div>
-        </section>
-    </main>
+            <a class="button button-secondary" href="<?= e(HOME_URL); ?>">
+                Return to Home
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
 
     require
         INCLUDES_PATH

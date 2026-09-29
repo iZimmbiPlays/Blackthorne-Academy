@@ -47,33 +47,30 @@ if (
     require INCLUDES_PATH . '/header.php';
     ?>
 
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <p class="academy-overline">
-                    Restricted Staff Area
-                </p>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <p class="academy-overline">
+                Restricted Staff Area
+            </p>
 
-                <h1>
-                    Access Denied
-                </h1>
+            <h1>
+                Access Denied
+            </h1>
 
-                <p>
-                    Your account does not have permission to edit
-                    course offerings.
-                </p>
+            <p>
+                Your account does not have permission to edit
+                course offerings.
+            </p>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/course-offerings.php')); ?>"
-                >
-                    Return to Course Offerings
-                </a>
-            </div>
-        </section>
-    </main>
+            <a class="button button-secondary" href="<?= e(url('admin/course-offerings.php')); ?>">
+                Return to Course Offerings
+            </a>
+        </div>
+    </section>
+</main>
 
-    <?php
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -322,23 +319,20 @@ if ($offeringId <= 0) {
 
     require INCLUDES_PATH . '/header.php';
     ?>
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <h1>
-                    Course Offering Not Found
-                </h1>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <h1>
+                Course Offering Not Found
+            </h1>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/course-offerings.php')); ?>"
-                >
-                    Return to Course Offerings
-                </a>
-            </div>
-        </section>
-    </main>
-    <?php
+            <a class="button button-secondary" href="<?= e(url('admin/course-offerings.php')); ?>">
+                Return to Course Offerings
+            </a>
+        </div>
+    </section>
+</main>
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -401,23 +395,20 @@ if (!$offering) {
 
     require INCLUDES_PATH . '/header.php';
     ?>
-    <main id="main-content" class="forum-board-page">
-        <section class="forum-board-error">
-            <div class="section-inner">
-                <h1>
-                    Course Offering Not Found
-                </h1>
+<main id="main-content" class="forum-board-page">
+    <section class="forum-board-error">
+        <div class="section-inner">
+            <h1>
+                Course Offering Not Found
+            </h1>
 
-                <a
-                    class="button button-secondary"
-                    href="<?= e(url('admin/course-offerings.php')); ?>"
-                >
-                    Return to Course Offerings
-                </a>
-            </div>
-        </section>
-    </main>
-    <?php
+            <a class="button button-secondary" href="<?= e(url('admin/course-offerings.php')); ?>">
+                Return to Course Offerings
+            </a>
+        </div>
+    </section>
+</main>
+<?php
     require INCLUDES_PATH . '/footer.php';
     exit;
 }
@@ -1463,18 +1454,12 @@ $staffHeroUrl =
 
 ?>
 
-<main
-    id="main-content"
-    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-offerings-page"
->
+<main id="main-content"
+    class="dashboard-page staff-dashboard-page dashboard-workspace-page courses-dashboard-page course-offerings-page">
 
-    <section
-        class="dashboard-hero staff-dashboard-hero"
-        aria-labelledby="course-offering-edit-heading"
-        <?php if ($staffHeroUrl !== ''): ?>
-            style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
-        <?php endif; ?>
-    >
+    <section class="dashboard-hero staff-dashboard-hero" aria-labelledby="course-offering-edit-heading"
+        <?php if ($staffHeroUrl !== ''): ?> style="--staff-dashboard-hero-image: url('<?= e($staffHeroUrl); ?>');"
+        <?php endif; ?>>
         <div class="section-inner">
             <div class="dashboard-hero-inner">
                 <p class="academy-overline">
@@ -1533,36 +1518,30 @@ $staffHeroUrl =
                     </div>
 
                     <div>
-                        <a
-                            class="button button-secondary"
-                            href="<?= e(
+                        <a class="button button-secondary" href="<?= e(
                                 url(
                                     'admin/course-offerings.php'
                                 )
-                            ); ?>"
-                        >
+                            ); ?>">
                             Back to Offerings
                         </a>
                     </div>
                 </header>
 
                 <?php if ($errors !== []): ?>
-                    <div
-                        class="form-message form-message-error"
-                        role="alert"
-                    >
-                        <strong>
-                            The offering could not be updated.
-                        </strong>
+                <div class="form-message form-message-error" role="alert">
+                    <strong>
+                        The offering could not be updated.
+                    </strong>
 
-                        <ul>
-                            <?php foreach ($errors as $error): ?>
-                                <li>
-                                    <?= e($error); ?>
-                                </li>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
+                    <ul>
+                        <?php foreach ($errors as $error): ?>
+                        <li>
+                            <?= e($error); ?>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+                </div>
                 <?php endif; ?>
 
                 <section class="forum-admin-panel">
@@ -1576,29 +1555,17 @@ $staffHeroUrl =
                         </h2>
                     </header>
 
-                    <form
-                        action="<?= e(
+                    <form action="<?= e(
                             url(
                                 'admin/course-offering-edit.php?offering='
                                 . $offeringId
                             )
-                        ); ?>"
-                        method="post"
-                        class="forum-admin-form"
-                    >
+                        ); ?>" method="post" class="forum-admin-form">
                         <?= csrf_field(); ?>
 
-                        <input
-                            type="hidden"
-                            name="action"
-                            value="update_offering"
-                        >
+                        <input type="hidden" name="action" value="update_offering">
 
-                        <input
-                            type="hidden"
-                            name="offering_id"
-                            value="<?= $offeringId; ?>"
-                        >
+                        <input type="hidden" name="offering_id" value="<?= $offeringId; ?>">
 
                         <div class="forum-admin-form-grid">
                             <div class="form-group">
@@ -1606,19 +1573,14 @@ $staffHeroUrl =
                                     Course
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    value="<?= e(
+                                <input class="form-control" type="text" value="<?= e(
                                         (string) (
                                             $offering[
                                                 'course_title'
                                             ]
                                             ?? ''
                                         )
-                                    ); ?>"
-                                    disabled
-                                >
+                                    ); ?>" disabled>
                             </div>
 
                             <div class="form-group">
@@ -1626,28 +1588,23 @@ $staffHeroUrl =
                                     Offering Type
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="text"
-                                    value="<?= e(
+                                <input class="form-control" type="text" value="<?= e(
                                         $isPerpetual
                                             ? 'Perpetual · Self-Paced'
                                             : 'School Year · Drip Content'
-                                    ); ?>"
-                                    disabled
-                                >
+                                    ); ?>" disabled>
                             </div>
                         </div>
 
                         <?php if (!$isPerpetual): ?>
-                            <div class="forum-admin-form-grid">
-                                <div class="form-group">
-                                    <label for="school-year-id">
-                                        School Year
-                                    </label>
+                        <div class="forum-admin-form-grid">
+                            <div class="form-group">
+                                <label for="school-year-id">
+                                    School Year
+                                </label>
 
-                                    <?php if ($hasEnrollments): ?>
-                                        <?php
+                                <?php if ($hasEnrollments): ?>
+                                <?php
                                         $schoolYearName =
                                             'School Year #'
                                             . (int) (
@@ -1680,42 +1637,25 @@ $staffHeroUrl =
                                         }
                                         ?>
 
-                                        <input
-                                            class="form-control"
-                                            type="text"
-                                            value="<?= e($schoolYearName); ?>"
-                                            disabled
-                                        >
+                                <input class="form-control" type="text" value="<?= e($schoolYearName); ?>" disabled>
 
-                                        <input
-                                            type="hidden"
-                                            name="school_year_id"
-                                            value="<?= (int) (
+                                <input type="hidden" name="school_year_id" value="<?= (int) (
                                                 $offering[
                                                     'school_year_id'
                                                 ]
                                                 ?? 0
-                                            ); ?>"
-                                        >
-                                    <?php else: ?>
-                                        <select
-                                            class="form-control"
-                                            id="school-year-id"
-                                            name="school_year_id"
-                                            required
-                                        >
-                                            <option value="">
-                                                Choose a school year
-                                            </option>
+                                            ); ?>">
+                                <?php else: ?>
+                                <select class="form-control" id="school-year-id" name="school_year_id" required>
+                                    <option value="">
+                                        Choose a school year
+                                    </option>
 
-                                            <?php foreach ($schoolYears as $schoolYear): ?>
-                                                <option
-                                                    value="<?= (int) $schoolYear['id']; ?>"
-                                                    <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
+                                    <?php foreach ($schoolYears as $schoolYear): ?>
+                                    <option value="<?= (int) $schoolYear['id']; ?>" <?= (int) $form['school_year_id'] === (int) $schoolYear['id']
                                                         ? 'selected'
-                                                        : ''; ?>
-                                                >
-                                                    <?= e(
+                                                        : ''; ?>>
+                                        <?= e(
                                                         (string) (
                                                             $schoolYear[
                                                                 'name'
@@ -1723,26 +1663,26 @@ $staffHeroUrl =
                                                             ?? 'School Year'
                                                         )
                                                     ); ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    <?php endif; ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <?php endif; ?>
 
-                                    <?php if ($hasEnrollments): ?>
-                                        <p class="form-help">
-                                            Locked because students have already
-                                            been enrolled in this offering.
-                                        </p>
-                                    <?php endif; ?>
-                                </div>
+                                <?php if ($hasEnrollments): ?>
+                                <p class="form-help">
+                                    Locked because students have already
+                                    been enrolled in this offering.
+                                </p>
+                                <?php endif; ?>
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="year-group-id">
-                                        Grade Level
-                                    </label>
+                            <div class="form-group">
+                                <label for="year-group-id">
+                                    Grade Level
+                                </label>
 
-                                    <?php if ($hasEnrollments): ?>
-                                        <?php
+                                <?php if ($hasEnrollments): ?>
+                                <?php
                                         $yearGroupName =
                                             'Grade Level #'
                                             . (int) (
@@ -1775,42 +1715,25 @@ $staffHeroUrl =
                                         }
                                         ?>
 
-                                        <input
-                                            class="form-control"
-                                            type="text"
-                                            value="<?= e($yearGroupName); ?>"
-                                            disabled
-                                        >
+                                <input class="form-control" type="text" value="<?= e($yearGroupName); ?>" disabled>
 
-                                        <input
-                                            type="hidden"
-                                            name="year_group_id"
-                                            value="<?= (int) (
+                                <input type="hidden" name="year_group_id" value="<?= (int) (
                                                 $offering[
                                                     'year_group_id'
                                                 ]
                                                 ?? 0
-                                            ); ?>"
-                                        >
-                                    <?php else: ?>
-                                        <select
-                                            class="form-control"
-                                            id="year-group-id"
-                                            name="year_group_id"
-                                            required
-                                        >
-                                            <option value="">
-                                                Choose a grade level
-                                            </option>
+                                            ); ?>">
+                                <?php else: ?>
+                                <select class="form-control" id="year-group-id" name="year_group_id" required>
+                                    <option value="">
+                                        Choose a grade level
+                                    </option>
 
-                                            <?php foreach ($yearGroups as $yearGroup): ?>
-                                                <option
-                                                    value="<?= (int) $yearGroup['id']; ?>"
-                                                    <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
+                                    <?php foreach ($yearGroups as $yearGroup): ?>
+                                    <option value="<?= (int) $yearGroup['id']; ?>" <?= (int) $form['year_group_id'] === (int) $yearGroup['id']
                                                         ? 'selected'
-                                                        : ''; ?>
-                                                >
-                                                    <?= e(
+                                                        : ''; ?>>
+                                        <?= e(
                                                         (string) (
                                                             $yearGroup[
                                                                 'name'
@@ -1818,19 +1741,19 @@ $staffHeroUrl =
                                                             ?? 'Grade Level'
                                                         )
                                                     ); ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
-                                    <?php endif; ?>
+                                    </option>
+                                    <?php endforeach; ?>
+                                </select>
+                                <?php endif; ?>
 
-                                    <?php if ($hasEnrollments): ?>
-                                        <p class="form-help">
-                                            Locked because students have already
-                                            been enrolled in this offering.
-                                        </p>
-                                    <?php endif; ?>
-                                </div>
+                                <?php if ($hasEnrollments): ?>
+                                <p class="form-help">
+                                    Locked because students have already
+                                    been enrolled in this offering.
+                                </p>
+                                <?php endif; ?>
                             </div>
+                        </div>
                         <?php endif; ?>
 
                         <div class="forum-admin-form-grid">
@@ -1839,38 +1762,27 @@ $staffHeroUrl =
                                     Course Start Date
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="course-start-date"
-                                    name="course_start_date"
-                                    value="<?= e(
+                                <input class="form-control" type="datetime-local" id="course-start-date"
+                                    name="course_start_date" value="<?= e(
                                         $form[
                                             'course_start_date'
                                         ]
-                                    ); ?>"
-                                >
+                                    ); ?>">
                             </div>
 
                             <?php if (!$isPerpetual): ?>
-                                <div class="form-group">
-                                    <label for="course-end-date">
-                                        Course End Date
-                                    </label>
+                            <div class="form-group">
+                                <label for="course-end-date">
+                                    Course End Date
+                                </label>
 
-                                    <input
-                                        class="form-control"
-                                        type="datetime-local"
-                                        id="course-end-date"
-                                        name="course_end_date"
-                                        value="<?= e(
+                                <input class="form-control" type="datetime-local" id="course-end-date"
+                                    name="course_end_date" value="<?= e(
                                             $form[
                                                 'course_end_date'
                                             ]
-                                        ); ?>"
-                                        required
-                                    >
-                                </div>
+                                        ); ?>" required>
+                            </div>
                             <?php endif; ?>
                         </div>
 
@@ -1880,17 +1792,12 @@ $staffHeroUrl =
                                     Enrollment Opens
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="enrollment-open-date"
-                                    name="enrollment_open_date"
-                                    value="<?= e(
+                                <input class="form-control" type="datetime-local" id="enrollment-open-date"
+                                    name="enrollment_open_date" value="<?= e(
                                         $form[
                                             'enrollment_open_date'
                                         ]
-                                    ); ?>"
-                                >
+                                    ); ?>">
                             </div>
 
                             <div class="form-group">
@@ -1898,17 +1805,12 @@ $staffHeroUrl =
                                     Enrollment Closes
                                 </label>
 
-                                <input
-                                    class="form-control"
-                                    type="datetime-local"
-                                    id="enrollment-close-date"
-                                    name="enrollment_close_date"
-                                    value="<?= e(
+                                <input class="form-control" type="datetime-local" id="enrollment-close-date"
+                                    name="enrollment_close_date" value="<?= e(
                                         $form[
                                             'enrollment_close_date'
                                         ]
-                                    ); ?>"
-                                >
+                                    ); ?>">
                             </div>
                         </div>
 
@@ -1918,15 +1820,10 @@ $staffHeroUrl =
                                     Instructor(s)
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="instructor-ids"
-                                    name="instructor_ids[]"
-                                    multiple
-                                    size="8"
-                                >
+                                <select class="form-control" id="instructor-ids" name="instructor_ids[]" multiple
+                                    size="8">
                                     <?php foreach ($availableStaff as $staffMember): ?>
-                                        <?php
+                                    <?php
                                         $staffName =
                                             trim(
                                                 (string) (
@@ -1941,18 +1838,15 @@ $staffHeroUrl =
                                             );
                                         ?>
 
-                                        <option
-                                            value="<?= (int) $staffMember['id']; ?>"
-                                            <?= in_array(
+                                    <option value="<?= (int) $staffMember['id']; ?>" <?= in_array(
                                                 (int) $staffMember['id'],
                                                 $form['instructor_ids'],
                                                 true
                                             )
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e($staffName); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e($staffName); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
 
@@ -1967,15 +1861,9 @@ $staffHeroUrl =
                                     Teaching Assistant(s) / TA(s)
                                 </label>
 
-                                <select
-                                    class="form-control"
-                                    id="ta-ids"
-                                    name="ta_ids[]"
-                                    multiple
-                                    size="8"
-                                >
+                                <select class="form-control" id="ta-ids" name="ta_ids[]" multiple size="8">
                                     <?php foreach ($availableStaff as $staffMember): ?>
-                                        <?php
+                                    <?php
                                         $staffName =
                                             trim(
                                                 (string) (
@@ -1990,18 +1878,15 @@ $staffHeroUrl =
                                             );
                                         ?>
 
-                                        <option
-                                            value="<?= (int) $staffMember['id']; ?>"
-                                            <?= in_array(
+                                    <option value="<?= (int) $staffMember['id']; ?>" <?= in_array(
                                                 (int) $staffMember['id'],
                                                 $form['ta_ids'],
                                                 true
                                             )
                                                 ? 'selected'
-                                                : ''; ?>
-                                        >
-                                            <?= e($staffName); ?>
-                                        </option>
+                                                : ''; ?>>
+                                        <?= e($staffName); ?>
+                                    </option>
                                     <?php endforeach; ?>
                                 </select>
                             </div>
@@ -2012,11 +1897,7 @@ $staffHeroUrl =
                                 Offering Status
                             </label>
 
-                            <select
-                                class="form-control"
-                                id="offering-status"
-                                name="status"
-                            >
+                            <select class="form-control" id="offering-status" name="status">
                                 <?php
                                 $statuses = [
                                     'draft' => 'Draft',
@@ -2028,34 +1909,25 @@ $staffHeroUrl =
                                 ?>
 
                                 <?php foreach ($statuses as $value => $label): ?>
-                                    <option
-                                        value="<?= e($value); ?>"
-                                        <?= $form['status'] === $value
+                                <option value="<?= e($value); ?>" <?= $form['status'] === $value
                                             ? 'selected'
-                                            : ''; ?>
-                                    >
-                                        <?= e($label); ?>
-                                    </option>
+                                            : ''; ?>>
+                                    <?= e($label); ?>
+                                </option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
 
                         <div class="forum-admin-actions">
-                            <button
-                                type="submit"
-                                class="button button-primary"
-                            >
+                            <button type="submit" class="button button-primary">
                                 Save Offering
                             </button>
 
-                            <a
-                                class="button button-secondary"
-                                href="<?= e(
+                            <a class="button button-secondary" href="<?= e(
                                     url(
                                         'admin/course-offerings.php'
                                     )
-                                ); ?>"
-                            >
+                                ); ?>">
                                 Cancel
                             </a>
                         </div>

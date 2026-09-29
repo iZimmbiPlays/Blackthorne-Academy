@@ -33,263 +33,199 @@ require INCLUDES_PATH . '/header.php';
          beside visible descriptive text.
     ================================================================= -->
 
-    <svg
-        class="feature-icon-library"
-        aria-hidden="true"
-        focusable="false"
-    >
+    <svg class="feature-icon-library" aria-hidden="true" focusable="false">
 
         <defs>
 
 
             <!-- Open Book -->
 
-            <symbol
-                id="icon-book"
-                viewBox="0 0 24 24"
-            >
-                <path d="M3.5 5.5A3.5 3.5 0 0 1 7 2h5v18H7a3.5 3.5 0 0 0-3.5 3.5z"/>
-                <path d="M20.5 5.5A3.5 3.5 0 0 0 17 2h-5v18h5a3.5 3.5 0 0 1 3.5 3.5z"/>
+            <symbol id="icon-book" viewBox="0 0 24 24">
+                <path d="M3.5 5.5A3.5 3.5 0 0 1 7 2h5v18H7a3.5 3.5 0 0 0-3.5 3.5z" />
+                <path d="M20.5 5.5A3.5 3.5 0 0 0 17 2h-5v18h5a3.5 3.5 0 0 1 3.5 3.5z" />
             </symbol>
 
 
             <!-- Scroll -->
 
-            <symbol
-                id="icon-scroll"
-                viewBox="0 0 24 24"
-            >
-                <path d="M6 3h12a2 2 0 0 1 2 2v2H8a2 2 0 0 0-2 2v11"/>
-                <path d="M6 20a2 2 0 0 1-2-2v-2h12a2 2 0 0 0 2-2V7"/>
-                <path d="M9 10h6"/>
-                <path d="M9 13h5"/>
+            <symbol id="icon-scroll" viewBox="0 0 24 24">
+                <path d="M6 3h12a2 2 0 0 1 2 2v2H8a2 2 0 0 0-2 2v11" />
+                <path d="M6 20a2 2 0 0 1-2-2v-2h12a2 2 0 0 0 2-2V7" />
+                <path d="M9 10h6" />
+                <path d="M9 13h5" />
             </symbol>
 
 
             <!-- Quill -->
 
-            <symbol
-                id="icon-quill"
-                viewBox="0 0 24 24"
-            >
-                <path d="M20.5 3.5c-6.2.2-11.7 4.4-13.5 10.4"/>
-                <path d="M20.5 3.5c-.2 6.2-4.4 11.7-10.4 13.5"/>
-                <path d="M6 18 16.5 7.5"/>
-                <path d="M4 21l2-5"/>
+            <symbol id="icon-quill" viewBox="0 0 24 24">
+                <path d="M20.5 3.5c-6.2.2-11.7 4.4-13.5 10.4" />
+                <path d="M20.5 3.5c-.2 6.2-4.4 11.7-10.4 13.5" />
+                <path d="M6 18 16.5 7.5" />
+                <path d="M4 21l2-5" />
             </symbol>
 
 
             <!-- Academic Seal -->
 
-            <symbol
-                id="icon-seal"
-                viewBox="0 0 24 24"
-            >
-                <circle cx="12" cy="10" r="6"/>
-                <path d="m9 15-1 7 4-2 4 2-1-7"/>
-                <path d="m12 6 1.1 2.2 2.4.4-1.7 1.7.4 2.4-2.2-1.1-2.2 1.1.4-2.4-1.7-1.7 2.4-.4z"/>
+            <symbol id="icon-seal" viewBox="0 0 24 24">
+                <circle cx="12" cy="10" r="6" />
+                <path d="m9 15-1 7 4-2 4 2-1-7" />
+                <path d="m12 6 1.1 2.2 2.4.4-1.7 1.7.4 2.4-2.2-1.1-2.2 1.1.4-2.4-1.7-1.7 2.4-.4z" />
             </symbol>
 
 
             <!-- Compass -->
 
-            <symbol
-                id="icon-compass"
-                viewBox="0 0 24 24"
-            >
-                <circle cx="12" cy="12" r="9"/>
-                <path d="m15.5 8.5-2.1 4.9-4.9 2.1 2.1-4.9z"/>
-                <circle cx="12" cy="12" r="1"/>
+            <symbol id="icon-compass" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" />
+                <path d="m15.5 8.5-2.1 4.9-4.9 2.1 2.1-4.9z" />
+                <circle cx="12" cy="12" r="1" />
             </symbol>
 
 
             <!-- Hourglass -->
 
-            <symbol
-                id="icon-hourglass"
-                viewBox="0 0 24 24"
-            >
-                <path d="M6 3h12"/>
-                <path d="M6 21h12"/>
-                <path d="M8 3c0 4 1.5 6.2 4 9-2.5 2.8-4 5-4 9"/>
-                <path d="M16 3c0 4-1.5 6.2-4 9 2.5 2.8 4 5 4 9"/>
+            <symbol id="icon-hourglass" viewBox="0 0 24 24">
+                <path d="M6 3h12" />
+                <path d="M6 21h12" />
+                <path d="M8 3c0 4 1.5 6.2 4 9-2.5 2.8-4 5-4 9" />
+                <path d="M16 3c0 4-1.5 6.2-4 9 2.5 2.8 4 5 4 9" />
             </symbol>
 
 
             <!-- Progress -->
 
-            <symbol
-                id="icon-progress"
-                viewBox="0 0 24 24"
-            >
-                <path d="M4 19h5v-5h5V9h6"/>
-                <path d="m16 5 4 4-4 4"/>
+            <symbol id="icon-progress" viewBox="0 0 24 24">
+                <path d="M4 19h5v-5h5V9h6" />
+                <path d="m16 5 4 4-4 4" />
             </symbol>
 
 
             <!-- Archive -->
 
-            <symbol
-                id="icon-archive"
-                viewBox="0 0 24 24"
-            >
-                <path d="M4 6h16v15H4z"/>
-                <path d="M3 3h18v4H3z"/>
-                <path d="M9 11h6"/>
-                <path d="M9 15h6"/>
+            <symbol id="icon-archive" viewBox="0 0 24 24">
+                <path d="M4 6h16v15H4z" />
+                <path d="M3 3h18v4H3z" />
+                <path d="M9 11h6" />
+                <path d="M9 15h6" />
             </symbol>
 
 
             <!-- Shield -->
 
-            <symbol
-                id="icon-shield"
-                viewBox="0 0 24 24"
-            >
-                <path d="M12 2 20 5v6c0 5.1-3.1 8.7-8 11-4.9-2.3-8-5.9-8-11V5z"/>
-                <path d="m12 7 1.3 2.7 3 .4-2.2 2.1.6 3-2.7-1.4-2.7 1.4.6-3-2.2-2.1 3-.4z"/>
+            <symbol id="icon-shield" viewBox="0 0 24 24">
+                <path d="M12 2 20 5v6c0 5.1-3.1 8.7-8 11-4.9-2.3-8-5.9-8-11V5z" />
+                <path d="m12 7 1.3 2.7 3 .4-2.2 2.1.6 3-2.7-1.4-2.7 1.4.6-3-2.2-2.1 3-.4z" />
             </symbol>
 
 
             <!-- Star -->
 
-            <symbol
-                id="icon-star"
-                viewBox="0 0 24 24"
-            >
-                <path d="m12 2 2.8 6.3 6.7.7-5 4.6 1.4 6.6-5.9-3.3-5.9 3.3 1.4-6.6-5-4.6 6.7-.7z"/>
+            <symbol id="icon-star" viewBox="0 0 24 24">
+                <path d="m12 2 2.8 6.3 6.7.7-5 4.6 1.4 6.6-5.9-3.3-5.9 3.3 1.4-6.6-5-4.6 6.7-.7z" />
             </symbol>
 
 
             <!-- Medal -->
 
-            <symbol
-                id="icon-medal"
-                viewBox="0 0 24 24"
-            >
-                <path d="m7 3 5 8 5-8"/>
-                <circle cx="12" cy="15" r="5"/>
-                <path d="m12 12 1 2 2 .3-1.5 1.5.4 2.2-1.9-1-1.9 1 .4-2.2L9 14.3l2-.3z"/>
+            <symbol id="icon-medal" viewBox="0 0 24 24">
+                <path d="m7 3 5 8 5-8" />
+                <circle cx="12" cy="15" r="5" />
+                <path d="m12 12 1 2 2 .3-1.5 1.5.4 2.2-1.9-1-1.9 1 .4-2.2L9 14.3l2-.3z" />
             </symbol>
 
 
             <!-- Laurel -->
 
-            <symbol
-                id="icon-laurel"
-                viewBox="0 0 24 24"
-            >
-                <path d="M8 20c-4-3-5-8-3-13"/>
-                <path d="M16 20c4-3 5-8 3-13"/>
-                <path d="M5 9 2.5 7"/>
-                <path d="M5 13 2 12"/>
-                <path d="M7 17l-3 .5"/>
-                <path d="m19 9 2.5-2"/>
-                <path d="m19 13 3-1"/>
-                <path d="m17 17 3 .5"/>
-                <path d="M9 21h6"/>
+            <symbol id="icon-laurel" viewBox="0 0 24 24">
+                <path d="M8 20c-4-3-5-8-3-13" />
+                <path d="M16 20c4-3 5-8 3-13" />
+                <path d="M5 9 2.5 7" />
+                <path d="M5 13 2 12" />
+                <path d="M7 17l-3 .5" />
+                <path d="m19 9 2.5-2" />
+                <path d="m19 13 3-1" />
+                <path d="m17 17 3 .5" />
+                <path d="M9 21h6" />
             </symbol>
 
 
             <!-- Discussion -->
 
-            <symbol
-                id="icon-discussion"
-                viewBox="0 0 24 24"
-            >
-                <path d="M4 4h12v9H9l-4 3v-3H4z"/>
-                <path d="M9 17h6l4 3v-3h1V9h-2"/>
+            <symbol id="icon-discussion" viewBox="0 0 24 24">
+                <path d="M4 4h12v9H9l-4 3v-3H4z" />
+                <path d="M9 17h6l4 3v-3h1V9h-2" />
             </symbol>
 
 
             <!-- Poll -->
 
-            <symbol
-                id="icon-poll"
-                viewBox="0 0 24 24"
-            >
-                <path d="M4 20V10h4v10"/>
-                <path d="M10 20V4h4v16"/>
-                <path d="M16 20v-7h4v7"/>
-                <path d="M2 20h20"/>
+            <symbol id="icon-poll" viewBox="0 0 24 24">
+                <path d="M4 20V10h4v10" />
+                <path d="M10 20V4h4v16" />
+                <path d="M16 20v-7h4v7" />
+                <path d="M2 20h20" />
             </symbol>
 
 
             <!-- Calendar -->
 
-            <symbol
-                id="icon-calendar"
-                viewBox="0 0 24 24"
-            >
-                <rect x="3" y="5" width="18" height="16" rx="2"/>
-                <path d="M7 2v6"/>
-                <path d="M17 2v6"/>
-                <path d="M3 10h18"/>
-                <path d="m12 13 1 2 2 .3-1.5 1.5.4 2.2-1.9-1-1.9 1 .4-2.2L9 15.3l2-.3z"/>
+            <symbol id="icon-calendar" viewBox="0 0 24 24">
+                <rect x="3" y="5" width="18" height="16" rx="2" />
+                <path d="M7 2v6" />
+                <path d="M17 2v6" />
+                <path d="M3 10h18" />
+                <path d="m12 13 1 2 2 .3-1.5 1.5.4 2.2-1.9-1-1.9 1 .4-2.2L9 15.3l2-.3z" />
             </symbol>
 
 
             <!-- Trophy -->
 
-            <symbol
-                id="icon-trophy"
-                viewBox="0 0 24 24"
-            >
-                <path d="M8 4h8v4c0 4-1.8 7-4 7s-4-3-4-7z"/>
-                <path d="M8 6H4v2c0 3 1.5 5 4.5 5"/>
-                <path d="M16 6h4v2c0 3-1.5 5-4.5 5"/>
-                <path d="M12 15v4"/>
-                <path d="M8 21h8"/>
+            <symbol id="icon-trophy" viewBox="0 0 24 24">
+                <path d="M8 4h8v4c0 4-1.8 7-4 7s-4-3-4-7z" />
+                <path d="M8 6H4v2c0 3 1.5 5 4.5 5" />
+                <path d="M16 6h4v2c0 3-1.5 5-4.5 5" />
+                <path d="M12 15v4" />
+                <path d="M8 21h8" />
             </symbol>
 
 
             <!-- Profile -->
 
-            <symbol
-                id="icon-profile"
-                viewBox="0 0 24 24"
-            >
-                <circle cx="12" cy="8" r="4"/>
-                <path d="M4 21c.7-4.7 3.4-7 8-7s7.3 2.3 8 7"/>
+            <symbol id="icon-profile" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21c.7-4.7 3.4-7 8-7s7.3 2.3 8 7" />
             </symbol>
 
 
             <!-- History -->
 
-            <symbol
-                id="icon-history"
-                viewBox="0 0 24 24"
-            >
-                <path d="M4 5v6h6"/>
-                <path d="M5.5 10a8 8 0 1 1 1.2 7"/>
-                <path d="M12 7v5l3 2"/>
+            <symbol id="icon-history" viewBox="0 0 24 24">
+                <path d="M4 5v6h6" />
+                <path d="M5.5 10a8 8 0 1 1 1.2 7" />
+                <path d="M12 7v5l3 2" />
             </symbol>
 
 
             <!-- Mentor -->
 
-            <symbol
-                id="icon-mentor"
-                viewBox="0 0 24 24"
-            >
-                <circle cx="9" cy="8" r="3"/>
-                <path d="M3 20c.5-4 2.5-6 6-6 2 0 3.6.7 4.6 2"/>
-                <path d="M15 7h6v8h-3l-3 3v-3h-1V8a1 1 0 0 1 1-1z"/>
+            <symbol id="icon-mentor" viewBox="0 0 24 24">
+                <circle cx="9" cy="8" r="3" />
+                <path d="M3 20c.5-4 2.5-6 6-6 2 0 3.6.7 4.6 2" />
+                <path d="M15 7h6v8h-3l-3 3v-3h-1V8a1 1 0 0 1 1-1z" />
             </symbol>
 
 
             <!-- Academy -->
 
-            <symbol
-                id="icon-academy"
-                viewBox="0 0 24 24"
-            >
-                <path d="m3 10 9-7 9 7"/>
-                <path d="M5 9v12"/>
-                <path d="M19 9v12"/>
-                <path d="M9 21v-7h6v7"/>
-                <path d="M3 21h18"/>
-                <path d="M8 10h8"/>
+            <symbol id="icon-academy" viewBox="0 0 24 24">
+                <path d="m3 10 9-7 9 7" />
+                <path d="M5 9v12" />
+                <path d="M19 9v12" />
+                <path d="M9 21v-7h6v7" />
+                <path d="M3 21h18" />
+                <path d="M8 10h8" />
             </symbol>
 
 
@@ -302,20 +238,11 @@ require INCLUDES_PATH . '/header.php';
          HERO
     ================================================================= -->
 
-    <section
-        class="features-hero"
-        aria-labelledby="features-hero-heading"
-    >
+    <section class="features-hero" aria-labelledby="features-hero-heading">
 
-        <div
-            class="hero-ornament hero-ornament-left"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-left" aria-hidden="true"></div>
 
-        <div
-            class="hero-ornament hero-ornament-right"
-            aria-hidden="true"
-        ></div>
+        <div class="hero-ornament hero-ornament-right" aria-hidden="true"></div>
 
 
         <div class="section-inner features-hero-inner">
@@ -340,38 +267,23 @@ require INCLUDES_PATH . '/header.php';
                 </p>
 
 
-                <div
-                    class="hero-actions"
-                    aria-label="Features page actions"
-                >
+                <div class="hero-actions" aria-label="Features page actions">
 
-                    <a
-                        href="#academic-study"
-                        class="button button-primary"
-                    >
+                    <a href="#academic-study" class="button button-primary">
                         Explore the Experience
                     </a>
 
 
-                    <a
-                        href="<?= e(REGISTER_URL); ?>"
-                        class="button button-secondary"
-                    >
+                    <a href="<?= e(REGISTER_URL); ?>" class="button button-secondary">
                         Begin Enrollment
                     </a>
 
                 </div>
 
 
-                <div
-                    class="hero-motto"
-                    aria-label="Blackthorne Academy experience"
-                >
+                <div class="hero-motto" aria-label="Blackthorne Academy experience">
 
-                    <span
-                        class="ornament-line"
-                        aria-hidden="true"
-                    ></span>
+                    <span class="ornament-line" aria-hidden="true"></span>
 
 
                     <p>
@@ -411,10 +323,7 @@ require INCLUDES_PATH . '/header.php';
          INTRODUCTION
     ================================================================= -->
 
-    <section
-        class="features-introduction"
-        aria-labelledby="features-introduction-heading"
-    >
+    <section class="features-introduction" aria-labelledby="features-introduction-heading">
 
         <div class="section-inner">
 
@@ -430,10 +339,7 @@ require INCLUDES_PATH . '/header.php';
                 </h2>
 
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>
@@ -459,11 +365,8 @@ require INCLUDES_PATH . '/header.php';
          01 — ACADEMIC STUDY
     ================================================================= -->
 
-    <section
-        class="features-prospectus-section features-prospectus-light"
-        id="academic-study"
-        aria-labelledby="academic-study-heading"
-    >
+    <section class="features-prospectus-section features-prospectus-light" id="academic-study"
+        aria-labelledby="academic-study-heading">
 
         <div class="section-inner features-prospectus-grid">
 
@@ -472,10 +375,7 @@ require INCLUDES_PATH . '/header.php';
 
             <div class="features-prospectus-heading">
 
-                <span
-                    class="features-section-number"
-                    aria-hidden="true"
-                >
+                <span class="features-section-number" aria-hidden="true">
                     01
                 </span>
 
@@ -507,10 +407,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-book"></use>
                         </svg>
@@ -536,10 +433,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-scroll"></use>
                         </svg>
@@ -565,10 +459,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-quill"></use>
                         </svg>
@@ -595,10 +486,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-seal"></use>
                         </svg>
@@ -633,10 +521,7 @@ require INCLUDES_PATH . '/header.php';
          02 — ACADEMIC JOURNEY
     ================================================================= -->
 
-    <section
-        class="features-prospectus-section features-prospectus-dark"
-        aria-labelledby="academic-journey-heading"
-    >
+    <section class="features-prospectus-section features-prospectus-dark" aria-labelledby="academic-journey-heading">
 
         <div class="section-inner features-prospectus-grid features-prospectus-reversed">
 
@@ -648,10 +533,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-compass"></use>
                         </svg>
@@ -678,10 +560,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-hourglass"></use>
                         </svg>
@@ -708,10 +587,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-progress"></use>
                         </svg>
@@ -737,10 +613,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-archive"></use>
                         </svg>
@@ -771,10 +644,7 @@ require INCLUDES_PATH . '/header.php';
 
             <div class="features-prospectus-heading">
 
-                <span
-                    class="features-section-number"
-                    aria-hidden="true"
-                >
+                <span class="features-section-number" aria-hidden="true">
                     02
                 </span>
 
@@ -807,20 +677,14 @@ require INCLUDES_PATH . '/header.php';
          03 — HOUSES & ACHIEVEMENT
     ================================================================= -->
 
-    <section
-        class="features-houses-section"
-        aria-labelledby="houses-achievement-heading"
-    >
+    <section class="features-houses-section" aria-labelledby="houses-achievement-heading">
 
         <div class="section-inner">
 
 
             <header class="features-section-intro features-section-intro-centered">
 
-                <span
-                    class="features-section-number"
-                    aria-hidden="true"
-                >
+                <span class="features-section-number" aria-hidden="true">
                     03
                 </span>
 
@@ -850,10 +714,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-emblem-entry">
 
-                    <div
-                        class="feature-icon feature-icon-large"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon feature-icon-large" aria-hidden="true">
                         <svg>
                             <use href="#icon-shield"></use>
                         </svg>
@@ -875,10 +736,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-emblem-entry">
 
-                    <div
-                        class="feature-icon feature-icon-large"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon feature-icon-large" aria-hidden="true">
                         <svg>
                             <use href="#icon-star"></use>
                         </svg>
@@ -898,21 +756,12 @@ require INCLUDES_PATH . '/header.php';
                 </article>
 
 
-                <div
-                    class="features-central-emblem"
-                    aria-hidden="true"
-                >
+                <div class="features-central-emblem" aria-hidden="true">
 
                     <span class="features-emblem-ring">
 
-                        <img
-                            src="<?= e(asset('images/logo/logo_3.png')); ?>"
-                            alt=""
-                            width="180"
-                            height="180"
-                            loading="lazy"
-                            decoding="async"
-                        >
+                        <img src="<?= e(asset('images/logo/logo_3.png')); ?>" alt="" width="180" height="180"
+                            loading="lazy" decoding="async">
 
                     </span>
 
@@ -921,10 +770,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-emblem-entry">
 
-                    <div
-                        class="feature-icon feature-icon-large"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon feature-icon-large" aria-hidden="true">
                         <svg>
                             <use href="#icon-medal"></use>
                         </svg>
@@ -947,10 +793,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-emblem-entry">
 
-                    <div
-                        class="feature-icon feature-icon-large"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon feature-icon-large" aria-hidden="true">
                         <svg>
                             <use href="#icon-laurel"></use>
                         </svg>
@@ -982,20 +825,14 @@ require INCLUDES_PATH . '/header.php';
          04 — COMMUNITY
     ================================================================= -->
 
-    <section
-        class="features-community-section"
-        aria-labelledby="community-heading"
-    >
+    <section class="features-community-section" aria-labelledby="community-heading">
 
         <div class="section-inner">
 
 
             <div class="features-community-heading">
 
-                <span
-                    class="features-section-number"
-                    aria-hidden="true"
-                >
+                <span class="features-section-number" aria-hidden="true">
                     04
                 </span>
 
@@ -1025,10 +862,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-community-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-discussion"></use>
                         </svg>
@@ -1054,10 +888,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-community-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-poll"></use>
                         </svg>
@@ -1083,10 +914,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-community-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-calendar"></use>
                         </svg>
@@ -1112,10 +940,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-community-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-trophy"></use>
                         </svg>
@@ -1150,10 +975,7 @@ require INCLUDES_PATH . '/header.php';
          05 — YOUR PLACE AT BLACKTHORNE
     ================================================================= -->
 
-    <section
-        class="features-prospectus-section features-prospectus-final"
-        aria-labelledby="student-life-heading"
-    >
+    <section class="features-prospectus-section features-prospectus-final" aria-labelledby="student-life-heading">
 
         <div class="section-inner features-prospectus-grid">
 
@@ -1162,10 +984,7 @@ require INCLUDES_PATH . '/header.php';
 
             <div class="features-prospectus-heading">
 
-                <span
-                    class="features-section-number"
-                    aria-hidden="true"
-                >
+                <span class="features-section-number" aria-hidden="true">
                     05
                 </span>
 
@@ -1197,10 +1016,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-profile"></use>
                         </svg>
@@ -1226,10 +1042,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-history"></use>
                         </svg>
@@ -1255,10 +1068,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-mentor"></use>
                         </svg>
@@ -1284,10 +1094,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <article class="feature-ledger-entry">
 
-                    <div
-                        class="feature-icon"
-                        aria-hidden="true"
-                    >
+                    <div class="feature-icon" aria-hidden="true">
                         <svg>
                             <use href="#icon-academy"></use>
                         </svg>
@@ -1322,10 +1129,7 @@ require INCLUDES_PATH . '/header.php';
          CLOSING STATEMENT
     ================================================================= -->
 
-    <section
-        class="features-closing"
-        aria-labelledby="features-closing-heading"
-    >
+    <section class="features-closing" aria-labelledby="features-closing-heading">
 
         <div class="section-inner">
 
@@ -1341,10 +1145,7 @@ require INCLUDES_PATH . '/header.php';
                 </h2>
 
 
-                <div
-                    class="ornamental-rule"
-                    aria-hidden="true"
-                >
+                <div class="ornamental-rule" aria-hidden="true">
                     <span></span>
                     <i></i>
                     <span></span>
@@ -1370,20 +1171,14 @@ require INCLUDES_PATH . '/header.php';
          ADMISSIONS
     ================================================================= -->
 
-    <section
-        class="admissions-notice features-admissions"
-        aria-labelledby="features-admissions-heading"
-    >
+    <section class="admissions-notice features-admissions" aria-labelledby="features-admissions-heading">
 
         <div class="section-inner">
 
             <div class="admissions-frame">
 
 
-                <div
-                    class="admissions-seal"
-                    aria-hidden="true"
-                >
+                <div class="admissions-seal" aria-hidden="true">
                     B
                 </div>
 
@@ -1411,10 +1206,7 @@ require INCLUDES_PATH . '/header.php';
 
                 <div class="admissions-action">
 
-                    <a
-                        href="<?= e(REGISTER_URL); ?>"
-                        class="button button-primary button-large"
-                    >
+                    <a href="<?= e(REGISTER_URL); ?>" class="button button-primary button-large">
                         Enroll at Blackthorne
                     </a>
 
