@@ -84,47 +84,6 @@ $robots = $robots ?? 'index, follow';
         name="color-scheme"
         content="dark"
     >
-
-    <!--
-        Critical first-paint styles.
-        These intentionally duplicate only the minimum layout needed before
-        the full stylesheet is parsed, preventing bright/default paint and
-        header/content snapping during page navigation.
-    -->
-    <style>
-        html {
-            background: #120b17;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            padding-top: 88px;
-            background: #120b17;
-            color: #f6f0f7;
-        }
-
-        .site-header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 0;
-            z-index: 1000;
-            min-height: 88px;
-            background: #120a18;
-        }
-
-        @media (max-width: 640px) {
-            body {
-                padding-top: 76px;
-            }
-
-            .site-header {
-                min-height: 76px;
-            }
-        }
-    </style>
-
     <?php
     $cssFile = ASSETS_PATH . '/css/style.css';
     $cssVersion = file_exists($cssFile)
@@ -132,10 +91,7 @@ $robots = $robots ?? 'index, follow';
         : time();
     ?>
 
-    <link
-        rel="stylesheet"
-        href="<?= e(asset('css/style.css?v=' . $cssVersion)); ?>"
-    >
+    <link rel="stylesheet" href="/assets/css/style.css?v=<?= (int) $cssVersion; ?>">
 
     <link
         rel="icon"

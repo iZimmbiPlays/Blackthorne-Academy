@@ -63,6 +63,7 @@ html {
     scroll-behavior: smooth;
     overflow-y: scroll;
     scrollbar-gutter: stable;
+    background: var(--color-background);
 }
 
 body {
@@ -978,7 +979,7 @@ main {
 .form-control:-webkit-autofill:hover,
 .form-control:-webkit-autofill:focus,
 .form-control:-webkit-autofill:active {
-    -webkit-text-fill-color: #080808 !important;
+    -webkit-text-fill-color: #080808 ;
 
     font-family:
         "Segoe UI",
@@ -996,12 +997,12 @@ main {
     -webkit-box-shadow:
         0 0 0 1000px
         #e9f1ff
-        inset !important;
+        inset ;
 
     box-shadow:
         0 0 0 1000px
         #e9f1ff
-        inset !important;
+        inset ;
 
     transition:
         background-color
@@ -1225,23 +1226,20 @@ main {
 */
 
 .home-hero {
+    box-sizing: border-box;
     position: relative;
 
     overflow: hidden;
 
-    min-height:
-        calc(
-            100vh -
-            var(--header-height)
-        );
+    min-height: calc(100vh - var(--header-height));
 
     display: flex;
     align-items: center;
 
     padding:
-        clamp(80px, 9vw, 135px)
+        clamp(44px, 5vw, 72px)
         0
-        clamp(85px, 10vw, 145px);
+        clamp(48px, 5.5vw, 78px);
 
     background-image:
         linear-gradient(
@@ -2524,23 +2522,20 @@ main {
 */
 
 .features-hero {
+    box-sizing: border-box;
     position: relative;
 
     overflow: hidden;
 
-    min-height:
-        calc(
-            100vh -
-            var(--header-height)
-        );
+    min-height: calc(100vh - var(--header-height));
 
     display: flex;
     align-items: center;
 
     padding:
-        clamp(90px, 10vw, 145px)
+        clamp(48px, 5.5vw, 78px)
         0
-        clamp(95px, 11vw, 155px);
+        clamp(52px, 6vw, 84px);
 
     background-image:
         linear-gradient(
@@ -3971,7 +3966,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px){
 
 
     /*
@@ -4126,7 +4121,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
 
     /*
@@ -4516,7 +4511,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
 
     .features-hero-copy {
         padding-inline: 16px;
@@ -4585,7 +4580,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce){
 
     .feature-ledger-entry::after {
         transition: none;
@@ -4619,23 +4614,18 @@ main {
 */
 
 .about-hero {
+    box-sizing: border-box;
     position: relative;
 
     overflow: hidden;
 
-    min-height:
-        calc(
-            100vh -
-            var(--header-height)
-        );
+    min-height: calc(100vh - var(--header-height));
 
     display: flex;
     align-items: center;
 
     padding:
-        clamp(95px, 10vw, 150px)
-        0
-        clamp(100px, 11vw, 160px);
+        34px 0 42px;
 
     background-image:
         linear-gradient(
@@ -6075,7 +6065,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px){
 
     .about-hero {
         min-height: auto;
@@ -6187,7 +6177,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .about-hero {
         min-height: auto;
@@ -6394,7 +6384,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
 
     .about-hero-copy {
         padding-inline: 16px;
@@ -6635,7 +6625,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 480px) {
+@media (max-width: 480px){
 
     .about-arrival-actions {
         flex-direction: column;
@@ -6664,23 +6654,20 @@ main {
 */
 
 .contact-hero {
+    box-sizing: border-box;
     position: relative;
 
     overflow: hidden;
 
-    min-height:
-        calc(
-            100vh -
-            var(--header-height)
-        );
+    min-height: calc(100vh - var(--header-height));
 
     display: flex;
     align-items: center;
 
     padding:
-        clamp(95px, 10vw, 150px)
+        clamp(48px, 5.5vw, 78px)
         0
-        clamp(100px, 11vw, 160px);
+        clamp(52px, 6vw, 84px);
 
     background-image:
         linear-gradient(
@@ -7442,16 +7429,16 @@ main {
 .contact-honeypot {
     position: absolute !important;
 
-    left: -9999px !important;
+    left: -9999px ;
 
     width: 1px !important;
     height: 1px !important;
 
-    overflow: hidden !important;
+    overflow: hidden ;
 
     opacity: 0 !important;
 
-    pointer-events: none !important;
+    pointer-events: none ;
 }
 
 
@@ -8011,7 +7998,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px){
 
     .contact-hero {
         min-height: auto;
@@ -8074,7 +8061,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .contact-hero {
         min-height: auto;
@@ -8275,7 +8262,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
 
     .contact-hero-copy {
         padding-inline: 16px;
@@ -8356,11 +8343,7 @@ main {
 
     overflow: hidden;
 
-    min-height:
-        calc(
-            100vh -
-            var(--header-height)
-        );
+    min-height: auto;
 
     display: flex;
     align-items: center;
@@ -8625,16 +8608,12 @@ main {
     position: relative;
 
     width: 100%;
-    max-width: 470px;
+    max-width: 540px;
 
     justify-self: end;
 
     padding:
-        clamp(
-            34px,
-            4.5vw,
-            48px
-        );
+        28px 30px;
 
     border:
         1px solid
@@ -8691,15 +8670,15 @@ main {
     display: flex;
     justify-content: center;
 
-    margin-bottom: 18px;
+    margin-bottom: 10px;
 }
 
 
 .login-page-crest img {
     display: block;
 
-    width: 108px;
-    height: 108px;
+    width: 88px;
+    height: 88px;
 
     object-fit: contain;
 }
@@ -9174,7 +9153,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 980px) {
+@media (max-width: 980px){
 
     .login-hero {
         min-height: auto;
@@ -9218,7 +9197,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .login-hero {
         min-height: auto;
@@ -9370,7 +9349,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
 
     .login-hero-copy {
         padding-inline: 16px;
@@ -9397,8 +9376,8 @@ main {
 
 
     .login-page-crest img {
-        width: 88px;
-        height: 88px;
+        width: 72px;
+        height: 72px;
     }
 
 
@@ -9414,7 +9393,6 @@ main {
 }
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Forgot / Reset Password Pages
@@ -9424,10 +9402,7 @@ main {
 .login-page-section {
     position: relative;
 
-    min-height:
-        calc(
-            100vh - 84px
-        );
+    min-height: auto;
 
     display: flex;
     align-items: center;
@@ -9709,13 +9684,10 @@ main {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .login-page-section {
-        min-height:
-            calc(
-                100vh - 72px
-            );
+        min-height: auto;
 
         padding:
             58px
@@ -9763,7 +9735,7 @@ main {
 }
 
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
 
     .login-page-card {
         width:
@@ -10253,11 +10225,6 @@ main {
 }
 
 
-.required-marker {
-    color: var(--color-gold-light);
-}
-
-
 /*
 |--------------------------------------------------------------------------
 | Inputs
@@ -10497,7 +10464,7 @@ main {
 
     align-items: start;
 
-    margin: 0 !important;
+    margin: 0 ;
 
     cursor: pointer;
 }
@@ -10773,7 +10740,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 980px) {
+@media (max-width: 980px){
 
     .enroll-layout {
         grid-template-columns: 1fr;
@@ -10802,7 +10769,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
 
     .enroll-intro {
         padding:
@@ -10881,7 +10848,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 430px) {
+@media (max-width: 430px){
 
     .enroll-intro-mark img {
         width: 88px;
@@ -10921,14 +10888,13 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce){
 
     .enroll-form input,
     .enroll-password-toggle {
         transition: none;
     }
 
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -10936,7 +10902,6 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (prefers-reduced-motion: reduce) {
 
     .login-page-form .form-control,
     .login-password-toggle {
@@ -10951,7 +10916,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce){
 
     .contact-route,
     .contact-route-arrow,
@@ -10971,7 +10936,6 @@ main {
         transform: none;
     }
 
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -10979,7 +10943,6 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (prefers-reduced-motion: reduce) {
 
     .about-world,
     .about-philosophy-entry,
@@ -10995,7 +10958,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 980px) {
+@media (max-width: 980px){
 
     .header-inner {
         width:
@@ -11206,7 +11169,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     :root {
         --header-height: 76px;
@@ -11489,7 +11452,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
 
     .brand-crest-image {
         width: 48px;
@@ -11526,7 +11489,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce){
 
     html {
         scroll-behavior: auto;
@@ -11535,14 +11498,14 @@ main {
     *,
     *::before,
     *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms ;
+        animation-duration: 0.01ms ;
+        animation-iteration-count: 1 ;
     }
 
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
 
     .home-hero-copy {
         padding-inline: 20px;
@@ -11561,24 +11524,59 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (min-width: 981px) {
+@media (min-width: 981px){
 
     .login-hero {
-        min-height:
-            calc(
-                100vh -
-                var(--header-height)
-            );
-
-        height:
-            calc(
-                100vh -
-                var(--header-height)
-            );
+        min-height: calc(100vh - var(--header-height));
+        height: calc(100vh - var(--header-height));
+        box-sizing: border-box;
 
         padding:
-            34px
+            28px
+            0
+            34px;
+    }
+
+
+    .login-page-panel {
+        max-width: 540px;
+
+        padding:
+            18px
+            34px;
+    }
+
+
+    .login-page-crest {
+        margin-bottom: 6px;
+    }
+
+
+    .login-page-crest img {
+        width: 88px;
+        height: 88px;
+    }
+
+
+    .login-page-panel-heading h2 {
+        margin-bottom: 5px;
+    }
+
+
+    .login-page-panel .ornamental-rule {
+        margin:
+            18px
             0;
+    }
+
+
+    .login-page-form .form-group {
+        margin-bottom: 10px;
+    }
+
+
+    .login-security-note {
+        margin-top: 14px;
     }
 
 
@@ -11631,23 +11629,8 @@ main {
     }
 
 
-    .login-page-panel {
-        max-width: 560px;
-
-        padding:
-            30px
-            38px;
-    }
-
-
     .login-page-crest {
-        margin-bottom: 12px;
-    }
-
-
-    .login-page-crest img {
-        width: 88px;
-        height: 88px;
+        margin-bottom: 10px;
     }
 
 
@@ -11663,14 +11646,14 @@ main {
 
     .login-page-panel .ornamental-rule {
         margin:
-            18px
+            10px
             auto
-            22px;
+            12px;
     }
 
 
     .login-page-form .form-group {
-        margin-bottom: 16px;
+        margin-bottom: 13px;
     }
 
 
@@ -11693,16 +11676,16 @@ main {
 
 
     .login-page-enrollment {
-        margin-top: 18px;
+        margin-top: 10px;
 
-        padding-top: 16px;
+        padding-top: 9px;
     }
 
 
     .login-security-note {
-        margin-top: 16px;
+        margin-top: 9px;
 
-        padding-top: 14px;
+        padding-top: 8px;
     }
 
 }
@@ -12378,7 +12361,7 @@ main {
    AUTHENTICATED NAV / DASHBOARD RESPONSIVE
 ================================================================ */
 
-@media (max-width: 1120px) {
+@media (max-width: 1120px){
 
     .authenticated-menu {
         gap: 4px;
@@ -12404,7 +12387,7 @@ main {
 }
 
 
-@media (max-width: 900px) {
+@media (max-width: 900px){
 
     .authenticated-menu-links,
     .authenticated-menu-icons {
@@ -12454,7 +12437,7 @@ main {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 600px){
 
     .dashboard-hero {
         padding:
@@ -12572,7 +12555,7 @@ main {
         #b8abb7;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
 
     .dashboard-hero.dashboard-hero-registered {
         min-height:
@@ -13582,7 +13565,7 @@ main {
    REGISTERED-MEMBER HOMEPAGE RESPONSIVE
 ================================================================ */
 
-@media (max-width: 880px) {
+@media (max-width: 880px){
 
     .member-home-layout {
         grid-template-columns: 1fr;
@@ -13610,7 +13593,7 @@ main {
 }
 
 
-@media (max-width: 600px) {
+@media (max-width: 600px){
 
     .sidebar-forum-main-link {
         padding:
@@ -14319,7 +14302,7 @@ main {
    ADMINISTRATIVE DASHBOARD RESPONSIVE
 ================================================================ */
 
-@media (max-width: 960px) {
+@media (max-width: 960px){
 
     .admin-stat-grid,
     .admin-management-grid {
@@ -14336,7 +14319,7 @@ main {
 }
 
 
-@media (max-width: 620px) {
+@media (max-width: 620px){
 
     .admin-dashboard-hero .dashboard-status-line {
         width: 100%;
@@ -15622,7 +15605,7 @@ main {
    FORUM ADMINISTRATION RESPONSIVE
 ================================================================ */
 
-@media (max-width: 980px) {
+@media (max-width: 980px){
 
     .forum-admin-form-grid {
         grid-template-columns: 1fr;
@@ -15635,7 +15618,7 @@ main {
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
 
     .forum-admin-hero {
         padding:
@@ -15706,7 +15689,7 @@ main {
 }
 
 
-@media (max-width: 440px) {
+@media (max-width: 440px){
 
     .forum-admin-edit-actions {
         display: grid;
@@ -15783,7 +15766,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce){
 
     .forum-label-remove {
         transition: none;
@@ -15828,15 +15811,6 @@ main {
         );
 }
 
-.sidebar-collapse-toggle {
-    border-left-color:
-        rgba(
-            105,
-            72,
-            100,
-            0.26
-        );
-}
 
 .sidebar-collapse-toggle:hover,
 .sidebar-collapse-toggle:focus-visible {
@@ -16011,7 +15985,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 600px) {
+@media (max-width: 600px){
 
     .sidebar-user-points p {
         gap: 12px;
@@ -16403,7 +16377,7 @@ main {
             77,
             84,
             0.50
-        ) !important;
+        ) ;
 
     background:
         rgba(
@@ -16425,7 +16399,7 @@ main {
             104,
             111,
             0.72
-        ) !important;
+        ) ;
 
     background:
         rgba(
@@ -16443,7 +16417,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
 
     .forum-admin-actions {
         display: grid;
@@ -16475,7 +16449,7 @@ main {
 
 }
 
-@media (max-width: 520px) {
+@media (max-width: 520px){
 
     .forum-admin-actions {
         padding:
@@ -17280,7 +17254,7 @@ main {
 
 /* Responsive */
 
-@media (max-width: 1040px) {
+@media (max-width: 1040px){
     .forum-index-board-main,
     .forum-subboard-row {
         grid-template-columns: minmax(0,1fr) 76px 76px minmax(190px,.47fr);
@@ -17291,7 +17265,7 @@ main {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .forum-index-board-main,
     .forum-subboard-row {
         grid-template-columns: minmax(0,1fr) 82px 82px;
@@ -17324,7 +17298,7 @@ main {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-page .section-inner,
     .forum-board-page .section-inner {
         width: min(calc(100% - 24px), var(--content-width));
@@ -17418,7 +17392,7 @@ main {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
     .forum-index-last-post-avatar,
     .forum-last-post-avatar {
         width: 38px;
@@ -17492,7 +17466,7 @@ main {
 }
 
 .forum-index-board {
-    border: 0 !important;
+    border: 0 ;
     background: transparent;
 }
 
@@ -17692,7 +17666,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1080px) {
+@media (max-width: 1080px){
     .forum-index-board-top {
         grid-template-columns:
             minmax(0,1fr)
@@ -17706,7 +17680,7 @@ main {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .forum-index-board-top {
         grid-template-columns:
             minmax(0,1fr)
@@ -17735,7 +17709,7 @@ main {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-category-titlebar,
     .forum-index-category-titlebar h2 {
         min-height: 46px;
@@ -17951,7 +17925,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-category-titlebar h2 {
         font-size: 17px;
     }
@@ -18097,12 +18071,6 @@ main {
     font-weight: 600;
 }
 
-.forum-index-board-meta-strip .forum-index-subboard-links a,
-.forum-index-board-meta-strip .forum-index-moderator-links a {
-    color: var(--color-gold-light);
-    font-size: 12px;
-    font-weight: 400;
-}
 
 .forum-index-post-stat::before,
 .forum-index-last-post::before {
@@ -18111,7 +18079,7 @@ main {
     transform: skewX(-27deg);
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
     .forum-index-board-top {
         grid-template-columns: minmax(0, 1fr) 120px minmax(270px, 0.42fr);
     }
@@ -18121,7 +18089,7 @@ main {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .forum-index-board-top {
         grid-template-columns: minmax(0, 1fr) 105px;
     }
@@ -18138,7 +18106,7 @@ main {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-category-titlebar,
     .forum-index-category-titlebar h2 {
         min-height: 48px;
@@ -18415,7 +18383,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
     .forum-index-board-top {
         grid-template-columns:
             minmax(0, 1fr)
@@ -18430,7 +18398,7 @@ main {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .forum-index-board-top {
         grid-template-columns:
             minmax(0, 1fr)
@@ -18451,7 +18419,7 @@ main {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-board-top {
         grid-template-columns:
             minmax(0, 1fr)
@@ -18702,7 +18670,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (min-width: 861px) {
+@media (min-width: 861px){
 
     .forum-index-board-top {
         grid-template-columns:
@@ -18726,7 +18694,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
 
     .forum-index-board-top {
         overflow: visible;
@@ -18744,7 +18712,7 @@ main {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-thread-stat,
     .forum-index-post-stat {
@@ -18859,11 +18827,6 @@ main {
     text-align: center;
 }
 
-.forum-index-thread-stat::before,
-.forum-index-post-stat::before {
-    display: none !important;
-    content: none !important;
-}
 
 .forum-index-thread-stat strong,
 .forum-index-thread-stat span,
@@ -18935,11 +18898,6 @@ main {
         rgba(14, 7, 17, 0.92);
 }
 
-.forum-index-last-post::before {
-    display: none !important;
-    content: none !important;
-}
-
 
 /*
 |--------------------------------------------------------------------------
@@ -18991,7 +18949,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (min-width: 861px) {
+@media (min-width: 861px){
 
     .forum-index-board-top {
         grid-template-columns:
@@ -19010,7 +18968,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
 
     .forum-index-thread-stat,
     .forum-index-post-stat {
@@ -19026,7 +18984,7 @@ main {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-board-top {
         overflow: hidden;
@@ -19169,7 +19127,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-board-copy,
     .forum-index-thread-stat,
@@ -19332,7 +19290,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-board-copy,
     .forum-index-last-post {
@@ -19396,7 +19354,7 @@ main {
 
 .forum-index-thread-stat,
 .forum-index-post-stat {
-    clip-path: none;
+
 
     transform: none;
 
@@ -19461,22 +19419,6 @@ main {
 |--------------------------------------------------------------------------
 */
 
-.forum-index-board-copy {
-    margin-right: 8px;
-}
-
-.forum-index-thread-stat {
-    margin-right: 8px;
-}
-
-.forum-index-post-stat {
-    margin-right: 8px;
-}
-
-.forum-index-last-post {
-    margin-left: 0;
-}
-
 
 /*
 |--------------------------------------------------------------------------
@@ -19484,7 +19426,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (min-width: 861px) {
+@media (min-width: 861px){
 
     .forum-index-board-top {
         grid-template-columns:
@@ -19503,7 +19445,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-board-copy,
     .forum-index-thread-stat,
@@ -19553,10 +19495,6 @@ main {
         4px
         -1px
         0;
-}
-
-.forum-index-last-post {
-    margin-left: 0;
 }
 
 
@@ -19637,8 +19575,8 @@ main {
 }
 
 .forum-index-last-post::before {
-    display: block !important;
-    content: "" !important;
+    display: block ;
+    content: "" ;
     position: absolute;
     top: -1px;
     left: 16px;
@@ -19697,7 +19635,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-board-copy::after,
     .forum-index-thread-stat::before,
@@ -19705,7 +19643,7 @@ main {
     .forum-index-post-stat::before,
     .forum-index-post-stat::after,
     .forum-index-last-post::before {
-        display: none !important;
+        display: none ;
     }
 
     .forum-index-board-copy,
@@ -19769,10 +19707,6 @@ main {
         var(--forum-cell-gap)
         -1px
         0;
-}
-
-.forum-index-last-post {
-    margin-left: 0;
 }
 
 
@@ -19843,11 +19777,6 @@ main {
 /* Slight background-only hover. Border does not change. */
 .forum-index-board-copy:hover {
     background: var(--forum-cell-hover-bg);
-}
-
-.forum-index-board-copy:hover h3 a,
-.forum-index-board-copy:hover h3 a:visited {
-    color: var(--color-gold-light);
 }
 
 
@@ -19988,7 +19917,7 @@ main {
     width: 1px;
     height: calc(100% + 2px);
 
-    display: block !important;
+    display: block ;
 
     background: var(--forum-cell-border) !important;
 
@@ -20051,7 +19980,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-board-copy,
     .forum-index-thread-stat,
@@ -20145,9 +20074,9 @@ main {
     margin-top: 0;
     margin-bottom: 0;
 
-    border: 0 !important;
+    border: 0 ;
 
-    background: var(--forum-row-border) !important;
+    background: var(--forum-row-border) ;
 
     box-sizing: border-box;
 }
@@ -20157,7 +20086,7 @@ main {
 .forum-index-thread-stat::after,
 .forum-index-post-stat::after,
 .forum-index-last-post::after {
-    content: none !important;
+    content: none ;
     display: none !important;
 }
 
@@ -20212,11 +20141,6 @@ main {
 /* Only the fill changes on hover. The border stays exactly the same. */
 .forum-index-board-copy:hover::before {
     background: var(--forum-row-hover-bg) !important;
-}
-
-.forum-index-board-copy:hover h3 a,
-.forum-index-board-copy:hover h3 a:visited {
-    color: var(--color-gold-light);
 }
 
 
@@ -20393,7 +20317,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
 
     .forum-index-board-top {
         grid-template-columns:
@@ -20406,7 +20330,7 @@ main {
 }
 
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
 
     .forum-index-board-top {
         grid-template-columns:
@@ -20432,7 +20356,7 @@ main {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-index-board-top {
         grid-template-columns:
@@ -20503,8 +20427,8 @@ main {
 .forum-index-post-stat,
 .forum-index-last-post {
     background: var(--forum-row-border) !important;
-    filter: none !important;
-    border: 0 !important;
+    filter: none ;
+    border: 0 ;
 }
 
 /* Critical fix: the dark fill sits ABOVE the purple outer shape. */
@@ -20519,13 +20443,7 @@ main {
 }
 
 /* Remove any extra experimental edge pseudo-elements. */
-.forum-index-board-copy::after,
-.forum-index-thread-stat::after,
-.forum-index-post-stat::after,
-.forum-index-last-post::after {
-    content: none !important;
-    display: none !important;
-}
+
 
 /* All real content stays above the dark inset fill. */
 .forum-index-board-copy > *,
@@ -20542,14 +20460,6 @@ main {
 |--------------------------------------------------------------------------
 */
 
-.forum-index-board-copy:hover::before {
-    background: var(--forum-row-hover-bg) !important;
-}
-
-.forum-index-board-copy:hover h3 a,
-.forum-index-board-copy:hover h3 a:visited {
-    color: var(--color-gold-light);
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -20559,11 +20469,11 @@ main {
 
 .forum-index-thread-stat,
 .forum-index-post-stat {
-    display: flex !important;
+    display: flex ;
     flex-direction: column;
-    align-items: center !important;
-    justify-content: center !important;
-    text-align: center !important;
+    align-items: center ;
+    justify-content: center ;
+    text-align: center ;
 }
 
 .forum-index-thread-stat strong,
@@ -20582,7 +20492,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-board-copy,
     .forum-index-thread-stat,
     .forum-index-post-stat,
@@ -20936,7 +20846,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
 
     .forum-subboard-row {
         grid-template-columns:
@@ -20949,7 +20859,7 @@ main {
 }
 
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
 
     .forum-subboard-row {
         grid-template-columns:
@@ -20977,7 +20887,7 @@ main {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-subboard-row {
         grid-template-columns:
@@ -21040,22 +20950,6 @@ main {
 |--------------------------------------------------------------------------
 */
 
-.forum-subboard-row {
-    display: grid;
-    grid-template-columns:
-        minmax(0, 1fr)
-        145px
-        145px
-        minmax(300px, 0.52fr);
-
-    min-height: 102px;
-
-    overflow: visible;
-
-    border: 0;
-    background: transparent;
-}
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21076,9 +20970,9 @@ main {
 
     margin: 0;
 
-    background: #120814 !important;
+    background: #120814 ;
 
-    border: 0 !important;
+    border: 0 ;
 
     clip-path:
         polygon(
@@ -21119,9 +21013,9 @@ main {
     justify-content: center;
 
     background:
-        rgba(116, 64, 129, 0.50) !important;
+        rgba(116, 64, 129, 0.50) ;
 
-    border: 0 !important;
+    border: 0 ;
 
     clip-path:
         polygon(
@@ -21159,9 +21053,9 @@ main {
     align-items: center;
 
     background:
-        rgba(116, 64, 129, 0.50) !important;
+        rgba(116, 64, 129, 0.50) ;
 
-    border: 0 !important;
+    border: 0 ;
 
     clip-path:
         polygon(
@@ -21185,58 +21079,6 @@ main {
 |--------------------------------------------------------------------------
 */
 
-.forum-subboard-copy h3 {
-    margin:
-        0
-        0
-        7px;
-
-    font-family:
-        "Arial Narrow",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    font-size: 17px;
-    font-weight: 500;
-    line-height: 1.25;
-}
-
-.forum-subboard-copy h3 a,
-.forum-subboard-copy h3 a:visited {
-    color: var(--color-gold-light);
-    text-decoration: none;
-}
-
-.forum-subboard-copy p {
-    margin: 0;
-
-    color: #d7cfd8;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    font-size: 13px;
-    line-height: 1.5;
-}
-
-
-.forum-subboard-stat strong {
-    margin: 0;
-
-    color: #fff;
-
-    font-family:
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1;
-}
 
 .forum-subboard-stat span {
     margin-top: 7px;
@@ -21306,22 +21148,6 @@ main {
     background: #211027;
 }
 
-.forum-board-subforums .forum-board-section-titlebar h2 {
-    margin: 0;
-
-    color: #fff;
-
-    font-family:
-        "Arial Narrow",
-        "Segoe UI",
-        Arial,
-        sans-serif;
-
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 1.15;
-}
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21329,7 +21155,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
 
     .forum-subboard-row {
         grid-template-columns:
@@ -21342,7 +21168,7 @@ main {
 }
 
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
 
     .forum-subboard-row {
         grid-template-columns:
@@ -21366,7 +21192,7 @@ main {
 }
 
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-subboard-row {
         grid-template-columns:
@@ -21395,7 +21221,7 @@ main {
             16px
             14px;
 
-        background: #120814 !important;
+        background: #120814 ;
     }
 
     .forum-subboard-stat,
@@ -21430,22 +21256,22 @@ main {
 */
 
 .forum-board-subforums {
-    overflow: visible !important;
-    border: 0 !important;
-    border-radius: 0 !important;
+    overflow: visible ;
+    border: 0 ;
+    border-radius: 0 ;
     background: transparent !important;
-    box-shadow: none !important;
+    box-shadow: none ;
 }
 
 .forum-board-subforums .forum-board-section-titlebar {
     min-height: 60px !important;
-    margin: 0 0 10px !important;
+    margin: 0 0 10px ;
     padding: 0 22px !important;
 
     display: flex !important;
-    align-items: center !important;
+    align-items: center ;
 
-    border: 1px solid rgba(116, 64, 129, 0.34) !important;
+    border: 1px solid rgba(116, 64, 129, 0.34) ;
     border-radius: 0 !important;
 
     background: #211027 !important;
@@ -21453,13 +21279,13 @@ main {
 
 .forum-board-subforums .forum-board-section-titlebar h2 {
     min-height: 0 !important;
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0 ;
+    padding: 0 ;
 
     font-family: "Arial Narrow", "Segoe UI", Arial, sans-serif !important;
     font-size: 18px !important;
     font-weight: 500 !important;
-    letter-spacing: 0.01em !important;
+    letter-spacing: 0.01em ;
     line-height: 1.2 !important;
 
     color: #fff !important;
@@ -21473,7 +21299,7 @@ main {
 */
 
 .forum-subboard-row {
-    display: grid !important;
+    display: grid ;
 
     grid-template-columns:
         minmax(0, 1fr)
@@ -21481,14 +21307,14 @@ main {
         145px
         minmax(300px, 0.52fr) !important;
 
-    column-gap: 0 !important;
+    column-gap: 0 ;
 
     min-height: 102px !important;
 
     overflow: visible !important;
 
     border: 0 !important;
-    border-radius: 0 !important;
+    border-radius: 0 ;
 
     background: transparent !important;
 }
@@ -21507,8 +21333,8 @@ main {
 */
 
 .forum-subboard-copy {
-    position: relative !important;
-    isolation: isolate !important;
+    position: relative ;
+    isolation: isolate ;
 
     min-width: 0 !important;
     min-height: 102px !important;
@@ -21541,11 +21367,7 @@ main {
 
 /* Kill old inset/outline experiments so the sub-board cell behaves exactly
    like the currently displayed main-board cell. */
-.forum-subboard-copy::before,
-.forum-subboard-copy::after {
-    content: none !important;
-    display: none !important;
-}
+
 
 .forum-subboard-copy h3 {
     margin: 0 0 7px !important;
@@ -21574,10 +21396,6 @@ main {
     line-height: 1.5 !important;
 }
 
-.forum-subboard-copy:hover {
-    background: #150a18 !important;
-}
-
 
 /*
 |--------------------------------------------------------------------------
@@ -21603,10 +21421,10 @@ main {
         0
         42px !important;
 
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    justify-content: center ;
 
     border: 0 !important;
     border-radius: 0 !important;
@@ -21621,14 +21439,9 @@ main {
             0 100%
         ) !important;
 
-    text-align: center !important;
+    text-align: center ;
 }
 
-.forum-subboard-stat::before,
-.forum-subboard-stat::after {
-    content: none !important;
-    display: none !important;
-}
 
 .forum-subboard-stat strong {
     width: auto !important;
@@ -21687,8 +21500,8 @@ main {
         18px
         58px !important;
 
-    display: flex !important;
-    align-items: center !important;
+    display: flex ;
+    align-items: center ;
 
     border: 0 !important;
     border-radius: 0 !important;
@@ -21704,11 +21517,6 @@ main {
         ) !important;
 }
 
-.forum-subboard-last-post::before,
-.forum-subboard-last-post::after {
-    content: none !important;
-    display: none !important;
-}
 
 .forum-subboard-last-post > * {
     position: relative !important;
@@ -21722,7 +21530,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
     .forum-subboard-row {
         grid-template-columns:
             minmax(0, 1fr)
@@ -21732,7 +21540,7 @@ main {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .forum-subboard-row {
         grid-template-columns:
             minmax(0, 1fr)
@@ -21748,7 +21556,7 @@ main {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-subboard-row {
         grid-template-columns:
             minmax(0, 1fr)
@@ -21789,7 +21597,7 @@ main {
     isolation: isolate !important;
 
     /* Outer clipped shape is the border. */
-    background: rgba(116, 64, 129, 0.42) !important;
+    background: rgba(116, 64, 129, 0.42) ;
 }
 
 /* Inner clipped shape is the dark board-name background. */
@@ -21802,7 +21610,7 @@ main {
 
     display: block !important;
 
-    background: #120814 !important;
+    background: #120814 ;
 
     clip-path:
         polygon(
@@ -21826,7 +21634,7 @@ main {
     background: #150a18 !important;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-subboard-copy {
         background: #120814 !important;
 
@@ -21859,10 +21667,6 @@ main {
 /* Only the inner dark fill changes on hover. */
 .forum-subboard-copy::before {
     background: #120814 !important;
-}
-
-.forum-subboard-copy:hover::before {
-    background: #150a18 !important;
 }
 
 
@@ -21922,7 +21726,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .sidebar-titlebar h2,
     .sidebar-titlebar h3,
     .sidebar-panel > .sidebar-titlebar h2,
@@ -22137,12 +21941,6 @@ main {
     gap: 16px;
 }
 
-.forum-thread-pagination {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 5px;
-}
 
 .forum-thread-pagination a,
 .forum-thread-pagination span {
@@ -22559,7 +22357,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 980px) {
+@media (max-width: 980px){
     .forum-thread-titlebar {
         flex-direction: column;
         gap: 0;
@@ -22596,7 +22394,7 @@ main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .forum-thread-page .section-inner {
         width: min(100% - 24px, 1320px);
     }
@@ -22740,7 +22538,7 @@ main {
     }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 430px){
     .forum-thread-page .section-inner {
         width: min(100% - 18px, 1320px);
     }
@@ -22981,7 +22779,7 @@ main {
     align-items: center;
     gap: 5px;
     min-height: 32px;
-    margin: 0 !important;
+    margin: 0 ;
     padding: 4px 7px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 4px;
@@ -22989,8 +22787,8 @@ main {
     color: var(--color-text) !important;
     font-size: 12px !important;
     font-weight: 700 !important;
-    letter-spacing: 0 !important;
-    text-transform: none !important;
+    letter-spacing: 0 ;
+    text-transform: none ;
     cursor: pointer;
 }
 
@@ -23173,7 +22971,7 @@ main {
     color: var(--color-gold-light);
 }
 
-@media (max-width: 820px) {
+@media (max-width: 820px){
     .forum-rich-editor-toolbar {
         align-items: flex-start;
     }
@@ -23184,7 +22982,7 @@ main {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .forum-thread-composer-section {
         padding-top: 20px;
     }
@@ -23218,7 +23016,7 @@ main {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 480px){
     .forum-editor-select {
         min-width: 112px;
     }
@@ -23264,12 +23062,12 @@ main {
     position: absolute !important;
     width: 1px !important;
     height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
+    padding: 0 ;
+    margin: -1px ;
+    overflow: hidden ;
+    clip: rect(0, 0, 0, 0) ;
+    white-space: nowrap ;
+    border: 0 ;
 }
 
 .forum-editor-image-preview-list {
@@ -23344,13 +23142,13 @@ main {
     border-radius: 4px;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .forum-editor-image-preview-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
     .forum-editor-image-preview-list {
         grid-template-columns: 1fr;
     }
@@ -23623,7 +23421,7 @@ h6,
 /* ----------------------------------------------------------------
    Responsive thread header
    ---------------------------------------------------------------- */
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .forum-thread-titlebar {
         min-height: 0;
         flex-direction: column;
@@ -23883,7 +23681,7 @@ a:active {
     background: linear-gradient(180deg, #352638 0%, #231925 100%);
     color: #e2c77e;
     outline: none;
-    text-decoration: none !important;
+    text-decoration: none ;
 }
 
 #back-to-top.is-visible,
@@ -23899,7 +23697,7 @@ a:active {
     transform: translateY(0);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .forum-inline-edit-form .forum-rich-editor-toolbar {
         gap: 6px;
         padding: 8px;
@@ -23954,7 +23752,7 @@ a:active {
 
 #back-to-top::before,
 .back-to-top::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 5px;
     border: 1px solid rgba(210, 174, 96, 0.18);
@@ -23964,7 +23762,7 @@ a:active {
 
 #back-to-top::after,
 .back-to-top::after {
-    content: 'TOP';
+    content: "TOP";
     position: absolute;
     left: 50%;
     bottom: 8px;
@@ -23993,7 +23791,7 @@ a:active {
 
 #back-to-top > span::before,
 .back-to-top > span::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 1px;
     left: 50%;
@@ -24006,7 +23804,7 @@ a:active {
 
 #back-to-top > span::after,
 .back-to-top > span::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 5px;
     left: 50%;
@@ -24077,7 +23875,7 @@ a:active {
     transform: translateY(0) scale(1);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px){
     #back-to-top,
     .back-to-top {
         right: 14px;
@@ -24141,7 +23939,7 @@ a:active {
 #back-to-top::after,
 .back-to-top::before,
 .back-to-top::after {
-    content: none !important;
+    content: none ;
     display: none !important;
 }
 
@@ -24153,7 +23951,7 @@ a:active {
 .back-to-top > span::before,
 .back-to-top > span::after {
     display: none !important;
-    content: none !important;
+    content: none ;
 }
 
 #back-to-top .back-to-top-icon,
@@ -24193,20 +23991,8 @@ a:active {
     transform: translateY(0);
 }
 
-#back-to-top.is-visible,
-#back-to-top.show,
-#back-to-top.visible,
-#back-to-top[data-visible="true"],
-.back-to-top.is-visible,
-.back-to-top.show,
-.back-to-top.visible,
-.back-to-top[data-visible="true"] {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
 
-@media (max-width: 767px) {
+@media (max-width: 767px){
     #back-to-top,
     .back-to-top {
         right: 14px;
@@ -24326,7 +24112,7 @@ a:active {
     box-shadow: 0 -10px 0 rgba(8, 6, 10, 0.72);
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767px){
     .forum-thread-row.is-announcement
     + .forum-thread-row.is-pinned:not(.is-announcement),
 
@@ -24610,7 +24396,7 @@ a:active {
  * Small screens may legitimately need page-height scrolling;
  * keep that behavior only where viewport space is limited.
  */
-@media (max-width: 700px), (max-height: 620px) {
+@media (max-width: 700px), (max-height: 620px){
     .forum-thread-moderation-modal {
         width: min(94vw, 760px);
         max-height: calc(100vh - 24px);
@@ -24626,7 +24412,7 @@ a:active {
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 520px){
     .forum-thread-moderation-modal .forum-admin-modal-titlebar {
         min-height: 60px;
         padding: 11px 13px;
@@ -24709,7 +24495,7 @@ a:active {
 
 /* Small pointer toward the bell */
 .nav-notification-popover-rich::before {
-    content: '';
+    content: "";
     position: absolute;
     top: -7px;
     right: 19px;
@@ -24811,7 +24597,7 @@ a:active {
 }
 
 .nav-notification-item.is-moderation-report::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 10px;
     bottom: 10px;
@@ -24978,7 +24764,7 @@ a:active {
 
 
 /* Mobile */
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .nav-notification-popover-rich {
         position: fixed;
         top: var(--header-height, 72px);
@@ -25562,7 +25348,7 @@ a:active {
    Responsive
    -------------------------------------------------------------------------- */
 
-@media (max-width: 820px) {
+@media (max-width: 820px){
 
     .profile-edit-heading {
         padding: 62px 0 46px;
@@ -25606,7 +25392,7 @@ a:active {
 }
 
 
-@media (max-width: 560px) {
+@media (max-width: 560px){
 
     .profile-edit-heading {
         padding: 52px 0 40px;
@@ -25956,7 +25742,7 @@ a:active {
         );
 }
 
-@supports not (color: color-mix(in srgb, white, black)) {
+@supports not (color: color-mix(in srgb, white, black)){
     .member-profile-role-badge {
         border-color: rgba(196, 161, 90, 0.52);
         background: rgba(196, 161, 90, 0.14);
@@ -26332,7 +26118,7 @@ a:active {
    Tablet
    -------------------------------------------------------------------------- */
 
-@media (max-width: 980px) {
+@media (max-width: 980px){
 
     .member-profile-identity {
         grid-template-columns:
@@ -26371,7 +26157,7 @@ a:active {
    Mobile
    -------------------------------------------------------------------------- */
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
 
     .member-profile-hero {
         min-height: 470px;
@@ -26438,7 +26224,7 @@ a:active {
    Small Mobile
    -------------------------------------------------------------------------- */
 
-@media (max-width: 520px) {
+@media (max-width: 520px){
 
     .member-profile-hero {
         min-height: 440px;
@@ -26711,7 +26497,7 @@ body > main {
     z-index: 3;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
 
     .member-profile-hero::before {
         inset: 12px;
@@ -26747,7 +26533,7 @@ body > main {
    Profile Hero — Identity Vertical Spacing Refinement
    ========================================================================== */
 
-@media (min-width: 761px) {
+@media (min-width: 761px){
 
     .member-profile-identity {
         padding-top: 58px;
@@ -26764,7 +26550,7 @@ body > main {
 
 }
 
-@media (min-width: 981px) {
+@media (min-width: 981px){
 
     .member-profile-identity {
         gap: 30px;
@@ -26907,7 +26693,7 @@ body > main {
     line-height: 1;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
 
     .profile-social-edit-grid {
         grid-template-columns: 1fr;
@@ -26915,7 +26701,7 @@ body > main {
 
 }
 
-@media (max-width: 520px) {
+@media (max-width: 520px){
 
     .member-profile-academy-points {
         grid-template-columns: 1fr;
@@ -27207,7 +26993,7 @@ body > main {
 /*
  * Collapse member-built columns gracefully on smaller screens.
  */
-@media (max-width: 760px) {
+@media (max-width: 760px){
 
     .user-custom-columns,
     .user-custom-columns:has(
@@ -27616,7 +27402,7 @@ body > main {
         );
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
 
     .profile-custom-block-form {
         padding:
@@ -27642,7 +27428,7 @@ body > main {
 |--------------------------------------------------------------------------
 */
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
 
     .forum-editor-counts {
         justify-content: flex-start;
@@ -27843,19 +27629,19 @@ body > main {
 }
 
 
-@media (max-width: 1180px) {
+@media (max-width: 1180px){
     .member-profile-friend-preview {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 820px) {
+@media (max-width: 820px){
     .member-profile-friend-preview {
         grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 560px){
     .member-profile-friends-heading {
         align-items: center;
     }
@@ -27904,7 +27690,7 @@ body > main {
     background: #5fbf7a;
 }
 
-@media (max-width: 560px) {
+@media (max-width: 560px){
     .member-profile-friend-presence {
         width: 0.72rem;
         height: 0.72rem;
@@ -28118,26 +27904,26 @@ body > main {
    Friends Page Responsive
    ========================================================================== */
 
-@media (max-width: 1180px) {
+@media (max-width: 1180px){
     .friends-page-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px){
     .friends-page-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .friends-page-hero-content {
         align-items: flex-start;
         flex-direction: column;
     }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 560px){
     .friends-page-hero {
         padding-top: 2rem;
     }
@@ -28492,7 +28278,7 @@ body > main {
    Notifications History Responsive
    ========================================================================== */
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .notifications-page-heading-row {
         align-items: flex-start;
         flex-direction: column;
@@ -28525,7 +28311,7 @@ body > main {
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 520px){
     .notifications-page-header {
         padding-top: 2rem;
     }
@@ -28763,7 +28549,7 @@ body > main {
    Blocked Members Responsive
    ========================================================================== */
 
-@media (max-width: 720px) {
+@media (max-width: 720px){
     .blocked-members-hero-content {
         align-items: flex-start;
         flex-direction: column;
@@ -28783,7 +28569,7 @@ body > main {
     }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 520px){
     .blocked-members-hero {
         padding-top: 2rem;
     }
@@ -28809,8 +28595,6 @@ body > main {
  * layout regions so scrolling does not invalidate the entire viewport.
  */
 
-.site-header {
-}
 
 .member-home-layout,
 .member-sidebar,
@@ -28842,7 +28626,7 @@ body > main {
    Mobile Hero / Cover Edge Spacing
    ========================================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
 
     /*
      * Hero frames sit about 12px from the viewport edge. Standard section
@@ -28884,7 +28668,7 @@ body > main {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
     .home-hero-grid,
     .features-hero-inner,
     .about-hero-inner,
@@ -28917,7 +28701,7 @@ body > main {
     display: none;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 880px){
 
     /*
      * The normal sidebar column becomes a mobile drawer. The opener remains
@@ -29191,7 +28975,7 @@ body > main {
     }
 }
 
-@media (prefers-reduced-motion: reduce) and (max-width: 880px) {
+@media (prefers-reduced-motion: reduce) and (max-width: 880px){
     .member-sidebar,
     .member-sidebar-backdrop {
         transition: none;
@@ -29209,7 +28993,7 @@ body > main {
     z-index: 3000;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .primary-menu {
         z-index: 3100;
     }
@@ -29232,7 +29016,7 @@ body > main {
     overflow: visible;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .site-header {
         z-index: 3000;
     }
@@ -29250,7 +29034,7 @@ body > main {
    Shared Member Sidebar — Mobile Polish
    ========================================================================== */
 
-@media (max-width: 880px) {
+@media (max-width: 880px){
 
     .member-sidebar {
         width:
@@ -29420,7 +29204,7 @@ body > main {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
 
     .member-sidebar {
         width:
@@ -29436,7 +29220,7 @@ body > main {
    Shared Member Sidebar — Mobile Full Content + Opaque Overlay
    ========================================================================== */
 
-@media (max-width: 880px) {
+@media (max-width: 880px){
 
     /*
      * Nothing behind the open sidebar should show through.
@@ -29447,31 +29231,31 @@ body > main {
     }
 
     .member-sidebar-backdrop.is-visible {
-        opacity: 1 !important;
+        opacity: 1 ;
     }
 
     .member-sidebar {
-        background: #120815 !important;
-        opacity: 1 !important;
+        background: #120815 ;
+        opacity: 1 ;
     }
 
     .member-sidebar-mobile-header {
-        background: #180c1d !important;
+        background: #180c1d ;
     }
 
     .sidebar-panel {
-        background: #160a1a !important;
+        background: #160a1a ;
     }
 
     .sidebar-titlebar {
-        background: #211027 !important;
+        background: #211027 ;
     }
 
     .sidebar-panel-content,
     .sidebar-profile-details,
     .sidebar-link-list,
     .sidebar-forum-navigation {
-        background: #0e0711 !important;
+        background: #0e0711 ;
     }
 
 
@@ -29539,12 +29323,11 @@ body > main {
     .sidebar-panel-content[hidden] {
         display: none !important;
     }
-}
+
 /* ==========================================================================
    Shared Member Sidebar — Opaque Drawer / Visible Page Backdrop
    ========================================================================== */
 
-@media (max-width: 880px) {
 
     /*
      * The drawer itself stays completely solid.
@@ -29561,7 +29344,7 @@ body > main {
     }
 
     .member-sidebar {
-        background: #120815 !important;
+        background: #120815 ;
     }
 
     .member-sidebar-mobile-header {
@@ -29605,7 +29388,7 @@ body > main {
    Shared Member Sidebar — Stacking + Full Mobile Content Fix
    ========================================================================== */
 
-@media (max-width: 880px) {
+@media (max-width: 880px){
 
     /*
      * Keep the drawer above hero artwork and decorative pseudo-elements.
@@ -29623,10 +29406,10 @@ body > main {
     .member-sidebar {
         z-index: 5000 !important;
 
-        background: #120815 !important;
-        background-image: none !important;
+        background: #120815 ;
+        background-image: none ;
 
-        opacity: 1 !important;
+        opacity: 1 ;
     }
 
     .member-sidebar::before {
@@ -29668,34 +29451,34 @@ body > main {
     .member-sidebar .sidebar-profile-details:not([hidden]),
     .member-sidebar .sidebar-link-list:not([hidden]),
     .member-sidebar .sidebar-forum-navigation:not([hidden]) {
-        display: block !important;
+        display: block ;
 
-        height: auto !important;
+        height: auto ;
         min-height: max-content !important;
-        max-height: none !important;
+        max-height: none ;
 
-        overflow: visible !important;
+        overflow: visible ;
 
-        clip: auto !important;
-        clip-path: none !important;
+        clip: auto ;
+        clip-path: none ;
 
-        contain: none !important;
+        contain: none ;
     }
 
     .member-sidebar .sidebar-link-list:not([hidden]) > a,
     .member-sidebar .sidebar-forum-navigation:not([hidden]) > .sidebar-forum-group,
     .member-sidebar .sidebar-forum-group > a {
-        display: flex !important;
+        display: flex ;
 
-        position: static !important;
+        position: static ;
 
-        width: 100% !important;
-        height: auto !important;
-        min-height: 38px !important;
-        max-height: none !important;
+        width: 100% ;
+        height: auto ;
+        min-height: 38px ;
+        max-height: none ;
 
-        visibility: visible !important;
-        opacity: 1 !important;
+        visibility: visible ;
+        opacity: 1 ;
 
         overflow: visible !important;
 
@@ -29703,14 +29486,13 @@ body > main {
     }
 
     .member-sidebar .sidebar-panel-content[hidden] {
-        display: none !important;
+        display: none ;
     }
-}
+
 /* ==========================================================================
    Shared Member Sidebar — Mobile Natural Flow Fix
    ========================================================================== */
 
-@media (max-width: 880px) {
 
     /*
      * IMPORTANT:
@@ -29926,7 +29708,7 @@ body::-webkit-scrollbar-corner,
  * Slightly narrower on small screens so the drawer scrollbar does not
  * take unnecessary horizontal space.
  */
-@media (max-width: 880px) {
+@media (max-width: 880px){
 
     .member-sidebar {
         scrollbar-width: thin;
@@ -30051,7 +29833,7 @@ body::-webkit-scrollbar-corner,
     color: #fff0f4;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .profile-bookmark-form-actions {
         display: grid;
         grid-template-columns: 1fr;
@@ -30071,7 +29853,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 460px) {
+@media (max-width: 460px){
     .profile-bookmark-item-actions {
         grid-template-columns: 1fr;
     }
@@ -30199,7 +29981,7 @@ body::-webkit-scrollbar-corner,
     border-top: 1px solid rgba(219, 193, 125, 0.12);
 }
 
-@media (max-width: 560px) {
+@media (max-width: 560px){
     .profile-edit-top-actions {
         display: grid;
         grid-template-columns: 1fr;
@@ -30264,7 +30046,7 @@ body::-webkit-scrollbar-corner,
     border-color: rgba(203, 164, 77, 0.3);
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .forum-youtube-embed {
         width: 100%;
         margin: 14px 0;
@@ -30305,7 +30087,7 @@ body::-webkit-scrollbar-corner,
 
 /* Subtle star / dust field. Pure CSS so there are no extra image assets. */
 .sorting-page::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     z-index: -2;
@@ -30322,7 +30104,7 @@ body::-webkit-scrollbar-corner,
 
 /* Large atmospheric glow behind the ritual frame. */
 .sorting-page::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: 46%;
@@ -30369,7 +30151,7 @@ body::-webkit-scrollbar-corner,
 
 /* Double-line ritual border. */
 .sorting-panel::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 10px;
     border: 1px solid rgba(209, 181, 112, .14);
@@ -30379,7 +30161,7 @@ body::-webkit-scrollbar-corner,
 
 /* Faint magical geometry that makes the card feel ceremonial, not form-like. */
 .sorting-panel::after {
-    content: '';
+    content: "";
     position: absolute;
     left: 50%;
     top: -180px;
@@ -30412,7 +30194,7 @@ body::-webkit-scrollbar-corner,
 
 .sorting-overline::before,
 .sorting-overline::after {
-    content: '';
+    content: "";
     width: clamp(28px, 7vw, 68px);
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(201,171,104,.65));
@@ -30472,7 +30254,7 @@ body::-webkit-scrollbar-corner,
 }
 
 .sorting-page .button-primary::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     transform: translateX(-120%);
@@ -30528,7 +30310,7 @@ body::-webkit-scrollbar-corner,
 }
 
 .sorting-progress-fill::after {
-    content: '';
+    content: "";
     position: absolute;
     right: -4px;
     top: 50%;
@@ -30552,7 +30334,7 @@ body::-webkit-scrollbar-corner,
 }
 
 .sorting-question-prelude::before {
-    content: '✦';
+    content: "✦";
     display: block;
     margin-bottom: .35rem;
     color: rgba(201,171,104,.74);
@@ -30615,7 +30397,7 @@ body::-webkit-scrollbar-corner,
 }
 
 .sorting-answer-box::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 1.15rem;
     top: 50%;
@@ -30629,7 +30411,7 @@ body::-webkit-scrollbar-corner,
 }
 
 .sorting-answer-box::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     border-radius: inherit;
@@ -30707,7 +30489,7 @@ body::-webkit-scrollbar-corner,
 }
 
 .sorting-interlude-symbol::before {
-    content: '✦';
+    content: "✦";
     position: absolute;
     inset: 0;
     display: grid;
@@ -30718,7 +30500,7 @@ body::-webkit-scrollbar-corner,
 }
 
 .sorting-interlude-symbol::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: 10px;
     border: 1px solid rgba(201,171,104,.22);
@@ -30795,7 +30577,7 @@ body::-webkit-scrollbar-corner,
 
 .sorting-choosing-mark::before,
 .sorting-choosing-mark::after {
-    content: '◇';
+    content: "◇";
     color: rgba(201,171,104,.58);
     font-size: .8rem;
 }
@@ -30920,7 +30702,7 @@ body::-webkit-scrollbar-corner,
     text-shadow: 0 0 22px rgba(201,171,104,.22);
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce){
     .sorting-page *,
     .sorting-page *::before,
     .sorting-page *::after {
@@ -30930,13 +30712,13 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .sorting-answer-list {
         grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .sorting-stage {
         width: min(100% - 1rem, 940px);
         padding: 2rem 0 3rem;
@@ -31169,14 +30951,14 @@ body::-webkit-scrollbar-corner,
     margin-bottom: 1rem;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px){
     .sorting-admin-page .sorting-version-grid,
     .sorting-admin-page .sorting-content-grid {
         grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 720px){
     .sorting-admin-page .sorting-field-grid,
     .sorting-admin-page .sorting-house-options,
     .sorting-admin-page .sorting-answer-editor {
@@ -31191,7 +30973,7 @@ body::-webkit-scrollbar-corner,
 }
 
 
-/* ========================================================================== 
+/* ==========================================================================
    2026-09-18 — Member Layout Spacing + Homepage Announcement Refinements
    ========================================================================== */
 
@@ -31236,7 +31018,7 @@ body::-webkit-scrollbar-corner,
  * smaller desktop widths the normal section inset can land almost directly
  * on that frame, so reserve a protected inner gutter before true mobile.
  */
-@media (max-width: 1100px) {
+@media (max-width: 1100px){
     .home-hero-grid,
     .features-hero-inner,
     .about-hero-inner,
@@ -31260,7 +31042,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .home-hero-grid,
     .features-hero-inner,
     .about-hero-inner,
@@ -31282,7 +31064,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 420px){
     .home-hero-grid,
     .features-hero-inner,
     .about-hero-inner,
@@ -31326,7 +31108,7 @@ body::-webkit-scrollbar-corner,
     line-height: 1.35;
 }
 
-@media (max-width: 880px) {
+@media (max-width: 880px){
     .member-sidebar .sidebar-link-list:not([hidden]) > a,
     .member-sidebar .sidebar-forum-navigation:not([hidden]) > .sidebar-forum-group,
     .member-sidebar .sidebar-forum-group > a {
@@ -31344,7 +31126,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    2026-09-18 — Dedicated Personal + Staff Dashboard Workspaces
    ========================================================================== */
 
@@ -31757,7 +31539,7 @@ body::-webkit-scrollbar-corner,
     text-align: right;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1080px){
     .dashboard-workspace-layout {
         grid-template-columns: minmax(200px, 235px) minmax(0, 1fr);
         gap: 24px;
@@ -31768,7 +31550,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .dashboard-workspace-layout {
         grid-template-columns: 1fr;
     }
@@ -31805,7 +31587,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .dashboard-workspace-section {
         padding-top: 34px;
     }
@@ -31987,7 +31769,7 @@ body::-webkit-scrollbar-corner,
 }
 
 
-@media (max-width: 720px) {
+@media (max-width: 720px){
     .dashboard-community-stats {
         grid-template-columns: 1fr;
     }
@@ -32571,7 +32353,6 @@ body::-webkit-scrollbar-corner,
 }
 
 
-
 .house-room-mascot-wrap {
     display: grid;
     place-items: center;
@@ -32634,7 +32415,7 @@ body::-webkit-scrollbar-corner,
     max-width: 760px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px){
     .house-common-room-hero-inner,
     .house-common-room-grid {
         grid-template-columns: 1fr;
@@ -32660,7 +32441,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 620px){
     .house-common-room-hero::before {
         inset: 9px;
     }
@@ -32914,7 +32695,7 @@ body::-webkit-scrollbar-corner,
     background: color-mix(in srgb, var(--house-primary) 8%, transparent);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1080px){
     .house-common-room-community-grid,
     .house-common-room-identity-grid {
         grid-template-columns: 1fr;
@@ -32925,7 +32706,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px){
     .house-common-room-layout > .member-sidebar {
         position: fixed;
         top: var(--header-height);
@@ -32941,7 +32722,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 680px){
     .house-room-dashboard-heading {
         padding: 22px 20px;
     }
@@ -32960,7 +32741,7 @@ body::-webkit-scrollbar-corner,
     }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    2026-09-18 — Shared Sidebar Cleanup + House-Themed Common Room Sidebar
    ========================================================================== */
 
@@ -33109,7 +32890,7 @@ body::-webkit-scrollbar-corner,
     margin-top: 18px;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 620px){
     .house-room-welcome-inner {
         grid-template-columns: 1fr;
     }
@@ -33120,7 +32901,7 @@ body::-webkit-scrollbar-corner,
 }
 
 
-/* ========================================================================== 
+/* ==========================================================================
    2026-09-18 — Common Room Crest + Full House Sidebar Theme
    ========================================================================== */
 
@@ -33299,7 +33080,7 @@ body::-webkit-scrollbar-corner,
     color: var(--house-highlight) !important;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 720px){
     .house-room-welcome-mark {
         width: 88px;
         min-width: 88px;
@@ -33329,7 +33110,7 @@ body::-webkit-scrollbar-corner,
     background: transparent !important;
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    2026-09-18 — Common Room Welcome Crest Stacking
    ========================================================================== */
 
@@ -33369,7 +33150,7 @@ body::-webkit-scrollbar-corner,
     padding-top: 18px;
 }
 
-@media (max-width: 620px) {
+@media (max-width: 620px){
     .house-common-room-page .house-room-welcome-inner {
         gap: 18px;
         padding: 24px 20px;
@@ -33486,13 +33267,13 @@ body::-webkit-scrollbar-corner,
     border-bottom: 0;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .staff-dashboard-page .dashboard-workspace-nav {
         align-items: start;
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .dashboard-nav-group {
         width: 100%;
     }
@@ -33813,7 +33594,7 @@ body.forum-admin-overlay-open::before {
     stroke-width: 0;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .forum-admin-create-panel.is-open {
         width: calc(100vw - 18px);
         max-height: calc(100vh - 18px);
@@ -33949,7 +33730,7 @@ body.forum-admin-overlay-open::before {
     background: #100a13;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1080px){
     .forum-index-board-top {
         grid-template-columns:
             minmax(0, 1fr)
@@ -33963,7 +33744,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .forum-index-board-top {
         grid-template-columns:
             minmax(0, 1fr)
@@ -33984,7 +33765,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-board-top {
         grid-template-columns: 1fr 1fr;
     }
@@ -34005,7 +33786,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    FORUM ROWS — FINAL FLAT RECTANGULAR OVERRIDE
    Applies to forums.php main board rows and forum.php sub-board rows.
    This intentionally overrides all legacy clipped/parallelogram experiments.
@@ -34046,13 +33827,13 @@ body.forum-admin-overlay-open::before {
     isolation: auto !important;
     min-width: 0 !important;
     min-height: 100px !important;
-    margin: 0 !important;
-    clip-path: none !important;
+    margin: 0 ;
+    clip-path: none ;
     transform: none !important;
-    filter: none !important;
+    filter: none ;
     border: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
+    border-radius: 0 ;
+    box-shadow: none ;
     background: var(--forum-flat-surface) !important;
 }
 
@@ -34089,9 +33870,9 @@ body.forum-admin-overlay-open::before {
 .forum-index-post-stat::after,
 .forum-index-last-post::before,
 .forum-index-last-post::after {
-    content: none !important;
+    content: none ;
     display: none !important;
-    clip-path: none !important;
+    clip-path: none ;
     background: transparent !important;
     transform: none !important;
 }
@@ -34100,10 +33881,6 @@ body.forum-admin-overlay-open::before {
     background: var(--forum-flat-surface-hover) !important;
 }
 
-.forum-index-board-copy:hover h3 a,
-.forum-index-board-copy:hover h3 a:visited {
-    color: var(--color-gold-light);
-}
 
 /* --------------------------------------------------------------------------
    forum.php — sub-board rows
@@ -34185,7 +33962,7 @@ body.forum-admin-overlay-open::before {
    Responsive behavior for both row types
    -------------------------------------------------------------------------- */
 
-@media (max-width: 1050px) {
+@media (max-width: 1050px){
     .forum-index-board-top,
     .forum-subboard-row {
         grid-template-columns:
@@ -34196,7 +33973,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-@media (max-width: 860px) {
+@media (max-width: 860px){
     .forum-index-board-top,
     .forum-subboard-row {
         grid-template-columns:
@@ -34217,7 +33994,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-index-board-top,
     .forum-subboard-row {
         grid-template-columns: 1fr 1fr !important;
@@ -34225,10 +34002,10 @@ body.forum-admin-overlay-open::before {
 
     .forum-index-board-copy,
     .forum-subboard-copy {
-        grid-column: 1 / -1 !important;
+        grid-column: 1 / -1 ;
         min-height: auto !important;
         padding: 16px 15px !important;
-        border-bottom: 1px solid var(--forum-flat-divider) !important;
+        border-bottom: 1px solid var(--forum-flat-divider) ;
     }
 
     .forum-index-thread-stat,
@@ -34464,7 +34241,7 @@ body.forum-admin-overlay-open::before {
     cursor: pointer;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1180px){
     .forum-thread-quick-actions {
         grid-template-columns: minmax(220px, 1fr) auto minmax(180px, 0.8fr) auto;
     }
@@ -34474,7 +34251,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 760px){
     .forum-thread-quick-actions {
         grid-template-columns: 1fr;
         align-items: stretch;
@@ -34520,7 +34297,7 @@ body.forum-admin-overlay-open::before {
     display: none !important;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-thread-titlebar-actions {
         width: 100%;
         justify-content: flex-start;
@@ -34550,7 +34327,7 @@ body.forum-admin-overlay-open::before {
     white-space: nowrap;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-thread-list-section .forum-board-section-titlebar > .forum-thread-titlebar-actions {
         width: auto;
         justify-content: flex-end;
@@ -34559,7 +34336,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    2026-09-18 — Common Room: open editorial layout, reduced card treatment
    ========================================================================== */
 
@@ -34712,7 +34489,7 @@ body.forum-admin-overlay-open::before {
     background: transparent;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1080px){
     .house-common-room-page .house-common-room-community-grid,
     .house-common-room-page .house-common-room-identity-grid {
         gap: 0;
@@ -34730,7 +34507,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px){
     .house-common-room-page .house-common-room-life-grid {
         gap: 0;
     }
@@ -34745,7 +34522,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    2026-09-18 — Common Room: cohesive section-panels refinement
    Replaces the overly-open editorial treatment with one surface per major
    section while avoiding the original card-per-item dashboard appearance.
@@ -34889,7 +34666,7 @@ body.forum-admin-overlay-open::before {
     background: color-mix(in srgb, var(--house-dark) 72%, transparent);
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1080px){
     .house-common-room-page .house-common-room-community-grid > .house-room-panel + .house-room-panel,
     .house-common-room-page .house-common-room-identity-grid > .house-room-panel + .house-room-panel {
         border-left: 0 !important;
@@ -34897,14 +34674,14 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 900px){
     .house-common-room-page .house-common-room-life-grid > .house-room-panel + .house-room-panel {
         border-left: 0 !important;
         border-top: 1px solid color-mix(in srgb, var(--house-primary) 24%, #2b1a2a) !important;
     }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    COMMON ROOM — LATEST HOUSE ANNOUNCEMENT INTEGRATION
    Removes the remaining card/titlebar treatment from the featured announcement.
    ========================================================================== */
@@ -34969,7 +34746,7 @@ body.forum-admin-overlay-open::before {
     opacity: .22;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .house-common-room-page .house-room-featured-announcement {
         padding: 0 18px 20px;
     }
@@ -34983,7 +34760,7 @@ body.forum-admin-overlay-open::before {
     }
 }
 
-/* ========================================================================== 
+/* ==========================================================================
    COMMON ROOM — ANNOUNCEMENT MATCHES STANDARD SECTION PANELS
    ========================================================================== */
 .house-common-room-page .house-room-featured-announcement {
@@ -35031,10 +34808,6 @@ body.forum-admin-overlay-open::before {
     line-height: 1.45;
 }
 
-.house-common-room-page .house-room-featured-announcement .house-room-announcement-meta {
-    margin-top: 8px;
-    font-size: .88rem;
-}
 
 .house-common-room-page .house-room-featured-announcement .house-room-announcement-content {
     max-width: none;
@@ -35046,7 +34819,7 @@ body.forum-admin-overlay-open::before {
     display: none;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
     .house-common-room-page .house-room-featured-announcement {
         padding: 0;
     }
@@ -35826,7 +35599,7 @@ body.forum-admin-overlay-open::before {
    THE LIVING LEDGER — TABLET
    ========================================================================== */
 
-@media (max-width: 880px) {
+@media (max-width: 880px){
 
     .living-ledger-main {
         margin-top: 0;
@@ -35857,7 +35630,7 @@ body.forum-admin-overlay-open::before {
    THE LIVING LEDGER — MOBILE
    ========================================================================== */
 
-@media (max-width: 700px) {
+@media (max-width: 700px){
 
     .living-ledger-intro .section-inner {
         width:
@@ -35971,7 +35744,7 @@ body.forum-admin-overlay-open::before {
    THE LIVING LEDGER — SMALL MOBILE
    ========================================================================== */
 
-@media (max-width: 460px) {
+@media (max-width: 460px){
 
     .living-ledger-house-header {
         padding:
@@ -36268,7 +36041,7 @@ body.forum-admin-overlay-open::before {
     text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 640px){
     .forum-picker-panel {
         width: 100%;
         max-height: min(420px, 58vh);
